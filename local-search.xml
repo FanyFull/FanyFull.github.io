@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>测试数学公式</title>
+    <link href="/2021/05/21/%E6%B5%8B%E8%AF%95%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/"/>
+    <url>/2021/05/21/%E6%B5%8B%E8%AF%95%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
+    
+    <content type="html"><![CDATA[<p>测试一下数学公式的渲染哈</p><p>测试行内公式 $||\mathbf{A}||_{\infty} = ?$.</p><p>测试段公式</p><script type="math/tex; mode=display">A^2 + B^2 = C^2</script>]]></content>
+    
+    
+    <categories>
+      
+      <category>草稿</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>草稿</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="/2021/05/21/hello-world/"/>
     <url>/2021/05/21/hello-world/</url>
