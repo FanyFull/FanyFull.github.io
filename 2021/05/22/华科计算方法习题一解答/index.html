@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      626 字
+      632 字
     </span>
   
 
@@ -237,26 +237,26 @@
             
             <div class="markdown-body">
               <p>1.1 试证明:</p>
-<p>(1) $||\mathbf{x}||<em>{\infty} = \mathop{max}\limits</em>{1 \leqslant i \leqslant n} |x_i|, \quad \mathbf{x} = (x_1, x_2, …, x_n)^T \in \mathbf{R}^{n};$</p>
-<p>(2) $\displaystyle ||\mathbf{A}||<em>{\infty} = \mathop{max}</em>{1 \leqslant i \leqslant n} \sum<em>{j = 1}^{n}|a</em>{ij}|, \quad \mathbf{A} = (a_{ij}) \in \mathbf{R}^{n \times n}.$</p>
+<p>(1) <script type="math/tex">||\mathbf{x}||_{\infty} = \mathop{max}\limits_{1 \leqslant i \leqslant n} |x_i|, \quad \mathbf{x} = (x_1, x_2, ..., x_n)^T \in \mathbf{R}^{n};</script></p>
+<p>(2) <script type="math/tex">\displaystyle ||\mathbf{A}||_{\infty} = \mathop{max}_{1 \leqslant i \leqslant n} \sum_{j = 1}^{n}|a_{ij}|, \quad \mathbf{A} = (a_{ij}) \in \mathbf{R}^{n \times n}.</script></p>
 <p>证明: </p>
-<p>(1) 令 $|x<em>r| = \mathop{max}\limits</em>{1 \leqslant i \leqslant n}|x_i|$, 则有:</p>
-<script type="math/tex; mode=display">|x_r| \leqslant (\sum_{i = 1}^{n} |x_i|^{p})^{\frac{1}{p}} \leqslant (n|x_r|^p)^{\frac{1}{p}} = n^{\frac{1}{p}} \cdot |x_r|,</script><p>令 $p \to \infty$, 由夹逼定理得:</p>
-<script type="math/tex; mode=display">||\mathbf{x}||_{\infty} = \lim_{p \to \infty} (\sum_{i = 1}^{n}|x_i|^p)^{\frac{1}{p}} = |x_r|.</script><p>(2) 令 $\mathbf{x} = (x_1, x_2, …, x_n)^T \neq 0$, 不妨设 $\mathbf{A} \neq \mathbf{0}$,</p>
-<p>令 $\displaystyle \mu = \mathop{max}<em>{1 \leqslant i \leqslant n} \sum</em>{j = 1}^{n} |a_{ij}|$, 则有</p>
-<script type="math/tex; mode=display">||\mathbf{Ax}||_{\infty} = \mathop{max}_{1 \leqslant i \leqslant n} \sum_{j = 1}^{n}|a_{ij} x_{j}| \leqslant \mathop{max}_{1 \leqslant i \leqslant n} \sum_{j = 1}^{n}|a_{ij}| \cdot \mathop{max}_{1 \leqslant i \leqslant n}|x_i|  = \mu||\mathbf{x}||_{\infty},</script><p>即对任意非零 $\mathbf{x} \in \mathbf{R}^n$, 有</p>
-<script type="math/tex; mode=display">\frac{||\mathbf{Ax}||_{\infty}}{||\mathbf{x}||_{\infty}} \leqslant \mu</script><p>下面证明存在向量 $\mathbf{x<em>0} \neq \mathbf{0}$, 使得 $\displaystyle \frac{||\mathbf{Ax_0}||</em>{\infty}}{||\mathbf{x<em>0}||</em>{\infty}} = \mu$.</p>
-<p>设 $\displaystyle \mu = \sum<em>{j = 1}^{n}|a</em>{i<em>0j}| = \mathop{max}_i\sum</em>{j = 1}^{n}\left|a<em>{ij}x_j\right|$, 取向量 $\mathbf{x_0} = (x_1, x_2, …, x_n)^T$, 其中 $x_j = sign(a</em>{i<em>0j}) \: (j = 1, 2, …, n)$. 显然, $||\mathbf{x_0}||</em>{\infty} = 1$, 且 $\mathbf{Ax<em>0}$ 任意分量为 $\displaystyle \sum</em>{i = 1}^{n}|a<em>{i_0j}x_j| = \sum</em>{i = 1}^{n}|a_{i_0j}|$, </p>
-<p>故有 $||\displaystyle \mathbf{Ax<em>0}||</em>{\infty} = \mathop{max}<em>i\sum</em>{j = 1}^{n}\left|a<em>{ij}x_j\right| = \sum</em>{j = 1}^{n}\left| a_{i_0j} \right| = \mu$.</p>
-<p>注: $sign(x)$ 或者 $Sign(x)$ 叫做符号函数, 在数学和计算机运算中, 其功能是取某个数的符号(正或负),</p>
-<p>当 $x &gt; 0, sign(x) = 1$;</p>
-<p>当 $x = 0, sign(x) = 0$;</p>
-<p>当 $x &lt; 0, sign(x) = -1$.</p>
-<p>1.3 设矩阵 $\mathbf{A, B} \in \mathbf{R}^{n \times n}$, 其中 $\mathbf{A}$ 可逆, 且存在矩阵范数 $||\cdot||$ 使得</p>
-<script type="math/tex; mode=display">||\mathbf{A}^{-1}|| \leqslant \alpha, \quad ||\mathbf{A} - \mathbf{B} \leqslant \beta||, \quad \alpha \beta < 1.</script><p>试证明矩阵 $\mathbf{B}$ 也可逆, 且其逆矩阵满足估计</p>
+<p>(1) 令 <script type="math/tex">|x_r| = \mathop{max}\limits_{1 \leqslant i \leqslant n}|x_i|</script>, 则有:</p>
+<script type="math/tex; mode=display">|x_r| \leqslant (\sum_{i = 1}^{n} |x_i|^{p})^{\frac{1}{p}} \leqslant (n|x_r|^p)^{\frac{1}{p}} = n^{\frac{1}{p}} \cdot |x_r|,</script><p>令 <script type="math/tex">p \to \infty</script>, 由夹逼定理得:</p>
+<script type="math/tex; mode=display">||\mathbf{x}||_{\infty} = \lim_{p \to \infty} (\sum_{i = 1}^{n}|x_i|^p)^{\frac{1}{p}} = |x_r|.</script><p>(2) 令 <script type="math/tex">\mathbf{x} = (x_1, x_2, ..., x_n)^T \neq 0$, 不妨设 $\mathbf{A} \neq \mathbf{0}</script>,</p>
+<p>令 <script type="math/tex">\displaystyle \mu = \mathop{max}_{1 \leqslant i \leqslant n} \sum_{j = 1}^{n} |a_{ij}|</script>, 则有</p>
+<script type="math/tex; mode=display">||\mathbf{Ax}||_{\infty} = \mathop{max}_{1 \leqslant i \leqslant n} \sum_{j = 1}^{n}|a_{ij} x_{j}| \leqslant \mathop{max}_{1 \leqslant i \leqslant n} \sum_{j = 1}^{n}|a_{ij}| \cdot \mathop{max}_{1 \leqslant i \leqslant n}|x_i|  = \mu||\mathbf{x}||_{\infty},</script><p>即对任意非零 <script type="math/tex">\mathbf{x} \in \mathbf{R}^n</script>, 有</p>
+<script type="math/tex; mode=display">\frac{||\mathbf{Ax}||_{\infty}}{||\mathbf{x}||_{\infty}} \leqslant \mu</script><p>下面证明存在向量 <script type="math/tex">\mathbf{x_0} \neq \mathbf{0}</script>, 使得 <script type="math/tex">\displaystyle \frac{||\mathbf{Ax_0}||_{\infty}}{||\mathbf{x_0}||_{\infty}} = \mu</script>.</p>
+<p>设 <script type="math/tex">\displaystyle \mu = \sum_{j = 1}^{n}|a_{i_0j}| = \mathop{max}_i\sum_{j = 1}^{n}\left|a_{ij}x_j\right|$, 取向量 $\mathbf{x_0} = (x_1, x_2, ..., x_n)^T$, 其中 $x_j = sign(a_{i_0j}) \: (j = 1, 2, ..., n)$. 显然, $||\mathbf{x_0}||_{\infty} = 1$, 且 $\mathbf{Ax_0}$ 任意分量为 $\displaystyle \sum_{i = 1}^{n}|a_{i_0j}x_j| = \sum_{i = 1}^{n}|a_{i_0j}|</script>, </p>
+<p>故有 <script type="math/tex">||\displaystyle \mathbf{Ax_0}||_{\infty} = \mathop{max}_i\sum_{j = 1}^{n}\left|a_{ij}x_j\right| = \sum_{j = 1}^{n}\left| a_{i_0j} \right| = \mu</script>.</p>
+<p>注: <script type="math/tex">sign(x)</script> 或者 <script type="math/tex">Sign(x)</script> 叫做符号函数, 在数学和计算机运算中, 其功能是取某个数的符号(正或负),</p>
+<p>当 <script type="math/tex">x > 0, sign(x) = 1</script>;</p>
+<p>当 <script type="math/tex">x = 0, sign(x) = 0</script>;</p>
+<p>当 <script type="math/tex">x < 0, sign(x) = -1</script>.</p>
+<p>1.3 设矩阵 <script type="math/tex">\mathbf{A, B} \in \mathbf{R}^{n \times n}</script>, 其中 <script type="math/tex">\mathbf{A}</script> 可逆, 且存在矩阵范数 $||\cdot||$ 使得</p>
+<script type="math/tex; mode=display">||\mathbf{A}^{-1}|| \leqslant \alpha, \quad ||\mathbf{A} - \mathbf{B} \leqslant \beta||, \quad \alpha \beta < 1.</script><p>试证明矩阵 <script type="math/tex">\mathbf{B}</script> 也可逆, 且其逆矩阵满足估计</p>
 <script type="math/tex; mode=display">||\mathbf{B}^{-1}|| \leqslant \frac{\alpha}{1 - \alpha \beta}.</script><p>证明:</p>
 <p>由已知条件有:</p>
-<script type="math/tex; mode=display">||\mathbf{I} - \mathbf{A}^{-1}\mathbf{B}|| = ||\mathbf{A}^{-1}(\mathbf{A} - \mathbf{B]})|| \leqslant \alpha \beta < 1.</script><p>又 $\mathbf{A}^{-1}\mathbf{B} = \mathbf{I} - (\mathbf{I} - \mathbf{A}^{-1}\mathbf{B})$. 因此, 根据定理 1.8 $\mathbf{A}^{-1}\mathbf{B}$ 可逆, 从而 $\mathbf{B}$ 也可逆, 且有</p>
+<script type="math/tex; mode=display">||\mathbf{I} - \mathbf{A}^{-1}\mathbf{B}|| = ||\mathbf{A}^{-1}(\mathbf{A} - \mathbf{B]})|| \leqslant \alpha \beta < 1.</script><p>又 <script type="math/tex">\mathbf{A}^{-1}\mathbf{B} = \mathbf{I} - (\mathbf{I} - \mathbf{A}^{-1}\mathbf{B})</script>. 因此, 根据定理 1.8 <script type="math/tex">\mathbf{A}^{-1}\mathbf{B}</script> 可逆, 从而 <script type="math/tex">\mathbf{B}</script> 也可逆, 且有</p>
 <script type="math/tex; mode=display">||\mathbf{B}^{-1}|| = ||[\mathbf{I} - (\mathbf{I} - \mathbf{A}^{-1}\mathbf{B})]^{-1} \mathbf{A}^{-1}|| \leqslant ||[\mathbf{I} - (\mathbf{I} - \mathbf{A}^{-1} \mathbf{B})]^{-1}|| \: ||\mathbf{A}^{-1}|| \leqslant \frac{\alpha}{1 - \alpha \beta}.</script><p>注: 这里的定理 1.8 如下</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210521100526.png" srcset="/img/loading.gif" lazyload alt="20210521100526"></p>
 <p>复习一下, 这里的非奇异指的是 $det(\mathbf{I} - \mathbf{A}) \neq 0$.</p>
