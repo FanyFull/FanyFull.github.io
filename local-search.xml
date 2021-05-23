@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Markdown 中空格的几种写法</title>
+    <link href="/2021/05/23/Markdown-%E4%B8%AD%E7%A9%BA%E6%A0%BC%E7%9A%84%E5%87%A0%E7%A7%8D%E5%86%99%E6%B3%95/"/>
+    <url>/2021/05/23/Markdown-%E4%B8%AD%E7%A9%BA%E6%A0%BC%E7%9A%84%E5%87%A0%E7%A7%8D%E5%86%99%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<p>感觉有种孔乙己在写茴香豆的茴的感觉……</p><p>哈哈, 回到正题, 就是在 Markdown 中书写空格的几种方法.</p><h3 id="1-使用-amp-nbsp"><a href="#1-使用-amp-nbsp" class="headerlink" title="1. 使用 &amp;nbsp;"></a>1. 使用 <code>&amp;nbsp;</code></h3><p>一共有四种<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="本来我是只知道一种表示方法的, 即 &amp;nbsp;, (lll￢ω￢).">[1]</span></a></sup>表示空格的方法</p><figure class="highlight md"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs md">&amp;emsp;<br>&amp;ensp;<br>&amp;nbsp;<br>&amp;thinsp;<br></code></pre></div></td></tr></table></figure><p>它们的间隙大小顺序是 <code>&amp;emsp;</code> &gt; <code>&amp;ensp;</code> &gt; <code>&amp;nbsp;</code> &gt; <code>&amp;thinsp;</code>.</p><h3 id="2-使用全角的空格"><a href="#2-使用全角的空格" class="headerlink" title="2. 使用全角的空格"></a>2. 使用全角的空格</h3><p>首先将输入法切换到全角模式, 然后输入空格即可.</p><p>不同的输入法, 比如微软输入法和搜狗输入法的切换全角和半角的方式, 自行搜索即可.</p><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>本来我是只知道一种表示方法的, 即 <code>&amp;nbsp;</code>, (lll￢ω￢).<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>]]></content>
+    
+    
+    <categories>
+      
+      <category>markdown</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>markdown</tag>
+      
+      <tag>博客</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>我读《别闹了，费曼先生》(未竟)</title>
     <link href="/2021/05/23/%E6%88%91%E8%AF%BB%E3%80%8A%E5%88%AB%E9%97%B9%E4%BA%86%EF%BC%8C%E8%B4%B9%E6%9B%BC%E5%85%88%E7%94%9F%E3%80%8B/"/>
     <url>/2021/05/23/%E6%88%91%E8%AF%BB%E3%80%8A%E5%88%AB%E9%97%B9%E4%BA%86%EF%BC%8C%E8%B4%B9%E6%9B%BC%E5%85%88%E7%94%9F%E3%80%8B/</url>
