@@ -8,9 +8,23 @@
     <link href="/2021/05/27/Python-%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84-m-%E5%8F%82%E6%95%B0/"/>
     <url>/2021/05/27/Python-%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84-m-%E5%8F%82%E6%95%B0/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h3 id="1-命令格式"><a href="#1-命令格式" class="headerlink" title="1. 命令格式"></a>1. 命令格式</h3><figure class="highlight fortran"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs fortran">python -m &lt;<span class="hljs-keyword">module</span>-<span class="hljs-keyword">name</span>&gt;<br></code></pre></div></td></tr></table></figure><h3 id="2-参数解释"><a href="#2-参数解释" class="headerlink" title="2. 参数解释"></a>2. 参数解释</h3><p>在 <code>sys.path</code> 中搜索指定模块, 并以 <code>__main__</code> 模块执行其内容.</p><p>该参数是 <em>模块名</em>(注一), 不能输入文件扩展名(.py). 模块名应该是有效的绝对的 Python 模块名, 但是 Python 不对此作强制要求(例如, 允许使用含连字符 <code>-</code> 的名称).</p><p>包名称(包括命名空间包(注二))也允许使用. 使用包名称而不是普通模块名时, 解释器把 <code>&lt;pkg&gt;.__main__</code> 作为主模块执行.</p><h3 id="3-使用范例"><a href="#3-使用范例" class="headerlink" title="3. 使用范例"></a>3. 使用范例</h3><p>创建一个名为 <code>my_env</code> 的 Python 虚拟环境</p><figure class="highlight ebnf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">python -m venv my_env</span><br></code></pre></div></td></tr></table></figure><p>使用 pip 安装 Django</p><figure class="highlight cmake"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cmake">python -m pip <span class="hljs-keyword">install</span> django<br></code></pre></div></td></tr></table></figure><p>如果我们已经将 pip 添加到系统环境变量中去的话, 是可以直接使用 pip 命令的, 上面这个命令可以在系统中有多种版本的 Python 时给我们提供便利.</p><h3 id="4-参考"><a href="#4-参考" class="headerlink" title="4. 参考"></a>4. 参考</h3><p><a href="https://docs.python.org/3/using/cmdline.html">https://docs.python.org/3/using/cmdline.html</a></p><hr><p>注一: 所谓模块名, 就是我们平时写的带 <code>.py</code> 文件扩展名的 Python 脚本文件, 把 <code>.py</code> 去掉就是模块名.</p><p>注二: 命名空间包, 就是包内不含有 <code>__init__.py</code> 的包.</p>]]></content>
     
     
+    <categories>
+      
+      <category>Python</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>未竟</tag>
+      
+      <tag>Python</tag>
+      
+    </tags>
     
   </entry>
   
@@ -60,11 +74,11 @@
     
     <tags>
       
-      <tag>未竟</tag>
-      
       <tag>数学</tag>
       
       <tag>杂识</tag>
+      
+      <tag>未竟</tag>
       
     </tags>
     
@@ -174,9 +188,9 @@
     
     <tags>
       
-      <tag>杂项</tag>
-      
       <tag>未竟</tag>
+      
+      <tag>杂项</tag>
       
     </tags>
     
