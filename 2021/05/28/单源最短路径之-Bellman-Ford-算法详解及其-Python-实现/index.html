@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>单源最短路径之 Bellman-Ford 算法详解及其 Python 实现 - Fanyfull&#39;s Blog</title>
+  <title>单源最短路径之 Bellman-Ford 算法详解及其 Python 实现 - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -68,7 +68,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fanyfull's Blog</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Fany Full's Blog</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      247 字
+      305 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      3
        分钟
     </span>
   
@@ -241,7 +241,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210528220823.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>算法运行的一个示例图</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210528221302.png" srcset="/img/loading.gif" lazyload alt="Bellman-Ford 算法的执行过程"></p>
-<p>对上图的说明：源结点为 <script type="math/tex">s</script>，结点中的数值为该结点的 <script type="math/tex">d</script>（注一）值，加了阴影的边比奥氏前驱值：如果 <script type="math/tex">(u, v)</script> 加了阴影，则 <script type="math/tex">v.\pi = u</script>。在本图的例子中，每一次的松弛操作对边的处理次序都是：<script type="math/tex">(t, x)</script>，<script type="math/tex">(t, y)</script>，<script type="math/tex">(t, z)</script>，<script type="math/tex">(x, t)</script>，<script type="math/tex">(y, x)</script>，<script type="math/tex">(y, z)</script>，<script type="math/tex">(z, x)</script>，<script type="math/tex">(z, s)</script>，<script type="math/tex">(s, t)</script>，<script type="math/tex">(x, y)</script>，</p>
+<p>对上图的说明：源结点为 <script type="math/tex">s</script>，结点中的数值为该结点的 <script type="math/tex">d</script>（注一）值，加了阴影的边比奥氏前驱值：如果 <script type="math/tex">(u, v)</script> 加了阴影，则 <script type="math/tex">v.\pi = u</script>。在本图的例子中，每一次的松弛操作对边的处理次序都是：<script type="math/tex">(t, x)</script>，<script type="math/tex">(t, y)</script>，<script type="math/tex">(t, z)</script>，<script type="math/tex">(x, t)</script>，<script type="math/tex">(y, x)</script>，<script type="math/tex">(y, z)</script>，<script type="math/tex">(z, x)</script>，<script type="math/tex">(z, s)</script>，<script type="math/tex">(s, t)</script>，<script type="math/tex">(x, y)</script>，(a) 在第 1 次松弛操作前的场景。(b) ~ (e) 在对边进行每次松弛操作后的场景。图 (e) 中的 <script type="math/tex">d</script> 值和 <script type="math/tex">\pi</script> 值为最终取值。在本例中，Bellman-Ford 算法返回的值为 TRUE。</p>
 <hr>
 <p>注一：<script type="math/tex">d</script> 是结点的一个属性，比如，<script type="math/tex">v.d</script> 记录的是从源结点 <script type="math/tex">s</script> 到结点 <script type="math/tex">v</script> 之间的距离。同理， <script type="math/tex">\pi</script> 也是结点的一个属性，比如，<script type="math/tex">v.\pi</script> 记录的是 <script type="math/tex">v</script> 的前驱节点。（见《算法导论》中文版 p344）</p>
 
