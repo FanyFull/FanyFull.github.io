@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      254 字
+      535 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      6
        分钟
     </span>
   
@@ -237,14 +237,18 @@
             
             <div class="markdown-body">
               <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本博客的内容基本来自《算法导论》。</p>
-<h2 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h2><p>伪码描述</p>
+<h2 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h2><p>Bellman-Ford 算法解决的是一般情况下的单源最短路径问题，在这里，边的权重可以为负值。给定带权重的有向图 <script type="math/tex">G = (V, E)</script> 和权重函数 <script type="math/tex">\omega : E \rightarrow \mathbf{R}</script>，Bellman-Ford 算法返回一个布尔值，以表明是否存在一个从源结点可以到达的权重为负值的环路。如果存在这样一个环路，算法将告诉我们不存在解决方案。如果没有这种环路存在，算法将给出最短路径和它们的权重。</p>
+<p>Bellman-Ford 算法通过对边进行松弛操作来渐近地降低从源结点 <script type="math/tex">s</script> 到每个结点 <script type="math/tex">v</script> 的最短路径的估计值 <script type="math/tex">v.d</script>，直到该估计值与实际的最短路径权重 <script type="math/tex">\delta(s, v)</script> （注二）相同时为止。该算法返回 TRUE 值当且仅当输入图中不包含可以从源结点到达的权重为负值的环路。</p>
+<p>伪码描述如下</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210528220823.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>算法运行的一个示例图</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210528221302.png" srcset="/img/loading.gif" lazyload alt="Bellman-Ford 算法的执行过程"></p>
 <p>对上图的说明：源结点为 <script type="math/tex">s</script>，结点中的数值为该结点的 <script type="math/tex">d</script>（注一）值，加了阴影的边比奥氏前驱值：如果 <script type="math/tex">(u, v)</script> 加了阴影，则 <script type="math/tex">v.\pi = u</script>。在本图的例子中，每一次的松弛操作对边的处理次序都是：<script type="math/tex">(t, x)</script>，<script type="math/tex">(t, y)</script>，<script type="math/tex">(t, z)</script>，<script type="math/tex">(x, t)</script>，<script type="math/tex">(y, x)</script>，<script type="math/tex">(y, z)</script>，<script type="math/tex">(z, x)</script>，<script type="math/tex">(z, s)</script>，<script type="math/tex">(s, t)</script>，<script type="math/tex">(x, y)</script>，(a) 在第 1 次松弛操作前的场景。(b) ~ (e) 在对边进行每次松弛操作后的场景。图 (e) 中的 <script type="math/tex">d</script> 值和 <script type="math/tex">\pi</script> 值为最终取值。在本例中，Bellman-Ford 算法返回的值为 TRUE。</p>
-<hr>
-<p>注一：<script type="math/tex">d</script> 是结点的一个属性，比如，<script type="math/tex">v.d</script> 记录的是从源结点 <script type="math/tex">s</script> 到结点 <script type="math/tex">v</script> 之间的距离。同理， <script type="math/tex">\pi</script> 也是结点的一个属性，比如，<script type="math/tex">v.\pi</script> 记录的是 <script type="math/tex">v</script> 的前驱节点。（见《算法导论》中文版 p344）</p>
-
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="对边的松弛操作（Relax）"><a href="#对边的松弛操作（Relax）" class="headerlink" title="对边的松弛操作（Relax）"></a>对边的松弛操作（Relax）</h3><hr>
+<p>注一：<script type="math/tex">d</script> 是结点的一个属性，比如，<script type="math/tex">v.d</script> 记录的是从源结点 <script type="math/tex">s</script> 到结点 <script type="math/tex">v</script> 之间的距离。同理， <script type="math/tex">\pi</script> 也是结点的一个属性，比如，<script type="math/tex">v.\pi</script> 记录的是 <script type="math/tex">v</script> 的前驱结点。（见《算法导论》中文版 p344）</p>
+<p>注二：定义从结点 <script type="math/tex">u</script> 到结点 <script type="math/tex">v</script> 的<strong>最短路径权重</strong> <script type="math/tex">\delta(u, v)</script> 如下</p>
+<script type="math/tex; mode=display">
+</script>
             </div>
             <hr>
             <div>
