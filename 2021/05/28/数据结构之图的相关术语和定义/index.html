@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      266 字
+      645 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      7
        分钟
     </span>
   
@@ -242,6 +242,16 @@
 <p>如果在一个有向图中不存在回路，那么这个有向图称为无环图。</p>
 <p>对于无向图，由于顶点是无序的，环路的长度要大于等于 3。</p>
 <p>按：本文所有术语和定义皆摘自浙江大学《数据结构 第二版》（陈越、何钦铭），且省略了部分我认为不重要的内容。</p>
+<p>(12)、连通图（Connected Graph）、连通分量（Connected Component）：在无向图中，如果从一个顶点 <script type="math/tex">v_i</script> 到另一个顶点 <script type="math/tex">v_j(i \leq j)</script> 有路径，则称顶点 <script type="math/tex">v_i</script> 和 <script type="math/tex">v_j</script> 是连通的（Connected）。如果图中任意两顶点都是连通的，则称该图是连通图。无向图的极大连通子图称为连通分量。连通分量的概念包含以下 4 个要点：</p>
+<ul>
+<li>子图：连通分量应该是原图的子图；</li>
+<li>连通：连通分量本身应该是连通的；</li>
+<li>极大顶点数：连通子图含有极大顶点数，即再加入其他顶点将会导致子图不连通；</li>
+<li>极大边数：具有极大顶点数的连通子图包含依附于这些顶点的所有边。</li>
+</ul>
+<p>因此，连通的无向图只有一个连通分量，这个连通分量就是本图。不连通的无向图有多于一个的连通分量。</p>
+<p>(13)、强连通图（Strongly Connected Graph）、强连通分量（Strongly Connected Component）；对于有向图来说，若图中任意一对顶点 <script type="math/tex">v_i</script> 和 <script type="math/tex">v_j(i \leq j)</script> 均既有从 <script type="math/tex">v_i</script> 到 <script type="math/tex">v_j</script> 的路径，也有从 <script type="math/tex">v_j</script> 到 <script type="math/tex">v_i</script> 的路径，则称该有向图是强连通图。有向图的极大强连通子图称为强连通分量。</p>
+<p>强连通分量的概念与连通分量类似，也包含 4 个要点。强连通图本身就是一个强连通分量。不是强连通的有向图有多于一个的强连通分量。</p>
 
             </div>
             <hr>
