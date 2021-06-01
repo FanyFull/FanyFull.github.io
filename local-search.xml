@@ -4,6 +4,64 @@
   
   
   <entry>
+    <title>最小生成树的 Prim 算法(未竟)</title>
+    <link href="/2021/06/01/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84-Prim-%E7%AE%97%E6%B3%95/"/>
+    <url>/2021/06/01/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84-Prim-%E7%AE%97%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<h2 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h2><p>以图1来说明</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210601114808.png" alt="图1"></p><p>上图演示了执行 Prim 算法的过程。初始的根结点为 a。加阴影的边和黑色的结点都属于树 A。在算法每一步，树中的结点就决定了图的一个切割，横跨该切割的一条轻量级边被加入到树中。例如，在图中的第 2 步，该算法可以选择将边(b, c)加入到树中，也可以选择将边(a, h)加入到树中，因为这两条比那都是横跨该切割的轻量级边。</p><h2 id="伪码"><a href="#伪码" class="headerlink" title="伪码"></a>伪码</h2><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210601120453.png" alt="20210601120453"></p><h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>这里对一些定义作补充。</p><p>无向图 <script type="math/tex">G = (V, E)</script> 的一个<strong>切割</strong> <script type="math/tex">(S, V - S)</script> 是集合 <script type="math/tex">V</script> 的一个划分，如图3所示。如果一条边 <script type="math/tex">(u, v) \in E</script> 的一个端点位于集合 <script type="math/tex">S</script>，另一个端点位于集合 <script type="math/tex">V - S</script>，则称该条边<strong>横跨</strong>切割 <script type="math/tex">(S, V - S)</script>。如果集合 <script type="math/tex">A</script> 中不存在横跨该切割的边，则称该切割<strong>尊重</strong>集合 <script type="math/tex">A</script>。在横跨一个切割的所有边中，权重最小的边称为<strong>轻量级边</strong>。注意，轻量级边可能不是唯一的。一般，如果一条边是满足某个性质的所有边中权重最小的，则称该条边是满足给定性质的一条<strong>轻量级边</strong>。</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210601120351.png" alt="图3"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法设计与分析</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>未竟</tag>
+      
+      <tag>算法设计与分析</tag>
+      
+      <tag>《算法导论》</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>最小生成树的 Kruskal 算法(未竟)</title>
+    <link href="/2021/06/01/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84-Kruskal-%E7%AE%97%E6%B3%95/"/>
+    <url>/2021/06/01/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84-Kruskal-%E7%AE%97%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<h2 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h2><p>以图来说明。</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210601112937.png" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210601112955.png" alt=""></p><p>上图演示了执行 Kruskal 算法的过程。加了阴影的边属于不断增长的森林 A。该算法按照边的权重的大小依次进行考虑。箭头指向的边是算法每一步所考察的边。如果该边将<strong>两棵不同的树</strong>(注一)连接起来，它就被加入到森林里，从而完成对两棵树的合并。</p><h2 id="伪码"><a href="#伪码" class="headerlink" title="伪码"></a>伪码</h2><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210601113816.png" alt=""></p><hr><p>注一：按照这里的描述，我认为一个结点的图似乎也是一棵树。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法设计与分析</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>未竟</tag>
+      
+      <tag>算法设计与分析</tag>
+      
+      <tag>《算法导论》</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>利用深度优先搜索来寻找图的强连通分量(未竟)</title>
     <link href="/2021/06/01/%E5%88%A9%E7%94%A8%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E6%9D%A5%E5%AF%BB%E6%89%BE%E5%9B%BE%E7%9A%84%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/"/>
     <url>/2021/06/01/%E5%88%A9%E7%94%A8%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E6%9D%A5%E5%AF%BB%E6%89%BE%E5%9B%BE%E7%9A%84%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/</url>
