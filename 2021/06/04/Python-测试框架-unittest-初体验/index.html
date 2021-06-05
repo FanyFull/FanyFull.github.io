@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      641 字
+      643 字
     </span>
   
 
@@ -236,7 +236,7 @@
             <h1 style="display: none">Python 测试框架 unittest 初体验</h1>
             
             <div class="markdown-body">
-              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这是我的软件工程的第二次上机实验。实验的基本内容是使用一门 OO(Object Oriented) 语言的测试框架。遂记录如下。</p>
+              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这是我的软件工程课程的第二次上机实验。实验的基本内容是使用一门 OO(Object Oriented) 语言的测试框架。遂记录如下。</p>
 <h2 id="简单使用说明"><a href="#简单使用说明" class="headerlink" title="简单使用说明"></a>简单使用说明</h2><p>官网示例如下</p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-comment"># 测试三种字符串方法</span><br><span class="hljs-keyword">import</span> unittest<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestStringMethods</span>(<span class="hljs-params">unittest.TestCase</span>):</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_upper</span>(<span class="hljs-params">self</span>):</span><br>        self.assertEqual(<span class="hljs-string">&#x27;foo&#x27;</span>.upper(), <span class="hljs-string">&#x27;FOO&#x27;</span>)<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_isupper</span>(<span class="hljs-params">self</span>):</span><br>        self.assertTrue(<span class="hljs-string">&#x27;FOO&#x27;</span>.isupper())<br>        self.assertFalse(<span class="hljs-string">&#x27;Foo&#x27;</span>.isupper())<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_split</span>(<span class="hljs-params">self</span>):</span><br>        s = <span class="hljs-string">&#x27;hello world&#x27;</span><br>        self.assertEqual(s.split(), [<span class="hljs-string">&#x27;hello&#x27;</span>, <span class="hljs-string">&#x27;world&#x27;</span>])<br>        <span class="hljs-comment"># check that s.split fails when the separator is not a string</span><br>        <span class="hljs-keyword">with</span> self.assertRaises(TypeError):<br>            s.split(<span class="hljs-number">2</span>)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    unittest.main()<br></code></pre></div></td></tr></table></figure>
 <p>运行结果</p>
