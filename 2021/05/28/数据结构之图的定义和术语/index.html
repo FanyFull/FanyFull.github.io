@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>数据结构之图的相关术语和定义(未竟) - Fany Full&#39;s Blog</title>
+  <title>数据结构之图的定义和术语(未竟) - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -167,7 +167,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="数据结构之图的相关术语和定义(未竟)">
+            <span class="h2" id="subtitle" title="数据结构之图的定义和术语(未竟)">
               
             </span>
 
@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      645 字
+      1k 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      11
        分钟
     </span>
   
@@ -237,10 +237,19 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">数据结构之图的相关术语和定义(未竟)</h1>
+            <h1 style="display: none">数据结构之图的定义和术语(未竟)</h1>
             
             <div class="markdown-body">
-              <p>(5)、路径（Path）、简单路径（Simple Path）、回路（Cycle，也叫做“环”）、无环图（Acyclic Graph）：图中的一条路径是一顶点序列 <script type="math/tex">v_1, v_2, ..., v_N</script>，序列中任何相邻的两顶点都能在图中找到对应的边，即 <script type="math/tex">(v_i, v_{i + 1}) \in E (1 \leqslant i < N)</script>。一条路径的长度是这条路径所包含的边数。</p>
+              <h2 id="1、图的定义"><a href="#1、图的定义" class="headerlink" title="1、图的定义"></a>1、图的定义</h2><p>图（Graph）是由两个集合构成，一个是非空但有限的顶点集合 <script type="math/tex">V</script>，另一个是描述顶点之间关系——边的集合 <script type="math/tex">E</script>（可以是 <script type="math/tex">\varnothing</script>）。因此，图可以表示为 <script type="math/tex">G = (V, E)</script>。每条边是一顶点对 <script type="math/tex">(v, w)</script> 且 <script type="math/tex">v, w \in V</script>。</p>
+<p>通常用 <script type="math/tex">|V|</script> 表示顶点的数量，用 <script type="math/tex">|E|</script> 表示边的数量。</p>
+<h2 id="2、图的术语"><a href="#2、图的术语" class="headerlink" title="2、图的术语"></a>2、图的术语</h2><p>(1)、无向图（Underected Graphs）：无向图中顶点之间的边（Edge）没有方向，即边 <script type="math/tex">(v, w)</script> 等同于 <script type="math/tex">(w, v)</script>。用圆括号“()”表示无向边。边的起点 <script type="math/tex">w</script> 和终点 <script type="math/tex">v</script> 次序并不重要。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210608212819.png" srcset="/img/loading.gif" lazyload alt="图一　　无向图"></p>
+<p>(2)、有向图（Directed Graphs）：有向图中顶点之间的所有边都有方向，即 <script type="math/tex"><v, w></script> 不同于 <script type="math/tex"><w, v></script>。用尖括号“&lt;&gt;”表示有向边。有向边也称弧（Are）。弧的“起点（弧头）”和“终点（弧尾）”的次序不能随意颠倒。在不会混淆的场合，有向边和无向边都简称为“边”。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210608213830.png" srcset="/img/loading.gif" lazyload alt="图二　　有向图"></p>
+<p>(3)、简单图（Simple Graph）：如果图中出现重边（即边的集合 <script type="math/tex">E</script> 中有相同的重复元素）或者自回路边（即边的起点和终点是同一个顶点），就叫做非简单图。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210608220507.png" srcset="/img/loading.gif" lazyload alt="图三　　两种非简单图"></p>
+<p>(4)、邻接点（Adjacent Vertices）：如果 <script type="math/tex">(v, w)</script> 是无向图中任意一条边，那么称 <script type="math/tex">v</script> 和 <script type="math/tex">w</script> 互为邻接点；如果 <script type="math/tex"><v, w></script> 是有向图中任意一条边，那么称起点 <script type="math/tex">v</script> “邻接到”（Adjacent to）终点 <script type="math/tex">w</script>，也称终点 <script type="math/tex">w</script> “邻接自”（Adjacent from）起点 <script type="math/tex">v</script>。比如，考察图二这个有向图 <script type="math/tex">G_2</script>，顶点 2 邻接到顶点 1，或者说顶点 1 邻接自顶点 2。</p>
+<p>(5)、路径（Path）、简单路径（Simple Path）、回路（Cycle，也叫做“环”）、无环图（Acyclic Graph）：图中的一条路径是一顶点序列 <script type="math/tex">v_1, v_2, ..., v_N</script>，序列中任何相邻的两顶点都能在图中找到对应的边，即 <script type="math/tex">(v_i, v_{i + 1}) \in E (1 \leqslant i < N)</script>。一条路径的长度是这条路径所包含的边数。</p>
 <p>一条<strong>简单路径</strong>是指除了路径的首尾顶点外，其余顶点都是不同的。</p>
 <p>有向图中的一条回路是指 <script type="math/tex">v_1 = v_N</script> 的一条路径。路径长度为 1 的回路是一个自回路（属于非简单图）。简单路径形成的回路称为简单回路（Simple Cycle）。</p>
 <p>如果在一个有向图中不存在回路，那么这个有向图称为无环图。</p>
@@ -331,7 +340,7 @@
           repo: 'CommentsBed',
           owner: 'fanyfull',
           admin: ["fanyfull"],
-          id: '9f8955b8c6d976fd2c94c5e33b01797a',
+          id: '8c83786af16244931bc2b2fad80e4079',
           language: 'zh-CN',
           labels: ["Gitalk"],
           perPage: 10,
