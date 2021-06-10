@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Windows 安装 MinGW-w64</title>
+    <link href="/2021/06/10/Windows-%E5%AE%89%E8%A3%85-MinGW-w64/"/>
+    <url>/2021/06/10/Windows-%E5%AE%89%E8%A3%85-MinGW-w64/</url>
+    
+    <content type="html"><![CDATA[<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>下载网址为：<a href="http://mingw-w64.org/doku.php/download/mingw-builds">http://mingw-w64.org/doku.php/download/mingw-builds</a></p><p>然后点击 Sourceforge 进行下载</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610200242.png" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610200400.png" alt=""></p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>双击刚刚的文件进行安装</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610200504.png" alt=""></p><p>然后 Next</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610200922.png" alt=""></p><p>这里 Version 选择最新版本即可。</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610201008.png" alt=""></p><p>这里因为我的电脑是 64 位，所以选择 <code>x86_64</code>，而 <code>i686</code> 是 32 位的。</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610202214.png" alt=""></p><p>这里的 Threads 我选择了 posix 接口，即可移植的类 Unix 接口。</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610201843.png" alt=""></p><p>这里的异常处理机制我选择的是 seh，它的性能是比较好的。</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610202133.png" alt=""></p><p>最后一个下拉框只有一个选项，所以我们直接下一步即可。</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610202320.png" alt=""></p><p>安装路径这里我直接选择默认。</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610202634.png" alt=""></p><p>由于网速的原因，我这里实在是下不动，所以就选择了另外一种下载方式，直接到 <a href="https://sourceforge.net/projects/mingw-w64/files/">https://sourceforge.net/projects/mingw-w64/files/</a> 下载离线文件</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610202919.png" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610203318.png" alt=""></p><p>这个和刚刚在线安装时选择的版本是一样的。</p><p>将刚刚下载的文件解压到 Program Files 文件夹下，解压后的文件夹是 mingw64，这个也可以放在其他目录下。</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610203227.png" alt=""></p><p>然后将该文件夹下的 bin 目录的路径添加到系统环境变量中的 Path 中去，如下图</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610203549.png" alt=""></p><p>然后输入以下命令，检验是否安装成功</p><figure class="highlight cmd"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cmd">gcc -v<br></code></pre></div></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610203804.png" alt=""></p><p>到这里就安装成功了。</p><hr><p>参考：<a href="https://www.jianshu.com/p/d66c2f2e3537">https://www.jianshu.com/p/d66c2f2e3537</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C 语言</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C 语言</tag>
+      
+      <tag>软件安装</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>《一站式学习C编程》读书笔记</title>
     <link href="/2021/06/09/%E3%80%8A%E4%B8%80%E7%AB%99%E5%BC%8F%E5%AD%A6%E4%B9%A0C%E7%BC%96%E7%A8%8B%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     <url>/2021/06/09/%E3%80%8A%E4%B8%80%E7%AB%99%E5%BC%8F%E5%AD%A6%E4%B9%A0C%E7%BC%96%E7%A8%8B%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</url>
