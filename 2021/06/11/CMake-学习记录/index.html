@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>Windows 安装 MinGW-w64 - Fany Full&#39;s Blog</title>
+  <title>CMake 学习记录 - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,12 +162,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610204350.png') no-repeat center center;
+         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210611000954.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Windows 安装 MinGW-w64">
+            <span class="h2" id="subtitle" title="CMake 学习记录">
               
             </span>
 
@@ -177,8 +177,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-06-10 19:58" pubdate>
-        2021年6月10日 晚上
+      <time datetime="2021-06-11 00:06" pubdate>
+        2021年6月11日 凌晨
       </time>
     </span>
   
@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      325 字
+      360 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      4
        分钟
     </span>
   
@@ -237,43 +237,24 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Windows 安装 MinGW-w64</h1>
+            <h1 style="display: none">CMake 学习记录</h1>
             
             <div class="markdown-body">
-              <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>下载网址为：<a target="_blank" rel="noopener" href="http://mingw-w64.org/doku.php/download/mingw-builds">http://mingw-w64.org/doku.php/download/mingw-builds</a></p>
-<p>然后点击 Sourceforge 进行下载</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610200242.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610200400.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>双击刚刚的文件进行安装</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610200504.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p>然后 Next</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610200922.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p>这里 Version 选择最新版本即可。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610201008.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p>这里因为我的电脑是 64 位，所以选择 <code>x86_64</code>，而 <code>i686</code> 是 32 位的。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610202214.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p>这里的 Threads 我选择了 posix 接口，即可移植的类 Unix 接口。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610201843.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p>这里的异常处理机制我选择的是 seh，它的性能是比较好的。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610202133.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p>最后一个下拉框只有一个选项，所以我们直接下一步即可。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610202320.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p>安装路径这里我直接选择默认。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610202634.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p>由于网速的原因，我这里实在是下不动，所以就选择了另外一种下载方式，直接到 <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/files/">https://sourceforge.net/projects/mingw-w64/files/</a> 下载离线文件</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610202919.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610203318.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p>这个和刚刚在线安装时选择的版本是一样的。</p>
-<p>将刚刚下载的文件解压到 Program Files 文件夹下，解压后的文件夹是 mingw64，这个也可以放在其他目录下。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610203227.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p>然后将该文件夹下的 bin 目录的路径添加到系统环境变量中的 Path 中去，如下图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610203549.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p>然后输入以下命令，检验是否安装成功</p>
-<figure class="highlight cmd"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cmd">gcc -v<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610203804.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p>到这里就安装成功了。</p>
+              <h2 id="一份最简单的-CMakeLists"><a href="#一份最简单的-CMakeLists" class="headerlink" title="一份最简单的 CMakeLists"></a>一份最简单的 CMakeLists</h2><p>这是我在 CLion 中最长用的一种配置，其实也就是原始配置。在现阶段，顶天了也就是多 add 几个 executable，所以目前先给我这个 CMakeLists 加上注释，因为今天我我 <code>add_executable()</code> 都不会用了，我淦。</p>
+<p>这里补充一下，<code>#</code> 及后面的内容代表注释。</p>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-comment"># CMake 最低版本号要求</span><br><span class="hljs-attribute">cmake_minimum_required</span>(VERSION <span class="hljs-number">3</span>.<span class="hljs-number">19</span>)<br><br><span class="hljs-comment"># 项目信息</span><br><span class="hljs-attribute">project</span>(LinuxCLearning C)<br><br><span class="hljs-comment"># 设定 C 的标准</span><br><span class="hljs-attribute">set</span>(CMAKE_C_STANDARD <span class="hljs-number">99</span>)<br><br><span class="hljs-comment"># 执行生成目标</span><br><span class="hljs-attribute">add_executable</span>(LinuxCLearning main.c)<br><span class="hljs-attribute">add_executable</span>(draft<span class="hljs-number">01</span> draft<span class="hljs-number">01</span>.c)<br></code></pre></div></td></tr></table></figure>
+<p>下面对上面的几个命令作具体说明。</p>
+<ol>
+<li><code>cmake_minimum_required</code>: 指定运行此配置文件所需的 CMake 的最低版本；</li>
+<li><code>project</code>: 参数值是 <code>LinuxCLearning C</code>，表明该项目的名称是 <code>LinuxCLearning</code>，并且明确了项目的语言是 C 语言；</li>
+<li><code>set</code>: 第一个参数是 CMake 的自带的用来指定 C 标准的变量，第二个参数就是具体的 C 标准；</li>
+<li><code>add_executable</code>: 第一个参数的作用是指定生成的可执行文件的名称，第二个参数是待编译的源文件。</li>
+</ol>
+<p>我这里主要的需求其实还是将当前目录下的多个 C 源文件编译成可执行文件，所以 <code>add_executable</code> 用得比较多一点。</p>
+<h2 id="命令指南"><a href="#命令指南" class="headerlink" title="命令指南"></a>命令指南</h2><p>这里秉持即用即查的理念，用到时再查，再记录，点到为止。</p>
 <hr>
-<p>参考：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d66c2f2e3537">https://www.jianshu.com/p/d66c2f2e3537</a></p>
+<p>参考：</p>
+<p>1、<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/267803605">https://zhuanlan.zhihu.com/p/267803605</a><br>2、官方帮助手册：<a target="_blank" rel="noopener" href="https://cmake.org/cmake/help/v3.19/">https://cmake.org/cmake/help/v3.19/</a></p>
 
             </div>
             <hr>
@@ -291,9 +272,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/C-%E8%AF%AD%E8%A8%80/">C 语言</a>
+                      <a class="hover-with-bg" href="/tags/%E6%9C%AA%E7%AB%9F/">未竟</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">软件安装</a>
+                      <a class="hover-with-bg" href="/tags/C-%E8%AF%AD%E8%A8%80/">C 语言</a>
                     
                   </div>
                 
@@ -310,18 +291,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/06/10/GCC-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%80%89%E9%A1%B9/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">GCC 常用命令行选项</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/06/09/%E3%80%8A%E4%B8%80%E7%AB%99%E5%BC%8F%E5%AD%A6%E4%B9%A0C%E7%BC%96%E7%A8%8B%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
-                        <span class="hidden-mobile">《一站式学习C编程》读书笔记</span>
+                      <a href="/2021/06/10/GCC-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%80%89%E9%A1%B9/">
+                        <span class="hidden-mobile">GCC 常用命令行选项</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -349,7 +324,7 @@
           repo: 'CommentsBed',
           owner: 'fanyfull',
           admin: ["fanyfull"],
-          id: 'cffa8f4711f9b0b603a188ea117c378f',
+          id: '87d8744832afa923d3cfe6b86d61e86a',
           language: 'zh-CN',
           labels: ["Gitalk"],
           perPage: 10,

@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      341 字
+      607 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      6
        分钟
     </span>
   
@@ -246,6 +246,19 @@
 <p>3.执行指令，读内存，取上来的数是3，保存到eax寄存器。注意，地址0x804a01c～0x804a01f里存储的四个字节不能按地址从低到高的顺序看成0x03000000，而要按地址从高到低的顺序看成0x00000003。也就是说，对于多字节的整数类型，低地址保存的是整数的低位，这称为小端（Little Endian）字节序（ByteOrder）。x86平台是小端字节序的，而另外一些平台规定低地址保存整数的高位，称为大端（Big Endian）字节序。注意上图只画了前三步，剩下的步骤读者可以自己画图理解。</p>
 </blockquote>
 <p>我这里主要是想学习大端序和小端序这个知识点，然后在这里发现此知识点，但是，这里原书说的地址 0x804a01c～0x804a01f 里存储的四个字节按小端序取出来是 0x00000003，我一开始没有理解，然后，想了一段时间，发现它这每一个地址（比如 0x804a01c）中存储的都是一个<strong>字节</strong>，也就是一个<strong>两位 16 进制的数</strong>，对于图中 0x804a01c～0x804a01f 地址存储的数，我们要很自然地想到它省略了高位的 0！也即 0x804a01c～0x804a01f 地址存储的数依次为 03、00、00、00。这样以来，才合理嘛。</p>
+<h3 id="20-1-预处理的步骤"><a href="#20-1-预处理的步骤" class="headerlink" title="20.1 预处理的步骤"></a>20.1 预处理的步骤</h3><p>这里有一个语句</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> STR <span class="hljs-meta-string">&quot;hello, &quot;</span>\</span><br><span class="hljs-meta">                <span class="hljs-meta-string">&quot;world&quot;</span></span><br></code></pre></div></td></tr></table></figure>
+<p>这条语句经过预处理之后为</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> STR <span class="hljs-meta-string">&quot;hello, &quot;</span>    <span class="hljs-meta-string">&quot;world&quot;</span></span><br></code></pre></div></td></tr></table></figure>
+<p>然后我疑惑的点在于之后它有一个语句</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-built_in">printf</span>(STR);<br></code></pre></div></td></tr></table></figure>
+<p>这条语句是和下面的语句等价的</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;hello, &quot;</span>    <span class="hljs-string">&quot;world&quot;</span>);<br></code></pre></div></td></tr></table></figure>
+<p>而上面这条语句经过测试，又是和下面这条语句是等价的</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;hello, world&quot;</span>);<br></code></pre></div></td></tr></table></figure>
+<p>然后我又测试了一下 Python，发现它也是如此，就是当两个字符串连接在一起（中间有若干个空格），程序在执行时会自动把它们拼接称一个字符串。有点神奇。</p>
+<p>然后我再继续往下读，发现，原来这是预处理做的事情。这一下子就豁然开朗了。同时，我认为，除了 C 和 Python，可能很多其他的语言也是有这个特性的。</p>
+<p>关于 Python 这个字符串的特性，更多的还可以参考知乎这篇博客：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/43760216">https://zhuanlan.zhihu.com/p/43760216</a>。</p>
 
             </div>
             <hr>

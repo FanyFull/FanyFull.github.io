@@ -4,6 +4,60 @@
   
   
   <entry>
+    <title>CMake 学习记录</title>
+    <link href="/2021/06/11/CMake-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    <url>/2021/06/11/CMake-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
+    
+    <content type="html"><![CDATA[<h2 id="一份最简单的-CMakeLists"><a href="#一份最简单的-CMakeLists" class="headerlink" title="一份最简单的 CMakeLists"></a>一份最简单的 CMakeLists</h2><p>这是我在 CLion 中最长用的一种配置，其实也就是原始配置。在现阶段，顶天了也就是多 add 几个 executable，所以目前先给我这个 CMakeLists 加上注释，因为今天我我 <code>add_executable()</code> 都不会用了，我淦。</p><p>这里补充一下，<code>#</code> 及后面的内容代表注释。</p><figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-comment"># CMake 最低版本号要求</span><br><span class="hljs-attribute">cmake_minimum_required</span>(VERSION <span class="hljs-number">3</span>.<span class="hljs-number">19</span>)<br><br><span class="hljs-comment"># 项目信息</span><br><span class="hljs-attribute">project</span>(LinuxCLearning C)<br><br><span class="hljs-comment"># 设定 C 的标准</span><br><span class="hljs-attribute">set</span>(CMAKE_C_STANDARD <span class="hljs-number">99</span>)<br><br><span class="hljs-comment"># 执行生成目标</span><br><span class="hljs-attribute">add_executable</span>(LinuxCLearning main.c)<br><span class="hljs-attribute">add_executable</span>(draft<span class="hljs-number">01</span> draft<span class="hljs-number">01</span>.c)<br></code></pre></div></td></tr></table></figure><p>下面对上面的几个命令作具体说明。</p><ol><li><code>cmake_minimum_required</code>: 指定运行此配置文件所需的 CMake 的最低版本；</li><li><code>project</code>: 参数值是 <code>LinuxCLearning C</code>，表明该项目的名称是 <code>LinuxCLearning</code>，并且明确了项目的语言是 C 语言；</li><li><code>set</code>: 第一个参数是 CMake 的自带的用来指定 C 标准的变量，第二个参数就是具体的 C 标准；</li><li><code>add_executable</code>: 第一个参数的作用是指定生成的可执行文件的名称，第二个参数是待编译的源文件。</li></ol><p>我这里主要的需求其实还是将当前目录下的多个 C 源文件编译成可执行文件，所以 <code>add_executable</code> 用得比较多一点。</p><h2 id="命令指南"><a href="#命令指南" class="headerlink" title="命令指南"></a>命令指南</h2><p>这里秉持即用即查的理念，用到时再查，再记录，点到为止。</p><hr><p>参考：</p><p>1、<a href="https://zhuanlan.zhihu.com/p/267803605">https://zhuanlan.zhihu.com/p/267803605</a><br>2、官方帮助手册：<a href="https://cmake.org/cmake/help/v3.19/">https://cmake.org/cmake/help/v3.19/</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C 语言</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>未竟</tag>
+      
+      <tag>C 语言</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>GCC 常用命令行选项</title>
+    <link href="/2021/06/10/GCC-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%80%89%E9%A1%B9/"/>
+    <url>/2021/06/10/GCC-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%80%89%E9%A1%B9/</url>
+    
+    <content type="html"><![CDATA[<p><code>-E</code>: 在预处理操作(<em>注一</em>)之后停止之后的操作；不会运行接下来的正确编译阶段。输出的格式是预处理之后的源码，它们将会被输出到标准输出（这里是控制台）中。输入不需要预处理的文件将会被忽视。</p><p><code>-Wall</code>: 这将会开启关于用户认为有问题的一些结构的所有警告，并且它们是很容易避免的（或者去修改以便阻止警告），即使与宏相结合。</p><hr><p>参考：《gcc.pdf》，即 GCC 官方文档（这里是 GCC 11.1 版本的手册）。</p><p>注释：</p><p>注一：编译最多可涉及四个阶段：预处理、正确编译、汇编和链接。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C 语言</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>未竟</tag>
+      
+      <tag>C 语言</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Windows 安装 MinGW-w64</title>
     <link href="/2021/06/10/Windows-%E5%AE%89%E8%A3%85-MinGW-w64/"/>
     <url>/2021/06/10/Windows-%E5%AE%89%E8%A3%85-MinGW-w64/</url>
@@ -35,7 +89,7 @@
     <link href="/2021/06/09/%E3%80%8A%E4%B8%80%E7%AB%99%E5%BC%8F%E5%AD%A6%E4%B9%A0C%E7%BC%96%E7%A8%8B%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     <url>/2021/06/09/%E3%80%8A%E4%B8%80%E7%AB%99%E5%BC%8F%E5%AD%A6%E4%B9%A0C%E7%BC%96%E7%A8%8B%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</url>
     
-    <content type="html"><![CDATA[<h3 id="16-2-CPU"><a href="#16-2-CPU" class="headerlink" title="16.2 CPU"></a>16.2 CPU</h3><p>原书内容摘录如下</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210609211227.png" alt=""></p><blockquote><p>3.执行指令，读内存，取上来的数是3，保存到eax寄存器。注意，地址0x804a01c～0x804a01f里存储的四个字节不能按地址从低到高的顺序看成0x03000000，而要按地址从高到低的顺序看成0x00000003。也就是说，对于多字节的整数类型，低地址保存的是整数的低位，这称为小端（Little Endian）字节序（ByteOrder）。x86平台是小端字节序的，而另外一些平台规定低地址保存整数的高位，称为大端（Big Endian）字节序。注意上图只画了前三步，剩下的步骤读者可以自己画图理解。</p></blockquote><p>我这里主要是想学习大端序和小端序这个知识点，然后在这里发现此知识点，但是，这里原书说的地址 0x804a01c～0x804a01f 里存储的四个字节按小端序取出来是 0x00000003，我一开始没有理解，然后，想了一段时间，发现它这每一个地址（比如 0x804a01c）中存储的都是一个<strong>字节</strong>，也就是一个<strong>两位 16 进制的数</strong>，对于图中 0x804a01c～0x804a01f 地址存储的数，我们要很自然地想到它省略了高位的 0！也即 0x804a01c～0x804a01f 地址存储的数依次为 03、00、00、00。这样以来，才合理嘛。</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="16-2-CPU"><a href="#16-2-CPU" class="headerlink" title="16.2 CPU"></a>16.2 CPU</h3><p>原书内容摘录如下</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210609211227.png" alt=""></p><blockquote><p>3.执行指令，读内存，取上来的数是3，保存到eax寄存器。注意，地址0x804a01c～0x804a01f里存储的四个字节不能按地址从低到高的顺序看成0x03000000，而要按地址从高到低的顺序看成0x00000003。也就是说，对于多字节的整数类型，低地址保存的是整数的低位，这称为小端（Little Endian）字节序（ByteOrder）。x86平台是小端字节序的，而另外一些平台规定低地址保存整数的高位，称为大端（Big Endian）字节序。注意上图只画了前三步，剩下的步骤读者可以自己画图理解。</p></blockquote><p>我这里主要是想学习大端序和小端序这个知识点，然后在这里发现此知识点，但是，这里原书说的地址 0x804a01c～0x804a01f 里存储的四个字节按小端序取出来是 0x00000003，我一开始没有理解，然后，想了一段时间，发现它这每一个地址（比如 0x804a01c）中存储的都是一个<strong>字节</strong>，也就是一个<strong>两位 16 进制的数</strong>，对于图中 0x804a01c～0x804a01f 地址存储的数，我们要很自然地想到它省略了高位的 0！也即 0x804a01c～0x804a01f 地址存储的数依次为 03、00、00、00。这样以来，才合理嘛。</p><h3 id="20-1-预处理的步骤"><a href="#20-1-预处理的步骤" class="headerlink" title="20.1 预处理的步骤"></a>20.1 预处理的步骤</h3><p>这里有一个语句</p><figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> STR <span class="hljs-meta-string">&quot;hello, &quot;</span>\</span><br><span class="hljs-meta">                <span class="hljs-meta-string">&quot;world&quot;</span></span><br></code></pre></div></td></tr></table></figure><p>这条语句经过预处理之后为</p><figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> STR <span class="hljs-meta-string">&quot;hello, &quot;</span>    <span class="hljs-meta-string">&quot;world&quot;</span></span><br></code></pre></div></td></tr></table></figure><p>然后我疑惑的点在于之后它有一个语句</p><figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-built_in">printf</span>(STR);<br></code></pre></div></td></tr></table></figure><p>这条语句是和下面的语句等价的</p><figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;hello, &quot;</span>    <span class="hljs-string">&quot;world&quot;</span>);<br></code></pre></div></td></tr></table></figure><p>而上面这条语句经过测试，又是和下面这条语句是等价的</p><figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;hello, world&quot;</span>);<br></code></pre></div></td></tr></table></figure><p>然后我又测试了一下 Python，发现它也是如此，就是当两个字符串连接在一起（中间有若干个空格），程序在执行时会自动把它们拼接称一个字符串。有点神奇。</p><p>然后我再继续往下读，发现，原来这是预处理做的事情。这一下子就豁然开朗了。同时，我认为，除了 C 和 Python，可能很多其他的语言也是有这个特性的。</p><p>关于 Python 这个字符串的特性，更多的还可以参考知乎这篇博客：<a href="https://zhuanlan.zhihu.com/p/43760216">https://zhuanlan.zhihu.com/p/43760216</a>。</p>]]></content>
     
     
     <categories>
