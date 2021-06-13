@@ -240,7 +240,8 @@
             <h1 style="display: none">80X86 汇编语言之地址表达式中的一些特殊算符</h1>
             
             <div class="markdown-body">
-              <h2 id="1、属性定义运算符"><a href="#1、属性定义运算符" class="headerlink" title="1、属性定义运算符"></a>1、属性定义运算符</h2><h3 id="1-1、类型运算符-PTR"><a href="#1-1、类型运算符-PTR" class="headerlink" title="1.1、类型运算符 PTR"></a>1.1、类型运算符 PTR</h3><p>使用格式：<code>类型  PTR  地址表达式</code></p>
+              <h2 id="1、属性定义运算符"><a href="#1、属性定义运算符" class="headerlink" title="1、属性定义运算符"></a>1、属性定义运算符</h2><h3 id="1-1、类型运算符-PTR"><a href="#1-1、类型运算符-PTR" class="headerlink" title="1.1、类型运算符 PTR"></a>1.1、类型运算符 PTR</h3><p>PTR 即 PoinTeR。</p>
+<p>使用格式：<code>类型  PTR  地址表达式</code></p>
 <p>功能：指明紧跟其后的地址表达式的类型属性，但保持它原来的段属性和偏移地址属性不变。</p>
 <p>根据地址表达式的不同值，类型可以是 BYTE、WORD、DWORD、FWORD、NEAR、FAR 等。</p>
 <p>为了能将源程序中的机器指令语句正确翻译成目标代码，汇编程序要求操作数地址的类型非常明确。对大多数双操作数指令，还要求源、目的地址的类型一致，即同时为字节类型、字类型或双字类型， 否则， 在汇编时就会因为类型不明确或类型不一致而出错。为了避免这些语法错误， 就必须分清何谓类型明确， 何谓不明确（或说模糊）， 怎样使模糊的类型变为明确， 怎样使类型不一致的变为一致， 下面分别进行说明。</p>
@@ -422,30 +423,6 @@
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
 
   
 
