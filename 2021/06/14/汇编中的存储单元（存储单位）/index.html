@@ -14,11 +14,11 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="记录 PyCharm 设置文件头注释和光标位置的方法，以备将来用时备查。">
+  <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>PyCharm设置文件头注释和光标位置 - Fany Full&#39;s Blog</title>
+  <title>汇编中的存储单元（存储单位） - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,12 +162,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210612145938.png') no-repeat center center;
+         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210614134758.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="PyCharm设置文件头注释和光标位置">
+            <span class="h2" id="subtitle" title="汇编中的存储单元（存储单位）">
               
             </span>
 
@@ -177,8 +177,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-06-12 14:56" pubdate>
-        2021年6月12日 下午
+      <time datetime="2021-06-14 13:26" pubdate>
+        2021年6月14日 下午
       </time>
     </span>
   
@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      61 字
+      483 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      5
        分钟
     </span>
   
@@ -229,13 +229,26 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">PyCharm设置文件头注释和光标位置</h1>
+            <h1 style="display: none">汇编中的存储单元（存储单位）</h1>
             
             <div class="markdown-body">
-              <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20201127231721.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<figure class="highlight vala"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vala"><span class="hljs-meta"># -*- coding: utf-8 -*-</span><br><span class="hljs-meta"># @File  : $&#123;NAME&#125;.py</span><br><span class="hljs-meta"># @Author: FanLu</span><br><span class="hljs-meta"># @Date  : $&#123;DATE&#125;</span><br><br><span class="hljs-meta">#[[$END$]]#</span><br></code></pre></div></td></tr></table></figure>
-<p>上面的 <code>@Author</code> 的后面可以换上自己的名字.</p>
-<p>注意, 一定要勾选那个 Enable Live Templates, 否则这句 <code>#[[$END$]]#</code> 设置光标的内容就无法生效.</p>
+              <h2 id="汇编中的单位"><a href="#汇编中的单位" class="headerlink" title="汇编中的单位"></a>汇编中的单位</h2><p>计算机的最小信息单位是 bit（比特，即一个位），也就是一个二进制位。然后，由此可以得出一下换算单位</p>
+<ul>
+<li>1B = 8b，即 1 Byte = 8 bit</li>
+<li>1K = 1024B</li>
+<li>1MB = 1024KB</li>
+<li>1GB = 1024MB</li>
+<li>1TB = 1024GB</li>
+</ul>
+<p>磁盘的容量单位同这里的存储单位一样，实际上以上单位是微机中常用的计量单位。</p>
+<h2 id="其他的换算方法"><a href="#其他的换算方法" class="headerlink" title="其他的换算方法"></a>其他的换算方法</h2><p>我们有时候可以看到，1GB 会被换算成 1000 MB，这是怎么回事呢？</p>
+<p>这就要提到另一个标准了，据知乎上用户回答，这是一个历史遗留问题，在这里表现在 G 和 M 作为国际单位制词头其规定的换算关系是 1G = 1000M。因为早期很多设备的存储容量比较小，所以用 1000 代替 1024 的误差并不大，当时就使用 1K = 1000B 这个换算方式了。</p>
+<p>但是微软坚持使用 2 的整数次幂来标示存储容量，而厂家报的容量是按照 1000 这种方式来算的，所以这就造成了我们看到的容量和厂家报的容量不一致的情况（当然，格式化也会损失一些内存）。而苹果和 Linux 则是采用国际标准的 1000 这种方式来计量单位。</p>
+<p>为了解决这种混乱的局面，1999 年 1 月，国际电工委员会（IEC）引入了“kibi-”、“mebi-”、“gibi-”等词头以及缩写符号“Ki”、“Mi”、“Gi”等来明确说明二进制乘数计数。就是说正确的写法应该是 1GiB = 1024MiB。这个单位我们平时也应该多有见到过。</p>
+<p>然而，由于缺少官方支持，二进制乘数词头还没有广泛被制造业者和个人采用，很多人继续在二进制领域使用国际单位制词头。</p>
+<hr>
+<p>参考：</p>
+<p>1、《汇编语言》（王爽）<br>2、<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20255371">https://www.zhihu.com/question/20255371</a></p>
 
             </div>
             <hr>
@@ -245,7 +258,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
+                      <a class="hover-with-bg" href="/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">汇编语言</a>
                     
                   </div>
                 
@@ -253,9 +266,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/PyCharm/">PyCharm</a>
+                      <a class="hover-with-bg" href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">汇编语言</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%8D%9A%E5%AE%A2%E5%9B%AD%E8%BF%81%E7%A7%BB/">博客园迁移</a>
+                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>
                     
                   </div>
                 
@@ -272,9 +285,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/06/14/%E6%B1%87%E7%BC%96%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83%EF%BC%88%E5%AD%98%E5%82%A8%E5%8D%95%E4%BD%8D%EF%BC%89/">
+                      <a href="/2021/06/14/8086CPU-%E4%B8%AD%E7%9A%84%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">汇编中的存储单元（存储单位）</span>
+                        <span class="hidden-mobile">8086CPU 中的物理地址</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -282,8 +295,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/06/11/CMake-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
-                        <span class="hidden-mobile">CMake 学习记录</span>
+                      <a href="/2021/06/12/PyCharm%E8%AE%BE%E7%BD%AE%E6%96%87%E4%BB%B6%E5%A4%B4%E6%B3%A8%E9%87%8A%E5%92%8C%E5%85%89%E6%A0%87%E4%BD%8D%E7%BD%AE/">
+                        <span class="hidden-mobile">PyCharm设置文件头注释和光标位置</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -311,7 +324,7 @@
           repo: 'CommentsBed',
           owner: 'fanyfull',
           admin: ["fanyfull"],
-          id: 'cebeb37653021e93357625683b3059bc',
+          id: '43cc362f3aa082e21fd93a719ffb55fb',
           language: 'zh-CN',
           labels: ["Gitalk"],
           perPage: 10,
