@@ -1,220 +1,940 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fany Full's Blog</title><meta name="author" content="Fany Full"><meta name="copyright" content="Fany Full"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
-<meta property="og:title" content="Fany Full&#39;s Blog">
-<meta property="og:url" content="http://fanyfull.github.io/page/5/index.html">
-<meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
-<meta property="article:author" content="Fany Full">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://fanyfull.github.io/page/5/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  date_suffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  source: {
-    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
-    },
-    fancybox: {
-      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js',
-      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css'
-    }
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isanchor: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'Fany Full\'s Blog',
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2021-09-22 22:09:25'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
 
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
 
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
 
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
 
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
   
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
+  <title>Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fany Full's Blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="我欲穿花寻路，直入白云深处，浩气展虹霓。">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
     
-    const detectApple = () => {
-      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">57</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">29</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Fany Full's Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Fany Full's Blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/06/01/%E5%88%A9%E7%94%A8%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E6%9D%A5%E5%AF%BB%E6%89%BE%E5%9B%BE%E7%9A%84%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" title="利用深度优先搜索来寻找图的强连通分量(未竟)">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="利用深度优先搜索来寻找图的强连通分量(未竟)"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/06/01/%E5%88%A9%E7%94%A8%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E6%9D%A5%E5%AF%BB%E6%89%BE%E5%9B%BE%E7%9A%84%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" title="利用深度优先搜索来寻找图的强连通分量(未竟)">利用深度优先搜索来寻找图的强连通分量(未竟)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-06-01T03:07:08.000Z" title="发表于 2021-06-01 11:07:08">2021-06-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a></span></div><div class="content">算法思路以图来说明
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/06/01/%E5%88%A9%E7%94%A8%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E6%9D%A5%E5%AF%BB%E6%89%BE%E5%9B%BE%E7%9A%84%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210601112432.png" srcset="/img/loading.gif" lazyload alt="利用深度优先搜索来寻找图的强连通分量(未竟)">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/06/01/%E5%88%A9%E7%94%A8%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E6%9D%A5%E5%AF%BB%E6%89%BE%E5%9B%BE%E7%9A%84%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" target="_self">
+          利用深度优先搜索来寻找图的强连通分量(未竟)
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/06/01/%E5%88%A9%E7%94%A8%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E6%9D%A5%E5%AF%BB%E6%89%BE%E5%9B%BE%E7%9A%84%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" target="_self">
+          
+          
+            
+          
+          算法思路以图来说明
 
 (a) 为有向图 G。每个加了阴影的区域是 G 的一个强连通分量。每个结点上注明了在深度优先搜索中的发现时间和完成时间，所有的树边都加了额外的阴影。
-(b) 是图 G 的转置图 G^{T}，图中注明了由算法 STRONGLY-CONNECTED-COMPONENTS 第 3 行所计算出来的深度优先森林，所有树边上都加了额外的阴影。每个强连通分量对应一棵深度优先树。加了阴影的结点 b、c、g 和 h 全部是深度优先树的根节点。这些深度优先树是在转置图 G^T 上运行深度优先搜索算法所获得的。
-(c) 无环分量图 G^{SCC}，由对图 G 的强连通分量进行收缩而成，这种收缩将每个强连通分量收缩为一个结点，即由一个结点来替换整个连通分量。
-伪码描述
-这里针对第 3 行进行简单说明，u.f 即 G 中的结点 u 在深度优先搜索过程中的完成时间。这行代码所做的事情是按照 u.f 递减的顺序进行循环，然后找出每一棵深度优先数，这每一棵深度优先树就对应一个强连通分量。
-</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/05/29/Python-%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84-Add-Python-3-x-to-PATH-%E5%8B%BE%E9%80%89%E4%B9%8B%E5%90%8E%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/" title="Python 安装过程中的 Add Python 3.x to PATH 勾选之后发生了什么">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python 安装过程中的 Add Python 3.x to PATH 勾选之后发生了什么"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/05/29/Python-%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84-Add-Python-3-x-to-PATH-%E5%8B%BE%E9%80%89%E4%B9%8B%E5%90%8E%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/" title="Python 安装过程中的 Add Python 3.x to PATH 勾选之后发生了什么">Python 安装过程中的 Add Python 3.x to PATH 勾选之后发生了什么</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-29T14:24:53.000Z" title="发表于 2021-05-29 22:24:53">2021-05-29</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python/">Python</a></span></div><div class="content">如下图, 我们在安装 Python 过程中一般都要勾选这个选项, 我们也知道它的作用是把 Python 添加到我们系统的环境变量中, 以方便我们在命令行中直接使用 Python,
+(b) 是图 G 的转置图 G^{T}，图中注明了由算法 STRONGLY-CONNECTED-COMPONENTS 第 3 行所计算出来的深度优先森林，所有树边上都加了额外的阴影。每个强连通分量对应一棵深度优先树。加了阴影的结
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-01 11:07" pubdate>
+              2021-06-01
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%9C%AA%E7%AB%9F/">未竟</a>
+            
+              <a href="/tags/%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B/">《算法导论》</a>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/05/29/Python-%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84-Add-Python-3-x-to-PATH-%E5%8B%BE%E9%80%89%E4%B9%8B%E5%90%8E%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210529223314.png" srcset="/img/loading.gif" lazyload alt="Python 安装过程中的 Add Python 3.x to PATH 勾选之后发生了什么">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/29/Python-%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84-Add-Python-3-x-to-PATH-%E5%8B%BE%E9%80%89%E4%B9%8B%E5%90%8E%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/" target="_self">
+          Python 安装过程中的 Add Python 3.x to PATH 勾选之后发生了什么
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/29/Python-%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84-Add-Python-3-x-to-PATH-%E5%8B%BE%E9%80%89%E4%B9%8B%E5%90%8E%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/" target="_self">
+          
+          
+            
+          
+          如下图, 我们在安装 Python 过程中一般都要勾选这个选项, 我们也知道它的作用是把 Python 添加到我们系统的环境变量中, 以方便我们在命令行中直接使用 Python,
 
 可是, 它究竟自动为我们添加了什么路径到系统的环境变量中了呢, 经查看, 如下
 
 然后我们查看这两个文件夹下的具体内容,
 
 
-发现, 有 python.exe 和 pip.exe 等, 所以, 如果我们在安装 Python 的过程中勾选了 Add Python 3.x to PATH 的话, 那么, 我们就可以直接在命令行使用 Python 和 pip 命令了.
-</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/05/29/%E8%AF%BB%E3%80%8A%E4%B8%89%E8%A8%80%E4%BA%8C%E6%8B%8D%E3%80%8B/" title="读《三言二拍》(未竟)">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="读《三言二拍》(未竟)"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/05/29/%E8%AF%BB%E3%80%8A%E4%B8%89%E8%A8%80%E4%BA%8C%E6%8B%8D%E3%80%8B/" title="读《三言二拍》(未竟)">读《三言二拍》(未竟)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-29T11:23:35.000Z" title="发表于 2021-05-29 19:23:35">2021-05-29</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></span></div><div class="content">缇骑：tí jì，缇，橘红色。缇骑，这里指的是锦衣卫。
-</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/05/28/%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E4%B9%8B-Bellman-Ford-%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%85%B6-Python-%E5%AE%9E%E7%8E%B0/" title="单源最短路径之 Bellman-Ford 算法详解及其 Python 实现">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="单源最短路径之 Bellman-Ford 算法详解及其 Python 实现"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/05/28/%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E4%B9%8B-Bellman-Ford-%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%85%B6-Python-%E5%AE%9E%E7%8E%B0/" title="单源最短路径之 Bellman-Ford 算法详解及其 Python 实现">单源最短路径之 Bellman-Ford 算法详解及其 Python 实现</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-28T14:06:20.000Z" title="发表于 2021-05-28 22:06:20">2021-05-28</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B/">《算法导论》</a></span></div><div class="content">前言本博客的内容基本来自《算法导论》。
-算法描述Bellman-Ford 算法解决的是一般情况下的单源最短路径问题，在这里，边的权重可以为负值。给定带权重的有向图 G = (V, E) 和权重函数 \omega : E \rightarrow \mathbf{R}，Bellman-Ford 算法返回一个布尔值，以表明是否存在一个从源结点可以到达的权重为负值的环路。如果存在这样一个环路，算法将告诉我们不存在解决方案。如果没有这种环路存在，算法将给出最短路径和它们的权重。
-Bellman-Ford 算法通过对边进行松弛操作来渐近地降低从源结点 s 到每个结点 v 的最短路径的估计值 v.d，直到该估计值与实际的最短路径权重 \delta(s, v) （注二）相同时为止。该算法返回 TRUE 值当且仅当输入图中不包含可以从源结点到达的权重为负值的环路。
-伪码描述如下
+发现, 有 python.exe 和 pip.exe 等, 所以, 如果我们在安装 Pyth
+        </a>
+      </p>
 
-算法运行的一个示例图
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-29 22:24" pubdate>
+              2021-05-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Python/">Python</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Python/">Python</a>
+            
+              <a href="/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/">小知识</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
 
-对上图的说明：源结点为 s，结点中的数值为该结点的 d（注一）值，加了阴影的边比奥氏前驱值：如果 (u, v) 加了阴影，则 v.\pi = u。在本图的例子中，每一次的松弛操作对边的处理次序都是：(t ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/05/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%9B%BE%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E6%9C%AF%E8%AF%AD/" title="数据结构之图的定义和术语(未竟)">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据结构之图的定义和术语(未竟)"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/05/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%9B%BE%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E6%9C%AF%E8%AF%AD/" title="数据结构之图的定义和术语(未竟)">数据结构之图的定义和术语(未竟)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-28T12:56:40.000Z" title="发表于 2021-05-28 20:56:40">2021-05-28</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">1、图的定义图（Graph）是由两个集合构成，一个是非空但有限的顶点集合 V，另一个是描述顶点之间关系——边的集合 E（可以是 \varnothing）。因此，图可以表示为 G = (V, E)。每条边是一顶点对 (v, w) 且 v, w \in V。
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/05/29/%E8%AF%BB%E3%80%8A%E4%B8%89%E8%A8%80%E4%BA%8C%E6%8B%8D%E3%80%8B/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210529221936.png" srcset="/img/loading.gif" lazyload alt="读《三言二拍》(未竟)">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/29/%E8%AF%BB%E3%80%8A%E4%B8%89%E8%A8%80%E4%BA%8C%E6%8B%8D%E3%80%8B/" target="_self">
+          读《三言二拍》(未竟)
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/29/%E8%AF%BB%E3%80%8A%E4%B8%89%E8%A8%80%E4%BA%8C%E6%8B%8D%E3%80%8B/" target="_self">
+          
+          
+            
+          
+          缇骑：tí jì，缇，橘红色。缇骑，这里指的是锦衣卫。
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-29 19:23" pubdate>
+              2021-05-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%9C%AA%E7%AB%9F/">未竟</a>
+            
+              <a href="/tags/%E8%AF%BB%E4%B9%A6/">读书</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/05/28/%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E4%B9%8B-Bellman-Ford-%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%85%B6-Python-%E5%AE%9E%E7%8E%B0/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210529221759.png" srcset="/img/loading.gif" lazyload alt="单源最短路径之 Bellman-Ford 算法详解及其 Python 实现">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E4%B9%8B-Bellman-Ford-%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%85%B6-Python-%E5%AE%9E%E7%8E%B0/" target="_self">
+          单源最短路径之 Bellman-Ford 算法详解及其 Python 实现
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E4%B9%8B-Bellman-Ford-%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%85%B6-Python-%E5%AE%9E%E7%8E%B0/" target="_self">
+          
+          
+            
+          
+          前言本博客的内容基本来自《算法导论》。
+算法描述Bellman-Ford 算法解决的是一般情况下的单源最短路径问题，在这里，边的权重可以为负值。给定带权重的有向图 G = (V, E) 和权重函数 \omega : E \rightarrow \mathbf{R}，Bellman-Ford 算法返回一个布尔值，以表明是否存在一个从源结点可以到达的权重为负值的环路。如果存在这样一个环路，算法将告诉我
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 22:06" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B/">《算法导论》</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B/">《算法导论》</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/05/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%9B%BE%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E6%9C%AF%E8%AF%AD/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210528211140.png" srcset="/img/loading.gif" lazyload alt="数据结构之图的定义和术语(未竟)">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%9B%BE%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E6%9C%AF%E8%AF%AD/" target="_self">
+          数据结构之图的定义和术语(未竟)
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%9B%BE%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E6%9C%AF%E8%AF%AD/" target="_self">
+          
+          
+            
+          
+          1、图的定义图（Graph）是由两个集合构成，一个是非空但有限的顶点集合 V，另一个是描述顶点之间关系——边的集合 E（可以是 \varnothing）。因此，图可以表示为 G = (V, E)。每条边是一顶点对 (v, w) 且 v, w \in V。
 通常用 |V| 表示顶点的数量，用 |E| 表示边的数量。
-2、图的术语(1)、无向图（Underected Graphs）：无向图中顶点之间的边（Edge）没有方向，即边 (v, w) 等同于 (w, v)。用圆括号“()”表示无向边。边的起点 w 和终点 v 次序并不重要。
+2、图的术语(1)、无向图（Underected Graphs）：无向图中顶点之间的
+        </a>
+      </p>
 
-(2)、有向图（Directed Graphs）：有向图中顶点之间的所有边都有方向，即  不同于 。用尖括号“&lt;&gt;”表示有向边。有向边也称弧（Are）。弧的“起点（弧头）”和“终点（弧尾）”的次序不能随意颠倒。在不会混淆的场合，有向边和无向边都简称为“边”。
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 20:56" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%9C%AA%E7%AB%9F/">未竟</a>
+            
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
 
-(3)、简单图（Simple Graph）：如果图中出现重边（即边的集合 E 中有相同的重复元素）或者自回路边（即边的起点和终点是同一个顶点），就叫做非简单图。
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/05/28/%E6%B5%99%E6%B1%9F%E5%A4%A7%E5%AD%A6%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AC%AC%E4%BA%8C%E7%89%88%E3%80%8Bpdf-%E5%88%86%E4%BA%AB/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210528205455.png" srcset="/img/loading.gif" lazyload alt="浙江大学《数据结构 第二版》pdf 分享">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/%E6%B5%99%E6%B1%9F%E5%A4%A7%E5%AD%A6%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AC%AC%E4%BA%8C%E7%89%88%E3%80%8Bpdf-%E5%88%86%E4%BA%AB/" target="_self">
+          浙江大学《数据结构 第二版》pdf 分享
+        </a>
+      </h1>
 
-(4)、邻接点（Adja ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/05/28/%E6%B5%99%E6%B1%9F%E5%A4%A7%E5%AD%A6%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AC%AC%E4%BA%8C%E7%89%88%E3%80%8Bpdf-%E5%88%86%E4%BA%AB/" title="浙江大学《数据结构 第二版》pdf 分享">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="浙江大学《数据结构 第二版》pdf 分享"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/05/28/%E6%B5%99%E6%B1%9F%E5%A4%A7%E5%AD%A6%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AC%AC%E4%BA%8C%E7%89%88%E3%80%8Bpdf-%E5%88%86%E4%BA%AB/" title="浙江大学《数据结构 第二版》pdf 分享">浙江大学《数据结构 第二版》pdf 分享</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-28T12:48:57.000Z" title="发表于 2021-05-28 20:48:57">2021-05-28</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%B5%84%E6%BA%90/">资源</a></span></div><div class="content">本资源收集自三叶资源网, 没有想到这个资源是真的, 在 Google 上搜索, 很多链接都是虚假的, 点击之后会跳转到这本书的购物网站页面, 气极. 遂再次分享之. 
+      <p class="index-excerpt">
+        <a href="/2021/05/28/%E6%B5%99%E6%B1%9F%E5%A4%A7%E5%AD%A6%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AC%AC%E4%BA%8C%E7%89%88%E3%80%8Bpdf-%E5%88%86%E4%BA%AB/" target="_self">
+          
+          
+            
+          
+          本资源收集自三叶资源网, 没有想到这个资源是真的, 在 Google 上搜索, 很多链接都是虚假的, 点击之后会跳转到这本书的购物网站页面, 气极. 遂再次分享之. 
 下面是我重新生成的百度网盘的链接
 链接：https://pan.baidu.com/s/1gk3VKo1N-N6Wr7C4T37TqQ提取码：kkds 
-需要注意的是, 本书的 pdf 质量并不怎么好, 因为虽然这本书的质量在我看来是十分好的, 而且配合浙江大学数据结构的慕课一起学习效果是非常好的, 但是了解这本书的人似乎并不是很多, 致使珠玉蒙尘, 只能徒呼奈何.
-</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/05/28/%E5%BE%AE%E8%BD%AF%E8%BE%93%E5%85%A5%E6%B3%95%E5%AF%BC%E5%85%A5-600-%E4%B8%87%E7%9F%AD%E8%AF%AD%E8%AF%8D%E5%BA%93/" title="微软输入法导入 600 万短语词库">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微软输入法导入 600 万短语词库"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/05/28/%E5%BE%AE%E8%BD%AF%E8%BE%93%E5%85%A5%E6%B3%95%E5%AF%BC%E5%85%A5-600-%E4%B8%87%E7%9F%AD%E8%AF%AD%E8%AF%8D%E5%BA%93/" title="微软输入法导入 600 万短语词库">微软输入法导入 600 万短语词库</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-28T09:29:26.000Z" title="发表于 2021-05-28 17:29:26">2021-05-28</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Windows/">Windows</a></span></div><div class="content">今天用着这个微软拼音输入法, 突然觉得有点不顺手, 所以看网上有没有有相关的词库让我给导入, 以此来优化这个微软拼音的体验, 结果在吾爱破解找到了这个 600 万的词库(原帖地址:https://www.52pojie.cn/thread-1227015-1-1.html), 试用之后, 发现效果还可以, 遂分享之.
+需要注意的是, 本书的 pdf 质量并不怎么好, 因为虽然这本书的质量在我看来
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 20:48" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%B5%84%E6%BA%90/">资源</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+            
+              <a href="/tags/%E8%B5%84%E6%BA%90/">资源</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/05/28/%E5%BE%AE%E8%BD%AF%E8%BE%93%E5%85%A5%E6%B3%95%E5%AF%BC%E5%85%A5-600-%E4%B8%87%E7%9F%AD%E8%AF%AD%E8%AF%8D%E5%BA%93/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210528174234.png" srcset="/img/loading.gif" lazyload alt="微软输入法导入 600 万短语词库">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/%E5%BE%AE%E8%BD%AF%E8%BE%93%E5%85%A5%E6%B3%95%E5%AF%BC%E5%85%A5-600-%E4%B8%87%E7%9F%AD%E8%AF%AD%E8%AF%8D%E5%BA%93/" target="_self">
+          微软输入法导入 600 万短语词库
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/%E5%BE%AE%E8%BD%AF%E8%BE%93%E5%85%A5%E6%B3%95%E5%AF%BC%E5%85%A5-600-%E4%B8%87%E7%9F%AD%E8%AF%AD%E8%AF%8D%E5%BA%93/" target="_self">
+          
+          
+            
+          
+          今天用着这个微软拼音输入法, 突然觉得有点不顺手, 所以看网上有没有有相关的词库让我给导入, 以此来优化这个微软拼音的体验, 结果在吾爱破解找到了这个 600 万的词库(原帖地址:https://www.52pojie.cn/thread-1227015-1-1.html), 试用之后, 发现效果还可以, 遂分享之.
 原帖给的是蓝奏云和天翼云的链接, 下面给出的百度网盘的链接
-链接：https://pan.baidu.com/s/1JUQTMOa5ynkAG7mSCshLmQ提取码：jcv2 
-</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/05/27/Python-%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84-m-%E5%8F%82%E6%95%B0/" title="Python 命令行的 -m 参数">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python 命令行的 -m 参数"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/05/27/Python-%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84-m-%E5%8F%82%E6%95%B0/" title="Python 命令行的 -m 参数">Python 命令行的 -m 参数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-26T16:20:38.000Z" title="发表于 2021-05-27 00:20:38">2021-05-27</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python/">Python</a></span></div><div class="content">1. 命令格式1python -m &lt;module-name&gt;
+链接：https:/
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 17:29" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Windows/">Windows</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Windows/">Windows</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/05/27/Python-%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84-m-%E5%8F%82%E6%95%B0/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210528124947.png" srcset="/img/loading.gif" lazyload alt="Python 命令行的 -m 参数">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/27/Python-%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84-m-%E5%8F%82%E6%95%B0/" target="_self">
+          Python 命令行的 -m 参数
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/27/Python-%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84-m-%E5%8F%82%E6%95%B0/" target="_self">
+          
+          
+            
+          
+          1. 命令格式1python -m &lt;module-name&gt;
 2. 参数解释在 sys.path 中搜索指定模块, 并以 __main__ 模块执行其内容.
 该参数是 模块名(注一), 不能输入文件扩展名(.py). 模块名应该是有效的绝对的 Python 模块名, 但是 Python 不对此作强制要求(例如, 允许使用含连字符 - 的名称).
-包名称(包括命名空间包(注二))也允许使用. 使用包名称而不是普通模块名时, 解释器把 &lt;pkg&gt;.__main__ 作为主模块执行.
-3. 使用范例创建一个名为 my_env 的 Python 虚拟环境
-1python -m venv my_env
-使用 pip 安装 Django
-1python -m pip install django
-如果我们已经将 pip 添加到系统环境变量中去的话, 是可以直接使用 pip 命令的, 上面这个命令可以在系统中有多种版本的 Python 时给我们提供便利.
-4. 补充关于 sys.path 的说明.
-所谓 sys.path, 其实就是一个指明模块搜索路径的字符串列表(list ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/05/26/Python-%E5%AE%9E%E7%8E%B0%E4%BD%9C%E4%B8%9A%E6%8E%92%E7%A8%8B%E9%97%AE%E9%A2%98/" title="Python 实现作业排程问题">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python 实现作业排程问题"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/05/26/Python-%E5%AE%9E%E7%8E%B0%E4%BD%9C%E4%B8%9A%E6%8E%92%E7%A8%8B%E9%97%AE%E9%A2%98/" title="Python 实现作业排程问题">Python 实现作业排程问题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-26T05:15:40.000Z" title="发表于 2021-05-26 13:15:40">2021-05-26</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a></span></div><div class="content">1. 问题描述
+包名称(包括命名空间包(注二))也允许
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-27 00:20" pubdate>
+              2021-05-27
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Python/">Python</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Python/">Python</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/05/26/Python-%E5%AE%9E%E7%8E%B0%E4%BD%9C%E4%B8%9A%E6%8E%92%E7%A8%8B%E9%97%AE%E9%A2%98/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210526180343.png" srcset="/img/loading.gif" lazyload alt="Python 实现作业排程问题">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/26/Python-%E5%AE%9E%E7%8E%B0%E4%BD%9C%E4%B8%9A%E6%8E%92%E7%A8%8B%E9%97%AE%E9%A2%98/" target="_self">
+          Python 实现作业排程问题
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/26/Python-%E5%AE%9E%E7%8E%B0%E4%BD%9C%E4%B8%9A%E6%8E%92%E7%A8%8B%E9%97%AE%E9%A2%98/" target="_self">
+          
+          
+            
+          
+          1. 问题描述
 Automobile factory with two assembly lines
 Each line has n stations: S_{1, 1},...,S_{1, n} and S_{2, 1},...,S_{2, n}
-Corresponding stations S_{1, j} and S_{2, j} perform the same function but can take different amounts of time a_{1, j} and a_{2, j}
-Entry times e_1 and e_2 and exit times x_1 and x_2
+Corresponding stations S_{1, j} and S_{2, j} perform the same function but 
+        </a>
+      </p>
 
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-26 13:15" pubdate>
+              2021-05-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B/">《算法导论》</a>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
 
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/05/24/%E4%B8%80%E4%BA%9B%E5%81%8F%E5%83%BB%E4%BD%86%E6%9C%89%E7%94%A8%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/68214479_p0.jpg" srcset="/img/loading.gif" lazyload alt="一些偏僻但有用的数学知识点">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/24/%E4%B8%80%E4%BA%9B%E5%81%8F%E5%83%BB%E4%BD%86%E6%9C%89%E7%94%A8%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_self">
+          一些偏僻但有用的数学知识点
+        </a>
+      </h1>
 
-
-给出一个示例的装配线，要求输出最优的排程方案
-
-2. 思路分析首先, 利用动态规划思想找出递归关系, 这个是最重要的一步
-
-这里的 f_1[j] 表示在第一条装配线的第 j 个站台处理完之后所花费的最少的时间. f_2[j] 也是同理.
-然后, 根据这个关系, 我们就可以自底向上构建 f_1 和 f_2 这两个数组了.
-伪码描述如下
-
-3. 代码实现123456789101 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/05/24/%E4%B8%80%E4%BA%9B%E5%81%8F%E5%83%BB%E4%BD%86%E6%9C%89%E7%94%A8%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E7%82%B9/" title="一些偏僻但有用的数学知识点">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一些偏僻但有用的数学知识点"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/05/24/%E4%B8%80%E4%BA%9B%E5%81%8F%E5%83%BB%E4%BD%86%E6%9C%89%E7%94%A8%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E7%82%B9/" title="一些偏僻但有用的数学知识点">一些偏僻但有用的数学知识点</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-24T04:47:49.000Z" title="发表于 2021-05-24 12:47:49">2021-05-24</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a></span></div><div class="content">知识点 1: 0 的阶乘是 1.
+      <p class="index-excerpt">
+        <a href="/2021/05/24/%E4%B8%80%E4%BA%9B%E5%81%8F%E5%83%BB%E4%BD%86%E6%9C%89%E7%94%A8%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_self">
+          
+          
+            
+          
+          知识点 1: 0 的阶乘是 1.
 知识点 2: 在集合记号中, 冒号意指”使得”.
-</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/4/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/#content-inner">6</a><a class="extend next" rel="next" href="/page/6/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Fany Full</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">57</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">29</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/09/21/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E4%B8%80/" title="编译原理作业一"><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="编译原理作业一"/></a><div class="content"><a class="title" href="/2021/09/21/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E4%B8%80/" title="编译原理作业一">编译原理作业一</a><time datetime="2021-09-21T09:47:02.000Z" title="发表于 2021-09-21 17:47:02">2021-09-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/20/LeetCode-12-Integer-to-Roman/" title="LeetCode 12 Integer to Roman"><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 12 Integer to Roman"/></a><div class="content"><a class="title" href="/2021/09/20/LeetCode-12-Integer-to-Roman/" title="LeetCode 12 Integer to Roman">LeetCode 12 Integer to Roman</a><time datetime="2021-09-20T15:41:27.000Z" title="发表于 2021-09-20 23:41:27">2021-09-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/20/%E3%80%8A%E8%81%8A%E6%96%8B%E5%BF%97%E5%BC%82%E3%80%8B%E6%9C%AD%E8%AE%B0/" title="《聊斋志异》札记"><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《聊斋志异》札记"/></a><div class="content"><a class="title" href="/2021/09/20/%E3%80%8A%E8%81%8A%E6%96%8B%E5%BF%97%E5%BC%82%E3%80%8B%E6%9C%AD%E8%AE%B0/" title="《聊斋志异》札记">《聊斋志异》札记</a><time datetime="2021-09-20T06:53:32.000Z" title="发表于 2021-09-20 14:53:32">2021-09-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%A0%81%E4%B8%80%E4%BD%8D%E4%B9%98%E6%B3%95/" title="计算机原码一位乘法"><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机原码一位乘法"/></a><div class="content"><a class="title" href="/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%A0%81%E4%B8%80%E4%BD%8D%E4%B9%98%E6%B3%95/" title="计算机原码一位乘法">计算机原码一位乘法</a><time datetime="2021-09-18T07:21:12.000Z" title="发表于 2021-09-18 15:21:12">2021-09-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%BB%E7%A0%81/" title="计算机移码"><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机移码"/></a><div class="content"><a class="title" href="/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%BB%E7%A0%81/" title="计算机移码">计算机移码</a><time datetime="2021-09-18T06:55:10.000Z" title="发表于 2021-09-18 14:55:10">2021-09-18</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
-            <i class="fas fa-folder-open"></i>
-            <span>分类</span>
-            <a class="card-more-btn" href="/categories/" title="查看更多">
-    <i class="fas fa-angle-right"></i></a>
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-24 12:47" pubdate>
+              2021-05-24
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%9C%AA%E7%AB%9F/">未竟</a>
+            
+              <a href="/tags/%E6%95%B0%E5%AD%A6/">数学</a>
+            
+              <a href="/tags/%E6%9D%82%E8%AF%86/">杂识</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/4/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/#board">6</a><a class="extend next" rel="next" href="/page/6/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
             </div>
-            <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E8%AF%AD%E8%A8%80/"><span class="card-category-list-name">C 语言</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/LeetCode/"><span class="card-category-list-name">LeetCode</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/MySQL/"><span class="card-category-list-name">MySQL</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Python/"><span class="card-category-list-name">Python</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/VSCode/"><span class="card-category-list-name">VSCode</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Windows/"><span class="card-category-list-name">Windows</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Windows10/"><span class="card-category-list-name">Windows10</span><span class="card-category-list-count">1</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/C-%E8%AF%AD%E8%A8%80/" style="font-size: 1.21em; color: #999ea4">C 语言</a> <a href="/tags/Java/" style="font-size: 1.27em; color: #99a0a9">Java</a> <a href="/tags/LeetCode/" style="font-size: 1.33em; color: #99a2af">LeetCode</a> <a href="/tags/Maven/" style="font-size: 1.1em; color: #999">Maven</a> <a href="/tags/MyBatis/" style="font-size: 1.1em; color: #999">MyBatis</a> <a href="/tags/MySQL/" style="font-size: 1.16em; color: #999b9e">MySQL</a> <a href="/tags/PyCharm/" style="font-size: 1.1em; color: #999">PyCharm</a> <a href="/tags/Python/" style="font-size: 1.44em; color: #99a7ba">Python</a> <a href="/tags/Spring/" style="font-size: 1.16em; color: #999b9e">Spring</a> <a href="/tags/VSCode/" style="font-size: 1.1em; color: #999">VSCode</a> <a href="/tags/Windows/" style="font-size: 1.1em; color: #999">Windows</a> <a href="/tags/Windows10/" style="font-size: 1.1em; color: #999">Windows10</a> <a href="/tags/markdown/" style="font-size: 1.1em; color: #999">markdown</a> <a href="/tags/masm/" style="font-size: 1.16em; color: #999b9e">masm</a> <a href="/tags/unittest/" style="font-size: 1.1em; color: #999">unittest</a> <a href="/tags/%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B/" style="font-size: 1.39em; color: #99a4b4">《算法导论》</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E7%94%A8/" style="font-size: 1.1em; color: #999">个人用</a> <a href="/tags/%E4%BC%A0%E8%AE%B0/" style="font-size: 1.1em; color: #999">传记</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 1.1em; color: #999">动态规划</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 1.1em; color: #999">博客</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%9B%AD%E8%BF%81%E7%A7%BB/" style="font-size: 1.1em; color: #999">博客园迁移</a> <a href="/tags/%E5%8F%8D%E7%9C%81/" style="font-size: 1.1em; color: #999">反省</a> <a href="/tags/%E5%A4%A7%E4%BA%8C%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%AE%AD/" style="font-size: 1.1em; color: #999">大二工程实训</a> <a href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F/" style="font-size: 1.1em; color: #999">小玩意</a> <a href="/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/" style="font-size: 1.16em; color: #999b9e">小知识</a> <a href="/tags/%E5%BD%B1%E8%AF%84/" style="font-size: 1.1em; color: #999">影评</a> <a href="/tags/%E5%BF%83%E5%A2%83/" style="font-size: 1.1em; color: #999">心境</a> <a href="/tags/%E5%BF%83%E8%BF%B9/" style="font-size: 1.1em; color: #999">心迹</a> <a href="/tags/%E6%80%9D%E8%80%83/" style="font-size: 1.1em; color: #999">思考</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.1em; color: #999">数学</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.16em; color: #999b9e">数据结构</a> <a href="/tags/%E6%96%87%E5%AD%A6/" style="font-size: 1.1em; color: #999">文学</a> <a href="/tags/%E6%9C%AA%E7%AB%9F/" style="font-size: 1.5em; color: #99a9bf">未竟</a> <a href="/tags/%E6%9D%82%E8%AF%86/" style="font-size: 1.1em; color: #999">杂识</a> <a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 1.1em; color: #999">杂项</a> <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" style="font-size: 1.27em; color: #99a0a9">汇编语言</a> <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 1.1em; color: #999">滑动窗口</a> <a href="/tags/%E6%BC%AB%E8%AF%84/" style="font-size: 1.16em; color: #999b9e">漫评</a> <a href="/tags/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/" style="font-size: 1.33em; color: #99a2af">算法设计与分析</a> <a href="/tags/%E8%8D%89%E7%A8%BF/" style="font-size: 1.1em; color: #999">草稿</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/09/"><span class="card-archive-list-date">九月 2021</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/08/"><span class="card-archive-list-date">八月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/07/"><span class="card-archive-list-date">七月 2021</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/06/"><span class="card-archive-list-date">六月 2021</span><span class="card-archive-list-count">26</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/05/"><span class="card-archive-list-date">五月 2021</span><span class="card-archive-list-count">16</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">57</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-09-22T14:09:25.264Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Fany Full</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
