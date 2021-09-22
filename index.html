@@ -1,937 +1,236 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fany Full's Blog</title><meta name="author" content="Fany Full"><meta name="copyright" content="Fany Full"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="Fany Full&#39;s Blog">
+<meta property="og:url" content="http://fanyfull.github.io/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="Fany Full">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://fanyfull.github.io/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Fany Full\'s Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-09-22 18:02:19'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
-<!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
 
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
 
-
-<head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
-  <link rel="icon" href="/img/myfavicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
-  <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
-  <meta name="author" content="John Doe">
-  <meta name="keywords" content="">
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
-  <title>Fany Full&#39;s Blog</title>
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-<!-- 自定义样式保持在最底部 -->
-
-  
-<link rel="stylesheet" href="/css/custom.css">
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
-
-
-<body>
-  <header style="height: 100vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fany Full's Blog</strong>&nbsp;</a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
-          </li>
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-    <div class="banner" id="banner" parallax=true
-         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="我欲穿花寻路，直入白云深处，浩气展虹霓。">
-              
-            </span>
-
-            
-          </div>
-
-          
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
-          
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main>
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          style=margin-top:0>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-
-  <div class="row mx-auto index-card">
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/09/20/LeetCode-12-Integer-to-Roman/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210920234452.png" srcset="/img/loading.gif" lazyload alt="LeetCode 12 Integer to Roman">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/09/20/LeetCode-12-Integer-to-Roman/" target="_self">
-          LeetCode 12 Integer to Roman
-        </a>
-      </h1>
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">57</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">29</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Fany Full's Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Fany Full's Blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/09/21/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E4%B8%80/" title="编译原理作业一">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="编译原理作业一"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/09/21/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E4%B8%80/" title="编译原理作业一">编译原理作业一</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-09-21T09:47:02.000Z" title="发表于 2021-09-21 17:47:02">2021-09-21</time></span></div><div class="content">作业一1、课后作业1、解释下列术语：
+编译程序，源程序，目标程序，编译程序的前端、后端和遍
+解：
+(1) 编译程序：从功能上看，一个编译程序就是一个语言翻译程序。语言翻译程序把一种语言（称作源语言）书写的程序翻译成另一种语言（称作目标语言）的等价程序。
+(2) 源程序：源语言编写的程序。
+(3) 目标程序：目标语言书写的程序。
+(4) 编译程序的前端：将与仅依赖于源程序而与目标机器（硬件）无关的阶段组合成前端。
+(5) 后端：将与目标机器（硬件）相关的阶段组合成后端。
+(6) 遍：“遍”也称为“趟”。所谓“一遍”，就是对源程序或等价的中间程序从头到尾扫视一次，并完成编译任务之过程。
+2、编译程序有哪些主要构成成分？各自的主要功能是什么？
+解：
+一个典型的编译程序通常包含 8 个组成部分，它们是：词法分析程序、语法分析程序、语义分析程序、中间代码生成程序、代码优化程序、目标代码生成程序、表格管理程序和出错处理程序。
+各自的功能如下：
 
-      <p class="index-excerpt">
-        <a href="/2021/09/20/LeetCode-12-Integer-to-Roman/" target="_self">
-          
-          
-            
-          
-          1234567891011121314151617181920212223242526# -*- coding: utf-8 -*-# @File  : leet_12.py# @Author: FanyFull# @Date  : 2021/9/20class Solution:    def intToRoman(self, num: int) -&gt; str:        number
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-09-20 23:41" pubdate>
-              2021-09-20
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/LeetCode/">LeetCode</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/LeetCode/">LeetCode</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/09/20/%E3%80%8A%E8%81%8A%E6%96%8B%E5%BF%97%E5%BC%82%E3%80%8B%E6%9C%AD%E8%AE%B0/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210920151949.png" srcset="/img/loading.gif" lazyload alt="《聊斋志异》札记">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/09/20/%E3%80%8A%E8%81%8A%E6%96%8B%E5%BF%97%E5%BC%82%E3%80%8B%E6%9C%AD%E8%AE%B0/" target="_self">
-          《聊斋志异》札记
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/09/20/%E3%80%8A%E8%81%8A%E6%96%8B%E5%BF%97%E5%BC%82%E3%80%8B%E6%9C%AD%E8%AE%B0/" target="_self">
-          
-          
-            
-          
-          一、卷一娇娜
+词法分析程序：从左至右扫描字符流的源程序、分解构成源程序的字符串，识别出一个个的单词。
+语法分析程序：层次分析。依据源程序的语法规则把源程序的单词序列组成 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/09/20/LeetCode-12-Integer-to-Roman/" title="LeetCode 12 Integer to Roman">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 12 Integer to Roman"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/09/20/LeetCode-12-Integer-to-Roman/" title="LeetCode 12 Integer to Roman">LeetCode 12 Integer to Roman</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-09-20T15:41:27.000Z" title="发表于 2021-09-20 23:41:27">2021-09-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/LeetCode/">LeetCode</a></span></div><div class="content">LeetCode 12 打卡"</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/09/20/%E3%80%8A%E8%81%8A%E6%96%8B%E5%BF%97%E5%BC%82%E3%80%8B%E6%9C%AD%E8%AE%B0/" title="《聊斋志异》札记">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《聊斋志异》札记"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/09/20/%E3%80%8A%E8%81%8A%E6%96%8B%E5%BF%97%E5%BC%82%E3%80%8B%E6%9C%AD%E8%AE%B0/" title="《聊斋志异》札记">《聊斋志异》札记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-09-20T06:53:32.000Z" title="发表于 2021-09-20 14:53:32">2021-09-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span></div><div class="content">一、卷一娇娜
 笑云：“仆不求进取也。”
 年约十三四，娇波流慧，细柳生姿。女乃敛羞容，揄长袖。而贪近娇姿，不惟不觉其苦，且恐速竣割事，偎傍不久。
 
 按：这几个正侧描写，以摹写娇娜的美貌，主要是娇媚，年约十三四，那想必是十分娇嫩了，况娇娜属狐类，更添其媚。孔生雪笠此人，我不甚喜欢，一个耽于美貌的读书人，与我多有类似之处（笑）。“不惟···且···”这个句式，可谓贴切之极。
 
-“曾经沧海难为水，除却巫山
-        </a>
-      </p>
+“曾经沧海难为水，除却巫山不是云。”
 
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-09-20 14:53" pubdate>
-              2021-09-20
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
+按：书中的注释给的解释是：形容男子对钟情女子的专一真挚之情。可是元稹的故事在高中被读烂，恐怕这句话多少要失去一些本意了。
 
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%A0%81%E4%B8%80%E4%BD%8D%E4%B9%98%E6%B3%95/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210919170052.png" srcset="/img/loading.gif" lazyload alt="计算机原码一位乘法">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%A0%81%E4%B8%80%E4%BD%8D%E4%B9%98%E6%B3%95/" target="_self">
-          计算机原码一位乘法
-        </a>
-      </h1>
+画黛弯蛾，莲钩蹴凤。
 
-      <p class="index-excerpt">
-        <a href="/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%A0%81%E4%B8%80%E4%BD%8D%E4%B9%98%E6%B3%95/" target="_self">
-          
-          
-            
-          
-          n 位原码乘法包括 n 个位积（注 1），也就是每次只利用乘数中的一位来计算位积，最终需要将 n 个位积全部累加起来得到乘积。这种方法称为原码一位乘法。
+按：莲钩蹴凤，莲钩即小足，这句话意思是女子的小小的脚上穿着可爱的凤头鞋。这两句话用来白描女子有点效果。
+
+是夕，鼓吹阗咽，尘落漫飞，以望中仙人，忽同衾幄，遂疑广寒宫殿未必在云霄矣。
+
+按：阗（tián）咽（yè），喧闹。这一段好似一段梦话，所以说，洞房花烛夜，尤其是当洞房花烛的对象是美貌的女子时，人生几大喜事之一。
+
+得此良友，时一谈宴，则‘色授魂与’，尤胜于‘颠倒衣裳’矣。
+
+按：色授魂与，精神方面的相通，当然要远胜颠倒衣裳这一昙花 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%A0%81%E4%B8%80%E4%BD%8D%E4%B9%98%E6%B3%95/" title="计算机原码一位乘法">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机原码一位乘法"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%A0%81%E4%B8%80%E4%BD%8D%E4%B9%98%E6%B3%95/" title="计算机原码一位乘法">计算机原码一位乘法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-09-18T07:21:12.000Z" title="发表于 2021-09-18 15:21:12">2021-09-18</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a></span></div><div class="content">n 位原码乘法包括 n 个位积（注 1），也就是每次只利用乘数中的一位来计算位积，最终需要将 n 个位积全部累加起来得到乘积。这种方法称为原码一位乘法。
 1、运算法则
 符号位单独参加运算，数据位取绝对值参加运算。
 运算法则：
 设：[X]_{原} = X_0.X_1 X_2...X_n，[Y]_{原} = Y_0.Y_1 Y_2...Y_n
-则：$P_0 = X_0 \oplus Y_0$，$|P|
-        </a>
-      </p>
+则：$P_0 = X_0 \oplus Y_0$，$|P| = |X| \cdot |Y|$
 
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-09-18 15:21" pubdate>
-              2021-09-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%BB%E7%A0%81/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210919170138.png" srcset="/img/loading.gif" lazyload alt="计算机移码">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%BB%E7%A0%81/" target="_self">
-          计算机移码
-        </a>
-      </h1>
+每次循环累加的位积为 $|X|$ 或 0，没得到一次部分积，就将其右移一位，从而得到一位乘积。
 
-      <p class="index-excerpt">
-        <a href="/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%BB%E7%A0%81/" target="_self">
-          
-          
-            
-          
-          移码表示浮点数的阶码，只有整数形式，如 IEEE754 中阶码用移码表示。
+2、举例设 $X = 0.110$，$Y = -0.101$，计算 [X]_{原} \cdot [Y]_{原}（注 2）
+解：[X]_{原} = 0.110, [Y]_{原} = 1.101 \qquad \qquad \qquad \qquad
+\begin{equation}
+\begin{split}
+&部分积 \qquad & 乘数/判断位 \qquad & 说明 \\
+&00.000 \qquad & Y_0.101 & Y_3 = 1, 部分积  ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%BB%E7%A0%81/" title="计算机移码">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机移码"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%BB%E7%A0%81/" title="计算机移码">计算机移码</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-09-18T06:55:10.000Z" title="发表于 2021-09-18 14:55:10">2021-09-18</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a></span></div><div class="content">移码表示浮点数的阶码，只有整数形式，如 IEEE754 中阶码用移码表示。
 设定点整数 $X$ 的移码形式为 $X_0 X_1 X_2 X_3…X_n$，则移码的定义是：
 
 [X]_{移} = 2^n + X \quad -2^n \leqslant X < 2^n具体实现：数值位与 $X$ 的补码相同，符号位与补码相反。
 举例
 
 \begin{matrix}
-X = +0101 \quad [X
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-09-18 14:55" pubdate>
-              2021-09-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/08/09/%E3%80%8A%E5%A4%A9%E5%85%83%E7%AA%81%E7%A0%B4%E3%80%8B%E8%A7%82%E5%90%8E%E6%84%9F/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210809030628.png" srcset="/img/loading.gif" lazyload alt="谈谈我对《天元突破》的观感">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/08/09/%E3%80%8A%E5%A4%A9%E5%85%83%E7%AA%81%E7%A0%B4%E3%80%8B%E8%A7%82%E5%90%8E%E6%84%9F/" target="_self">
-          谈谈我对《天元突破》的观感
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/08/09/%E3%80%8A%E5%A4%A9%E5%85%83%E7%AA%81%E7%A0%B4%E3%80%8B%E8%A7%82%E5%90%8E%E6%84%9F/" target="_self">
-          
-          
-            
-          
-          之前直接用了“…观后感”这个标题，感觉有点幼稚，虽说这个也不咋地啊哈。
+X = +0101 \quad [X]_{补} = 00101 \quad [X]_{移} = 10101 \\
+X = -0101 \quad [X]_{补} = 11011 \quad [X]_{移} = 01011
+\end{matrix}
+参考：
+1、华科软院计组第二章 PPT。
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/08/09/%E3%80%8A%E5%A4%A9%E5%85%83%E7%AA%81%E7%A0%B4%E3%80%8B%E8%A7%82%E5%90%8E%E6%84%9F/" title="谈谈我对《天元突破》的观感">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="谈谈我对《天元突破》的观感"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/08/09/%E3%80%8A%E5%A4%A9%E5%85%83%E7%AA%81%E7%A0%B4%E3%80%8B%E8%A7%82%E5%90%8E%E6%84%9F/" title="谈谈我对《天元突破》的观感">谈谈我对《天元突破》的观感</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-08-08T17:24:53.000Z" title="发表于 2021-08-09 01:24:53">2021-08-09</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%BC%AB%E8%AF%84/">漫评</a></span></div><div class="content">之前直接用了“…观后感”这个标题，感觉有点幼稚，虽说这个也不咋地啊哈。
 接觸到這一部番的緣由，是前幾天想要找一些可看的番，就到 Youtube 上面搜索了一下，推薦的一些比如鋼煉之類都看過，那個鷄賊的 Youtuber 最後沒忍住談了一下他心中最賽高的番，什麽永遠第一，不可撼動，當時不以爲然，現在，多少也確定了它在我心中的地位——燃係最强番。
-高中時候，時間看上去很緊，那時晚上偷偷在被窩看動漫卻一
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-08-09 01:24" pubdate>
-              2021-08-09
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%BC%AB%E8%AF%84/">漫评</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%BC%AB%E8%AF%84/">漫评</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/08/04/MySQL-%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210804235025.png" srcset="/img/loading.gif" lazyload alt="MySQL 常用数据类型">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/08/04/MySQL-%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" target="_self">
-          MySQL 常用数据类型
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/08/04/MySQL-%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" target="_self">
-          
-          
-            
-          
-          一、数值类型
+高中時候，時間看上去很緊，那時晚上偷偷在被窩看動漫卻一般都不會跳 OP 和 ED，現在看動漫沒有了高中時候的那種情懷，直接就是跳到劇情，這就導致了看完了精彩的番劇之後，會惋惜跳過了 OP 和 ED。音樂這種東西，很容易就會把記憶和情感存儲在其中，這個存儲的最終載體，是每一個不同的人的腦海中。所以，現在匆匆忙忙刷完一部動漫作品，不得不説，這是一種囫圇吞棗的行爲。以前有很多被認爲是不怎麽優秀的作品，比如熱誠傳説，高中時候看的，每一集都是完整地從頭看到尾，我對哪部動漫現在還有不壞的印象，它的 OP，叫做 Overfly，伴隨著劇情和一些零零碎碎的畫面，永遠地留存在我的腦海中。另一部相對優秀許多的作品《斬·赤紅之瞳》，現在已經不記得多少了，大概率是當時無 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/08/04/MySQL-%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="MySQL 常用数据类型">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL 常用数据类型"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/08/04/MySQL-%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="MySQL 常用数据类型">MySQL 常用数据类型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-08-04T09:35:45.000Z" title="发表于 2021-08-04 17:35:45">2021-08-04</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/MySQL/">MySQL</a></span></div><div class="content">一、数值类型
 INT（或 INTEGER）: 整数值，支持 -2147483648~2147483647（如果是 UNSIGNED，为 0~4294967295，边界值都可以取到）的数。
 
 一般来说，只需要用到 INT 类型，比如，存储数据的 id。
 二、串类型即字符串类型。
 
-CHAR: 定长串。大小是 0 ~ 255 个字节。注意，不是字符。而我们在定义时用的 CHAR(n) 中的 n 表示字
-        </a>
-      </p>
+CHAR: 定长串。大小是 0 ~ 255 个字节。注意，不是字符。而我们在定义时用的 CHAR(n) 中的 n 表示字符。要注意，英文字符是一个字符的大小为一个字节。而中文的一个字符的长度，要分类讨论。UTF-8 编码一个汉字等 = 3 个字节；GBK编码一个汉字 = 2 个字节。它的长度必须在创建时指定，否则 MySQL 假定为 CHAR(1)。
+VARCHAR: 变长串。大小是 0 ~ 65532 个字节。同样地，要注意字节与字符的区别。如果在创建时指定为 VARCHAR(n)，则可存储 0 到 n 个字符的变长串（其中 n \leq 255）。
 
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-08-04 17:35" pubdate>
-              2021-08-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/MySQL/">MySQL</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/MySQL/">MySQL</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
+串类型中最常用的就是 CHAR 和 VARCHAR 这两个类型，关于在何种情况下使用这两个类型，我曾经在一篇国外博客看到如下总结（原文链接已经遗失）：
 
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/07/18/%E5%A4%A7%E5%AD%A6%E7%9A%84%E5%9B%9B%E5%8F%A0%E5%8D%8A%E7%A7%8D%E5%8F%AF%E8%83%BD%E6%80%A7/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210804172818.png" srcset="/img/loading.gif" lazyload alt="大学的四叠半种可能性">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/07/18/%E5%A4%A7%E5%AD%A6%E7%9A%84%E5%9B%9B%E5%8F%A0%E5%8D%8A%E7%A7%8D%E5%8F%AF%E8%83%BD%E6%80%A7/" target="_self">
-          大学的四叠半种可能性
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/07/18/%E5%A4%A7%E5%AD%A6%E7%9A%84%E5%9B%9B%E5%8F%A0%E5%8D%8A%E7%A7%8D%E5%8F%AF%E8%83%BD%E6%80%A7/" target="_self">
-          
-          
-            
-          
-          系《四叠半神话大系》漫评。
-之前记错了一件事情，是 ED 而非 OP 的音乐和回转企鹅罐很像。那种日本少女的声线，带有一点冷冷的气息，容易让人联想到中学时代的学校的风云少女，这种声音，不会一下子让人很喜欢，但是那种声线，声色，绝对可以被划分成一个独特的类别。我现在不是很喜欢，但面对这种声音，这种唱法，却让我有一种留恋的感觉，留恋当时看《回转企鹅罐》的感动，当时也颇觉企鹅罐的 OP 很惊艳，乃至于成
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-18 17:57" pubdate>
-              2021-07-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%BD%B1%E8%AF%84/">影评</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%BC%AB%E8%AF%84/">漫评</a>
-            
-              <a href="/tags/%E5%BD%B1%E8%AF%84/">影评</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/07/11/LeetCode-6-ZigZag-Conversion/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210711190448.png" srcset="/img/loading.gif" lazyload alt="LeetCode 6 ZigZag Conversion">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/07/11/LeetCode-6-ZigZag-Conversion/" target="_self">
-          LeetCode 6 ZigZag Conversion
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/07/11/LeetCode-6-ZigZag-Conversion/" target="_self">
-          
-          
-            
-          
-          一、题目链接https://leetcode.com/problems/zigzag-conversion/
+经常 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/07/18/%E5%A4%A7%E5%AD%A6%E7%9A%84%E5%9B%9B%E5%8F%A0%E5%8D%8A%E7%A7%8D%E5%8F%AF%E8%83%BD%E6%80%A7/" title="大学的四叠半种可能性">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="大学的四叠半种可能性"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/07/18/%E5%A4%A7%E5%AD%A6%E7%9A%84%E5%9B%9B%E5%8F%A0%E5%8D%8A%E7%A7%8D%E5%8F%AF%E8%83%BD%E6%80%A7/" title="大学的四叠半种可能性">大学的四叠半种可能性</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-18T09:57:05.000Z" title="发表于 2021-07-18 17:57:05">2021-07-18</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BD%B1%E8%AF%84/">影评</a></span></div><div class="content">系《四叠半神话大系》漫评。
+之前记错了一件事情，是 ED 而非 OP 的音乐和回转企鹅罐很像。那种日本少女的声线，带有一点冷冷的气息，容易让人联想到中学时代的学校的风云少女，这种声音，不会一下子让人很喜欢，但是那种声线，声色，绝对可以被划分成一个独特的类别。我现在不是很喜欢，但面对这种声音，这种唱法，却让我有一种留恋的感觉，留恋当时看《回转企鹅罐》的感动，当时也颇觉企鹅罐的 OP 很惊艳，乃至于成瘾，就日夜循环，可是万事都怕越过那一个度，经过那一段时间的痴迷，现在反而是对其有点敬而远之的意思了。还有一点，我觉得很重要，就是不管这些歌有没有让我厌倦，之后当我再次听到这些歌曲的时候，我的心中总能够激起想要学习日语的欲望，这样看来，我的心底是没有失去对它们的最初的喜爱的。
+说起来，OP 和 ED 的画面和动漫的主体一样，有一些意识流，头一次看，给人一种恍惚的感觉，我甚至觉得导演难道是给我喂了致幻药吗？有时还会有一些三次元的画面切进来，我本来是有些讨厌这样的形式的，因为这会使得二次元动画变得不那么纯粹，不过呢，就导演这个德性，我想，我也就顺着他的意，在二次元和三次元之间迷幻下去吧。刚刚暂停了一 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/07/16/%E8%BF%B7%E8%8C%AB%E4%B8%8E%E5%A4%A7%E7%97%9B%E8%8B%A6/" title="迷茫与大痛苦">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="迷茫与大痛苦"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/07/16/%E8%BF%B7%E8%8C%AB%E4%B8%8E%E5%A4%A7%E7%97%9B%E8%8B%A6/" title="迷茫与大痛苦">迷茫与大痛苦</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-16T13:58:06.000Z" title="发表于 2021-07-16 21:58:06">2021-07-16</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a></span></div><div class="content">现在的我，内心中，乃至是肉体，无不是处在一种极其迷茫的状态，这种迷茫，伴随着痛苦，我不知道我为什么要遭受这一些，我不明白，从小到大，我为什么要遭受这一切？
+我似乎总是处在一种时间不够用的状态中，现在依然是这种状态，从很久以前，一直持续到现在。偶尔会稍微摆脱，但那种状态，持续的时间就如手淫给人带来的快感一样短暂。
+迷茫与大痛苦，这个标题有些太过夸张，似乎。就实际情况而言，人与人之间是存在很大的差异的。我的痛苦，在别人看来，可能不值一提，相应地，有些人的痛苦与恐惧，我看了则有可能不屑一顾。这一切，我认为很大程度上取决于一个人接受的教育和他成长的家庭背景。他的身边的人，他所接触的知识，诸如此类，构筑出他的这样的一个性格。我的性格，也是这样形成的。
+在不追求所谓的求同存异的条件下，我要谈一谈近期我的遭遇。这个暑假，本来是想出去实习，可是，这个学期的课业耗费了我大量的的时间，最后的结果也没有好到哪里去。我的追求是，要搞懂每一个知识点，现在看来，是有一点神经质了。这本就是不可能完成的事情，按照我的估计，即使是一个年级智识最靠前的同学，他要应付这么多的课程，而且，在学时不够、老师授课水平参差不齐的情 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/07/11/LeetCode-6-ZigZag-Conversion/" title="LeetCode 6 ZigZag Conversion">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 6 ZigZag Conversion"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/07/11/LeetCode-6-ZigZag-Conversion/" title="LeetCode 6 ZigZag Conversion">LeetCode 6 ZigZag Conversion</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-11T10:54:09.000Z" title="发表于 2021-07-11 18:54:09">2021-07-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/LeetCode/">LeetCode</a></span></div><div class="content">一、题目链接https://leetcode.com/problems/zigzag-conversion/
 二、解答这题有多个解答，我只取一种比较直观的，而且我认为，这种解法是最适合计算机的，其他如找出数学规律的解答，其数学思想是好的，但是，我认为利用直观的解法可以节约我们的时间。
 先给出代码
-123456789101112131415161718class Solution:    def c
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-11 18:54" pubdate>
-              2021-07-11
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/LeetCode/">LeetCode</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/LeetCode/">LeetCode</a>
-            
-              <a href="/tags/Python/">Python</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/07/10/LeetCode-3-Longest-Substring-Without-Repeating-Characters/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210710162202.png" srcset="/img/loading.gif" lazyload alt="LeetCode 3 Longest Substring Without Repeating Characters">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/07/10/LeetCode-3-Longest-Substring-Without-Repeating-Characters/" target="_self">
-          LeetCode 3 Longest Substring Without Repeating Characters
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/07/10/LeetCode-3-Longest-Substring-Without-Repeating-Characters/" target="_self">
-          
-          
-            
-          
-          一、题目链接https://leetcode.com/problems/longest-substring-without-repeating-characters/
-二、解答2.1 解法一，暴力求解直接使用暴力方法，遍历所有可能的子串，并判断是否有重复的字符，当没有重复的字符时，计算其长度，然后取最长的字符串的长度即为最后的结果。
-123456789101112131415161718class
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-10 15:25" pubdate>
-              2021-07-10
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/LeetCode/">LeetCode</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/LeetCode/">LeetCode</a>
-            
-              <a href="/tags/Python/">Python</a>
-            
-              <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">滑动窗口</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/07/09/%E8%B0%88%E4%B8%80%E8%B0%88%E3%80%8A%E7%B9%81%E8%8A%B1%E3%80%8B/" target="_self">
-          <img src="/img/karigurashi022.jpg" srcset="/img/loading.gif" lazyload alt="谈一谈《繁花》">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/07/09/%E8%B0%88%E4%B8%80%E8%B0%88%E3%80%8A%E7%B9%81%E8%8A%B1%E3%80%8B/" target="_self">
-          谈一谈《繁花》
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/07/09/%E8%B0%88%E4%B8%80%E8%B0%88%E3%80%8A%E7%B9%81%E8%8A%B1%E3%80%8B/" target="_self">
-          
-          
-            
-          
-          在中学时代，我是读过几本矛盾文学奖的作品的，怎么说呢，好坏参差，大体上，是好作品要多一些，那时我也知道，茅盾文学奖是中国文学的最高奖项，其含金量是很高的，因此，我也翻阅了一些茅奖的作品目录，一部作品，《繁花》，书名很打动我，再看作者，金宇澄，这名字，有点小气，不像是老一辈的名字，再一看题材，旧上海，上个世纪，革命，文革，变革，时代变迁，心里臆断，可能没有啥意思的一部小说。于是，就此错过，转而去读我
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-09 21:46" pubdate>
-              2021-07-09
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
-            
-              <a href="/tags/%E6%96%87%E5%AD%A6/">文学</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-
-
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#board">6</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
-    </span>
-  </nav>
-
-
-
-              </div>
+123456789101112131415161718class Solution:    def convert(self, s: str, numRows: int) -&gt; str:        if numRows &lt; 2:            return s        row_strs = []        for i in range(numRows):            row_strs.append(&#x27;&#x27;)        row = 0        flag = -1        for i in range(len(s)):            row_strs[row] += s[i]            if row  ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#content-inner">6</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Fany Full</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">57</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">29</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/09/21/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E4%B8%80/" title="编译原理作业一"><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="编译原理作业一"/></a><div class="content"><a class="title" href="/2021/09/21/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E4%B8%80/" title="编译原理作业一">编译原理作业一</a><time datetime="2021-09-21T09:47:02.000Z" title="发表于 2021-09-21 17:47:02">2021-09-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/20/LeetCode-12-Integer-to-Roman/" title="LeetCode 12 Integer to Roman"><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 12 Integer to Roman"/></a><div class="content"><a class="title" href="/2021/09/20/LeetCode-12-Integer-to-Roman/" title="LeetCode 12 Integer to Roman">LeetCode 12 Integer to Roman</a><time datetime="2021-09-20T15:41:27.000Z" title="发表于 2021-09-20 23:41:27">2021-09-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/20/%E3%80%8A%E8%81%8A%E6%96%8B%E5%BF%97%E5%BC%82%E3%80%8B%E6%9C%AD%E8%AE%B0/" title="《聊斋志异》札记"><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《聊斋志异》札记"/></a><div class="content"><a class="title" href="/2021/09/20/%E3%80%8A%E8%81%8A%E6%96%8B%E5%BF%97%E5%BC%82%E3%80%8B%E6%9C%AD%E8%AE%B0/" title="《聊斋志异》札记">《聊斋志异》札记</a><time datetime="2021-09-20T06:53:32.000Z" title="发表于 2021-09-20 14:53:32">2021-09-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%A0%81%E4%B8%80%E4%BD%8D%E4%B9%98%E6%B3%95/" title="计算机原码一位乘法"><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机原码一位乘法"/></a><div class="content"><a class="title" href="/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%A0%81%E4%B8%80%E4%BD%8D%E4%B9%98%E6%B3%95/" title="计算机原码一位乘法">计算机原码一位乘法</a><time datetime="2021-09-18T07:21:12.000Z" title="发表于 2021-09-18 15:21:12">2021-09-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%BB%E7%A0%81/" title="计算机移码"><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机移码"/></a><div class="content"><a class="title" href="/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%BB%E7%A0%81/" title="计算机移码">计算机移码</a><time datetime="2021-09-18T06:55:10.000Z" title="发表于 2021-09-18 14:55:10">2021-09-18</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
             </div>
-          </div>
-        </div>
-      </div>
-    
-
-    
-      <a id="scroll-top-button" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-    
-
-    
-  </main>
-
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
-  
-
-  
-
-  
-</footer>
-
-
-  <!-- SCRIPTS -->
-  
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-<!-- Plugins -->
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
-
-
-
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-      typing(title)
-      
-    })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
-
-
-</body>
-</html>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E8%AF%AD%E8%A8%80/"><span class="card-category-list-name">C 语言</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/LeetCode/"><span class="card-category-list-name">LeetCode</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/MySQL/"><span class="card-category-list-name">MySQL</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Python/"><span class="card-category-list-name">Python</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/VSCode/"><span class="card-category-list-name">VSCode</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Windows/"><span class="card-category-list-name">Windows</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Windows10/"><span class="card-category-list-name">Windows10</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/C-%E8%AF%AD%E8%A8%80/" style="font-size: 1.21em; color: #999ea4">C 语言</a> <a href="/tags/Java/" style="font-size: 1.27em; color: #99a0a9">Java</a> <a href="/tags/LeetCode/" style="font-size: 1.33em; color: #99a2af">LeetCode</a> <a href="/tags/Maven/" style="font-size: 1.1em; color: #999">Maven</a> <a href="/tags/MyBatis/" style="font-size: 1.1em; color: #999">MyBatis</a> <a href="/tags/MySQL/" style="font-size: 1.16em; color: #999b9e">MySQL</a> <a href="/tags/PyCharm/" style="font-size: 1.1em; color: #999">PyCharm</a> <a href="/tags/Python/" style="font-size: 1.44em; color: #99a7ba">Python</a> <a href="/tags/Spring/" style="font-size: 1.16em; color: #999b9e">Spring</a> <a href="/tags/VSCode/" style="font-size: 1.1em; color: #999">VSCode</a> <a href="/tags/Windows/" style="font-size: 1.1em; color: #999">Windows</a> <a href="/tags/Windows10/" style="font-size: 1.1em; color: #999">Windows10</a> <a href="/tags/markdown/" style="font-size: 1.1em; color: #999">markdown</a> <a href="/tags/masm/" style="font-size: 1.16em; color: #999b9e">masm</a> <a href="/tags/unittest/" style="font-size: 1.1em; color: #999">unittest</a> <a href="/tags/%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B/" style="font-size: 1.39em; color: #99a4b4">《算法导论》</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E7%94%A8/" style="font-size: 1.1em; color: #999">个人用</a> <a href="/tags/%E4%BC%A0%E8%AE%B0/" style="font-size: 1.1em; color: #999">传记</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 1.1em; color: #999">动态规划</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 1.1em; color: #999">博客</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%9B%AD%E8%BF%81%E7%A7%BB/" style="font-size: 1.1em; color: #999">博客园迁移</a> <a href="/tags/%E5%8F%8D%E7%9C%81/" style="font-size: 1.1em; color: #999">反省</a> <a href="/tags/%E5%A4%A7%E4%BA%8C%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%AE%AD/" style="font-size: 1.1em; color: #999">大二工程实训</a> <a href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F/" style="font-size: 1.1em; color: #999">小玩意</a> <a href="/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/" style="font-size: 1.16em; color: #999b9e">小知识</a> <a href="/tags/%E5%BD%B1%E8%AF%84/" style="font-size: 1.1em; color: #999">影评</a> <a href="/tags/%E5%BF%83%E5%A2%83/" style="font-size: 1.1em; color: #999">心境</a> <a href="/tags/%E5%BF%83%E8%BF%B9/" style="font-size: 1.1em; color: #999">心迹</a> <a href="/tags/%E6%80%9D%E8%80%83/" style="font-size: 1.1em; color: #999">思考</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.1em; color: #999">数学</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.16em; color: #999b9e">数据结构</a> <a href="/tags/%E6%96%87%E5%AD%A6/" style="font-size: 1.1em; color: #999">文学</a> <a href="/tags/%E6%9C%AA%E7%AB%9F/" style="font-size: 1.5em; color: #99a9bf">未竟</a> <a href="/tags/%E6%9D%82%E8%AF%86/" style="font-size: 1.1em; color: #999">杂识</a> <a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 1.1em; color: #999">杂项</a> <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" style="font-size: 1.27em; color: #99a0a9">汇编语言</a> <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 1.1em; color: #999">滑动窗口</a> <a href="/tags/%E6%BC%AB%E8%AF%84/" style="font-size: 1.16em; color: #999b9e">漫评</a> <a href="/tags/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/" style="font-size: 1.33em; color: #99a2af">算法设计与分析</a> <a href="/tags/%E8%8D%89%E7%A8%BF/" style="font-size: 1.1em; color: #999">草稿</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/09/"><span class="card-archive-list-date">九月 2021</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/08/"><span class="card-archive-list-date">八月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/07/"><span class="card-archive-list-date">七月 2021</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/06/"><span class="card-archive-list-date">六月 2021</span><span class="card-archive-list-count">26</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/05/"><span class="card-archive-list-date">五月 2021</span><span class="card-archive-list-count">16</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">57</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-09-22T10:02:18.793Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Fany Full</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
