@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>《编译原理第三版》（王素琴）学习札记</title>
+    <link href="/2021/09/23/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E7%8E%8B%E7%B4%A0%E7%90%B4%EF%BC%89%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/"/>
+    <url>/2021/09/23/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E7%8E%8B%E7%B4%A0%E7%90%B4%EF%BC%89%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>符号 $\Rightarrow$ 的含义是，使用一条规则，代替左端的某个符号，产生其右端的符号串。</p></blockquote><p>何为规则？</p><p>规则，也称重写规则、产生式或生成式，是形如 $\alpha \rightarrow \beta$ 或 $\alpha ::= \beta$ 的有序对，其中 $\alpha$ 称为规则的左部，$\beta$ 称作规则的右部。</p><script type="math/tex; mode=display">V_N \cup V_T = \varnothing</script><p>通常用 $V$ 表示 $V_N \cup V_T$，$V$ 称为文法 $G$ 的字母表或词汇表。</p><p>关于符号 $\rightarrow$ 或 $::=$？</p><p>符号 $\rightarrow$ 或 $::=$ 读作“定义为”。</p><p>例如，$A \rightarrow a$ 读作“$A$ 定义为 $a$”。也把它说成是一条关于 $A$ 的规则（产生式）。</p><p>何为四元组？</p><p>文法 $G$ 定义为四元组 $\displaystyle{(V_N, V_T, P, S)}$。</p><ul><li>$V_N$：非终结符（或语法实体，或变量）集；</li><li>$V_T$：终结符集；</li><li>$P$：规则 $(\alpha \rightarrow \beta)$ 的集合<ul><li>$\alpha \in (V_N \cup V_T)^{*}$ 且至少包含一个非终止符</li><li>$\beta \in (V_N \cup V_T)^{*}$；</li></ul></li><li>$V_N, V_T, P$ 是非空有穷集；</li><li>$S$ 称作识别符或者开始符，它是一个非终结符，至少要在一条规则中作为左部出现。</li></ul><p>关于文法 $G$ 的一些规定？</p><ul><li>一般约定，第一条产生式的左部是识别符；</li><li>用尖括号括起来的是非终结符，不用尖括号括起来的是终结符；</li><li>或者用大写字母表示非终结符，小写字母表示终结符；</li><li>另外，还有一种习惯写法，将 $G$ 写成 $G[S]$，其中 $S$ 是识别符。</li></ul><p>何为 0 型文法？</p><p>设 $G = (V_N, V_T, P, S)$，如果它的每一个产生式 $\alpha \rightarrow \beta$ 是这样一种结构：$\alpha \in (V_N \cup V_T)^<em>$ 且至少含有一个非终结符，而 $\beta \in (V_N \cup V_T)^</em>$，则 $G$ 是一个 <strong>0 型语法文法</strong>。</p><p>0 型文法也称 短语语法。</p><p>何为 1 型文法？</p><p>设 $G = (V_N, V_T, P, S)$ 为一个文法，若 $P$ 中的每一个产生式 $\alpha \rightarrow \beta$ 均满足 $|\beta| \geqslant |\alpha|$，仅仅 $S \rightarrow \varepsilon$ 除外，则文法 $G$ 是 <strong>1 型</strong> 或 <strong>上下文有关的（context-sensitive）</strong>。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>编译原理</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>编译原理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>解决 Hexo 在生成博客过程中的 Accessing non-existent property xxx of module exports inside circular dependency 问题</title>
     <link href="/2021/09/22/%E8%A7%A3%E5%86%B3-Hexo-%E5%9C%A8%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84-Accessing-non-existent-property-xxx-of-module-exports-inside-circular-dependency-%E9%97%AE%E9%A2%98/"/>
     <url>/2021/09/22/%E8%A7%A3%E5%86%B3-Hexo-%E5%9C%A8%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84-Accessing-non-existent-property-xxx-of-module-exports-inside-circular-dependency-%E9%97%AE%E9%A2%98/</url>
