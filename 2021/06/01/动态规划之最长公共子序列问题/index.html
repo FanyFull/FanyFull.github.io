@@ -1,161 +1,242 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>动态规划之最长公共子序列问题(未竟) | Fany Full's Blog</title><meta name="keywords" content="未竟,Python,《算法导论》,算法设计与分析,动态规划"><meta name="author" content="Fany Full"><meta name="copyright" content="Fany Full"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="算法描述 递归式 \[ c[i, j] &#x3D;  \left\{ \begin{matrix} \begin{align} &amp; {0} &amp;&amp; {if \quad i &#x3D; 0 \; or \; j &#x3D; 0,} \\ &amp; {c[i - 1, j - 1] + 1} &amp;&amp; {if \quad i, j &gt; 0 \; and \; x_i">
-<meta property="og:type" content="article">
-<meta property="og:title" content="动态规划之最长公共子序列问题(未竟)">
-<meta property="og:url" content="http://fanyfull.github.io/2021/06/01/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B9%8B%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98/index.html">
-<meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="算法描述 递归式 \[ c[i, j] &#x3D;  \left\{ \begin{matrix} \begin{align} &amp; {0} &amp;&amp; {if \quad i &#x3D; 0 \; or \; j &#x3D; 0,} \\ &amp; {c[i - 1, j - 1] + 1} &amp;&amp; {if \quad i, j &gt; 0 \; and \; x_i">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg">
-<meta property="article:published_time" content="2021-06-01T07:17:44.000Z">
-<meta property="article:modified_time" content="2021-06-01T16:23:20.021Z">
-<meta property="article:author" content="Fany Full">
-<meta property="article:tag" content="未竟">
-<meta property="article:tag" content="Python">
-<meta property="article:tag" content="《算法导论》">
-<meta property="article:tag" content="算法设计与分析">
-<meta property="article:tag" content="动态规划">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://fanyfull.github.io/2021/06/01/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B9%8B%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  date_suffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  source: {
-    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
-    },
-    fancybox: {
-      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js',
-      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css'
-    }
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isanchor: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: '动态规划之最长公共子序列问题(未竟)',
-  isPost: true,
-  isHome: false,
-  isHighlightShrink: false,
-  isToc: true,
-  postUpdate: '2021-06-02 00:23:20'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
 
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
 
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
 
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
 
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
   
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
+  <title>动态规划之最长公共子序列问题(未竟) - Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
     
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
-        
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
     
-    const detectApple = () => {
-      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><!-- hexo injector head_end start -->
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">51</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">31</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Fany Full's Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">动态规划之最长公共子序列问题(未竟)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-06-01T07:17:44.000Z" title="发表于 2021-06-01 15:17:44">2021-06-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-06-01T16:23:20.021Z" title="更新于 2021-06-02 00:23:20">2021-06-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="动态规划之最长公共子序列问题(未竟)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="算法描述">算法描述</h2>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fany Full's Blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210602002227.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="动态规划之最长公共子序列问题(未竟)">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-06-01 15:17" pubdate>
+        2021年6月1日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      29
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">动态规划之最长公共子序列问题(未竟)</h1>
+            
+            <div class="markdown-body">
+              <h2 id="算法描述">算法描述</h2>
 <h3 id="递归式">递归式</h3>
 <p><span class="math display">\[
 c[i, j] = 
@@ -170,56 +251,276 @@ c[i, j] =
 \right.
 \]</span></p>
 <h3 id="伪码">伪码</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210601155106.png" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210601155106.png" srcset="/img/loading.gif" lazyload /></p>
 <h3 id="一个示例">一个示例</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210601155445.png" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210601155445.png" srcset="/img/loading.gif" lazyload /></p>
 <h2 id="算法的-python-实现">算法的 Python 实现</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最长共同子序列动态规划算法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lcs_length</span>(<span class="params">X:<span class="built_in">str</span>, Y:<span class="built_in">str</span></span>):</span></span><br><span class="line">    m = <span class="built_in">len</span>(X)</span><br><span class="line">    n = <span class="built_in">len</span>(Y)</span><br><span class="line">    b = [[<span class="number">0</span> <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m + <span class="number">1</span>)] <span class="comment"># b 只使用 1..m</span></span><br><span class="line">    c = [[<span class="number">0</span> <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m + <span class="number">1</span>)] <span class="comment"># c 只使用 1..m</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, m + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> X[i - <span class="number">1</span>] == Y[j - <span class="number">1</span>]:</span><br><span class="line">                c[i][j] = c[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span></span><br><span class="line">                b[i][j] = [i - <span class="number">1</span>, j - <span class="number">1</span>] <span class="comment"># 存入路径</span></span><br><span class="line">            <span class="keyword">elif</span> c[i - <span class="number">1</span>][j] &gt;= c[i][j - <span class="number">1</span>]:</span><br><span class="line">                c[i][j] = c[i - <span class="number">1</span>][j]</span><br><span class="line">                b[i][j] = [i - <span class="number">1</span>, j]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                c[i][j] = c[i][j - <span class="number">1</span>]</span><br><span class="line">                b[i][j] = [i, j - <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> [c, b]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_lcs</span>(<span class="params">b:<span class="built_in">list</span>, X:<span class="built_in">str</span>, i:<span class="built_in">int</span>, j:<span class="built_in">int</span></span>):</span></span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">0</span> <span class="keyword">or</span> j == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">if</span> b[i][j] == [i - <span class="number">1</span>, j - <span class="number">1</span>]:</span><br><span class="line">        print_lcs(b, X, i - <span class="number">1</span>, j - <span class="number">1</span>)</span><br><span class="line">        <span class="built_in">print</span>(X[i - <span class="number">1</span>], end=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> b[i][j] == [i - <span class="number">1</span>, j]:</span><br><span class="line">        print_lcs(b, X, i - <span class="number">1</span>, j)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print_lcs(b, X, i, j - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># S2 = &#x27;BDCABA&#x27;</span></span><br><span class="line">    <span class="comment"># S1 = &#x27;ABCBDAB&#x27;</span></span><br><span class="line">    S1 = <span class="string">&#x27;ACCGGTCGAGATGCAG&#x27;</span></span><br><span class="line">    <span class="comment"># S2 = &#x27;ACCGGTCGAGATGCAG&#x27;</span></span><br><span class="line">    S2 = <span class="string">&#x27;GTCGTTCGGAATGCAT&#x27;</span></span><br><span class="line">    res = lcs_length(S1, S2)</span><br><span class="line">    <span class="built_in">print</span>(res)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;----------&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> each <span class="keyword">in</span> res[<span class="number">0</span>]:</span><br><span class="line">        <span class="built_in">print</span>(each)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;----------&#x27;</span>)</span><br><span class="line">    print_lcs(res[<span class="number">1</span>], S1, <span class="built_in">len</span>(S1), <span class="built_in">len</span>(S2))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;\n----------&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(res[<span class="number">0</span>][<span class="built_in">len</span>(S1)][<span class="built_in">len</span>(S2)])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-comment"># 最长共同子序列动态规划算法</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">lcs_length</span>(<span class="hljs-params">X:<span class="hljs-built_in">str</span>, Y:<span class="hljs-built_in">str</span></span>):</span><br>    m = <span class="hljs-built_in">len</span>(X)<br>    n = <span class="hljs-built_in">len</span>(Y)<br>    b = [[<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n + <span class="hljs-number">1</span>)] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m + <span class="hljs-number">1</span>)] <span class="hljs-comment"># b 只使用 1..m</span><br>    c = [[<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n + <span class="hljs-number">1</span>)] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m + <span class="hljs-number">1</span>)] <span class="hljs-comment"># c 只使用 1..m</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, m + <span class="hljs-number">1</span>):<br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, n + <span class="hljs-number">1</span>):<br>            <span class="hljs-keyword">if</span> X[i - <span class="hljs-number">1</span>] == Y[j - <span class="hljs-number">1</span>]:<br>                c[i][j] = c[i - <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>] + <span class="hljs-number">1</span><br>                b[i][j] = [i - <span class="hljs-number">1</span>, j - <span class="hljs-number">1</span>] <span class="hljs-comment"># 存入路径</span><br>            <span class="hljs-keyword">elif</span> c[i - <span class="hljs-number">1</span>][j] &gt;= c[i][j - <span class="hljs-number">1</span>]:<br>                c[i][j] = c[i - <span class="hljs-number">1</span>][j]<br>                b[i][j] = [i - <span class="hljs-number">1</span>, j]<br>            <span class="hljs-keyword">else</span>:<br>                c[i][j] = c[i][j - <span class="hljs-number">1</span>]<br>                b[i][j] = [i, j - <span class="hljs-number">1</span>]<br>    <span class="hljs-keyword">return</span> [c, b]<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print_lcs</span>(<span class="hljs-params">b:<span class="hljs-built_in">list</span>, X:<span class="hljs-built_in">str</span>, i:<span class="hljs-built_in">int</span>, j:<span class="hljs-built_in">int</span></span>):</span><br>    <span class="hljs-keyword">if</span> i == <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> j == <span class="hljs-number">0</span>:<br>        <span class="hljs-keyword">return</span><br>    <span class="hljs-keyword">if</span> b[i][j] == [i - <span class="hljs-number">1</span>, j - <span class="hljs-number">1</span>]:<br>        print_lcs(b, X, i - <span class="hljs-number">1</span>, j - <span class="hljs-number">1</span>)<br>        <span class="hljs-built_in">print</span>(X[i - <span class="hljs-number">1</span>], end=<span class="hljs-string">&#x27; &#x27;</span>)<br>    <span class="hljs-keyword">elif</span> b[i][j] == [i - <span class="hljs-number">1</span>, j]:<br>        print_lcs(b, X, i - <span class="hljs-number">1</span>, j)<br>    <span class="hljs-keyword">else</span>:<br>        print_lcs(b, X, i, j - <span class="hljs-number">1</span>)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-comment"># S2 = &#x27;BDCABA&#x27;</span><br>    <span class="hljs-comment"># S1 = &#x27;ABCBDAB&#x27;</span><br>    S1 = <span class="hljs-string">&#x27;ACCGGTCGAGATGCAG&#x27;</span><br>    <span class="hljs-comment"># S2 = &#x27;ACCGGTCGAGATGCAG&#x27;</span><br>    S2 = <span class="hljs-string">&#x27;GTCGTTCGGAATGCAT&#x27;</span><br>    res = lcs_length(S1, S2)<br>    <span class="hljs-built_in">print</span>(res)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;----------&#x27;</span>)<br>    <span class="hljs-keyword">for</span> each <span class="hljs-keyword">in</span> res[<span class="hljs-number">0</span>]:<br>        <span class="hljs-built_in">print</span>(each)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;----------&#x27;</span>)<br>    print_lcs(res[<span class="hljs-number">1</span>], S1, <span class="hljs-built_in">len</span>(S1), <span class="hljs-built_in">len</span>(S2))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;\n----------&#x27;</span>)<br>    <span class="hljs-built_in">print</span>(res[<span class="hljs-number">0</span>][<span class="hljs-built_in">len</span>(S1)][<span class="hljs-built_in">len</span>(S2)])<br><br></code></pre></div></td></tr></table></figure>
 <p>运行结果</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1], [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2], [0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], [0, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3], [0, 1, 1, 1, 2, 2, 2, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4], [0, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5, 5], [0, 1, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 6, 6, 6], [0, 1, 2, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6], [0, 1, 2, 3, 4, 4, 4, 4, 5, 5, 6, 6, 6, 6, 6, 7, 7], [0, 1, 2, 3, 4, 4, 4, 4, 5, 6, 6, 6, 6, 7, 7, 7, 7], [0, 1, 2, 3, 4, 4, 4, 4, 5, 6, 7, 7, 7, 7, 7, 8, 8], [0, 1, 2, 3, 4, 5, 5, 5, 5, 6, 7, 7, 8, 8, 8, 8, 9], [0, 1, 2, 3, 4, 5, 5, 5, 6, 6, 7, 7, 8, 9, 9, 9, 9], [0, 1, 2, 3, 4, 5, 5, 6, 6, 6, 7, 7, 8, 9, 10, 10, 10], [0, 1, 2, 3, 4, 5, 5, 6, 6, 6, 7, 8, 8, 9, 10, 11, 11], [0, 1, 2, 3, 4, 5, 5, 6, 7, 7, 7, 8, 8, 9, 10, 11, 11]], [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, [0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6], [0, 7], [0, 8], [0, 9], [0, 9], [0, 10], [1, 11], [1, 12], [1, 13], [0, 14], [1, 15]], [0, [1, 1], [1, 2], [1, 2], [2, 3], [2, 4], [2, 5], [1, 6], [2, 7], [2, 8], [1, 10], [1, 11], [1, 12], [1, 13], [1, 13], [2, 14], [2, 15]], [0, [2, 1], [2, 2], [2, 2], [2, 4], [2, 5], [2, 6], [2, 6], [3, 7], [3, 8], [3, 9], [3, 10], [3, 11], [3, 12], [2, 13], [2, 15], [2, 16]], [0, [3, 0], [4, 1], [3, 3], [3, 3], [4, 4], [4, 5], [3, 7], [3, 7], [3, 8], [4, 9], [4, 10], [4, 11], [3, 12], [4, 13], [4, 14], [4, 15]], [0, [4, 0], [4, 2], [4, 3], [4, 3], [4, 5], [4, 6], [4, 7], [4, 7], [4, 8], [5, 9], [5, 10], [5, 11], [4, 12], [5, 13], [5, 14], [5, 15]], [0, [5, 1], [5, 1], [6, 2], [5, 4], [5, 4], [5, 5], [6, 6], [5, 8], [5, 9], [5, 10], [5, 11], [5, 11], [6, 12], [6, 13], [6, 14], [5, 15]], [0, [6, 1], [6, 2], [6, 2], [7, 3], [6, 5], [6, 6], [6, 6], [7, 7], [6, 9], [6, 10], [6, 11], [6, 12], [6, 13], [6, 13], [7, 14], [7, 15]], [0, [7, 0], [7, 2], [7, 3], [7, 3], [8, 4], [8, 5], [7, 7], [7, 7], [7, 8], [8, 9], [8, 10], [7, 12], [7, 12], [7, 14], [7, 15], [7, 16]], [0, [8, 1], [8, 2], [8, 3], [8, 4], [8, 5], [8, 6], [8, 7], [8, 8], [8, 9], [8, 9], [8, 10], [9, 11], [8, 13], [8, 14], [8, 14], [9, 15]], [0, [9, 0], [9, 2], [9, 3], [9, 3], [9, 5], [9, 6], [9, 7], [9, 7], [9, 8], [9, 10], [9, 11], [9, 12], [9, 12], [10, 13], [9, 15], [9, 16]], [0, [10, 1], [10, 2], [10, 3], [10, 4], [10, 5], [10, 6], [10, 7], [10, 8], [10, 9], [10, 9], [10, 10], [11, 11], [10, 13], [10, 14], [10, 14], [11, 15]], [0, [11, 1], [11, 1], [11, 3], [11, 4], [11, 4], [11, 5], [12, 6], [11, 8], [11, 9], [11, 10], [11, 11], [11, 11], [12, 12], [12, 13], [11, 15], [11, 15]], [0, [12, 0], [12, 2], [12, 3], [12, 3], [12, 5], [12, 6], [12, 7], [12, 7], [12, 8], [12, 10], [12, 11], [12, 12], [12, 12], [13, 13], [13, 14], [12, 16]], [0, [13, 1], [13, 2], [13, 2], [13, 4], [13, 5], [13, 6], [13, 6], [13, 8], [13, 9], [13, 10], [13, 11], [13, 12], [13, 13], [13, 13], [14, 14], [14, 15]], [0, [14, 1], [14, 2], [14, 3], [14, 4], [14, 5], [14, 6], [14, 7], [14, 8], [14, 9], [14, 9], [14, 10], [14, 12], [14, 13], [14, 14], [14, 14], [15, 15]], [0, [15, 0], [15, 2], [15, 3], [15, 3], [15, 5], [15, 6], [15, 7], [15, 7], [15, 8], [15, 10], [15, 11], [15, 12], [15, 12], [15, 14], [15, 15], [15, 16]]]]</span><br><span class="line">----------</span><br><span class="line">[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</span><br><span class="line">[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1]</span><br><span class="line">[0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2]</span><br><span class="line">[0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]</span><br><span class="line">[0, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3]</span><br><span class="line">[0, 1, 1, 1, 2, 2, 2, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4]</span><br><span class="line">[0, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5, 5]</span><br><span class="line">[0, 1, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 6, 6, 6]</span><br><span class="line">[0, 1, 2, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6]</span><br><span class="line">[0, 1, 2, 3, 4, 4, 4, 4, 5, 5, 6, 6, 6, 6, 6, 7, 7]</span><br><span class="line">[0, 1, 2, 3, 4, 4, 4, 4, 5, 6, 6, 6, 6, 7, 7, 7, 7]</span><br><span class="line">[0, 1, 2, 3, 4, 4, 4, 4, 5, 6, 7, 7, 7, 7, 7, 8, 8]</span><br><span class="line">[0, 1, 2, 3, 4, 5, 5, 5, 5, 6, 7, 7, 8, 8, 8, 8, 9]</span><br><span class="line">[0, 1, 2, 3, 4, 5, 5, 5, 6, 6, 7, 7, 8, 9, 9, 9, 9]</span><br><span class="line">[0, 1, 2, 3, 4, 5, 5, 6, 6, 6, 7, 7, 8, 9, 10, 10, 10]</span><br><span class="line">[0, 1, 2, 3, 4, 5, 5, 6, 6, 6, 7, 8, 8, 9, 10, 11, 11]</span><br><span class="line">[0, 1, 2, 3, 4, 5, 5, 6, 7, 7, 7, 8, 8, 9, 10, 11, 11]</span><br><span class="line">----------</span><br><span class="line">C G T C G A A T G C A </span><br><span class="line">----------</span><br><span class="line">11</span><br></pre></td></tr></table></figure>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fany Full</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://fanyfull.github.io/2021/06/01/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B9%8B%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98/">http://fanyfull.github.io/2021/06/01/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B9%8B%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://fanyfull.github.io" target="_blank">Fany Full's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%AA%E7%AB%9F/">未竟</a><a class="post-meta__tags" href="/tags/Python/">Python</a><a class="post-meta__tags" href="/tags/%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B/">《算法导论》</a><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a><a class="post-meta__tags" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/06/02/Python-3-8-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3(Windows10)/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Python 3.8 虚拟环境相关(Windows10)</div></div></a></div><div class="next-post pull-right"><a href="/2021/06/01/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84-Prim-%E7%AE%97%E6%B3%95/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">最小生成树的 Prim 算法(未竟)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/06/01/%E5%88%A9%E7%94%A8%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E6%9D%A5%E5%AF%BB%E6%89%BE%E5%9B%BE%E7%9A%84%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" title="利用深度优先搜索来寻找图的强连通分量(未竟)"><img class="cover" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-01</div><div class="title">利用深度优先搜索来寻找图的强连通分量(未竟)</div></div></a></div><div><a href="/2021/06/01/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84-Kruskal-%E7%AE%97%E6%B3%95/" title="最小生成树的 Kruskal 算法(未竟)"><img class="cover" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-01</div><div class="title">最小生成树的 Kruskal 算法(未竟)</div></div></a></div><div><a href="/2021/06/01/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84-Prim-%E7%AE%97%E6%B3%95/" title="最小生成树的 Prim 算法(未竟)"><img class="cover" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-01</div><div class="title">最小生成树的 Prim 算法(未竟)</div></div></a></div><div><a href="/2021/06/05/Python-%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%A1%E7%90%86%E5%99%A8%E5%92%8C-with-%E5%9D%97/" title="Python 的上下文管理器和 with 块(未竟)"><img class="cover" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-05</div><div class="title">Python 的上下文管理器和 with 块(未竟)</div></div></a></div><div><a href="/2021/05/26/Python-%E5%AE%9E%E7%8E%B0%E4%BD%9C%E4%B8%9A%E6%8E%92%E7%A8%8B%E9%97%AE%E9%A2%98/" title="Python 实现作业排程问题"><img class="cover" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-26</div><div class="title">Python 实现作业排程问题</div></div></a></div><div><a href="/2021/06/09/80X86-%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E4%B9%8B%E4%BC%AA%E6%8C%87%E4%BB%A4%E8%AF%AD%E5%8F%A5/" title="80X86 汇编语言之伪指令语句"><img class="cover" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-09</div><div class="title">80X86 汇编语言之伪指令语句</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Fany Full</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">51</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">31</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">算法描述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text">递归式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%AA%E7%A0%81"><span class="toc-number">1.2.</span> <span class="toc-text">伪码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.3.</span> <span class="toc-text">一个示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84-python-%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.</span> <span class="toc-text">算法的 Python 实现</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/09/23/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E7%8E%8B%E7%B4%A0%E7%90%B4%EF%BC%89%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/" title="《编译原理第三版》（王素琴）学习札记"><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《编译原理第三版》（王素琴）学习札记"/></a><div class="content"><a class="title" href="/2021/09/23/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E7%8E%8B%E7%B4%A0%E7%90%B4%EF%BC%89%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/" title="《编译原理第三版》（王素琴）学习札记">《编译原理第三版》（王素琴）学习札记</a><time datetime="2021-09-23T00:55:38.000Z" title="发表于 2021-09-23 08:55:38">2021-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/22/%E8%A7%A3%E5%86%B3-Hexo-%E5%9C%A8%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84-Accessing-non-existent-property-xxx-of-module-exports-inside-circular-dependency-%E9%97%AE%E9%A2%98/" title="解决 Hexo 在生成博客过程中的 Accessing non-existent property xxx of module exports inside circular dependency 问题"><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="解决 Hexo 在生成博客过程中的 Accessing non-existent property xxx of module exports inside circular dependency 问题"/></a><div class="content"><a class="title" href="/2021/09/22/%E8%A7%A3%E5%86%B3-Hexo-%E5%9C%A8%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84-Accessing-non-existent-property-xxx-of-module-exports-inside-circular-dependency-%E9%97%AE%E9%A2%98/" title="解决 Hexo 在生成博客过程中的 Accessing non-existent property xxx of module exports inside circular dependency 问题">解决 Hexo 在生成博客过程中的 Accessing non-existent property xxx of module exports inside circular dependency 问题</a><time datetime="2021-09-22T15:04:55.000Z" title="发表于 2021-09-22 23:04:55">2021-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/21/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E4%B8%80/" title="编译原理作业一"><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="编译原理作业一"/></a><div class="content"><a class="title" href="/2021/09/21/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E4%B8%80/" title="编译原理作业一">编译原理作业一</a><time datetime="2021-09-21T09:47:02.000Z" title="发表于 2021-09-21 17:47:02">2021-09-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/20/LeetCode-12-Integer-to-Roman/" title="LeetCode 12 Integer to Roman"><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 12 Integer to Roman"/></a><div class="content"><a class="title" href="/2021/09/20/LeetCode-12-Integer-to-Roman/" title="LeetCode 12 Integer to Roman">LeetCode 12 Integer to Roman</a><time datetime="2021-09-20T15:41:27.000Z" title="发表于 2021-09-20 23:41:27">2021-09-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/20/%E3%80%8A%E8%81%8A%E6%96%8B%E5%BF%97%E5%BC%82%E3%80%8B%E6%9C%AD%E8%AE%B0/" title="《聊斋志异》札记"><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《聊斋志异》札记"/></a><div class="content"><a class="title" href="/2021/09/20/%E3%80%8A%E8%81%8A%E6%96%8B%E5%BF%97%E5%BC%82%E3%80%8B%E6%9C%AD%E8%AE%B0/" title="《聊斋志异》札记">《聊斋志异》札记</a><time datetime="2021-09-20T06:53:32.000Z" title="发表于 2021-09-20 14:53:32">2021-09-20</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Fany Full</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
-  window.MathJax = {
-    tex: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"]],
-      tags: 'ams'
-    },
-    chtml: {
-      scale: 1.2
-    },
-    options: {
-      renderActions: {
-        findScript: [10, doc => {
-          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
-            const display = !!node.type.match(/; *mode=display/)
-            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
-            const text = document.createTextNode('')
-            node.parentNode.replaceChild(text, node)
-            math.start = {node: text, delim: '', n: 0}
-            math.end = {node: text, delim: '', n: 0}
-            doc.math.push(math)
-          }
-        }, ''],
-        insertScript: [200, () => {
-          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
-            const target = node.parentNode
-            if (target.nodeName.toLowerCase() === 'li') {
-              target.parentNode.classList.add('has-jax')
-            } else {
-              target.classList.add('has-jax')
-            }
-          });
-        }, '', false]
-      }
-    }
-  }
+<figure class="highlight inform7"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs inform7"><span class="hljs-comment">[<span class="hljs-comment">[<span class="hljs-comment">[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</span>, <span class="hljs-comment">[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1]</span>, <span class="hljs-comment">[0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2]</span>, <span class="hljs-comment">[0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]</span>, <span class="hljs-comment">[0, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3]</span>, <span class="hljs-comment">[0, 1, 1, 1, 2, 2, 2, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4]</span>, <span class="hljs-comment">[0, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5, 5]</span>, <span class="hljs-comment">[0, 1, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 6, 6, 6]</span>, <span class="hljs-comment">[0, 1, 2, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6]</span>, <span class="hljs-comment">[0, 1, 2, 3, 4, 4, 4, 4, 5, 5, 6, 6, 6, 6, 6, 7, 7]</span>, <span class="hljs-comment">[0, 1, 2, 3, 4, 4, 4, 4, 5, 6, 6, 6, 6, 7, 7, 7, 7]</span>, <span class="hljs-comment">[0, 1, 2, 3, 4, 4, 4, 4, 5, 6, 7, 7, 7, 7, 7, 8, 8]</span>, <span class="hljs-comment">[0, 1, 2, 3, 4, 5, 5, 5, 5, 6, 7, 7, 8, 8, 8, 8, 9]</span>, <span class="hljs-comment">[0, 1, 2, 3, 4, 5, 5, 5, 6, 6, 7, 7, 8, 9, 9, 9, 9]</span>, <span class="hljs-comment">[0, 1, 2, 3, 4, 5, 5, 6, 6, 6, 7, 7, 8, 9, 10, 10, 10]</span>, <span class="hljs-comment">[0, 1, 2, 3, 4, 5, 5, 6, 6, 6, 7, 8, 8, 9, 10, 11, 11]</span>, <span class="hljs-comment">[0, 1, 2, 3, 4, 5, 5, 6, 7, 7, 7, 8, 8, 9, 10, 11, 11]</span>]</span>, <span class="hljs-comment">[<span class="hljs-comment">[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</span>, <span class="hljs-comment">[0, <span class="hljs-comment">[0, 1]</span>, <span class="hljs-comment">[0, 2]</span>, <span class="hljs-comment">[0, 3]</span>, <span class="hljs-comment">[0, 4]</span>, <span class="hljs-comment">[0, 5]</span>, <span class="hljs-comment">[0, 6]</span>, <span class="hljs-comment">[0, 7]</span>, <span class="hljs-comment">[0, 8]</span>, <span class="hljs-comment">[0, 9]</span>, <span class="hljs-comment">[0, 9]</span>, <span class="hljs-comment">[0, 10]</span>, <span class="hljs-comment">[1, 11]</span>, <span class="hljs-comment">[1, 12]</span>, <span class="hljs-comment">[1, 13]</span>, <span class="hljs-comment">[0, 14]</span>, <span class="hljs-comment">[1, 15]</span>]</span>, <span class="hljs-comment">[0, <span class="hljs-comment">[1, 1]</span>, <span class="hljs-comment">[1, 2]</span>, <span class="hljs-comment">[1, 2]</span>, <span class="hljs-comment">[2, 3]</span>, <span class="hljs-comment">[2, 4]</span>, <span class="hljs-comment">[2, 5]</span>, <span class="hljs-comment">[1, 6]</span>, <span class="hljs-comment">[2, 7]</span>, <span class="hljs-comment">[2, 8]</span>, <span class="hljs-comment">[1, 10]</span>, <span class="hljs-comment">[1, 11]</span>, <span class="hljs-comment">[1, 12]</span>, <span class="hljs-comment">[1, 13]</span>, <span class="hljs-comment">[1, 13]</span>, <span class="hljs-comment">[2, 14]</span>, <span class="hljs-comment">[2, 15]</span>]</span>, <span class="hljs-comment">[0, <span class="hljs-comment">[2, 1]</span>, <span class="hljs-comment">[2, 2]</span>, <span class="hljs-comment">[2, 2]</span>, <span class="hljs-comment">[2, 4]</span>, <span class="hljs-comment">[2, 5]</span>, <span class="hljs-comment">[2, 6]</span>, <span class="hljs-comment">[2, 6]</span>, <span class="hljs-comment">[3, 7]</span>, <span class="hljs-comment">[3, 8]</span>, <span class="hljs-comment">[3, 9]</span>, <span class="hljs-comment">[3, 10]</span>, <span class="hljs-comment">[3, 11]</span>, <span class="hljs-comment">[3, 12]</span>, <span class="hljs-comment">[2, 13]</span>, <span class="hljs-comment">[2, 15]</span>, <span class="hljs-comment">[2, 16]</span>]</span>, <span class="hljs-comment">[0, <span class="hljs-comment">[3, 0]</span>, <span class="hljs-comment">[4, 1]</span>, <span class="hljs-comment">[3, 3]</span>, <span class="hljs-comment">[3, 3]</span>, <span class="hljs-comment">[4, 4]</span>, <span class="hljs-comment">[4, 5]</span>, <span class="hljs-comment">[3, 7]</span>, <span class="hljs-comment">[3, 7]</span>, <span class="hljs-comment">[3, 8]</span>, <span class="hljs-comment">[4, 9]</span>, <span class="hljs-comment">[4, 10]</span>, <span class="hljs-comment">[4, 11]</span>, <span class="hljs-comment">[3, 12]</span>, <span class="hljs-comment">[4, 13]</span>, <span class="hljs-comment">[4, 14]</span>, <span class="hljs-comment">[4, 15]</span>]</span>, <span class="hljs-comment">[0, <span class="hljs-comment">[4, 0]</span>, <span class="hljs-comment">[4, 2]</span>, <span class="hljs-comment">[4, 3]</span>, <span class="hljs-comment">[4, 3]</span>, <span class="hljs-comment">[4, 5]</span>, <span class="hljs-comment">[4, 6]</span>, <span class="hljs-comment">[4, 7]</span>, <span class="hljs-comment">[4, 7]</span>, <span class="hljs-comment">[4, 8]</span>, <span class="hljs-comment">[5, 9]</span>, <span class="hljs-comment">[5, 10]</span>, <span class="hljs-comment">[5, 11]</span>, <span class="hljs-comment">[4, 12]</span>, <span class="hljs-comment">[5, 13]</span>, <span class="hljs-comment">[5, 14]</span>, <span class="hljs-comment">[5, 15]</span>]</span>, <span class="hljs-comment">[0, <span class="hljs-comment">[5, 1]</span>, <span class="hljs-comment">[5, 1]</span>, <span class="hljs-comment">[6, 2]</span>, <span class="hljs-comment">[5, 4]</span>, <span class="hljs-comment">[5, 4]</span>, <span class="hljs-comment">[5, 5]</span>, <span class="hljs-comment">[6, 6]</span>, <span class="hljs-comment">[5, 8]</span>, <span class="hljs-comment">[5, 9]</span>, <span class="hljs-comment">[5, 10]</span>, <span class="hljs-comment">[5, 11]</span>, <span class="hljs-comment">[5, 11]</span>, <span class="hljs-comment">[6, 12]</span>, <span class="hljs-comment">[6, 13]</span>, <span class="hljs-comment">[6, 14]</span>, <span class="hljs-comment">[5, 15]</span>]</span>, <span class="hljs-comment">[0, <span class="hljs-comment">[6, 1]</span>, <span class="hljs-comment">[6, 2]</span>, <span class="hljs-comment">[6, 2]</span>, <span class="hljs-comment">[7, 3]</span>, <span class="hljs-comment">[6, 5]</span>, <span class="hljs-comment">[6, 6]</span>, <span class="hljs-comment">[6, 6]</span>, <span class="hljs-comment">[7, 7]</span>, <span class="hljs-comment">[6, 9]</span>, <span class="hljs-comment">[6, 10]</span>, <span class="hljs-comment">[6, 11]</span>, <span class="hljs-comment">[6, 12]</span>, <span class="hljs-comment">[6, 13]</span>, <span class="hljs-comment">[6, 13]</span>, <span class="hljs-comment">[7, 14]</span>, <span class="hljs-comment">[7, 15]</span>]</span>, <span class="hljs-comment">[0, <span class="hljs-comment">[7, 0]</span>, <span class="hljs-comment">[7, 2]</span>, <span class="hljs-comment">[7, 3]</span>, <span class="hljs-comment">[7, 3]</span>, <span class="hljs-comment">[8, 4]</span>, <span class="hljs-comment">[8, 5]</span>, <span class="hljs-comment">[7, 7]</span>, <span class="hljs-comment">[7, 7]</span>, <span class="hljs-comment">[7, 8]</span>, <span class="hljs-comment">[8, 9]</span>, <span class="hljs-comment">[8, 10]</span>, <span class="hljs-comment">[7, 12]</span>, <span class="hljs-comment">[7, 12]</span>, <span class="hljs-comment">[7, 14]</span>, <span class="hljs-comment">[7, 15]</span>, <span class="hljs-comment">[7, 16]</span>]</span>, <span class="hljs-comment">[0, <span class="hljs-comment">[8, 1]</span>, <span class="hljs-comment">[8, 2]</span>, <span class="hljs-comment">[8, 3]</span>, <span class="hljs-comment">[8, 4]</span>, <span class="hljs-comment">[8, 5]</span>, <span class="hljs-comment">[8, 6]</span>, <span class="hljs-comment">[8, 7]</span>, <span class="hljs-comment">[8, 8]</span>, <span class="hljs-comment">[8, 9]</span>, <span class="hljs-comment">[8, 9]</span>, <span class="hljs-comment">[8, 10]</span>, <span class="hljs-comment">[9, 11]</span>, <span class="hljs-comment">[8, 13]</span>, <span class="hljs-comment">[8, 14]</span>, <span class="hljs-comment">[8, 14]</span>, <span class="hljs-comment">[9, 15]</span>]</span>, <span class="hljs-comment">[0, <span class="hljs-comment">[9, 0]</span>, <span class="hljs-comment">[9, 2]</span>, <span class="hljs-comment">[9, 3]</span>, <span class="hljs-comment">[9, 3]</span>, <span class="hljs-comment">[9, 5]</span>, <span class="hljs-comment">[9, 6]</span>, <span class="hljs-comment">[9, 7]</span>, <span class="hljs-comment">[9, 7]</span>, <span class="hljs-comment">[9, 8]</span>, <span class="hljs-comment">[9, 10]</span>, <span class="hljs-comment">[9, 11]</span>, <span class="hljs-comment">[9, 12]</span>, <span class="hljs-comment">[9, 12]</span>, <span class="hljs-comment">[10, 13]</span>, <span class="hljs-comment">[9, 15]</span>, <span class="hljs-comment">[9, 16]</span>]</span>, <span class="hljs-comment">[0, <span class="hljs-comment">[10, 1]</span>, <span class="hljs-comment">[10, 2]</span>, <span class="hljs-comment">[10, 3]</span>, <span class="hljs-comment">[10, 4]</span>, <span class="hljs-comment">[10, 5]</span>, <span class="hljs-comment">[10, 6]</span>, <span class="hljs-comment">[10, 7]</span>, <span class="hljs-comment">[10, 8]</span>, <span class="hljs-comment">[10, 9]</span>, <span class="hljs-comment">[10, 9]</span>, <span class="hljs-comment">[10, 10]</span>, <span class="hljs-comment">[11, 11]</span>, <span class="hljs-comment">[10, 13]</span>, <span class="hljs-comment">[10, 14]</span>, <span class="hljs-comment">[10, 14]</span>, <span class="hljs-comment">[11, 15]</span>]</span>, <span class="hljs-comment">[0, <span class="hljs-comment">[11, 1]</span>, <span class="hljs-comment">[11, 1]</span>, <span class="hljs-comment">[11, 3]</span>, <span class="hljs-comment">[11, 4]</span>, <span class="hljs-comment">[11, 4]</span>, <span class="hljs-comment">[11, 5]</span>, <span class="hljs-comment">[12, 6]</span>, <span class="hljs-comment">[11, 8]</span>, <span class="hljs-comment">[11, 9]</span>, <span class="hljs-comment">[11, 10]</span>, <span class="hljs-comment">[11, 11]</span>, <span class="hljs-comment">[11, 11]</span>, <span class="hljs-comment">[12, 12]</span>, <span class="hljs-comment">[12, 13]</span>, <span class="hljs-comment">[11, 15]</span>, <span class="hljs-comment">[11, 15]</span>]</span>, <span class="hljs-comment">[0, <span class="hljs-comment">[12, 0]</span>, <span class="hljs-comment">[12, 2]</span>, <span class="hljs-comment">[12, 3]</span>, <span class="hljs-comment">[12, 3]</span>, <span class="hljs-comment">[12, 5]</span>, <span class="hljs-comment">[12, 6]</span>, <span class="hljs-comment">[12, 7]</span>, <span class="hljs-comment">[12, 7]</span>, <span class="hljs-comment">[12, 8]</span>, <span class="hljs-comment">[12, 10]</span>, <span class="hljs-comment">[12, 11]</span>, <span class="hljs-comment">[12, 12]</span>, <span class="hljs-comment">[12, 12]</span>, <span class="hljs-comment">[13, 13]</span>, <span class="hljs-comment">[13, 14]</span>, <span class="hljs-comment">[12, 16]</span>]</span>, <span class="hljs-comment">[0, <span class="hljs-comment">[13, 1]</span>, <span class="hljs-comment">[13, 2]</span>, <span class="hljs-comment">[13, 2]</span>, <span class="hljs-comment">[13, 4]</span>, <span class="hljs-comment">[13, 5]</span>, <span class="hljs-comment">[13, 6]</span>, <span class="hljs-comment">[13, 6]</span>, <span class="hljs-comment">[13, 8]</span>, <span class="hljs-comment">[13, 9]</span>, <span class="hljs-comment">[13, 10]</span>, <span class="hljs-comment">[13, 11]</span>, <span class="hljs-comment">[13, 12]</span>, <span class="hljs-comment">[13, 13]</span>, <span class="hljs-comment">[13, 13]</span>, <span class="hljs-comment">[14, 14]</span>, <span class="hljs-comment">[14, 15]</span>]</span>, <span class="hljs-comment">[0, <span class="hljs-comment">[14, 1]</span>, <span class="hljs-comment">[14, 2]</span>, <span class="hljs-comment">[14, 3]</span>, <span class="hljs-comment">[14, 4]</span>, <span class="hljs-comment">[14, 5]</span>, <span class="hljs-comment">[14, 6]</span>, <span class="hljs-comment">[14, 7]</span>, <span class="hljs-comment">[14, 8]</span>, <span class="hljs-comment">[14, 9]</span>, <span class="hljs-comment">[14, 9]</span>, <span class="hljs-comment">[14, 10]</span>, <span class="hljs-comment">[14, 12]</span>, <span class="hljs-comment">[14, 13]</span>, <span class="hljs-comment">[14, 14]</span>, <span class="hljs-comment">[14, 14]</span>, <span class="hljs-comment">[15, 15]</span>]</span>, <span class="hljs-comment">[0, <span class="hljs-comment">[15, 0]</span>, <span class="hljs-comment">[15, 2]</span>, <span class="hljs-comment">[15, 3]</span>, <span class="hljs-comment">[15, 3]</span>, <span class="hljs-comment">[15, 5]</span>, <span class="hljs-comment">[15, 6]</span>, <span class="hljs-comment">[15, 7]</span>, <span class="hljs-comment">[15, 7]</span>, <span class="hljs-comment">[15, 8]</span>, <span class="hljs-comment">[15, 10]</span>, <span class="hljs-comment">[15, 11]</span>, <span class="hljs-comment">[15, 12]</span>, <span class="hljs-comment">[15, 12]</span>, <span class="hljs-comment">[15, 14]</span>, <span class="hljs-comment">[15, 15]</span>, <span class="hljs-comment">[15, 16]</span>]</span>]</span>]</span><br>----------<br><span class="hljs-comment">[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</span><br><span class="hljs-comment">[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1]</span><br><span class="hljs-comment">[0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2]</span><br><span class="hljs-comment">[0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]</span><br><span class="hljs-comment">[0, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3]</span><br><span class="hljs-comment">[0, 1, 1, 1, 2, 2, 2, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4]</span><br><span class="hljs-comment">[0, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5, 5]</span><br><span class="hljs-comment">[0, 1, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 6, 6, 6]</span><br><span class="hljs-comment">[0, 1, 2, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6]</span><br><span class="hljs-comment">[0, 1, 2, 3, 4, 4, 4, 4, 5, 5, 6, 6, 6, 6, 6, 7, 7]</span><br><span class="hljs-comment">[0, 1, 2, 3, 4, 4, 4, 4, 5, 6, 6, 6, 6, 7, 7, 7, 7]</span><br><span class="hljs-comment">[0, 1, 2, 3, 4, 4, 4, 4, 5, 6, 7, 7, 7, 7, 7, 8, 8]</span><br><span class="hljs-comment">[0, 1, 2, 3, 4, 5, 5, 5, 5, 6, 7, 7, 8, 8, 8, 8, 9]</span><br><span class="hljs-comment">[0, 1, 2, 3, 4, 5, 5, 5, 6, 6, 7, 7, 8, 9, 9, 9, 9]</span><br><span class="hljs-comment">[0, 1, 2, 3, 4, 5, 5, 6, 6, 6, 7, 7, 8, 9, 10, 10, 10]</span><br><span class="hljs-comment">[0, 1, 2, 3, 4, 5, 5, 6, 6, 6, 7, 8, 8, 9, 10, 11, 11]</span><br><span class="hljs-comment">[0, 1, 2, 3, 4, 5, 5, 6, 7, 7, 7, 8, 8, 9, 10, 11, 11]</span><br>----------<br>C G T C G A A T G C A <br>----------<br>11<br></code></pre></div></td></tr></table></figure>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%9C%AA%E7%AB%9F/">未竟</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B/">《算法导论》</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    <b>版权声明：</b> 本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/06/02/Python-3-8-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3(Windows10)/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Python 3.8 虚拟环境相关(Windows10)</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/06/01/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84-Prim-%E7%AE%97%E6%B3%95/">
+                        <span class="hidden-mobile">最小生成树的 Prim 算法(未竟)</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
   
-  const script = document.createElement('script')
-  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
-  script.id = 'MathJax-script'
-  script.async = true
-  document.head.appendChild(script)
-} else {
-  MathJax.startup.document.state(0)
-  MathJax.texReset()
-  MathJax.typeset()
-}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
