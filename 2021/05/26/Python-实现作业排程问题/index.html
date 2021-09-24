@@ -1,513 +1,223 @@
-
-
-<!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
-
-
-
-<head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
-  <link rel="icon" href="/img/myfavicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
-  <meta name="author" content="Fany Full">
-  <meta name="keywords" content="">
-  
-  <title>Python 实现作业排程问题 - Fany Full&#39;s Blog</title>
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
-
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
-
-  
-    
-    
-      
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/atom-one-dark.min.css" />
-    
-  
-
-  
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-  
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-<!-- 自定义样式保持在最底部 -->
-
-  
-<link rel="stylesheet" href="/css/custom.css">
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
-
-
-<body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fany Full's Blog</strong>&nbsp;</a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
-          </li>
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-    <div class="banner" id="banner" parallax=true
-         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210526180343.png') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Python 实现作业排程问题">
-              
-            </span>
-
-            
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-05-26 13:15" pubdate>
-        2021年5月26日 下午
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      910 字
-    </span>
-  
-
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      14
-       分钟
-    </span>
-  
-
-  
-  
-</div>
-
-            
-          </div>
-
-          
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Python 实现作业排程问题</h1>
-            
-            <div class="markdown-body">
-              <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h2><ul>
-<li>Automobile factory with two assembly lines<ul>
-<li>Each line has n stations: <script type="math/tex">S_{1, 1},...,S_{1, n}</script> and <script type="math/tex">S_{2, 1},...,S_{2, n}</script></li>
-<li>Corresponding stations <script type="math/tex">S_{1, j}</script> and <script type="math/tex">S_{2, j}</script> perform the same function but can take different amounts of time <script type="math/tex">a_{1, j}</script> and <script type="math/tex">a_{2, j}</script></li>
-<li>Entry times <script type="math/tex">e_1</script> and <script type="math/tex">e_2</script> and exit times <script type="math/tex">x_1</script> and <script type="math/tex">x_2</script></li>
-</ul>
-</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210526133002.png" srcset="/img/loading.gif" lazyload alt="装配线问题示意图"></p>
-<p>给出一个示例的装配线，要求输出最优的排程方案</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210526133309.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<h2 id="2-思路分析"><a href="#2-思路分析" class="headerlink" title="2. 思路分析"></a>2. 思路分析</h2><p>首先, 利用动态规划思想找出递归关系, 这个是<strong>最重要</strong>的一步</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210526134353.png" srcset="/img/loading.gif" lazyload alt="递归式"></p>
-<p>这里的 <script type="math/tex">f_1[j]</script> 表示在第一条装配线的第 j 个站台处理完之后所花费的最少的时间. <script type="math/tex">f_2[j]</script> 也是同理.</p>
-<p>然后, 根据这个关系, 我们就可以自底向上构建 <script type="math/tex">f_1</script> 和 <script type="math/tex">f_2</script> 这两个数组了.</p>
-<p>伪码描述如下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210526135533.png" srcset="/img/loading.gif" lazyload alt="伪码"></p>
-<h2 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3. 代码实现"></a>3. 代码实现</h2><figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-comment"># 最优排程问题</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fastest_way</span>(<span class="hljs-params">a:<span class="hljs-built_in">list</span>, t:<span class="hljs-built_in">list</span>, e:<span class="hljs-built_in">list</span>, x:<span class="hljs-built_in">list</span>, n:<span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">list</span>:</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">    解决最优排程问题</span><br><span class="hljs-string">    :param a: 两条线上各自的每个站点的各自处理时间</span><br><span class="hljs-string">    :param t: 两条线上各自的每个前 n - 1 个站点的切换时间</span><br><span class="hljs-string">    :param e: 两条线的各自的 entry 时间</span><br><span class="hljs-string">    :param x: 两条线的各自的 exit 时间</span><br><span class="hljs-string">    :param n: 每条线的工作站的数目</span><br><span class="hljs-string">    :return: 最优时间, 路径和最后一个走过的工作站点</span><br><span class="hljs-string">    &#x27;&#x27;&#x27;</span><br>    <span class="hljs-comment"># 两条线上每个站的处理时间</span><br>    a1, a2 = a <span class="hljs-comment"># 自动解包</span><br>    <span class="hljs-comment"># 两条线在第 i 个站换线需要的时间</span><br>    t1, t2 = t<br>    <span class="hljs-comment"># 两条线上 e 和 x 的数值</span><br>    e1, e2 = e<br>    x1, x2 = x<br>    <span class="hljs-comment"># 两条线在每个装配点所花费的最小时间表（动态规划）</span><br>    f1 = [<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)]<br>    f2 = [<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)]<br>    route = [[<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)], [<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)]]  <span class="hljs-comment"># 存储路径</span><br>    time = <span class="hljs-built_in">float</span>(<span class="hljs-string">&#x27;inf&#x27;</span>) <span class="hljs-comment"># 最优时间</span><br>    final_line = <span class="hljs-number">0</span> <span class="hljs-comment"># 最后一个节点所在的线路</span><br>    <span class="hljs-comment"># 初始化</span><br>    f1[<span class="hljs-number">0</span>] = e1 + a1[<span class="hljs-number">0</span>]<br>    route[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span> <span class="hljs-comment"># 1 表示走第一条线路</span><br>    f2[<span class="hljs-number">0</span>] = e2 + a2[<span class="hljs-number">0</span>]<br>    route[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">2</span> <span class="hljs-comment"># 2 表示走第二条线路</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, n):<br>        <span class="hljs-keyword">if</span> f1[i - <span class="hljs-number">1</span>] + a1[i] &lt; f2[i - <span class="hljs-number">1</span>] + t2[i - <span class="hljs-number">1</span>] + a1[i]:<br>            f1[i] = f1[i - <span class="hljs-number">1</span>] + a1[i]<br>            route[<span class="hljs-number">0</span>][i] = <span class="hljs-number">1</span><br>        <span class="hljs-keyword">else</span>:<br>            f1[i] = f2[i - <span class="hljs-number">1</span>] + t2[i - <span class="hljs-number">1</span>] + a1[i]<br>            route[<span class="hljs-number">0</span>][i] = <span class="hljs-number">2</span><br>        <span class="hljs-keyword">if</span> f2[i - <span class="hljs-number">1</span>] + a2[i] &lt; f1[i - <span class="hljs-number">1</span>] + t1[i - <span class="hljs-number">1</span>] + a2[i]:<br>            f2[i] = f2[i - <span class="hljs-number">1</span>] + a2[i]<br>            route[<span class="hljs-number">1</span>][i] = <span class="hljs-number">2</span><br>        <span class="hljs-keyword">else</span>:<br>            f2[i] = f1[i - <span class="hljs-number">1</span>] + t1[i - <span class="hljs-number">1</span>] + a2[i]<br>            route[<span class="hljs-number">1</span>][i] = <span class="hljs-number">1</span><br>    <span class="hljs-keyword">if</span> (f1[n - <span class="hljs-number">1</span>] + x1 &lt; f2[n - <span class="hljs-number">1</span>] + x2):<br>        time = f1[n - <span class="hljs-number">1</span>] + x1<br>        final_line = <span class="hljs-number">1</span><br>    <span class="hljs-keyword">else</span>:<br>        time = f2[n - <span class="hljs-number">1</span>] + x2<br>        final_line = <span class="hljs-number">2</span><br>    <span class="hljs-keyword">return</span> [time, route, final_line]<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print_route</span>(<span class="hljs-params">i:<span class="hljs-built_in">int</span>, j:<span class="hljs-built_in">int</span>, route:<span class="hljs-built_in">list</span>, n:<span class="hljs-built_in">int</span></span>):</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">    递归打印装配的线路图</span><br><span class="hljs-string">    :param i: 装配线, 0 represents the first assembly line, 1 represents the second line</span><br><span class="hljs-string">    :param j: 当前节点</span><br><span class="hljs-string">    :param route: 存储两条线路的节点的父节点的 list</span><br><span class="hljs-string">    :param n: 装配线的节点数</span><br><span class="hljs-string">    :return: None</span><br><span class="hljs-string">    &#x27;&#x27;&#x27;</span><br>    <span class="hljs-keyword">if</span> j == <span class="hljs-number">1</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;[Line: &#x27;</span> + <span class="hljs-built_in">str</span>(i) + <span class="hljs-string">&#x27; Station: &#x27;</span> + <span class="hljs-built_in">str</span>(j) + <span class="hljs-string">&#x27;]&#x27;</span>, end=<span class="hljs-string">&#x27; &#x27;</span>)<br>    <span class="hljs-keyword">else</span>:<br>        print_route(route[i - <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>], j - <span class="hljs-number">1</span>, route, n)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;[Line: &#x27;</span> + <span class="hljs-built_in">str</span>(i) + <span class="hljs-string">&#x27; Station: &#x27;</span> + <span class="hljs-built_in">str</span>(j) + <span class="hljs-string">&#x27;]&#x27;</span>, end=<span class="hljs-string">&#x27; &#x27;</span>)<br>    <span class="hljs-keyword">if</span> j != n:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;=&gt;&#x27;</span>, end=<span class="hljs-string">&#x27; &#x27;</span>)<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>()<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    n = <span class="hljs-number">5</span>  <span class="hljs-comment"># 每条线工作站的数目</span><br>    <span class="hljs-comment"># 两条线上每个站的处理时间</span><br>    a1 = [<span class="hljs-number">7</span>, <span class="hljs-number">9</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>]<br>    a2 = [<span class="hljs-number">8</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]<br>    <span class="hljs-comment"># 两条线在第 i 个站换线需要的时间</span><br>    t1 = [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>]<br>    t2 = [<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>]<br>    <span class="hljs-comment"># 两条线上 e 和 x 的数值</span><br>    e1 = <span class="hljs-number">2</span><br>    e2 = <span class="hljs-number">4</span><br>    x1 = <span class="hljs-number">3</span><br>    x2 = <span class="hljs-number">6</span><br>    a = [a1, a2]<br>    t = [t1, t2]<br>    e = [e1, e2]<br>    x = [x1, x2]<br>    res = fastest_way(a, t, e, x, n)<br>    time, route, final_line = res<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;The shortest time:&#x27;</span>, time)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;The best assembly line is: &#x27;</span>, end=<span class="hljs-string">&#x27;&#x27;</span>)<br>    print_route(final_line, <span class="hljs-number">5</span>, route, n)<br><br></code></pre></div></td></tr></table></figure>
-<p>输出</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs pgsql">The shortest <span class="hljs-type">time</span>: <span class="hljs-number">35</span><br>The best assembly <span class="hljs-type">line</span> <span class="hljs-keyword">is</span>: [<span class="hljs-type">Line</span>: <span class="hljs-number">1</span> Station: <span class="hljs-number">1</span>] =&gt; [<span class="hljs-type">Line</span>: <span class="hljs-number">2</span> Station: <span class="hljs-number">2</span>] =&gt; [<span class="hljs-type">Line</span>: <span class="hljs-number">1</span> Station: <span class="hljs-number">3</span>] =&gt; [<span class="hljs-type">Line</span>: <span class="hljs-number">1</span> Station: <span class="hljs-number">4</span>] =&gt; [<span class="hljs-type">Line</span>: <span class="hljs-number">1</span> Station: <span class="hljs-number">5</span>] <br><br></code></pre></div></td></tr></table></figure>
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B/">《算法导论》</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a>
-                    
-                  </div>
-                
-              </div>
-              
-                <p class="note note-warning">
-                  
-                    <b>版权声明：</b> 本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
-                  
-                </p>
-              
-              
-                <div class="post-prevnext">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2021/05/27/Python-%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84-m-%E5%8F%82%E6%95%B0/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Python 命令行的 -m 参数</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2021/05/24/%E4%B8%80%E4%BA%9B%E5%81%8F%E5%83%BB%E4%BD%86%E6%9C%89%E7%94%A8%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E7%82%B9/">
-                        <span class="hidden-mobile">一些偏僻但有用的数学知识点</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-          </article>
-        </div>
-      </div>
-    </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-      </div>
-    
-  </div>
-</div>
-
-<!-- Custom -->
-
-
-    
-
-    
-      <a id="scroll-top-button" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-    
-
-    
-  </main>
-
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
-  
-
-  
-
-  
-</footer>
-
-
-  <!-- SCRIPTS -->
-  
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-<!-- Plugins -->
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-  
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
-
-
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
-
-
-
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-      typing(title)
-      
-    })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
-  </script>
-
-
-
-
-
-  
-
-  
-    <!-- MathJax -->
-    <script>
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
-        },
-        options: {
-          renderActions: {
-            findScript: [10, doc => {
-              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                const display = !!node.type.match(/; *mode=display/);
-                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                const text = document.createTextNode('');
-                node.parentNode.replaceChild(text, node);
-                math.start = { node: text, delim: '', n: 0 };
-                math.end = { node: text, delim: '', n: 0 };
-                doc.math.push(math);
-              });
-            }, '', false],
-            insertedScript: [200, () => {
-              document.querySelectorAll('mjx-container').forEach(node => {
-                let target = node.parentNode;
-                if (target.nodeName.toLowerCase() === 'li') {
-                  target.parentNode.classList.add('has-jax');
-                }
-              });
-            }, '', false]
-          }
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Python 实现作业排程问题 | Fany Full's Blog</title><meta name="keywords" content="《算法导论》,算法设计与分析"><meta name="author" content="Fany Full"><meta name="copyright" content="Fany Full"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1. 问题描述  Automobile factory with two assembly lines  Each line has n stations: $S_&amp;#123;1, 1&amp;#125;,...,S_&amp;#123;1, n&amp;#125;$ and $S_&amp;#123;2, 1&amp;#125;,...,S_&amp;#123;2, n&amp;#125;$ Corresponding stations $">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 实现作业排程问题">
+<meta property="og:url" content="http://fanyfull.github.io/2021/05/26/Python-%E5%AE%9E%E7%8E%B0%E4%BD%9C%E4%B8%9A%E6%8E%92%E7%A8%8B%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:description" content="1. 问题描述  Automobile factory with two assembly lines  Each line has n stations: $S_&amp;#123;1, 1&amp;#125;,...,S_&amp;#123;1, n&amp;#125;$ and $S_&amp;#123;2, 1&amp;#125;,...,S_&amp;#123;2, n&amp;#125;$ Corresponding stations $">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg">
+<meta property="article:published_time" content="2021-05-26T05:15:40.000Z">
+<meta property="article:modified_time" content="2021-06-01T03:08:49.490Z">
+<meta property="article:author" content="Fany Full">
+<meta property="article:tag" content="《算法导论》">
+<meta property="article:tag" content="算法设计与分析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://fanyfull.github.io/2021/05/26/Python-%E5%AE%9E%E7%8E%B0%E4%BD%9C%E4%B8%9A%E6%8E%92%E7%A8%8B%E9%97%AE%E9%A2%98/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Python 实现作业排程问题',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-06-01 11:08:49'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
         }
-      };
-    </script>
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
 
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
-
-
-
-
-
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
-
-
-</body>
-</html>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">51</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">31</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Fany Full's Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Python 实现作业排程问题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-05-26T05:15:40.000Z" title="发表于 2021-05-26 13:15:40">2021-05-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-06-01T03:08:49.490Z" title="更新于 2021-06-01 11:08:49">2021-06-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Python 实现作业排程问题"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="问题描述">1. 问题描述</h2>
+<ul>
+<li>Automobile factory with two assembly lines
+<ul>
+<li>Each line has n stations: <code>$S_&#123;1, 1&#125;,...,S_&#123;1, n&#125;$</code> and <code>$S_&#123;2, 1&#125;,...,S_&#123;2, n&#125;$</code></li>
+<li>Corresponding stations <code>$S_&#123;1, j&#125;$</code> and <code>$S_&#123;2, j&#125;$</code> perform the same function but can take different amounts of time <code>$a_&#123;1, j&#125;$</code> and <code>$a_&#123;2, j&#125;$</code></li>
+<li>Entry times <code>$e_1$</code> and <code>$e_2$</code> and exit times <code>$x_1$</code> and <code>$x_2$</code></li>
+</ul></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210526133002.png" alt="装配线问题示意图" /></p>
+<p>给出一个示例的装配线，要求输出最优的排程方案</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210526133309.png" /></p>
+<h2 id="思路分析">2. 思路分析</h2>
+<p>首先, 利用动态规划思想找出递归关系, 这个是<strong>最重要</strong>的一步</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210526134353.png" alt="递归式" /></p>
+<p>这里的 <code>$f_1[j]$</code> 表示在第一条装配线的第 j 个站台处理完之后所花费的最少的时间. <code>$f_2[j]$</code> 也是同理.</p>
+<p>然后, 根据这个关系, 我们就可以自底向上构建 <code>$f_1$</code> 和 <code>$f_2$</code> 这两个数组了.</p>
+<p>伪码描述如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210526135533.png" alt="伪码" /></p>
+<h2 id="代码实现">3. 代码实现</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最优排程问题</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fastest_way</span>(<span class="params">a:<span class="built_in">list</span>, t:<span class="built_in">list</span>, e:<span class="built_in">list</span>, x:<span class="built_in">list</span>, n:<span class="built_in">int</span></span>) -&gt; <span class="built_in">list</span>:</span></span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    解决最优排程问题</span></span><br><span class="line"><span class="string">    :param a: 两条线上各自的每个站点的各自处理时间</span></span><br><span class="line"><span class="string">    :param t: 两条线上各自的每个前 n - 1 个站点的切换时间</span></span><br><span class="line"><span class="string">    :param e: 两条线的各自的 entry 时间</span></span><br><span class="line"><span class="string">    :param x: 两条线的各自的 exit 时间</span></span><br><span class="line"><span class="string">    :param n: 每条线的工作站的数目</span></span><br><span class="line"><span class="string">    :return: 最优时间, 路径和最后一个走过的工作站点</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="comment"># 两条线上每个站的处理时间</span></span><br><span class="line">    a1, a2 = a <span class="comment"># 自动解包</span></span><br><span class="line">    <span class="comment"># 两条线在第 i 个站换线需要的时间</span></span><br><span class="line">    t1, t2 = t</span><br><span class="line">    <span class="comment"># 两条线上 e 和 x 的数值</span></span><br><span class="line">    e1, e2 = e</span><br><span class="line">    x1, x2 = x</span><br><span class="line">    <span class="comment"># 两条线在每个装配点所花费的最小时间表（动态规划）</span></span><br><span class="line">    f1 = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">    f2 = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">    route = [[<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)], [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]]  <span class="comment"># 存储路径</span></span><br><span class="line">    time = <span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>) <span class="comment"># 最优时间</span></span><br><span class="line">    final_line = <span class="number">0</span> <span class="comment"># 最后一个节点所在的线路</span></span><br><span class="line">    <span class="comment"># 初始化</span></span><br><span class="line">    f1[<span class="number">0</span>] = e1 + a1[<span class="number">0</span>]</span><br><span class="line">    route[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span> <span class="comment"># 1 表示走第一条线路</span></span><br><span class="line">    f2[<span class="number">0</span>] = e2 + a2[<span class="number">0</span>]</span><br><span class="line">    route[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">2</span> <span class="comment"># 2 表示走第二条线路</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n):</span><br><span class="line">        <span class="keyword">if</span> f1[i - <span class="number">1</span>] + a1[i] &lt; f2[i - <span class="number">1</span>] + t2[i - <span class="number">1</span>] + a1[i]:</span><br><span class="line">            f1[i] = f1[i - <span class="number">1</span>] + a1[i]</span><br><span class="line">            route[<span class="number">0</span>][i] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            f1[i] = f2[i - <span class="number">1</span>] + t2[i - <span class="number">1</span>] + a1[i]</span><br><span class="line">            route[<span class="number">0</span>][i] = <span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> f2[i - <span class="number">1</span>] + a2[i] &lt; f1[i - <span class="number">1</span>] + t1[i - <span class="number">1</span>] + a2[i]:</span><br><span class="line">            f2[i] = f2[i - <span class="number">1</span>] + a2[i]</span><br><span class="line">            route[<span class="number">1</span>][i] = <span class="number">2</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            f2[i] = f1[i - <span class="number">1</span>] + t1[i - <span class="number">1</span>] + a2[i]</span><br><span class="line">            route[<span class="number">1</span>][i] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> (f1[n - <span class="number">1</span>] + x1 &lt; f2[n - <span class="number">1</span>] + x2):</span><br><span class="line">        time = f1[n - <span class="number">1</span>] + x1</span><br><span class="line">        final_line = <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        time = f2[n - <span class="number">1</span>] + x2</span><br><span class="line">        final_line = <span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> [time, route, final_line]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_route</span>(<span class="params">i:<span class="built_in">int</span>, j:<span class="built_in">int</span>, route:<span class="built_in">list</span>, n:<span class="built_in">int</span></span>):</span></span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    递归打印装配的线路图</span></span><br><span class="line"><span class="string">    :param i: 装配线, 0 represents the first assembly line, 1 represents the second line</span></span><br><span class="line"><span class="string">    :param j: 当前节点</span></span><br><span class="line"><span class="string">    :param route: 存储两条线路的节点的父节点的 list</span></span><br><span class="line"><span class="string">    :param n: 装配线的节点数</span></span><br><span class="line"><span class="string">    :return: None</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> j == <span class="number">1</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;[Line: &#x27;</span> + <span class="built_in">str</span>(i) + <span class="string">&#x27; Station: &#x27;</span> + <span class="built_in">str</span>(j) + <span class="string">&#x27;]&#x27;</span>, end=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print_route(route[i - <span class="number">1</span>][j - <span class="number">1</span>], j - <span class="number">1</span>, route, n)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;[Line: &#x27;</span> + <span class="built_in">str</span>(i) + <span class="string">&#x27; Station: &#x27;</span> + <span class="built_in">str</span>(j) + <span class="string">&#x27;]&#x27;</span>, end=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> j != n:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;=&gt;&#x27;</span>, end=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    n = <span class="number">5</span>  <span class="comment"># 每条线工作站的数目</span></span><br><span class="line">    <span class="comment"># 两条线上每个站的处理时间</span></span><br><span class="line">    a1 = [<span class="number">7</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">8</span>]</span><br><span class="line">    a2 = [<span class="number">8</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">    <span class="comment"># 两条线在第 i 个站换线需要的时间</span></span><br><span class="line">    t1 = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">3</span>]</span><br><span class="line">    t2 = [<span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>]</span><br><span class="line">    <span class="comment"># 两条线上 e 和 x 的数值</span></span><br><span class="line">    e1 = <span class="number">2</span></span><br><span class="line">    e2 = <span class="number">4</span></span><br><span class="line">    x1 = <span class="number">3</span></span><br><span class="line">    x2 = <span class="number">6</span></span><br><span class="line">    a = [a1, a2]</span><br><span class="line">    t = [t1, t2]</span><br><span class="line">    e = [e1, e2]</span><br><span class="line">    x = [x1, x2]</span><br><span class="line">    res = fastest_way(a, t, e, x, n)</span><br><span class="line">    time, route, final_line = res</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;The shortest time:&#x27;</span>, time)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;The best assembly line is: &#x27;</span>, end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    print_route(final_line, <span class="number">5</span>, route, n)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The shortest time: 35</span><br><span class="line">The best assembly line is: [Line: 1 Station: 1] =&gt; [Line: 2 Station: 2] =&gt; [Line: 1 Station: 3] =&gt; [Line: 1 Station: 4] =&gt; [Line: 1 Station: 5] </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fany Full</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://fanyfull.github.io/2021/05/26/Python-%E5%AE%9E%E7%8E%B0%E4%BD%9C%E4%B8%9A%E6%8E%92%E7%A8%8B%E9%97%AE%E9%A2%98/">http://fanyfull.github.io/2021/05/26/Python-%E5%AE%9E%E7%8E%B0%E4%BD%9C%E4%B8%9A%E6%8E%92%E7%A8%8B%E9%97%AE%E9%A2%98/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://fanyfull.github.io" target="_blank">Fany Full's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B/">《算法导论》</a><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/05/27/Python-%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84-m-%E5%8F%82%E6%95%B0/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Python 命令行的 -m 参数</div></div></a></div><div class="next-post pull-right"><a href="/2021/05/24/%E4%B8%80%E4%BA%9B%E5%81%8F%E5%83%BB%E4%BD%86%E6%9C%89%E7%94%A8%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E7%82%B9/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">一些偏僻但有用的数学知识点</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/06/01/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B9%8B%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98/" title="动态规划之最长公共子序列问题(未竟)"><img class="cover" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-01</div><div class="title">动态规划之最长公共子序列问题(未竟)</div></div></a></div><div><a href="/2021/06/01/%E5%88%A9%E7%94%A8%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E6%9D%A5%E5%AF%BB%E6%89%BE%E5%9B%BE%E7%9A%84%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" title="利用深度优先搜索来寻找图的强连通分量(未竟)"><img class="cover" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-01</div><div class="title">利用深度优先搜索来寻找图的强连通分量(未竟)</div></div></a></div><div><a href="/2021/06/01/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84-Kruskal-%E7%AE%97%E6%B3%95/" title="最小生成树的 Kruskal 算法(未竟)"><img class="cover" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-01</div><div class="title">最小生成树的 Kruskal 算法(未竟)</div></div></a></div><div><a href="/2021/06/01/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84-Prim-%E7%AE%97%E6%B3%95/" title="最小生成树的 Prim 算法(未竟)"><img class="cover" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-01</div><div class="title">最小生成树的 Prim 算法(未竟)</div></div></a></div><div><a href="/2021/05/28/%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E4%B9%8B-Bellman-Ford-%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%85%B6-Python-%E5%AE%9E%E7%8E%B0/" title="单源最短路径之 Bellman-Ford 算法详解及其 Python 实现"><img class="cover" src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-28</div><div class="title">单源最短路径之 Bellman-Ford 算法详解及其 Python 实现</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Fany Full</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">51</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">31</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">1. 问题描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">2. 思路分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.</span> <span class="toc-text">3. 代码实现</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/09/23/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E7%8E%8B%E7%B4%A0%E7%90%B4%EF%BC%89%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/" title="《编译原理第三版》（王素琴）学习札记"><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《编译原理第三版》（王素琴）学习札记"/></a><div class="content"><a class="title" href="/2021/09/23/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E7%8E%8B%E7%B4%A0%E7%90%B4%EF%BC%89%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/" title="《编译原理第三版》（王素琴）学习札记">《编译原理第三版》（王素琴）学习札记</a><time datetime="2021-09-23T00:55:38.000Z" title="发表于 2021-09-23 08:55:38">2021-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/22/%E8%A7%A3%E5%86%B3-Hexo-%E5%9C%A8%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84-Accessing-non-existent-property-xxx-of-module-exports-inside-circular-dependency-%E9%97%AE%E9%A2%98/" title="解决 Hexo 在生成博客过程中的 Accessing non-existent property xxx of module exports inside circular dependency 问题"><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="解决 Hexo 在生成博客过程中的 Accessing non-existent property xxx of module exports inside circular dependency 问题"/></a><div class="content"><a class="title" href="/2021/09/22/%E8%A7%A3%E5%86%B3-Hexo-%E5%9C%A8%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84-Accessing-non-existent-property-xxx-of-module-exports-inside-circular-dependency-%E9%97%AE%E9%A2%98/" title="解决 Hexo 在生成博客过程中的 Accessing non-existent property xxx of module exports inside circular dependency 问题">解决 Hexo 在生成博客过程中的 Accessing non-existent property xxx of module exports inside circular dependency 问题</a><time datetime="2021-09-22T15:04:55.000Z" title="发表于 2021-09-22 23:04:55">2021-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/21/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E4%B8%80/" title="编译原理作业一"><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="编译原理作业一"/></a><div class="content"><a class="title" href="/2021/09/21/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E4%B8%80/" title="编译原理作业一">编译原理作业一</a><time datetime="2021-09-21T09:47:02.000Z" title="发表于 2021-09-21 17:47:02">2021-09-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/20/LeetCode-12-Integer-to-Roman/" title="LeetCode 12 Integer to Roman"><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 12 Integer to Roman"/></a><div class="content"><a class="title" href="/2021/09/20/LeetCode-12-Integer-to-Roman/" title="LeetCode 12 Integer to Roman">LeetCode 12 Integer to Roman</a><time datetime="2021-09-20T15:41:27.000Z" title="发表于 2021-09-20 23:41:27">2021-09-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/20/%E3%80%8A%E8%81%8A%E6%96%8B%E5%BF%97%E5%BC%82%E3%80%8B%E6%9C%AD%E8%AE%B0/" title="《聊斋志异》札记"><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《聊斋志异》札记"/></a><div class="content"><a class="title" href="/2021/09/20/%E3%80%8A%E8%81%8A%E6%96%8B%E5%BF%97%E5%BC%82%E3%80%8B%E6%9C%AD%E8%AE%B0/" title="《聊斋志异》札记">《聊斋志异》札记</a><time datetime="2021-09-20T06:53:32.000Z" title="发表于 2021-09-20 14:53:32">2021-09-20</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Fany Full</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
