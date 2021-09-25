@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      806 字
+      1.6k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8
+      20
        分钟
     </span>
   
@@ -237,7 +237,7 @@
             
             <div class="markdown-body">
               <h1 id="作业一">作业一</h1>
-<h2 id="课后作业">1、课后作业</h2>
+<h2 id="第一章课后作业">1、第一章课后作业</h2>
 <p>1、解释下列术语：</p>
 <p>编译程序，源程序，目标程序，编译程序的前端、后端和遍</p>
 <p>解：</p>
@@ -283,6 +283,150 @@
 <h2 id="课堂作业">2、课堂作业</h2>
 <p>试设计一文法 <span class="math inline">\(G\)</span>，使得 <span class="math inline">\(L(G)\)</span> 为能被 <span class="math inline">\(3\)</span> 整除的整数集。</p>
 <p>解：</p>
+<p>首先，将 0-9 这十个数字分成三组。</p>
+<ul>
+<li>0，3，6，9：可以被 3 整除</li>
+<li>1，4，7：被 3 整除余 1</li>
+<li>2，5，8：被 3 整除余 2</li>
+</ul>
+<p>文法表达式为：<span class="math inline">\(G = (V_N, V_T, P, S)\)</span>，其中</p>
+<p><span class="math display">\[
+V_N = \{ S, A, B \} \\
+V_T = \{ 0, 1, 2, 3, 4, 5, 6, 7, 8 9 \}
+\]</span></p>
+<p>然后，分类讨论。</p>
+<ol type="1">
+<li><p>对开始符 <span class="math inline">\(S\)</span></p>
+<ul>
+<li>若和 <span class="math inline">\(0, 3, 6, 9\)</span> 组合，有 <span class="math inline">\(S \rightarrow (0|3|6|9)S|\varepsilon\)</span></li>
+<li>若和 <span class="math inline">\(1, 4, 7\)</span> 组合，有 <span class="math inline">\(S \rightarrow (1, 4, 7)A\)</span></li>
+<li>若和 <span class="math inline">\(2, 5, 8\)</span> 组合，有 <span class="math inline">\(S \rightarrow (2|5|8)B\)</span></li>
+</ul></li>
+<li><p>对非终结符 <span class="math inline">\(A\)</span>，其左边是 <span class="math inline">\(1, 4, 7\)</span> 三个数字。</p>
+<ul>
+<li>若和 <span class="math inline">\(0, 3, 6, 9\)</span> 组合，有 <span class="math inline">\(A \rightarrow (0, 3, 6, 9)A\)</span></li>
+<li>若和 <span class="math inline">\(2, 5, 8\)</span> 组合，有 <span class="math inline">\(A \rightarrow (2|5|8)S\)</span></li>
+<li>若和 <span class="math inline">\(1, 4, 7\)</span> 组合，有 <span class="math inline">\(A \rightarrow (1|4|7)B\)</span></li>
+</ul></li>
+<li><p>对非终结符 <span class="math inline">\(B\)</span>，其左边是 <span class="math inline">\(1, 4, 7\)</span> 三个数字。</p>
+<ul>
+<li>若和 <span class="math inline">\(0, 3, 6, 9\)</span> 组合，有 <span class="math inline">\(B \rightarrow (0|3|6|9)B\)</span></li>
+<li>若和 <span class="math inline">\(1, 4, 7\)</span> 组合，有 <span class="math inline">\(B \rightarrow (1|4|7)S\)</span></li>
+<li>若和 <span class="math inline">\(2, 5, 8\)</span> 组合，有 <span class="math inline">\(B \rightarrow (2|5|8)A\)</span></li>
+</ul></li>
+</ol>
+<p>综上，<span class="math inline">\(P\)</span> 的规则是</p>
+<p><span class="math display">\[
+\begin{align}
+&amp;S \rightarrow (0|3|6|9)S|(1|4|7)A|(2|5|8)B|\varepsilon \\
+&amp;A \rightarrow (0|3|6|9)A|(2|5|8)S|(1|4|7)B \\
+&amp;B \rightarrow (0|3|6|9)B|(1|4|7)S|(2|5|8)A
+\end{align}
+\]</span></p>
+<h2 id="第二章课后作业">3、第二章课后作业</h2>
+<p>1、文法 <span class="math inline">\(G = (\{ A, B, S \}, \{ a, b, c \}, P, S)\)</span>，其中 <span class="math inline">\(P\)</span> 为</p>
+<p><span class="math display">\[
+\begin{align}
+&amp; S \rightarrow Ac|aB \\
+&amp; A \rightarrow ab \\
+&amp; B \rightarrow bc
+\end{align}
+\]</span></p>
+<p>写出 <span class="math inline">\(L(G[S])\)</span> 的全部元素。</p>
+<p>解：</p>
+<p><span class="math display">\[
+L(G[S]) = \{ abc \}
+\]</span></p>
+<p>4、证明文法</p>
+<p><span class="math display">\[
+G = (\{ E, O \}, \{ (, ), +, *, v, d \}, P, E)
+\]</span></p>
+<p>是二义的，其中 <span class="math inline">\(P\)</span> 为</p>
+<p><span class="math display">\[
+\begin{align}
+&amp;E \rightarrow EOE|(E)|v|d \\
+&amp;O \rightarrow +|*
+\end{align}
+\]</span></p>
+<p>证明：</p>
+<p>可为句子 <span class="math inline">\(v * v + v\)</span> 构造两个不同的最左推导：</p>
+<p><span class="math display">\[
+\begin{align}
+E &amp;\Rightarrow EOE \\
+&amp;\Rightarrow EOEOE \\
+&amp;\Rightarrow vOEOE \\
+&amp;\Rightarrow v*EOE \\
+&amp;\Rightarrow v*vOE \\
+&amp;\Rightarrow v*v+E \\
+&amp;\Rightarrow v*v+v \\
+E &amp;\Rightarrow EOE \\
+&amp;\Rightarrow vOE \\
+&amp;\Rightarrow v*E \\
+&amp;\Rightarrow v*EOE \\
+&amp;\Rightarrow v*vOE \\
+&amp;\Rightarrow v*v+E \\
+&amp;\Rightarrow v*v+v
+\end{align}
+\]</span></p>
+<p>故文法 <span class="math inline">\(G\)</span> 是二义的。</p>
+<p>11、一个上下文无关语法生成句子 <span class="math inline">\(abbaa\)</span> 的唯一语法树如下：</p>
+<ol type="1">
+<li>给出该句子相应的最左推导和最右推导。</li>
+<li>该文法的产生式集合 <span class="math inline">\(P\)</span> 可能有哪些元素？</li>
+<li>找出该句子的所有短语、简单短语、句柄。</li>
+</ol>
+<p>解：</p>
+<ol type="1">
+<li>句子 <span class="math inline">\(abbaa\)</span> 的最左推导如下</li>
+</ol>
+<p><span class="math display">\[
+\begin{align}
+S &amp;\Rightarrow ABS \\
+&amp;\Rightarrow aBS \\
+&amp;\Rightarrow aSBBS \\
+&amp;\Rightarrow a\varepsilon BBS \\
+&amp;\Rightarrow a\varepsilon bBS \\
+&amp;\Rightarrow a\varepsilon bbS \\
+&amp;\Rightarrow a\varepsilon bbAa \\
+&amp;\Rightarrow a\varepsilon bbaa \\
+\end{align}
+\]</span></p>
+<p>最右推导如下</p>
+<p><span class="math display">\[
+\begin{align}
+S &amp;\Rightarrow ABS \\
+&amp;\Rightarrow ABAa \\
+&amp;\Rightarrow ABaa \\
+&amp;\Rightarrow ASBBaa \\
+&amp;\Rightarrow ASBbaa \\
+&amp;\Rightarrow ASbbaa \\
+&amp;\Rightarrow A\varepsilon bbaa \\
+&amp;\Rightarrow a\varepsilon bbaa \\
+\end{align}
+\]</span></p>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<p>12、构造产生如下语言的上下文无关语法各一个：</p>
+<p><span class="math display">\[
+\begin{align}
+&amp;(2) \; \{ a^m b^n | m \geqslant n \geqslant 0 \} \\
+&amp;(5) \; \{ a^n b^m | n \geqslant 0, m \geqslant 0, 且 3n \geqslant m \geqslant 2n \} \\
+&amp;(6) \; \{ ww^R | w \in \{ a, b \}^*, 其中, w^R 表示 w 的反向串，其含义是将 w 中的字母依次反转，首尾字母交换位置 \} \\
+\end{align}
+\]</span></p>
+<p>18、给出生成下述语言的一个 3 型文法：</p>
+<ol start="2" type="1">
+<li><span class="math inline">\(\{ a^nb^m|n, m \geqslant 1 \}\)</span></li>
+</ol>
+<p>解：</p>
+<p><span class="math display">\[
+\begin{align}
+&amp;S \rightarrow aA \\
+&amp;A \rightarrow aA|B \\
+&amp;B \rightarrow bB|b
+\end{align}
+\]</span></p>
 
             </div>
             <hr>

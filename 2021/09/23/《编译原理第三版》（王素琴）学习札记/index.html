@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      1.2k 字
     </span>
   
 
@@ -286,6 +286,12 @@
 <p>何为句型，何为句子？</p>
 <p>设 <span class="math inline">\(G[S]\)</span> 是一个文法，如果符号串 <span class="math inline">\(x\)</span> 是从识别符推导出来的，即有 <span class="math inline">\(S \mathop{\Rightarrow}\limits^{*} x\)</span>，则称 <span class="math inline">\(x\)</span> 是文法 <span class="math inline">\(G[S]\)</span> 的<strong>句型</strong>。</p>
 <p>若 <span class="math inline">\(x\)</span> 仅由终结符号组成，即 <span class="math inline">\(S \mathop{\Rightarrow}\limits^{*} x, \; x \in V_T^*\)</span>，则称 <span class="math inline">\(x\)</span> 为 <span class="math inline">\(G[S]\)</span> 的<strong>句子</strong>。</p>
+<p>何为 <span class="math inline">\(L(G)\)</span>？</p>
+<p>文法 <span class="math inline">\(G\)</span> 所产生的语言定义为集合</p>
+<p><span class="math display">\[
+\{ x| S \mathop{\Rightarrow}\limits^* x, 其中 S 为文法识别符号，且 x \in V^*_T\}
+\]</span></p>
+<p>可用 <span class="math inline">\(L(G)\)</span> 表示该集合。</p>
 <p>何为文法的二义性？</p>
 <p>如果一个文法存在某个句子对应两棵不同的语法树，则说这个语法是<strong>二义</strong>的。或者说，若一个文法中存在某个句子，它有两个不同的最左（最右）推导，则这个语法是<strong>二义</strong>的。</p>
 <p>举例：文法 <span class="math inline">\(G = (\{ E \}), \{ +, *, i, (, ) \}, P, E\)</span>，其中 <span class="math inline">\(P\)</span> 为：</p>
