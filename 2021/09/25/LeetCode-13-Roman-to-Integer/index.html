@@ -14,11 +14,11 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
+  <meta name="description" content="LeetCode 13 打卡">
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-  <title>《编译原理第三版》（王素琴）学习札记 - Fany Full&#39;s Blog</title>
+  <title>LeetCode 13 Roman to Integer - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -166,12 +166,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210923231105.png') no-repeat center center;
+         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210925154845.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="《编译原理第三版》（王素琴）学习札记">
+            <span class="h2" id="subtitle" title="LeetCode 13 Roman to Integer">
               
             </span>
 
@@ -181,8 +181,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-09-23 08:55" pubdate>
-        2021年9月23日 早上
+      <time datetime="2021-09-25 15:45" pubdate>
+        2021年9月25日 下午
       </time>
     </span>
   
@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      150 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14
+      2
        分钟
     </span>
   
@@ -233,84 +233,13 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">《编译原理第三版》（王素琴）学习札记</h1>
+            <h1 style="display: none">LeetCode 13 Roman to Integer</h1>
             
             <div class="markdown-body">
-              <p>何为符号 <span class="math inline">\(\Rightarrow\)</span>？</p>
-<blockquote>
-<p>符号 <span class="math inline">\(\Rightarrow\)</span> 的含义是，使用一条规则，代替左端的某个符号，产生其右端的符号串。</p>
-</blockquote>
-<p>何为规则？</p>
-<p>规则，也称重写规则、产生式或生成式，是形如 <span class="math inline">\(\alpha \rightarrow \beta\)</span> 或 <span class="math inline">\(\alpha ::= \beta\)</span> 的有序对，其中 <span class="math inline">\(\alpha\)</span> 称为规则的左部，<span class="math inline">\(\beta\)</span> 称作规则的右部。</p>
-<p><span class="math display">\[V_N \cup V_T = \varnothing\]</span></p>
-<p>通常用 <span class="math inline">\(V\)</span> 表示 <span class="math inline">\(V_N \cup V_T\)</span>，<span class="math inline">\(V\)</span> 称为文法 <span class="math inline">\(G\)</span> 的字母表或词汇表。</p>
-<p>关于符号 <span class="math inline">\(\rightarrow\)</span> 或 <span class="math inline">\(::=\)</span>？</p>
-<p>符号 <span class="math inline">\(\rightarrow\)</span> 或 <span class="math inline">\(::=\)</span> 读作“定义为”。</p>
-<p>例如，<span class="math inline">\(A \rightarrow a\)</span> 读作“<span class="math inline">\(A\)</span> 定义为 <span class="math inline">\(a\)</span>”。也把它说成是一条关于 <span class="math inline">\(A\)</span> 的规则（产生式）。</p>
-<p>何为四元组？</p>
-<p>文法 <span class="math inline">\(G\)</span> 定义为四元组 <span class="math inline">\(\displaystyle{(V_N, V_T, P, S)}\)</span>。</p>
-<ul>
-<li><span class="math inline">\(V_N\)</span>：非终结符（或语法实体，或变量）集；</li>
-<li><span class="math inline">\(V_T\)</span>：终结符集；</li>
-<li><span class="math inline">\(P\)</span>：规则 <span class="math inline">\((\alpha \rightarrow \beta)\)</span> 的集合
-<ul>
-<li><span class="math inline">\(\alpha \in (V_N \cup V_T)^{*}\)</span> 且至少包含一个非终止符</li>
-<li><span class="math inline">\(\beta \in (V_N \cup V_T)^{*}\)</span>；</li>
-</ul></li>
-<li><span class="math inline">\(V_N, V_T, P\)</span> 是非空有穷集；</li>
-<li><span class="math inline">\(S\)</span> 称作识别符或者开始符，它是一个非终结符，至少要在一条规则中作为左部出现。</li>
-</ul>
-<p>关于文法 <span class="math inline">\(G\)</span> 的一些规定？</p>
-<ul>
-<li>一般约定，第一条产生式的左部是识别符；</li>
-<li>用尖括号括起来的是非终结符，不用尖括号括起来的是终结符；</li>
-<li>或者用大写字母表示非终结符，小写字母表示终结符；</li>
-<li>另外，还有一种习惯写法，将 <span class="math inline">\(G\)</span> 写成 <span class="math inline">\(G[S]\)</span>，其中 <span class="math inline">\(S\)</span> 是识别符。</li>
-</ul>
-<p>何为 0 型文法？</p>
-<p>设 <span class="math inline">\(G = (V_N, V_T, P, S)\)</span>，如果它的每一个产生式 <span class="math inline">\(\alpha \rightarrow \beta\)</span> 是这样一种结构：<span class="math inline">\(\alpha \in (V_N \cup V_T)^*\)</span> 且至少含有一个非终结符，而 <span class="math inline">\(\beta \in (V_N \cup V_T)^*\)</span>，则 <span class="math inline">\(G\)</span> 是一个 <strong>0 型语法文法</strong>。</p>
-<p>0 型文法也称 短语语法。</p>
-<p>何为 1 型文法？</p>
-<p>设 <span class="math inline">\(G = (V_N, V_T, P, S)\)</span> 为一个文法，若 <span class="math inline">\(P\)</span> 中的每一个产生式 <span class="math inline">\(\alpha \rightarrow \beta\)</span> 均满足 <span class="math inline">\(|\beta| \geqslant |\alpha|\)</span>，仅仅 <span class="math inline">\(S \rightarrow \varepsilon\)</span> 除外，则文法 <span class="math inline">\(G\)</span> 是 <strong>1 型</strong> 或 <strong>上下文有关的（context-sensitive）</strong>。</p>
-<p>何为 2 型文法？</p>
-<p>设 <span class="math inline">\(G = (V_N, V_T, P, S)\)</span>。若 <span class="math inline">\(P\)</span> 中的每一个产生式 <span class="math inline">\(\alpha \rightarrow \beta\)</span> 满足：<span class="math inline">\(\alpha\)</span> 是一个非终结符，<span class="math inline">\(\beta \in (V_N \cup V_T)^*\)</span>，则此文法称为 <strong>2 型的</strong> 或 <strong>上下文无关的（context-free）</strong></p>
-<p>问题：P25，上下文有关法的等价定义的理解？</p>
-<p>似乎 <span class="math inline">\(A\)</span> 在 <span class="math inline">\(V_N\)</span> 中，是单个字符。</p>
-<p>何为符号 <span class="math inline">\(\mathop{\Rightarrow}\limits^{+}\)</span>？</p>
-<blockquote>
-<p>如果存在直接推导的序列：<span class="math display">\[v = w_0 \Rightarrow w_1 \Rightarrow w_2 \Rightarrow \cdots \Rightarrow w_n = w \; (n &gt; 0)\]</span> 则称 <span class="math inline">\(v\)</span> 推导出（产生）<span class="math inline">\(w\)</span>（推导长度为 <span class="math inline">\(n\)</span>），或称 <span class="math inline">\(w\)</span> 归约到 <span class="math inline">\(v\)</span>，记作 <span class="math inline">\(v \mathop{\Rightarrow}\limits^{+} w\)</span>。</p>
-</blockquote>
-<blockquote>
-<p>若有 <span class="math inline">\(v \mathop{\Rightarrow}\limits^{+} w\)</span>，或 <span class="math inline">\(v = w\)</span>，则记作 <span class="math inline">\(v \mathop{\Rightarrow}\limits^{*} w\)</span>。</p>
-</blockquote>
-<p>何为句型，何为句子？</p>
-<p>设 <span class="math inline">\(G[S]\)</span> 是一个文法，如果符号串 <span class="math inline">\(x\)</span> 是从识别符推导出来的，即有 <span class="math inline">\(S \mathop{\Rightarrow}\limits^{*} x\)</span>，则称 <span class="math inline">\(x\)</span> 是文法 <span class="math inline">\(G[S]\)</span> 的<strong>句型</strong>。</p>
-<p>若 <span class="math inline">\(x\)</span> 仅由终结符号组成，即 <span class="math inline">\(S \mathop{\Rightarrow}\limits^{*} x, \; x \in V_T^*\)</span>，则称 <span class="math inline">\(x\)</span> 为 <span class="math inline">\(G[S]\)</span> 的<strong>句子</strong>。</p>
-<p>何为文法的二义性？</p>
-<p>如果一个文法存在某个句子对应两棵不同的语法树，则说这个语法是<strong>二义</strong>的。或者说，若一个文法中存在某个句子，它有两个不同的最左（最右）推导，则这个语法是<strong>二义</strong>的。</p>
-<p>举例：文法 <span class="math inline">\(G = (\{ E \}), \{ +, *, i, (, ) \}, P, E\)</span>，其中 <span class="math inline">\(P\)</span> 为：</p>
-<p><span class="math display">\[
-\begin{align}
-&amp;E \rightarrow i \\
-&amp;E \rightarrow E + E \\
-&amp;E \rightarrow E * E \\
-&amp;E \rightarrow (E)
-\end{align}
-\]</span></p>
-<p>对于这个文法 <span class="math inline">\(G\)</span>，句型 <span class="math inline">\(i * i + i\)</span> 有两个不同的最左推导 1 和 2，它们的语法树如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210925114214.png" srcset="/img/loading.gif" lazyload alt="推导 1 的语法树" /></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210925114311.png" srcset="/img/loading.gif" lazyload alt="推导 2 的语法树" /></p>
-<p><span class="math display">\[
-\begin{align}
-&amp;推导 1：E \Rightarrow E + E \Rightarrow E * E + E \Rightarrow i * E + E \Rightarrow i * i + E \Rightarrow i * i + i \\
-&amp;推导 2：E \Rightarrow E * E \Rightarrow i * E \Rightarrow i * E + E \Rightarrow i * i + E \Rightarrow i * i + i
-\end{align}
-\]</span></p>
-<p>何为短语、直接短语、和句柄？</p>
-<p>令 <span class="math inline">\(G\)</span> 是一个文法，<span class="math inline">\(S\)</span> 是文法的开始符号，<span class="math inline">\(\alpha \beta \delta\)</span> 是文法 <span class="math inline">\(G\)</span> 的一个句型。如果有 <span class="math inline">\(S \mathop{\Rightarrow}\limits^* \alpha A \delta\)</span> 且 <span class="math inline">\(A \mathop{\Rightarrow}\limits^+ \beta\)</span>，则称 <span class="math inline">\(\beta\)</span> 是句型 <span class="math inline">\(\alpha \beta \delta\)</span> 相对于非终结符 <span class="math inline">\(A\)</span> 的<strong>短语</strong>。</p>
-<p>特别地，如果有 <span class="math inline">\(A \Rightarrow \beta\)</span>，则称 <span class="math inline">\(\beta\)</span> 是句型 <span class="math inline">\(\alpha \Rightarrow \beta\)</span>，则称 <span class="math inline">\(\beta\)</span> 是句型 <span class="math inline">\(\alpha \beta \delta\)</span> 相对于规则 <span class="math inline">\(A \rightarrow \beta\)</span> 的<strong>直接短语</strong>（也称<strong>简单短语</strong>）。</p>
-<p>一个右句型的直接短语称为该句型的<strong>句柄</strong>。句柄的概念只适用于右句型。</p>
-<p><em>最后两个定理我已经读不进去了。</em></p>
+              <p>难度：easy</p>
+<p>代码：</p>
+<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><span class="hljs-comment"># @File  : leet_13.py</span><br><span class="hljs-comment"># @Author: FanyFull</span><br><span class="hljs-comment"># @Date  : 2021/9/25</span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">romanToInt</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">int</span>:</span><br>        roman_dict = &#123;<span class="hljs-string">&#x27;I&#x27;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;V&#x27;</span>: <span class="hljs-number">5</span>, <span class="hljs-string">&#x27;X&#x27;</span>: <span class="hljs-number">10</span>, <span class="hljs-string">&#x27;L&#x27;</span>: <span class="hljs-number">50</span>, <span class="hljs-string">&#x27;C&#x27;</span>: <span class="hljs-number">100</span>, <span class="hljs-string">&#x27;D&#x27;</span>: <span class="hljs-number">500</span>, <span class="hljs-string">&#x27;M&#x27;</span>: <span class="hljs-number">1000</span>&#125;<br>        prenum = roman_dict[s[<span class="hljs-number">0</span>]]<br>        num = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(s)):<br>            single_num = roman_dict[s[i]]<br>            <span class="hljs-keyword">if</span> prenum &lt; single_num:<br>                num = num - prenum<br>            <span class="hljs-keyword">else</span>:<br>                num = num + prenum<br>            prenum = single_num<br>        num = num + prenum<br>        <span class="hljs-keyword">return</span> num<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    solution = Solution()<br>    <span class="hljs-built_in">input</span> = <span class="hljs-string">&#x27;MCMXCIV&#x27;</span><br>    output = solution.romanToInt(<span class="hljs-built_in">input</span>)<br>    <span class="hljs-built_in">print</span>(output)<br></code></pre></div></td></tr></table></figure>
+<p>这道题的思想也可以说是加减交替吧，之所以说“也”，是因为最近上计算机组成原理也提到过这个说法。</p>
 
             </div>
             <hr>
@@ -320,7 +249,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
+                      <a class="hover-with-bg" href="/categories/LeetCode/">LeetCode</a>
                     
                   </div>
                 
@@ -328,7 +257,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
+                      <a class="hover-with-bg" href="/tags/LeetCode/">LeetCode</a>
                     
                   </div>
                 
@@ -345,18 +274,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/09/25/LeetCode-13-Roman-to-Integer/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode 13 Roman to Integer</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/09/22/%E8%A7%A3%E5%86%B3-Hexo-%E5%9C%A8%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84-Accessing-non-existent-property-xxx-of-module-exports-inside-circular-dependency-%E9%97%AE%E9%A2%98/">
-                        <span class="hidden-mobile">解决 Hexo 在生成博客过程中的 Accessing non-existent property xxx of module exports inside circular dependency 问题</span>
+                      <a href="/2021/09/23/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E7%8E%8B%E7%B4%A0%E7%90%B4%EF%BC%89%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/">
+                        <span class="hidden-mobile">《编译原理第三版》（王素琴）学习札记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
