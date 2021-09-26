@@ -18,7 +18,7 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-  <title>解决 Hexo 在生成博客过程中的 Accessing non-existent property xxx of module exports inside circular dependency 问题 - Fany Full&#39;s Blog</title>
+  <title>《编译原理第三版》（张素琴）第三章学习札记 - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -166,12 +166,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210922231123.png') no-repeat center center;
+         style="background: url('/img/karigurashi022.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="解决 Hexo 在生成博客过程中的 Accessing non-existent property xxx of module exports inside circular dependency 问题">
+            <span class="h2" id="subtitle" title="《编译原理第三版》（张素琴）第三章学习札记">
               
             </span>
 
@@ -181,8 +181,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-09-22 23:04" pubdate>
-        2021年9月22日 晚上
+      <time datetime="2021-09-26 21:14" pubdate>
+        2021年9月26日 晚上
       </time>
     </span>
   
@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      138 字
+      813 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      10
        分钟
     </span>
   
@@ -233,44 +233,107 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">解决 Hexo 在生成博客过程中的 Accessing non-existent property xxx of module exports inside circular dependency 问题</h1>
+            <h1 style="display: none">《编译原理第三版》（张素琴）第三章学习札记</h1>
             
             <div class="markdown-body">
-              <p>建议直接阅读这一篇博客：<a target="_blank" rel="noopener" href="https://www.haoyizebo.com/posts/710984d0/" class="uri">https://www.haoyizebo.com/posts/710984d0/</a></p>
-<p>我在这里仅仅是作一个备份。</p>
-<p>对于我来说，有用的两个步骤是：</p>
+              <p>何为正规文法？</p>
+<p>这个概念在第二章有讲过，这里再次摘录一下。</p>
+<p>正规文法也称为 3 型文法 <span class="math inline">\(G = (V_N, V_T, S, P)\)</span>，其 <span class="math inline">\(P\)</span> 中的每一条规则都有下述形式：<span class="math inline">\(A \rightarrow aB\)</span> 或 <span class="math inline">\(A \rightarrow a\)</span>，其中 <span class="math inline">\(A, B \in V_N, \; a \in V_T^*\)</span>。</p>
+<p>正规文法所描述的是 <span class="math inline">\(V_T\)</span> 上的正规集。</p>
+<p>何为正规集？</p>
+<p>按：本书中似乎没有正规集的概念。遂从《编译原理 第二版》黑书摘录其定义如下</p>
+<blockquote>
+<p>可以用一个正则表达式定义的语言叫做<strong>正则集合（regular set）</strong>。</p>
+</blockquote>
+<p>黑书中的翻译是“正则集合”，其实和“正规集”是一个意思。</p>
+<p>结合老师所讲，所谓正规集，可以和前面第二章的语言（<span class="math inline">\(L(G)\)</span>）这一概念结合来看，它们表达的东西其实是很类似的，因此，正规集所表达的意思就是正规式（正则表达式）所产生的所有字串的集合。</p>
+<p>何为正规式？</p>
+<p>正规式也称正则表达式，是表示正规集的工具。</p>
+<p>(1). <span class="math inline">\(\varepsilon\)</span> 和 <span class="math inline">\(\varnothing\)</span> 都是 <span class="math inline">\(\Sigma\)</span> 上的正规式，它们所表示的正规集分别为 <span class="math inline">\(\{ \varepsilon \}\)</span> 和 <span class="math inline">\(\varnothing\)</span>。 (2). 任何 <span class="math inline">\(a \in \Sigma\)</span>，<span class="math inline">\(a\)</span> 是 <span class="math inline">\(\Sigma\)</span> 上的一个正规式，它所表示的正规集为 <span class="math inline">\(\{ a \}\)</span>。 (3). 假定 <span class="math inline">\(e_1\)</span> 和 <span class="math inline">\(e_2\)</span> 都是 <span class="math inline">\(\Sigma\)</span> 上的正规式，它们所表示的正规集分别为 <span class="math inline">\(L(e_1)\)</span> 和 <span class="math inline">\(L(e_2)\)</span>，那么，<span class="math inline">\((e_1)\)</span>、<span class="math inline">\(e_1|e_2\)</span>、<span class="math inline">\(e_1 \cdot e_2\)</span> 和 <span class="math inline">\(e_1^*\)</span> 也都是正规式，它们所表示的正规集分别为 <span class="math inline">\(L(e_1)\)</span>、<span class="math inline">\(L(e_1) \cup L(e_2)\)</span>、<span class="math inline">\(L(e_1)L(e_2)\)</span> 和 <span class="math inline">\((L(e_1))^*\)</span>。 (4). 仅由有限次使用上述 3 个步骤而定义的表达式才是 <span class="math inline">\(\Sigma\)</span> 上的正规式，仅由这些正规式所表示的符号串的集合才是 <span class="math inline">\(\Sigma\)</span> 上的正规集。</p>
+<p>其中的 <span class="math inline">\(|\)</span> 读为“或”；<span class="math inline">\(\cdot\)</span> 读为“连接”；<span class="math inline">\(*\)</span> 读为“闭包”。在不致混淆时，括号可省去，但规定算符的优先顺序为先 <span class="math inline">\(*\)</span>，再 <span class="math inline">\(\cdot\)</span>，最后 <span class="math inline">\(|\)</span>。连接符 <span class="math inline">\(\cdot\)</span> 一般可省略不写。<span class="math inline">\(*\)</span>、<span class="math inline">\(\cdot\)</span>、和 <span class="math inline">\(|\)</span> 都是左结合的。</p>
+<p>正规文法转正规式的 3 条规则？</p>
 <ol type="1">
-<li>执行以下两个命令</li>
+<li><p>正规式：<span class="math inline">\(A \rightarrow xy\)</span></p>
+<p>正规文法：</p>
+<p><span class="math display">\[
+ \begin{split}
+ A &amp;\rightarrow xB \\
+ B &amp;\rightarrow y
+ \end{split}
+ \]</span></p></li>
+<li><p>正规式：<span class="math inline">\(A \rightarrow x^*y\)</span></p>
+<p>正规文法：</p>
+<p><span class="math display">\[
+ \begin{split}
+ A &amp;\rightarrow xB \\
+ A &amp;\rightarrow y \\
+ B &amp;\rightarrow xB \\
+ B &amp;\rightarrow y
+ \end{split}
+ \]</span></p></li>
+<li><p>正规式：<span class="math inline">\(A \rightarrow x|y\)</span></p>
+<p>正规文法：</p>
+<p><span class="math display">\[
+ \begin{split}
+ A &amp;\rightarrow x \\
+ A &amp;\rightarrow y
+ \end{split}
+ \]</span></p></li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">yarn remove hexo-renderer-stylus<br>yarn add hexo-renderer-stylus<br></code></pre></div></td></tr></table></figure>
-<ol start="2" type="1">
-<li>到 Hexo 博客的根目录下，找到 <code>package.json</code> 文件，添加如下部分：</li>
+<p>课堂小问：</p>
+<p><span class="math display">\[
+A \rightarrow xA \\
+A \rightarrow y
+\]</span></p>
+<p><span class="math inline">\(x\)</span> 可能是多个 <span class="math inline">\(*\)</span> 闭包的组合。</p>
+<p>疑问 P45？</p>
+<p>(1). 例 3.3，表示无符号数的正规式似乎有点问题。</p>
+<p>P45 <span class="math inline">\((a|b)^* = (a^* b^*)^*\)</span> 如何理解？</p>
+<p>可以将 <span class="math inline">\((a|b)^*\)</span> 展开成类似 <span class="math inline">\((a|b)(a|b) \cdots (a|b)\)</span> 的形式，然后每一个括号内可以随便是 <span class="math inline">\(a\)</span> 或 <span class="math inline">\(b\)</span>。</p>
+<p>正规式的代数规律？</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;(1) \; r|s = s|r \\
+&amp;(2) \; r|(s|t) = (r|s)|t \\
+&amp;(3) \; (rs)t = r(st) \\
+&amp;(4) \; r(s|t) = rs|rt, \; (s|t)r = sr|tr \\
+&amp;(5) \; \varepsilon r = r, \; r\varepsilon = r \\
+&amp;(6) \; r|r = r
+\end{split}
+\]</span></p>
+<p>将正规文法转换成正规式的 3 条规则？</p>
+<ol type="1">
+<li><p>文法产生式：</p>
+<p><span class="math display">\[
+ A \rightarrow xB \quad B \rightarrow y
+ \]</span></p>
+<p>正规式：</p>
+<p><span class="math display">\[
+ A = xy
+ \]</span></p></li>
+<li><p>文法产生式：</p>
+<p><span class="math display">\[
+ A \rightarrow xA|y
+ \]</span></p>
+<p>正规式：</p>
+<p><span class="math display">\[
+ A = x^*y
+ \]</span></p></li>
+<li><p>文法产生式：</p>
+<p><span class="math display">\[
+ A \rightarrow x \quad A \rightarrow y
+ \]</span></p>
+<p>正规式：</p>
+<p><span class="math display">\[
+ A = x|y
+ \]</span></p></li>
 </ol>
-<figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json"><span class="hljs-string">&quot;resolutions&quot;</span>: &#123;<br>  <span class="hljs-attr">&quot;stylus&quot;</span>: <span class="hljs-string">&quot;^0.54.8&quot;</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210922230847.png" srcset="/img/loading.gif" lazyload alt="图片示意" /></p>
-<p>然后重新生成部署博客即可。</p>
-<p>注意，如果电脑中原来没有 yarn，那么，可以在命令行通过以下命令安装：</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">npm install --global yarn<br></code></pre></div></td></tr></table></figure>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/Hexo/">Hexo</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/Hexo/">Hexo</a>
-                    
-                  </div>
                 
               </div>
               
@@ -285,18 +348,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/09/23/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E5%BC%A0%E7%B4%A0%E7%90%B4%EF%BC%89%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">《编译原理第三版》（张素琴）学习札记</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/09/21/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E4%B8%80/">
-                        <span class="hidden-mobile">编译原理作业一</span>
+                      <a href="/2021/09/25/LeetCode-13-Roman-to-Integer/">
+                        <span class="hidden-mobile">LeetCode 13 Roman to Integer</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

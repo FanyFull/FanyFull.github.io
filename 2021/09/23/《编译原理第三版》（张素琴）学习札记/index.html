@@ -18,7 +18,7 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-  <title>《编译原理第三版》（王素琴）学习札记 - Fany Full&#39;s Blog</title>
+  <title>《编译原理第三版》（张素琴）学习札记 - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -171,7 +171,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="《编译原理第三版》（王素琴）学习札记">
+            <span class="h2" id="subtitle" title="《编译原理第三版》（张素琴）学习札记">
               
             </span>
 
@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      1.3k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14
+      16
        分钟
     </span>
   
@@ -233,7 +233,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">《编译原理第三版》（王素琴）学习札记</h1>
+            <h1 style="display: none">《编译原理第三版》（张素琴）学习札记</h1>
             
             <div class="markdown-body">
               <p>何为符号 <span class="math inline">\(\Rightarrow\)</span>？</p>
@@ -274,6 +274,8 @@
 <p>设 <span class="math inline">\(G = (V_N, V_T, P, S)\)</span> 为一个文法，若 <span class="math inline">\(P\)</span> 中的每一个产生式 <span class="math inline">\(\alpha \rightarrow \beta\)</span> 均满足 <span class="math inline">\(|\beta| \geqslant |\alpha|\)</span>，仅仅 <span class="math inline">\(S \rightarrow \varepsilon\)</span> 除外，则文法 <span class="math inline">\(G\)</span> 是 <strong>1 型</strong> 或 <strong>上下文有关的（context-sensitive）</strong>。</p>
 <p>何为 2 型文法？</p>
 <p>设 <span class="math inline">\(G = (V_N, V_T, P, S)\)</span>。若 <span class="math inline">\(P\)</span> 中的每一个产生式 <span class="math inline">\(\alpha \rightarrow \beta\)</span> 满足：<span class="math inline">\(\alpha\)</span> 是一个非终结符，<span class="math inline">\(\beta \in (V_N \cup V_T)^*\)</span>，则此文法称为 <strong>2 型的</strong> 或 <strong>上下文无关的（context-free）</strong></p>
+<p>何为 3 型文法？</p>
+<p>设 <span class="math inline">\(G = (V_N, V_T, P, S)\)</span>，若 <span class="math inline">\(P\)</span> 中的每一个产生式的形式都是 <span class="math inline">\(A \rightarrow aB\)</span> 或 <span class="math inline">\(A \rightarrow a\)</span>，其中 <span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span> 都是非终结符，<span class="math inline">\(a \in V_T^*\)</span>，则 <span class="math inline">\(G\)</span> 是 <strong>3 型文法</strong> 或 <strong>正规文法</strong>。</p>
 <p>问题：P25，上下文有关法的等价定义的理解？</p>
 <p>似乎 <span class="math inline">\(A\)</span> 在 <span class="math inline">\(V_N\)</span> 中，是单个字符。</p>
 <p>何为符号 <span class="math inline">\(\mathop{\Rightarrow}\limits^{+}\)</span>？</p>
@@ -312,6 +314,10 @@
 &amp;推导 2：E \Rightarrow E * E \Rightarrow i * E \Rightarrow i * E + E \Rightarrow i * i + E \Rightarrow i * i + i
 \end{align}
 \]</span></p>
+<p>何为最右推导、规范推导、右句型、规范句型？</p>
+<p>如果在推导的任何一步 <span class="math inline">\(\alpha \Rightarrow \beta\)</span>，其中，<span class="math inline">\(\alpha\)</span>、<span class="math inline">\(\beta\)</span> 是句型，都是对 <span class="math inline">\(\alpha\)</span> 中的最左（最右）非终结符进行替换，则称这种推导为<strong>最左（最右）推导</strong>。</p>
+<p>在形式语言中，最右推导常被称为<strong>规范推导</strong>。</p>
+<p>由规范推导所得的句型称为<strong>右句型</strong>或<strong>规范句型</strong>。</p>
 <p>何为短语、直接短语、和句柄？</p>
 <p>令 <span class="math inline">\(G\)</span> 是一个文法，<span class="math inline">\(S\)</span> 是文法的开始符号，<span class="math inline">\(\alpha \beta \delta\)</span> 是文法 <span class="math inline">\(G\)</span> 的一个句型。如果有 <span class="math inline">\(S \mathop{\Rightarrow}\limits^* \alpha A \delta\)</span> 且 <span class="math inline">\(A \mathop{\Rightarrow}\limits^+ \beta\)</span>，则称 <span class="math inline">\(\beta\)</span> 是句型 <span class="math inline">\(\alpha \beta \delta\)</span> 相对于非终结符 <span class="math inline">\(A\)</span> 的<strong>短语</strong>。</p>
 <p>特别地，如果有 <span class="math inline">\(A \Rightarrow \beta\)</span>，则称 <span class="math inline">\(\beta\)</span> 是句型 <span class="math inline">\(\alpha \Rightarrow \beta\)</span>，则称 <span class="math inline">\(\beta\)</span> 是句型 <span class="math inline">\(\alpha \beta \delta\)</span> 相对于规则 <span class="math inline">\(A \rightarrow \beta\)</span> 的<strong>直接短语</strong>（也称<strong>简单短语</strong>）。</p>
