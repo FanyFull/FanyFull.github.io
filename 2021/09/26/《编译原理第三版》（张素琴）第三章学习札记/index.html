@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      813 字
+      1.1k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      13
        分钟
     </span>
   
@@ -249,7 +249,10 @@
 <p>结合老师所讲，所谓正规集，可以和前面第二章的语言（<span class="math inline">\(L(G)\)</span>）这一概念结合来看，它们表达的东西其实是很类似的，因此，正规集所表达的意思就是正规式（正则表达式）所产生的所有字串的集合。</p>
 <p>何为正规式？</p>
 <p>正规式也称正则表达式，是表示正规集的工具。</p>
-<p>(1). <span class="math inline">\(\varepsilon\)</span> 和 <span class="math inline">\(\varnothing\)</span> 都是 <span class="math inline">\(\Sigma\)</span> 上的正规式，它们所表示的正规集分别为 <span class="math inline">\(\{ \varepsilon \}\)</span> 和 <span class="math inline">\(\varnothing\)</span>。 (2). 任何 <span class="math inline">\(a \in \Sigma\)</span>，<span class="math inline">\(a\)</span> 是 <span class="math inline">\(\Sigma\)</span> 上的一个正规式，它所表示的正规集为 <span class="math inline">\(\{ a \}\)</span>。 (3). 假定 <span class="math inline">\(e_1\)</span> 和 <span class="math inline">\(e_2\)</span> 都是 <span class="math inline">\(\Sigma\)</span> 上的正规式，它们所表示的正规集分别为 <span class="math inline">\(L(e_1)\)</span> 和 <span class="math inline">\(L(e_2)\)</span>，那么，<span class="math inline">\((e_1)\)</span>、<span class="math inline">\(e_1|e_2\)</span>、<span class="math inline">\(e_1 \cdot e_2\)</span> 和 <span class="math inline">\(e_1^*\)</span> 也都是正规式，它们所表示的正规集分别为 <span class="math inline">\(L(e_1)\)</span>、<span class="math inline">\(L(e_1) \cup L(e_2)\)</span>、<span class="math inline">\(L(e_1)L(e_2)\)</span> 和 <span class="math inline">\((L(e_1))^*\)</span>。 (4). 仅由有限次使用上述 3 个步骤而定义的表达式才是 <span class="math inline">\(\Sigma\)</span> 上的正规式，仅由这些正规式所表示的符号串的集合才是 <span class="math inline">\(\Sigma\)</span> 上的正规集。</p>
+<p>(1). <span class="math inline">\(\varepsilon\)</span> 和 <span class="math inline">\(\varnothing\)</span> 都是 <span class="math inline">\(\Sigma\)</span> 上的正规式，它们所表示的正规集分别为 <span class="math inline">\(\{ \varepsilon \}\)</span> 和 <span class="math inline">\(\varnothing\)</span>。<br />
+(2). 任何 <span class="math inline">\(a \in \Sigma\)</span>，<span class="math inline">\(a\)</span> 是 <span class="math inline">\(\Sigma\)</span> 上的一个正规式，它所表示的正规集为 <span class="math inline">\(\{ a \}\)</span>。<br />
+(3). 假定 <span class="math inline">\(e_1\)</span> 和 <span class="math inline">\(e_2\)</span> 都是 <span class="math inline">\(\Sigma\)</span> 上的正规式，它们所表示的正规集分别为 <span class="math inline">\(L(e_1)\)</span> 和 <span class="math inline">\(L(e_2)\)</span>，那么，<span class="math inline">\((e_1)\)</span>、<span class="math inline">\(e_1|e_2\)</span>、<span class="math inline">\(e_1 \cdot e_2\)</span> 和 <span class="math inline">\(e_1^*\)</span> 也都是正规式，它们所表示的正规集分别为 <span class="math inline">\(L(e_1)\)</span>、<span class="math inline">\(L(e_1) \cup L(e_2)\)</span>、<span class="math inline">\(L(e_1)L(e_2)\)</span> 和 <span class="math inline">\((L(e_1))^*\)</span>。<br />
+(4). 仅由有限次使用上述 3 个步骤而定义的表达式才是 <span class="math inline">\(\Sigma\)</span> 上的正规式，仅由这些正规式所表示的符号串的集合才是 <span class="math inline">\(\Sigma\)</span> 上的正规集。</p>
 <p>其中的 <span class="math inline">\(|\)</span> 读为“或”；<span class="math inline">\(\cdot\)</span> 读为“连接”；<span class="math inline">\(*\)</span> 读为“闭包”。在不致混淆时，括号可省去，但规定算符的优先顺序为先 <span class="math inline">\(*\)</span>，再 <span class="math inline">\(\cdot\)</span>，最后 <span class="math inline">\(|\)</span>。连接符 <span class="math inline">\(\cdot\)</span> 一般可省略不写。<span class="math inline">\(*\)</span>、<span class="math inline">\(\cdot\)</span>、和 <span class="math inline">\(|\)</span> 都是左结合的。</p>
 <p>正规文法转正规式的 3 条规则？</p>
 <ol type="1">
@@ -288,6 +291,7 @@ A \rightarrow y
 <p><span class="math inline">\(x\)</span> 可能是多个 <span class="math inline">\(*\)</span> 闭包的组合。</p>
 <p>疑问 P45？</p>
 <p>(1). 例 3.3，表示无符号数的正规式似乎有点问题。</p>
+<p>可以利用 <span class="math inline">\(\varepsilon A = A\)</span> 来理解。那么，这个式子就是对的。</p>
 <p>P45 <span class="math inline">\((a|b)^* = (a^* b^*)^*\)</span> 如何理解？</p>
 <p>可以将 <span class="math inline">\((a|b)^*\)</span> 展开成类似 <span class="math inline">\((a|b)(a|b) \cdots (a|b)\)</span> 的形式，然后每一个括号内可以随便是 <span class="math inline">\(a\)</span> 或 <span class="math inline">\(b\)</span>。</p>
 <p>正规式的代数规律？</p>
@@ -303,31 +307,39 @@ A \rightarrow y
 \]</span></p>
 <p>将正规文法转换成正规式的 3 条规则？</p>
 <ol type="1">
-<li><p>文法产生式：</p>
+<li><p>规则一：</p>
 <p><span class="math display">\[
- A \rightarrow xB \quad B \rightarrow y
- \]</span></p>
-<p>正规式：</p>
+ \begin{split}
+ 文法产生式：&amp;A \rightarrow xB \quad B \rightarrow y \\
+ 正规式：&amp;A = xy
+ \end{split}
+ \]</span></p></li>
+<li><p>规则二：</p>
 <p><span class="math display">\[
- A = xy
+ \begin{split}
+ 文法产生式：&amp;A \rightarrow xA|y \\
+ 正规式：&amp;A = x^*y
+ \end{split}
  \]</span></p></li>
 <li><p>文法产生式：</p>
 <p><span class="math display">\[
- A \rightarrow xA|y
- \]</span></p>
-<p>正规式：</p>
-<p><span class="math display">\[
- A = x^*y
- \]</span></p></li>
-<li><p>文法产生式：</p>
-<p><span class="math display">\[
- A \rightarrow x \quad A \rightarrow y
- \]</span></p>
-<p>正规式：</p>
-<p><span class="math display">\[
- A = x|y
+ \begin{split}
+ 文法产生式：&amp;A \rightarrow x \quad A \rightarrow y \\
+ 正规式：&amp;A = x|y
+ \end{split}
  \]</span></p></li>
 </ol>
+<p>何为确定的有穷自动机（DFA）？</p>
+<p>一个确定的有穷自动机 <span class="math inline">\(M\)</span> 是一个五元组：</p>
+<p><span class="math display">\[
+M = (K, \Sigma, f, S, Z)
+\]</span></p>
+<p>其中：</p>
+<p>(1) <span class="math inline">\(K\)</span> 是一个有穷集，它的每一个元素称为一个状态。<br />
+(2) <span class="math inline">\(\Sigma\)</span> 是一个有穷字母表，它的每一个元素称为一个输入符号，所以也称 <span class="math inline">\(\Sigma\)</span> 为输入符号表。<br />
+(3) <span class="math inline">\(f\)</span> 是转换函数，是 <span class="math inline">\(K \times \Sigma \rightarrow K\)</span> 上的映像。例如，<span class="math inline">\(f(k_i, a) = k_j\)</span> <span class="math inline">\((k_i \in K, k_j \in K)\)</span> 就意味着，当前状态为 <span class="math inline">\(k\)</span>、输入字符为 <span class="math inline">\(a\)</span> 时，将转换到下一状态 <span class="math inline">\(k_j\)</span>，把 <span class="math inline">\(k_j\)</span> 称作 <span class="math inline">\(k_i\)</span> 的一个后继状态。<br />
+(4) <span class="math inline">\(S \in K\)</span>，是唯一的一个初态。<br />
+(5) <span class="math inline">\(Z \subseteq K\)</span>，是一个终态集，终态也称可接受或结束状态。</p>
 
             </div>
             <hr>
@@ -361,6 +373,12 @@ A \rightarrow y
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/09/27/%E8%AF%BB%E4%B8%80%E8%AF%BB%E3%80%8A%E6%8A%A5%E4%BB%BB%E5%B0%91%E5%8D%BF%E4%B9%A6%E3%80%8B/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">读一读《报任少卿书》</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
