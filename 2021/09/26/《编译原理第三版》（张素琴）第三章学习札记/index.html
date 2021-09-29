@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.5k 字
+      1.7k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      18
+      21
        分钟
     </span>
   
@@ -329,7 +329,7 @@ A \rightarrow y
  \end{split}
  \]</span></p></li>
 </ol>
-<p>何为确定的有穷自动机（DFA）？</p>
+<p>何为确定的有穷自动机（）？</p>
 <p>一个确定的有穷自动机 <span class="math inline">\(M\)</span> 是一个五元组：</p>
 <p><span class="math display">\[
 M = (K, \Sigma, f, S, Z)
@@ -341,10 +341,10 @@ M = (K, \Sigma, f, S, Z)
 (4) <span class="math inline">\(S \in K\)</span>，是唯一的一个初态。<br />
 (5) <span class="math inline">\(Z \subseteq K\)</span>，是一个终态集，终态也称可接受或结束状态。</p>
 <p>一个 <span class="math inline">\(DFA\)</span> 可以表示成一个状态图（或称状态转换图）。假定 <span class="math inline">\(DFA \; M\)</span> 含有 <span class="math inline">\(m\)</span> 个状态，<span class="math inline">\(n\)</span> 个输入符号，那么这个状态图含有 <span class="math inline">\(m\)</span> 个节点，每个节点最多有 <span class="math inline">\(n\)</span> 个弧射出，整个图含有唯一一个初态节点和若干个终态节点，初态节点冠以“<span class="math inline">\(\Rightarrow\)</span>”或标以“<span class="math inline">\(-\)</span>”，终态节点终态节点用双圈表示或标以“<span class="math inline">\(+\)</span>”，若 <span class="math inline">\(f(k_i, a) = k_j\)</span>，则从状态节点 <span class="math inline">\(k_i\)</span> 到状态节点 <span class="math inline">\(k_j\)</span> 画标记为 <span class="math inline">\(a\)</span> 的弧。</p>
-<p>对于 <span class="math inline">\(\Sigma^*\)</span> 中的任何符号串，若存在一条从初态节点到某一终态节点的道路，且这条路上所有弧的标记连接成的符号串等于 <span class="math inline">\(t\)</span>，则称 <span class="math inline">\(t\)</span> 可为 <span class="math inline">\(DFA \; M\)</span> 所接受，若 <span class="math inline">\(M\)</span> 的初态节点同时又是终态节点，则空字可为 <span class="math inline">\(M\)</span> 所识别（接受）。<br />
+<p>对于 <span class="math inline">\(\Sigma^*\)</span> 中的任何符号串，若存在一条从初态节点到某一终态节点的道路，且这条路上所有弧的标记连接成的符号串等于 <span class="math inline">\(t\)</span>，则称 <span class="math inline">\(t\)</span> 可为 <span class="math inline">\(DFA \; M\)</span> 所接受，若 <span class="math inline">\(M\)</span> 的初态节点同时又是终态节点，则空字可为 <span class="math inline">\(M\)</span> <strong>所识别（接受）</strong>。<br />
 可换一种方式叙述如下：<br />
-若 $t ^*, $ <span class="math inline">\(f(S, t) = P\)</span>，其中 <span class="math inline">\(S\)</span> 为 <span class="math inline">\(DFA \; M\)</span> 的开始状态， <span class="math inline">\(P \in Z\)</span>，<span class="math inline">\(Z\)</span> 为终态集。则称 <span class="math inline">\(t\)</span> 可为 <span class="math inline">\(DFA \; M\)</span> 所<strong>接受（识别）</strong>。</p>
-<p>何为不确定的有穷自动机（NFA）？</p>
+若 $t ^*, $ <span class="math inline">\(f(S, t) = P\)</span>，其中 <span class="math inline">\(S\)</span> 为 <span class="math inline">\(\textrm{DFA M}\)</span> 的开始状态， <span class="math inline">\(P \in Z\)</span>，<span class="math inline">\(Z\)</span> 为终态集。则称 <span class="math inline">\(t\)</span> 可为 <span class="math inline">\(\textrm{DFA M}\)</span> 所<strong>接受（识别）</strong>。</p>
+<p>何为不确定的有穷自动机（）？</p>
 <p>一个不确定的有穷自动机 <span class="math inline">\(M\)</span> 是一个五元组：</p>
 <p><span class="math display">\[
 M = (K, \Sigma, f, S, Z)
@@ -355,7 +355,15 @@ M = (K, \Sigma, f, S, Z)
 (3) <span class="math inline">\(f\)</span> 是一个从 <span class="math inline">\(K \times \Sigma^*\)</span> 到 <span class="math inline">\(K\)</span> 的全体子集的映像，即 <span class="math inline">\(K \times \Sigma^* \rightarrow 2^K\)</span>，其中 <span class="math inline">\(2^K\)</span> 表示 <span class="math inline">\(K\)</span> 的幂集。<br />
 (4) <span class="math inline">\(S \subseteq K\)</span>，是一个非空初态集。<br />
 (5) <span class="math inline">\(Z \subseteq K\)</span>，是一个终态集。</p>
-<p>一个含有 <span class="math inline">\(m\)</span> 个状态和 <span class="math inline">\(n\)</span> 个输入符号的 <span class="math inline">\(NFA\)</span> 可表示成一张状态转换图，这张图含有 <span class="math inline">\(m\)</span> 个状态结点，每个结点可射出</p>
+<p>一个含有 <span class="math inline">\(m\)</span> 个状态和 <span class="math inline">\(n\)</span> 个输入符号的 <span class="math inline">\(\textrm{NFA}\)</span> 可表示成一张状态转换图，这张图含有 <span class="math inline">\(m\)</span> 个状态结点，每个结点可射出若干条箭弧与别的节点相连接，每条弧用 <span class="math inline">\(\Sigma^*\)</span> 中的一个串作标记，整个图至少含有一个初态结点以及若干个终态结点。</p>
+<p>何为有穷自动机的无用状态？</p>
+<p>所谓有穷自动机的无用状态，是指这样的状态：从该自动机的开始状态出发，任何输入串也不能到达的那个状态，或者从这个状态没有通路到达终态。</p>
+<p>在有穷自动机中，两个状态 <span class="math inline">\(s\)</span> 和 <span class="math inline">\(t\)</span> 等价的条件？</p>
+<ul>
+<li>一致性条件——状态 <span class="math inline">\(s\)</span> 和 <span class="math inline">\(t\)</span> 必须同时为可接受状态（终态）或不可接受状态（非终态）。</li>
+<li>蔓延性条件——对于所有输入符号，状态 <span class="math inline">\(s\)</span> 和状态 <span class="math inline">\(t\)</span> 必须转换到等价的状态里。</li>
+</ul>
+<p>如何为 <span class="math inline">\(\Sigma\)</span> 上的 <span class="math inline">\(\textrm{NFA M}\)</span> 构造相应的正规式？</p>
 
             </div>
             <hr>
