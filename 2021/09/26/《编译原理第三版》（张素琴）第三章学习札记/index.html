@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      1.5k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      13
+      18
        分钟
     </span>
   
@@ -337,9 +337,25 @@ M = (K, \Sigma, f, S, Z)
 <p>其中：</p>
 <p>(1) <span class="math inline">\(K\)</span> 是一个有穷集，它的每一个元素称为一个状态。<br />
 (2) <span class="math inline">\(\Sigma\)</span> 是一个有穷字母表，它的每一个元素称为一个输入符号，所以也称 <span class="math inline">\(\Sigma\)</span> 为输入符号表。<br />
-(3) <span class="math inline">\(f\)</span> 是转换函数，是 <span class="math inline">\(K \times \Sigma \rightarrow K\)</span> 上的映像。例如，<span class="math inline">\(f(k_i, a) = k_j\)</span> <span class="math inline">\((k_i \in K, k_j \in K)\)</span> 就意味着，当前状态为 <span class="math inline">\(k\)</span>、输入字符为 <span class="math inline">\(a\)</span> 时，将转换到下一状态 <span class="math inline">\(k_j\)</span>，把 <span class="math inline">\(k_j\)</span> 称作 <span class="math inline">\(k_i\)</span> 的一个后继状态。<br />
+(3) <span class="math inline">\(f\)</span> 是转换函数，是 <span class="math inline">\(K \times \Sigma \rightarrow K\)</span> 上的映像。例如，<span class="math inline">\(f(k_i, a) = k_j\)</span> <span class="math inline">\((k_i \in K, k_j \in K, a \in \Sigma)\)</span> 就意味着，当前状态为 <span class="math inline">\(k\)</span>、输入字符为 <span class="math inline">\(a\)</span> 时，将转换到下一状态 <span class="math inline">\(k_j\)</span>，把 <span class="math inline">\(k_j\)</span> 称作 <span class="math inline">\(k_i\)</span> 的一个后继状态。<br />
 (4) <span class="math inline">\(S \in K\)</span>，是唯一的一个初态。<br />
 (5) <span class="math inline">\(Z \subseteq K\)</span>，是一个终态集，终态也称可接受或结束状态。</p>
+<p>一个 <span class="math inline">\(DFA\)</span> 可以表示成一个状态图（或称状态转换图）。假定 <span class="math inline">\(DFA \; M\)</span> 含有 <span class="math inline">\(m\)</span> 个状态，<span class="math inline">\(n\)</span> 个输入符号，那么这个状态图含有 <span class="math inline">\(m\)</span> 个节点，每个节点最多有 <span class="math inline">\(n\)</span> 个弧射出，整个图含有唯一一个初态节点和若干个终态节点，初态节点冠以“<span class="math inline">\(\Rightarrow\)</span>”或标以“<span class="math inline">\(-\)</span>”，终态节点终态节点用双圈表示或标以“<span class="math inline">\(+\)</span>”，若 <span class="math inline">\(f(k_i, a) = k_j\)</span>，则从状态节点 <span class="math inline">\(k_i\)</span> 到状态节点 <span class="math inline">\(k_j\)</span> 画标记为 <span class="math inline">\(a\)</span> 的弧。</p>
+<p>对于 <span class="math inline">\(\Sigma^*\)</span> 中的任何符号串，若存在一条从初态节点到某一终态节点的道路，且这条路上所有弧的标记连接成的符号串等于 <span class="math inline">\(t\)</span>，则称 <span class="math inline">\(t\)</span> 可为 <span class="math inline">\(DFA \; M\)</span> 所接受，若 <span class="math inline">\(M\)</span> 的初态节点同时又是终态节点，则空字可为 <span class="math inline">\(M\)</span> 所识别（接受）。<br />
+可换一种方式叙述如下：<br />
+若 $t ^*, $ <span class="math inline">\(f(S, t) = P\)</span>，其中 <span class="math inline">\(S\)</span> 为 <span class="math inline">\(DFA \; M\)</span> 的开始状态， <span class="math inline">\(P \in Z\)</span>，<span class="math inline">\(Z\)</span> 为终态集。则称 <span class="math inline">\(t\)</span> 可为 <span class="math inline">\(DFA \; M\)</span> 所<strong>接受（识别）</strong>。</p>
+<p>何为不确定的有穷自动机（NFA）？</p>
+<p>一个不确定的有穷自动机 <span class="math inline">\(M\)</span> 是一个五元组：</p>
+<p><span class="math display">\[
+M = (K, \Sigma, f, S, Z)
+\]</span></p>
+<p>其中：</p>
+<p>(1) <span class="math inline">\(K\)</span> 是一个有穷集，它的每个元素称为一个状态。<br />
+(2) <span class="math inline">\(\Sigma\)</span> 是一个有穷字母表，它的每个元素称为一个输入符号。<br />
+(3) <span class="math inline">\(f\)</span> 是一个从 <span class="math inline">\(K \times \Sigma^*\)</span> 到 <span class="math inline">\(K\)</span> 的全体子集的映像，即 <span class="math inline">\(K \times \Sigma^* \rightarrow 2^K\)</span>，其中 <span class="math inline">\(2^K\)</span> 表示 <span class="math inline">\(K\)</span> 的幂集。<br />
+(4) <span class="math inline">\(S \subseteq K\)</span>，是一个非空初态集。<br />
+(5) <span class="math inline">\(Z \subseteq K\)</span>，是一个终态集。</p>
+<p>一个含有 <span class="math inline">\(m\)</span> 个状态和 <span class="math inline">\(n\)</span> 个输入符号的 <span class="math inline">\(NFA\)</span> 可表示成一张状态转换图，这张图含有 <span class="math inline">\(m\)</span> 个状态结点，每个结点可射出</p>
 
             </div>
             <hr>

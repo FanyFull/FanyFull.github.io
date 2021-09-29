@@ -254,7 +254,7 @@ b = \sum_{i = -n}^{m} 2^i \times b_i
 \]</span></p>
 <p>注意，形如 <span class="math inline">\(0.11 \cdots 1_2\)</span> 的数表示的是刚好小于 1 的数。例如，<span class="math inline">\(0.111111_2\)</span> 表示 <span class="math inline">\(\frac{63}{64}\)</span>，我们用简单的表达法 <span class="math inline">\(1.0 - \varepsilon\)</span> 来表示这样的数值。</p>
 <p>按：<span class="math inline">\(\varepsilon\)</span> 这个是我们的老朋友了，在物理实验或者计算方法这些课程中，学习误差的表达时经常会见到。</p>
-<p>假定我们仅考虑有限长度的编码，那么十进制表示法不能准确地表达像 <span class="math inline">\(\frac{1}{3}\)</span> 和 <span class="math inline">\(\frac{5}{7}\)</span> 这样地数。类似，小数的二进制表示法只能表示哪些能够被写成 <span class="math inline">\(x \times 2^y\)</span> 的数。其他的值只能够被近似地表示。例如，数字 <span class="math inline">\(\frac{1}{5}\)</span> 可以用十进制小数 <span class="math inline">\(0.20\)</span> 精确表示。不过，我们并不能把它准确地表示为一个二进制小数，我们只能近似地表示它，增加二进制表示地长度可以提高表示的精度。</p>
+<p>假定我们仅考虑有限长度的编码，那么十进制表示法不能准确地表达像 <span class="math inline">\(\frac{1}{3}\)</span> 和 <span class="math inline">\(\frac{5}{7}\)</span> 这样的数。类似，小数的二进制表示法只能表示哪些能够被写成 <span class="math inline">\(x \times 2^y\)</span> 的数。其他的值只能够被近似地表示。例如，数字 <span class="math inline">\(\frac{1}{5}\)</span> 可以用十进制小数 <span class="math inline">\(0.20\)</span> 精确表示。不过，我们并不能把它准确地表示为一个二进制小数，我们只能近似地表示它，增加二进制表示地长度可以提高表示的精度。</p>
 <h1 id="ieee-浮点数表示">2. IEEE 浮点数表示</h1>
 <p>IEEE 浮点数即采用 IEEE754 标准来表示的浮点数。</p>
 <p>IEEE 浮点标准用 <span class="math inline">\(V = (-1)^s \times M \times 2^E\)</span> 的形式来表示一个数：</p>
