@@ -369,11 +369,13 @@ M = (K, \Sigma, f, S, Z)
 <li>对于 <span class="math inline">\(\Sigma\)</span> 上的 <span class="math inline">\(\textrm{NFA M}\)</span>，可以构造一个 <span class="math inline">\(\Sigma\)</span> 上的正规式，使得 <span class="math inline">\(L(r) = L(M)\)</span>。</li>
 <li>对于 <span class="math inline">\(\Sigma\)</span> 上的每个正规式 <span class="math inline">\(r\)</span>，可以构造一个 <span class="math inline">\(\Sigma\)</span> 上的 <span class="math inline">\(\textrm{NFA M}\)</span>，使得 <span class="math inline">\(L(M) = L(r)\)</span>。</li>
 </ul>
-<p>如何为 <span class="math inline">\(\Sigma\)</span> 上的 <span class="math inline">\(\textrm{NFA M}\)</span> 构造相应的正规式？</p>
+<p>如何为 <span class="math inline">\(\Sigma\)</span> 上的 <span class="math inline">\(\textrm{NFA M}\)</span> 构造相应的正规式 <span class="math inline">\(r\)</span>？</p>
 <p>第 1 步，在 <span class="math inline">\(M\)</span> 的状态转换图上加进两个结点，一个为 <span class="math inline">\(x\)</span> 结点，一个为 <span class="math inline">\(y\)</span> 结点。从 <span class="math inline">\(x\)</span> 结点用 <span class="math inline">\(\varepsilon\)</span> 弧连接到 <span class="math inline">\(M\)</span> 的所有初态结点，从 <span class="math inline">\(M\)</span> 的所有终态结点用 <span class="math inline">\(\varepsilon\)</span> 弧连接到 <span class="math inline">\(y\)</span> 结点。形成一个与 <span class="math inline">\(M\)</span> 等价的 <span class="math inline">\(M^{&#39;}\)</span>，<span class="math inline">\(M^{&#39;}\)</span> 只有一个初态 <span class="math inline">\(x\)</span> 和一个终态 <span class="math inline">\(y\)</span>。<br />
 第 2 步，逐步消去 <span class="math inline">\(M^{&#39;}\)</span> 中的所有结点，直至只剩下 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(y\)</span> 结点。在消去的过程中，逐步用正规式来标记弧。其消去的规则如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210929194308.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/regular_rules01.svg" srcset="/img/loading.gif" lazyload /></p>
 <p>最后 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(y\)</span> 结点间的弧上的标记则为所求的正规式 <span class="math inline">\(r\)</span>。</p>
+<p>如何从 <span class="math inline">\(\Sigma\)</span> 上的一个正规式 <span class="math inline">\(r\)</span> 构造一个 <span class="math inline">\(\textrm{NFA M}\)</span>，使得 <span class="math inline">\(L(M) = L(r)\)</span>？</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/regular_rules02.svg" srcset="/img/loading.gif" lazyload /></p>
 
             </div>
             <hr>
