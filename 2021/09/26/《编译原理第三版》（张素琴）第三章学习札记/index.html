@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2k 字
+      2.3k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      24
+      28
        分钟
     </span>
   
@@ -344,7 +344,7 @@ M = (K, \Sigma, f, S, Z)
 <p>对于 <span class="math inline">\(\Sigma^*\)</span> 中的任何符号串，若存在一条从初态节点到某一终态节点的道路，且这条路上所有弧的标记连接成的符号串等于 <span class="math inline">\(t\)</span>，则称 <span class="math inline">\(t\)</span> 可为 <span class="math inline">\(DFA \; M\)</span> 所接受，若 <span class="math inline">\(M\)</span> 的初态节点同时又是终态节点，则空字可为 <span class="math inline">\(M\)</span> <strong>所识别（接受）</strong>。<br />
 可换一种方式叙述如下：<br />
 若 $t ^*, $ <span class="math inline">\(f(S, t) = P\)</span>，其中 <span class="math inline">\(S\)</span> 为 <span class="math inline">\(\textrm{DFA M}\)</span> 的开始状态， <span class="math inline">\(P \in Z\)</span>，<span class="math inline">\(Z\)</span> 为终态集。则称 <span class="math inline">\(t\)</span> 可为 <span class="math inline">\(\textrm{DFA M}\)</span> 所<strong>接受（识别）</strong>。</p>
-<p>何为不确定的有穷自动机（）？</p>
+<p>何为不确定的有穷自动机（<span class="math inline">\(\textrm{NFA}\)</span>）？</p>
 <p>一个不确定的有穷自动机 <span class="math inline">\(M\)</span> 是一个五元组：</p>
 <p><span class="math display">\[
 M = (K, \Sigma, f, S, Z)
@@ -356,6 +356,20 @@ M = (K, \Sigma, f, S, Z)
 (4) <span class="math inline">\(S \subseteq K\)</span>，是一个非空初态集。<br />
 (5) <span class="math inline">\(Z \subseteq K\)</span>，是一个终态集。</p>
 <p>一个含有 <span class="math inline">\(m\)</span> 个状态和 <span class="math inline">\(n\)</span> 个输入符号的 <span class="math inline">\(\textrm{NFA}\)</span> 可表示成一张状态转换图，这张图含有 <span class="math inline">\(m\)</span> 个状态结点，每个结点可射出若干条箭弧与别的节点相连接，每条弧用 <span class="math inline">\(\Sigma^*\)</span> 中的一个串作标记，整个图至少含有一个初态结点以及若干个终态结点。</p>
+<p>何为状态集合 <span class="math inline">\(I\)</span> 的 <span class="math inline">\(\varepsilon\text{-闭包}\)</span>？</p>
+<p>状态集合 <span class="math inline">\(I\)</span> 的 <span class="math inline">\(\varepsilon\text{-闭包}\)</span>，表示为 <span class="math inline">\(\varepsilon \text{-closure(I)}\)</span>，定义为一个状态集，是状态集 <span class="math inline">\(I\)</span> 中任何状态 <span class="math inline">\(S\)</span> 经任意条 <span class="math inline">\(\varepsilon\)</span> 弧能到达的状态的集合。</p>
+<p>何为状态集合 <span class="math inline">\(I\)</span> 的 <span class="math inline">\(a\)</span> 弧转换？</p>
+<p>状态集合 <span class="math inline">\(I\)</span> 的 <span class="math inline">\(a\)</span> 弧转换，表示为 <span class="math inline">\(move(I, a)\)</span>，定义为状态集合 <span class="math inline">\(J\)</span>，其中 <span class="math inline">\(J\)</span> 是所有哪些可从 <span class="math inline">\(I\)</span> 中的某一状态经过一条 <span class="math inline">\(a\)</span> 弧而到达的状态的全体。</p>
+<p>如何将一个 <span class="math inline">\(\textrm{NFA}\)</span> 转换为等价的 <span class="math inline">\(\textrm{DFA}\)</span>？</p>
+<p>假设 <span class="math inline">\(\textrm{NFA N} =\)</span> <span class="math inline">\({K, \Sigma, f, K_0, K_t}\)</span> 按照如下方法构造一个 <span class="math inline">\(\textrm{DFA M} =\)</span> <span class="math inline">\((S, \Sigma, D, S_0, S_t)\)</span> 使得 <span class="math inline">\(L(M) = L(N)\)</span>：</p>
+<p>(1) <span class="math inline">\(M\)</span> 的状态集 <span class="math inline">\(S\)</span> 由 <span class="math inline">\(K\)</span> 的一些子集（构造 <span class="math inline">\(K\)</span> 的子集见下图）组成。用 <span class="math inline">\([S_1, S_2, ..., S_j]\)</span> 表示 <span class="math inline">\(S\)</span> 的元素，其中 <span class="math inline">\(S_1, S_2, ..., S_j\)</span> 是 <span class="math inline">\(K\)</span> 的状态。并且约定，状态 <span class="math inline">\(S_1, S_2, ..., S_j\)</span> 是按某种规则排列的，即对于子集 <span class="math inline">\(S = \{ S_2, S_1 \}\)</span> 来说，<span class="math inline">\(S\)</span> 的状态就是 <span class="math inline">\([S_1S_2]\)</span>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211002163758.png" srcset="/img/loading.gif" lazyload alt="子集的构造算法" /></p>
+<p>(2) <span class="math inline">\(M\)</span> 和 <span class="math inline">\(N\)</span> 的输入字母表是相同的，即是 <span class="math inline">\(\Sigma\)</span>。<br />
+(3) 转换函数 <span class="math inline">\(D\)</span> 是这样定义的。</p>
+<p><span class="math display">\[
+D([S_1, S_2, ..., S_j], a) = [R_1, R_2, ..., R_j]
+\]</span></p>
+<p>其中 <span class="math inline">\(\varepsilon(move[S_1, S_2, ... S_j], a)\)</span></p>
 <p>何为有穷自动机的无用状态？</p>
 <p>所谓有穷自动机的无用状态，是指这样的状态：从该自动机的开始状态出发，任何输入串也不能到达的那个状态，或者从这个状态没有通路到达终态。</p>
 <p>在有穷自动机中，两个状态 <span class="math inline">\(s\)</span> 和 <span class="math inline">\(t\)</span> 等价的条件？</p>
