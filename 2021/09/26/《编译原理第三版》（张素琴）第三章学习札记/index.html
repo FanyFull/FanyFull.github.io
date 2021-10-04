@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.3k 字
+      2.5k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      28
+      31
        分钟
     </span>
   
@@ -363,13 +363,21 @@ M = (K, \Sigma, f, S, Z)
 <p>如何将一个 <span class="math inline">\(\textrm{NFA}\)</span> 转换为等价的 <span class="math inline">\(\textrm{DFA}\)</span>？</p>
 <p>假设 <span class="math inline">\(\textrm{NFA N} =\)</span> <span class="math inline">\({K, \Sigma, f, K_0, K_t}\)</span> 按照如下方法构造一个 <span class="math inline">\(\textrm{DFA M} =\)</span> <span class="math inline">\((S, \Sigma, D, S_0, S_t)\)</span> 使得 <span class="math inline">\(L(M) = L(N)\)</span>：</p>
 <p>(1) <span class="math inline">\(M\)</span> 的状态集 <span class="math inline">\(S\)</span> 由 <span class="math inline">\(K\)</span> 的一些子集（构造 <span class="math inline">\(K\)</span> 的子集见下图）组成。用 <span class="math inline">\([S_1, S_2, ..., S_j]\)</span> 表示 <span class="math inline">\(S\)</span> 的元素，其中 <span class="math inline">\(S_1, S_2, ..., S_j\)</span> 是 <span class="math inline">\(K\)</span> 的状态。并且约定，状态 <span class="math inline">\(S_1, S_2, ..., S_j\)</span> 是按某种规则排列的，即对于子集 <span class="math inline">\(S = \{ S_2, S_1 \}\)</span> 来说，<span class="math inline">\(S\)</span> 的状态就是 <span class="math inline">\([S_1S_2]\)</span>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211002163758.png" srcset="/img/loading.gif" lazyload alt="子集的构造算法" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211002163758.png" srcset="/img/loading.gif" lazyload alt="图 1：子集的构造算法" /></p>
 <p>(2) <span class="math inline">\(M\)</span> 和 <span class="math inline">\(N\)</span> 的输入字母表是相同的，即是 <span class="math inline">\(\Sigma\)</span>。<br />
 (3) 转换函数 <span class="math inline">\(D\)</span> 是这样定义的。</p>
 <p><span class="math display">\[
 D([S_1, S_2, ..., S_j], a) = [R_1, R_2, ..., R_j]
 \]</span></p>
-<p>其中 <span class="math inline">\(\varepsilon(move[S_1, S_2, ... S_j], a)\)</span></p>
+<p>其中 $(move([S_1, S_2, $ $... S_j], a)) = $ <span class="math inline">\([R_1, R_2, ..., R_j]\)</span>。<br />
+(4) $S_0 = $ <span class="math inline">\(\varepsilon \text{-closure}(K_0)\)</span> 为 <span class="math inline">\(M\)</span> 的开始状态。<br />
+(5) $S_t = $ <span class="math inline">\(\{ [S_j, S_k,...,S_e] \}\)</span>，其中 <span class="math inline">\([S_j, S_k,...,S_e]\)</span> <span class="math inline">\(\in S\)</span> 且 <span class="math inline">\(\{ S_j, S_k,...,S_e \}\)</span> <span class="math inline">\(\cap \; K_t \neq \varnothing \}\)</span></p>
+<p>图 1 是构造 <span class="math inline">\(\text{NFA } N\)</span> 的状态 <span class="math inline">\(K\)</span> 的子集的算法。假定所构造的子集族为 <span class="math inline">\(C\)</span>，即 <span class="math inline">\(C = (T_1, T_2,...,T_i)\)</span>，其中 <span class="math inline">\(T_1, T_2,...,T_i\)</span> 为状态 <span class="math inline">\(K\)</span> 的子集。</p>
+<p>这个概念必须要用具体的例子辅助理解才能够最终掌握，所以，这里就举一个例子：应用上面的算法对下面的图 2 的 <span class="math inline">\(\text{NFA } N\)</span> 构造子集。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211004145119.png" srcset="/img/loading.gif" lazyload alt="图 2" /></p>
+<p>步骤如下：</p>
+<p>(1) 首先计算 <span class="math inline">\(\varepsilon \text{-closure(0)}\)</span>，令 <span class="math inline">\(T_0 = \varepsilon \text{closure(0)}\)</span> <span class="math inline">\(={0, 1, 2, 4, 7}\)</span>，<span class="math inline">\(T_0\)</span> 未被标记，它现在是子集族 <span class="math inline">\(C\)</span> 得唯一成员。<br />
+(2) 标记 <span class="math inline">\(T_0\)</span>；令 $T_1 = $ <span class="math inline">\(\varepsilon \text{-closure} (move(T_0, a))\)</span> <span class="math inline">\(= {1, 2, 3, 4, 5, 6, 7, 8}\)</span>，将 <span class="math inline">\(T_1\)</span> 加入 <span class="math inline">\(C\)</span> 中，<span class="math inline">\(T_1\)</span> 未被标记。</p>
 <p>何为有穷自动机的无用状态？</p>
 <p>所谓有穷自动机的无用状态，是指这样的状态：从该自动机的开始状态出发，任何输入串也不能到达的那个状态，或者从这个状态没有通路到达终态。</p>
 <p>在有穷自动机中，两个状态 <span class="math inline">\(s\)</span> 和 <span class="math inline">\(t\)</span> 等价的条件？</p>
