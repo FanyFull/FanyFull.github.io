@@ -4,6 +4,56 @@
   
   
   <entry>
+    <title>日语五十音</title>
+    <link href="/2021/10/06/%E6%97%A5%E8%AF%AD%E4%BA%94%E5%8D%81%E9%9F%B3/"/>
+    <url>/2021/10/06/%E6%97%A5%E8%AF%AD%E4%BA%94%E5%8D%81%E9%9F%B3/</url>
+    
+    <content type="html"><![CDATA[<h1 id="一清音">一、清音</h1><h2 id="平假名">1.1 平假名</h2><p>あ(a)　い(i)　う(u)　え(e)　お(o)</p><p>か(ka)　き(ki)　く(ku)　け(ke)　こ(ko)</p><p>さ(sa)　し(si)　す(su)　せ(se)　そ(so)</p><p>た(ta)　ち(ti)　つ(tu)　て(te)　と(to)</p><p>な(na)　に(ni)　ぬ(nu)　ね(ne)　の(no)</p><p>な(na)　に(ni)　ぬ(nu)　ね(ne)　の(no)</p><p>ま(ma)　み(mi)　む(mu)　め(me)　も(mo)</p><p>や(ya)　ゆ(yu)　よ(yo)</p><p>ら(ra)　り(ri)　る(ru)　れ(re)　ろ(ro)</p><p>わ(wa)　を(wo)</p><p>ん(n)</p><h2 id="片假名">1.2 片假名</h2><p>ア　イ　ウ　エ　オ</p><p>カ　キ　ク　ケ　コ</p><p>サ　シ　ス　セ　ソ</p><p>タ　チ　ツ　テ　ト</p><p>ナ　ニ　ヌ　ネ　ノ</p><p>ハ　ヒ　フ　ヘ　ホ</p><p>マ　ミ　ム　メ　モ</p><p>ヤ　ユ　ヨ</p><p>ラ　リ　ル　レ　ロ</p><p>ワ　ヲ</p><p>ン</p><h1 id="二浊音半浊音">二、浊音/半浊音</h1><h2 id="平假名-1">2.1 平假名</h2><p>が(ga)　ぎ(gi)　ぐ(gu)　げ(ge)　ご(go)</p><p>ざ(za)　じ(ji)　ず(zu)　ぜ(ze)　ぞ(zo)</p><p>だ(da)　ぢ(ji)　づ(zu)　で(de)　ど(do)</p><p>ば(ba)　び(bi)　ぶ(bu)　べ(be)　ぼ(bo)</p><p>ぱ(pa)　ぴ(pi)　ぷ(pu)　ぺ(pe)　ぽ(po)</p><p>注意，じ　ず　ぢ　づ 在使用微软输入法输入的时候，我们按照下面的来 じ(zi)　ず(zu)　ぢ(di)　づ(du)</p><h2 id="片假名-1">2.2 片假名</h2><h1 id="三拗音">三、拗音</h1><h2 id="平假名-2">3.1 平假名</h2><p>きゃ(kya)　きゅ(kyu)　きょ(kyo)</p><p>しゃ(sha)　しゅ(shu)　しょ(sho)</p><p>ちゃ(cha)　ちゅ(chu)　ちょ(cho)</p><p>にゃ(nya)　にゅ(nyu)　にょ(nyo)</p><p>ひゃ(hya)　ひゅ(hyu)　ひょ(hyo)</p><p>みゃ(mya)　みゅ(myu)　みょ(myo)</p><p>りゃ(rya)　りゅ(ryu)　りょ(ryo)</p><p>ぎゃ(gya)　ぎう(gyu)　ぎょ(ryo)</p><p>じゃ(ja)　じゅ(ju)　じょ(jo)</p><p>びゃ(bya)　びゅ(byu)　びょ(byo)</p><p>ぴゃ(pya)　ぴう(pyu)　ぴょ(pyo)</p><h2 id="片假名-2">3.2 片假名</h2><h1 id="四图片对照">四、图片对照</h1><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211006102956.png" /></p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211006103007.png" /></p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211006103017.png" /></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>日语</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>日语</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>《数字图像处理 第三版》札记</title>
+    <link href="/2021/10/06/%E3%80%8A%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%E6%9C%AD%E8%AE%B0/"/>
+    <url>/2021/10/06/%E3%80%8A%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%E6%9C%AD%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<h1 id="第一章">第一章</h1><blockquote><p>何为强度或灰度？</p></blockquote><p>一幅图像可定义为一个二维函数 <span class="math inline">\(f(x, y)\)</span>，其中 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(y\)</span> 是空间（平面）坐标，而在任何一对空间坐标 <span class="math inline">\((x, y)\)</span> 处的幅值（amplitude，振幅）<span class="math inline">\(f\)</span> 称为图像在该点处的<strong>强度</strong>或<strong>灰度</strong>。</p><blockquote><p>何为数字图像？</p></blockquote><p>接上一条，当 <span class="math inline">\(x, y\)</span> 和灰度值 <span class="math inline">\(f\)</span> 是有限的离散数值时，我们称该图像为<strong>数字图像</strong>。</p><h1 id="第二章">第二章</h1><blockquote><p>如何理解人眼的结构？</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211006110830.jpg" /></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>数字图像处理</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数字图像处理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 0-50 整理（Java）</title>
     <link href="/2021/10/05/LeetCode-0-50-%E6%95%B4%E7%90%86%EF%BC%88Java%EF%BC%89/"/>
     <url>/2021/10/05/LeetCode-0-50-%E6%95%B4%E7%90%86%EF%BC%88Java%EF%BC%89/</url>
