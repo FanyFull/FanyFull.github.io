@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.1k 字
+      3.2k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      40
+      41
        分钟
     </span>
   
@@ -443,7 +443,9 @@ T_4 &amp;= \{1, 2, 4, 5, 6, 7, 10\}
 <p>如何从正规文法 <span class="math inline">\(G\)</span> 直接构造一个有穷自动机 <span class="math inline">\(\text{NFA } M\)</span>，使得 <span class="math inline">\(L(M) = L(G)\)</span>？</p>
 <p>(1) <span class="math inline">\(M\)</span> 的字母表与 <span class="math inline">\(G\)</span> 的终结符集相同。<br />
 (2) 为 <span class="math inline">\(G\)</span> 中的每个非终结符生成 <span class="math inline">\(M\)</span> 的一个状态（不妨取成相同的名字），<span class="math inline">\(G\)</span> 的开始符 <span class="math inline">\(S\)</span> 是 <span class="math inline">\(M\)</span> 的开始状态 <span class="math inline">\(S\)</span>。<br />
-(3)</p>
+(3) 增加一个新状态 <span class="math inline">\(Z\)</span>，作为 <span class="math inline">\(M\)</span> 的终态。<br />
+(4) 对 <span class="math inline">\(G\)</span> 中的形如 <span class="math inline">\(A \rightarrow tB\)</span> 的规则（其中 <span class="math inline">\(t\)</span> 为终结符或 <span class="math inline">\(\varepsilon\)</span>，<span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span> 为非终结符的产生式），构造 <span class="math inline">\(M\)</span> 的一个转换函数 <span class="math inline">\(f(A, t) = B\)</span>。<br />
+(5) 对 <span class="math inline">\(G\)</span> 中形如 <span class="math inline">\(A \rightarrow t\)</span> 的产生式，构造 <span class="math inline">\(M\)</span> 的一个转换函数 <span class="math inline">\(f(A, t) = Z\)</span>。</p>
 
             </div>
             <hr>
