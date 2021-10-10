@@ -236,25 +236,33 @@
             <h1 style="display: none">《编译原理第三版》（张素琴）第三章学习札记</h1>
             
             <div class="markdown-body">
-              <p>何为正规文法？</p>
+              <blockquote>
+<p>何为正规文法？</p>
+</blockquote>
 <p>这个概念在第二章有讲过，这里再次摘录一下。</p>
 <p>正规文法也称为 3 型文法 <span class="math inline">\(G = (V_N, V_T, S, P)\)</span>，其 <span class="math inline">\(P\)</span> 中的每一条规则都有下述形式：<span class="math inline">\(A \rightarrow aB\)</span> 或 <span class="math inline">\(A \rightarrow a\)</span>，其中 <span class="math inline">\(A, B \in V_N, \; a \in V_T^*\)</span>。</p>
 <p>正规文法所描述的是 <span class="math inline">\(V_T\)</span> 上的正规集。</p>
+<blockquote>
 <p>何为正规集？</p>
+</blockquote>
 <p>按：本书中似乎没有正规集的概念。遂从《编译原理 第二版》黑书摘录其定义如下</p>
 <blockquote>
 <p>可以用一个正则表达式定义的语言叫做<strong>正则集合（regular set）</strong>。</p>
 </blockquote>
 <p>黑书中的翻译是“正则集合”，其实和“正规集”是一个意思。</p>
 <p>结合老师所讲，所谓正规集，可以和前面第二章的语言（<span class="math inline">\(L(G)\)</span>）这一概念结合来看，它们表达的东西其实是很类似的，因此，正规集所表达的意思就是正规式（正则表达式）所产生的所有字串的集合。</p>
+<blockquote>
 <p>何为正规式？</p>
+</blockquote>
 <p>正规式也称正则表达式，是表示正规集的工具。</p>
 <p>(1). <span class="math inline">\(\varepsilon\)</span> 和 <span class="math inline">\(\varnothing\)</span> 都是 <span class="math inline">\(\Sigma\)</span> 上的正规式，它们所表示的正规集分别为 <span class="math inline">\(\{ \varepsilon \}\)</span> 和 <span class="math inline">\(\varnothing\)</span>。<br />
 (2). 任何 <span class="math inline">\(a \in \Sigma\)</span>，<span class="math inline">\(a\)</span> 是 <span class="math inline">\(\Sigma\)</span> 上的一个正规式，它所表示的正规集为 <span class="math inline">\(\{ a \}\)</span>。<br />
 (3). 假定 <span class="math inline">\(e_1\)</span> 和 <span class="math inline">\(e_2\)</span> 都是 <span class="math inline">\(\Sigma\)</span> 上的正规式，它们所表示的正规集分别为 <span class="math inline">\(L(e_1)\)</span> 和 <span class="math inline">\(L(e_2)\)</span>，那么，<span class="math inline">\((e_1)\)</span>、<span class="math inline">\(e_1|e_2\)</span>、<span class="math inline">\(e_1 \cdot e_2\)</span> 和 <span class="math inline">\(e_1^*\)</span> 也都是正规式，它们所表示的正规集分别为 <span class="math inline">\(L(e_1)\)</span>、<span class="math inline">\(L(e_1) \cup L(e_2)\)</span>、<span class="math inline">\(L(e_1)L(e_2)\)</span> 和 <span class="math inline">\((L(e_1))^*\)</span>。<br />
 (4). 仅由有限次使用上述 3 个步骤而定义的表达式才是 <span class="math inline">\(\Sigma\)</span> 上的正规式，仅由这些正规式所表示的符号串的集合才是 <span class="math inline">\(\Sigma\)</span> 上的正规集。</p>
 <p>其中的 <span class="math inline">\(|\)</span> 读为“或”；<span class="math inline">\(\cdot\)</span> 读为“连接”；<span class="math inline">\(*\)</span> 读为“闭包”。在不致混淆时，括号可省去，但规定算符的优先顺序为先 <span class="math inline">\(*\)</span>，再 <span class="math inline">\(\cdot\)</span>，最后 <span class="math inline">\(|\)</span>。连接符 <span class="math inline">\(\cdot\)</span> 一般可省略不写。<span class="math inline">\(*\)</span>、<span class="math inline">\(\cdot\)</span>、和 <span class="math inline">\(|\)</span> 都是左结合的。</p>
+<blockquote>
 <p>正规文法转正规式的 3 条规则？</p>
+</blockquote>
 <ol type="1">
 <li><p>正规式：<span class="math inline">\(A \rightarrow xy\)</span></p>
 <p>正规文法：</p>
@@ -294,7 +302,9 @@ A \rightarrow y
 <p>可以利用 <span class="math inline">\(\varepsilon A = A\)</span> 来理解。那么，这个式子就是对的。</p>
 <p>P45 <span class="math inline">\((a|b)^* = (a^* b^*)^*\)</span> 如何理解？</p>
 <p>可以将 <span class="math inline">\((a|b)^*\)</span> 展开成类似 <span class="math inline">\((a|b)(a|b) \cdots (a|b)\)</span> 的形式，然后每一个括号内可以随便是 <span class="math inline">\(a\)</span> 或 <span class="math inline">\(b\)</span>。</p>
+<blockquote>
 <p>正规式的代数规律？</p>
+</blockquote>
 <p><span class="math display">\[
 \begin{split}
 &amp;(1) \; r|s = s|r \\
@@ -305,7 +315,9 @@ A \rightarrow y
 &amp;(6) \; r|r = r
 \end{split}
 \]</span></p>
+<blockquote>
 <p>将正规文法转换成正规式的 3 条规则？</p>
+</blockquote>
 <ol type="1">
 <li><p>规则一：</p>
 <p><span class="math display">\[
@@ -329,7 +341,9 @@ A \rightarrow y
  \end{split}
  \]</span></p></li>
 </ol>
+<blockquote>
 <p>何为确定的有穷自动机（<span class="math inline">\(\textrm{DFA}\)</span>）？</p>
+</blockquote>
 <p>一个确定的有穷自动机 <span class="math inline">\(M\)</span> 是一个五元组：</p>
 <p><span class="math display">\[
 M = (K, \Sigma, f, S, Z)
@@ -344,7 +358,9 @@ M = (K, \Sigma, f, S, Z)
 <p>对于 <span class="math inline">\(\Sigma^*\)</span> 中的任何符号串，若存在一条从初态节点到某一终态节点的道路，且这条路上所有弧的标记连接成的符号串等于 <span class="math inline">\(t\)</span>，则称 <span class="math inline">\(t\)</span> 可为 <span class="math inline">\(DFA \; M\)</span> 所接受，若 <span class="math inline">\(M\)</span> 的初态节点同时又是终态节点，则空字可为 <span class="math inline">\(M\)</span> <strong>所识别（接受）</strong>。<br />
 可换一种方式叙述如下：<br />
 若 $t ^*, $ <span class="math inline">\(f(S, t) = P\)</span>，其中 <span class="math inline">\(S\)</span> 为 <span class="math inline">\(\textrm{DFA M}\)</span> 的开始状态， <span class="math inline">\(P \in Z\)</span>，<span class="math inline">\(Z\)</span> 为终态集。则称 <span class="math inline">\(t\)</span> 可为 <span class="math inline">\(\textrm{DFA M}\)</span> 所<strong>接受（识别）</strong>。</p>
+<blockquote>
 <p>何为不确定的有穷自动机（<span class="math inline">\(\textrm{NFA}\)</span>）？</p>
+</blockquote>
 <p>一个不确定的有穷自动机 <span class="math inline">\(M\)</span> 是一个五元组：</p>
 <p><span class="math display">\[
 M = (K, \Sigma, f, S, Z)
@@ -356,15 +372,24 @@ M = (K, \Sigma, f, S, Z)
 (4) <span class="math inline">\(S \subseteq K\)</span>，是一个非空初态集。<br />
 (5) <span class="math inline">\(Z \subseteq K\)</span>，是一个终态集。</p>
 <p>一个含有 <span class="math inline">\(m\)</span> 个状态和 <span class="math inline">\(n\)</span> 个输入符号的 <span class="math inline">\(\textrm{NFA}\)</span> 可表示成一张状态转换图，这张图含有 <span class="math inline">\(m\)</span> 个状态结点，每个结点可射出若干条箭弧与别的节点相连接，每条弧用 <span class="math inline">\(\Sigma^*\)</span> 中的一个串作标记，整个图至少含有一个初态结点以及若干个终态结点。</p>
+<blockquote>
 <p>何为状态集合 <span class="math inline">\(I\)</span> 的 <span class="math inline">\(\varepsilon\text{-闭包}\)</span>？</p>
+</blockquote>
 <p>状态集合 <span class="math inline">\(I\)</span> 的 <span class="math inline">\(\varepsilon\text{-闭包}\)</span>，表示为 <span class="math inline">\(\varepsilon \text{-closure(I)}\)</span>，定义为一个状态集，是状态集 <span class="math inline">\(I\)</span> 中任何状态 <span class="math inline">\(S\)</span> 经任意条 <span class="math inline">\(\varepsilon\)</span> 弧能到达的状态的集合。</p>
+<blockquote>
 <p>何为状态集合 <span class="math inline">\(I\)</span> 的 <span class="math inline">\(a\)</span> 弧转换？</p>
+</blockquote>
 <p>状态集合 <span class="math inline">\(I\)</span> 的 <span class="math inline">\(a\)</span> 弧转换，表示为 <span class="math inline">\(move(I, a)\)</span>，定义为状态集合 <span class="math inline">\(J\)</span>，其中 <span class="math inline">\(J\)</span> 是所有哪些可从 <span class="math inline">\(I\)</span> 中的某一状态经过一条 <span class="math inline">\(a\)</span> 弧而到达的状态的全体。</p>
+<blockquote>
 <p>如何将一个 <span class="math inline">\(\textrm{NFA}\)</span> 转换为等价的 <span class="math inline">\(\textrm{DFA}\)</span>？</p>
+</blockquote>
+<p>这里介绍的方法就是<strong>子集法</strong>。</p>
 <p>假设 <span class="math inline">\(\textrm{NFA N} =\)</span> <span class="math inline">\(\{K, \Sigma, f, K_0, K_t\}\)</span> 按照如下方法构造一个 <span class="math inline">\(\textrm{DFA M} =\)</span> <span class="math inline">\((S, \Sigma, D, S_0, S_t)\)</span> 使得 <span class="math inline">\(L(M) = L(N)\)</span>：</p>
 <p>(1) <span class="math inline">\(M\)</span> 的状态集 <span class="math inline">\(S\)</span> 由 <span class="math inline">\(K\)</span> 的一些子集（构造 <span class="math inline">\(K\)</span> 的子集见下图）组成。用 <span class="math inline">\([S_1, S_2, ..., S_j]\)</span> 表示 <span class="math inline">\(S\)</span> 的元素，其中 <span class="math inline">\(S_1, S_2, ..., S_j\)</span> 是 <span class="math inline">\(K\)</span> 的状态。并且约定，状态 <span class="math inline">\(S_1, S_2, ..., S_j\)</span> 是按某种规则排列的，即对于子集 <span class="math inline">\(S = \{ S_2, S_1 \}\)</span> 来说，<span class="math inline">\(S\)</span> 的状态就是 <span class="math inline">\([S_1S_2]\)</span>。</p>
 <p>疑问：P51 这里的 S 规则排列与状态究竟是什么？</p>
+<blockquote>
 <p>疑问：如果 <span class="math inline">\(K_0\)</span> 中不止一个元素怎么办？</p>
+</blockquote>
 <p>解答：这个观察 <span class="math inline">\(\varepsilon \text{-闭包}\)</span> 的定义即可解决。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211002163758.png" srcset="/img/loading.gif" lazyload alt="图 1：子集的构造算法" /></p>
 <p>按：</p>
@@ -420,27 +445,39 @@ T_4 &amp;= \{1, 2, 4, 5, 6, 7, 10\}
 (5)\; &amp;S_t = [T_4]
 \end{split}
 \]</span></p>
+<blockquote>
 <p>何为有穷自动机的无用状态？</p>
+</blockquote>
 <p>所谓有穷自动机的无用状态，是指这样的状态：从该自动机的开始状态出发，任何输入串也不能到达的那个状态，或者从这个状态没有通路到达终态。</p>
+<blockquote>
 <p>在有穷自动机中，两个状态 <span class="math inline">\(s\)</span> 和 <span class="math inline">\(t\)</span> 等价的条件？</p>
+</blockquote>
 <ul>
 <li>一致性条件——状态 <span class="math inline">\(s\)</span> 和 <span class="math inline">\(t\)</span> 必须同时为可接受状态（终态）或不可接受状态（非终态）。</li>
 <li>蔓延性条件——对于所有输入符号，状态 <span class="math inline">\(s\)</span> 和状态 <span class="math inline">\(t\)</span> 必须转换到等价的状态里。</li>
 </ul>
+<blockquote>
 <p>正规式和有穷自动机的等价性如何说明？</p>
+</blockquote>
 <p>可由以下两点说明：</p>
 <ul>
 <li>对于 <span class="math inline">\(\Sigma\)</span> 上的 <span class="math inline">\(\textrm{NFA M}\)</span>，可以构造一个 <span class="math inline">\(\Sigma\)</span> 上的正规式，使得 <span class="math inline">\(L(r) = L(M)\)</span>。</li>
 <li>对于 <span class="math inline">\(\Sigma\)</span> 上的每个正规式 <span class="math inline">\(r\)</span>，可以构造一个 <span class="math inline">\(\Sigma\)</span> 上的 <span class="math inline">\(\textrm{NFA M}\)</span>，使得 <span class="math inline">\(L(M) = L(r)\)</span>。</li>
 </ul>
+<blockquote>
 <p>如何为 <span class="math inline">\(\Sigma\)</span> 上的 <span class="math inline">\(\textrm{NFA M}\)</span> 构造相应的正规式 <span class="math inline">\(r\)</span>？</p>
+</blockquote>
 <p>第 1 步，在 <span class="math inline">\(M\)</span> 的状态转换图上加进两个结点，一个为 <span class="math inline">\(x\)</span> 结点，一个为 <span class="math inline">\(y\)</span> 结点。从 <span class="math inline">\(x\)</span> 结点用 <span class="math inline">\(\varepsilon\)</span> 弧连接到 <span class="math inline">\(M\)</span> 的所有初态结点，从 <span class="math inline">\(M\)</span> 的所有终态结点用 <span class="math inline">\(\varepsilon\)</span> 弧连接到 <span class="math inline">\(y\)</span> 结点。形成一个与 <span class="math inline">\(M\)</span> 等价的 <span class="math inline">\(M^{&#39;}\)</span>，<span class="math inline">\(M^{&#39;}\)</span> 只有一个初态 <span class="math inline">\(x\)</span> 和一个终态 <span class="math inline">\(y\)</span>。<br />
 第 2 步，逐步消去 <span class="math inline">\(M^{&#39;}\)</span> 中的所有结点，直至只剩下 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(y\)</span> 结点。在消去的过程中，逐步用正规式来标记弧。其消去的规则如下：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/draft06.drawio.png" srcset="/img/loading.gif" lazyload /></p>
 <p>最后 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(y\)</span> 结点间的弧上的标记则为所求的正规式 <span class="math inline">\(r\)</span>。</p>
+<blockquote>
 <p>如何从 <span class="math inline">\(\Sigma\)</span> 上的一个正规式 <span class="math inline">\(r\)</span> 构造一个 <span class="math inline">\(\textrm{NFA M}\)</span>，使得 <span class="math inline">\(L(M) = L(r)\)</span>？</p>
+</blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/draft07.drawio.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
 <p>如何从正规文法 <span class="math inline">\(G\)</span> 直接构造一个有穷自动机 <span class="math inline">\(\text{NFA } M\)</span>，使得 <span class="math inline">\(L(M) = L(G)\)</span>？</p>
+</blockquote>
 <p>(1) <span class="math inline">\(M\)</span> 的字母表与 <span class="math inline">\(G\)</span> 的终结符集相同。<br />
 (2) 为 <span class="math inline">\(G\)</span> 中的每个非终结符生成 <span class="math inline">\(M\)</span> 的一个状态（不妨取成相同的名字），<span class="math inline">\(G\)</span> 的开始符 <span class="math inline">\(S\)</span> 是 <span class="math inline">\(M\)</span> 的开始状态 <span class="math inline">\(S\)</span>。<br />
 (3) 增加一个新状态 <span class="math inline">\(Z\)</span>，作为 <span class="math inline">\(M\)</span> 的终态。<br />

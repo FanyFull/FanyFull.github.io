@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      74 字
+      234 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      3
        分钟
     </span>
   
@@ -244,6 +244,32 @@
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211007111222.png" srcset="/img/loading.gif" lazyload /></p>
 <p>除 X, A 外，重新命名其他状态，令 AB 为 B、AC 为 C、ABY 为 D，因为 D 含有 Y（NFA 的终态），所以 D 为终态。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211007112535.png" srcset="/img/loading.gif" lazyload /></p>
+<p>DFA 的状态图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211010171555.png" srcset="/img/loading.gif" lazyload /></p>
+<p>3、将下图的 NFA 确定化。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211010172519.png" srcset="/img/loading.gif" lazyload alt="NFA" /></p>
+<p>解：用子集法将 NFA 确定化：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211010173809.png" srcset="/img/loading.gif" lazyload /></p>
+<p>重新命名状态子集，令 VQ 为 A、QU 为 B、VZ 为 C、V 为 D、QUZ 为 E、Z 为 F。</p>
+<p>DFA 的状态图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211010174435.png" srcset="/img/loading.gif" lazyload /></p>
+<p>7、为正规文法 <span class="math inline">\(G[S]\)</span></p>
+<p><span class="math display">\[
+\begin{split}
+S &amp;\rightarrow aA|bQ \\
+A &amp;\rightarrow aA|bB|b \\
+B &amp;\rightarrow bD|aQ \\
+Q &amp;\rightarrow aQ|bD|b \\
+D &amp;\rightarrow bB|aA \\
+E &amp;\rightarrow aB|bF \\
+F &amp;\rightarrow bD|aE|b
+\end{split}
+\]</span></p>
+<p>解：先构造其 NFA：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211010192630.png" srcset="/img/loading.gif" lazyload /></p>
+<p>用子集法将 NFA 确定化：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211010193039.png" srcset="/img/loading.gif" lazyload /></p>
+<p>将 S、A、Q、BZ、DZ、D、B 重新命名，分别用 0、1、2、3、4、5、6 表示。因为 3、4 中含有 z，所以它们为终态。</p>
 
             </div>
             <hr>
