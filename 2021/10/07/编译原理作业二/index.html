@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      234 字
+      445 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      6
        分钟
     </span>
   
@@ -270,6 +270,32 @@ F &amp;\rightarrow bD|aE|b
 <p>用子集法将 NFA 确定化：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211010193039.png" srcset="/img/loading.gif" lazyload /></p>
 <p>将 S、A、Q、BZ、DZ、D、B 重新命名，分别用 0、1、2、3、4、5、6 表示。因为 3、4 中含有 z，所以它们为终态。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211010205302.png" srcset="/img/loading.gif" lazyload /></p>
+<p>DFA 的状态图如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211010210306.png" srcset="/img/loading.gif" lazyload /></p>
+<p>令 <span class="math inline">\(P_0 = (\{0, 1, 2, 5, 6\}, \{3, 4\})\)</span> 用 b 进行分割；<br />
+<span class="math inline">\(P_1 = (\{0, 5, 6\}, \{1, 2\}, \{3, 4\})\)</span> 再用 b 进行分割；<br />
+<span class="math inline">\(P_2 = (\{0\}, \{5, 6\}, \{1, 2\}, \{3, 4\})\)</span> 再用 a、b 进行分割，仍不变。</p>
+<p>再令 <span class="math inline">\(\{0\}\)</span> 为 A，<span class="math inline">\(\{1, 2\}\)</span> 为 B，<span class="math inline">\(\{3, 4\}\)</span> 为 C，<span class="math inline">\(\{5, 6\}\)</span> 为 D。</p>
+<p>最小化为：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211010211301.png" srcset="/img/loading.gif" lazyload /></p>
+<p>11、有一种用以证明两个正规表达式等价的方法，那就是构造它们的最小 DFA，表明这两个 DFA 是一样的（除了状态名不同外）。使用此方法。证明下面的正规表达式是等价的。</p>
+<p><span class="math display">\[
+\begin{split}
+(1)&amp; \; (a|b)^* \\
+(2)&amp; \; (a^* | b^*)^* \\
+\end{split}
+\]</span></p>
+<p>解：</p>
+<p>(1) 的 NFA 图如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211011130938.png" srcset="/img/loading.gif" lazyload /></p>
+<p>根据 NFA 构造最小的 DFA 如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211011130441.png" srcset="/img/loading.gif" lazyload /></p>
+<p>(2) 的 NFA 图如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211011130914.png" srcset="/img/loading.gif" lazyload /></p>
+<p>根据 NFA 构造最小的 DFA 如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211011130441.png" srcset="/img/loading.gif" lazyload /></p>
+<p>所以，由此可以证明 (1) 和 (2) 式正规式是等价的。</p>
 
             </div>
             <hr>
