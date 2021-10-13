@@ -8,7 +8,7 @@
     <link href="/2021/10/13/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E5%BC%A0%E7%B4%A0%E7%90%B4%EF%BC%89%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/"/>
     <url>/2021/10/13/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E5%BC%A0%E7%B4%A0%E7%90%B4%EF%BC%89%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<blockquote><p>何为确定的自顶向下分析方法？</p></blockquote><p>确定的自顶向下分析方法，是从文法的开始符号出发，考虑如何根据当前的输入符号（单词符号）唯一地确定选用哪个产生式替换相应非终结符以往下推导，或如何构造一棵相应的语法树。</p><blockquote><p>如何理解 FIRST()？</p></blockquote><p>设 <span class="math inline">\(G = (V_T, V_N, P, S)\)</span> 是上下文无关文法。</p><p><span class="math display">\[\text{FIRST}(\alpha) = \{a|\alpha \stackrel{*}{\Rightarrow} \alpha \beta, \quad a \in V_T, \alpha, \beta \in V_*\}\]</span></p><p>若 <span class="math inline">\(\alpha \stackrel{*}{\Rightarrow} \epsilon\)</span>，则规定 <span class="math inline">\(\epsilon \in \text{FIRST}(\alpha)\)</span>。称 <span class="math inline">\(\text{FIRST}(\alpha)\)</span> 为 <span class="math inline">\(\alpha\)</span> 的<strong>开始符号集</strong>或<strong>首符号集</strong>。</p>]]></content>
     
     
     <categories>

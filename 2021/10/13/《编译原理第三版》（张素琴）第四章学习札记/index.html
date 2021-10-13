@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      156 字
     </span>
   
 
@@ -236,7 +236,18 @@
             <h1 style="display: none">《编译原理第三版》（张素琴）第四章学习札记</h1>
             
             <div class="markdown-body">
-              
+              <blockquote>
+<p>何为确定的自顶向下分析方法？</p>
+</blockquote>
+<p>确定的自顶向下分析方法，是从文法的开始符号出发，考虑如何根据当前的输入符号（单词符号）唯一地确定选用哪个产生式替换相应非终结符以往下推导，或如何构造一棵相应的语法树。</p>
+<blockquote>
+<p>如何理解 FIRST()？</p>
+</blockquote>
+<p>设 <span class="math inline">\(G = (V_T, V_N, P, S)\)</span> 是上下文无关文法。</p>
+<p><span class="math display">\[
+\text{FIRST}(\alpha) = \{a|\alpha \stackrel{*}{\Rightarrow} \alpha \beta, \quad a \in V_T, \alpha, \beta \in V_*\}
+\]</span></p>
+<p>若 <span class="math inline">\(\alpha \stackrel{*}{\Rightarrow} \epsilon\)</span>，则规定 <span class="math inline">\(\epsilon \in \text{FIRST}(\alpha)\)</span>。称 <span class="math inline">\(\text{FIRST}(\alpha)\)</span> 为 <span class="math inline">\(\alpha\)</span> 的<strong>开始符号集</strong>或<strong>首符号集</strong>。</p>
 
             </div>
             <hr>
