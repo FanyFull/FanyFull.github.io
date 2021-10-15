@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>从零开始搭建 GitHub 静态博客</title>
+    <link href="/2021/10/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA-GitHub-%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
+    <url>/2021/10/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA-GitHub-%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/</url>
+    
+    <content type="html"><![CDATA[<p>测试文件。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>博客</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>博客</tag>
+      
+      <tag>Hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>数据库系统概论作业一</title>
     <link href="/2021/10/14/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E4%BD%9C%E4%B8%9A%E4%B8%80/"/>
     <url>/2021/10/14/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E4%BD%9C%E4%B8%9A%E4%B8%80/</url>
@@ -35,7 +62,7 @@
     <link href="/2021/10/13/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E5%BC%A0%E7%B4%A0%E7%90%B4%EF%BC%89%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/"/>
     <url>/2021/10/13/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E5%BC%A0%E7%B4%A0%E7%90%B4%EF%BC%89%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/</url>
     
-    <content type="html"><![CDATA[<blockquote><p>何为确定的自顶向下分析方法？</p></blockquote><p>确定的自顶向下分析方法，是从文法的开始符号出发，考虑如何根据当前的输入符号（单词符号）唯一地确定选用哪个产生式替换相应非终结符以往下推导，或如何构造一棵相应的语法树。</p><blockquote><p>如何理解 FIRST()？</p></blockquote><p>设 <span class="math inline">\(G = (V_T, V_N, P, S)\)</span> 是上下文无关文法。</p><p><span class="math display">\[\text{FIRST}(\alpha) = \{a|\alpha \stackrel{*}{\Rightarrow} \alpha \beta, \quad a \in V_T, \alpha, \beta \in V_*\}\]</span></p><p>若 <span class="math inline">\(\alpha \stackrel{*}{\Rightarrow} \epsilon\)</span>，则规定 <span class="math inline">\(\epsilon \in \text{FIRST}(\alpha)\)</span>。称 <span class="math inline">\(\text{FIRST}(\alpha)\)</span> 为 <span class="math inline">\(\alpha\)</span> 的<strong>开始符号集</strong>或<strong>首符号集</strong>。</p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>何为确定的自顶向下分析方法？</p></blockquote><p>确定的自顶向下分析方法，是从文法的开始符号出发，考虑如何根据当前的输入符号（单词符号）唯一地确定选用哪个产生式替换相应非终结符以往下推导，或如何构造一棵相应的语法树。</p><blockquote><p>如何理解 FIRST()？</p></blockquote><p>设 <span class="math inline">\(G = (V_T, V_N, P, S)\)</span> 是上下文无关文法。</p><p><span class="math display">\[\text{FIRST}(\alpha) = \{a|\alpha \stackrel{*}{\Rightarrow} \alpha \beta, \quad a \in V_T, \alpha, \beta \in V_*\}\]</span></p><p>若 <span class="math inline">\(\alpha \stackrel{*}{\Rightarrow} \epsilon\)</span>，则规定 <span class="math inline">\(\epsilon \in \text{FIRST}(\alpha)\)</span>。称 <span class="math inline">\(\text{FIRST}(\alpha)\)</span> 为 <span class="math inline">\(\alpha\)</span> 的<strong>开始符号集</strong>或<strong>首符号集</strong>。</p><blockquote><p>如何理解 <span class="math inline">\(\text{FOLLOW()}\)</span>？</p></blockquote>]]></content>
     
     
     <categories>
