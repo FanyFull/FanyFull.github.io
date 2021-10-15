@@ -18,7 +18,7 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-  <title>《编译原理第三版》（张素琴）第四章学习札记 - Fany Full&#39;s Blog</title>
+  <title>数据库系统概论作业一 - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -166,12 +166,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211013105941.png') no-repeat center center;
+         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211015112628.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="《编译原理第三版》（张素琴）第四章学习札记">
+            <span class="h2" id="subtitle" title="数据库系统概论作业一">
               
             </span>
 
@@ -181,8 +181,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-10-13 10:58" pubdate>
-        2021年10月13日 上午
+      <time datetime="2021-10-14 16:34" pubdate>
+        2021年10月14日 下午
       </time>
     </span>
   
@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      156 字
+      805 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      8
        分钟
     </span>
   
@@ -233,21 +233,54 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">《编译原理第三版》（张素琴）第四章学习札记</h1>
+            <h1 style="display: none">数据库系统概论作业一</h1>
             
             <div class="markdown-body">
-              <blockquote>
-<p>何为确定的自顶向下分析方法？</p>
-</blockquote>
-<p>确定的自顶向下分析方法，是从文法的开始符号出发，考虑如何根据当前的输入符号（单词符号）唯一地确定选用哪个产生式替换相应非终结符以往下推导，或如何构造一棵相应的语法树。</p>
+              <p>这几个概念要求用自己的话来描述，有够烦人哦。</p>
 <blockquote>
-<p>如何理解 FIRST()？</p>
+<p>1、试述数据、数据库、数据库管理系统和数据库系统的概念。</p>
 </blockquote>
-<p>设 <span class="math inline">\(G = (V_T, V_N, P, S)\)</span> 是上下文无关文法。</p>
-<p><span class="math display">\[
-\text{FIRST}(\alpha) = \{a|\alpha \stackrel{*}{\Rightarrow} \alpha \beta, \quad a \in V_T, \alpha, \beta \in V_*\}
-\]</span></p>
-<p>若 <span class="math inline">\(\alpha \stackrel{*}{\Rightarrow} \epsilon\)</span>，则规定 <span class="math inline">\(\epsilon \in \text{FIRST}(\alpha)\)</span>。称 <span class="math inline">\(\text{FIRST}(\alpha)\)</span> 为 <span class="math inline">\(\alpha\)</span> 的<strong>开始符号集</strong>或<strong>首符号集</strong>。</p>
+<p>解：</p>
+<ul>
+<li><p>数据，描述事物的符号记录称为数据。所谓描述事物的符号，举例来说，数字、文字、图像、视频等可以用计算机来表示的都是符号。</p></li>
+<li><p>数据库，英文名 database，就是存储数据的仓库。数据库是长期储存在计算机内、有组织的大量数据的集合。</p></li>
+<li><p>数据库管理系统，英文名 database management system，就是进行科学地组织和存储、获取和维护数据的系统。</p></li>
+<li><p>数据库系统，英文名 database system，就是由数据库、数据库管理系统、应用程序和数据库管理员组成的存储、管理处理和维护数据的系统。</p></li>
+</ul>
+<blockquote>
+<p>3、试述文件系统和数据库管理系统的区别和联系。</p>
+</blockquote>
+<p>解：</p>
+<p>(1) 文件系统与数据库系统的区别是：文件系统面向某一应用程序，共享性差，冗余度大，数据独立性差，记录内有结构，整体无结构，由应用程序自己控制。数据库系统面向现实世界，共享性高，冗余度小，具有较高的物理独立性和一定的逻辑独立性，整体结构化，用数据模型描述，由数据库系统提供数据安全性，完整性，并发控制和恢复力。</p>
+<ol start="2" type="1">
+<li>文件系统与数据库系统的联系是：文件系统于数据库系统都是计算机系统中管理数据库的软件。解析文件系统是操作系统的重要组成部分。而DBMS是独立于操作系统的软件。到时DBMS狮子啊操作系统的基础上实现的。数据库系统的组织和存储是通过操作系统中的文件系统来实现的。</li>
+</ol>
+<blockquote>
+<p>5、试述数据库系统的特点。</p>
+</blockquote>
+<p>解：</p>
+<p>(1) 数据结构化；<br />
+(2) 数据的共享性高、冗余度低且易扩充；<br />
+(3) 数据独立性高；<br />
+(4) 数据由数据库管理系统统一管理和控制；</p>
+<blockquote>
+<p>6、数据库管理系统的主要功能主要有哪些？</p>
+</blockquote>
+<p>解：</p>
+<p>(1) 数据定义功能；<br />
+(2) 数据组织、存储和管理；<br />
+(3) 数据操纵功能；<br />
+(4) 数据库的事务管理和运行管理；<br />
+(5) 数据库的建立和维护功能。<br />
+(6) 其他功能，包括数据库管理系统与网络中其他软件系统的通信功能，一个数据库管理系统与另一个数据库管理系统或文件系统的数据转换功能，异构数据库之间的互访和互操作功能等。</p>
+<blockquote>
+<p>练习题：给出一个病人就诊情况的 E-R 模型图，并分析 E-R 模型是否满足概念模型的两个基本特征。</p>
+</blockquote>
+<p>解：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211015103959.png" srcset="/img/loading.gif" lazyload /></p>
+<p>E-R 模型满足概念模型的两个基本特征。</p>
+<p>说明几点：</p>
+<p>病人与病床的关系：一名病人在一次住院期间对应一张病床，而一张病床可以有多名病人曾经住过。</p>
 
             </div>
             <hr>
@@ -257,7 +290,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
                     
                   </div>
                 
@@ -265,7 +298,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/">数据库系统概论</a>
                     
                   </div>
                 
@@ -282,18 +317,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/10/14/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E4%BD%9C%E4%B8%9A%E4%B8%80/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">数据库系统概论作业一</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/10/13/%E3%80%8A%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90-CSS%E3%80%8B%E6%9C%AD%E8%AE%B0/">
-                        <span class="hidden-mobile">《深入解析 CSS》札记</span>
+                      <a href="/2021/10/13/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E5%BC%A0%E7%B4%A0%E7%90%B4%EF%BC%89%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/">
+                        <span class="hidden-mobile">《编译原理第三版》（张素琴）第四章学习札记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
