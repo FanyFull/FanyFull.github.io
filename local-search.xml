@@ -4,11 +4,40 @@
   
   
   <entry>
+    <title>《浮生六记》札记</title>
+    <link href="/2021/10/16/%E3%80%8A%E6%B5%AE%E7%94%9F%E5%85%AD%E8%AE%B0%E3%80%8B%E6%9C%AD%E8%AE%B0/"/>
+    <url>/2021/10/16/%E3%80%8A%E6%B5%AE%E7%94%9F%E5%85%AD%E8%AE%B0%E3%80%8B%E6%9C%AD%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<p>◆ 卷一　闺房记乐</p><blockquote><p>东坡云：“事如春梦了无痕。”</p></blockquote><p>按：不能说完全是了无痕的。万一梦遗了呢？万一醒来还记得很清楚呢？只是，不管是哪样，都是徒增惆怅罢了。</p><blockquote><p>刺绣之暇，渐通吟咏，有“秋侵人影瘦，霜染菊花肥”之句。</p></blockquote><p>按：此中诗趣，有趣。</p><blockquote><p>其形削肩长项，瘦不露骨，眉弯目秀，顾盼神飞，唯两齿微露，似非佳相。一种缠绵之态，令人之意也消。</p></blockquote><p>按：又见“顾盼神飞”，好多人都喜欢用这个词语形容女子，好。顾盼之间见光采。《红与黑》中是这样用的：明眸善睐，顾盼神飞。这两个词语在一起真是再合适不过了。</p><p>疑：“令人之意也消”这句话该作何解释？这里翻译的是“让人萌生爱恋之意”，我觉得不够好，有的地方是翻译成“让人销魂失魄”，也不好。我个人琢磨了一下，“令”字在汉语大辞典中有“善；美好”的意思，“消”字我更愿意作“销”字来解释，因此这句话连同上一句话就可以合在一起意译为：这一种缠绵娇美的仪态，这如此美妙的人儿的神意都是如此地使人销魂失魄。</p><blockquote><p>余戏题其签曰“锦囊佳句”，不知夭寿之机，此已伏矣。</p></blockquote><p>按：一语成谶，令人扼腕。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>读书</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>读书</tag>
+      
+      <tag>文学</tag>
+      
+      <tag>文言</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>从零开始搭建 GitHub 静态博客</title>
     <link href="/2021/10/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA-GitHub-%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
     <url>/2021/10/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA-GitHub-%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/</url>
     
-    <content type="html"><![CDATA[<p>测试文件。</p>]]></content>
+    <content type="html"><![CDATA[<p>测试文件。</p><ul><li>这是第一个数据</li></ul><blockquote><p>这是一个引用</p></blockquote>]]></content>
     
     
     <categories>
