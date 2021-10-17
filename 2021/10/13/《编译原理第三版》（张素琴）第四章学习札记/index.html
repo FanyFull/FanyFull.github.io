@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      580 字
+      629 字
     </span>
   
 
@@ -263,8 +263,10 @@
 <p>这里用 <span class="math inline">\(＃\)</span> 作为输入串的结束符，也称为输入串符号。</p>
 <p>因此当文法中含有形如</p>
 <p><span class="math display">\[
+\begin{split}
 A \rightarrow \alpha \\
 A \rightarrow \beta
+\end{split}
 \]</span></p>
 <p>的产生式时，其中 <span class="math inline">\(A \in V_N, \alpha、\beta \in V^*\)</span>，若 <span class="math inline">\(\alpha\)</span> 和 <span class="math inline">\(\beta\)</span> 不能同时推导出空，假定 <span class="math inline">\(\alpha \stackrel{*}{\nRightarrow} \epsilon\)</span> <span class="math inline">\(, \beta \stackrel{*}{\Rightarrow} \epsilon\)</span>，则当 <span class="math inline">\(\text{FIRST}(\alpha)\)</span> <span class="math inline">\(\cap\)</span> <span class="math inline">\((\text{FIRST}(\beta)\)</span> <span class="math inline">\(\cup\)</span> <span class="math inline">\(\text{FOLLOW}(A)) = \varnothing\)</span> 时，对于非终结符 <span class="math inline">\(A\)</span> 的替换仍可唯一地确定候选。</p>
 <blockquote>
@@ -285,6 +287,10 @@ A \rightarrow \beta
 \]</span></p>
 <p>其中 <span class="math inline">\(\alpha、\beta\)</span> 不同时能 <span class="math inline">\(\stackrel{*}{\Rightarrow} \epsilon\)</span>。</p>
 <p><span class="math inline">\(\text{LL}(1)\)</span> 的含义是：第 1 个 <span class="math inline">\(\text{L}\)</span> 表明自顶向下分析是从左向右扫描输入串，第 2 个 <span class="math inline">\(\text{L}\)</span> 表明分析过程中将用最左推导，1 表明只需要向右看一个符号便可决定如何推导，即选择哪个产生式（规则）进行推导。</p>
+<blockquote>
+<p>如何判别某文法是否是 <span class="math inline">\(\text{LL}(1)\)</span> 文法？</p>
+</blockquote>
+<p>首先计算 <span class="math inline">\(\text{FIRST}\)</span>、<span class="math inline">\(\text{FOLLOW}\)</span>、<span class="math inline">\(\text{SELECT}\)</span> 集合，然后根据定义判别文法是否是 <span class="math inline">\(\text{LL}(1)\)</span> 文法。</p>
 
             </div>
             <hr>
