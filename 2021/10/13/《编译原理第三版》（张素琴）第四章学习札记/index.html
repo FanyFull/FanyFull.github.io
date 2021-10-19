@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      629 字
+      1k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8
+      14
        分钟
     </span>
   
@@ -291,6 +291,48 @@ A \rightarrow \beta
 <p>如何判别某文法是否是 <span class="math inline">\(\text{LL}(1)\)</span> 文法？</p>
 </blockquote>
 <p>首先计算 <span class="math inline">\(\text{FIRST}\)</span>、<span class="math inline">\(\text{FOLLOW}\)</span>、<span class="math inline">\(\text{SELECT}\)</span> 集合，然后根据定义判别文法是否是 <span class="math inline">\(\text{LL}(1)\)</span> 文法。</p>
+<blockquote>
+<p>一个综合性示例的理解。</p>
+</blockquote>
+<p>文法 <span class="math inline">\(G[S]\)</span> 为</p>
+<p><span class="math display">\[
+\begin{split}
+S &amp;\rightarrow AB \\
+S &amp;\rightarrow bC \\
+A &amp;\rightarrow \varepsilon \\
+A &amp;\rightarrow b \\
+B &amp;\rightarrow \varepsilon \\
+B &amp;\rightarrow aD \\
+C &amp;\rightarrow AD \\
+C &amp;\rightarrow b \\
+D &amp;\rightarrow aS \\
+D &amp;\rightarrow c
+\end{split}
+\]</span></p>
+<p>第一步，求出能推出 <span class="math inline">\(\varepsilon\)</span> 的非终结符。</p>
+<p>首先建立一个文法的非终结符个数为上界的一维数组，其数组元素为非终结符，对应每一非终结符有一个标志位，用以记录能否推出 <span class="math inline">\(\epsilon\)</span>。其值有 3 中情况：“未定”、“是”、“否”。</p>
+<p>文法 <span class="math inline">\(G[S]\)</span> 对应数组 <span class="math inline">\(X[\;]\)</span> 的内容如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211018145824.png" srcset="/img/loading.gif" lazyload /></p>
+<p>计算能推出 <span class="math inline">\(\varepsilon\)</span> 的非终结符步骤如下：</p>
+<blockquote>
+<p>如何计算一个文法符号 <span class="math inline">\(X \in V\)</span> 的 <span class="math inline">\(\text{FIRST}\)</span> 集 <span class="math inline">\(\text{FIRST}(X)\)</span>？</p>
+</blockquote>
+<p>① 若 <span class="math inline">\(X \in V_T\)</span>，则 <span class="math inline">\(\text{FIRST}(X) = \{X\}\)</span>。<br />
+② 若 <span class="math inline">\(X \in V_N\)</span>，且有产生式 <span class="math inline">\(X \rightarrow a \cdots\)</span> <span class="math inline">\(,\)</span> <span class="math inline">\(a \in V_T\)</span>，则 <span class="math inline">\(a \in \text{FIRST}(X)\)</span>。<br />
+③ 若 <span class="math inline">\(X \in V_N\)</span>，<span class="math inline">\(X \rightarrow \varepsilon\)</span>，则 <span class="math inline">\(\varepsilon \in \text{FIRST}(X)\)</span>。<br />
+④ 若 <span class="math inline">\(X, Y_1, Y_2,\)</span> <span class="math inline">\(\cdots\)</span> <span class="math inline">\(, Y_n \in V_N\)</span>，而有产生式 <span class="math inline">\(X \rightarrow Y_1Y_2 \cdots Y_n\)</span>。当 <span class="math inline">\(Y_1, Y_2, \cdots, Y_{i - 1}\)</span> <span class="math inline">\(\stackrel{*}{\Rightarrow} \varepsilon\)</span> 时（其中 <span class="math inline">\(1 \leqslant i \leqslant n\)</span>），则 <span class="math inline">\(\text{FIRST}(Y_1) - \{\varepsilon\},\)</span> <span class="math inline">\(\text{FIRST}(Y_2) - \{\varepsilon\},\)</span> <span class="math inline">\(\cdots\)</span> <span class="math inline">\(, \text{FIRST}(Y_{i - 1}) - \{\varepsilon\},\)</span> <span class="math inline">\(\text{FIRST}(Y_i)\)</span> 都包含在 <span class="math inline">\(\text{FIRST}(X)\)</span> 中，即</p>
+<p><span class="math display">\[
+\text{FIRST}(X) = (\text{FIRST}(Y_1) \cup \text{FIRST}(Y_2) \cdots \cup \text{FIRST}(Y_i)) - \{\varepsilon\}
+\]</span></p>
+<p>⑤ 当 ④ 中所有 <span class="math inline">\(Y_i \stackrel{*}{\Rightarrow} \varepsilon\)</span> <span class="math inline">\(,\)</span> <span class="math inline">\((i = 1, 2, \cdots, n)\)</span>，则</p>
+<p><span class="math display">\[
+\text{FIRST}(X) = (\text{FIRST}(Y_1) \cup \text{FIRST}(Y_2) \cdots \cup \text{FIRST}(Y_n)) \cup \{\varepsilon\}
+\]</span></p>
+<p>反复使用上述 ②~⑤ 步，直到没给符号的 <span class="math inline">\(\text{FIRST}\)</span> 集合不再增大为止。</p>
+<blockquote>
+<p>如何计算一个符号串的 <span class="math inline">\(\text{FIRST}\)</span> 集合？</p>
+</blockquote>
+<p>若符号串 <span class="math inline">\(\alpha \in V^*\)</span> <span class="math inline">\(,\)</span> <span class="math inline">\(\alpha = X_1 X_2 \cdots X_n\)</span>，当 <span class="math inline">\(X_1\)</span> 不能 <span class="math inline">\(\stackrel{*}{\Rightarrow} \varepsilon\)</span>，则置 <span class="math inline">\(\text{FIRST}(\alpha) = \text{FIRST}(X_1)\)</span>。</p>
 
             </div>
             <hr>
