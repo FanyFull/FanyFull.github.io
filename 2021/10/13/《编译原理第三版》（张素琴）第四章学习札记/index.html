@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1k 字
+      1.4k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14
+      20
        分钟
     </span>
   
@@ -333,6 +333,44 @@ D &amp;\rightarrow c
 <p>如何计算一个符号串的 <span class="math inline">\(\text{FIRST}\)</span> 集合？</p>
 </blockquote>
 <p>若符号串 <span class="math inline">\(\alpha \in V^*\)</span> <span class="math inline">\(,\)</span> <span class="math inline">\(\alpha = X_1 X_2 \cdots X_n\)</span>，当 <span class="math inline">\(X_1\)</span> 不能 <span class="math inline">\(\stackrel{*}{\Rightarrow} \varepsilon\)</span>，则置 <span class="math inline">\(\text{FIRST}(\alpha) = \text{FIRST}(X_1)\)</span>。</p>
+<p>若对任何 <span class="math inline">\(j(1 \leqslant j \leqslant i - 1,\)</span> <span class="math inline">\(2 \leqslant i \leqslant n)\)</span> <span class="math inline">\(,\)</span> <span class="math inline">\(\varepsilon \in \text{FIRST}(X_j)\)</span> <span class="math inline">\(,\)</span> <span class="math inline">\(\varepsilon \notin \text{FIRST}(X_i)\)</span>，则</p>
+<p><span class="math display">\[
+\text{FIRST}(\alpha) = \bigcup_{j = 1}^{i - 1}(\text{FIRST}(X_j) - \{\varepsilon\}) \cup \text{FIRST}(X_i)
+\]</span></p>
+<p>当对任何 <span class="math inline">\(j(1 \leqslant j \leqslant n)\)</span>，<span class="math inline">\(\text{FIRST}(X_j)\)</span> 都含有 <span class="math inline">\(\varepsilon\)</span> 时，则</p>
+<p><span class="math display">\[
+\text{FIRST}(\alpha) = \bigcup_{j = 1}^{n}(\text{FIRST}(X_j) - \{\varepsilon\}) \cup \{\varepsilon\}
+\]</span></p>
+<p>按：这里最后一个公式书上的写法似乎有点问题。</p>
+<blockquote>
+<p>如何计算 <span class="math inline">\(\text{FOLLOW}\)</span> 集？</p>
+</blockquote>
+<p>对文法中的每一个 <span class="math inline">\(A \in V_N\)</span>，根据定义计算 <span class="math inline">\(\text{FOLLOW}(A)\)</span>。</p>
+<p>① 设 <span class="math inline">\(S\)</span> 为文法的开始符号，把 <span class="math inline">\(\{＃\}\)</span> 加入 <span class="math inline">\(\text{FOLLOW}(S)\)</span> 中（这里＃为句子括号）。</p>
+<p>按：＃似为句子结束符号。</p>
+<p>② 若 <span class="math inline">\(A \rightarrow \alpha B \beta\)</span> 是一个产生式，则把 <span class="math inline">\(\text{FIRST}(\beta)\)</span> 的非空元素加入 <span class="math inline">\(\text{FOLLOW}(B)\)</span> 中。<br />
+如果 <span class="math inline">\(\beta \stackrel{*}{\Rightarrow} \varepsilon\)</span>，则把 <span class="math inline">\(\text{FOLLOW}(A)\)</span> 也加入 <span class="math inline">\(\text{FOLLOW}(B)\)</span> 中，因为当有形如</p>
+<p><span class="math display">\[
+\begin{split}
+D &amp;\rightarrow \alpha_{1} A \beta_{1} \\
+A &amp;\rightarrow \alpha B \beta
+\end{split}
+\]</span></p>
+<p>的产生式时，<span class="math inline">\(A, B, D \in V_N\)</span>，<span class="math inline">\(\alpha, \alpha_{1}, \beta, \beta_{1} \in V^*\)</span>，在推导过程中可能出现如下的句型序列：</p>
+<p><span class="math display">\[
+S \stackrel{*}{\Rightarrow} \cdots \alpha_{1} A \beta_{1} \cdots \Rightarrow \alpha_{1} \alpha B \beta \beta{1} \cdots \Rightarrow \cdots \alpha_{1} \alpha B \beta_{1} \cdots
+\]</span></p>
+<p>因此，有 <span class="math inline">\(\text{FOLLOW}(A)\)</span> <span class="math inline">\(\subseteq\)</span> <span class="math inline">\(\text{FOLLOW}(B)\)</span>。</p>
+<p>③ 反复使用 ② 直到每个非终结符的 <span class="math inline">\(\text{FOLLOW}\)</span> 集不再增大为止。</p>
+<blockquote>
+<p>如何计算某一文法中的每一个产生式的 <span class="math inline">\(\text{SELECT}\)</span> 集？</p>
+</blockquote>
+<p>直接根据定义来判断：</p>
+<p>给定上下文无关文法的产生式 <span class="math inline">\(A \rightarrow \alpha\)</span> $, $ <span class="math inline">\(A \in V_N, \alpha \in V^*\)</span>，</p>
+<ul>
+<li>若 <span class="math inline">\(\alpha \stackrel{*}{\nRightarrow} \varepsilon\)</span>，则 <span class="math inline">\(\text{SELECT}(A \rightarrow \alpha)\)</span> <span class="math inline">\(=\)</span> <span class="math inline">\(\text{FIRST}(\alpha)\)</span>。</li>
+<li>若 <span class="math inline">\(\alpha \stackrel{*}{\Rightarrow} \varepsilon\)</span>，则 <span class="math inline">\(\text{SELECT}(A \rightarrow \alpha)\)</span> <span class="math inline">\(=\)</span> <span class="math inline">\((\text{FIRST}(\alpha) - \{\varepsilon\})\)</span> <span class="math inline">\(\cup\)</span> <span class="math inline">\(\text{FOLLOW}(A)\)</span>。</li>
+</ul>
 
             </div>
             <hr>
