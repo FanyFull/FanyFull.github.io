@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      861 字
+      991 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14
+      16
        分钟
     </span>
   
@@ -448,6 +448,43 @@ SELECT(N \rightarrow C) \cap SELECT(N \rightarrow \varepsilon) \neq \varnothing
 A &amp;\rightarrow SA | a
 \end{split}
 \]</span></p>
+<p>解：对文法进行改写如下：</p>
+<p>第一步，</p>
+<p><span class="math display">\[
+\begin{split}
+S &amp;\rightarrow AS \\
+S &amp;\rightarrow b \\
+A &amp;\rightarrow SA \\
+A &amp;\rightarrow a
+\end{split}
+\]</span></p>
+<p>第二步，</p>
+<p><span class="math display">\[
+\begin{split}
+S &amp;\rightarrow SAS \\
+S &amp;\rightarrow b \\
+A &amp;\rightarrow a
+\end{split}
+\]</span></p>
+<p>第三步，</p>
+<p><span class="math display">\[
+\begin{split}
+S &amp;\rightarrow bS^{&#39;} \\
+S^{&#39;} &amp;\rightarrow ASS^{&#39;} \\
+S^{&#39;} &amp;\rightarrow \varepsilon \\
+A &amp;\rightarrow a
+\end{split}
+\]</span></p>
+<p>然后计算其 <span class="math inline">\(SELECT\)</span> 集：</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;SELECT(S \rightarrow bS^{&#39;}) = \{b\} \\
+&amp;SELECT(S^{&#39;} \rightarrow ASS^{&#39;}) = \{a\} \\
+&amp;SELECT(S^{&#39;} \rightarrow \varepsilon) = \{＃\} \\
+&amp;SELECT(A \rightarrow a) = \{a\} \\
+\end{split}
+\]</span></p>
+<p>所以改写后的文法是 <span class="math inline">\(LL(1)\)</span> 文法。</p>
 
             </div>
             <hr>
