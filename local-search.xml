@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>《编译原理第三版》（张素琴）第六章学习札记</title>
+    <link href="/2021/10/25/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E5%BC%A0%E7%B4%A0%E7%90%B4%EF%BC%89%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/"/>
+    <url>/2021/10/25/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E5%BC%A0%E7%B4%A0%E7%90%B4%EF%BC%89%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>LR 分析表中像 s2 和 r3 这样的符号串的第一个字符 s 和 r 分别代表什么含义？</p></blockquote><ul><li>s 表示 shift，即“移进”。</li><li>r 表示 reduce，即“归约”。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>编译原理</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>编译原理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>编译原理作业三</title>
     <link href="/2021/10/24/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E4%B8%89/"/>
     <url>/2021/10/24/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E4%B8%89/</url>
