@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      631 字
+      861 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      14
        分钟
     </span>
   
@@ -396,15 +396,56 @@ B &amp;\rightarrow b | bC | aBB
 <p>题中文法的 SELECT 集如下：</p>
 <p><span class="math display">\[
 \begin{split}
-SELECT(S \rightarrow a) = \{b, a\} \\
-SELECT(S \rightarrow a) = \{b, a\} \\
-SELECT(S \rightarrow a) = \{b, a\} \\
-SELECT(S \rightarrow a) = \{b, a\} \\
-SELECT(S \rightarrow a) = \{b, a\} \\
-SELECT(S \rightarrow a) = \{b, a\} \\
-SELECT(S \rightarrow a) = \{b, a\} \\
-SELECT(S \rightarrow a) = \{b, a\} \\
-SELECT(S \rightarrow a) = \{b, a\} \\
+&amp;SELECT(S \rightarrow C\$) = \{b, a\} \\
+&amp;SELECT(A \rightarrow a) = \{a\} \\
+&amp;SELECT(A \rightarrow aC) = \{a\} \\
+&amp;SELECT(A \rightarrow bAA) = \{b\} \\
+&amp;SELECT(C \rightarrow bA) = \{b\} \\
+&amp;SELECT(C \rightarrow aB) = \{a\} \\
+&amp;SELECT(B \rightarrow b) = \{b\} \\
+&amp;SELECT(B \rightarrow bc) = \{b\} \\
+&amp;SELECT(B \rightarrow aBB) = \{a\} \\
+\end{split}
+\]</span></p>
+<p>由于</p>
+<p><span class="math display">\[
+SELECT(A \rightarrow a) \cap SELECT(A \rightarrow ac) \cap SELECT(A \rightarrow bAA) \neq \varnothing
+\]</span></p>
+<p>所以该文法不是 <span class="math inline">\(LL(1)\)</span> 文法。</p>
+<p>构造等价文法如下：</p>
+<p><span class="math display">\[
+\begin{split}
+S &amp;\rightarrow C\$ \\
+C &amp;\rightarrow bA | aB \\
+A &amp;\rightarrow aN | bAA \\
+B &amp;\rightarrow bN | aBB \\
+N &amp;\rightarrow C | \varepsilon
+\end{split}
+\]</span></p>
+<p>计算 <span class="math inline">\(SELECT\)</span> 集如下：</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;SELECT(S \rightarrow C\$) = \{b, a\} \\
+&amp;SELECT(C \rightarrow bA) = \{b\} \\
+&amp;SELECT(C \rightarrow aB) = \{a\} \\
+&amp;SELECT(A \rightarrow aN) = \{a\} \\
+&amp;SELECT(A \rightarrow bAA) = \{b\} \\
+&amp;SELECT(B \rightarrow bN) = \{b\} \\
+&amp;SELECT(B \rightarrow aBB) = \{a\} \\
+&amp;SELECT(N \rightarrow C) = \{b, a\} \\
+&amp;SELECT(N \rightarrow \varepsilon) = \{a, b\} \\
+\end{split}
+\]</span></p>
+<p>由于</p>
+<p><span class="math display">\[
+SELECT(N \rightarrow C) \cap SELECT(N \rightarrow \varepsilon) \neq \varnothing
+\]</span></p>
+<p>所以改写后的文法不是 <span class="math inline">\(LL(1)\)</span> 文法。</p>
+<p>7、对于一个文法若消除了左递归，提取了左公共因子后是否一定为 <span class="math inline">\(LL(1)\)</span> 文法？试对下面的文法进行改写，并对改写后的文法进行判断。</p>
+<p><span class="math display">\[
+\begin{split}
+(4) S &amp;\rightarrow AS | b \\
+A &amp;\rightarrow SA | a
 \end{split}
 \]</span></p>
 
