@@ -18,7 +18,7 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-  <title>《编译原理第三版》（张素琴）第六章学习札记 - Fany Full&#39;s Blog</title>
+  <title>数字图像处理期中测试作业 - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -166,12 +166,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/caCkDh3.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/WqmMxQM.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="《编译原理第三版》（张素琴）第六章学习札记">
+            <span class="h2" id="subtitle" title="数字图像处理期中测试作业">
               
             </span>
 
@@ -181,8 +181,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-10-25 21:29" pubdate>
-        2021年10月25日 晚上
+      <time datetime="2021-10-26 15:47" pubdate>
+        2021年10月26日 下午
       </time>
     </span>
   
@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      46 字
+      1.5k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      16
        分钟
     </span>
   
@@ -233,16 +233,76 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">《编译原理第三版》（张素琴）第六章学习札记</h1>
+            <h1 style="display: none">数字图像处理期中测试作业</h1>
             
             <div class="markdown-body">
-              <blockquote>
-<p>LR 分析表中像 s2 和 r3 这样的符号串的第一个字符 s 和 r 分别代表什么含义？</p>
-</blockquote>
+              <h1 id="一简答题共5题50分">一、简答题（共5题,50分）</h1>
+<p>1、简答什么是图像颜色 HSI 模型。</p>
+<p>解：HSI 是这样一个彩色模型，该模型用色调、饱和度和亮度来描述一个彩色物体。色调是描述一种纯色（纯黄色、纯橙色或纯红色）的颜色属性；饱和度是一种纯色被白光稀释的程度的度量。亮度则用灰度级来描述。</p>
+<p>2、简答什么是图像的动态范围？</p>
+<p>解：有时灰度级的取值范围称为图像的动态范围。把占有灰度级全部有效段的图像叫做高动态范围图像。当相当可观数目的像素呈现这样的特征时，图像就有较高的对比度。相反，低动态范围的图像看上去似乎是冲淡了的灰暗格调。</p>
+<p>3、简答马赫带效应并解释原因。</p>
+<p>解：马赫带效应就是，对于连续的均匀的灰度带（见教材），每一条带上的亮度是均匀的，但是在不同带的交界处，我们会看到，亮的那一侧会出现更亮的一条线，暗的那一侧会出现更暗的一条线。简单来讲，这就是马赫带效应。</p>
+<p>原因：视觉系统对亮度的感知不是简单的强度函数。</p>
+<p>4、请给出一种通过卷积对图像进行平滑的方法，并解释该平滑方法与消除噪声的关系。</p>
+<p>解：平滑模板（template）。</p>
+<p>与消除噪声的关系：从信号处理理论来解释，这种做法实现的是一种简单的低通滤波器。平滑模板通过讲某点周围 8 个点的平均值代替该点原值，从而去除突然变化的点，滤掉噪声，其代价是图像具有一定程度的模糊。</p>
+<p>5、什么是傅里叶变换的相位谱与振幅谱？</p>
+<p>解：傅里叶变换 <span class="math inline">\(F(\omega)\)</span> 是一个复数：<span class="math inline">\(F(\omega) = R(\omega) + j I(\omega)\)</span>，其相位谱与振幅谱分别如下：</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;相位谱 \qquad \phi(\omega) = arctan \frac{I(\omega)}{R(\omega)} \\
+&amp;振幅谱 \qquad |F(\omega)| = \sqrt{R^2(\omega) + I^2(\omega)}
+\end{split}
+\]</span></p>
+<h1 id="二论述题共3题30分">二、论述题（共3题,30分）</h1>
+<p>1、请解释什么是自适应中值滤波器？该滤波器与中值滤波相比较，有何优势？</p>
+<p>解：</p>
+<p>(1) 解释：</p>
+<p>下面是自适应种植滤波器的详细描述：</p>
+<p>预先定义好以下符号：</p>
 <ul>
-<li>s 表示 shift，即“移进”。</li>
-<li>r 表示 reduce，即“归约”。</li>
+<li><span class="math inline">\(S_{xy}\)</span>：滤波器的作用区域，滤波器窗口所覆盖的区域，该区域中心点为图像中第 y 行第 x 列个像素点；</li>
+<li><span class="math inline">\(Z_{min}\)</span>：<span class="math inline">\(S_{xy}\)</span> 中最小的灰度值；</li>
+<li><span class="math inline">\(Z_{max}\)</span>：<span class="math inline">\(S_{xy}\)</span> 中最大的灰度值；</li>
+<li><span class="math inline">\(Z_{med}\)</span>：<span class="math inline">\(S_{xy}\)</span> 中所有灰度值的中值；</li>
+<li><span class="math inline">\(Z_{xy}\)</span>：表示图像中第 y 行第 x 列个像素点的灰度值；</li>
+<li><span class="math inline">\(S_{max}\)</span>：<span class="math inline">\(S_{xy}\)</span> 所允许的最大窗口尺寸；</li>
 </ul>
+<p>自适应中值滤波器分为以下两个过程，A和B：</p>
+<p><strong>A:</strong></p>
+<ol type="1">
+<li>A1 = <span class="math inline">\(Z_{med} - Z_{min}\)</span></li>
+<li>A2 = <span class="math inline">\(Z_{med} - Z_{max}\)</span></li>
+<li>如果 <span class="math inline">\(A1&gt;0\)</span> 且 <span class="math inline">\(A2&lt;0\)</span>，则跳转到 <strong>B</strong></li>
+<li>否则，增大窗口的尺寸</li>
+<li>如果增大后的尺寸 <span class="math inline">\(\leq S_{max}\)</span>，则重复 <strong>A</strong></li>
+<li>否则，直接输出 <span class="math inline">\(Z_{med}\)</span></li>
+</ol>
+<p><strong>B:</strong></p>
+<ol type="1">
+<li>B1 = <span class="math inline">\(Z_{xy} - Z_{min}\)</span></li>
+<li>B2 = <span class="math inline">\(Z_{xy} - Z_{max}\)</span></li>
+<li>如果 <span class="math inline">\(B1&gt;0\)</span> 且 <span class="math inline">\(B2&lt;0\)</span>，则输出 <span class="math inline">\(Z_{xy}\)</span></li>
+<li>否则输出 <span class="math inline">\(Z_{med}\)</span></li>
+</ol>
+<p>直观解释：</p>
+<p>在自适应中值滤波算法中，<strong>A</strong> 步骤里面会先判断是否满足 <span class="math inline">\(Z_{min} &lt; Z_{med} &lt; Z_{max}\)</span>。这一步骤实质是判断当前区域的中值点是否是噪声点，通常来说是满足 <span class="math inline">\(Z_{min} &lt; Z_{med} &lt; Z_{max}\)</span> 这个条件的，此时中值点不是噪声点，跳转到 <strong>B</strong>；考虑一些特殊情况，如果 <span class="math inline">\(Z_{med} = Z_{min}\)</span> 或者 <span class="math inline">\(Z_{med} = Z_{max}\)</span>，则认为是噪声点，应该扩大窗口尺寸，在一个更大的范围内寻找一个合适的非噪声点，随后再跳转到 <strong>B</strong>，否则输出的中值点是噪声点；<br />
+接下来考虑跳转到B之后的情况：判断中心点的像素值是否是噪声点，判断条件为 <span class="math inline">\(Z_{min} &lt; Z_{xy} &lt; Z_{max}\)</span>，原理同上，因为如果 <span class="math inline">\(Z_{xy} = Z_{min}\)</span> 或者 <span class="math inline">\(Z_{xy} = Z_{max}\)</span>，则认为是噪声点。如果不是噪声点，我们可以保留当前像素点的灰度值；如果是噪声点，则使用中值替代原始灰度值，滤去噪声。</p>
+<p>(2) 优势：</p>
+<p>在噪声密度不是很大的情况下（根据经验，噪声的出现的概率小于 0.2），使用中值滤波的效果不错。但是当噪声出现的概率比较高时，原来的中值滤波算法就不是很有效了。只有增大滤波器窗口尺寸，尽管会使图像变得模糊。<br />
+使用自适应中值滤波器的目的就是，根据预设好的条件，动态地改变中值滤波器的窗口尺寸，以同时兼顾去噪声作用和保护细节的效果。</p>
+<p>2、请给出一种通过傅里叶变换对运动模糊图像进行恢复方法。</p>
+<p>解：空间滤波方法。</p>
+<p>3、请给出一种通过形态学方法提取二值图像轮廓的方法。</p>
+<p>解：我们可以用边界提取算法来提取二值图像轮廓。</p>
+<p>集合 A 的边界表示为 <span class="math inline">\(\beta (A)\)</span>，它可以通过先由结构元素 B 对 A 的腐蚀，然后用腐蚀减去得到，即：</p>
+<p><span class="math display">\[
+\beta(A) = A - (A (-) B)
+\]</span></p>
+<h1 id="三计算题共1题20分">三、计算题（共1题,20分）</h1>
+<p>1、某分辨率为 40×25 的 3bit 图像，灰度级从 0 到 7 各出现了 200，100，100，50，250，100，100，100 次，请采用直方图均规定化的方法进行灰度映射变换，使变换后的 0 到 7 的 8 个灰度级近似服从 0，0.0，0.1，0.2，0.3，0.2，0.1，0.1 的分布。</p>
+<p>解：</p>
 
             </div>
             <hr>
@@ -252,7 +312,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">数字图像处理</a>
                     
                   </div>
                 
@@ -260,7 +320,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">数字图像处理</a>
                     
                   </div>
                 
@@ -277,18 +337,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/10/26/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E6%9C%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E4%BD%9C%E4%B8%9A/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">数字图像处理期中测试作业</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/10/24/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E4%B8%89/">
-                        <span class="hidden-mobile">编译原理作业三</span>
+                      <a href="/2021/10/25/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E5%BC%A0%E7%B4%A0%E7%90%B4%EF%BC%89%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/">
+                        <span class="hidden-mobile">《编译原理第三版》（张素琴）第六章学习札记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
