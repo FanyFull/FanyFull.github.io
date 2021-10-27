@@ -246,7 +246,7 @@
 <p>原因：视觉系统对亮度的感知不是简单的强度函数。</p>
 <p>4、请给出一种通过卷积对图像进行平滑的方法，并解释该平滑方法与消除噪声的关系。</p>
 <p>解：平滑模板（template）。</p>
-<p>与消除噪声的关系：从信号处理理论来解释，这种做法实现的是一种简单的低通滤波器。平滑模板通过讲某点周围 8 个点的平均值代替该点原值，从而去除突然变化的点，滤掉噪声，其代价是图像具有一定程度的模糊。</p>
+<p>与消除噪声的关系：从信号处理理论来解释，这种做法实现的是一种简单的低通滤波器。平滑模板通过将某点周围 8 个点的平均值代替该点原值，从而去除突然变化的点，滤掉噪声，其代价是图像具有一定程度的模糊。</p>
 <p>5、什么是傅里叶变换的相位谱与振幅谱？</p>
 <p>解：傅里叶变换 <span class="math inline">\(F(\omega)\)</span> 是一个复数：<span class="math inline">\(F(\omega) = R(\omega) + j I(\omega)\)</span>，其相位谱与振幅谱分别如下：</p>
 <p><span class="math display">\[
@@ -259,7 +259,7 @@
 <p>1、请解释什么是自适应中值滤波器？该滤波器与中值滤波相比较，有何优势？</p>
 <p>解：</p>
 <p>(1) 解释：</p>
-<p>下面是自适应种植滤波器的详细描述：</p>
+<p>下面是自适应中值滤波器的详细描述：</p>
 <p>预先定义好以下符号：</p>
 <ul>
 <li><span class="math inline">\(S_{xy}\)</span>：滤波器的作用区域，滤波器窗口所覆盖的区域，该区域中心点为图像中第 y 行第 x 列个像素点；</li>
@@ -304,7 +304,7 @@
 <p>1、某分辨率为 40×25 的 3bit 图像，灰度级从 0 到 7 各出现了 200，100，100，50，250，100，100，100 次，请采用直方图均规定化的方法进行灰度映射变换，使变换后的 0 到 7 的 8 个灰度级近似服从 0，0.0，0.1，0.2，0.3，0.2，0.1，0.1 的分布。</p>
 <p>解：</p>
 <p><img src="https://i.imgur.com/poU7tyY.png" srcset="/img/loading.gif" lazyload /></p>
-<p><img src="https://i.imgur.com/T4PsD8j.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/wxGbBo6.png" srcset="/img/loading.gif" lazyload /></p>
 <p><img src="https://i.imgur.com/1ASVCV7.png" srcset="/img/loading.gif" lazyload /></p>
 
             </div>
