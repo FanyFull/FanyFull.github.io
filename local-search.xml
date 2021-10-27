@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Plugin org.springframework.boot:spring-boot-maven-plugin: not found 问题解决</title>
+    <link href="/2021/10/27/Plugin-org-springframework-boot-spring-boot-maven-plugin-not-found-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+    <url>/2021/10/27/Plugin-org-springframework-boot-spring-boot-maven-plugin-not-found-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</url>
+    
+    <content type="html"><![CDATA[<h1 id="问题描述">问题描述</h1><p>IDEA 报了一个 <code>Plugin org.springframework.boot:spring-boot-maven-plugin: not found</code> 问题，</p><p><img src="https://i.imgur.com/Y7apJYP.png" /></p><h1 id="解决方法">解决方法</h1><p>在报红的地方加上版本描述：</p><figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.5.5<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br></code></pre></div></td></tr></table></figure><p>这个具体的版本号可以看这个 <code>pom.xml</code> 文件的 <code>spring-boot</code> 版本信息。</p><p><img src="https://i.imgur.com/lnGYmhL.png" /></p><p><img src="https://i.imgur.com/aHIoeJ8.png" /></p><p>然后刷新一下 maven 即可。</p><h1 id="问题原因">问题原因</h1><p>出现这个问题的原因，我猜测是当前项目所用 spring boot 的版本和 maven 仓库中的插件版本不匹配，所有没有办法使用默认的版本号，比如，我这个项目用的 spring boot 版本是 <code>2.5.5</code>，而之前用的版本是 <code>2.3.3</code>，所以本地 maven 仓库中只有 <code>2.3.3</code> 版本的插件，这就导致了 <code>2.3.3</code> 和 <code>2.5.5</code> 版本的项目都不会默认匹配本地仓库中的插件，而必须明确给出版本号的说明。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Spring</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Spring boot</tag>
+      
+      <tag>Bugs</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>数字图像处理期中测试作业</title>
     <link href="/2021/10/26/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E6%9C%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E4%BD%9C%E4%B8%9A/"/>
     <url>/2021/10/26/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E6%9C%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E4%BD%9C%E4%B8%9A/</url>
