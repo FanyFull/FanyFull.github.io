@@ -4,6 +4,64 @@
   
   
   <entry>
+    <title>Python 配置 OpenCV 环境</title>
+    <link href="/2021/10/30/Python-%E9%85%8D%E7%BD%AE-OpenCV-%E7%8E%AF%E5%A2%83/"/>
+    <url>/2021/10/30/Python-%E9%85%8D%E7%BD%AE-OpenCV-%E7%8E%AF%E5%A2%83/</url>
+    
+    <content type="html"><![CDATA[<p>在安装好了 Python 环境之后，直接使用 <code>pip</code> 命令安装即可：</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">pip install opencv-python<br></code></pre></div></td></tr></table></figure><p><img src="https://i.imgur.com/iQVX15Y.png" /></p><p>我这里是使用 PyCharm 这个 IDE，并且使用了虚拟的 Python 环境，所以就在 PyCharm 提供的 Terminal 中进行安装。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>OpenCV</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Python</tag>
+      
+      <tag>OpenCV</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>《OpenCV 4 计算机视觉：Python 语言实现（原书第 3 版）》阅读札记</title>
+    <link href="/2021/10/30/%E3%80%8AOpenCV-4-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9APython-%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%EF%BC%88%E5%8E%9F%E4%B9%A6%E7%AC%AC-3-%E7%89%88%EF%BC%89%E3%80%8B%E9%98%85%E8%AF%BB%E6%9C%AD%E8%AE%B0/"/>
+    <url>/2021/10/30/%E3%80%8AOpenCV-4-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9APython-%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%EF%BC%88%E5%8E%9F%E4%B9%A6%E7%AC%AC-3-%E7%89%88%EF%BC%89%E3%80%8B%E9%98%85%E8%AF%BB%E6%9C%AD%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<h1 id="第-1-章-安装-opencv">第 1 章 安装 OpenCV</h1><blockquote><p>为何 OpenCV 的 Python 模块命名为 cv2？</p></blockquote><p>在 cv2 中的 2 与 OpenCV 的版本号无关，我们使用的是 OpenCV 4。历史上，有一个名为 cv 的 Python 模块封装了 OpenCV 的一个已经过时的 C 版本。在 OpenCV 4 中已经不存在任何 cv 模块。但是 OpenCV 文档有时会错误地将模块命名为 cv（而不是 cv2）。请记住，在 OpenCV 4 中，正确的 Python 模块名称始终是 cv2。</p><h1 id="第-2-章-处理文件摄像头和-gui">第 2 章 处理文件、摄像头和 GUI</h1><figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py">img = numpy.zeros((<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), dtype=numpy.uint8)<br></code></pre></div></td></tr></table></figure><p>按：</p><p><code>(3, 3)</code> 中前一个 3 表示 3 行，后一个 3 表示 3 列（如果把它想象成矩阵的话）；<code>uint8</code> 表示无符号整数，范围是 <code>0~255</code>。<br />这里，使用 8 位整数来表示像素，所以像素的值的范围是 <code>0~255</code>，其中 0 表示 黑色，255 表示白色，中间的值表示灰色。</p><figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py">img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)<br></code></pre></div></td></tr></table></figure><p>按：使用 <code>cv2.cvtColor</code> 函数将上面的图像转换成蓝-绿-红（Blue-Green-Red，BGR）格式。</p><p>图像的变化过程如下：</p><div class="hljs code-wrapper"><pre><code>array([[0, 0, 0],       [0, 0, 0],       [0, 0, 0]], dtype=uint8)</code></pre></div><p>==&gt;</p><div class="hljs code-wrapper"><pre><code>array([[[0, 0, 0],        [0, 0, 0],        [0, 0, 0]],       [[0, 0, 0],        [0, 0, 0],        [0, 0, 0]],       [[0, 0, 0],        [0, 0, 0],        [0, 0, 0]]], dtype=uint8)</code></pre></div><p>按：转换后的图像每个像素都用一个三元数组表示，每个整数分别表示三个颜色通道（B、G 和 R）中的一个。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>数字图像处理</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Python</tag>
+      
+      <tag>读书</tag>
+      
+      <tag>数字图像处理</tag>
+      
+      <tag>OpenCV</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Plugin org.springframework.boot:spring-boot-maven-plugin: not found 问题解决</title>
     <link href="/2021/10/27/Plugin-org-springframework-boot-spring-boot-maven-plugin-not-found-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
     <url>/2021/10/27/Plugin-org-springframework-boot-spring-boot-maven-plugin-not-found-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</url>

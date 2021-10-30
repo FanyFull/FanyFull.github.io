@@ -18,7 +18,7 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-  <title>Plugin org.springframework.boot:spring-boot-maven-plugin: not found 问题解决 - Fany Full&#39;s Blog</title>
+  <title>《OpenCV 4 计算机视觉：Python 语言实现（原书第 3 版）》阅读札记 - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -166,12 +166,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/yEZ6EMV.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/vbXlizC.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Plugin org.springframework.boot:spring-boot-maven-plugin: not found 问题解决">
+            <span class="h2" id="subtitle" title="《OpenCV 4 计算机视觉：Python 语言实现（原书第 3 版）》阅读札记">
               
             </span>
 
@@ -181,8 +181,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-10-27 15:37" pubdate>
-        2021年10月27日 下午
+      <time datetime="2021-10-30 16:52" pubdate>
+        2021年10月30日 下午
       </time>
     </span>
   
@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      226 字
+      356 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      4
        分钟
     </span>
   
@@ -233,21 +233,38 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Plugin org.springframework.boot:spring-boot-maven-plugin: not found 问题解决</h1>
+            <h1 style="display: none">《OpenCV 4 计算机视觉：Python 语言实现（原书第 3 版）》阅读札记</h1>
             
             <div class="markdown-body">
-              <h1 id="问题描述">问题描述</h1>
-<p>IDEA 报了一个 <code>Plugin org.springframework.boot:spring-boot-maven-plugin: not found</code> 问题，</p>
-<p><img src="https://i.imgur.com/Y7apJYP.png" srcset="/img/loading.gif" lazyload /></p>
-<h1 id="解决方法">解决方法</h1>
-<p>在报红的地方加上版本描述：</p>
-<figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.5.5<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
-<p>这个具体的版本号可以看这个 <code>pom.xml</code> 文件的 <code>spring-boot</code> 版本信息。</p>
-<p><img src="https://i.imgur.com/lnGYmhL.png" srcset="/img/loading.gif" lazyload /></p>
-<p><img src="https://i.imgur.com/aHIoeJ8.png" srcset="/img/loading.gif" lazyload /></p>
-<p>然后刷新一下 maven 即可。</p>
-<h1 id="问题原因">问题原因</h1>
-<p>出现这个问题的原因，我猜测是当前项目所用 spring boot 的版本和 maven 仓库中的插件版本不匹配，所有没有办法使用默认的版本号，比如，我这个项目用的 spring boot 版本是 <code>2.5.5</code>，而之前用的版本是 <code>2.3.3</code>，所以本地 maven 仓库中只有 <code>2.3.3</code> 版本的插件，这就导致了 <code>2.3.3</code> 和 <code>2.5.5</code> 版本的项目都不会默认匹配本地仓库中的插件，而必须明确给出版本号的说明。</p>
+              <h1 id="第-1-章-安装-opencv">第 1 章 安装 OpenCV</h1>
+<blockquote>
+<p>为何 OpenCV 的 Python 模块命名为 cv2？</p>
+</blockquote>
+<p>在 cv2 中的 2 与 OpenCV 的版本号无关，我们使用的是 OpenCV 4。历史上，有一个名为 cv 的 Python 模块封装了 OpenCV 的一个已经过时的 C 版本。在 OpenCV 4 中已经不存在任何 cv 模块。但是 OpenCV 文档有时会错误地将模块命名为 cv（而不是 cv2）。请记住，在 OpenCV 4 中，正确的 Python 模块名称始终是 cv2。</p>
+<h1 id="第-2-章-处理文件摄像头和-gui">第 2 章 处理文件、摄像头和 GUI</h1>
+<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py">img = numpy.zeros((<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), dtype=numpy.uint8)<br></code></pre></div></td></tr></table></figure>
+<p>按：</p>
+<p><code>(3, 3)</code> 中前一个 3 表示 3 行，后一个 3 表示 3 列（如果把它想象成矩阵的话）；<code>uint8</code> 表示无符号整数，范围是 <code>0~255</code>。<br />
+这里，使用 8 位整数来表示像素，所以像素的值的范围是 <code>0~255</code>，其中 0 表示 黑色，255 表示白色，中间的值表示灰色。</p>
+<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py">img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)<br></code></pre></div></td></tr></table></figure>
+<p>按：使用 <code>cv2.cvtColor</code> 函数将上面的图像转换成蓝-绿-红（Blue-Green-Red，BGR）格式。</p>
+<p>图像的变化过程如下：</p>
+<div class="hljs code-wrapper"><pre><code>array([[0, 0, 0],
+       [0, 0, 0],
+       [0, 0, 0]], dtype=uint8)</code></pre></div>
+<p>==&gt;</p>
+<div class="hljs code-wrapper"><pre><code>array([[[0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]],
+
+       [[0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]],
+
+       [[0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]]], dtype=uint8)</code></pre></div>
+<p>按：转换后的图像每个像素都用一个三元数组表示，每个整数分别表示三个颜色通道（B、G 和 R）中的一个。</p>
 
             </div>
             <hr>
@@ -257,7 +274,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Spring/">Spring</a>
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">数字图像处理</a>
                     
                   </div>
                 
@@ -265,9 +282,13 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Spring-boot/">Spring boot</a>
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
                     
-                      <a class="hover-with-bg" href="/tags/Bugs/">Bugs</a>
+                      <a class="hover-with-bg" href="/tags/%E8%AF%BB%E4%B9%A6/">读书</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">数字图像处理</a>
+                    
+                      <a class="hover-with-bg" href="/tags/OpenCV/">OpenCV</a>
                     
                   </div>
                 
@@ -284,9 +305,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/10/30/%E3%80%8AOpenCV-4-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9APython-%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%EF%BC%88%E5%8E%9F%E4%B9%A6%E7%AC%AC-3-%E7%89%88%EF%BC%89%E3%80%8B%E9%98%85%E8%AF%BB%E6%9C%AD%E8%AE%B0/">
+                      <a href="/2021/10/30/Python-%E9%85%8D%E7%BD%AE-OpenCV-%E7%8E%AF%E5%A2%83/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">《OpenCV 4 计算机视觉：Python 语言实现（原书第 3 版）》阅读札记</span>
+                        <span class="hidden-mobile">Python 配置 OpenCV 环境</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -294,8 +315,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/10/26/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E6%9C%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E4%BD%9C%E4%B8%9A/">
-                        <span class="hidden-mobile">数字图像处理期中测试作业</span>
+                      <a href="/2021/10/27/Plugin-org-springframework-boot-spring-boot-maven-plugin-not-found-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+                        <span class="hidden-mobile">Plugin org.springframework.boot:spring-boot-maven-plugin: not found 问题解决</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
