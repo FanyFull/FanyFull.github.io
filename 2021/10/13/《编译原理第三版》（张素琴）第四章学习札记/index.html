@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.5k 字
+      1.3k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      21
+      19
        分钟
     </span>
   
@@ -291,29 +291,6 @@ A \rightarrow \beta
 <p>如何判别某文法是否是 <span class="math inline">\(\text{LL}(1)\)</span> 文法？</p>
 </blockquote>
 <p>首先计算 <span class="math inline">\(\text{FIRST}\)</span>、<span class="math inline">\(\text{FOLLOW}\)</span>、<span class="math inline">\(\text{SELECT}\)</span> 集合，然后根据定义判别文法是否是 <span class="math inline">\(\text{LL}(1)\)</span> 文法。</p>
-<blockquote>
-<p>一个综合性示例的理解。</p>
-</blockquote>
-<p>文法 <span class="math inline">\(G[S]\)</span> 为</p>
-<p><span class="math display">\[
-\begin{split}
-S &amp;\rightarrow AB \\
-S &amp;\rightarrow bC \\
-A &amp;\rightarrow \varepsilon \\
-A &amp;\rightarrow b \\
-B &amp;\rightarrow \varepsilon \\
-B &amp;\rightarrow aD \\
-C &amp;\rightarrow AD \\
-C &amp;\rightarrow b \\
-D &amp;\rightarrow aS \\
-D &amp;\rightarrow c
-\end{split}
-\]</span></p>
-<p>第一步，求出能推出 <span class="math inline">\(\varepsilon\)</span> 的非终结符。</p>
-<p>首先建立一个文法的非终结符个数为上界的一维数组，其数组元素为非终结符，对应每一非终结符有一个标志位，用以记录能否推出 <span class="math inline">\(\epsilon\)</span>。其值有 3 中情况：“未定”、“是”、“否”。</p>
-<p>文法 <span class="math inline">\(G[S]\)</span> 对应数组 <span class="math inline">\(X[\;]\)</span> 的内容如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211018145824.png" srcset="/img/loading.gif" lazyload /></p>
-<p>计算能推出 <span class="math inline">\(\varepsilon\)</span> 的非终结符步骤如下：</p>
 <blockquote>
 <p>如何计算一个文法符号 <span class="math inline">\(X \in V\)</span> 的 <span class="math inline">\(\text{FIRST}\)</span> 集 <span class="math inline">\(\text{FIRST}(X)\)</span>？</p>
 </blockquote>
