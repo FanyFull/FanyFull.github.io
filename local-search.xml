@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>编译原理作业四</title>
+    <link href="/2021/10/31/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E5%9B%9B/"/>
+    <url>/2021/10/31/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E5%9B%9B/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>1、已知文法</p></blockquote><p><span class="math display">\[A \rightarrow aAd | aAb | \varepsilon\]</span></p><p>判断该文法是否是 <span class="math inline">\(SLR(1)\)</span> 文法，若是，请构造相应分析表，并对输入串 <span class="math inline">\(ab\#\)</span> 给出分析过程。</p><p>解：</p><blockquote><p>3、考虑文法</p></blockquote><p><span class="math display">\[\begin{split}S \rightarrow AS | b \\A \rightarrow SA | a\end{split}\]</span></p><p>(1) 列出这个文法的所有 <span class="math inline">\(\text{LR}(0)\)</span> 项目。<br />(2) 按 (1) 列出的项目构造识别这个文法活前缀的 <span class="math inline">\(\text{NFA}\)</span>，把这个 <span class="math inline">\(\text{NFA}\)</span> 确定化为 <span class="math inline">\(text{DFA}\)</span>，说明这个 <span class="math inline">\(DFA\)</span> 的所有状态全体构成这个文法的 <span class="math inline">\(\text{LR}(0)\)</span> 规范族。<br />(3) 这个文法是 <span class="math inline">\(\text{SLR}(1)\)</span> 的吗？若是，构造出它的 <span class="math inline">\(\text{SLR}\)</span> 分析表。<br />(4) 这个文法是 <span class="math inline">\(\text{LALR}(1)\)</span> 或 <span class="math inline">\(\text{LR}(1)\)</span> 的吗？</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>编译原理</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>编译原理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>编译原理之自底向上分析学习笔记</title>
     <link href="/2021/10/30/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%B9%8B%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E5%88%86%E6%9E%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <url>/2021/10/30/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%B9%8B%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E5%88%86%E6%9E%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
