@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      580 字
+      1.1k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6
+      13
        分钟
     </span>
   
@@ -297,6 +297,94 @@ S &amp;\rightarrow bB \cdot B \quad &amp;待约状态 \\
 S &amp;\rightarrow bBB \cdot \quad &amp;归约状态 \\
 \end{split}
 \]</span></p>
+<blockquote>
+<p><span class="math inline">\(LR\)</span> 分析表的结构？</p>
+</blockquote>
+<p><img src="https://i.imgur.com/3uKaGLp.png" srcset="/img/loading.gif" lazyload /></p>
+<p>注意这里的 <span class="math inline">\(sn\)</span> 和 <span class="math inline">\(rn\)</span> 的含义：</p>
+<ul>
+<li><span class="math inline">\(sn\)</span>：将符号 <span class="math inline">\(a\)</span>、状态 <span class="math inline">\(n\)</span> 压入栈</li>
+<li><span class="math inline">\(rn\)</span>：用第 <span class="math inline">\(n\)</span> 个产生式进行归约</li>
+</ul>
+<blockquote>
+<p>一个 <span class="math inline">\(LR\)</span> 分析的例子？</p>
+</blockquote>
+<p>文法：</p>
+<p><span class="math display">\[
+\begin{split}
+① \; &amp;S \rightarrow BB \\
+② \; &amp;B \rightarrow aB \\
+③ \; &amp;B \rightarrow b
+\end{split}
+\]</span></p>
+<p><img src="https://i.imgur.com/bDn8OPS.png" srcset="/img/loading.gif" lazyload alt="状态表" /></p>
+<p>初始情况：</p>
+<p>输入：<span class="math inline">\(b \; a \; b\)</span></p>
+<p><span class="math display">\[
+\begin{split}
+&amp;栈 \qquad &amp;剩余输入 \\
+&amp;0 \qquad &amp;　\\
+&amp;\$ \qquad &amp;bab\$
+\end{split}
+\]</span></p>
+<p>然后分析过程如下：</p>
+<p>初始状态是 0，遇到输入的符号 b，其操作是 <span class="math inline">\(s4\)</span>，即将 <span class="math inline">\(b\)</span>、状态 <span class="math inline">\(4\)</span> 压入栈，</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;栈 \qquad &amp;剩余输入 \\
+&amp;04 \qquad &amp;　\\
+&amp;\$b \qquad &amp;ab\$
+\end{split}
+\]</span></p>
+<p>然后是状态 4 遇到输入 a，查表，得 <span class="math inline">\(r3\)</span>，即用文法中的第 3 个式子进行归约，状态 4 和符号 <span class="math inline">\(b\)</span> 出栈，<span class="math inline">\(B\)</span> 入栈，然后此时状态栈的 0 遇到了刚入栈的 <span class="math inline">\(B\)</span>，就会 "GOTO" 到状态 2，这个可以通过查表得到，</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;栈 \qquad &amp;剩余输入 \\
+&amp;02 \qquad &amp;　\\
+&amp;\$B \qquad &amp;ab\$
+\end{split}
+\]</span></p>
+<p>然后，状态 2 遇到 a，采取 <span class="math inline">\(s3\)</span> 操作，</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;栈 \qquad &amp;剩余输入 \\
+&amp;023 \qquad &amp;　\\
+&amp;\$Ba \qquad &amp;b\$
+\end{split}
+\]</span></p>
+<p>然后，3 遇到 b，<span class="math inline">\(s4\)</span>，</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;栈 \qquad &amp;剩余输入 \\
+&amp;0234 \qquad &amp;　\\
+&amp;\$Bab \qquad &amp;\$
+\end{split}
+\]</span></p>
+<p>然后，4 遇到 <span class="math inline">\(\$\)</span>，<span class="math inline">\(r3\)</span>，将状态 4 和栈顶符号 <span class="math inline">\(b\)</span> 一起出栈，然后将刚刚的 <span class="math inline">\(b\)</span> 归约成 <span class="math inline">\(B\)</span> 并将其入栈，然后现在的状态栈栈顶的 3 遇到刚刚入栈的 B，就会 "GOTO" 到状态 6，</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;栈 \qquad &amp;剩余输入 \\
+&amp;0236 \qquad &amp;　\\
+&amp;\$BaB \qquad &amp;\$
+\end{split}
+\]</span></p>
+<p>然后，6 遇到 <span class="math inline">\(\$\)</span>，<span class="math inline">\(r2\)</span>，将状态 <span class="math inline">\(3\)</span>、<span class="math inline">\(6\)</span> 和符号 <span class="math inline">\(a\)</span>、<span class="math inline">\(B\)</span> 一起出栈，然后将归约成的 <span class="math inline">\(B\)</span> 入栈，然后现在状态栈栈顶的 2 遇到刚刚入栈的 <span class="math inline">\(B\)</span>，会 "GOTO" 到状态 5，</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;栈 \qquad &amp;剩余输入 \\
+&amp;025 \qquad &amp;　\\
+&amp;\$BB \qquad &amp;\$
+\end{split}
+\]</span></p>
+<p>然后，5 遇到 <span class="math inline">\(\$\)</span>，<span class="math inline">\(r1\)</span>，</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;栈 \qquad &amp;剩余输入 \\
+&amp;01 \qquad &amp;　\\
+&amp;\$S \qquad &amp;\$
+\end{split}
+\]</span></p>
+<p>然后，1 遇到 <span class="math inline">\(\$\)</span>，到达状态 "acc"，分析成功，分析到此结束。</p>
 
             </div>
             <hr>
