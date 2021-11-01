@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      356 字
+      1.1k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      13
        分钟
     </span>
   
@@ -265,6 +265,48 @@
         [0, 0, 0],
         [0, 0, 0]]], dtype=uint8)</code></pre></div>
 <p>按：转换后的图像每个像素都用一个三元数组表示，每个整数分别表示三个颜色通道（B、G 和 R）中的一个。</p>
+<blockquote>
+<p>shape 属性返回行、列和通道数（如果有多个通道的话）。</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py">img = numpy.zeros((<span class="hljs-number">5</span>, <span class="hljs-number">3</span>), dtype=numpy.uint8)<br><span class="hljs-built_in">print</span>(img.shape)<br></code></pre></div></td></tr></table></figure>
+<p>output:</p>
+<div class="hljs code-wrapper"><pre><code>(5, 3)</code></pre></div>
+<p>按：输出 <code>(5, 3)</code>，表示我们有一幅 5 行 3 列的灰度图像，如果将该图像转换成 BGR 格式，shape 将是 <code>(5, 3, 3)</code>，表示每个像素有 3 个通道。</p>
+<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">import</span> cv2<br><br>image = cv2.imread(<span class="hljs-string">&#x27;MyPic.png&#x27;</span>)<br>cv2.imwrite(<span class="hljs-string">&#x27;MyPic.jpg&#x27;</span>, image)<br></code></pre></div></td></tr></table></figure>
+<p>按：从 <code>png</code> 格式加载并保存为 <code>jpg</code> 格式。</p>
+<blockquote>
+<p>默认情况下，<code>imread</code> 返回 BGR 格式的图像，即使该文件使用的是灰度格式。 BGR 表示与红-绿-蓝（Red-Green-Blue，RGB）相同的颜色模型，只是字节顺序相反。</p>
+</blockquote>
+<blockquote>
+<p><code>imread</code> 支持的模式选项有哪些？</p>
+</blockquote>
+<ul>
+<li>cv2.IMREAD_COLOR：该模式是默认选项，提供 3 通道的 BGR 图像，每个通道一个 8 位值（0～255）。</li>
+<li>cv2.IMREAD_GRAYSCALE：该模式提供 8 位灰度图像。</li>
+<li>cv2.IMREAD_ANYCOLOR：该模式提供每个通道 8 位的 BGR 图像或者 8 位灰度图像，具体取决于文件中的元数据。</li>
+<li>cv2.IMREAD_UNCHANGED：该模式读取所有的图像数据，包括作为第 4 通道的 α 或透明度通道（如果有的话）。</li>
+<li>cv2.IMREAD_ANYDEPTH：该模式加载原始位深度的灰度图像。例如，如果文件以这种格式表示一幅图像，那么它提供每个通道 16 位的一幅灰度图像。</li>
+<li>cv2.IMREAD_ANYDEPTH｜cv2.IMREAD_COLOR：该组合模式加载原始位深度的 BGR 彩色图像。</li>
+<li>cv2.IMREAD_REDUCED_GRAYSCALE_2：该模式加载的灰度图像的分辨率是原始分辨率的 1/2。例如，如果文件包括一幅 640×480 的图像，那么它加载的是一幅 320×240 的图像。</li>
+<li>cv2.IMREAD_REDUCED_COLOR_2：该模式加载每个通道 8 位的 BGR 彩色图像，分辨率是原始图像的 1/2。</li>
+<li>cv2.IMREAD_REDUCED_GRAYSCALE_4：该模式加载灰度图像，分辨率是原始图像的 1/4。</li>
+<li>cv2.IMREAD_REDUCED_COLOR_4：该模式加载每个通道 8 位的彩色图像，分辨率是原始图像的 1/4。</li>
+<li>cv2.IMREAD_REDUCED_GRAYSCALE_8：该模式加载灰度图像，分辨率是原始图像的 1/8。</li>
+<li>cv2.IMREAD_REDUCED_COLOR_8：该模式加载每个通道 8 位的彩色图像，分辨率为原始图像的 1/8。</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">import</span> cv2<br><br>grayImage = cv2.imread(<span class="hljs-string">&#x27;MyPic.png&#x27;</span>, cv2.IMREAD_GRAYSCALE)<br>cv2.imwrite(<span class="hljs-string">&#x27;MyPicGray.png&#x27;</span>, grayImage)<br></code></pre></div></td></tr></table></figure>
+<p>按：将一个 PNG 文件加载为灰度图像（在此过程中会丢失所有的颜色信息），再将其保存为一个灰度 PNG 图像。</p>
+<blockquote>
+<p><code>imread</code> 和 <code>imwrite</code> 操作文件时，对文件的路径有什么要求？</p>
+</blockquote>
+<ul>
+<li>如果希望直接使用文件名来读取文件，那么，图片文件必须和当前的 Python 脚本位于同一目录。这时用的是相对路径；</li>
+<li>使用绝对路径。</li>
+</ul>
+<blockquote>
+<p><code>imwrite</code> 函数对图像有什么要求？</p>
+</blockquote>
+<p>imwrite() 函数要求图像为 BGR 格式或者灰度格式，每个通道具有输出格式可以支持的特定位数。例如，BMP 文件格式要求每个通道 8 位，而 PNG 允许每个通道 8 位或 16 位。</p>
 
             </div>
             <hr>
