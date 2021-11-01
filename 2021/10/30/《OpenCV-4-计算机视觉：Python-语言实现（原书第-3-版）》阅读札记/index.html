@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      1.3k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      13
+      15
        分钟
     </span>
   
@@ -307,6 +307,15 @@
 <p><code>imwrite</code> 函数对图像有什么要求？</p>
 </blockquote>
 <p>imwrite() 函数要求图像为 BGR 格式或者灰度格式，每个通道具有输出格式可以支持的特定位数。例如，BMP 文件格式要求每个通道 8 位，而 PNG 允许每个通道 8 位或 16 位。</p>
+<blockquote>
+<p>我们可以通过使用类似于 <code>image[0, 0]</code> 或者 <code>image[0, 0, 0]</code> 的表达式来访问 numpy.array 类型的数据中的值。第一个索引是像素的 y 坐标或者行，第二个索引是像素的 x 坐标或列，第三个索引（如果有的话）表示一个颜色通道。</p>
+</blockquote>
+<blockquote>
+<p>一个例子？</p>
+</blockquote>
+<p>在左上角为白色像素的 8 位灰度图像中，<code>image[0,0]</code> 是 255。在左上角为蓝色像素的 24 位（每个通道 8 位）BGR 图像中，<code>image[0,0]</code> 是 <code>[255,0,0]</code>。</p>
+<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py">byteArray = <span class="hljs-built_in">bytearray</span>(image)<br></code></pre></div></td></tr></table></figure>
+<p>按：假设图像的每个通道有 8 位，我们可以将其强制转换为标准的 Python bytearray 对象（一维的）。</p>
 
             </div>
             <hr>
