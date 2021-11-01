@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      174 字
+      481 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      6
        分钟
     </span>
   
@@ -244,6 +244,37 @@ A \rightarrow aAd | aAb | \varepsilon
 \]</span></p>
 <p>判断该文法是否是 <span class="math inline">\(SLR(1)\)</span> 文法，若是，请构造相应分析表，并对输入串 <span class="math inline">\(ab\#\)</span> 给出分析过程。</p>
 <p>解：</p>
+<p>文法 <span class="math inline">\(A \rightarrow aAd | aAb | \varepsilon\)</span> 的增广文法为 <span class="math inline">\(G^{&#39;}\)</span>，增加产生式 <span class="math inline">\(S^{&#39;} \rightarrow A\)</span>，若产生式排序为：</p>
+<p><span class="math display">\[
+\begin{split}
+0 \quad &amp;S^{&#39;} \rightarrow A \\
+1 \quad &amp;A \rightarrow aAd \\
+2 \quad &amp;A \rightarrow aAb \\
+3 \quad &amp;A \rightarrow \varepsilon
+\end{split}
+\]</span></p>
+<p>由产生式知：</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;FIRST(S^{&#39;}) = \{\varepsilon, a\} \\
+&amp;FIRST(A) = \{\varepsilon, a\} \\
+&amp;FOLLOW(S^{&#39;}) = \{\#\} \\
+&amp;FOLLOW(A) = \{d, b, \#\} \\
+\end{split}
+\]</span></p>
+<p><span class="math inline">\(G^{&#39;}\)</span> 的 <span class="math inline">\(LR(0)\)</span> 项目集族及识别活前缀的 <span class="math inline">\(\text{DFA}\)</span> 如下图所示：</p>
+<p><img src="https://i.imgur.com/sTllnN1.png" srcset="/img/loading.gif" lazyload /></p>
+<p>由图可知，此状态机存在移进-归约冲突，故不是 <span class="math inline">\(LR(0)\)</span> 文法。</p>
+<p>在 <span class="math inline">\(I_0\)</span>、<span class="math inline">\(I_2\)</span> 中，</p>
+<p><span class="math display">\[
+FOLLOW(A) \cap \{a\} = \{d, b, \#\} \cap \{a\} = \varnothing
+\]</span></p>
+<p>所以在 <span class="math inline">\(I_0\)</span>、<span class="math inline">\(I_2\)</span> 中的移进-归约冲突可以由 <span class="math inline">\(FOLLOW\)</span> 集解决，所以 <span class="math inline">\(G\)</span> 是 <span class="math inline">\(SLR(1)\)</span> 文法。</p>
+<p>构造 <span class="math inline">\(SLR(1)\)</span> 分析表如下：</p>
+<p><img src="https://i.imgur.com/4uV2L5I.png" srcset="/img/loading.gif" lazyload /></p>
+<p>对输入串 <span class="math inline">\(ab\#\)</span> 的分析过程如下</p>
+<p><img src="https://i.imgur.com/srINzNh.png" srcset="/img/loading.gif" lazyload /></p>
+<p>分析成功，说明输入串 <span class="math inline">\(ab\)</span> 是文法的句子。</p>
 <blockquote>
 <p>3、考虑文法</p>
 </blockquote>
@@ -254,9 +285,25 @@ A \rightarrow SA | a
 \end{split}
 \]</span></p>
 <p>(1) 列出这个文法的所有 <span class="math inline">\(\text{LR}(0)\)</span> 项目。<br />
-(2) 按 (1) 列出的项目构造识别这个文法活前缀的 <span class="math inline">\(\text{NFA}\)</span>，把这个 <span class="math inline">\(\text{NFA}\)</span> 确定化为 <span class="math inline">\(text{DFA}\)</span>，说明这个 <span class="math inline">\(\text{DFA}\)</span> 的所有状态全体构成这个文法的 <span class="math inline">\(\text{LR}(0)\)</span> 规范族。<br />
+(2) 按 (1) 列出的项目构造识别这个文法活前缀的 <span class="math inline">\(\text{NFA}\)</span>，把这个 <span class="math inline">\(\text{NFA}\)</span> 确定化为 <span class="math inline">\(\text{DFA}\)</span>，说明这个 <span class="math inline">\(\text{DFA}\)</span> 的所有状态全体构成这个文法的 <span class="math inline">\(\text{LR}(0)\)</span> 规范族。<br />
 (3) 这个文法是 <span class="math inline">\(\text{SLR}(1)\)</span> 的吗？若是，构造出它的 <span class="math inline">\(\text{SLR}\)</span> 分析表。<br />
 (4) 这个文法是 <span class="math inline">\(\text{LALR}(1)\)</span> 或 <span class="math inline">\(\text{LR}(1)\)</span> 的吗？</p>
+<p>解：</p>
+<p>(1) 令增广文法 <span class="math inline">\(G^{&#39;}\)</span> 为</p>
+<p><span class="math display">\[
+\begin{split}
+0 \quad &amp;S^{&#39;} \rightarrow S \\
+1 \quad &amp;S \rightarrow AS \\
+2 \quad &amp;S \rightarrow b \\
+3 \quad &amp;A \rightarrow SA \\
+4 \quad &amp;A \rightarrow a
+\end{split}
+\]</span></p>
+<p>文法所有的 <span class="math inline">\(\text{LR}(0)\)</span> 项目如下：</p>
+<p><img src="https://i.imgur.com/c5mHs4b.png" srcset="/img/loading.gif" lazyload /></p>
+<p>(2) (1) 中构造的增广文法，其 <span class="math inline">\(\text{LR}(0)\)</span> 项目集规范族及其文法识别活前缀的 <span class="math inline">\(\text{DFA}\)</span> 如下：</p>
+<p><img src="https://i.imgur.com/bsPyDgM.png" srcset="/img/loading.gif" lazyload /></p>
+<p>(3) 不是。</p>
 
             </div>
             <hr>
