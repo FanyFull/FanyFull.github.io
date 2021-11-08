@@ -18,7 +18,7 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-  <title>Ubuntu Linux 升级 node 和 npm - Fany Full&#39;s Blog</title>
+  <title>数字图像处理考试复习 - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -166,12 +166,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/hGydbgv.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/fMXf3Hk.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Ubuntu Linux 升级 node 和 npm">
+            <span class="h2" id="subtitle" title="数字图像处理考试复习">
               
             </span>
 
@@ -181,8 +181,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-11-07 00:00" pubdate>
-        2021年11月7日 凌晨
+      <time datetime="2021-11-08 19:52" pubdate>
+        2021年11月8日 晚上
       </time>
     </span>
   
@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      142 字
+      1.9k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      20
        分钟
     </span>
   
@@ -233,16 +233,190 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Ubuntu Linux 升级 node 和 npm</h1>
+            <h1 style="display: none">数字图像处理考试复习</h1>
             
             <div class="markdown-body">
-              <p>在 Ubuntu 21.10 中，使用 <code>sudo apt install node</code> 安装的 node 和 npm 的版本有点低，因为之后需要安装 Hexo，如果 node 版本过低的话，可能会报一些奇怪的错误，所以，这里就记录一下升级 node 和 npm 的过程。</p>
-<p>按：其实只需要升级 node，因为 npm 是和 node 绑在一起的。</p>
-<p>执行以下命令，用 npm 安装 node 工具包 <code>n</code>，使用该工具将 node 版本升级到最新版本：</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> sudo npm install n -g</span><br><span class="hljs-meta">$</span><span class="bash"> sudo n stable</span><br></code></pre></div></td></tr></table></figure>
-<hr />
-<p>参考：</p>
-<p>1、<a target="_blank" rel="noopener" href="http://www.guohuawei.com/archives/upgrade-node-for-ubuntu.html" class="uri">http://www.guohuawei.com/archives/upgrade-node-for-ubuntu.html</a></p>
+              <h1 id="一图像处理的基本概念与术语">一、图像处理的基本概念与术语</h1>
+<blockquote>
+<p>1. 数字图像？数字图像处理？</p>
+</blockquote>
+<p>图像是一个二维亮度函数 <span class="math inline">\(f(x, y)\)</span>。其中，<span class="math inline">\((x, y)\)</span> 定义了空间坐标，<span class="math inline">\(f(x, y)\)</span> 定义了该点的亮度或灰度。</p>
+<p>数字图像处理是指图像的元素的空间坐标和亮度的数字化。数字图像是由有限的元素组成的，每一个元素都有一个特定的位置和幅值，这些元素称为图像元素或像素。</p>
+<p>数字图像处理是指借用数字计算机处理数字图像。</p>
+<blockquote>
+<p>2. 亮度函数？入射分量？反射分量？</p>
+</blockquote>
+<p>亮度函数：</p>
+<ul>
+<li>二维离散亮度函数 <span class="math inline">\(f(x, y)\)</span></li>
+<li><span class="math inline">\(x, y\)</span> 说明图像像素的空间坐标</li>
+<li>函数值 <span class="math inline">\(f\)</span> 代表了点 <span class="math inline">\((x, y)\)</span> 处像素的灰度值</li>
+</ul>
+<p>入射分量和反射分量：</p>
+<ul>
+<li>函数 <span class="math inline">\(f(x, y)\)</span> 的两个分量表征：
+<ul>
+<li>(1). 入射到被观察场景的光源照射量</li>
+<li>(2). 被场景中物体反射的照射量<br />
+它们称为入射分量和反射分量，并用 <span class="math inline">\(i(x, y)\)</span> 和 <span class="math inline">\(r(x, y)\)</span> 表示。这两个函数乘积形成 <span class="math inline">\(f(x, y)\)</span>，即 <span class="math inline">\(f(x, y) = i(x, y)r(x, y)\)</span>，式中 <span class="math inline">\(0 \leqslant i(x, y) \leqslant \infty\)</span>，<span class="math inline">\(0 \leqslant r(x, y) \leqslant 1\)</span>，反射分量限制在 0（全吸收）和 1（全反射）之间。</li>
+</ul></li>
+</ul>
+<p>按：</p>
+<p>入射和反射的英文分别为：incident(incidence), reflect。</p>
+<blockquote>
+<p>3. 图像分辨率？采样分辨率？灰度分辨率？图像深度？</p>
+</blockquote>
+<p>图像分辨率：</p>
+<p>图像分辨率指图像中存储的信息量，是每英寸图像内有多少个像素点，分辨率的单位为 PPI（Pixels Per Inch），通常叫做像素每英寸。</p>
+<p>采样分辨率：</p>
+<p>单位长度上所包含的采样数。</p>
+<p>灰度分辨率：</p>
+<p>在灰度级中可分辨的最小变化，不像空间分辨率必须以每单位距离作为量化基础，灰度分辨率指的是用于量化灰度的比特数。</p>
+<p>按：何为最小变化。</p>
+<p>图像深度：</p>
+<p>是指存储每个像素所用的位数。它确定了彩色图像的每个像素可能有的颜色数，或者确定了灰度图像的每个像素可能有的灰度级数。</p>
+<blockquote>
+<p>4. 色彩的基本属性？RGB HSI(HSV, HSB, HSL)？</p>
+</blockquote>
+<p>色彩的基本属性：</p>
+<ul>
+<li>色相（H）：即颜色名称，如红色、黄色等，取值范围为 <span class="math inline">\([0, 360)\)</span></li>
+<li>饱和度（S）：色彩的纯度，越高色彩越纯，低则逐渐变灰，取值范围为 <span class="math inline">\([0, 100\%]\)</span></li>
+<li>明度（V），亮度（L）：像素灰度值的强度，亮度越高则图像越发白，否则图像越黑，取值范围 <span class="math inline">\([0, 100\%]\)</span></li>
+</ul>
+<p>RGB：</p>
+<p>基于笛卡尔坐标系，三原色位于三个角度上（其实就是三个维度）。在 RGB 空间中，表示像素的比特数称为像素深度。考虑一幅 RGB 图像，其中每幅红绿蓝图像都是 8 比特图像，所以每个 RGB 像素有 24 比特。</p>
+<p>HSI：</p>
+<p>即色调（hue）、饱和度（saturation）、密度（intensity，对应图像亮度）。</p>
+<p>I 分量与图像的色彩信息无关。</p>
+<p>H 和 S 分量与人感受颜色的方式紧密相连（合成亮度）。</p>
+<p>HSI 表示色调、饱和度、亮度混合的模型，该模型符合人描述和解释颜色的方式。其中，</p>
+<ul>
+<li>色调是光波混合中与主波长有关的属性，表示观察者主要感知的颜色，比如某一物体的颜色为红色、蓝色；</li>
+<li>饱和度指的是相对纯净度，或者说一种颜色混合白光的数量，纯谱色全饱和的，如纯红色、纯蓝色是饱和的，而深红色（红加白）和淡紫色（紫加白）是欠饱和的，饱和度与所加白光成反比；</li>
+<li>亮度指的是发光的强度。</li>
+</ul>
+<blockquote>
+<p>5.动态范围？灰度级？</p>
+</blockquote>
+<p>动态范围：</p>
+<p>统计一下每一点的像素灰度值，灰度级的最小和最大这一范围，便是该图像的动态范围。动态范围越大（灰度直方图越宽），那它的对比度就会越高，当然看着越清楚。</p>
+<p>灰度级：</p>
+<p>一幅灰度图像它的像素的强度值的取值范围表示为 <span class="math inline">\([0, L - 1]\)</span>,其中。如 8 位色的灰度级，由于是 2 进制，灰度有 256 个等级，从黑（0）到白（255）。</p>
+<blockquote>
+<p>6. 直方图？累积直方图？连续图像幅度的密度函数？幅度分布函数？</p>
+</blockquote>
+<p>直方图：</p>
+<p>一个灰度级在范围 <span class="math inline">\([0, L - 1]\)</span> 的数字图像的直方图是一个离散函数</p>
+<p><span class="math display">\[
+p(r_k)= \frac{n_k}{n}
+\]</span></p>
+<p>其中，<span class="math inline">\(n\)</span> 是图像的像素总数，<span class="math inline">\(n_k\)</span> 是图像中灰度级为 <span class="math inline">\(r_k\)</span> 的像素个数，<span class="math inline">\(r_k\)</span> 是第 <span class="math inline">\(k\)</span> 个灰度级，<span class="math inline">\(k = 0,1,2, \cdots , L-1\)</span>。</p>
+<p>累积直方图：</p>
+<p>累积直方图反映了图像中灰度级小于或等于某值的像素的个数。灰度累积直方图是一个一维离散函数，可表示为</p>
+<p><span class="math display">\[
+H(k)= \sum_{i=0}^{k}ni, \;k=0,1,2..,L−1
+\]</span></p>
+<p>式中，<span class="math inline">\(k\)</span> 为某个灰度级；<span class="math inline">\(L\)</span> 为灰度级的数量，最大取 256；<span class="math inline">\(ni\)</span> 为具有第 <span class="math inline">\(i\)</span> 级灰度值的像素的数目。</p>
+<p>连续图像幅度的密度函数，幅度分布函数：</p>
+<blockquote>
+<p>7. 点运算？代数运算？几何运算？</p>
+</blockquote>
+<blockquote>
+<p>8. 双线性插值？最邻近插值？线性插值？</p>
+</blockquote>
+<blockquote>
+<p>9. 线性系统？移不变系统？线性移不变系统？</p>
+</blockquote>
+<blockquote>
+<p>10. 卷积？</p>
+</blockquote>
+<blockquote>
+<p>11. 图像幅值信息量？信息熵？</p>
+</blockquote>
+<blockquote>
+<p>12. 积分变换？</p>
+</blockquote>
+<blockquote>
+<p>13. 傅立叶变换对？傅立叶振幅谱？傅立叶相位谱？傅立叶能量谱？</p>
+</blockquote>
+<blockquote>
+<p>14. 图像增强技术？图像复原技术？</p>
+</blockquote>
+<blockquote>
+<p>15. 直方图均衡化？直方图规定化？</p>
+</blockquote>
+<blockquote>
+<p>16. 图像平滑？图像锐化？</p>
+</blockquote>
+<blockquote>
+<p>17. 空域增强（滤波）？ 频域增强（滤波）？同态增强（滤波）？</p>
+</blockquote>
+<blockquote>
+<p>18. 伪彩色？</p>
+</blockquote>
+<h1 id="二典型图像处理的基本过程及相关硬件设备">二、典型图像处理的基本过程及相关硬件设备</h1>
+<h1 id="三数字图像处理的主要内容">三、数字图像处理的主要内容</h1>
+<h1 id="四数字图像处理所涉及的主要数学工具">四、数字图像处理所涉及的主要数学工具</h1>
+<blockquote>
+<p>1. 直方图 幅度密度函数 概率分布</p>
+</blockquote>
+<blockquote>
+<p>2. 线性移不变系统 卷积</p>
+</blockquote>
+<blockquote>
+<p>3. 积分变换（傅立叶变换等）</p>
+</blockquote>
+<h1 id="五图像增强的基本方法">五、图像增强的基本方法</h1>
+<blockquote>
+<p>1. 直方图增强（均衡，规定）</p>
+</blockquote>
+<blockquote>
+<p>2. 平滑：均值滤波 中值滤波 低通滤波 多图像平均法 自适应中值滤波 自适应局部降噪滤波器 修正 alpha 均值滤波器</p>
+</blockquote>
+<blockquote>
+<p>3. 锐化：微分锐化（Roberts，Priwitt，Sobel，高斯等） 高通锐化</p>
+</blockquote>
+<blockquote>
+<p>4. 同态滤波</p>
+</blockquote>
+<h1 id="六图像恢复">六、图像恢复</h1>
+<blockquote>
+<p>1. 图像退化的基本数学模型及复原中的主要问题。</p>
+</blockquote>
+<blockquote>
+<p>2. 运动模糊图像复原方法。</p>
+</blockquote>
+<h1 id="七形态学图像处理">七、形态学图像处理</h1>
+<blockquote>
+<p>膨胀、腐蚀、闭操作、开操作、填充、边缘提取、击中或击不中</p>
+</blockquote>
+<h1 id="八图像分割">八、图像分割</h1>
+<blockquote>
+<p>1. 点检测与线检测     Hough 变换与直线检测</p>
+</blockquote>
+<blockquote>
+<p>2. 边缘检测：梯度算子 拉普拉斯算子 高斯拉普拉斯算子</p>
+</blockquote>
+<blockquote>
+<p>3. 门限值分割：全局门限 局部门限 自适应门限 一种自动确定门限值的方法</p>
+</blockquote>
+<blockquote>
+<p>4. 区域生长 区域分裂与合并</p>
+</blockquote>
+<blockquote>
+<p>5. 分水岭算法</p>
+</blockquote>
+<h1 id="九图像表示">九、图像表示</h1>
+<blockquote>
+<p>1. 表示方法：链码 多边形近似 边界分段 标记图</p>
+</blockquote>
+<blockquote>
+<p>2. 边界描述方法：周成 直径 形状数 傅里叶描述子 统计矩</p>
+</blockquote>
+<blockquote>
+<p>3. 区域描述方法：面积 统计纹理（均值、标准差、熵、平滑度、一致性） 灰度共生矩阵</p>
+</blockquote>
 
             </div>
             <hr>
@@ -252,7 +426,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Ubuntu/">Ubuntu</a>
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">数字图像处理</a>
                     
                   </div>
                 
@@ -260,7 +434,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Ubuntu/">Ubuntu</a>
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">数字图像处理</a>
                     
                   </div>
                 
@@ -277,18 +451,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/11/08/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">数字图像处理考试复习</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/11/05/Vim-%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/">
-                        <span class="hidden-mobile">Vim 使用笔记</span>
+                      <a href="/2021/11/07/Ubuntu-Linux-%E5%8D%87%E7%BA%A7-node-%E5%92%8C-npm/">
+                        <span class="hidden-mobile">Ubuntu Linux 升级 node 和 npm</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
