@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3k 字
+      3.4k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      32
+      37
        分钟
     </span>
   
@@ -330,8 +330,8 @@ H(k)= \sum_{i=0}^{k}ni, \;k=0,1,2..,L−1
 <li>点运算有哪些：
 <ul>
 <li>线性变换</li>
-<li>对数变换</li>
-<li>幂次变换</li>
+<li>对数变换：灰度压缩</li>
+<li>幂次变换：根据情况使图像变亮或变暗</li>
 <li>LUT（Look Up Table）变换</li>
 </ul></li>
 </ul>
@@ -342,11 +342,13 @@ H(k)= \sum_{i=0}^{k}ni, \;k=0,1,2..,L−1
 </ul>
 <p>几何运算：</p>
 <p>对于原图像 <span class="math inline">\(f(x, y)\)</span>，坐标变换函数</p>
-<p>$$</p>
-<p>x^{'} = T_1(x, y); ; y^{'} = T_2(x, y) $$</p>
+<p><span class="math display">\[
+x^{&#39;} = T_1(x, y); \; y^{&#39;} = T_2(x, y)
+\]</span></p>
 <p>唯一确定了几何变换：</p>
-<p>$$</p>
-<p>g(x^{'}, y^{'}) = f(T_1(x, y), T_2(x, y)) $$</p>
+<p><span class="math display">\[
+g(x^{&#39;}, y^{&#39;}) = f(T_1(x, y), T_2(x, y))
+\]</span></p>
 <p><span class="math inline">\(g(x, y)\)</span> 是目标图像。</p>
 <p>常用的几何变换如下，</p>
 <ul>
@@ -393,6 +395,8 @@ ay_1 + by_2 = T[ax_1 + bx_2]
 </blockquote>
 <p>图像幅值信息量：</p>
 <p>表征一幅图像含有的信息量有多少。</p>
+<p>信息熵：</p>
+<p>表示图像在被接收之前，信号传输过程中损失的信息量。</p>
 <blockquote>
 <p>12. 积分变换？</p>
 </blockquote>
@@ -458,6 +462,9 @@ ay_1 + by_2 = T[ax_1 + bx_2]
 <blockquote>
 <p>3. 锐化：微分锐化（Roberts，Priwitt，Sobel，高斯等） 高通锐化</p>
 </blockquote>
+<h2 id="privitt">Privitt</h2>
+<p><img src="https://i.imgur.com/v66R9PQ.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
 <p>4. 同态滤波</p>
 </blockquote>
@@ -472,13 +479,65 @@ ay_1 + by_2 = T[ax_1 + bx_2]
 <blockquote>
 <p>膨胀、腐蚀、闭操作、开操作、填充、边缘提取、击中或击不中</p>
 </blockquote>
+<h2 id="膨胀">膨胀</h2>
+<p><span class="math display">\[
+A \oplus B = {\{ z | (\mathop{\hat{B}}\limits)_z \cap A \neq \varnothing \}}\]</span></p>
+<p>或</p>
+<p><span class="math display">\[
+A \oplus B = { \{z | ( \mathop {\hat{B}} \limits  )_ z \cap A ⊆ A \}}
+\]</span></p>
+<p>其中，<span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span> 是 <span class="math inline">\(Z^2\)</span> 中的集合。</p>
+<h2 id="腐蚀">腐蚀</h2>
+<p><span class="math inline">\(A\)</span> 被 <span class="math inline">\(B\)</span> 腐蚀：</p>
+<p><span class="math display">\[
+A \ominus B = { \{z | ( B )_z \subseteq A \}}
+\]</span></p>
+<p>或</p>
+<p><span class="math display">\[
+A \ominus B = { \{z | ( B )_z \cap A^c = \varnothing \}}
+\]</span></p>
+<h2 id="开操作">开操作</h2>
+<p>也叫开运算。</p>
+<p><span class="math display">\[
+A \circ B = (A \ominus B) \oplus B
+\]</span></p>
+<p>也就是先腐蚀，然后膨胀。</p>
+<h2 id="闭操作">闭操作</h2>
+<p>也叫闭运算</p>
+<p><span class="math display">\[
+A \bullet B = (A \oplus B) \ominus  B
+\]</span></p>
+<p>即先膨胀，后腐蚀。</p>
+<h2 id="填充">填充</h2>
+<p><span class="math display">\[
+X_k = (X_{k - 1} \oplus B) \cap A^c \qquad k = 1,2,3,\codts
+\]</span></p>
+<p>填充过程实际上就是从边界上某一点 <span class="math inline">\(P\)</span> 开始做以下迭代运算，用结构元素对其进行膨胀、求补和求交集的过程。</p>
+<h2 id="边缘提取">边缘提取</h2>
+<p>提取物体的轮廓边缘的形态学变换：</p>
+<p><span class="math display">\[
+Y = X - (X \ominus B)
+\]</span></p>
+<h2 id="击中和击不中">击中和击不中</h2>
+<p><span class="math display">\[
+A \otimes B=(A \ominus X) \cap [A^c \ominus (W−X)]=(A \ominus B_1) \cap [A^c \ominus B_2]=(A \cap B_1)−[A^c \oplus {\mathop {\hat{B}}\limits}_z]
+\]</span></p>
 <h1 id="八图像分割">八、图像分割</h1>
 <blockquote>
 <p>1. 点检测与线检测     Hough 变换与直线检测</p>
 </blockquote>
+<p>不考。</p>
 <blockquote>
 <p>2. 边缘检测：梯度算子 拉普拉斯算子 高斯拉普拉斯算子</p>
 </blockquote>
+<h2 id="梯度算子">梯度算子</h2>
+<p><img src="https://i.imgur.com/s4ApjT3.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="拉普拉斯算子">拉普拉斯算子</h2>
+<p><img src="https://i.imgur.com/ky6SwlF.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/5ejHDnm.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="sobel-算子">Sobel 算子</h2>
+<p><img src="https://i.imgur.com/Qeag8ui.png" srcset="/img/loading.gif" lazyload /></p>
+<p>[]</p>
 <blockquote>
 <p>3. 门限值分割：全局门限 局部门限 自适应门限 一种自动确定门限值的方法</p>
 </blockquote>
@@ -492,12 +551,25 @@ ay_1 + by_2 = T[ax_1 + bx_2]
 <blockquote>
 <p>1. 表示方法：链码 多边形近似 边界分段 标记图</p>
 </blockquote>
+<h2 id="链码">链码</h2>
+<p>用于表示由顺次连接的具有指定长度和方向的直线段组成的边界。</p>
 <blockquote>
 <p>2. 边界描述方法：周成 直径 形状数 傅里叶描述子 统计矩</p>
 </blockquote>
 <blockquote>
 <p>3. 区域描述方法：面积 统计纹理（均值、标准差、熵、平滑度、一致性） 灰度共生矩阵</p>
 </blockquote>
+<hr />
+<p>几张图：</p>
+<p><img src="https://i.imgur.com/u14Evrz.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/EqaRowV.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/XIFrIQw.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/aSMT8wC.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/PCwDM3P.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/tTq9HRD.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/Pp98im5.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/ATvJkzk.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/yIdcXdI.png" srcset="/img/loading.gif" lazyload alt="直方图均衡化" /></p>
 
             </div>
             <hr>
