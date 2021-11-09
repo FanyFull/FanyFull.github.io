@@ -325,9 +325,9 @@ H(k)= \sum_{i=0}^{k}ni, \;k=0,1,2..,L−1
 <p>点运算：</p>
 <p>即灰度级变换，定义为</p>
 <ul>
-<li><p>像素灰度值变换函数 <span class="math inline">\(g(x, y) = T(f(x, y))\)</span></p></li>
-<li><p>灰度值变换函数 <span class="math inline">\(R = T(r)\)</span></p></li>
-<li><p>点运算有哪些：</p>
+<li>像素灰度值变换函数 <span class="math inline">\(g(x, y) = T(f(x, y))\)</span></li>
+<li>灰度值变换函数 <span class="math inline">\(R = T(r)\)</span></li>
+<li>点运算有哪些：
 <ul>
 <li>线性变换</li>
 <li>对数变换</li>
@@ -342,15 +342,13 @@ H(k)= \sum_{i=0}^{k}ni, \;k=0,1,2..,L−1
 </ul>
 <p>几何运算：</p>
 <p>对于原图像 <span class="math inline">\(f(x, y)\)</span>，坐标变换函数</p>
-<p><span class="math display">\[
-x^{&#39;} = T_1(x, y); \; y^{&#39;} = T_2(x, y)
-\]</span></p>
+<p>$$</p>
+<p>x^{'} = T_1(x, y); ; y^{'} = T_2(x, y) $$</p>
 <p>唯一确定了几何变换：</p>
-<p><span class="math display">\[
-g(x^{&#39;}, y^{&#39;}) = f(T_1(x, y), T_2(x, y))
-\]</span></p>
+<p>$$</p>
+<p>g(x^{'}, y^{'}) = f(T_1(x, y), T_2(x, y)) $$</p>
 <p><span class="math inline">\(g(x, y)\)</span> 是目标图像。</p>
-<p>常用的几何变换如下</p>
+<p>常用的几何变换如下，</p>
 <ul>
 <li>平移变换</li>
 <li>镜像变换</li>
@@ -363,9 +361,8 @@ g(x^{&#39;}, y^{&#39;}) = f(T_1(x, y), T_2(x, y))
 </blockquote>
 <p>双线性插值：</p>
 <p>通过 4 个邻近点去估计给定位置的灰度值，赋值公式为</p>
-<p><span class="math display">\[
-f(x, y) = ax + by + cxy + d
-\]</span></p>
+<p>$$</p>
+<p>f(x, y) = ax + by + cxy + d $$</p>
 <p>最邻近插值：</p>
 <p>令输出像素的灰度值等于离它所映射到的位置最近的输入像素的灰度值。</p>
 <p>线性插值：</p>
@@ -534,6 +531,12 @@ ay_1 + by_2 = T[ax_1 + bx_2]
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/11/09/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AE%9E%E9%AA%8C%E6%89%8B%E8%AE%B0/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">编译原理实验手记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
