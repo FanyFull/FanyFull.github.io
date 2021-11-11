@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      304 字
+      466 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      6
        分钟
     </span>
   
@@ -236,7 +236,8 @@
             <h1 style="display: none">编译原理实验手记</h1>
             
             <div class="markdown-body">
-              <blockquote>
+              <h1 id="知识点">知识点</h1>
+<blockquote>
 <p>如何理解 <code>bison -d</code> 的 <code>-d</code> 选项？</p>
 </blockquote>
 <p>可以在英文版 <em>flex and bison</em> 中的 P13 找到如下解释：</p>
@@ -279,6 +280,36 @@
 </blockquote>
 <p>使用 <code>%define "parse.error" "verbose"</code> 代替原来的 <code>%define parse.error verbose</code>。</p>
 <p>具体参考：<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/50221650/bison-syntax-error-mac">StackOverflow</a></p>
+<h1 id="bugs-记录">Bugs 记录</h1>
+<h2 id="问题一">问题一</h2>
+<p>问题描述：</p>
+<div class="hljs code-wrapper"><pre><code>error: invalid initializer</code></pre></div>
+<p><img src="https://i.imgur.com/J5OSvMr.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/sSXoVXw.png" srcset="/img/loading.gif" lazyload /></p>
+<p>解决办法，</p>
+<p>将</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c">va_list pArgs = <span class="hljs-literal">NULL</span>;<br></code></pre></div></td></tr></table></figure>
+<p>改成</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c">va_list pArgs;<br></code></pre></div></td></tr></table></figure>
+<p>这个属于库函数的用法，需要查阅相关文档。</p>
+<h2 id="问题二">问题二</h2>
+<p>这个问题属于重复定义问题。</p>
+<p><img src="https://i.imgur.com/UD5l0WZ.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/ZWxj3pK.png" srcset="/img/loading.gif" lazyload /></p>
+<p>解决方法：</p>
+<p>在相应头文件中将所有重复定义的变量声明成外部变量。</p>
+<p>如：</p>
+<p>将</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-keyword">int</span> LEV;<br></code></pre></div></td></tr></table></figure>
+<p>改成</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> LEV;<br></code></pre></div></td></tr></table></figure>
+<p>再如：</p>
+<p>将</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">symboltable</span>&#123;</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">symbol</span> <span class="hljs-title">symbols</span>[<span class="hljs-title">MAXLENGTH</span>];</span><br>    <span class="hljs-keyword">int</span> index;<br>&#125; symbolTable;<br></code></pre></div></td></tr></table></figure>
+<p>改成</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">symboltable</span>&#123;</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">symbol</span> <span class="hljs-title">symbols</span>[<span class="hljs-title">MAXLENGTH</span>];</span><br>    <span class="hljs-keyword">int</span> index;<br>&#125;;<br><br><span class="hljs-keyword">extern</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">symboltable</span> <span class="hljs-title">symbolTable</span>;</span><br></code></pre></div></td></tr></table></figure>
+<p>将这两个问题解决后，发现可以正常编译，且编译出来的可执行文件可以正常运行：</p>
+<p><img src="https://i.imgur.com/f3ugW1m.png" srcset="/img/loading.gif" lazyload /></p>
 
             </div>
             <hr>
