@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      1.4k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      19
+      20
        分钟
     </span>
   
@@ -349,10 +349,31 @@ S \stackrel{*}{\Rightarrow} \cdots \alpha_{1} A \beta_{1} \cdots \Rightarrow \al
 <li>若 <span class="math inline">\(\alpha \stackrel{*}{\Rightarrow} \varepsilon\)</span>，则 <span class="math inline">\(\text{SELECT}(A \rightarrow \alpha)\)</span> <span class="math inline">\(=\)</span> <span class="math inline">\((\text{FIRST}(\alpha) - \{\varepsilon\})\)</span> <span class="math inline">\(\cup\)</span> <span class="math inline">\(\text{FOLLOW}(A)\)</span>。</li>
 </ul>
 <blockquote>
-
+<p>如何消除文法的直接左递归？</p>
 </blockquote>
+<p>将</p>
+<p><span class="math display">\[
+A \rightarrow A \alpha | \beta \; (\alpha \neq \varepsilon, \beta \;不以 A 开头)
+\]</span></p>
+<p>转换成</p>
+<p><span class="math display">\[
+\begin{split}
+A \rightarrow \beta A^{&#39;} \\
+A^{&#39;} \rightarrow \alpha A^{&#39;} | \varepsilon
+\end{split}
+\]</span></p>
+<p><img src="https://i.imgur.com/LobTnUb.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/BTAs20o.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p>如何消除文法的间接子递归？</p>
+</blockquote>
+<p><img src="https://i.imgur.com/ONRU6mw.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p>消除左递归的算法？</p>
+</blockquote>
+<p><img src="https://i.imgur.com/RCSsK8L.png" srcset="/img/loading.gif" lazyload /></p>
 <hr />
-<p>附：哈工大慕课陈鄞对于 <span class="math inline">\(\text{FIRST}\)</span>、<span class="math inline">\(\text{FOLLOW}\)</span> 和 <span class="math inline">\(\text{SELECT}\)</span> 的理解。</p>
+<p>附：哈工大慕课陈鄞老师对于 <span class="math inline">\(\text{FIRST}\)</span>、<span class="math inline">\(\text{FOLLOW}\)</span> 和 <span class="math inline">\(\text{SELECT}\)</span> 的理解。</p>
 <blockquote>
 <p>对 <span class="math inline">\(\text{FIRST}\)</span> 的理解？</p>
 </blockquote>
