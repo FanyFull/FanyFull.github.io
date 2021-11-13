@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      77
+      78
        分钟
     </span>
   
@@ -318,7 +318,7 @@
 <p>何为文法的二义性？</p>
 </blockquote>
 <p>如果一个文法存在某个句子对应两棵不同的语法树，则说这个语法是<strong>二义</strong>的。或者说，若一个文法中存在某个句子，它有两个不同的最左（最右）推导，则这个语法是<strong>二义</strong>的。</p>
-<p>举例：文法 <span class="math inline">\(G = (\{ E \}), \{ +, *, i, (, ) \}, P, E\)</span>，其中 <span class="math inline">\(P\)</span> 为：</p>
+<p>举例：文法 <span class="math inline">\(G = (\{ E \}, \{ +, *, i, (, ) \}, P, E)\)</span>，其中 <span class="math inline">\(P\)</span> 为：</p>
 <p><span class="math display">\[
 \begin{align}
 &amp;E \rightarrow i \\
@@ -337,9 +337,10 @@
 \end{align}
 \]</span></p>
 <blockquote>
-<p>何为最右推导、规范推导、右句型、规范句型？</p>
+<p>何为最左推导、最右推导、规范推导、右句型、规范句型？</p>
 </blockquote>
-<p>如果在推导的任何一步 <span class="math inline">\(\alpha \Rightarrow \beta\)</span>，其中，<span class="math inline">\(\alpha\)</span>、<span class="math inline">\(\beta\)</span> 是句型，都是对 <span class="math inline">\(\alpha\)</span> 中的最左（最右）非终结符进行替换，则称这种推导为<strong>最左（最右）推导</strong>。</p>
+<p>如果在推导的任何一步 <span class="math inline">\(\alpha \Rightarrow \beta\)</span>，其中，<span class="math inline">\(\alpha\)</span>、<span class="math inline">\(\beta\)</span> 是句型，都是对 <span class="math inline">\(\alpha\)</span> 中的最左非终结符进行替换，则称这种推导为<strong>最左推导</strong>。</p>
+<p>如果在推导的任何一步 <span class="math inline">\(\alpha \Rightarrow \beta\)</span>，其中，<span class="math inline">\(\alpha\)</span>、<span class="math inline">\(\beta\)</span> 是句型，都是对 <span class="math inline">\(\alpha\)</span> 中的最右非终结符进行替换，则称这种推导为<strong>最右推导</strong>。</p>
 <p>在形式语言中，最右推导常被称为<strong>规范推导</strong>。</p>
 <p>由规范推导所得的句型称为<strong>右句型</strong>或<strong>规范句型</strong>。</p>
 <blockquote>

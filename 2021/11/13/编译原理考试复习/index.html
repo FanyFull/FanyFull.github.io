@@ -18,7 +18,7 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-  <title>《一站式学习 C 编程》阅读手记 - Fany Full&#39;s Blog</title>
+  <title>编译原理考试复习 - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -166,12 +166,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/EIoU6Yv.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/NCn63ft.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="《一站式学习 C 编程》阅读手记">
+            <span class="h2" id="subtitle" title="编译原理考试复习">
               
             </span>
 
@@ -181,8 +181,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-11-11 11:02" pubdate>
-        2021年11月11日 上午
+      <time datetime="2021-11-13 14:31" pubdate>
+        2021年11月13日 下午
       </time>
     </span>
   
@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      162 字
+      385 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      4
        分钟
     </span>
   
@@ -233,38 +233,35 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">《一站式学习 C 编程》阅读手记</h1>
+            <h1 style="display: none">编译原理考试复习</h1>
             
             <div class="markdown-body">
               <blockquote>
-<p>对于整数中的位的位运算？</p>
+<p>何为 <span class="math inline">\(L(G)\)</span>？</p>
 </blockquote>
-<ul>
-<li><code>&amp;</code> 是按位与（Bitwise AND）运算符</li>
-<li><code>|</code> 是按位或（Bitwise OR）运算符</li>
-<li><code>~</code>（Tilde）是按位取反（Bitwise NOT）运算符</li>
-<li><code>^</code>（Caret）是按位异或（Bitwise XOR）运算符</li>
-</ul>
+<p>文法 <span class="math inline">\(G\)</span> 所产生的语言定义为集合</p>
+<p><span class="math display">\[
+\{ x| S \mathop{\Rightarrow}\limits^* x, 其中 S 为文法识别符号，且 x \in V^*_T\}
+\]</span></p>
+<p>可用 <span class="math inline">\(L(G)\)</span> 表示该集合。</p>
 <blockquote>
-<p>奇偶性的英文？</p>
+<p>何为最左推导、最右推导、规范推导、右句型、规范句型？</p>
 </blockquote>
-<p>Parity</p>
+<p>如果在推导的任何一步 <span class="math inline">\(\alpha \Rightarrow \beta\)</span>，其中，<span class="math inline">\(\alpha\)</span>、<span class="math inline">\(\beta\)</span> 是句型，都是对 <span class="math inline">\(\alpha\)</span> 中的最左非终结符进行替换，则称这种推导为<strong>最左推导</strong>。</p>
+<p>如果在推导的任何一步 <span class="math inline">\(\alpha \Rightarrow \beta\)</span>，其中，<span class="math inline">\(\alpha\)</span>、<span class="math inline">\(\beta\)</span> 是句型，都是对 <span class="math inline">\(\alpha\)</span> 中的最右非终结符进行替换，则称这种推导为<strong>最右推导</strong>。</p>
+<p>在形式语言中，最右推导常被称为<strong>规范推导</strong>。</p>
+<p>由规范推导所得的句型称为<strong>右句型</strong>或<strong>规范句型</strong>。</p>
 <blockquote>
-<p>不借助额外的存储空间，交换两个变量的值？</p>
+<p>何为短语、直接短语、和句柄？</p>
 </blockquote>
-<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c">a = a^b;<br>b = b^a;<br>a = a^b;<br></code></pre></div></td></tr></table></figure>
-<p>利用的原理是：</p>
-<ul>
-<li><code>x^x^y ==y</code></li>
-<li>异或运算满足交换律和结合律</li>
-</ul>
+<p>令 <span class="math inline">\(G\)</span> 是一个文法，<span class="math inline">\(S\)</span> 是文法的开始符号，<span class="math inline">\(\alpha \beta \delta\)</span> 是文法 <span class="math inline">\(G\)</span> 的一个句型。如果有 <span class="math inline">\(S \mathop{\Rightarrow}\limits^* \alpha A \delta\)</span> 且 <span class="math inline">\(A \mathop{\Rightarrow}\limits^+ \beta\)</span>，则称 <span class="math inline">\(\beta\)</span> 是句型 <span class="math inline">\(\alpha \beta \delta\)</span> 相对于非终结符 <span class="math inline">\(A\)</span> 的<strong>短语</strong>。</p>
+<p>特别地，如果有 <span class="math inline">\(A \Rightarrow \beta\)</span>，则称 <span class="math inline">\(\beta\)</span> 是句型 <span class="math inline">\(\alpha \beta \delta\)</span> 相对于规则 <span class="math inline">\(A \rightarrow \beta\)</span> 的<strong>直接短语</strong>（也称<strong>简单短语</strong>）。</p>
+<p>一个右句型的直接短语称为该句型的<strong>句柄</strong>。句柄的概念只适用于右句型。</p>
 <blockquote>
-<p>疑：RAID(Redundant Array of Independent Disks，独立磁盘冗余阵列) 的实现原理？</p>
+<p>关于句柄的其他理解？</p>
 </blockquote>
-<blockquote>
-<p>gcc 的 <code>-g</code> option？</p>
-</blockquote>
-<p>在编译时要加上 <code>-g</code> 选项，生成的可执行文件才能用 gdb 进行源码级调试。</p>
+<p>在“移入-归约”分析中，每次归约的符号串称为“句柄”。</p>
+<p>又：句柄是句型的最左直接短语。</p>
 
             </div>
             <hr>
@@ -274,7 +271,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a>
+                      <a class="hover-with-bg" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
                     
                   </div>
                 
@@ -282,9 +279,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E8%AF%BB%E4%B9%A6/">读书</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E6%8A%80%E6%9C%AF/">技术</a>
+                      <a class="hover-with-bg" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
                     
                   </div>
                 
@@ -301,18 +296,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/11/13/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">编译原理考试复习</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/11/10/%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/">
-                        <span class="hidden-mobile">软件体系结构考试复习</span>
+                      <a href="/2021/11/11/%E3%80%8A%E4%B8%80%E7%AB%99%E5%BC%8F%E5%AD%A6%E4%B9%A0-C-%E7%BC%96%E7%A8%8B%E3%80%8B%E9%98%85%E8%AF%BB%E6%89%8B%E8%AE%B0/">
+                        <span class="hidden-mobile">《一站式学习 C 编程》阅读手记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
