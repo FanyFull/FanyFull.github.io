@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      445 字
+      873 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      10
        分钟
     </span>
   
@@ -266,6 +266,78 @@
 <p>何为 3 型文法？</p>
 </blockquote>
 <p>设 <span class="math inline">\(G = (V_N, V_T, P, S)\)</span>，若 <span class="math inline">\(P\)</span> 中的每一个产生式的形式都是 <span class="math inline">\(A \rightarrow aB\)</span> 或 <span class="math inline">\(A \rightarrow a\)</span>，其中 <span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span> 都是非终结符，<span class="math inline">\(a \in V_T^*\)</span>，则 <span class="math inline">\(G\)</span> 是 <strong>3 型文法</strong> 或 <strong>正规文法</strong>。</p>
+<blockquote>
+<p>如何消除文法的直接左递归？</p>
+</blockquote>
+<p>将</p>
+<p><span class="math display">\[
+A \rightarrow A \alpha | \beta \; (\alpha \neq \varepsilon, \beta \;不以 A 开头)
+\]</span></p>
+<p>转换成</p>
+<p><span class="math display">\[
+\begin{split}
+A \rightarrow \beta A^{&#39;} \\
+A^{&#39;} \rightarrow \alpha A^{&#39;} | \varepsilon
+\end{split}
+\]</span></p>
+<p><img src="https://i.imgur.com/LobTnUb.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/BTAs20o.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p>如何消除文法的间接子递归？</p>
+</blockquote>
+<p><img src="https://i.imgur.com/ONRU6mw.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p>消除左递归的算法？</p>
+</blockquote>
+<p><img src="https://i.imgur.com/RCSsK8L.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p>何为上下文无关文法？</p>
+</blockquote>
+<p>设 <span class="math inline">\(G = (V_N, V_T, P, S)\)</span>。若 <span class="math inline">\(P\)</span> 中的每一个产生式 <span class="math inline">\(\alpha \rightarrow \beta\)</span> 满足：<span class="math inline">\(\alpha\)</span> 是一个非终结符，<span class="math inline">\(\beta \in (V_N \cup V_T)^*\)</span>，则此文法称为 <strong>2 型的</strong> 或 <strong>上下文无关的（context-free）</strong></p>
+<p><strong>上下文无关文法</strong> 即 CFG(Context-Free Grammer))。</p>
+<blockquote>
+<p>对 <span class="math inline">\(\text{FIRST}\)</span> 的理解？</p>
+</blockquote>
+<p><img src="https://i.imgur.com/s8YqiDv.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/VmrkYxH.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/hgG2AXE.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p>对 <span class="math inline">\(\text{FOLLOW}\)</span> 的理解？</p>
+</blockquote>
+<p><img src="https://i.imgur.com/BWChrVU.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/T9YnsK5.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p>如何理解 <span class="math inline">\(\text{SELECT()}\)</span>？</p>
+</blockquote>
+<p>给定上下文无关文法的产生式 <span class="math inline">\(A \rightarrow \alpha\)</span> $, $ <span class="math inline">\(A \in V_N, \alpha \in V^*\)</span>，</p>
+<ul>
+<li>若 <span class="math inline">\(\alpha \stackrel{*}{\nRightarrow} \varepsilon\)</span>，则 <span class="math inline">\(\text{SELECT}(A \rightarrow \alpha)\)</span> <span class="math inline">\(=\)</span> <span class="math inline">\(\text{FIRST}(\alpha)\)</span>。</li>
+<li>若 <span class="math inline">\(\alpha \stackrel{*}{\Rightarrow} \varepsilon\)</span>，则 <span class="math inline">\(\text{SELECT}(A \rightarrow \alpha)\)</span> <span class="math inline">\(=\)</span> <span class="math inline">\((\text{FIRST}(\alpha) - \{\varepsilon\})\)</span> <span class="math inline">\(\cup\)</span> <span class="math inline">\(\text{FOLLOW}(A)\)</span>。</li>
+</ul>
+<blockquote>
+<p>一个 <span class="math inline">\(\text{SELECT}\)</span> 的例子。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/OQut1Ok.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p>一张预测分析表。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/rqhlpyx.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p>何为 <span class="math inline">\(LL(1)\)</span> 文法？</p>
+</blockquote>
+<p><img src="https://i.imgur.com/SkZeZY1.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/eC9gsif.png" srcset="/img/loading.gif" lazyload /></p>
+<p>一个上下文无关文法是 <span class="math inline">\(\text{LL}(1)\)</span> 的充分必要条件是,</p>
+<p>对每个非终结符 <span class="math inline">\(A\)</span> 的两个不同产生式，<span class="math inline">\(A \rightarrow \alpha\)</span> <span class="math inline">\(,\)</span> <span class="math inline">\(A \rightarrow \beta\)</span>，满足</p>
+<p><span class="math display">\[
+\text{SELECT}(A \rightarrow \alpha) \cap \text{SELECT}(A \rightarrow \beta) = \varnothing
+\]</span></p>
+<p>其中 <span class="math inline">\(\alpha、\beta\)</span> 不同时能 <span class="math inline">\(\stackrel{*}{\Rightarrow} \epsilon\)</span>。</p>
+<p><span class="math inline">\(\text{LL}(1)\)</span> 的含义是：第 1 个 <span class="math inline">\(\text{L}\)</span> 表明自顶向下分析是从左向右扫描输入串，第 2 个 <span class="math inline">\(\text{L}\)</span> 表明分析过程中将用最左推导，1 表明只需要向右看一个符号便可决定如何推导，即选择哪个产生式（规则）进行推导。</p>
+<blockquote>
+<p>如何判别某文法是否是 <span class="math inline">\(\text{LL}(1)\)</span> 文法？</p>
+</blockquote>
+<p>首先计算 <span class="math inline">\(\text{FIRST}\)</span>、<span class="math inline">\(\text{FOLLOW}\)</span>、<span class="math inline">\(\text{SELECT}\)</span> 集合，然后根据定义判别文法是否是 <span class="math inline">\(\text{LL}(1)\)</span> 文法。</p>
 
             </div>
             <hr>
