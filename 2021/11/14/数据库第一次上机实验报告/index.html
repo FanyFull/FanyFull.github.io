@@ -18,7 +18,7 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-  <title>编译原理考试复习 - Fany Full&#39;s Blog</title>
+  <title>数据库第一次上机实验报告 - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -166,12 +166,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/NCn63ft.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/Xt50HIN.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="编译原理考试复习">
+            <span class="h2" id="subtitle" title="数据库第一次上机实验报告">
               
             </span>
 
@@ -181,8 +181,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-11-13 14:31" pubdate>
-        2021年11月13日 下午
+      <time datetime="2021-11-14 10:08" pubdate>
+        2021年11月14日 上午
       </time>
     </span>
   
@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      445 字
+      855 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      9
        分钟
     </span>
   
@@ -233,39 +233,81 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">编译原理考试复习</h1>
+            <h1 style="display: none">数据库第一次上机实验报告</h1>
             
             <div class="markdown-body">
-              <blockquote>
-<p>何为 <span class="math inline">\(L(G)\)</span>？</p>
-</blockquote>
-<p>文法 <span class="math inline">\(G\)</span> 所产生的语言定义为集合</p>
-<p><span class="math display">\[
-\{ x| S \mathop{\Rightarrow}\limits^* x, 其中 S 为文法识别符号，且 x \in V^*_T\}
-\]</span></p>
-<p>可用 <span class="math inline">\(L(G)\)</span> 表示该集合。</p>
-<blockquote>
-<p>何为最左推导、最右推导、规范推导、右句型、规范句型？</p>
-</blockquote>
-<p>如果在推导的任何一步 <span class="math inline">\(\alpha \Rightarrow \beta\)</span>，其中，<span class="math inline">\(\alpha\)</span>、<span class="math inline">\(\beta\)</span> 是句型，都是对 <span class="math inline">\(\alpha\)</span> 中的最左非终结符进行替换，则称这种推导为<strong>最左推导</strong>。</p>
-<p>如果在推导的任何一步 <span class="math inline">\(\alpha \Rightarrow \beta\)</span>，其中，<span class="math inline">\(\alpha\)</span>、<span class="math inline">\(\beta\)</span> 是句型，都是对 <span class="math inline">\(\alpha\)</span> 中的最右非终结符进行替换，则称这种推导为<strong>最右推导</strong>。</p>
-<p>在形式语言中，最右推导常被称为<strong>规范推导</strong>。</p>
-<p>由规范推导所得的句型称为<strong>右句型</strong>或<strong>规范句型</strong>。</p>
-<blockquote>
-<p>何为短语、直接短语、和句柄？</p>
-</blockquote>
-<p>令 <span class="math inline">\(G\)</span> 是一个文法，<span class="math inline">\(S\)</span> 是文法的开始符号，<span class="math inline">\(\alpha \beta \delta\)</span> 是文法 <span class="math inline">\(G\)</span> 的一个句型。如果有 <span class="math inline">\(S \mathop{\Rightarrow}\limits^* \alpha A \delta\)</span> 且 <span class="math inline">\(A \mathop{\Rightarrow}\limits^+ \beta\)</span>，则称 <span class="math inline">\(\beta\)</span> 是句型 <span class="math inline">\(\alpha \beta \delta\)</span> 相对于非终结符 <span class="math inline">\(A\)</span> 的<strong>短语</strong>。</p>
-<p>特别地，如果有 <span class="math inline">\(A \Rightarrow \beta\)</span>，则称 <span class="math inline">\(\beta\)</span> 是句型 <span class="math inline">\(\alpha \beta \delta\)</span> 相对于规则 <span class="math inline">\(A \rightarrow \beta\)</span> 的<strong>直接短语</strong>（也称<strong>简单短语</strong>）。</p>
-<p>一个右句型的直接短语称为该句型的<strong>句柄</strong>。句柄的概念只适用于右句型。</p>
-<blockquote>
-<p>关于句柄的其他理解？</p>
-</blockquote>
-<p>在“移入-归约”分析中，每次归约的符号串称为“句柄”。</p>
-<p>又：句柄是句型的最左直接短语。</p>
-<blockquote>
-<p>何为 3 型文法？</p>
-</blockquote>
-<p>设 <span class="math inline">\(G = (V_N, V_T, P, S)\)</span>，若 <span class="math inline">\(P\)</span> 中的每一个产生式的形式都是 <span class="math inline">\(A \rightarrow aB\)</span> 或 <span class="math inline">\(A \rightarrow a\)</span>，其中 <span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span> 都是非终结符，<span class="math inline">\(a \in V_T^*\)</span>，则 <span class="math inline">\(G\)</span> 是 <strong>3 型文法</strong> 或 <strong>正规文法</strong>。</p>
+              <h1 id="实验二-数据库的创建和管理">实验二 数据库的创建和管理</h1>
+<h2 id="一实验目的">一、实验目的</h2>
+<p>熟练掌握使用 Navicat 和 Transact-SQL 语言两种方法创建、修改和删除数据库。学习在 Navicat 中进行数据库的转储和导入。掌握管理数据库的有关系统存储过程。</p>
+<h2 id="二实验内容">二、实验内容</h2>
+<p>1、利用Navicat创建满足以下要求的数据库：</p>
+<ul>
+<li>1）数据库存在于连接 MySQL 中；</li>
+<li>2）数据库名称为 mydb；</li>
+<li>3）字符集选择 utf8 -- UTF-8 Unicode；</li>
+<li>4）排序规则选择 utf8_general_ci</li>
+</ul>
+<p>具体步骤如下：</p>
+<p>新建连接“MySQL”—单击选择并右键—“新建数据库”—输入数据库名“mydb”、字符集“utf8 -- UTF-8 Unicode”、排序规则“utf8_general_ci”—“确定”。如图所示：</p>
+<p><img src="https://i.imgur.com/UIaHpCh.png" srcset="/img/loading.gif" lazyload /></p>
+<p>右键—“Edit Database”，可以看到如下图所示结果：</p>
+<p><img src="https://i.imgur.com/1wl4HUr.png" srcset="/img/loading.gif" lazyload /></p>
+<p>2、利用Transact-SQL语言创建满足以下要求的数据库：</p>
+<ul>
+<li>1）数据库存在于连接 MySQL 中；</li>
+<li>2）数据库名称为 testdb；</li>
+<li>3）字符集选择 utf8 -- UTF-8 Unicode；</li>
+<li>4）排序规则选择 utf8_general_ci；</li>
+</ul>
+<p>具体步骤如下：</p>
+<p>点击“新建查询”，在查询编辑器输入以下代码，选中代码后，点击“运行”，完成后，左侧列表中选中连接“MySQL”，点击“刷新”按钮，列表即可见到“testdb”。如图所示：</p>
+<p><img src="https://i.imgur.com/wtRfYJs.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/uQRfOL6.png" srcset="/img/loading.gif" lazyload /></p>
+<p>3、利用 Transact-SQL 语言查看数据库及表的信息。</p>
+<p>① 查看连接中的所有数据库</p>
+<p>步骤：点击“新建查询”，输入</p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">SHOW</span> DATABASES<br></code></pre></div></td></tr></table></figure>
+<p>后运行，</p>
+<p><img src="https://i.imgur.com/6G5XEg6.png" srcset="/img/loading.gif" lazyload /></p>
+<p>② 查看数据库 mysql 中所有的表</p>
+<p>步骤：打开查询窗口，输入</p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">show</span> tables <span class="hljs-keyword">from</span> mysql;<br></code></pre></div></td></tr></table></figure>
+<p>后运行，</p>
+<p><img src="https://i.imgur.com/qn3QhYM.png" srcset="/img/loading.gif" lazyload /></p>
+<p>③ 查看数据库“mysql”中表“help_keyword”的结构。</p>
+<p>步骤：打开查询窗口，输入</p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql">USE mysql;<br><span class="hljs-keyword">DESCRIBE</span> help_keyword;<br></code></pre></div></td></tr></table></figure>
+<p>后运行，</p>
+<p><img src="https://i.imgur.com/WvfZaEj.png" srcset="/img/loading.gif" lazyload /></p>
+<p>4、利用 Navicat 修改数据库 mydb，修改其排序方式为 utf8_bin。 步骤：右键单击数据库“mydb”—Edit Database，在排序方式中选择“utf8_bin”—“确定”。</p>
+<p><img src="https://i.imgur.com/bKdz53M.png" srcset="/img/loading.gif" lazyload /></p>
+<p>5、利用 Transact-SQL 语言修改数据库 mydb 的字符集为 Latin1；</p>
+<p>步骤：打开查询窗口，输入以下代码，点击运行</p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> DATABASE mydb <span class="hljs-keyword">DEFAULT</span> <span class="hljs-type">CHARACTER</span> <span class="hljs-keyword">SET</span> <span class="hljs-operator">=</span> latin1;<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://i.imgur.com/ynDvj5T.png" srcset="/img/loading.gif" lazyload /></p>
+<p>关闭数据库“mydb”后重新打开，查看数据库属性，可以看到如下图所示结果：</p>
+<p><img src="https://i.imgur.com/k6DhwMI.png" srcset="/img/loading.gif" lazyload /></p>
+<p>6、利用 Navicat 删除数据库 mydb。</p>
+<p>步骤：直接右键点击 mydb 选择删除即可，注意要关闭当前的 SQL 语句编写界面。</p>
+<p>7、利用 Transact-SQL 语言删除数据库 testdb。</p>
+<p>步骤：点击“新建查询”，输入</p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">DROP</span> DATABASE testdb<br></code></pre></div></td></tr></table></figure>
+<p>后运行，</p>
+<p>刷新连接“MySQL”，查看结果。</p>
+<p>8、转储 MySQL 数据库。</p>
+<p>步骤：打开连接“MySQL”—右键单击数据库“mysql”—选择“转储 SQL 文件”—将文件名改为“sql.sql”后保存在桌面。</p>
+<p><img src="https://i.imgur.com/UBBFOZO.png" srcset="/img/loading.gif" lazyload /></p>
+<p>9、导入MySQL数据库。</p>
+<p>① 在连接“MySQL”中新建数据库“sql”（字符集与排序方式尽量一致）。<br />
+② 打开数据库“sql”—右键单击—运行 SQL 文件—选择桌面的“sql.sql”文件—点击“确定”。<br />
+③ 关闭数据库 sql 后重新打开，对比数据库“sql”与最初的数据库“mysql”，看是否完全相同。</p>
+<p>这里实际操作的时候有错误。</p>
+<h2 id="三课后练习题">三、课后练习题</h2>
+<p>1、分别用以下几种语句查看数据库“mysql”中任意表的结构或数据（先输入：<code>USE mysql;</code>）：</p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql">① <span class="hljs-keyword">SHOW</span> COLUMNS <span class="hljs-keyword">FROM</span> 表名;  <br>② <span class="hljs-keyword">DESCRIBE</span> 表名;  <br>③ <span class="hljs-keyword">DESC</span> 表名;  <br>④ <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> 表名;  <br></code></pre></div></td></tr></table></figure>
+<p>2、思考以下问题：</p>
+<p>1）mysql 中 utf8 编码的 utf8_bin, utf8_general_cs, utf8_general_ci 三者的区别。<br />
+2）不同编码方式的数据库之间进行转储和导入会不会出现错误。</p>
 
             </div>
             <hr>
@@ -275,7 +317,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
                     
                   </div>
                 
@@ -283,7 +325,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
                     
                   </div>
                 
@@ -300,18 +342,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/11/14/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">数据库第一次上机实验报告</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/11/11/%E3%80%8A%E4%B8%80%E7%AB%99%E5%BC%8F%E5%AD%A6%E4%B9%A0-C-%E7%BC%96%E7%A8%8B%E3%80%8B%E9%98%85%E8%AF%BB%E6%89%8B%E8%AE%B0/">
-                        <span class="hidden-mobile">《一站式学习 C 编程》阅读手记</span>
+                      <a href="/2021/11/13/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/">
+                        <span class="hidden-mobile">编译原理考试复习</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
