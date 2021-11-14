@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>微机原理考试复习</title>
+    <link href="/2021/11/14/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/"/>
+    <url>/2021/11/14/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/</url>
+    
+    <content type="html"><![CDATA[<p>1. 字长指计算机一次可以直接处理的二进制（<strong>位数</strong>），字长越长运算精度越高。</p><p>2. -1 用 8 位 2 进制补码表示为（<strong>11111111</strong>）。</p><p>3. 在 8086CPU 中，由于 EU 和 BIU 分开，所以取指令和执行指令可以重叠操作，提高了（<strong>CPU</strong>）的利用率，CPU 中的 EU 部件完成（<strong>指令译码</strong>）和执行指令的工作。</p><p>EU（Execute Unit，执行单元）：负责执行指令或运算。</p><ul><li>从指令队列中取指令代码，译码，在 ALU 中完成数据的运算，结果的特征保存在标志寄存器中。</li></ul><p>BIU（Bus Interface Unit，总线接口单元）：负责读指令和数据。</p><ul><li>具有预取指令的功能</li><li>指令执行顺序</li></ul><p>4. 已知一个数据段长度为 1K 字节，设 DS=6000H，数据段的偏移量为 200H，则该数据段的首地址的物理地址为（<strong>60200H</strong>）。</p><p>5. 指令 XOR, AX, AX 的寻址方式为（<strong>寄存器寻址</strong>），指令执行后 ZF 内容为（<strong>1</strong>）。</p><p>ZF - Zero Flag，如果数学/逻辑运算的结果为零或者以其他方式重置，则置位。</p><p>6. 8088CPU 在执行 MOV AX, [2000H] 指令时，对存储器进行（<strong>读</strong>）操作。2000H 这个值由 CPU 输出到（<strong>地址</strong>）总线上，2000H 的内容由存储器输出到（<strong>数据</strong>）总线上。</p><p>7. 汇编程序中控制汇编程序应如何工作的命令叫（<strong>伪指令</strong>），或称为汇编控制命令。</p><p>8. 按存储信息的类型不同分类，I/O 端口分成（<strong>数据端口</strong>）、（<strong>状态端口</strong>）和控制端口三种。</p><p>9. 中断过程中，CPU 执行的现行程序被中断时的下一条指令的地址被称为（<strong>断点</strong>）；CPU 转去执行中断服务程序前的运行状态被称为（<strong>现场</strong>）。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>考试复习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>考试复习</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>博客待整理内容目录</title>
     <link href="/2021/11/14/%E5%8D%9A%E5%AE%A2%E5%BE%85%E6%95%B4%E7%90%86%E5%86%85%E5%AE%B9%E7%9B%AE%E5%BD%95/"/>
     <url>/2021/11/14/%E5%8D%9A%E5%AE%A2%E5%BE%85%E6%95%B4%E7%90%86%E5%86%85%E5%AE%B9%E7%9B%AE%E5%BD%95/</url>
