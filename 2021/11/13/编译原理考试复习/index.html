@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1k 字
+      1.2k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      12
+      14
        分钟
     </span>
   
@@ -361,6 +361,35 @@ A^{&#39;} \rightarrow \alpha A^{&#39;} | \varepsilon
 <blockquote>
 <p>文法描述的语言是<strong>由文法开始符推导的终结符号串</strong>的集合。</p>
 </blockquote>
+<blockquote>
+<p>何为可归前缀和活前缀？</p>
+</blockquote>
+<p>设文法 <span class="math inline">\(G[S]\)</span>，如果 <span class="math inline">\(S \stackrel{*}{\Rightarrow} \alpha A \omega\)</span> <span class="math inline">\(\Rightarrow \alpha \beta \omega\)</span> 是句型 <span class="math inline">\(\alpha \beta \omega\)</span> 的规范推导，则 <span class="math inline">\(\alpha \beta\)</span> 称为<strong>可归前缀</strong>，<span class="math inline">\(\alpha \beta\)</span> 的前缀称为<strong>活前缀</strong>。</p>
+<p>例如文法 <span class="math inline">\(G[S]\)</span>，</p>
+<p><span class="math display">\[
+\begin{split}
+S &amp;\rightarrow aAcBe \\
+A &amp;\rightarrow b \\
+A &amp;\rightarrow Ab \\
+B &amp;\rightarrow d
+\end{split}
+\]</span></p>
+<p>句型 <span class="math inline">\(aAbcde\)</span> 的句柄为 <span class="math inline">\(Ab\)</span>，活前缀有：<span class="math inline">\(\varepsilon\)</span>、<span class="math inline">\(a\)</span>、<span class="math inline">\(aA\)</span> 和 <span class="math inline">\(aAb\)</span>，其中，<span class="math inline">\(aAb\)</span> 为可归前缀。</p>
+<blockquote>
+<p>何为前缀？</p>
+</blockquote>
+<p>将符号串的任意含有头符号的子串称为<strong>前缀</strong>，特别地，空串 <span class="math inline">\(\varepsilon\)</span> 为任意串的前缀。</p>
+<blockquote>
+<p>如何将正则表达式（正规式）转成 <span class="math inline">\(NFA\)</span>？</p>
+</blockquote>
+<p><img src="https://i.imgur.com/fOJVdfM.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/RlWv45O.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/Xz4JShv.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p>如何将 <span class="math inline">\(NFA\)</span> 转成 <span class="math inline">\(DFA\)</span>？</p>
+</blockquote>
+<p><img src="https://i.imgur.com/7kxQj4T.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/HwHiVfv.png" srcset="/img/loading.gif" lazyload /></p>
 
             </div>
             <hr>
