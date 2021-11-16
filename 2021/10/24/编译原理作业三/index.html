@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1k 字
+      1.1k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      16
+      17
        分钟
     </span>
   
@@ -295,7 +295,45 @@ S &amp;\Rightarrow (T) \\
 \]</span></p>
 <p>对每个非终结符，其不带回溯的递归子程序如下：</p>
 <figure class="highlight cal"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cal"><span class="hljs-function"><span class="hljs-keyword">PROCEDURE</span> <span class="hljs-title">S</span><span class="hljs-params">(TOKEN)</span>;</span><br><span class="hljs-keyword">BEGIN</span><br>    <span class="hljs-keyword">IF</span> TOKEN != <span class="hljs-string">&#x27;a&#x27;</span> <span class="hljs-keyword">AND</span> TOKEN != <span class="hljs-string">&#x27;∧&#x27;</span> <span class="hljs-keyword">THEN</span><br>        <span class="hljs-keyword">BEGIN</span><br>            <span class="hljs-keyword">IF</span> TOKEN = <span class="hljs-string">&#x27;(&#x27;</span> <span class="hljs-keyword">THEN</span><br>                <span class="hljs-keyword">BEGIN</span><br>                    GETNEXT(TOKEN);<br>                    T(TOKEN);<br>                    GETNEXT(TOKEN);<br>                    <span class="hljs-keyword">IF</span> TOKEN != <span class="hljs-string">&#x27;)&#x27;</span> <span class="hljs-keyword">THEN</span> ERROR<br>                <span class="hljs-keyword">END</span><br>            <span class="hljs-keyword">ELSE</span> ERROR<br>        <span class="hljs-keyword">END</span><br><span class="hljs-keyword">END</span><br><br><span class="hljs-function"><span class="hljs-keyword">PROCEDURE</span> <span class="hljs-title">T</span><span class="hljs-params">(TOKEN)</span>;</span><br><span class="hljs-keyword">BEGIN</span><br>    S(TOKEN);<br>    N(TOKEN);<br><span class="hljs-keyword">END</span><br><br><span class="hljs-function"><span class="hljs-keyword">PROCEDURE</span> <span class="hljs-title">N</span><span class="hljs-params">(TOKEN)</span>;</span><br><span class="hljs-keyword">BEGIN</span><br>    <span class="hljs-keyword">IF</span> TOKEN = <span class="hljs-string">&#x27;,&#x27;</span> <span class="hljs-keyword">THEN</span><br>        <span class="hljs-keyword">BEGIN</span><br>            GETNEXT(TOKEN);<br>            S(TOKEN);<br>            N(TOKEN);<br>        <span class="hljs-keyword">END</span><br><span class="hljs-keyword">END</span><br></code></pre></div></td></tr></table></figure>
-<p>(3) 经改写后的文法是 <span class="math inline">\(LL(1)\)</span> 文法，它的预测分析表如下：</p>
+<p>(3) 经改写后的文法是 <span class="math inline">\(LL(1)\)</span> 文法，</p>
+<p>对改写后的文法，求其 <span class="math inline">\(FIRST\)</span> 集、<span class="math inline">\(FOLLOW\)</span> 集、<span class="math inline">\(SELECT\)</span> 集如下：</p>
+<table>
+<thead>
+<tr class="header">
+<th>符号</th>
+<th><span class="math inline">\(FIRST\)</span></th>
+<th><span class="math inline">\(FOLLOW\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(S\)</span></td>
+<td><span class="math inline">\(\{A, \wedge, (\}\)</span></td>
+<td><span class="math inline">\(\#, , , )\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(T\)</span></td>
+<td><span class="math inline">\(\{a, \wedge, (\}\)</span></td>
+<td><span class="math inline">\(\{ ) \}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(N\)</span></td>
+<td><span class="math inline">\(\{, , \varepsilon\}\)</span></td>
+<td><span class="math inline">\(\{ ) \}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[
+\begin{split}
+&amp;SELECT(0) = \{ a \} \\
+&amp;SELECT(1) = \{ \wedge \} \\
+&amp;SELECT(2) = \{ ( \} \\
+&amp;SELECT(3) = \{ a, \wedge, ( \} \\
+&amp;SELECT(4) = \{ , \} \\
+&amp;SELECT(5) = \{ ) \} \\
+\end{split}
+\]</span></p>
+<p>它的预测分析表如下：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211024173212.png" srcset="/img/loading.gif" lazyload /></p>
 <p>(4) 对输入串 <span class="math inline">\((a, a)＃\)</span> 的分析过程如下：</p>
 <table>
@@ -323,7 +361,7 @@ S &amp;\Rightarrow (T) \\
 <tr class="odd">
 <td>#)T</td>
 <td>a</td>
-<td>a)#</td>
+<td>,a)#</td>
 <td>T <span class="math inline">\(\rightarrow\)</span> SN, S <span class="math inline">\(\rightarrow\)</span> a</td>
 </tr>
 <tr class="even">
