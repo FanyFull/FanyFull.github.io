@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14
+      15
        分钟
     </span>
   
@@ -365,6 +365,7 @@ A^{&#39;} \rightarrow \alpha A^{&#39;} | \varepsilon
 <p>何为可归前缀和活前缀？</p>
 </blockquote>
 <p>设文法 <span class="math inline">\(G[S]\)</span>，如果 <span class="math inline">\(S \stackrel{*}{\Rightarrow} \alpha A \omega\)</span> <span class="math inline">\(\Rightarrow \alpha \beta \omega\)</span> 是句型 <span class="math inline">\(\alpha \beta \omega\)</span> 的规范推导，则 <span class="math inline">\(\alpha \beta\)</span> 称为<strong>可归前缀</strong>，<span class="math inline">\(\alpha \beta\)</span> 的前缀称为<strong>活前缀</strong>。</p>
+<p>活前缀就是可归前缀的前缀。</p>
 <p>例如文法 <span class="math inline">\(G[S]\)</span>，</p>
 <p><span class="math display">\[
 \begin{split}
@@ -389,6 +390,7 @@ B &amp;\rightarrow d
 <p>如何将 <span class="math inline">\(NFA\)</span> 转成 <span class="math inline">\(DFA\)</span>？</p>
 </blockquote>
 <p><img src="https://i.imgur.com/7kxQj4T.png" srcset="/img/loading.gif" lazyload /></p>
+<p>按：在这里，像状态 <span class="math inline">\(B\)</span> 遇到 <span class="math inline">\(a\)</span>，那么，其到达的状态是看成 <span class="math inline">\(\varnothing\)</span> 的。</p>
 <p><img src="https://i.imgur.com/HwHiVfv.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
 <p>一张预测分析表？</p>
