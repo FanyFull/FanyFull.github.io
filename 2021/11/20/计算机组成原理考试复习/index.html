@@ -18,7 +18,7 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-  <title>博客待整理内容目录 - Fany Full&#39;s Blog</title>
+  <title>计算机组成原理考试复习 - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -166,12 +166,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/RVMcNUm.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/zUb9t8X.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="博客待整理内容目录">
+            <span class="h2" id="subtitle" title="计算机组成原理考试复习">
               
             </span>
 
@@ -181,8 +181,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-11-14 18:19" pubdate>
-        2021年11月14日 晚上
+      <time datetime="2021-11-20 10:00" pubdate>
+        2021年11月20日 上午
       </time>
     </span>
   
@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      61 字
+      801 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      9
        分钟
     </span>
   
@@ -233,27 +233,93 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">博客待整理内容目录</h1>
+            <h1 style="display: none">计算机组成原理考试复习</h1>
             
             <div class="markdown-body">
-              <div>
-            <input type="checkbox" disabled >傅里叶级数推导
-          </div>
-<div>
-            <input type="checkbox" disabled >gcc 编译选项整理
-          </div>
-<div>
-            <input type="checkbox" disabled >gdb 调试用法整理
-          </div>
-<div>
-            <input type="checkbox" disabled >vim 快捷键整理
-          </div>
-<div>
-            <input type="checkbox" disabled >C 语言 `clock` 函数现在还会不会把 `scanf` 的时间算进去呢？
-          </div>
-<div>
-            <input type="checkbox" disabled >编译原理作业三最后一题修正
-          </div>
+              <h1 id="第一章-计算机系统概论">第一章 计算机系统概论</h1>
+<blockquote>
+<p>世界上第一台电子计算机 ENIAC（1946）</p>
+</blockquote>
+<blockquote>
+<p>计算机的分类？</p>
+</blockquote>
+<ol type="1">
+<li>总体分为电子模拟计算机和电子数字计算机。</li>
+<li>电子数字计算机又可以分为通用计算机和专用计算机。</li>
+<li>通用计算机又可以分为：巨型机、大型机、中型机、小型机、微型机和单片机。</li>
+</ol>
+<blockquote>
+<p>何为通道？</p>
+</blockquote>
+<p>一种专用部件，负责外部设备与内存之间信息的传输。</p>
+<blockquote>
+<p>何为中断？</p>
+</blockquote>
+<p>主机接到信号（来自 CPU 外部或内部）时，立即中止原 来的工作，转去处理这一事件，处理完后，主机又回到原来工作点继续工作。</p>
+<blockquote>
+<p>多道运行的特征？</p>
+</blockquote>
+<ul>
+<li>多道</li>
+<li>保护</li>
+<li>宏观并行，微观串行</li>
+</ul>
+<blockquote>
+<p>PC 和 IR 寄存器的功能？</p>
+</blockquote>
+<ul>
+<li>PC：存放当前欲执行指令的地址，具有计数功能 <span class="math inline">\((PC) + 1 \rightarrow PC\)</span></li>
+<li>存放当前欲执行的指令</li>
+</ul>
+<blockquote>
+<p>何为时钟周期？</p>
+</blockquote>
+<p>又称为节拍周期或 T 周期,是时钟频率的倒数。是处理器操作最基本的时间单位。例如，主频为 1GHz 的 CPU 的时钟周期为 1ns。</p>
+<p>按：</p>
+<ul>
+<li>时钟周期的定义其实应该是一个时钟脉冲所需要的时间。频率就是 1s 内可以产生的时钟脉冲数量。</li>
+<li>时钟频率应该表述为：<span class="math inline">\(f = \frac{1}{T}\)</span>，分子的 1 表示 1 秒钟。</li>
+<li>从时钟频率转换成时钟周期应该是这样：<span class="math inline">\(T = \frac{1}{f} \times 1\)</span>，后面乘的 1 表示 1 秒钟，而前面的分子的 1 表示占比。（f 个时钟周期中分出一个然后乘以 1 秒钟）</li>
+</ul>
+<blockquote>
+<p>何为 <span class="math inline">\(CPI\)</span> 和 <span class="math inline">\(CPI_i\)</span>？</p>
+</blockquote>
+<ul>
+<li>CPI：表示执行每条指令（一个程序中的所有指令）所需要的平均时钟周期数。</li>
+<li><span class="math inline">\(CPI_i\)</span>：表示执行每条指令（一类指令中的所有指令）所需要的平均时钟周期数。</li>
+</ul>
+<p><span class="math display">\[
+CPI = 一个程序的 CPU 时钟周期数 ÷ 程序指令数量
+\]</span></p>
+<p>设程序中每类指令的使用频度为 <span class="math inline">\(P_i\)</span>，每类指令的 <span class="math inline">\(CPI\)</span> 为 <span class="math inline">\(CPI_i\)</span>，每类指令的条数为 <span class="math inline">\(IC_i\)</span>，程序中的总指令条数为 <span class="math inline">\(IC\)</span>，则，程序的 <span class="math inline">\(CPI\)</span> 可用下列公式计算：</p>
+<p><span class="math display">\[
+CPI = \sum_{i = i}^{n} (CPI_i \times P_i)
+\]</span></p>
+<p><span class="math display">\[
+CPI = \sum_{i = 1}^{n} (CPI_i \times \frac{IC_i}{IC})
+\]</span></p>
+<blockquote>
+<p>何为 CPU 执行时间？</p>
+</blockquote>
+<p>是指 CPU 计算某个任务所花费的时间，不包括 I/O 访问时的等待时间等。</p>
+<p>CPU 执行时间 = CPU 时钟周期总数 × 时钟周期 = (指令条数 × CPI) × 时钟周期</p>
+<p>CPU 执行时间 = CPU 时钟周期总数 / 时钟频率 = (指令条数 × CPI) / 时钟频率</p>
+<p>CPI = 一个程序的 CPU 时钟周期数 ÷ 程序指令数量</p>
+<p>CPU 执行时间 = CPU 时钟周期总数 / 时钟频率</p>
+<blockquote>
+<p>何为 MIPS？</p>
+</blockquote>
+<p>是指 CPU 每秒可以执行的百万条机器指令数。</p>
+<p>MIPS = 指令数 ÷ (程序执行的时间 <span class="math inline">\(\times\)</span> <span class="math inline">\(10^6\)</span>) = 时钟频率 ÷ (CPI <span class="math inline">\(\times\)</span> <span class="math inline">\(10^6\)</span>)</p>
+<p>推导：</p>
+<p><span class="math display">\[
+\begin{split}
+MIPS &amp;= \frac{指令数}{CPU 执行时间 \times 10^6 \quad \;} \\
+&amp;= \frac{指令数}{(CPU 时钟周期总数 / f) \times 10^6 \qquad} \\
+&amp;= \frac{f}{CPI \times 10^6}
+\end{split}
+\]</span></p>
+<h1 id="第二章-计算机中的数据表示方法">第二章 计算机中的数据表示方法</h1>
 
             </div>
             <hr>
@@ -263,7 +329,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%9D%82/">杂</a>
+                      <a class="hover-with-bg" href="/categories/%E8%80%83%E8%AF%95/">考试</a>
                     
                   </div>
                 
@@ -271,7 +337,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%9D%82/">杂</a>
+                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%80%83%E8%AF%95/">考试</a>
                     
                   </div>
                 
@@ -288,18 +356,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/11/14/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">微机原理考试复习</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/11/14/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">
-                        <span class="hidden-mobile">数据库第一次上机实验报告</span>
+                      <a href="/2021/11/14/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/">
+                        <span class="hidden-mobile">微机原理考试复习</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
