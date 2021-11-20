@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.5k 字
+      2.8k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      29
+      33
        分钟
     </span>
   
@@ -254,7 +254,7 @@ b = \sum_{i = -n}^{m} 2^i \times b_i
 \]</span></p>
 <p>注意，形如 <span class="math inline">\(0.11 \cdots 1_2\)</span> 的数表示的是刚好小于 1 的数。例如，<span class="math inline">\(0.111111_2\)</span> 表示 <span class="math inline">\(\frac{63}{64}\)</span>，我们用简单的表达法 <span class="math inline">\(1.0 - \varepsilon\)</span> 来表示这样的数值。</p>
 <p>按：<span class="math inline">\(\varepsilon\)</span> 这个是我们的老朋友了，在物理实验或者计算方法这些课程中，学习误差的表达时经常会见到。</p>
-<p>假定我们仅考虑有限长度的编码，那么十进制表示法不能准确地表达像 <span class="math inline">\(\frac{1}{3}\)</span> 和 <span class="math inline">\(\frac{5}{7}\)</span> 这样的数。类似，小数的二进制表示法只能表示哪些能够被写成 <span class="math inline">\(x \times 2^y\)</span> 的数。其他的值只能够被近似地表示。例如，数字 <span class="math inline">\(\frac{1}{5}\)</span> 可以用十进制小数 <span class="math inline">\(0.20\)</span> 精确表示。不过，我们并不能把它准确地表示为一个二进制小数，我们只能近似地表示它，增加二进制表示地长度可以提高表示的精度。</p>
+<p>假定我们仅考虑有限长度的编码，那么十进制表示法不能准确地表达像 <span class="math inline">\(\frac{1}{3}\)</span> 和 <span class="math inline">\(\frac{5}{7}\)</span> 这样的数。类似，小数的二进制表示法只能表示哪些能够被写成 <span class="math inline">\(x \times 2^y\)</span> 的数。其他的值只能够被近似地表示。例如，数字 <span class="math inline">\(\frac{1}{5}\)</span> 可以用十进制小数 <span class="math inline">\(0.20\)</span> 精确表示。不过，我们并不能把它准确地表示为一个二进制小数，我们只能近似地表示它，增加二进制表示的长度可以提高表示的精度。</p>
 <h1 id="ieee-浮点数表示">2. IEEE 浮点数表示</h1>
 <p>IEEE 浮点数即采用 IEEE754 标准来表示的浮点数。</p>
 <p>IEEE 浮点标准用 <span class="math inline">\(V = (-1)^s \times M \times 2^E\)</span> 的形式来表示一个数：</p>
@@ -278,7 +278,7 @@ b = \sum_{i = -n}^{m} 2^i \times b_i
 <p>举例，单精度格式的情况：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210928113430.png" srcset="/img/loading.gif" lazyload alt="阶码的值决定了这个数是规格化的、非规格化的或特殊值" /></p>
 <p><strong>情况 1；规格化的值</strong></p>
-<p>当 <span class="math inline">\(exp\)</span> 的所有位既不全为 0（即 <span class="math inline">\(exp\)</span> 数值为 0），也不全为 1（单精度数值为 255，双精度数值为 2047），都术语这类情况。在这种情况下，阶码字段被解释为以偏置值（biased）形式表示的有符号整数。也就是说，阶码的值是 <span class="math inline">\(E = e - Bias\)</span>（<span class="math inline">\(e\)</span> 即 <span class="math inline">\(exp\)</span>），其中 <span class="math inline">\(e\)</span> 是无符号数，其位表示为 <span class="math inline">\(e_{k - 1} \cdots e_1e_0\)</span>，而 <span class="math inline">\(Bias\)</span> 是一个等于 <span class="math inline">\(2^{k - 1} - 1\)</span>（单精度是 127，双精度是 1023）的偏置值。由此产生指数的取值范围，对于单精度是 <span class="math inline">\(-126 \sim +127\)</span>，而对于双精度是 <span class="math inline">\(-1022 \sim +1023\)</span>。</p>
+<p>当 <span class="math inline">\(exp\)</span> 的所有位既不全为 0（即 <span class="math inline">\(exp\)</span> 数值为 0），也不全为 1（单精度数值为 255，双精度数值为 2047），都属于这类情况。在这种情况下，阶码字段被解释为以偏置值（biased）形式表示的有符号整数。也就是说，阶码的值是 <span class="math inline">\(E = e - Bias\)</span>（<span class="math inline">\(e\)</span> 即 <span class="math inline">\(exp\)</span>），其中 <span class="math inline">\(e\)</span> 是无符号数，其位表示为 <span class="math inline">\(e_{k - 1} \cdots e_1e_0\)</span>，而 <span class="math inline">\(Bias\)</span> 是一个等于 <span class="math inline">\(2^{k - 1} - 1\)</span>（单精度是 127，双精度是 1023）的偏置值。由此产生指数的取值范围，对于单精度是 <span class="math inline">\(-126 \sim +127\)</span>，而对于双精度是 <span class="math inline">\(-1022 \sim +1023\)</span>。</p>
 <p>按：这里说的指数范围，就拿单精度的范围 <span class="math inline">\(-126 \sim +127\)</span>，因为单精度阶码一共有 8 位，所以 <span class="math inline">\(e\)</span> 的范围是 <span class="math inline">\(0 \sim 255\)</span>，然后根据 <span class="math inline">\(E = e - Bias\)</span>、<span class="math inline">\(Bias = 127\)</span> 来算，得到的指数 <span class="math inline">\(E\)</span> 的取值范围是 <span class="math inline">\(-127 \sim +128\)</span>，但是，别忘了 <span class="math inline">\(e\)</span> 还要去掉 0 和 255 两个值，然后再算，就得到了 <span class="math inline">\(-126 \sim +127\)</span>。</p>
 <p>小数字段 <span class="math inline">\(frac\)</span> 被解释为描述小数值 <span class="math inline">\(f\)</span>，其中 <span class="math inline">\(0 \leqslant f &lt; 1\)</span>，其二进制表示为 <span class="math inline">\(0.f_{n - 1} \cdots f_1f_0\)</span>，也就是二进制小数点在最高有效位的左边。尾数定义为 <span class="math inline">\(M = 1 + f\)</span>。有时，这种方式也叫做隐含的以 1 开头的（implied leading 1）表示，因为我们可以把 <span class="math inline">\(M\)</span> 看成一个二进制表达式为 <span class="math inline">\(1.f_{n - 1}f_{n - 2} \cdots f_0\)</span> 的数字。因为我们是可以通过调整阶码 <span class="math inline">\(E\)</span>，使得尾数 <span class="math inline">\(M\)</span> 在范围 <span class="math inline">\(1 \leqslant M &lt; 2\)</span> 之中（假设没有溢出），所以这种表达方式的好处是可以轻松获得一个额外的精度位。因为第一位总是等于 1，那么我们就不需要显式地表示它。</p>
 <p><strong>情况 2：非规格化的值</strong></p>
@@ -286,7 +286,7 @@ b = \sum_{i = -n}^{m} 2^i \times b_i
 <p>按：这里要仔细注意。</p>
 <p>非规格化数有两个用途。首先，它们提供了一种表示数值 0 的方法，因为使用规格化数，我们必须要使 <span class="math inline">\(M \geqslant 1\)</span>，因此我们就不能表示 0。实际上，<span class="math inline">\(+0.0\)</span> 的浮点表示的位模式为全 0：符号位是 0，阶码字段全为 0（表明是一个非规格化值），而小数域也全为 0，这就得到了 <span class="math inline">\(M = f = 0\)</span>。令人奇怪的是，当符号位为 1，而其他域全为 0 时，我们得到值 <span class="math inline">\(-0.0\)</span>。根据 IEEE 的浮点格式，值 <span class="math inline">\(+0.0\)</span> 和 <span class="math inline">\(-0.0\)</span> 在某些方面被认为是不同的，而在其他方面是相同的。</p>
 <p>非规格化数的另外一个功能是表示哪些非常接近于 <span class="math inline">\(0.0\)</span> 的数。它们提供了一种属性，称为逐渐溢出（gradual underflow），其中，可能的数值分布均匀地接近于 <span class="math inline">\(0.0\)</span>。</p>
-<p>按：这里的逐渐溢出表示的大概是从非规格数平滑地溢出到，然后就到了规格数（可以参考之后的表格示例）。</p>
+<p>按：这里的逐渐溢出表示的大概是从非规格数平滑地溢出，然后就到了规格数（可以参考之后的表格示例）。</p>
 <p><strong>情况 3：特殊值</strong></p>
 <p>最后一类数值是指阶码全为 1 的时候出现的值。</p>
 <ul>
@@ -305,6 +305,54 @@ b = \sum_{i = -n}^{m} 2^i \times b_i
 <li>当增大阶码时，我们成功地得到更大的规格化数。然后，我们可以得到最大的规格化数，这个数具有阶码 <span class="math inline">\(E = 7\)</span>，权 <span class="math inline">\(2^E = 128\)</span>，小数等于 <span class="math inline">\(\frac{7}{8}\)</span> 得到尾数 <span class="math inline">\(M = \frac{15}{8}\)</span>，因此，其数值是 <span class="math inline">\(V = 240\)</span>。超出这个值就会溢出到 <span class="math inline">\(+\infty\)</span>。</li>
 </ul>
 <p>IEEE 的这种表示具有一个有趣的属性，我们可以发现上面 8 位浮点格式的非负值示例表格中的数据，如果把它们的位表达式看成是无符号整数，那么它们从上到下是按照升序的方式排列的，而它们所表示的浮点数也是升序排列的。IEEE 这样设计的目的其实就是为了让浮点数能够使用整数排序来进行排序。当比较负数时，同样可以使用类似的方法。</p>
+<p>还有一点要注意的地方，就是 IEEE754 这个阶码的部分（e），它是用移码来表示的，关于移码，可以参看<a href="https://fanyfull.github.io/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%BB%E7%A0%81/">另一篇博客</a>。</p>
+<h1 id="例题">4. 例题</h1>
+<blockquote>
+<p>例1 将十进制数 20.59375 转换成 32 位 IEEE754 格式浮点数的二进制格式来存储。</p>
+</blockquote>
+<p>解：先将十进制数转换成二进制数：</p>
+<p><span class="math display">\[
+20.59375 = 10100.10011 \; (0.5 + 0.25 + 0.125 + 0.0625 + 0.03125)
+\]</span></p>
+<p>移动小数点，使其变成 <span class="math inline">\(1.M\)</span> 的形式：</p>
+<p><span class="math display">\[
+10100.10011 = 1.010010011 \times 2^4
+\]</span></p>
+<p>得到：</p>
+<p><span class="math display">\[
+S = 0, e = 4, E = 100_2 + 01111111_2 = 10000011_2, M = 010010011
+\]</span></p>
+<p>最后得到 32 位浮点数的二进制存储格式为：</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;0100 \; 0001 \; 1010 \; 0100 \; 1100 \; 0000 \; 0000 \; 0000 \\
+&amp;= (41A4C000)_16
+\end{split}
+\]</span></p>
+<blockquote>
+<p>例2 若某浮点数 x 的二进制存储格式为 <span class="math inline">\((41360000)_16\)</span>，求与其对应的 32 位浮点表示的十进的值。</p>
+</blockquote>
+<p>解：</p>
+<p>首先判断是规格数。</p>
+<p>然后进行处理，</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;(41360000)_16 \\
+&amp;= (0 \; 100,0001,0 \; 011,0110,0000,0000,0000,0000)_2
+\end{split}
+\]</span></p>
+<p>由此可得：</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;s = 0 \\
+&amp;E = e - Bias = 10000010 - 01111111 = &amp;00000011 = (3)_10 \\
+&amp;M = 1.011011
+\end{split}
+\]</span></p>
+<p>则上述浮点数对应的真值为</p>
+<p><span class="math display">\[
+V = (-1)^s \times M \times 2^E = (-1)^0 \times 2^3 = 1011.011 = (11.375)_10
+\]</span></p>
 <hr />
 <p>参考：</p>
 <p>1、《深入理解计算机系统 第三版》</p>
