@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.6k 字
+      2.9k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      17
+      33
        分钟
     </span>
   
@@ -372,6 +372,36 @@ MIPS &amp;= \frac{指令数}{CPU 执行时间 \times 10^6 \quad \;} \\
 <li>若用四位二进制编码只表示 0000、0011、0101、0110、1111、1001、1010、1100 等八种编码，则码距为 2。此时，这 8 种编码中的任何一位发生改变，如 0000 变成 1000 就从有效编码变成了无效编码，容易检测到这种错误。 按：这里的码距指的是取这一组中任何两个编码之间的最小“距离”。</li>
 </ul>
 <p>这里的码距，有些地方叫做最小码距，而码距则是指两个编码之间的的不同位数。</p>
+<h1 id="第三章-运算方法与运算器">第三章 运算方法与运算器</h1>
+<blockquote>
+<p>何为变形补码？</p>
+</blockquote>
+<p><span class="math display">\[
+[X]_{补} = 
+\left\{\begin{matrix}
+\begin{aligned}
+&amp;X &amp; 0 &amp; \leqslant X &lt; 2 \\
+&amp; &amp; &amp; &amp; mod \; 4 \\
+&amp;4 + X &amp; -2 &amp; \leqslant X &lt; 0 \\
+\end{aligned}
+\end{matrix}\right.
+\]</span></p>
+<p>此时，</p>
+<p><span class="math display">\[
+[X]_{补} = X_{f1} X_{f2}.X_1 X_2 X_3 ... X_n
+\]</span></p>
+<p>对于变形补码，其溢出的检测为：</p>
+<ul>
+<li>上溢：双符号位为 01</li>
+<li>下溢：双符号位为 10</li>
+<li>溢出的判断：<span class="math inline">\(V = X_{f1} \oplus X_{f2}\)</span></li>
+</ul>
+<p>注意，最高符号位（双符号位的第一位）为结果的真实符号。</p>
+<blockquote>
+<p>如何理解上溢和下溢？</p>
+</blockquote>
+<p>所谓上溢，就是指双符号位为 <code>01</code> 时的溢出，上溢也叫正溢出，因为第一位符号位是对的，所以，可以形象理解为两个正数相加得到负数时候的溢出。</p>
+<p>下溢的理解同理。</p>
 <h1 id="第四章-存储系统">第四章 存储系统</h1>
 <blockquote>
 <p>何为存储字长？</p>
@@ -402,10 +432,156 @@ MIPS &amp;= \frac{指令数}{CPU 执行时间 \times 10^6 \quad \;} \\
 <p>小端模式（Little-endian）：</p>
 <div class="hljs code-wrapper"><pre><code>内存地址    0x4000   0x4001   0x4002    0x4003
 存放内容    0x78     0x56     0x34      0x12</code></pre></div>
+<h1 id="第五章-指令系统">第五章 指令系统</h1>
+<blockquote>
+<p>如何理解操作数的寻址方式？</p>
+</blockquote>
+<p>操作数的来源：</p>
+<p>⑴ 操作数直接来自指令地址字段； ⑵ 操作数存放在寄存器中，即寄存器操作数； ⑶ 操作数存放在存储器中，即存储器操作数。</p>
+<p>所谓操作数的寻址方式，就是如何从上述三种来源中为指令提供操作数。</p>
+<blockquote>
+<p>何为有效地址？</p>
+</blockquote>
+<p>操作数在内存中的地址，一般用 <span class="math inline">\(E\)</span> 表示，则数据 <span class="math inline">\(S = (E)\)</span>。</p>
+<blockquote>
+<p>何为隐含寻址？</p>
+</blockquote>
+<p>操作数在寄存器中。</p>
+<p>不明确地给出操作数的地址，而是在指令中隐含地给出。</p>
+<blockquote>
+<p>何为立即数寻址？</p>
+</blockquote>
+<p>操作数在指令中。</p>
+<p>指令的地址字段指出的不是地址，而是操作数本身。</p>
+<p>如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs asm">ADD AX, 2038H<br></code></pre></div></td></tr></table></figure>
+<p>不计算 E，S = 2038H。</p>
+<blockquote>
+<p>何为直接寻址？</p>
+</blockquote>
+<p>数据在内存中。</p>
+<p>由指令的地址部分直接给出操作数的有效地址。</p>
+<p>E = D， S = (D) = (E)</p>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs asm">MOV AX, [2038H]<br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>何为间接寻址？</p>
+</blockquote>
+<p>操作数在内存中。</p>
+<p>指令的形式地址部分给出的是操作数地址的地址，即是操作数地址的指示器。</p>
+<p>E = (D), S = (E) = ((D))</p>
+<blockquote>
+<p>何为寄存器寻址和寄存器间接寻址？</p>
+</blockquote>
+<p>数据分别在寄存器和主存中。</p>
+<ul>
+<li>寄存器寻址：
+<ul>
+<li>操作数不放在内存中，而是放在通用寄存器中，此时，指令的形式地址字段 D 的值表示的是寄存器号。</li>
+<li>不计算 E，<span class="math inline">\(S = (R_D)\)</span></li>
+</ul></li>
+<li>寄存器间接寻址：
+<ul>
+<li>寄存器的内容不是操作数，而是操作数所在内存单元的地址。</li>
+<li><span class="math inline">\(E = (R_D)\)</span>，<span class="math inline">\(S = (E) = ((R_D))\)</span></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>何为相对寻址？</p>
+</blockquote>
+<p>数据在内存中。</p>
+<p>E = (PC) + D, S = (E) = ((PC) + D)</p>
+<p>把 PC 的值和指令中形式地址 D 的内容相加，作为有效地址。PC 的值是下一条指令的地址。</p>
 <blockquote>
 <p>MIPS 的三类指令？</p>
 </blockquote>
 <p><img src="https://i.imgur.com/oEQZ4CJ.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p>原码表示法中，零有两个编码，即 <span class="math inline">\(0.0...0\)</span> 和 <span class="math inline">\(1.0...0\)</span>。</p>
+</blockquote>
+<p>按：</p>
+<p>实际上，原码表示法表示的零要分整数和小数来讨论，而且，不管是小数还是小数，各自都有两种方法来表示零：</p>
+<ul>
+<li>小数
+<ul>
+<li><span class="math inline">\(0.0...0\)</span></li>
+<li><span class="math inline">\(1.0...0\)</span></li>
+</ul></li>
+<li>整数
+<ul>
+<li><span class="math inline">\(00...0\)</span></li>
+<li><span class="math inline">\(10...0\)</span></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>设 <span class="math inline">\(X = 11001101\)</span>，数据采用奇校验时，其校验位 C = <span class="math inline">\(0\)</span>。</p>
+</blockquote>
+<p>按：</p>
+<p>所谓奇校验，就是通过设置校验位的值，使待传数据中（含有一位校验位）1 的个数为奇数。设校验位为 C，则：</p>
+<p><span class="math display">\[
+C = \overline{X_0 \oplus X_1 \oplus \cdots \oplus X_{n - 1}}
+\]</span></p>
+<blockquote>
+<p>浮点表示法中，阶码决定浮点数的<strong>范围</strong>，尾数决定浮点数的<strong>精度</strong>。</p>
+</blockquote>
+<blockquote>
+<p>设 <span class="math inline">\(X = -35 / 64\)</span>，<span class="math inline">\(X\)</span> 的补码为 <span class="math inline">\(1.011101\)</span>。</p>
+</blockquote>
+<blockquote>
+<p>微程序控制器中的核心部件是<strong>控制存储器</strong>。</p>
+</blockquote>
+<p>按：</p>
+<p>控制存储器：</p>
+<ul>
+<li>存放用来实现全部指令的所有微程序</li>
+<li>只读存储器</li>
+<li>微程序固化在其中</li>
+</ul>
+<blockquote>
+<p>74181 集成运算芯片能提供快速运算，是因为它内部具有<strong>并行</strong>逻辑。</p>
+</blockquote>
+<p>按：疑。</p>
+<blockquote>
+<p>冯·诺伊曼计算机的设计思想是<strong>指令和数据用二进制表示...</strong>。</p>
+</blockquote>
+<p>冯·诺伊曼计算机的特点（设计思想）：</p>
+<ul>
+<li>1. 计算机由五大部件组成</li>
+<li>2. 指令和数据以同等地位存于存储器（存储程序和程序控制）</li>
+<li>3. 指令和数据用二进制表示</li>
+<li>4. 指令由操作码和地址码组成</li>
+<li>5. 以运算器为中心</li>
+</ul>
+<blockquote>
+<p>EPROM 芯片靠<strong>紫外线</strong>擦除原存信息。</p>
+</blockquote>
+<p>按：</p>
+<p>ROM 的历史：</p>
+<ul>
+<li>MROM：Mask Read-Only Memory，掩模式只读存储器</li>
+<li>PROM：Programmable Read-Only memory，一次可编程只读存储器</li>
+<li>EPROM：Erasable Programmable Read-Only Memory，电写/光（紫外线）擦除可编程只读存储器</li>
+<li>EEPROM：Electronically Erasable Programmable Read-Only Memory，电可擦除可编程只读存储器</li>
+</ul>
+<blockquote>
+<p>固件是一种具有<strong>软件</strong>特性的硬件，通常是将程序<strong>固化</strong>在 ROM 中实现。</p>
+</blockquote>
+<blockquote>
+<p>指令寄存器用来保存<strong>正在执行的指令</strong>。指令计数器用来保存<strong>下一条要执行的指令</strong>。</p>
+</blockquote>
+<p>按：</p>
+<p>The program counter (<strong>PC</strong>) holds the address of the next instruction to be executed, while the instruction register (<strong>IR</strong>) holds the encoded instruction. Upon fetching the instruction, the program counter is incremented by one "address value" (to the location of the next instruction).</p>
+<ul>
+<li>PC，存放下一条要执行的指令的地址</li>
+<li>IR，存放当前要执行的指令</li>
+</ul>
+<blockquote>
+<p>半导体 SRAM 存储元靠<strong>电路</strong>存储信息，而 DRAM 存储元靠<strong>电荷</strong>存储信息。</p>
+</blockquote>
+<p>按：存疑。</p>
+<blockquote>
+<p>间接寻址方式中，操作数的有效地址 E 的表达式为 <span class="math inline">\(E = (D)\)</span>。</p>
+</blockquote>
 
             </div>
             <hr>
