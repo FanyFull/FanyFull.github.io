@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      2k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      12
+      23
        分钟
     </span>
   
@@ -288,6 +288,68 @@
 <li>最高位进位 <span class="math inline">\(Cout\)</span>。</li>
 <li>有符号运算溢出判断 <span class="math inline">\(OF\)</span>。</li>
 </ul>
+<p>首先，研究一下预置部件一位全加器 FA。</p>
+<p>对于一位加法，显然有输入：</p>
+<ul>
+<li>操作数 1：x</li>
+<li>操作数 2：y</li>
+</ul>
+<p>有输出：</p>
+<ul>
+<li>本位和：s</li>
+<li>进位产生：Cout</li>
+</ul>
+<p>则有：</p>
+<ul>
+<li><span class="math inline">\(0 + 0 = 0\)</span>，进位 <span class="math inline">\(0\)</span></li>
+<li><span class="math inline">\(0 + 1 = 1\)</span>，进位 <span class="math inline">\(0\)</span></li>
+<li><span class="math inline">\(1 + 0 = 1\)</span>，进位 <span class="math inline">\(0\)</span></li>
+<li><span class="math inline">\(1 + 1 = 0\)</span>，进位 <span class="math inline">\(1\)</span></li>
+</ul>
+<p>然而，在实际的运算中，对于一位加法，还有从低位进位引入的进位值，在运算中不可忽略，我们把这个进位值记作 Cin，同样要与 x 和 y 一起参与加法运算。</p>
+<p>那么对于一位加法运算，有 x，y 以及 Cin 三个输入数据，同时有 s 和 Cout 两个输出数据。</p>
+<p>对于这个运算过程，其逻辑表达式为</p>
+<p><span class="math display">\[
+\begin{split}
+Cout &amp;= X_i \cdot Y_i + Cin \cdot (X_i \oplus Y_i) \\
+S_i &amp;= X_i \oplus Y_i \oplus Cin
+\end{split}
+\]</span></p>
+<p>根据一位加法的原理，可以设计出一位全加器 FA：</p>
+<p><img src="https://i.imgur.com/uBMfRMP.png" srcset="/img/loading.gif" lazyload alt="一位全加器 FA" /></p>
+<p>已经封装好的电路可以在其他电路中直接拖拽使用，一位加法器 FA 在其他电路中的效果如图所示：</p>
+<p><img src="https://i.imgur.com/5npCeQK.png" srcset="/img/loading.gif" lazyload /></p>
+<p>将 8 个 FA 的进位链串联即可得到 8 位串行加法器。</p>
+<p><img src="https://i.imgur.com/qXDzOpb.png" srcset="/img/loading.gif" lazyload /></p>
+<p>将 8 个一位全加器 FA 的进位链串联即可得到 n 位加法器，由于补码符号位也可以参与运算，所以此电路既可以用于有符号数运算，也可以用于无符号数运算，但二者在溢出检测上有一定区别，这里 OF 的判定以有符号数加法运算是否溢出为标准。</p>
+<p>按：存疑。为什么要以有符号数加法运算是否溢出为标准。</p>
+<p>教材给出了溢出的定义，即：运算结果超出数据类型所能表示的数据范围的现象称为溢出。有多种方法可以检测溢出，课本上给出了 3 种常用的方法来检测溢出。</p>
+<blockquote>
+<p>溢出检测方法 1. 根据操作数和运算结果的符号位是否一致来进行检测</p>
+</blockquote>
+<p>在有符号运算加法中，只有当两个符号相同的数相加时才有可能产生溢出，因此，可以根据操作数与运算结果的符号位是否一致来进行检测。</p>
+<p>设 <span class="math inline">\(X_f\)</span>，<span class="math inline">\(Y_f\)</span> 分别为两个操作数的符号位，<span class="math inline">\(S_f\)</span> 为结果的符号位，<span class="math inline">\(V\)</span> 为溢出标志位，<span class="math inline">\(V = 1\)</span> 时即表示溢出，那么有逻辑表达式：</p>
+<p><span class="math display">\[
+V = X_f Y_f \overline{S}_f + \overline{X}_f \overline{Y}_f S_f
+\]</span></p>
+<p>这个逻辑表达式表明，有符号加法运算溢出的条件是：两个操作数都是正数结果却为负数，或者两个运算数都是负数结果却是正数。</p>
+<blockquote>
+<p>溢出检测方法 2. 根据运算过程中，最高数据位与符号位的进位位是否一致进行检测（推荐）</p>
+</blockquote>
+<p>设运算时最高数据位产生的进位信号为 <span class="math inline">\(C_d\)</span>，符号位产生的进位信号为 <span class="math inline">\(C_f\)</span>，那么相应的检测逻辑表达式为：</p>
+<p><span class="math display">\[
+V = C_d \oplus C_f
+\]</span></p>
+<p>这个表达式表明，运算过程中最高数据位的进位 <span class="math inline">\(C_d\)</span> 与符号位的进位 <span class="math inline">\(C_f\)</span> 不同步时，就表明有符号运算结果发生了溢出。</p>
+<p>可以用异或门实现。</p>
+<blockquote>
+<p>溢出检测方法 3. 利用变形补码进行检测</p>
+</blockquote>
+<p>略。暂时用不到，而且讲课的时候有讲。</p>
+<p>对于这个封装好的 8 位串行加法器，采用的是上述的方法 2 来实现 OF 的溢出检测。</p>
+<p><img src="https://i.imgur.com/qXDzOpb.png" srcset="/img/loading.gif" lazyload /></p>
+<p>在电路中，我们把最高数据位 <span class="math inline">\(X_6\)</span>，<span class="math inline">\(Y_6\)</span> 的运算结果的进位输出 <span class="math inline">\(Cout_6\)</span> 与符号位 <span class="math inline">\(X_7\)</span>，<span class="math inline">\(Y_7\)</span> 的运算结果的进位输出 <span class="math inline">\(Cout_7\)</span> 一同送入 XOR gate 进行判定，结果送 OF，实现检测功能。</p>
+<hr />
 <p>之前已经给出了 8 位串行加法器的电路实现，相当于已经有了“加法”功能。根据这个思路，在本实验中，需要完成“减法”功能，以及“加减法控制”功能。</p>
 <p>实验文件中已经给的 8 位串行加法器的实现：</p>
 <p><img src="https://i.imgur.com/88sbir0.png" srcset="/img/loading.gif" lazyload /></p>
@@ -302,6 +364,13 @@
 \]</span></p>
 <p>根据以上规则，把补码减法转换为补码加法。这样，我们就可以简单地利用“加法器”来实现减法运算。</p>
 <h3 id="四位先行进位电路">2. 四位先行进位电路</h3>
+<p>根据下图定义的输入输出引脚完成 4 位先行进位电路。</p>
+<p><img src="https://i.imgur.com/rngpsTs.png" srcset="/img/loading.gif" lazyload alt="四位先行进位电路引脚定义" /></p>
+<p>初始电路：</p>
+<p><img src="https://i.imgur.com/Y8P38CK.png" srcset="/img/loading.gif" lazyload /></p>
+<p>完成电路：</p>
+<p><img src="https://i.imgur.com/lr9jAIo.png" srcset="/img/loading.gif" lazyload /></p>
+<p><strong>实验原理：</strong></p>
 <ul>
 <li><p>输入序列 <span class="math inline">\(G4 \; P4 \; G3\)</span> <span class="math inline">\(P3 \; G2 \; P2 \; G1 \; P1 \; Cin\)</span></p></li>
 <li><p>输出序列 <span class="math inline">\(C4 \; C3 \; C2\)</span> <span class="math inline">\(C1 \; G^* P^*\)</span></p></li>
