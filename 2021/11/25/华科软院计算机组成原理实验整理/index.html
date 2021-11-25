@@ -1,0 +1,562 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
+  
+  <title>华科软院计算机组成原理实验整理 - Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":false,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fany Full's Blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/Chwujgb.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="华科软院计算机组成原理实验整理">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-11-25 10:40" pubdate>
+        2021年11月25日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      12
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">华科软院计算机组成原理实验整理</h1>
+            
+            <div class="markdown-body">
+              <h1 id="前言">前言</h1>
+<p>一共应该是四次实验，但是最后只检查实验二和实验四。</p>
+<p>关于这些实验的说明，老师给的时间是一个星期，从前一周的星期四晚上开始讲解，到接下来一周的周四就要检查实验成果。而且，由于接下来的那一周的周二还有考试，同样是计算机组成原理的考试，所以老师应该是隐晦地降低了要求，最后只要求检查实验结果，并且要理解实验原理（这个最后检查的时候要问），然而，却不管这个实验是否是独立做出来的，可以讨论，可以从网上找参考。</p>
+<p>基于这些情况，我决定使用计算机学院在慕课上给的实验材料，因为那个材料可以找到的参考资料比较多，而实验助教给的那份材料就先放在一边。毕竟最终的目的是理解实验原理。</p>
+<h1 id="实验一">实验一</h1>
+<p>暂时按下不表。</p>
+<h1 id="实验二">实验二</h1>
+<h2 id="一实验目的">一、实验目的</h2>
+<ul>
+<li>熟悉 Logisim 软件平台。</li>
+<li>掌握运算器基本工作原理</li>
+<li>掌握运算溢出检测的原理和实现方法；</li>
+<li>理解有符号数和无符号数运算的区别；</li>
+<li>理解基于补码的加/减运算实现原理；</li>
+<li>熟悉运算器的数据传输通路。</li>
+</ul>
+<h2 id="二实验环境">二、实验环境</h2>
+<p>Logisim 是一款数字电路模拟的教育软件，用户都可以通过它来学习如何创建逻辑电路，方便简单。 它是一款基于 Java 的应用程序，可运行在任何支持 JAVA 环境的平台，方便学生来学习设计和模仿数字逻辑电路。Logisim 中的主要组成部分之一就在于设计并以图示来显示 CPU。当然 Logisim 中还有其他多种组合分析模型来对你进行帮助，如转换电路，表达式，布尔型和真值表等等。同时还可以重新利用小规模的电路来作为大型电路的一部分。</p>
+<p><a target="_blank" rel="noopener" href="http://www.cburch.com/logisim/docs.html" class="uri">http://www.cburch.com/logisim/docs.html</a></p>
+<h2 id="三实验内容">三、实验内容</h2>
+<h3 id="八位串行可控加减法电路设计">1. 八位串行可控加减法电路设计</h3>
+<p>利用已经封装好的全加器（封装 1）设计 8 位串行可控加减法电路，其（指八位串行可控加减法器）引脚电路如下图所示</p>
+<p><img src="https://i.imgur.com/y0QhTHh.png" srcset="/img/loading.gif" lazyload alt="八位串行可控加减法电路引脚定义" /></p>
+<p>封装 1 的电路如下图所示：</p>
+<p><img src="https://i.imgur.com/quI7Ovn.png" srcset="/img/loading.gif" lazyload alt="封装 1" /></p>
+<p>初始电路如下：</p>
+<p><img src="https://i.imgur.com/e6jJRNI.png" srcset="/img/loading.gif" lazyload /></p>
+<p>完成电路如下：</p>
+<p><img src="https://i.imgur.com/TrCSihK.png" srcset="/img/loading.gif" lazyload /></p>
+<p>完成之后，可以使用上面的引脚区域进行测试：</p>
+<p><img src="https://i.imgur.com/D0fo21y.png" srcset="/img/loading.gif" lazyload /></p>
+<p>按：这个引脚的 X 和 Y 输入可以一位一位地点击来改变其数值。</p>
+<p>一些测试用例：</p>
+<ul>
+<li>1. x=0000 0000，y=0000 0001，sub=0；s=0000 0001，Cout=0，OF=0</li>
+<li>2. x=0000 1000，y=0000 0101，sub=1；s=0000 0011 - Cout=1，OF=0</li>
+<li>3. x=0100 1000，y=0100 0001，sub=0；s=1000 1001 - Cout=0，OF=1</li>
+<li>4. x=0000 0111，y=1000 0111，sub=1；s=1000 0000，Cout=0，OF=1</li>
+</ul>
+<p><strong>实验原理：</strong></p>
+<p>输入：</p>
+<ul>
+<li>操作数 1 为 <span class="math inline">\(X\)</span>，<span class="math inline">\(X\)</span> 的 8 位数据 <span class="math inline">\(X_7 \sim X_0\)</span>，操作数 2 为 <span class="math inline">\(Y\)</span>，<span class="math inline">\(Y\)</span> 的 8 位数据 <span class="math inline">\(Y_7 \sim Y_0\)</span>。</li>
+<li>最低位进位 <span class="math inline">\(Cin\)</span>。</li>
+<li>加减法控制项 <span class="math inline">\(Sub\)</span>。</li>
+</ul>
+<p>输出：</p>
+<ul>
+<li>运算结果 <span class="math inline">\(S\)</span> 的 8 位数据 <span class="math inline">\(S_7 \sim S_0\)</span>。</li>
+<li>最高位进位 <span class="math inline">\(Cout\)</span>。</li>
+<li>有符号运算溢出判断 <span class="math inline">\(OF\)</span>。</li>
+</ul>
+<p>之前已经给出了 8 位串行加法器的电路实现，相当于已经有了“加法”功能。根据这个思路，在本实验中，需要完成“减法”功能，以及“加减法控制”功能。</p>
+<p>实验文件中已经给的 8 位串行加法器的实现：</p>
+<p><img src="https://i.imgur.com/88sbir0.png" srcset="/img/loading.gif" lazyload /></p>
+<p>预备知识：补码减法</p>
+<p>对补码加法有：</p>
+<p><span class="math display">\[
+[x]_补 + [y]_补 = [x + y]_补 (mod \; M)
+\]</span></p>
+<p>对补码减法有：</p>
+<p><span class="math display">\[
+[x]_补 + [-y]_补 = [x - y]_补
+\]</span></p>
+<p>根据以上规则，把补码减法转换为补码加法。这样，我们就可以简单地利用“加法器”来实现减法运算。</p>
+<h3 id="四位先行进位电路">2. 四位先行进位电路</h3>
+<ul>
+<li><p>输入序列 <span class="math inline">\(G4 \; P4 \; G3\)</span> <span class="math inline">\(P3 \; G2 \; P2 \; G1 \; P1 \; Cin\)</span></p></li>
+<li><p>输出序列 <span class="math inline">\(C4 \; C3 \; C2\)</span> <span class="math inline">\(C1 \; G^* P^*\)</span></p></li>
+<li><p>1. 输入：0000 0001 1 输出：0001 00</p></li>
+<li><p>2. 输入：0000 0111 0 输出：0011 00</p></li>
+<li><p>3. 输入：1111 0000 0 输出：1100 10</p></li>
+<li><p>4. 输入：1111 1110 0 输出：1111 10</p></li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    <b>版权声明：</b> 本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/11/24/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">
+                        <span class="hidden-mobile">数据库第二次上机实验报告</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>华科软院计算机组成原理实验整理</title>
+    <link href="/2021/11/25/%E5%8D%8E%E7%A7%91%E8%BD%AF%E9%99%A2%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AE%9E%E9%AA%8C%E6%95%B4%E7%90%86/"/>
+    <url>/2021/11/25/%E5%8D%8E%E7%A7%91%E8%BD%AF%E9%99%A2%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AE%9E%E9%AA%8C%E6%95%B4%E7%90%86/</url>
+    
+    <content type="html"><![CDATA[<h1 id="前言">前言</h1><p>一共应该是四次实验，但是最后只检查实验二和实验四。</p><p>关于这些实验的说明，老师给的时间是一个星期，从前一周的星期四晚上开始讲解，到接下来一周的周四就要检查实验成果。而且，由于接下来的那一周的周二还有考试，同样是计算机组成原理的考试，所以老师应该是隐晦地降低了要求，最后只要求检查实验结果，并且要理解实验原理（这个最后检查的时候要问），然而，却不管这个实验是否是独立做出来的，可以讨论，可以从网上找参考。</p><p>基于这些情况，我决定使用计算机学院在慕课上给的实验材料，因为那个材料可以找到的参考资料比较多，而实验助教给的那份材料就先放在一边。毕竟最终的目的是理解实验原理。</p><h1 id="实验一">实验一</h1><p>暂时按下不表。</p><h1 id="实验二">实验二</h1><h2 id="一实验目的">一、实验目的</h2><ul><li>熟悉 Logisim 软件平台。</li><li>掌握运算器基本工作原理</li><li>掌握运算溢出检测的原理和实现方法；</li><li>理解有符号数和无符号数运算的区别；</li><li>理解基于补码的加/减运算实现原理；</li><li>熟悉运算器的数据传输通路。</li></ul><h2 id="二实验环境">二、实验环境</h2><p>Logisim 是一款数字电路模拟的教育软件，用户都可以通过它来学习如何创建逻辑电路，方便简单。 它是一款基于 Java 的应用程序，可运行在任何支持 JAVA 环境的平台，方便学生来学习设计和模仿数字逻辑电路。Logisim 中的主要组成部分之一就在于设计并以图示来显示 CPU。当然 Logisim 中还有其他多种组合分析模型来对你进行帮助，如转换电路，表达式，布尔型和真值表等等。同时还可以重新利用小规模的电路来作为大型电路的一部分。</p><p><a href="http://www.cburch.com/logisim/docs.html" class="uri">http://www.cburch.com/logisim/docs.html</a></p><h2 id="三实验内容">三、实验内容</h2><h3 id="八位串行可控加减法电路设计">1. 八位串行可控加减法电路设计</h3><p>利用已经封装好的全加器（封装 1）设计 8 位串行可控加减法电路，其（指八位串行可控加减法器）引脚电路如下图所示</p><p><img src="https://i.imgur.com/y0QhTHh.png" alt="八位串行可控加减法电路引脚定义" /></p><p>封装 1 的电路如下图所示：</p><p><img src="https://i.imgur.com/quI7Ovn.png" alt="封装 1" /></p><p>初始电路如下：</p><p><img src="https://i.imgur.com/e6jJRNI.png" /></p><p>完成电路如下：</p><p><img src="https://i.imgur.com/TrCSihK.png" /></p><p>完成之后，可以使用上面的引脚区域进行测试：</p><p><img src="https://i.imgur.com/D0fo21y.png" /></p><p>按：这个引脚的 X 和 Y 输入可以一位一位地点击来改变其数值。</p><p>一些测试用例：</p><ul><li>1. x=0000 0000，y=0000 0001，sub=0；s=0000 0001，Cout=0，OF=0</li><li>2. x=0000 1000，y=0000 0101，sub=1；s=0000 0011 - Cout=1，OF=0</li><li>3. x=0100 1000，y=0100 0001，sub=0；s=1000 1001 - Cout=0，OF=1</li><li>4. x=0000 0111，y=1000 0111，sub=1；s=1000 0000，Cout=0，OF=1</li></ul><p><strong>实验原理：</strong></p><p>输入：</p><ul><li>操作数 1 为 <span class="math inline">\(X\)</span>，<span class="math inline">\(X\)</span> 的 8 位数据 <span class="math inline">\(X_7 \sim X_0\)</span>，操作数 2 为 <span class="math inline">\(Y\)</span>，<span class="math inline">\(Y\)</span> 的 8 位数据 <span class="math inline">\(Y_7 \sim Y_0\)</span>。</li><li>最低位进位 <span class="math inline">\(Cin\)</span>。</li><li>加减法控制项 <span class="math inline">\(Sub\)</span>。</li></ul><p>输出：</p><ul><li>运算结果 <span class="math inline">\(S\)</span> 的 8 位数据 <span class="math inline">\(S_7 \sim S_0\)</span>。</li><li>最高位进位 <span class="math inline">\(Cout\)</span>。</li><li>有符号运算溢出判断 <span class="math inline">\(OF\)</span>。</li></ul><p>之前已经给出了 8 位串行加法器的电路实现，相当于已经有了“加法”功能。根据这个思路，在本实验中，需要完成“减法”功能，以及“加减法控制”功能。</p><p>实验文件中已经给的 8 位串行加法器的实现：</p><p><img src="https://i.imgur.com/88sbir0.png" /></p><p>预备知识：补码减法</p><p>对补码加法有：</p><p><span class="math display">\[[x]_补 + [y]_补 = [x + y]_补 (mod \; M)\]</span></p><p>对补码减法有：</p><p><span class="math display">\[[x]_补 + [-y]_补 = [x - y]_补\]</span></p><p>根据以上规则，把补码减法转换为补码加法。这样，我们就可以简单地利用“加法器”来实现减法运算。</p><h3 id="四位先行进位电路">2. 四位先行进位电路</h3><ul><li><p>输入序列 <span class="math inline">\(G4 \; P4 \; G3\)</span> <span class="math inline">\(P3 \; G2 \; P2 \; G1 \; P1 \; Cin\)</span></p></li><li><p>输出序列 <span class="math inline">\(C4 \; C3 \; C2\)</span> <span class="math inline">\(C1 \; G^* P^*\)</span></p></li><li><p>1. 输入：0000 0001 1 输出：0001 00</p></li><li><p>2. 输入：0000 0111 0 输出：0011 00</p></li><li><p>3. 输入：1111 0000 0 输出：1100 10</p></li><li><p>4. 输入：1111 1110 0 输出：1111 10</p></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机组成原理</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>计算机组成原理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>数据库第二次上机实验报告</title>
     <link href="/2021/11/24/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"/>
     <url>/2021/11/24/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/</url>
