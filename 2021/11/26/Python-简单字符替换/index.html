@@ -1,0 +1,705 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
+  
+  <title>Python 简单字符替换 - Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":false,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fany Full's Blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/WwWzuFV.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Python 简单字符替换">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-11-26 11:17" pubdate>
+        2021年11月26日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      14
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Python 简单字符替换</h1>
+            
+            <div class="markdown-body">
+              <p>这里仅仅是作了一个简单的操作，即，将一个含有很多汉字的文本中的所有汉字都替换成 unicode 表中对应的下一个字符。然后输出。</p>
+<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><br><span class="hljs-comment"># print all the Chinese characters</span><br><span class="hljs-comment"># for i in range(0x4e00,0x9fa6):</span><br><span class="hljs-comment"># 	print (chr(i))</span><br><br><span class="hljs-built_in">str</span> = <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">【第一章】道可道，非常道；名可名，非常名。无名天地之始，有名万物之母。故常无欲，以观其妙；常</span><br><span class="hljs-string">有欲，以观其徼（jiào）。此两者同出而异名，同谓之玄，玄之又玄，众妙之门。〖译文〗</span><br><span class="hljs-string">【第二章】天下皆知美之为美，斯恶（è）已；皆知善之为善，斯不善已。故有无相生，难易相成，长短相</span><br><span class="hljs-string">较，高下相倾，音声相和（hè），前后相随。是以圣人处无为之事，行不言之教，万物作焉而不辞，生而</span><br><span class="hljs-string">不有，为而不恃，功成而弗居。夫（fú）唯弗居，是以不去。 〖译文〗</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><br><span class="hljs-comment"># judge whether a char is a chinese character</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_chinese</span>(<span class="hljs-params">char</span>):</span><br>    <span class="hljs-keyword">if</span> char &gt;= <span class="hljs-string">u&#x27;\u4e00&#x27;</span> <span class="hljs-keyword">and</span> char &lt;= <span class="hljs-string">u&#x27;\u9fa5&#x27;</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>reverted_str = <span class="hljs-string">&quot;&quot;&quot;&quot;&quot;&quot;</span><br><br><span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> <span class="hljs-built_in">str</span>:<br>    <span class="hljs-keyword">if</span> char == <span class="hljs-string">&quot;\n&quot;</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">r&quot;\n&quot;</span>, <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">ord</span>(char), <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-string">r&#x27;\n&#x27;</span>)<br>        reverted_str = reverted_str + char<br>        <span class="hljs-keyword">continue</span><br>    <span class="hljs-keyword">if</span> char == <span class="hljs-string">&#x27; &#x27;</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">r&quot;blank&quot;</span>, <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">ord</span>(char), <span class="hljs-string">&#x27;\t&#x27;</span>, char)<br>        reverted_str = reverted_str + char<br>        <span class="hljs-keyword">continue</span><br>    <span class="hljs-keyword">if</span> is_chinese(char) == <span class="hljs-literal">False</span>:<br>        <span class="hljs-built_in">print</span>(char, <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">ord</span>(char), <span class="hljs-string">&#x27;\t&#x27;</span>, char)<br>        reverted_str = reverted_str + char<br>        <span class="hljs-keyword">continue</span><br>    <span class="hljs-built_in">print</span>(char, <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">ord</span>(char), <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(char) + <span class="hljs-number">1</span>))<br>    reverted_str = reverted_str + <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(char) + <span class="hljs-number">1</span>)<br><br><span class="hljs-built_in">print</span>(reverted_str)<br><br><span class="hljs-comment"># print(&#x27;&gt;&#x27;, &#x27;\t&#x27;, ord(&#x27;&gt;&#x27;), &#x27;\t&#x27;, chr(ord(&#x27;&gt;&#x27;) + 1))</span><br></code></pre></div></td></tr></table></figure>
+<p>output:</p>
+<div class="hljs code-wrapper"><pre><code>\n       10      \n
+【       12304   【
+第       31532   笭
+一       19968   丁
+章       31456   竡
+】       12305   】
+道       36947   達
+可       21487   台
+道       36947   達
+，       65292   ，
+非       38750   靟
+常       24120   帹
+道       36947   達
+；       65307   ；
+名       21517   后
+可       21487   台
+名       21517   后
+，       65292   ，
+非       38750   靟
+常       24120   帹
+名       21517   后
+。       12290   。
+无       26080   旡
+名       21517   后
+天       22825   太
+地       22320   圱
+之       20043   乌
+始       22987   姌
+，       65292   ，
+有       26377   朊
+名       21517   后
+万       19975   丈
+物       29289   牪
+之       20043   乌
+母       27597   毎
+。       12290   。
+故       25925   敆
+常       24120   帹
+无       26080   旡
+欲       27442   欳
+，       65292   ，
+以       20197   仦
+观       35266   觃
+其       20854   具
+妙       22937   妚
+；       65307   ；
+常       24120   帹
+\n       10      \n
+有       26377   朊
+欲       27442   欳
+，       65292   ，
+以       20197   仦
+观       35266   觃
+其       20854   具
+徼       24508   徽
+（       65288   （
+j        106     j
+i        105     i
+à        224     à
+o        111     o
+）       65289   ）
+。       12290   。
+此       27492   步
+两       20004   严
+者       32773   耆
+同       21516   名
+出       20986   击
+而       32780   耍
+异       24322   弃
+名       21517   后
+，       65292   ，
+同       21516   名
+谓       35859   谔
+之       20043   乌
+玄       29572   玅
+，       65292   ，
+玄       29572   玅
+之       20043   乌
+又       21448   叉
+玄       29572   玅
+，       65292   ，
+众       20247   优
+妙       22937   妚
+之       20043   乌
+门       38376   闩
+。       12290   。
+〖       12310   〖
+译       35793   诒
+文       25991   斈
+〗       12311   〗
+\n       10      \n
+【       12304   【
+第       31532   笭
+二       20108   亍
+章       31456   竡
+】       12305   】
+天       22825   太
+下       19979   丌
+皆       30342   皇
+知       30693   矦
+美       32654   羏
+之       20043   乌
+为       20026   主
+美       32654   羏
+，       65292   ，
+斯       26031   新
+恶       24694   恷
+（       65288   （
+è        232     è
+）       65289   ）
+已       24050   巳
+；       65307   ；
+皆       30342   皇
+知       30693   矦
+善       21892   喅
+之       20043   乌
+为       20026   主
+善       21892   喅
+，       65292   ，
+斯       26031   新
+不       19981   与
+善       21892   喅
+已       24050   巳
+。       12290   。
+故       25925   敆
+有       26377   朊
+无       26080   旡
+相       30456   盹
+生       29983   甠
+，       65292   ，
+难       38590   隿
+易       26131   昔
+相       30456   盹
+成       25104   我
+，       65292   ，
+长       38271   門
+短       30701   矮
+相       30456   盹
+\n       10      \n
+较       36739   辄
+，       65292   ，
+高       39640   髙
+下       19979   丌
+相       30456   盹
+倾       20542   倿
+，       65292   ，
+音       38899   韴
+声       22768   壱
+相       30456   盹
+和       21644   咍
+（       65288   （
+h        104     h
+è        232     è
+）       65289   ）
+，       65292   ，
+前       21069   剎
+后       21518   吏
+相       30456   盹
+随       38543   隐
+。       12290   。
+是       26159   昰
+以       20197   仦
+圣       22307   圤
+人       20154   亻
+处       22788   夅
+无       26080   旡
+为       20026   主
+之       20043   乌
+事       20107   二
+，       65292   ，
+行       34892   衍
+不       19981   与
+言       35328   訁
+之       20043   乌
+教       25945   敚
+，       65292   ，
+万       19975   丈
+物       29289   牪
+作       20316   佝
+焉       28937   焊
+而       32780   耍
+不       19981   与
+辞       36766   辟
+，       65292   ，
+生       29983   甠
+而       32780   耍
+\n       10      \n
+不       19981   与
+有       26377   朊
+，       65292   ，
+为       20026   主
+而       32780   耍
+不       19981   与
+恃       24643   恄
+，       65292   ，
+是       26159   昰
+以       20197   仦
+不       19981   与
+去       21435   厼
+。       12290   。
+blank    32
+〖       12310   〖
+译       35793   诒
+文       25991   斈
+〗       12311   〗
+\n       10      \n
+
+【笭丁竡】達台達，靟帹達；后台后，靟帹后。旡后太圱乌姌，朊后丈牪乌毎。敆帹旡欳，仦觃具妚；帹
+朊欳，仦觃具徽（jiào）。步严耆名击耍弃后，名谔乌玅，玅乌叉玅，优妚乌闩。〖诒斈〗
+【笭亍竡】太丌皇矦羏乌主羏，新恷（è）巳；皇矦喅乌主喅，新与喅巳。敆朊旡盹甠，隿昔盹我，門矮盹
+辄，髙丌盹倿，韴壱盹咍（hè），剎吏盹隐。昰仦圤亻夅旡主乌二，衍与訁乌敚，丈牪佝焊耍与辟，甠耍
+与朊，主耍与恄，加我耍弘屆。夬（fú）唰弘屆，昰仦与厼。 〖诒斈〗</code></pre></div>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Python/">Python</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%B0%8F%E8%84%9A%E6%9C%AC/">小脚本</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    <b>版权声明：</b> 本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/11/25/%E5%8D%8E%E7%A7%91%E8%BD%AF%E9%99%A2%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AE%9E%E9%AA%8C%E6%95%B4%E7%90%86/">
+                        <span class="hidden-mobile">华科软院计算机组成原理实验整理</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2k 字
+      2.3k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      23
+      26
        分钟
     </span>
   
@@ -349,7 +349,21 @@ V = C_d \oplus C_f
 <p>对于这个封装好的 8 位串行加法器，采用的是上述的方法 2 来实现 OF 的溢出检测。</p>
 <p><img src="https://i.imgur.com/qXDzOpb.png" srcset="/img/loading.gif" lazyload /></p>
 <p>在电路中，我们把最高数据位 <span class="math inline">\(X_6\)</span>，<span class="math inline">\(Y_6\)</span> 的运算结果的进位输出 <span class="math inline">\(Cout_6\)</span> 与符号位 <span class="math inline">\(X_7\)</span>，<span class="math inline">\(Y_7\)</span> 的运算结果的进位输出 <span class="math inline">\(Cout_7\)</span> 一同送入 XOR gate 进行判定，结果送 OF，实现检测功能。</p>
-<hr />
+<p>然后，我们来研究八位串行可控加减法器的实现。</p>
+<p>再次给一下八位串行可控加减法器的输入输出引脚：</p>
+<p><img src="https://i.imgur.com/y0QhTHh.png" srcset="/img/loading.gif" lazyload /></p>
+<p>输入：</p>
+<ul>
+<li>操作数 1 为 <span class="math inline">\(X\)</span>，<span class="math inline">\(X\)</span> 的 8 位数据 <span class="math inline">\(X_7 \sim X_0\)</span>，操作数 2 为 <span class="math inline">\(Y\)</span>，<span class="math inline">\(Y\)</span> 的 8 位数据 <span class="math inline">\(Y_7 \sim Y_0\)</span>。</li>
+<li>最低位进位 <span class="math inline">\(Cin\)</span>。</li>
+<li>加减法控制项 <span class="math inline">\(Sub\)</span>。</li>
+</ul>
+<p>输出：</p>
+<ul>
+<li>运算结果 <span class="math inline">\(S\)</span> 的 8 位数据 <span class="math inline">\(S_7 \sim S_0\)</span>。</li>
+<li>最高位进位 <span class="math inline">\(Cout\)</span>。</li>
+<li>有符号运算溢出判断 <span class="math inline">\(OF\)</span>。</li>
+</ul>
 <p>之前已经给出了 8 位串行加法器的电路实现，相当于已经有了“加法”功能。根据这个思路，在本实验中，需要完成“减法”功能，以及“加减法控制”功能。</p>
 <p>实验文件中已经给的 8 位串行加法器的实现：</p>
 <p><img src="https://i.imgur.com/88sbir0.png" srcset="/img/loading.gif" lazyload /></p>
@@ -363,6 +377,23 @@ V = C_d \oplus C_f
 [x]_补 + [-y]_补 = [x - y]_补
 \]</span></p>
 <p>根据以上规则，把补码减法转换为补码加法。这样，我们就可以简单地利用“加法器”来实现减法运算。</p>
+<blockquote>
+<p>“加减法控制”功能与 Sub。</p>
+</blockquote>
+<p>这里建议 Sub 值为 1 时表示减法运算，Sub 为 0 时表示加法运算。</p>
+<blockquote>
+<p>有符号数运算溢出检测 OF？</p>
+</blockquote>
+<p>采用和上述八位串行加法器一样的思路。</p>
+<p>最后再贴一次参考测试用例：</p>
+<ul>
+<li>1. x=0000 0000，y=0000 0001，sub=0；s=0000 0001，Cout=0，OF=0</li>
+<li>2. x=0000 1000，y=0000 0101，sub=1；s=0000 0011 - Cout=1，OF=0</li>
+<li>3. x=0100 1000，y=0100 0001，sub=0；s=1000 1001 - Cout=0，OF=1</li>
+<li>4. x=0000 0111，y=1000 0111，sub=1；s=1000 0000，Cout=0，OF=1</li>
+</ul>
+<p>再贴一次完成电路：</p>
+<p><img src="https://i.imgur.com/TrCSihK.png" srcset="/img/loading.gif" lazyload /></p>
 <h3 id="四位先行进位电路">2. 四位先行进位电路</h3>
 <p>根据下图定义的输入输出引脚完成 4 位先行进位电路。</p>
 <p><img src="https://i.imgur.com/rngpsTs.png" srcset="/img/loading.gif" lazyload alt="四位先行进位电路引脚定义" /></p>
@@ -371,6 +402,8 @@ V = C_d \oplus C_f
 <p>完成电路：</p>
 <p><img src="https://i.imgur.com/lr9jAIo.png" srcset="/img/loading.gif" lazyload /></p>
 <p><strong>实验原理：</strong></p>
+<p>首先研究一下输入输出：</p>
+<p><img src="https://i.imgur.com/rngpsTs.png" srcset="/img/loading.gif" lazyload /></p>
 <ul>
 <li><p>输入序列 <span class="math inline">\(G4 \; P4 \; G3\)</span> <span class="math inline">\(P3 \; G2 \; P2 \; G1 \; P1 \; Cin\)</span></p></li>
 <li><p>输出序列 <span class="math inline">\(C4 \; C3 \; C2\)</span> <span class="math inline">\(C1 \; G^* P^*\)</span></p></li>
@@ -379,6 +412,7 @@ V = C_d \oplus C_f
 <li><p>3. 输入：1111 0000 0 输出：1100 10</p></li>
 <li><p>4. 输入：1111 1110 0 输出：1111 10</p></li>
 </ul>
+<p>并行进位加法器的进位电路，74181 包含了 74182。</p>
 
             </div>
             <hr>
@@ -412,6 +446,12 @@ V = C_d \oplus C_f
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/11/26/Python-%E7%AE%80%E5%8D%95%E5%AD%97%E7%AC%A6%E6%9B%BF%E6%8D%A2/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Python 简单字符替换</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
