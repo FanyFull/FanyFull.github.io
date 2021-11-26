@@ -18,7 +18,7 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-  <title>Python 简单字符替换 - Fany Full&#39;s Blog</title>
+  <title>VSCode 配置修改记录(settings.json) - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -166,12 +166,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/WwWzuFV.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/gnxEM2b.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Python 简单字符替换">
+            <span class="h2" id="subtitle" title="VSCode 配置修改记录(settings.json)">
               
             </span>
 
@@ -181,8 +181,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-11-26 11:17" pubdate>
-        2021年11月26日 上午
+      <time datetime="2021-11-26 14:09" pubdate>
+        2021年11月26日 下午
       </time>
     </span>
   
@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      563 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14
+      9
        分钟
     </span>
   
@@ -233,224 +233,16 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Python 简单字符替换</h1>
+            <h1 style="display: none">VSCode 配置修改记录(settings.json)</h1>
             
             <div class="markdown-body">
-              <p>这里仅仅是作了一个简单的操作，即，将一个含有很多汉字的文本中的所有汉字都替换成 unicode 表中对应的下一个字符。然后输出。</p>
-<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><br><span class="hljs-comment"># print all the Chinese characters</span><br><span class="hljs-comment"># for i in range(0x4e00,0x9fa6):</span><br><span class="hljs-comment"># 	print (chr(i))</span><br><br><span class="hljs-built_in">str</span> = <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">【第一章】道可道，非常道；名可名，非常名。无名天地之始，有名万物之母。故常无欲，以观其妙；常</span><br><span class="hljs-string">有欲，以观其徼（jiào）。此两者同出而异名，同谓之玄，玄之又玄，众妙之门。〖译文〗</span><br><span class="hljs-string">【第二章】天下皆知美之为美，斯恶（è）已；皆知善之为善，斯不善已。故有无相生，难易相成，长短相</span><br><span class="hljs-string">较，高下相倾，音声相和（hè），前后相随。是以圣人处无为之事，行不言之教，万物作焉而不辞，生而</span><br><span class="hljs-string">不有，为而不恃，功成而弗居。夫（fú）唯弗居，是以不去。 〖译文〗</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><br><span class="hljs-comment"># judge whether a char is a chinese character</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_chinese</span>(<span class="hljs-params">char</span>):</span><br>    <span class="hljs-keyword">if</span> char &gt;= <span class="hljs-string">u&#x27;\u4e00&#x27;</span> <span class="hljs-keyword">and</span> char &lt;= <span class="hljs-string">u&#x27;\u9fa5&#x27;</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>reverted_str = <span class="hljs-string">&quot;&quot;&quot;&quot;&quot;&quot;</span><br><br><span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> <span class="hljs-built_in">str</span>:<br>    <span class="hljs-keyword">if</span> char == <span class="hljs-string">&quot;\n&quot;</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">r&quot;\n&quot;</span>, <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">ord</span>(char), <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-string">r&#x27;\n&#x27;</span>)<br>        reverted_str = reverted_str + char<br>        <span class="hljs-keyword">continue</span><br>    <span class="hljs-keyword">if</span> char == <span class="hljs-string">&#x27; &#x27;</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">r&quot;blank&quot;</span>, <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">ord</span>(char), <span class="hljs-string">&#x27;\t&#x27;</span>, char)<br>        reverted_str = reverted_str + char<br>        <span class="hljs-keyword">continue</span><br>    <span class="hljs-keyword">if</span> is_chinese(char) == <span class="hljs-literal">False</span>:<br>        <span class="hljs-built_in">print</span>(char, <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">ord</span>(char), <span class="hljs-string">&#x27;\t&#x27;</span>, char)<br>        reverted_str = reverted_str + char<br>        <span class="hljs-keyword">continue</span><br>    <span class="hljs-built_in">print</span>(char, <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">ord</span>(char), <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(char) + <span class="hljs-number">1</span>))<br>    reverted_str = reverted_str + <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(char) + <span class="hljs-number">1</span>)<br><br><span class="hljs-built_in">print</span>(reverted_str)<br><br><span class="hljs-comment"># print(&#x27;&gt;&#x27;, &#x27;\t&#x27;, ord(&#x27;&gt;&#x27;), &#x27;\t&#x27;, chr(ord(&#x27;&gt;&#x27;) + 1))</span><br></code></pre></div></td></tr></table></figure>
-<p>output:</p>
-<div class="hljs code-wrapper"><pre><code>\n       10      \n
-【       12304   【
-第       31532   笭
-一       19968   丁
-章       31456   竡
-】       12305   】
-道       36947   達
-可       21487   台
-道       36947   達
-，       65292   ，
-非       38750   靟
-常       24120   帹
-道       36947   達
-；       65307   ；
-名       21517   后
-可       21487   台
-名       21517   后
-，       65292   ，
-非       38750   靟
-常       24120   帹
-名       21517   后
-。       12290   。
-无       26080   旡
-名       21517   后
-天       22825   太
-地       22320   圱
-之       20043   乌
-始       22987   姌
-，       65292   ，
-有       26377   朊
-名       21517   后
-万       19975   丈
-物       29289   牪
-之       20043   乌
-母       27597   毎
-。       12290   。
-故       25925   敆
-常       24120   帹
-无       26080   旡
-欲       27442   欳
-，       65292   ，
-以       20197   仦
-观       35266   觃
-其       20854   具
-妙       22937   妚
-；       65307   ；
-常       24120   帹
-\n       10      \n
-有       26377   朊
-欲       27442   欳
-，       65292   ，
-以       20197   仦
-观       35266   觃
-其       20854   具
-徼       24508   徽
-（       65288   （
-j        106     j
-i        105     i
-à        224     à
-o        111     o
-）       65289   ）
-。       12290   。
-此       27492   步
-两       20004   严
-者       32773   耆
-同       21516   名
-出       20986   击
-而       32780   耍
-异       24322   弃
-名       21517   后
-，       65292   ，
-同       21516   名
-谓       35859   谔
-之       20043   乌
-玄       29572   玅
-，       65292   ，
-玄       29572   玅
-之       20043   乌
-又       21448   叉
-玄       29572   玅
-，       65292   ，
-众       20247   优
-妙       22937   妚
-之       20043   乌
-门       38376   闩
-。       12290   。
-〖       12310   〖
-译       35793   诒
-文       25991   斈
-〗       12311   〗
-\n       10      \n
-【       12304   【
-第       31532   笭
-二       20108   亍
-章       31456   竡
-】       12305   】
-天       22825   太
-下       19979   丌
-皆       30342   皇
-知       30693   矦
-美       32654   羏
-之       20043   乌
-为       20026   主
-美       32654   羏
-，       65292   ，
-斯       26031   新
-恶       24694   恷
-（       65288   （
-è        232     è
-）       65289   ）
-已       24050   巳
-；       65307   ；
-皆       30342   皇
-知       30693   矦
-善       21892   喅
-之       20043   乌
-为       20026   主
-善       21892   喅
-，       65292   ，
-斯       26031   新
-不       19981   与
-善       21892   喅
-已       24050   巳
-。       12290   。
-故       25925   敆
-有       26377   朊
-无       26080   旡
-相       30456   盹
-生       29983   甠
-，       65292   ，
-难       38590   隿
-易       26131   昔
-相       30456   盹
-成       25104   我
-，       65292   ，
-长       38271   門
-短       30701   矮
-相       30456   盹
-\n       10      \n
-较       36739   辄
-，       65292   ，
-高       39640   髙
-下       19979   丌
-相       30456   盹
-倾       20542   倿
-，       65292   ，
-音       38899   韴
-声       22768   壱
-相       30456   盹
-和       21644   咍
-（       65288   （
-h        104     h
-è        232     è
-）       65289   ）
-，       65292   ，
-前       21069   剎
-后       21518   吏
-相       30456   盹
-随       38543   隐
-。       12290   。
-是       26159   昰
-以       20197   仦
-圣       22307   圤
-人       20154   亻
-处       22788   夅
-无       26080   旡
-为       20026   主
-之       20043   乌
-事       20107   二
-，       65292   ，
-行       34892   衍
-不       19981   与
-言       35328   訁
-之       20043   乌
-教       25945   敚
-，       65292   ，
-万       19975   丈
-物       29289   牪
-作       20316   佝
-焉       28937   焊
-而       32780   耍
-不       19981   与
-辞       36766   辟
-，       65292   ，
-生       29983   甠
-而       32780   耍
-\n       10      \n
-不       19981   与
-有       26377   朊
-，       65292   ，
-为       20026   主
-而       32780   耍
-不       19981   与
-恃       24643   恄
-，       65292   ，
-是       26159   昰
-以       20197   仦
-不       19981   与
-去       21435   厼
-。       12290   。
-blank    32
-〖       12310   〖
-译       35793   诒
-文       25991   斈
-〗       12311   〗
-\n       10      \n
-
-【笭丁竡】達台達，靟帹達；后台后，靟帹后。旡后太圱乌姌，朊后丈牪乌毎。敆帹旡欳，仦觃具妚；帹
-朊欳，仦觃具徽（jiào）。步严耆名击耍弃后，名谔乌玅，玅乌叉玅，优妚乌闩。〖诒斈〗
-【笭亍竡】太丌皇矦羏乌主羏，新恷（è）巳；皇矦喅乌主喅，新与喅巳。敆朊旡盹甠，隿昔盹我，門矮盹
-辄，髙丌盹倿，韴壱盹咍（hè），剎吏盹隐。昰仦圤亻夅旡主乌二，衍与訁乌敚，丈牪佝焊耍与辟，甠耍
-与朊，主耍与恄，加我耍弘屆。夬（fú）唰弘屆，昰仦与厼。 〖诒斈〗</code></pre></div>
+              <p>最近发现 VSCode 用来写 Python 其实还蛮不错的，然后就遇到了一些配置的问题，比如控制台默认 Shell(Console) 的设置，比如 Shell 的缓冲区(Buffer) 的行数限制修改，因此，为了以后换环境(例如，重装系统)时能够快速同步配置，就在这里记录一下对于 VSCode 配置的修改。</p>
+<p>首先，给出目前我的 VSCode 的 <code>settings.json</code> 的配置：</p>
+<figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json">&#123;<br>    <span class="hljs-attr">&quot;workbench.startupEditor&quot;</span>: <span class="hljs-string">&quot;newUntitledFile&quot;</span>,<br>    <span class="hljs-attr">&quot;explorer.confirmDelete&quot;</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">&quot;markdown-preview-enhanced.mathRenderingOption&quot;</span>: <span class="hljs-string">&quot;MathJax&quot;</span>,<br>    <span class="hljs-attr">&quot;markdown-preview-enhanced.previewTheme&quot;</span>: <span class="hljs-string">&quot;one-dark.css&quot;</span>,<br>    <span class="hljs-attr">&quot;editor.fontFamily&quot;</span>: <span class="hljs-string">&quot; ‘宋体’, Consolas, monospace&quot;</span>,<br>    <span class="hljs-attr">&quot;editor.fontSize&quot;</span>: <span class="hljs-number">16</span>,<br>    <span class="hljs-attr">&quot;picgo.picBed.current&quot;</span>: <span class="hljs-string">&quot;github&quot;</span>,<br>    <span class="hljs-attr">&quot;picgo.picBed.github.branch&quot;</span>: <span class="hljs-string">&quot;master&quot;</span>,<br>    <span class="hljs-attr">&quot;picgo.picBed.github.customUrl&quot;</span>: <span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master&quot;</span>,<br>    <span class="hljs-attr">&quot;picgo.picBed.github.path&quot;</span>: <span class="hljs-string">&quot;blogs/pictures/&quot;</span>,<br>    <span class="hljs-attr">&quot;picgo.picBed.github.repo&quot;</span>: <span class="hljs-string">&quot;fanlumaster/BlogMaps&quot;</span>,<br>    <span class="hljs-attr">&quot;picgo.picBed.github.token&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>    <span class="hljs-attr">&quot;editor.minimap.enabled&quot;</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">&quot;explorer.confirmDragAndDrop&quot;</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">&quot;picgo.customOutputFormat&quot;</span>: <span class="hljs-string">&quot;![]($&#123;url&#125;)&quot;</span>,<br>    <span class="hljs-attr">&quot;editor.mouseWheelZoom&quot;</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">&quot;security.workspace.trust.untrustedFiles&quot;</span>: <span class="hljs-string">&quot;open&quot;</span>,<br>    <span class="hljs-attr">&quot;security.workspace.trust.enabled&quot;</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">&quot;editor.wordWrap&quot;</span>: <span class="hljs-string">&quot;on&quot;</span>,<br>    <span class="hljs-attr">&quot;vscode-imgur.client_id&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>    <span class="hljs-attr">&quot;vscode-imgur.client_secret&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>    <span class="hljs-attr">&quot;vscode-imgur.preferUserUpload&quot;</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">&quot;picgo.picBed.imgur.clientId&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>    <span class="hljs-attr">&quot;picgo.picBed.imgur.proxy&quot;</span>: <span class="hljs-string">&quot;http://127.0.0.1:7890&quot;</span>,<br>    <span class="hljs-attr">&quot;liveServer.settings.CustomBrowser&quot;</span>: <span class="hljs-string">&quot;microsoft-edge&quot;</span>,<br>    <span class="hljs-attr">&quot;picgo.picBed.uploader&quot;</span>: <span class="hljs-string">&quot;github&quot;</span>,<br><br>    <span class="hljs-comment">// I want my default to be 4, but JavaScript or HTML to be 2</span><br>    <span class="hljs-attr">&quot;editor.tabSize&quot;</span>: <span class="hljs-number">4</span>,<br>    <span class="hljs-attr">&quot;[javascript]&quot;</span>: &#123;<br>        <span class="hljs-attr">&quot;editor.tabSize&quot;</span>: <span class="hljs-number">2</span><br>    &#125;,<br>    <span class="hljs-attr">&quot;[html]&quot;</span>: &#123;<br>        <span class="hljs-attr">&quot;editor.tabSize&quot;</span>: <span class="hljs-number">2</span><br>    &#125;,<br>    <span class="hljs-comment">// This one forces the tab to be **space**</span><br>    <span class="hljs-attr">&quot;editor.insertSpaces&quot;</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">&quot;editor.largeFileOptimizations&quot;</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">&quot;terminal.integrated.profiles.windows&quot;</span>: &#123;<br>        <span class="hljs-attr">&quot;PowerShell&quot;</span>: &#123;<br>            <span class="hljs-attr">&quot;source&quot;</span>: <span class="hljs-string">&quot;PowerShell&quot;</span>,<br>            <span class="hljs-comment">// &quot;path&quot;: &quot;C:\\Program Files\\PowerShell\\7\\pwsh.exe&quot;,</span><br>            <span class="hljs-attr">&quot;icon&quot;</span>: <span class="hljs-string">&quot;terminal-powershell&quot;</span><br>        &#125;,<br>        <span class="hljs-attr">&quot;Command Prompt&quot;</span>: &#123;<br>            <span class="hljs-attr">&quot;path&quot;</span>: [<br>                <span class="hljs-string">&quot;$&#123;env:windir&#125;\\Sysnative\\cmd.exe&quot;</span>,<br>                <span class="hljs-string">&quot;$&#123;env:windir&#125;\\System32\\cmd.exe&quot;</span><br>            ],<br>            <span class="hljs-attr">&quot;args&quot;</span>: [],<br>            <span class="hljs-attr">&quot;icon&quot;</span>: <span class="hljs-string">&quot;terminal-cmd&quot;</span><br>        &#125;,<br>        <span class="hljs-attr">&quot;Git Bash&quot;</span>: &#123;<br>            <span class="hljs-attr">&quot;source&quot;</span>: <span class="hljs-string">&quot;Git Bash&quot;</span><br>        &#125;,<br>        <span class="hljs-attr">&quot;PowerShell7&quot;</span>: &#123;<br>            <span class="hljs-attr">&quot;path&quot;</span>: <span class="hljs-string">&quot;C:\\Program Files\\PowerShell\\7\\pwsh.exe&quot;</span>,<br>            <span class="hljs-attr">&quot;args&quot;</span>: [],<br>            <span class="hljs-attr">&quot;icon&quot;</span>: <span class="hljs-string">&quot;terminal-powershell&quot;</span><br>        &#125;<br>    &#125;,<br>    <span class="hljs-attr">&quot;terminal.integrated.defaultProfile.windows&quot;</span>: <span class="hljs-string">&quot;PowerShell7&quot;</span>,<br>    <span class="hljs-attr">&quot;terminal.integrated.scrollback&quot;</span>: <span class="hljs-number">10000</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>按：此配置文件删去了图床的 Token。</p>
+<h1 id="修改控制台缓冲区的大小">修改控制台缓冲区的大小</h1>
+<figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json"><span class="hljs-string">&quot;terminal.integrated.scrollback&quot;</span>: <span class="hljs-number">10000</span><br></code></pre></div></td></tr></table></figure>
+<p>按：默认的大小似乎是 1000，太小了，不够用。</p>
 
             </div>
             <hr>
@@ -460,7 +252,7 @@ blank    32
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Python/">Python</a>
+                      <a class="hover-with-bg" href="/categories/VSCode/">VSCode</a>
                     
                   </div>
                 
@@ -468,9 +260,7 @@ blank    32
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E5%B0%8F%E8%84%9A%E6%9C%AC/">小脚本</a>
+                      <a class="hover-with-bg" href="/tags/VSCode/">VSCode</a>
                     
                   </div>
                 
@@ -487,9 +277,9 @@ blank    32
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/11/26/%E4%BF%AE%E6%94%B9-VSCode-%E9%BB%98%E8%AE%A4-Shell-%E4%B8%BA-Powershell7/">
+                      <a href="/2021/11/26/%E5%88%A9%E7%94%A8-Python-%E6%9B%BF%E6%8D%A2%E5%AD%97%E7%AC%A6/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">修改 VSCode 默认 Shell 为 Powershell7</span>
+                        <span class="hidden-mobile">利用 Python 替换字符</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -497,8 +287,8 @@ blank    32
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/11/25/%E5%8D%8E%E7%A7%91%E8%BD%AF%E9%99%A2%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AE%9E%E9%AA%8C%E6%95%B4%E7%90%86/">
-                        <span class="hidden-mobile">华科软院计算机组成原理实验整理</span>
+                      <a href="/2021/11/26/%E4%BF%AE%E6%94%B9-VSCode-%E9%BB%98%E8%AE%A4-Shell-%E4%B8%BA-Powershell7/">
+                        <span class="hidden-mobile">修改 VSCode 默认 Shell 为 Powershell7</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
