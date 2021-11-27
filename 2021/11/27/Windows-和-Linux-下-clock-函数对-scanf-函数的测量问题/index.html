@@ -18,9 +18,25 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-  <title>归档 - Fany Full&#39;s Blog</title>
+  <title>Windows 和 Linux 下 clock 函数对 scanf 函数的测量问题 - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
@@ -56,7 +72,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -150,14 +166,51 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg') no-repeat center center;
+         style="background: url('/img/karigurashi022.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="归档">
+            <span class="h2" id="subtitle" title="Windows 和 Linux 下 clock 函数对 scanf 函数的测量问题">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-11-27 19:37" pubdate>
+        2021年11月27日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      0 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      1
+       分钟
+    </span>
+  
+
+  
+  
+</div>
 
             
           </div>
@@ -170,100 +223,75 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 113 篇文章</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2021</p>
-    
-    <a href="/2021/06/05/Python-%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%A1%E7%90%86%E5%99%A8%E5%92%8C-with-%E5%9D%97/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Python 的上下文管理器和 with 块(未竟)</span>
-      <time style="float: right;">06-05</time>
-    </a>
-  
-    
-    <a href="/2021/06/04/Python-%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6-unittest-%E5%88%9D%E4%BD%93%E9%AA%8C/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Python 测试框架 unittest 初体验</span>
-      <time style="float: right;">06-04</time>
-    </a>
-  
-    
-    <a href="/2021/06/02/Python-3-8-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3(Windows10)/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Python 3.8 虚拟环境相关(Windows10)</span>
-      <time style="float: right;">06-02</time>
-    </a>
-  
-    
-    <a href="/2021/06/01/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B9%8B%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">动态规划之最长公共子序列问题(未竟)</span>
-      <time style="float: right;">06-01</time>
-    </a>
-  
-    
-    <a href="/2021/06/01/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84-Prim-%E7%AE%97%E6%B3%95/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">最小生成树的 Prim 算法(未竟)</span>
-      <time style="float: right;">06-01</time>
-    </a>
-  
-    
-    <a href="/2021/06/01/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84-Kruskal-%E7%AE%97%E6%B3%95/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">最小生成树的 Kruskal 算法(未竟)</span>
-      <time style="float: right;">06-01</time>
-    </a>
-  
-    
-    <a href="/2021/06/01/%E5%88%A9%E7%94%A8%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E6%9D%A5%E5%AF%BB%E6%89%BE%E5%9B%BE%E7%9A%84%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">利用深度优先搜索来寻找图的强连通分量(未竟)</span>
-      <time style="float: right;">06-01</time>
-    </a>
-  
-    
-    <a href="/2021/05/29/Python-%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84-Add-Python-3-x-to-PATH-%E5%8B%BE%E9%80%89%E4%B9%8B%E5%90%8E%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Python 安装过程中的 Add Python 3.x to PATH 勾选之后发生了什么</span>
-      <time style="float: right;">05-29</time>
-    </a>
-  
-    
-    <a href="/2021/05/29/%E8%AF%BB%E3%80%8A%E4%B8%89%E8%A8%80%E4%BA%8C%E6%8B%8D%E3%80%8B/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">读《三言二拍》(未竟)</span>
-      <time style="float: right;">05-29</time>
-    </a>
-  
-    
-    <a href="/2021/05/28/%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E4%B9%8B-Bellman-Ford-%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%85%B6-Python-%E5%AE%9E%E7%8E%B0/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">单源最短路径之 Bellman-Ford 算法详解及其 Python 实现</span>
-      <time style="float: right;">05-28</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Windows 和 Linux 下 clock 函数对 scanf 函数的测量问题</h1>
+            
+            <div class="markdown-body">
+              
 
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/page/9/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/8/#board">8</a><a class="page-number" href="/archives/page/9/#board">9</a><span class="page-number current">10</span><a class="page-number" href="/archives/page/11/#board">11</a><a class="page-number" href="/archives/page/12/#board">12</a><a class="extend next" rel="next" href="/archives/page/11/#board"><i class="iconfont icon-arrowright"></i></a>
-    </span>
-  </nav>
-
-
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    <b>版权声明：</b> 本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/11/26/%E5%88%A9%E7%94%A8-Python-%E6%9B%BF%E6%8D%A2%E5%AD%97%E7%AC%A6/">
+                        <span class="hidden-mobile">利用 Python 替换字符</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -343,9 +371,15 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
 
 
 
@@ -383,6 +417,45 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
 
 
 
