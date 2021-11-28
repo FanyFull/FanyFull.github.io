@@ -18,7 +18,7 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-  <title>Vim 使用笔记(快捷键) - Fany Full&#39;s Blog</title>
+  <title>Python 库函数学习记录 - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -166,12 +166,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/lJy8vvR.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/dRdaYdSl.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Vim 使用笔记(快捷键)">
+            <span class="h2" id="subtitle" title="Python 库函数学习记录">
               
             </span>
 
@@ -181,8 +181,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-11-05 18:32" pubdate>
-        2021年11月5日 晚上
+      <time datetime="2021-11-28 21:06" pubdate>
+        2021年11月28日 晚上
       </time>
     </span>
   
@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      975 字
+      233 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      11
+      4
        分钟
     </span>
   
@@ -233,194 +233,22 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Vim 使用笔记(快捷键)</h1>
+            <h1 style="display: none">Python 库函数学习记录</h1>
             
             <div class="markdown-body">
-              <h1 id="vim-设置相关问题">Vim 设置相关问题</h1>
+              <p>当前正在写 leetcode 的题目，所以可能会经常用到 Python 的库函数，因此，在这里作一个记录，好记性不如烂键盘。</p>
+<h1 id="sort-函数">sort 函数</h1>
+<p>A simple ascending sort is very easy: just call the sorted() function. It returns a new sorted list:</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; sorted([5, 2, 3, 1, 4])</span><br>[1, 2, 3, 4, 5]<br></code></pre></div></td></tr></table></figure>
+<p>You can also use the list.sort() method. It modifies the list in-place (and returns None to avoid confusion). Usually it’s less convenient than sorted() - but if you don’t need the original list, it’s slightly more efficient.</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; a = [5, 2, 3, 1, 4]</span><br><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; a.sort()</span><br><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; a</span><br>[1, 2, 3, 4, 5]<br></code></pre></div></td></tr></table></figure>
+<p>Another difference is that the list.sort() method is only defined for lists. In contrast, the sorted() function accepts any iterable.</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; sorted(&#123;1: <span class="hljs-string">&#x27;D&#x27;</span>, 2: <span class="hljs-string">&#x27;B&#x27;</span>, 3: <span class="hljs-string">&#x27;B&#x27;</span>, 4: <span class="hljs-string">&#x27;E&#x27;</span>, 5: <span class="hljs-string">&#x27;A&#x27;</span>&#125;)</span><br>[1, 2, 3, 4, 5]<br></code></pre></div></td></tr></table></figure>
+<h1 id="abs-函数">abs 函数</h1>
 <blockquote>
-<p>Vim 中和 IDEA 中的 Shift + Enter 快捷键相当的操作是什么？</p>
+<p><code>abs(x)</code></p>
 </blockquote>
-<p>Esc 回到 NORMAL 模式，然后按小写的 o，这样就会在当前行下面插入一行，并且光标会来到下一行的开头，模式会自动切换到 INSERT 模式。</p>
-<p>如果是按大写的 O，那么，就会在当前行的上一行插入新的一行，然后光标来到上一行的开头，模式自动切换到 INSERT 模式。</p>
-<blockquote>
-<p>如何设置 Vim 大括号自动补全并且换行对齐？</p>
-</blockquote>
-<p>首先，要有以下的配置：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs routeros"><span class="hljs-builtin-name">set</span> smartindent<br><span class="hljs-builtin-name">set</span> <span class="hljs-attribute">tabstop</span>=4<br><span class="hljs-builtin-name">set</span> <span class="hljs-attribute">shiftwidth</span>=4<br><span class="hljs-builtin-name">set</span> expandtab<br></code></pre></div></td></tr></table></figure>
-<p>按：这个配置是用来设置智能缩进的。</p>
-<p>然后，添加映射：</p>
-<figure class="highlight dts"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs dts"><span class="hljs-class">imap </span>&#123; &#123;&#125;<span class="hljs-params">&lt;ESC&gt;</span>i<span class="hljs-params">&lt;CR&gt;</span><span class="hljs-params">&lt;ESC&gt;</span>V<span class="hljs-params">&lt;O</span><br></code></pre></div></td></tr></table></figure>
-<p>按：这个自动补全似乎不是一个好主意。之后还是被我取消掉了。</p>
-<p>这个主要是为了写 C 语言时候用。</p>
-<blockquote>
-<p>如何设置 Vim 显示行号？</p>
-</blockquote>
-<p>添加如下配置：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs applescript"><span class="hljs-keyword">set</span> <span class="hljs-built_in">number</span><br></code></pre></div></td></tr></table></figure>
-<h1 id="vim-快捷键相关问题">Vim 快捷键相关问题</h1>
-<blockquote>
-<p>基本操作？</p>
-</blockquote>
-<ul>
-<li><code>ESC</code>：从当前模式转换到 NORMAL 模式；</li>
-<li><code>i</code>：从 NORMAL 模式转到 INSERT 模式；</li>
-<li><code>:</code>：命令行模式。Vim 希望你输入类似于保存该文档命令的地方。</li>
-</ul>
-<h2 id="方向键">方向键</h2>
-<blockquote>
-<p>光标向左移动一个字符？</p>
-</blockquote>
-<p><code>h</code></p>
-<blockquote>
-<p>光标向下移动一行？</p>
-</blockquote>
-<p><code>j</code> 或 <code>Ctrl + J</code></p>
-<blockquote>
-<p>光标向上移动一行？</p>
-</blockquote>
-<p><code>k</code> 或 <code>Ctrl + P</code></p>
-<blockquote>
-<p>光标向右移动一个字符？</p>
-</blockquote>
-<p><code>l</code></p>
-<p>按：是英文字母 <code>l</code>。</p>
-<blockquote>
-<p>移动光标至本行开头？</p>
-</blockquote>
-<p><code>0</code></p>
-<p>按：是数字 <code>0</code>。</p>
-<blockquote>
-<p>移动光标到本行末尾？</p>
-</blockquote>
-<p><code>$</code></p>
-<blockquote>
-<p>移动光标至本行第一个非空字符处？</p>
-</blockquote>
-<p><code>^</code></p>
-<blockquote>
-<p>向右移动一个词？</p>
-</blockquote>
-<p><code>w</code></p>
-<p>按：上一个字母和数字组成的词之后。</p>
-<blockquote>
-<p>向右移动一个词？</p>
-</blockquote>
-<p><code>W</code></p>
-<p>按：以空格分隔的词。</p>
-<blockquote>
-<p>向右移动 5 个词？</p>
-</blockquote>
-<p><code>5w</code></p>
-<blockquote>
-<p>向左移动一个词？</p>
-</blockquote>
-<p><code>b</code></p>
-<p>按：下一个字母和数字组成的词之后。</p>
-<blockquote>
-<p>向左移动一个词？</p>
-</blockquote>
-<p><code>B</code></p>
-<p>按：以空格分隔的词。</p>
-<blockquote>
-<p>向左移动 5 个词？</p>
-</blockquote>
-<p><code>5b</code></p>
-<blockquote>
-<p>移动至文件末尾？</p>
-</blockquote>
-<p><code>G</code></p>
-<blockquote>
-<p>移动至文件开头？</p>
-</blockquote>
-<p><code>gg</code></p>
-<blockquote>
-<p>设置缓冲区使当前行居中？</p>
-</blockquote>
-<p>zz。</p>
-<h2 id="删除文本">删除文本</h2>
-<blockquote>
-<p>删除光标处字符？</p>
-</blockquote>
-<p><code>x</code></p>
-<blockquote>
-<p>删除一个词？</p>
-</blockquote>
-<p><code>dw</code>：从光标当前的位置开始删除，直到删除到单词的最后。</p>
-<p><code>daw</code>：删除光标所在的一个单词。delete a word。</p>
-<p><code>bdw</code>：这是一个复合命令。b 可以让光标退回到单词开头的位置，而 dw 上面描述过的命令。</p>
-<blockquote>
-<p>删除至行首？</p>
-</blockquote>
-<p><code>d0</code></p>
-<blockquote>
-<p>删除至行末？</p>
-</blockquote>
-<p><code>d$</code></p>
-<blockquote>
-<p>删除至句末？</p>
-</blockquote>
-<p><code>d)</code></p>
-<p>按：啥叫句末？</p>
-<blockquote>
-<p>删至文件开头？</p>
-</blockquote>
-<p><code>dgg</code></p>
-<blockquote>
-<p>删除至文件末尾？</p>
-</blockquote>
-<p><code>dG</code></p>
-<blockquote>
-<p>删除当前行？</p>
-</blockquote>
-<p><code>dd</code></p>
-<blockquote>
-<p>删除 3 行？</p>
-</blockquote>
-<p><code>3dd</code></p>
-<h2 id="剪切复制">剪切、复制</h2>
-<blockquote>
-<p>剪切某一行？</p>
-</blockquote>
-<p>dd。</p>
-<blockquote>
-<p>如何全选复制？</p>
-</blockquote>
-<p>按 ESC 键后，先按 <code>gg</code>，然后按 <code>yG</code>。</p>
-<p>按：<code>gg</code> 是让光标回到文件开头，<code>yG</code> 是从当前行复制到文件结尾。</p>
-<p>更多见：<a target="_blank" rel="noopener" href="https://fanlumaster.github.io/2021/11/26/vim-%E7%9A%84%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/">vim 的复制粘贴</a>。</p>
-<h2 id="翻页">翻页</h2>
-<blockquote>
-<p>翻到下一页？</p>
-</blockquote>
-<p>在 vim 中翻页，同样可以使用 PageUp 和 PageDown，不过，这会使手指移出主键盘区。</p>
-<p>所以，可以使用 <code>Ctrl + B</code> 和 <code>Ctrl + F</code> 来进行翻页，它们的功能等同于 PageUp 和 PageDown。</p>
-<p><code>Ctrl + B</code> 和 <code>Ctrl + F</code> 前也可以加数字，来表示向上或向下翻多少页。</p>
-<blockquote>
-<p>向下翻一行？向上翻一行？</p>
-</blockquote>
-<ul>
-<li>向下：<code>Ctrl + E</code></li>
-<li>向上：<code>Ctrl + Y</code></li>
-</ul>
-<h2 id="搜索">搜索</h2>
-<p>In Vim, you can find and replace text using the :substitute (:s) command.</p>
-<blockquote>
-<p>搜索一个单词？</p>
-</blockquote>
-<p>按 <code>/</code> 然后输入要搜索的单词</p>
-<p>更多内容，见：</p>
-<h1 id="其他">其他</h1>
-<blockquote>
-<p>如何判断 Vim 是否剪切板？</p>
-</blockquote>
-<p>在 Shell 输入</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> vim --version | grep clipboard</span><br></code></pre></div></td></tr></table></figure>
-<p>如果输出包含 <code>+clipboard</code> 就表示支持，如果是 <code>-clipboard</code> 就表示不支持。</p>
-<p>如果不支持，Ubuntu 可以先卸载原来的 Vim，然后安装 vim-gtk。</p>
-<blockquote>
-<p>Window 下的 Git Bash 如何配置 Vim？</p>
-</blockquote>
-<p>在 <code>C:\Program Files\Git\etc</code> 目录下找到 vimrc 文件，然后使用 VSCode 打开进行配置（需要管理员权限）。</p>
+<p>Return the absolute value of a number. The argument may be an integer, a floating point number, or an object implementing <strong>abs</strong>(). If the argument is a complex number, its magnitude is returned.</p>
 
             </div>
             <hr>
@@ -430,7 +258,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Linux/">Linux</a>
+                      <a class="hover-with-bg" href="/categories/Python/">Python</a>
                     
                   </div>
                 
@@ -438,9 +266,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Vim/">Vim</a>
-                    
-                      <a class="hover-with-bg" href="/tags/Linux/">Linux</a>
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
                     
                   </div>
                 
@@ -457,9 +283,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/11/07/Ubuntu-Linux-%E5%8D%87%E7%BA%A7-node-%E5%92%8C-npm/">
+                      <a href="/2021/11/28/LeetCode-15-20-%E8%AE%B0%E5%BD%95/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Ubuntu Linux 升级 node 和 npm</span>
+                        <span class="hidden-mobile">LeetCode 15 - 20 记录</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -467,8 +293,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/10/31/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E5%9B%9B/">
-                        <span class="hidden-mobile">编译原理作业四</span>
+                      <a href="/2021/11/28/%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E6%8E%A8%E5%AF%BC%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/">
+                        <span class="hidden-mobile">傅里叶级数推导过程中的一个问题</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
