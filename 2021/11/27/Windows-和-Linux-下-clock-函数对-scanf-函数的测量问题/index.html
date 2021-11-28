@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      354 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      4
        分钟
     </span>
   
@@ -236,7 +236,26 @@
             <h1 style="display: none">Windows 和 Linux 下 clock 函数对 scanf 函数的测量问题</h1>
             
             <div class="markdown-body">
-              
+              <p>这个问题的来由是《算法竞赛入门经典（第 2 版）》P27：</p>
+<blockquote>
+<p>输入 "20"，按 Enter 之后...键盘输入的时间也被计算在内——这确实是程序启动之后才进行的。</p>
+</blockquote>
+<p>所以，作者建议使用 <code>echo</code> 命令来消除键盘输入的影响：</p>
+<blockquote>
+<p>在 Windows 命令行下执行 <code>echo 20|abc</code>，操作系统会自动把 20 输入，其中 abc 是程序名。Linux 下需要输入 <code>echo 20|./abc</code>，因为在默认情况下，当前目录不在可执行文件的搜索路径中。</p>
+</blockquote>
+<p>根据我的猜测，在 Windows 下使用 <code>clock()</code> 函数，<code>scanf</code> 函数的输入时间是要被算进去的，而在 Linux 环境下，<code>scanf</code> 的时间则会被省去。</p>
+<p>下面就来测试一下。</p>
+<p>测试程序如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;time.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> MOD = <span class="hljs-number">1000000</span>;<br>	<span class="hljs-keyword">int</span> n, S = <span class="hljs-number">0</span>;<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n);<br>	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>		<span class="hljs-keyword">int</span> factorial = <span class="hljs-number">1</span>;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= i; j++)<br>			factorial = (factorial * j % MOD);<br>		S = (S + factorial) % MOD;<br>	&#125;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,  S);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Time used = %.2f\n&quot;</span>, (<span class="hljs-keyword">double</span>)clock() / CLOCKS_PER_SEC);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>在 Windows 下测试如下：</p>
+<p><img src="https://i.imgur.com/9GEaKxx.png" srcset="/img/loading.gif" lazyload /></p>
+<p>在 Ubuntu 20.04 下测试如下：</p>
+<p><img src="https://i.imgur.com/rnFNSpm.png" srcset="/img/loading.gif" lazyload /></p>
+<p>由此，可以知道，前面的猜测是正确的。但是具体原因是为什么，这个就需要去看两个操作系统的具体实现了。暂时没有这个必要。</p>
+<p>然后，我们使用 <code>echo</code> 命令再试一下：</p>
+<p><img src="https://i.imgur.com/Ca92yBN.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/V7B3vDw.png" srcset="/img/loading.gif" lazyload /></p>
 
             </div>
             <hr>
