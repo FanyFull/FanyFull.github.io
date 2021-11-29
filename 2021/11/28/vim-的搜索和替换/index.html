@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      1.3k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      13
+      15
        分钟
     </span>
   
@@ -283,9 +283,16 @@
 <p>点 <code>.</code> 符号表示当前行，美元符号 <code>$</code> 表示最后一行。来替换从当前行到最后一行的 <code>'foo'</code> 为 <code>'bar'</code>，可以使用：</p>
 <div class="hljs code-wrapper"><pre><code>:.,$/foo/bar/g</code></pre></div>
 <p>按：原文中没有加 <code>g</code>。</p>
-<p>我们也可以使用 <code>+</code> 或者 <code>-</code> 符号来设置具体的行，它的后面跟着具体的数字，这个数字将被前一行数字给加上或者减去。如果 <code>+</code> 或 <code>-</code> 后面的数字被省略，那么，该数字将默认被设置成 1。</p>
-<p>举例，从当前行到接下来的四行中替换每一个 <code>'each'</code> 为 <code>'bar'</code>，可以使用：</p>
+<p>我们也可以使用 <code>+</code> 或者 <code>-</code> 符号来设置具体的行，它的后面跟着具体的数字，这个数字将被当前行数字给加上或者减去。如果 <code>+</code> 或 <code>-</code> 后面的数字被省略，那么，该数字将默认被设置成 1。</p>
+<p>举例，从当前行到接下来的四行(一共是 5 行)中替换每一个 <code>'each'</code> 为 <code>'bar'</code>，可以使用：</p>
 <div class="hljs code-wrapper"><pre><code>:.,+4s/foo/bar/g</code></pre></div>
+<p><img src="https://i.imgur.com/BCukecO.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="替换整个单词">替换整个单词</h1>
+<p>substitute 命令是以字符串的形式来寻找 pattern 的，而不是一整个单词。如果，举例来说，你想要搜索 <code>"gnu"</code>，那么将会搜索到在更长的单词中所包含的 <code>"gnu"</code>，比如 <code>"cygnus"</code> 或 <code>"magnum"</code>。</p>
+<p>想要搜索一整个单词，键入 <code>\&lt;</code> 来标记一个单词的开始，然后输入搜索的 pattern，然后键入 <code>\&gt;</code> 来标记单词的结尾。</p>
+<p>举例来说，要搜索单词 <code>"foo"</code>，你可以使用 <code>\&lt;foo\&gt;</code>：</p>
+<div class="hljs code-wrapper"><pre><code>:s/\&lt;foo&gt;/bar/</code></pre></div>
+<h1 id="替换历史">替换历史</h1>
 
             </div>
             <hr>
