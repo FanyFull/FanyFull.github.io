@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      975 字
+      1.2k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      11
+      14
        分钟
     </span>
   
@@ -246,17 +246,39 @@
 <p>如何设置 Vim 大括号自动补全并且换行对齐？</p>
 </blockquote>
 <p>首先，要有以下的配置：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs routeros"><span class="hljs-builtin-name">set</span> smartindent<br><span class="hljs-builtin-name">set</span> <span class="hljs-attribute">tabstop</span>=4<br><span class="hljs-builtin-name">set</span> <span class="hljs-attribute">shiftwidth</span>=4<br><span class="hljs-builtin-name">set</span> expandtab<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim"><span class="hljs-keyword">set</span> smartindent<br><span class="hljs-keyword">set</span> tabstop=<span class="hljs-number">4</span><br><span class="hljs-keyword">set</span> <span class="hljs-built_in">shiftwidth</span>=<span class="hljs-number">4</span><br><span class="hljs-keyword">set</span> expandtab<br></code></pre></div></td></tr></table></figure>
 <p>按：这个配置是用来设置智能缩进的。</p>
 <p>然后，添加映射：</p>
-<figure class="highlight dts"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs dts"><span class="hljs-class">imap </span>&#123; &#123;&#125;<span class="hljs-params">&lt;ESC&gt;</span>i<span class="hljs-params">&lt;CR&gt;</span><span class="hljs-params">&lt;ESC&gt;</span>V<span class="hljs-params">&lt;O</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim"><span class="hljs-keyword">imap</span> &#123; &#123;&#125;<span class="hljs-symbol">&lt;ESC&gt;</span>i<span class="hljs-symbol">&lt;CR&gt;</span><span class="hljs-symbol">&lt;ESC&gt;</span>V&lt;O<br></code></pre></div></td></tr></table></figure>
 <p>按：这个自动补全似乎不是一个好主意。之后还是被我取消掉了。</p>
 <p>这个主要是为了写 C 语言时候用。</p>
 <blockquote>
 <p>如何设置 Vim 显示行号？</p>
 </blockquote>
 <p>添加如下配置：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs applescript"><span class="hljs-keyword">set</span> <span class="hljs-built_in">number</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim"><span class="hljs-keyword">set</span> <span class="hljs-keyword">number</span><br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>Vim 有关 C 语言缩进相关的问题？</p>
+</blockquote>
+<figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim"><span class="hljs-keyword">set</span> <span class="hljs-keyword">number</span><br><span class="hljs-keyword">set</span> tabstop=<span class="hljs-number">4</span><br><span class="hljs-keyword">set</span> softtabstop=<span class="hljs-number">4</span><br><span class="hljs-keyword">set</span> <span class="hljs-built_in">shiftwidth</span>=<span class="hljs-number">4</span><br><span class="hljs-keyword">set</span> autoindent<br><span class="hljs-keyword">set</span> <span class="hljs-built_in">cindent</span><br><span class="hljs-keyword">set</span> smartindent<br><span class="hljs-keyword">set</span> clipboard^=unnamed,unnamedplus<br><span class="hljs-keyword">source</span> $VIMRUNTIME/vimrc_example.<span class="hljs-keyword">vim</span><br><span class="hljs-keyword">set</span> nobackup<br><span class="hljs-keyword">set</span> noundofile<br></code></pre></div></td></tr></table></figure>
+<p>对于设置的解释：</p>
+<ul>
+<li>tabstop=X # 一个 TAB 字符占 X 个空格，C/C++、python 都建议设置为 4，下同</li>
+<li>softtabstop=X # 前面有 X 个空格时，再按下一次 tab，这 X 个空格就会和上一个 X 个空格组合成一个制表符，也就是方便退格</li>
+<li>shiftwidth=X # 每行缩进 X 个空格</li>
+<li>autoindent # 自动缩进</li>
+<li>cindent # C 语言风格的缩进</li>
+<li>smartindent # 智能缩进，每行都和前一行的缩进量相同，还能识别花括号，遇到 <code>&#123;</code> 则取消缩进。</li>
+<li>expandtab # expandtab 是把输入的tab转换成空格</li>
+</ul>
+<blockquote>
+<p>设置字符编码相关？</p>
+</blockquote>
+<figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim"><span class="hljs-keyword">set</span> fileencoding=utf-<span class="hljs-number">8</span><br><span class="hljs-keyword">set</span> encoding=utf-<span class="hljs-number">8</span><br><span class="hljs-keyword">set</span> termencoding=utf-<span class="hljs-number">8</span><br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>Windows 的 Vim 使其不要创建多余的文件？消除 <code>~</code> 和 <code>.un~</code> 后缀文件生成的操作？</p>
+</blockquote>
+<figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim"><span class="hljs-keyword">set</span> nobackup<br><span class="hljs-keyword">set</span> noundofile<br></code></pre></div></td></tr></table></figure>
 <h1 id="vim-快捷键相关问题">Vim 快捷键相关问题</h1>
 <blockquote>
 <p>基本操作？</p>
@@ -421,6 +443,9 @@
 <p>Window 下的 Git Bash 如何配置 Vim？</p>
 </blockquote>
 <p>在 <code>C:\Program Files\Git\etc</code> 目录下找到 vimrc 文件，然后使用 VSCode 打开进行配置（需要管理员权限）。</p>
+<hr />
+<p>参考：</p>
+<p>1、<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42037232/article/details/100069365">缩进相关</a></p>
 
             </div>
             <hr>

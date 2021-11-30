@@ -1,0 +1,665 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
+  
+  <title>gdb 基本使用 - Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":false,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fany Full's Blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/beSChtT.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="gdb 基本使用">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-11-30 14:15" pubdate>
+        2021年11月30日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">gdb 基本使用</h1>
+            
+            <div class="markdown-body">
+              <h1 id="单步执行和跟踪函数调用">单步执行和跟踪函数调用</h1>
+<p>首先写一段有问题的测试代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-comment">/* main.c */</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">add_range</span><span class="hljs-params">(<span class="hljs-keyword">int</span> low, <span class="hljs-keyword">int</span> high)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> i, sum;<br>	<span class="hljs-keyword">for</span> (i = low; i &lt;= high; i++)<br>		sum = sum + i;<br>	<span class="hljs-keyword">return</span> sum;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> result[<span class="hljs-number">100</span>];<br>	result[<span class="hljs-number">0</span>] = add_range(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>);<br>	result[<span class="hljs-number">1</span>] = add_range(<span class="hljs-number">1</span>, <span class="hljs-number">100</span>);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;result[0]=%d\nresult[1]=%d\n&quot;</span>, result[<span class="hljs-number">0</span>], result[<span class="hljs-number">1</span>]);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>接下来，对于 gdb 的使用，我们主要是以调试这个程序的方式来理解。</p>
+<p><img src="https://i.imgur.com/wFmHgXE.png" srcset="/img/loading.gif" lazyload /></p>
+<p>结果显然错误。</p>
+<p>然后我们来调试，</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> gcc -g .\main.c -o main</span><br><span class="hljs-meta">$</span><span class="bash"> gdb .\main.exe</span><br>GNU gdb (GDB) 8.1<br>Copyright (C) 2018 Free Software Foundation, Inc.<br>License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;<br>This is free software: you are free to change and redistribute it.<br>There is NO WARRANTY, to the extent permitted by law.  Type &quot;show copying&quot;<br>and &quot;show warranty&quot; for details.<br>This GDB was configured as &quot;x86_64-w64-mingw32&quot;.<br>Type &quot;show configuration&quot; for configuration details.<br>For bug reporting instructions, please see:<br>&lt;http://www.gnu.org/software/gdb/bugs/&gt;.<br>Find the GDB manual and other documentation resources online at:<br>&lt;http://www.gnu.org/software/gdb/documentation/&gt;.<br>For help, type &quot;help&quot;.<br>Type &quot;apropos word&quot; to search for commands related to &quot;word&quot;...<br>Reading symbols from .\main.exe...done.<br>(gdb)<br></code></pre></div></td></tr></table></figure>
+<p><code>-g</code> 的作用是在目标文件中加入源代码的信息，比如目标文件的机器指令对应源代码的第几行，但并不是把整个源文件嵌入到目标文件中。所以在调试目标文件时必须保证 gdb 也能找到源文件。</p>
+<blockquote>
+<p><code>help</code> 命令。</p>
+</blockquote>
+<p>查看命令的类别。</p>
+<p><img src="https://i.imgur.com/Kv0TwDJ.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p><code>help files</code>。</p>
+</blockquote>
+<p>查看 files 类别下有那些命令可以用。</p>
+<p><img src="https://i.imgur.com/nMs1Mu3.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p><code>list 1</code>。</p>
+</blockquote>
+<p>从第一行开始列出源代码。一次只列 10 行。</p>
+<p><code>list</code> 命令可以简写成为 <code>l</code>。</p>
+<p><img src="https://i.imgur.com/7uJuFKn.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p><code>list</code>。</p>
+</blockquote>
+<p>接上一条，继续从 11 行列出源代码。</p>
+<p><img src="https://i.imgur.com/JB7cyGb.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p>直接回车。</p>
+</blockquote>
+<p>重复上一条命令。</p>
+<blockquote>
+<p><code>l add_range</code>。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/Lqj9qZo.png" srcset="/img/loading.gif" lazyload /></p>
+<p>列出一个函数的源代码。</p>
+<p><img src="https://i.imgur.com/4DjnuNH.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p><code>quit</code>。</p>
+</blockquote>
+<p>退出 gdb 环境。</p>
+<blockquote>
+<p><code>start</code>。</p>
+</blockquote>
+<p>开始执行命令。</p>
+<p><img src="https://i.imgur.com/ZbJEAvY.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这表示停在 main 函数中变量定义之后的第一条语句处等待我们发命令，gdb 列出这条语句表示它还没执行，并且马上要执行。</p>
+<blockquote>
+<p><code>next</code>(简写为 <code>n</code>)。</p>
+</blockquote>
+<p>接上条。一条一条执行语句。</p>
+<p><img src="https://i.imgur.com/m8n1YD2.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p><code>start</code>。</p>
+</blockquote>
+<p>重新来过。</p>
+<p><img src="https://i.imgur.com/5GLKQNO.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p><code>step</code>(简写为 <code>s</code>)。</p>
+</blockquote>
+<p>进入函数中去执行。</p>
+<p><img src="https://i.imgur.com/2ohvT0p.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p><code>backtrace</code>(简写为 <code>bt</code>)。</p>
+</blockquote>
+<p>在函数中查看函数调用的栈帧。</p>
+<p><img src="https://i.imgur.com/OMFwabH.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p><code>info</code>(简写为 <code>i</code>)。</p>
+</blockquote>
+<p>查看局部变量(locals)的值：</p>
+<p><img src="https://i.imgur.com/URw1VCt.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p><code>frame</code>(简写为 <code>f</code>)。</p>
+</blockquote>
+<p>选择栈帧。</p>
+<p>示例，查看 main 函数当前局部变量的值，先用 <code>frame</code> 命令选择 1 号栈帧然后再查看局部变量：</p>
+<p><img src="https://i.imgur.com/piu3gaU.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p><code>print</code>(简写为 <code>p</code>)。</p>
+</blockquote>
+<p>打印变量的值。</p>
+<p>示例，打印 sum 的值：</p>
+<p><img src="https://i.imgur.com/0zZm821.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这里的 <code>$1</code> 表示 gdb 保存着这些中间结果，<code>$</code> 后面的编号会自动增长，在命令中可以用 <code>$1、$2、$3</code> 等编号代替相应的值。</p>
+<blockquote>
+<p><code>finish</code>。</p>
+</blockquote>
+<p>让程序一直运行到当前函数返回为止。</p>
+<p>按：这里出了一个大问题，我现在的 mingw 中的 gdb 版本是 gdb8.1，在这个版本中，执行 <code>finish</code> 命令会直接退出 gdb！无奈之下，换了 mingw 的版本，现在继续整理。</p>
+<p><img src="https://i.imgur.com/fdgYOO1.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/Tzfhoim.png" srcset="/img/loading.gif" lazyload /></p>
+<p>按：改换了 gdb 版本之后，这个程序的第一个结果变得正确了。但是这不是很重要，我们只是需要理解其背后的逻辑。</p>
+<p>接下来，继续调试：</p>
+<p><img src="https://i.imgur.com/jkseAv2.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/kX34K1l.png" srcset="/img/loading.gif" lazyload /></p>
+<p>然后发现 sum 有问题。</p>
+<p>之后我们就可以退出 gdb 去修改程序了。</p>
+<blockquote>
+<p><code>set</code>。</p>
+</blockquote>
+<p>但是，我们也可以使用 <code>set</code> 命令去立刻把 sum 的值改过来，然后继续执行代码，继续调试，</p>
+<p><img src="https://i.imgur.com/tvbXpo2.png" srcset="/img/loading.gif" lazyload /></p>
+<p>修改变量的值也可以用 <code>print</code> 命令，我们可以用 <code>print</code> 来修改变量的值，或者调用函数：</p>
+<p><img src="https://i.imgur.com/UpEsRGp.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/gr4Fj6w.png" srcset="/img/loading.gif" lazyload /></p>
+<p>按：<code>printf</code> 的返回值表示实际要打印的字符数，同时，这里要明确将 <code>printf</code> 的返回值 cast 成 int 类型。</p>
+<table>
+<thead>
+<tr class="header">
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>backtrace(或 bt)</td>
+<td>查看各级函数调用及参数</td>
+</tr>
+<tr class="even">
+<td>finish</td>
+<td>执行到当前函数返回，然后停下来等待命令</td>
+</tr>
+<tr class="odd">
+<td>frame(或 f) 帧编号</td>
+<td>选择栈帧</td>
+</tr>
+<tr class="even">
+<td>info(或 i) locals</td>
+<td>查看当前栈帧局部变量的值</td>
+</tr>
+<tr class="odd">
+<td>list(或 l)</td>
+<td>列出源代码，接着上次的位置往下列，每次列 10 行</td>
+</tr>
+<tr class="even">
+<td>list 行号</td>
+<td>列出从第几行开始的源代码</td>
+</tr>
+<tr class="odd">
+<td>list 函数名</td>
+<td>列出某个函数的源代码</td>
+</tr>
+<tr class="even">
+<td>next(或 n)</td>
+<td>执行下一行语句</td>
+</tr>
+<tr class="odd">
+<td>print(或 p)</td>
+<td>打印表达式的值，通过表达式可以修改变量的值或者调用函数</td>
+</tr>
+<tr class="even">
+<td>set var</td>
+<td>修改变量的值</td>
+</tr>
+<tr class="odd">
+<td>start</td>
+<td>开始执行程序，停在 main 函数第一行语句前面等待命令</td>
+</tr>
+<tr class="even">
+<td>step(或 s)</td>
+<td>执行下一行语句，如果有函数调用则进入到函数中</td>
+</tr>
+</tbody>
+</table>
+<h1 id="断点">断点</h1>
+<p>测试代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-comment">/* main.c */</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>, i = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">char</span> input[<span class="hljs-number">5</span>];<br><br>	<span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) &#123;<br>		<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%s&quot;</span>, input);<br>		<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; input[i] != <span class="hljs-string">&#x27;\0&#x27;</span>, i++)<br>			sum = sum * <span class="hljs-number">10</span> + input[i] - <span class="hljs-string">&#x27;0&#x27;</span>;<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;input=%d\n&quot;</span>, sum);<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/C/">C</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    <b>版权声明：</b> 本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/11/30/PowerShell-%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">PowerShell 使用笔记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/11/29/gcc-%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9%E6%95%B4%E7%90%86/">
+                        <span class="hidden-mobile">gcc 常用选项整理</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
