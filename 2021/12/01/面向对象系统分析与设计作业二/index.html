@@ -18,7 +18,7 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-  <title>PowerShell 使用笔记 - Fany Full&#39;s Blog</title>
+  <title>面向对象系统分析与设计作业二 - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -166,12 +166,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/WsdVdhi.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/1RPrWdt.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="PowerShell 使用笔记">
+            <span class="h2" id="subtitle" title="面向对象系统分析与设计作业二">
               
             </span>
 
@@ -181,8 +181,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-11-30 16:52" pubdate>
-        2021年11月30日 下午
+      <time datetime="2021-12-01 02:18" pubdate>
+        2021年12月1日 凌晨
       </time>
     </span>
   
@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      66 字
+      831 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      10
        分钟
     </span>
   
@@ -233,22 +233,59 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">PowerShell 使用笔记</h1>
+            <h1 style="display: none">面向对象系统分析与设计作业二</h1>
             
             <div class="markdown-body">
               <blockquote>
-<p>移动多个文件。</p>
+<p>1. A simple digital watch has a display and two buttons to set it, the A button and the B button. The watch has two modes of operation, display time and set time. In the display time mode, the watch displays hours and minutes, separated by a flashing colon. The set time mode has two sub modes, set hours and set minutes. The A button selects modes. Each time it is pressed, the mode advances in the sequence: display, set hours, set minutes, display, etc. Within the sub modes, the B button advances the hours or minutes once each time it is pressed. Buttons must be released before they can generate another event. Prepare a state diagram of the watch.</p>
 </blockquote>
-<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell"><span class="hljs-variable">$</span> <span class="hljs-built_in">Move-Item</span> <span class="hljs-literal">-Path</span> .\main.c, .\main.exe <span class="hljs-literal">-Destination</span> .\ex01\<br></code></pre></div></td></tr></table></figure>
-<p>按：重要的是这里的分隔符不能像在 Linux 中那样是空格。</p>
+<p><img src="https://i.imgur.com/1bwMtIO.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
-<p>统计当前目录下的文件个数。</p>
+<p>2. 考察一台闹钟，有如下关于状态和事件的描述，在此基础上，设计此闹钟的状态图。</p>
 </blockquote>
-<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">(<span class="hljs-built_in">Get-ChildItem</span> | <span class="hljs-built_in">Measure-Object</span>).Count<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code>State: AlamRinging
+Description: alarm on watch is ringing to indicate target time
+Event sequence that produces the state:
+    setAlarm(targetTime); 
+    any sequence not including ClearAlarm; 
+    when(currentTime=targetTime)
+Condition that characterizes the state:
+    alarm = on, alarm set to targetTime, targetTime &lt;= currentTime &lt;= targetTime + 20 seconds, and no button has been pushed since targetTime
+Events accepted in the state:
+Event response next state:
+    When(currentTime=targetTime+20), resetAlarm, normal;
+    buttonPushed(any button),resetAlarm, normal.</code></pre></div>
+<p><img src="https://i.imgur.com/piZCNet.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/ZNkqfzJ.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
-<p>快速删除一个单词。</p>
+<p>3. 考察你常用的某种中文输入法，分析中文输入的状态有哪些？状态之间是如何切换的？做一个状态图。</p>
 </blockquote>
-<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">Ctrl + W<br></code></pre></div></td></tr></table></figure>
+<p>我常用的是微软输入法。</p>
+<p>状态有：</p>
+<ul>
+<li>起始模式</li>
+<li>正常模式</li>
+<li>简体模式</li>
+<li>繁体模式</li>
+<li>v 模式</li>
+<li>全角模式</li>
+<li>半角模式</li>
+<li>符号(表情) 输入模式</li>
+</ul>
+<p><img src="https://i.imgur.com/8Xj7QD4.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p>4. 在探索一处古老城堡的时候, 你和一个朋友发现了一个书柜, 你怀疑它是通往秘密通道的入口。在你检查书柜的时候, 你的朋友从烛台上拿开一根蜡烛, 发现烛台是入口的控制开关。书柜转了半圈, 把你推向前去, 你和朋友因而分开。你的朋友把蜡烛放回。这次书柜转了一整圈, 你仍然在书柜后面。<br />
+你的朋友把蜡烛拿开。书柜又开始要转一圈, 但这次你用身体堵住它, 以防它转一整圈。你的朋友递给你蜡烛, 你们俩设法让书柜转回半圈, 但这使你的朋友转到书柜后面, 而你又在书柜前面。你把蜡烛放回。当书柜开始旋转时, 你拿开蜡烛, 书柜在四分之一圈后停止。你和朋友然后就可以继续前往探索。<br />
+为书柜的控制过程绘制一个状态图, 要符合前面的场景。你应该先做些什么才能最不费事地进去?</p>
+</blockquote>
+<p><img src="https://i.imgur.com/hlRpVuU.png" srcset="/img/loading.gif" lazyload /></p>
+<p>应该先拿起蜡烛，在书架刚开始旋转的时候就把蜡烛放回。</p>
+<blockquote>
+<p>5. 图1中有一个类图，描述的是两人打一局乒乓球。乒乓球的规则如下。在游戏开始时，两名选手先试打以选择发球（ping for serve）——也就是说，他们击球越网，来回打几次。赢家先发球。试打的赢家要连续发5次球。然后另一名选手发5次球。接下来，试打的赢家再发5次。这种交替发球一直持续到选手赢得比赛为止。如果对方得零分（shutout, 11- 0），或者选手达到21分，并且至少有两分领先，那么该选手获胜。如果比分在20-20持平，选手要开始交替单独发球，直到有选手领先2分并获胜。<br />
+请给出类Player和类 Volley相对应的状态模型。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/ode12uZ.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/NReoqDD.png" srcset="/img/loading.gif" lazyload /></p>
 
             </div>
             <hr>
@@ -258,7 +295,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Windows/">Windows</a>
+                      <a class="hover-with-bg" href="/categories/%E4%BD%9C%E4%B8%9A/">作业</a>
                     
                   </div>
                 
@@ -266,7 +303,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Windows/">Windows</a>
+                      <a class="hover-with-bg" href="/tags/%E4%BD%9C%E4%B8%9A/">作业</a>
                     
                   </div>
                 
@@ -283,9 +320,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/12/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E4%BD%9C%E4%B8%9A%E4%BA%8C/">
+                      <a href="/2021/12/01/Python-Some-Tricks/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">面向对象系统分析与设计作业二</span>
+                        <span class="hidden-mobile">Python Some Tricks</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -293,8 +330,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/11/30/gdb-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
-                        <span class="hidden-mobile">gdb 基本使用</span>
+                      <a href="/2021/11/30/PowerShell-%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/">
+                        <span class="hidden-mobile">PowerShell 使用笔记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

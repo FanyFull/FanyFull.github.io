@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      1.5k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14
+      17
        分钟
     </span>
   
@@ -369,7 +369,18 @@
 </blockquote>
 <p><code>dw</code>：从光标当前的位置开始删除，直到删除到单词的最后。</p>
 <p><code>daw</code>：删除光标所在的一个单词。delete a word。</p>
+<p><code>caw</code>：删除光标所在的一个单词，并且模式转成 INSERT 模式。</p>
+<ul>
+<li>如果该单词是在一段文字的中间部分，即，前面也有单词，后面也有单词，此时，此命令在删除单词的同时，会将此单词后面的空格连带着删除，但是不删除前面的空格。</li>
+<li>如果该单词是最后一个单词，并且后面紧跟着半角句号，那么，此命令会连带着删除原单词前面的空格。</li>
+<li>如果如果该单词是最后一个单词，并且后面没有标点符号，那么，此命令不会删除原单词前面的空格。</li>
+</ul>
 <p><code>bdw</code>：这是一个复合命令。b 可以让光标退回到单词开头的位置，而 dw 上面描述过的命令。</p>
+<blockquote>
+<p>删除光标前面的单词。</p>
+</blockquote>
+<p>在 NORMAL 模式下，键入 <code>Ctrl + W</code>。</p>
+<p>这个和在 bash 以及 PowerShell 中删除一个单词的方法是一样的。</p>
 <blockquote>
 <p>删除至行首？</p>
 </blockquote>
@@ -431,6 +442,9 @@
 </blockquote>
 <p>按 <code>/</code> 然后输入要搜索的单词</p>
 <p>更多内容，见：</p>
+<h1 id="some-tricks">Some Tricks</h1>
+<figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim">%s/./&amp;/g<br></code></pre></div></td></tr></table></figure>
+<p>按：<code>&amp;</code> 表示匹配到的内容。这个命令执行完之后，文本不会发生任何变化，但是会有一个 Side Effect，即我们会得到当前这个文本的字符数量。</p>
 <h1 id="其他">其他</h1>
 <blockquote>
 <p>如何判断 Vim 是否剪切板？</p>
