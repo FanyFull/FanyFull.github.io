@@ -298,6 +298,9 @@
 
 参考：CSDN
 
+在 PowerShell 中编译很多个 java 文件。
+
+1javac &quot
         </a>
       </p>
 
@@ -586,20 +589,17 @@ Ctrl + Shift + PrtSc：自由选定区域，
           
           小碎点
 
+PowerShell 中无法执行 javac @sources.txt 命令。
+
+替换成：
+1javac &quot;@sources.txt&quot; -encoding UTF8
+即可。
+
+在 PowerShell 中编译很多个 java 文件。
+
+1javac &quot;@sources.txt&quot; -encoding UTF8
+
 移动多个文件。
-
-1$ Move-Item -Path .\main.c, .\main.exe -Destination .\ex01\
-按：重要的是这里的分隔符不能像在 Linux 中那样是空格。
-
-统计当前目录下的文件个数。
-
-1(Get-ChildItem | Measure-Object).Count
-
-快速删除一个单词。
-
-1Ctrl + W
-
-
         </a>
       </p>
 

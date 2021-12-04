@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      402 字
+      443 字
     </span>
   
 
@@ -237,6 +237,16 @@
             
             <div class="markdown-body">
               <h1 id="小碎点">小碎点</h1>
+<blockquote>
+<p>PowerShell 中无法执行 <code>javac @sources.txt</code> 命令。</p>
+</blockquote>
+<p>替换成：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">javac <span class="hljs-string">&quot;@sources.txt&quot;</span> <span class="hljs-literal">-encoding</span> UTF8<br></code></pre></div></td></tr></table></figure>
+<p>即可。</p>
+<blockquote>
+<p>在 PowerShell 中编译很多个 java 文件。</p>
+</blockquote>
+<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">javac <span class="hljs-string">&quot;@sources.txt&quot;</span> <span class="hljs-literal">-encoding</span> UTF8<br></code></pre></div></td></tr></table></figure>
 <blockquote>
 <p>移动多个文件。</p>
 </blockquote>
