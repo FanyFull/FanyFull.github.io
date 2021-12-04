@@ -18,7 +18,7 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-  <title>Python Some Tricks - Fany Full&#39;s Blog</title>
+  <title>MySQL 烹饪笔记 - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -166,12 +166,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/cJfPEPl.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/Ijo3esc.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Python Some Tricks">
+            <span class="h2" id="subtitle" title="MySQL 烹饪笔记">
               
             </span>
 
@@ -181,8 +181,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-12-01 18:54" pubdate>
-        2021年12月1日 晚上
+      <time datetime="2021-12-04 00:16" pubdate>
+        2021年12月4日 凌晨
       </time>
     </span>
   
@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      622 字
+      349 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      4
        分钟
     </span>
   
@@ -233,66 +233,35 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Python Some Tricks</h1>
+            <h1 style="display: none">MySQL 烹饪笔记</h1>
             
             <div class="markdown-body">
-              <h1 id="list-的复制">list 的复制</h1>
-<p>一般来说，有三种方法：</p>
+              <h1 id="说明">说明</h1>
+<p>这里的学习过程主要来自于此网站：<a target="_blank" rel="noopener" href="https://www.mysqltutorial.org/" class="uri">https://www.mysqltutorial.org/</a>，以前读过什么《MySQL 必知必会》，现在在学数据库系统概论这门课，比起这个时新的网站，其时效性还是差了些，更重要的是，目前看来，这个网站的教程质量很好，并且有示例的数据库，这个示例的数据库的质量也很好。</p>
+<p>数据库的脚本我复整了一份 gist：<a target="_blank" rel="noopener" href="https://gist.github.com/fanlumaster/128af90a3f35cead9ca7905dfd393bb9">mysqlsampledatabase</a></p>
+<p>这个脚本可以直接复制到 Navicat 中去执行，或者利用 Navicat 导入 sql 脚本。</p>
+<p>我目前的数据库版本是 MySQL 8.0.25，可以把脚本复制到 Navicat 中去执行，没有出现问题。</p>
+<p><img src="https://i.imgur.com/MVO1yaC.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="mysql-subquery">MySQL SubQuery</h1>
+<p><a target="_blank" rel="noopener" href="https://www.mysqltutorial.org/mysql-subquery/" class="uri">https://www.mysqltutorial.org/mysql-subquery/</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span><br>lastName, firstName<br><span class="hljs-keyword">FROM</span><br>employees<br><span class="hljs-keyword">WHERE</span><br>officeCode <span class="hljs-keyword">IN</span><br>(<br>    <span class="hljs-keyword">SELECT</span> <br>    officeCode<br>    <span class="hljs-keyword">FROM</span><br>    offices<br>    <span class="hljs-keyword">WHERE</span><br>    country <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;USA&#x27;</span><br>);<br></code></pre></div></td></tr></table></figure>
+<p>在这个例子中：</p>
 <ul>
-<li>直接使用 <code>=</code> 赋值，这种方式的复制相当于给一个盒子贴上两个不同的标签，因此，如果操作任何一个标签，都会对另外一个标签进行数据同步。</li>
-<li>使用 <code>copy()</code> 方法，这种方式属于浅复制(shallow copy)，对于一般的字面值，如数字，不管是修改源 list 还是复制之后的 list，都不会影响另一个。但是，如果修改的是列表中的对象(Object)，那么，这个修改也会反映到另一个 list 中。</li>
-<li>使用 <code>deepcopy()</code> 方法，这种方式属于深复制(deep copy)，不管是一般的字面值，还是对象，对一个 list 修改都不会影响到另外一个 list。</li>
+<li>子查询返回所有位于美国的办公室的 <em>office codes</em>。</li>
+<li>外面的查询 select 在子查询中查询到的办公室工作的员工的 lastName 和 firstName。</li>
 </ul>
-<p>按：使用 <code>deepcopy()</code> 需要引入 <code>copy</code> 库。</p>
-<p>一些代码示例：</p>
-<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-comment"># working of &#x27;=&#x27; and copy()</span><br>list1 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]<br>list2 = list1<br>list3 = list1.copy()<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;list1 == list2?&#x27;</span>, list1 == list2)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;list1 == list3?&#x27;</span>, list1 == list3)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;before modified, the data of list1~list3 are as follows&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;list1 =&#x27;</span>, list1)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;list2 =&#x27;</span>, list2)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;list3 =&#x27;</span>, list3)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;then we modify list1, let&#x27;s see what will happen in list1~list3&quot;</span>)<br>list1.append(<span class="hljs-number">5</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;list1 =&#x27;</span>, list1)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;list2 =&#x27;</span>, list2)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;list3 =&#x27;</span>, list3)<br></code></pre></div></td></tr></table></figure>
-<p>output:</p>
-<div class="hljs code-wrapper"><pre><code>list1 == list2? True
-list1 == list3? True
-before modified, the data of list1~list3 are as follows
-list1 = [1, 2, 3, 4]
-list2 = [1, 2, 3, 4]
-list3 = [1, 2, 3, 4]
-then we modify list1, let&#39;s see what will happen in list1~list3
-list1 = [1, 2, 3, 4, 5]
-list2 = [1, 2, 3, 4, 5]
-list3 = [1, 2, 3, 4]</code></pre></div>
-<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-comment"># working of list.copy()</span><br><br><span class="hljs-comment"># Initializing list</span><br>lis1 = [ <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span> ]<br><br><span class="hljs-comment"># Using copy() to create a shallow copy</span><br>lis2 = lis1.copy()<br><br><span class="hljs-comment"># Printing new list</span><br><span class="hljs-built_in">print</span> (<span class="hljs-string">&quot;The new list created is : &quot;</span> + <span class="hljs-built_in">str</span>(lis2))<br><br><span class="hljs-comment"># Adding new element to new list</span><br>lis2.append(<span class="hljs-number">5</span>)<br><br><span class="hljs-comment"># Printing lists after adding new element</span><br><span class="hljs-comment"># No change in old list</span><br><span class="hljs-built_in">print</span> (<span class="hljs-string">&quot;The new list after adding new element : &quot;</span> + <span class="hljs-built_in">str</span>(lis2))<br><span class="hljs-built_in">print</span> (<span class="hljs-string">&quot;The old list after adding new element to new list : &quot;</span> + <span class="hljs-built_in">str</span>(lis1))<br></code></pre></div></td></tr></table></figure>
-<p>output:</p>
-<div class="hljs code-wrapper"><pre><code>The new list created is : [1, 2, 3, 4]
-The new list after adding new element : [1, 2, 3, 4, 5]
-The old list after adding new element to new list : [1, 2, 3, 4]</code></pre></div>
-<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-comment"># techniques of deep and shallow copy</span><br><span class="hljs-keyword">import</span> copy<br><br><span class="hljs-comment"># Initializing list</span><br>list1 = [ <span class="hljs-number">1</span>, [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>] , <span class="hljs-number">4</span> ]<br><br><span class="hljs-comment"># all changes are reflected</span><br>list2 = list1<br><br><span class="hljs-comment"># shallow copy - changes to</span><br><span class="hljs-comment"># nested list is reflected,</span><br><span class="hljs-comment"># same as copy.copy(), slicing</span><br><br>list3 = list1.copy()<br><br><span class="hljs-comment"># deep copy - no change is reflected</span><br>list4 = copy.deepcopy(list1)<br><br>list1.append(<span class="hljs-number">5</span>)<br>list1[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">999</span><br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;list 1 after modification:\n&quot;</span>, list1)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;list 2 after modification:\n&quot;</span>, list2)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;list 3 after modification:\n&quot;</span>, list3)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;list 4 after modification:\n&quot;</span>, list4)<br></code></pre></div></td></tr></table></figure>
-<div class="hljs code-wrapper"><pre><code>list 1 after modification:
- [1, [2, 999], 4, 5]
-list 2 after modification:
- [1, [2, 999], 4, 5]
-list 3 after modification:
- [1, [2, 999], 4]
-list 4 after modification:
- [1, [2, 3], 4]</code></pre></div>
-<p>这里其实还有一种方法，即利用切片进行复制：</p>
-<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py">list2 = list1[:]<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://i.imgur.com/rOIRltd.png" srcset="/img/loading.gif" lazyload /></p>
+<p>然后就是执行一下几个示例。</p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <br>    customerNumber, <br>    checkNumber, <br>    amount<br><span class="hljs-keyword">FROM</span><br>    payments<br><span class="hljs-keyword">WHERE</span><br>    amount <span class="hljs-operator">=</span> (<span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">MAX</span>(amount) <span class="hljs-keyword">FROM</span> payments);<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://i.imgur.com/8HOMZ6L.png" srcset="/img/loading.gif" lazyload /></p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <br>    customerNumber, <br>    checkNumber, <br>    amount<br><span class="hljs-keyword">FROM</span><br>    payments<br><span class="hljs-keyword">WHERE</span><br>    amount <span class="hljs-operator">&gt;</span> (<span class="hljs-keyword">SELECT</span> <br>            <span class="hljs-built_in">AVG</span>(amount)<br>        <span class="hljs-keyword">FROM</span><br>            payments);<br></code></pre></div></td></tr></table></figure>
+<p>纠正一个错误的认识：我之前看的不认真，以为可以独立的子查询一定是先于外查询执行的，实际上人家并没有这么说，只有当用到 <code>IN</code> 操作符时，才会这样。</p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/Python/">Python</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
-                    
-                  </div>
                 
               </div>
               
@@ -307,9 +276,9 @@ list 4 after modification:
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/12/04/MySQL-%E7%83%B9%E9%A5%AA%E7%AC%94%E8%AE%B0/">
+                      <a href="/2021/12/04/Ubuntu-%E7%83%B9%E9%A5%AA%E7%AC%94%E8%AE%B0/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">MySQL 烹饪笔记</span>
+                        <span class="hidden-mobile">Ubuntu 烹饪笔记</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -317,8 +286,8 @@ list 4 after modification:
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/12/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E4%BD%9C%E4%B8%9A%E4%BA%8C/">
-                        <span class="hidden-mobile">面向对象系统分析与设计作业二</span>
+                      <a href="/2021/12/01/Python-Some-Tricks/">
+                        <span class="hidden-mobile">Python Some Tricks</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

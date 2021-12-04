@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      1.3k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      15
+      16
        分钟
     </span>
   
@@ -236,7 +236,8 @@
             <h1 style="display: none">gdb 基本使用</h1>
             
             <div class="markdown-body">
-              <h1 id="单步执行和跟踪函数调用">单步执行和跟踪函数调用</h1>
+              <p>本篇博客主要是对《LinuxC》相关章节中的学习笔记以及记录。在学习的过程中，为了减缓遗忘，以及将来需要时可以随时查阅自己的知识库，故整理如下。</p>
+<h1 id="单步执行和跟踪函数调用">单步执行和跟踪函数调用</h1>
 <p>首先写一段有问题的测试代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-comment">/* main.c */</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">add_range</span><span class="hljs-params">(<span class="hljs-keyword">int</span> low, <span class="hljs-keyword">int</span> high)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> i, sum;<br>	<span class="hljs-keyword">for</span> (i = low; i &lt;= high; i++)<br>		sum = sum + i;<br>	<span class="hljs-keyword">return</span> sum;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> result[<span class="hljs-number">100</span>];<br>	result[<span class="hljs-number">0</span>] = add_range(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>);<br>	result[<span class="hljs-number">1</span>] = add_range(<span class="hljs-number">1</span>, <span class="hljs-number">100</span>);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;result[0]=%d\nresult[1]=%d\n&quot;</span>, result[<span class="hljs-number">0</span>], result[<span class="hljs-number">1</span>]);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 <p>接下来，对于 gdb 的使用，我们主要是以调试这个程序的方式来理解。</p>
