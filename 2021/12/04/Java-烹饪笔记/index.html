@@ -18,7 +18,7 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-  <title>PowerShell 使用笔记 - Fany Full&#39;s Blog</title>
+  <title>Java 烹饪笔记 - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -166,12 +166,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/WsdVdhi.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/o7wLyAi.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="PowerShell 使用笔记">
+            <span class="h2" id="subtitle" title="Java 烹饪笔记">
               
             </span>
 
@@ -181,8 +181,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-11-30 16:52" pubdate>
-        2021年11月30日 下午
+      <time datetime="2021-12-04 18:13" pubdate>
+        2021年12月4日 晚上
       </time>
     </span>
   
@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      402 字
+      47 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      1
        分钟
     </span>
   
@@ -233,61 +233,23 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">PowerShell 使用笔记</h1>
+            <h1 style="display: none">Java 烹饪笔记</h1>
             
             <div class="markdown-body">
               <h1 id="小碎点">小碎点</h1>
 <blockquote>
-<p>移动多个文件。</p>
+<p>命令行查看 Java 版本。</p>
 </blockquote>
-<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell"><span class="hljs-variable">$</span> <span class="hljs-built_in">Move-Item</span> <span class="hljs-literal">-Path</span> .\main.c, .\main.exe <span class="hljs-literal">-Destination</span> .\ex01\<br></code></pre></div></td></tr></table></figure>
-<p>按：重要的是这里的分隔符不能像在 Linux 中那样是空格。</p>
+<figure class="highlight applescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs applescript">java -<span class="hljs-built_in">version</span><br></code></pre></div></td></tr></table></figure>
 <blockquote>
-<p>统计当前目录下的文件个数。</p>
+<p>更改 PowerShell(或 CMD)中 javac 的输出为英文。</p>
 </blockquote>
-<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">(<span class="hljs-built_in">Get-ChildItem</span> | <span class="hljs-built_in">Measure-Object</span>).Count<br></code></pre></div></td></tr></table></figure>
-<blockquote>
-<p>快速删除一个单词。</p>
-</blockquote>
-<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">Ctrl + W<br></code></pre></div></td></tr></table></figure>
-<blockquote>
-<p>PowerShell 显示当前路径。</p>
-</blockquote>
-<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell"><span class="hljs-built_in">echo</span> <span class="hljs-variable">$PWD</span><br></code></pre></div></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell"><span class="hljs-built_in">Get-Location</span><br></code></pre></div></td></tr></table></figure>
-<blockquote>
-<p>PowerShell 进入上一次的目录。</p>
-</blockquote>
-<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell"><span class="hljs-built_in">cd</span> -<br></code></pre></div></td></tr></table></figure>
-<blockquote>
-<p>PowerShell 的安装路径。</p>
-</blockquote>
-<div class="hljs code-wrapper"><pre><code>C:\Program Files\PowerShell</code></pre></div>
-<blockquote>
-<p>查看 PowerShell 的安装路径。</p>
-</blockquote>
-<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell"><span class="hljs-built_in">echo</span> <span class="hljs-variable">$PSHOME</span><br></code></pre></div></td></tr></table></figure>
-<blockquote>
-<p><code>more</code> 命令是啥？</p>
-</blockquote>
-<p>Linux <code>more</code> 命令类似 cat ，不过会以一页一页的形式显示，更方便使用者逐页阅读，而最基本的指令就是按空白键（space）就往下一页显示，按 b 键就会往回（back）一页显示，而且还有搜寻字串的功能（与 vi 相似）。</p>
-<p>参考：<a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-more.html">菜鸟教程</a></p>
-<h1 id="如何为-powershell-创建一个-profile">如何为 PowerShell 创建一个 profile？</h1>
-<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.2">Microsoft Docs</a></p>
-<p>根据文档，然后创建一个 <code>Profile.ps1</code> 文件，我这里是使用 vim 创建的：</p>
-<p><img src="https://i.imgur.com/Y1pAPMG.png" srcset="/img/loading.gif" lazyload /></p>
-<p><img src="https://i.imgur.com/1jr56G0.png" srcset="/img/loading.gif" lazyload /></p>
-<p>然后自己想改变 PowerShell 的什么特性，就直接往这个文件里面写配置即可。</p>
-<p>小知识：<code>$PSHOME</code> 这个是指 PowerShell 的安装路径，可以使用 <code>echo $PSHOME</code> 打印这个路径，然后我们进入这个目录创建这个配置文件即可。</p>
-<h1 id="如何使-powershell-的提示路径prompt不要显示那么长">如何使 PowerShell 的提示路径(Prompt)不要显示那么长？</h1>
-<p>在 profile 文件中添加如下配置：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">global</span>:<span class="hljs-title">prompt</span></span> &#123;<br>  <span class="hljs-variable">$dirSep</span> = [<span class="hljs-type">IO.Path</span>]::DirectorySeparatorChar<br>  <span class="hljs-variable">$pathComponents</span> = <span class="hljs-variable">$PWD</span>.Path.Split(<span class="hljs-variable">$dirSep</span>)<br>  <span class="hljs-variable">$displayPath</span> = <span class="hljs-keyword">if</span> (<span class="hljs-variable">$pathComponents</span>.Count <span class="hljs-operator">-le</span> <span class="hljs-number">3</span>) &#123;<br>    <span class="hljs-variable">$PWD</span>.Path<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-string">&#x27;…&#123;0&#125;&#123;1&#125;&#x27;</span> <span class="hljs-operator">-f</span> <span class="hljs-variable">$dirSep</span>, (<span class="hljs-variable">$pathComponents</span>[-<span class="hljs-number">2</span>,-<span class="hljs-number">1</span>] <span class="hljs-operator">-join</span> <span class="hljs-variable">$dirSep</span>)<br>  &#125;<br>  <span class="hljs-string">&quot;PS &#123;0&#125;<span class="hljs-variable">$</span>(&#x27;&gt;&#x27; * (<span class="hljs-variable">$nestedPromptLevel</span> + 1)) &quot;</span> <span class="hljs-operator">-f</span> <span class="hljs-variable">$displayPath</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
-<p>修改之前：</p>
-<p><img src="https://i.imgur.com/vk11RpS.png" srcset="/img/loading.gif" lazyload /></p>
-<p>之后：</p>
-<p><img src="https://i.imgur.com/VB3foQc.png" srcset="/img/loading.gif" lazyload /></p>
-<p>参考：<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/58574397/how-can-i-change-the-powershell-prompt-to-show-just-the-parent-directory-and-cur">stackoverflow</a></p>
+<p>在环境变量中添加这么一行：</p>
+<figure class="highlight ini"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ini"><span class="hljs-attr">JAVA_TOOL_OPTIONS</span>=-Duser.language=en<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://i.imgur.com/iRR60c0.png" srcset="/img/loading.gif" lazyload /></p>
+<p>效果：</p>
+<p><img src="https://i.imgur.com/znxxOjY.png" srcset="/img/loading.gif" lazyload /></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/icyfox_bupt/article/details/109499926">CSDN</a></p>
 
             </div>
             <hr>
@@ -297,7 +259,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Windows/">Windows</a>
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
                     
                   </div>
                 
@@ -305,7 +267,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Windows/">Windows</a>
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%83%B9%E9%A5%AA/">烹饪</a>
                     
                   </div>
                 
@@ -322,18 +286,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/12/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E4%BD%9C%E4%B8%9A%E4%BA%8C/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">面向对象系统分析与设计作业二</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/11/30/gdb-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
-                        <span class="hidden-mobile">gdb 基本使用</span>
+                      <a href="/2021/12/04/Ubuntu-%E7%83%B9%E9%A5%AA%E7%AC%94%E8%AE%B0/">
+                        <span class="hidden-mobile">Ubuntu 烹饪笔记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
