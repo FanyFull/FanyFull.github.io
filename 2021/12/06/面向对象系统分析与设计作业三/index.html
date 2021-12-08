@@ -18,7 +18,7 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-  <title>MySQL 烹饪笔记 - Fany Full&#39;s Blog</title>
+  <title>面向对象系统分析与设计作业三 - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -166,12 +166,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/Ijo3esc.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/jL59ecv.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="MySQL 烹饪笔记">
+            <span class="h2" id="subtitle" title="面向对象系统分析与设计作业三">
               
             </span>
 
@@ -181,8 +181,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-12-04 00:16" pubdate>
-        2021年12月4日 凌晨
+      <time datetime="2021-12-06 20:28" pubdate>
+        2021年12月6日 晚上
       </time>
     </span>
   
@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      580 字
+      663 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      6
        分钟
     </span>
   
@@ -233,80 +233,53 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">MySQL 烹饪笔记</h1>
+            <h1 style="display: none">面向对象系统分析与设计作业三</h1>
             
             <div class="markdown-body">
-              <h1 id="说明">说明</h1>
-<p>这里的学习过程主要来自于此网站：<a target="_blank" rel="noopener" href="https://www.mysqltutorial.org/" class="uri">https://www.mysqltutorial.org/</a>，以前读过什么《MySQL 必知必会》，现在在学数据库系统概论这门课，比起这个时新的网站，其时效性还是差了些，更重要的是，目前看来，这个网站的教程质量很好，并且有示例的数据库，这个示例的数据库的质量也很好。</p>
-<p>数据库的脚本我复整了一份 gist：<a target="_blank" rel="noopener" href="https://gist.github.com/fanlumaster/128af90a3f35cead9ca7905dfd393bb9">mysqlsampledatabase</a></p>
-<p>这个脚本可以直接复制到 Navicat 中去执行，或者利用 Navicat 导入 sql 脚本。</p>
-<p>我目前的数据库版本是 MySQL 8.0.25，可以把脚本复制到 Navicat 中去执行，没有出现问题。</p>
-<p><img src="https://i.imgur.com/MVO1yaC.png" srcset="/img/loading.gif" lazyload /></p>
-<h1 id="mysql-subquery">MySQL SubQuery</h1>
-<p><a target="_blank" rel="noopener" href="https://www.mysqltutorial.org/mysql-subquery/" class="uri">https://www.mysqltutorial.org/mysql-subquery/</a></p>
-<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span><br>lastName, firstName<br><span class="hljs-keyword">FROM</span><br>employees<br><span class="hljs-keyword">WHERE</span><br>officeCode <span class="hljs-keyword">IN</span><br>(<br>    <span class="hljs-keyword">SELECT</span> <br>    officeCode<br>    <span class="hljs-keyword">FROM</span><br>    offices<br>    <span class="hljs-keyword">WHERE</span><br>    country <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;USA&#x27;</span><br>);<br></code></pre></div></td></tr></table></figure>
-<p>在这个例子中：</p>
+              <h2 id="用例图及用例开发">用例图及用例开发</h2>
+<blockquote>
+<p>考查常用的提供共享存储服务的网盘系统，分析其功能设计。为某个大学班级的同学开发一个专业学习资料的共享文件存储系统——“学霸网盘系统”。该系统包括客户端子系统和服务器端子系统两个部分。每位班级同学可以从客户端上传带有内容标注的本地文件，供本班同学下载使用。上传者应确定文件共享的有效时间，其上传文件及其内容标注需经过服务器端的管理员审查后才能被下载。</p>
+<p>1）列举该网盘系统的 3 类参与者，解释每类参与者与系统的相关性； 2）假设一个用例是上传文件，再设计 5 个以上的用例； 3）设计该网盘系统的较为完整的用例图，简要说明每个用例的功能； 4）为其中 5 个用例编写事件流。</p>
+</blockquote>
+<p>1）三类参与者如下：</p>
 <ul>
-<li>子查询返回所有位于美国的办公室的 <em>office codes</em>。</li>
-<li>外面的查询 select 在子查询中查询到的办公室工作的员工的 lastName 和 firstName。</li>
+<li>Normal user：普通的用户，可以上传本地文件。</li>
+<li>System administrator：系统管理员，负责审查上传到服务器的文件是否合法。</li>
+<li>Repair technician：系统技术人员，负责维护和修理系统。</li>
 </ul>
-<p><img src="https://i.imgur.com/rOIRltd.png" srcset="/img/loading.gif" lazyload /></p>
-<p>然后就是执行一下几个示例。</p>
-<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <br>    customerNumber, <br>    checkNumber, <br>    amount<br><span class="hljs-keyword">FROM</span><br>    payments<br><span class="hljs-keyword">WHERE</span><br>    amount <span class="hljs-operator">=</span> (<span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">MAX</span>(amount) <span class="hljs-keyword">FROM</span> payments);<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://i.imgur.com/8HOMZ6L.png" srcset="/img/loading.gif" lazyload /></p>
-<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <br>    customerNumber, <br>    checkNumber, <br>    amount<br><span class="hljs-keyword">FROM</span><br>    payments<br><span class="hljs-keyword">WHERE</span><br>    amount <span class="hljs-operator">&gt;</span> (<span class="hljs-keyword">SELECT</span> <br>            <span class="hljs-built_in">AVG</span>(amount)<br>        <span class="hljs-keyword">FROM</span><br>            payments);<br></code></pre></div></td></tr></table></figure>
-<p>纠正一个错误的认识：我之前看的不认真，以为可以独立的子查询一定是先于外查询执行的，实际上人家并没有这么说，只有当用到 <code>IN</code> 操作符时，才会这样。</p>
-<h1 id="select">SELECT</h1>
-<h1 id="order-by">ORDER BY</h1>
-<h1 id="where">WHERE</h1>
-<h1 id="select-distinct">SELECT DISTINCT</h1>
-<h1 id="and">AND</h1>
-<h1 id="or">OR</h1>
-<h1 id="in">IN</h1>
-<h1 id="between">BETWEEN</h1>
-<h1 id="like">LIKE</h1>
-<h1 id="limit">LIMIT</h1>
-<h1 id="is-null">IS NULL</h1>
-<h1 id="table-column-aliases">Table &amp; Column Aliases</h1>
-<h1 id="joins">Joins</h1>
-<h1 id="inner-join">INNER JOIN</h1>
-<h1 id="left-join">LEFT JOIN</h1>
-<h1 id="right-join">RIGHT JOIN</h1>
-<h1 id="self-join">Self Join</h1>
-<h1 id="cross-join">CROSS JOIN</h1>
-<h1 id="group-by">GROUP BY</h1>
-<h1 id="having">HAVING</h1>
-<h1 id="rollup">ROLLUP</h1>
-<h1 id="subquery">Subquery</h1>
-<p><a target="_blank" rel="noopener" href="https://www.mysqltutorial.org/mysql-subquery/" class="uri">https://www.mysqltutorial.org/mysql-subquery/</a></p>
-<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span><br>lastName, firstName<br><span class="hljs-keyword">FROM</span><br>employees<br><span class="hljs-keyword">WHERE</span><br>officeCode <span class="hljs-keyword">IN</span><br>(<br>    <span class="hljs-keyword">SELECT</span> <br>    officeCode<br>    <span class="hljs-keyword">FROM</span><br>    offices<br>    <span class="hljs-keyword">WHERE</span><br>    country <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;USA&#x27;</span><br>);<br></code></pre></div></td></tr></table></figure>
-<p>在这个例子中：</p>
+<p>2）设计用例如下：</p>
 <ul>
-<li>子查询返回所有位于美国的办公室的 <em>office codes</em>。</li>
-<li>外面的查询 select 在子查询中查询到的办公室工作的员工的 lastName 和 firstName。</li>
+<li>下载文件</li>
+<li>审查文件</li>
+<li>删除文件</li>
+<li>隐藏文件</li>
+<li>维护系统</li>
+<li>升级系统</li>
+<li>修理系统</li>
 </ul>
-<p><img src="https://i.imgur.com/rOIRltd.png" srcset="/img/loading.gif" lazyload /></p>
-<p>然后就是执行一下几个示例。</p>
-<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <br>    customerNumber, <br>    checkNumber, <br>    amount<br><span class="hljs-keyword">FROM</span><br>    payments<br><span class="hljs-keyword">WHERE</span><br>    amount <span class="hljs-operator">=</span> (<span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">MAX</span>(amount) <span class="hljs-keyword">FROM</span> payments);<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://i.imgur.com/8HOMZ6L.png" srcset="/img/loading.gif" lazyload /></p>
-<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <br>    customerNumber, <br>    checkNumber, <br>    amount<br><span class="hljs-keyword">FROM</span><br>    payments<br><span class="hljs-keyword">WHERE</span><br>    amount <span class="hljs-operator">&gt;</span> (<span class="hljs-keyword">SELECT</span> <br>            <span class="hljs-built_in">AVG</span>(amount)<br>        <span class="hljs-keyword">FROM</span><br>            payments);<br></code></pre></div></td></tr></table></figure>
-<p>纠正一个错误的认识：我之前看的不认真，以为可以独立的子查询一定是先于外查询执行的，实际上人家并没有这么说，只有当用到 <code>IN</code> 操作符时，才会这样。</p>
-<h1 id="derived-tables">Derived Tables</h1>
-<h1 id="exists">EXISTS</h1>
-<h1 id="union">UNION</h1>
-<h1 id="minus">MINUS</h1>
-<h1 id="intersect">INTERSECT</h1>
-<h1 id="insert">INSERT</h1>
-<h1 id="insert-multiple-rows">Insert Multiple Rows</h1>
-<h1 id="insert-into-select">INSERT INTO SELECT</h1>
-<h1 id="insert-on-duplicate-key-update">Insert On Duplicate Key Update</h1>
-<h1 id="insert-ignore">INSERT IGNORE</h1>
-<h1 id="update">UPDATE</h1>
-<h1 id="update-join">UPDATE JOIN</h1>
-<h1 id="delete">DELETE</h1>
-<h1 id="delete-join">DELETE JOIN</h1>
-<h1 id="on-delete-cascade">ON DELETE CASCADE</h1>
-<h1 id="replace">REPLACE</h1>
+<p>3）设计系统的用例图如下：</p>
+<p><img src="https://i.imgur.com/RyLshm4.png" srcset="/img/loading.gif" lazyload /></p>
+<ul>
+<li>上传文件：普通用户和系统管理员都可以上传文件</li>
+<li>下载文件：普通用户和系统管理员都可以下载文件，普通用户只能下载其他用户分享的公开的文件以及审核通过的文件，系统管理员可以下载所有被上传的文件</li>
+<li>审查文件：系统管理员审核用户上传的文件</li>
+<li>删除文件：普通用户可以删除自己上传的文件，系统管理员可以删除系统的所有用户上传的文件</li>
+<li>隐藏文件：普通用户可以选择将自己上传的文件设置为公开或者私有，系统管理员可以将所有公开的文件设置为私有或隐藏状态</li>
+<li>维护系统：技术人员定期对系统进行维护</li>
+<li>升级系统：技术人员对系统进行升级</li>
+<li>修理系统：系统出故障时，技术人员对其进行维修</li>
+</ul>
+<p>4）编写事件流如下：</p>
+<p>普通用户上传文件：</p>
+<p><img src="https://i.imgur.com/Xzhp8Kj.png" srcset="/img/loading.gif" lazyload /></p>
+<p>普通用户下载文件：</p>
+<p><img src="https://i.imgur.com/MdC2lFx.png" srcset="/img/loading.gif" lazyload /></p>
+<p>普通用户删除文件：</p>
+<p><img src="https://i.imgur.com/q0lh2ON.png" srcset="/img/loading.gif" lazyload /></p>
+<p>升级系统：</p>
+<p><img src="https://i.imgur.com/VsV97tk.png" srcset="/img/loading.gif" lazyload /></p>
+<p>修理系统：</p>
+<p><img src="https://i.imgur.com/nmMODR4.png" srcset="/img/loading.gif" lazyload /></p>
 
             </div>
             <hr>
@@ -316,7 +289,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/MySQL/">MySQL</a>
+                      <a class="hover-with-bg" href="/categories/%E4%BD%9C%E4%B8%9A/">作业</a>
                     
                   </div>
                 
@@ -324,7 +297,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/MySQL/">MySQL</a>
+                      <a class="hover-with-bg" href="/tags/%E4%BD%9C%E4%B8%9A/">作业</a>
                     
                   </div>
                 
@@ -341,18 +314,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/12/04/Ubuntu-%E7%83%B9%E9%A5%AA%E7%AC%94%E8%AE%B0/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Ubuntu 烹饪笔记</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/12/01/Python-Some-Tricks/">
-                        <span class="hidden-mobile">Python Some Tricks</span>
+                      <a href="/2021/12/06/%E7%AE%97%E6%B3%954-%E9%98%85%E8%AF%BB%E6%89%8B%E8%AE%B0/">
+                        <span class="hidden-mobile">算法4 阅读手记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
