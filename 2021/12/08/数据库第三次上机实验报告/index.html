@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      1.9k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      23
+      26
        分钟
     </span>
   
@@ -310,10 +310,39 @@
 <p>操作方法如下：<br />
 ① 右键点击“MySQL”连接，选择“连接属性”，将“保存密码”取消。 ② 鼠标右键点击“MySQL”连接，选择“创建数据库”，创建名为 xunmei 的数据库，字符集选择 utf8--UTF-8 Unicode 排序规则选择 utf8_general_ci。<br />
 ③ 打开数据库 xunmei 后，点击界面上方的“用户”—“新建用户”—输入用户名“xmuser”、主机“localhost”、密码“1234”—保存（服务器权限自行定义）。<br />
-④点选新建的用户xmuser—编辑用户—权限—添加权限--选择数据库 xunmei，添加相应权限（可不全选），如图1.1所示：<br />
-⑥设置到此完成。为了验证我们的设置是否正确，我们可以用刚才建立的用户 xmuser 和密码 1234 来连接 localhost 主机地址（方法：关闭连接 MySQl，该连接属于最高权限用户 root。我们用新用户新建一个到 localhost 的连接来模拟不同用户使用数据库的过程）。连上后，可使用用户 xmuser 对数据库 xunmei 或其他数据库进行操作，看是否与自己设置的权限相吻合。（可只添加添加少量权限，然后尝试在 xunmei 里进行操作，看是否能成功）。</p>
+④点选新建的用户 xmuser—编辑用户—权限—添加权限--选择数据库 xunmei，添加相应权限（可不全选），如图1.1所示：<br />
+⑥设置到此完成。为了验证我们的设置是否正确，我们可以用刚才建立的用户 xmuser 和密码 1234 来连接 localhost 主机地址（方法：关闭连接 MySQL，该连接属于最高权限用户 root。我们用新用户新建一个到 localhost 的连接来模拟不同用户使用数据库的过程）。连上后，可使用用户 xmuser 对数据库 xunmei 或其他数据库进行操作，看是否与自己设置的权限相吻合。（可只添加添加少量权限，然后尝试在 xunmei 里进行操作，看是否能成功）。</p>
 <p><img src="https://i.imgur.com/v4Sq9Gv.png" srcset="/img/loading.gif" lazyload /></p>
+<p>按：这里要注意 <code>Server Privileges</code> 和 <code>Privileges</code> 的使用，<code>Server Privileges</code> 的权限是很大的，一般来说，我们只需要操作 <code>Privileges</code>，不然，可能会出现 <code>Privileges</code> 被 <code>Server Privileges</code> 覆盖的情况。</p>
+<p><img src="https://i.imgur.com/yY32p1R.png" srcset="/img/loading.gif" lazyload /></p>
 <h2 id="三课后练习题-1">三、课后练习题</h2>
+<p>1、使用两个不同的用户通过 Navicat 和查询分析器查看 world 数据库中 country、city 两个表的所有数据。</p>
+<p><img src="https://i.imgur.com/WhMGVDl.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/E2MEF6t.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/DZ6HEo4.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/hNITSae.png" srcset="/img/loading.gif" lazyload /></p>
+<p>2、删除用户 xmuser，尝试新建另一个用户来管理数据库、表等：<br />
+添加新用户对数据库 world 的权限，比较在有无相关权限的情况之下进行操作的区别：</p>
+<ul>
+<li>① Create。尝试新建表</li>
+<li>② Update。尝试修改表数据或结构</li>
+<li>③ Select。尝试查询表</li>
+<li>④ Alt。尝试修改表</li>
+<li>⑤ Drop。尝试删除表</li>
+</ul>
+<p>新建用户 fanyfull，密码 1234。</p>
+<p>有权限的情况下：</p>
+<p><img src="https://i.imgur.com/m1JeNBk.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/GZFrdbd.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/40NogiF.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/PHmdpdM.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/OQepBmO.png" srcset="/img/loading.gif" lazyload /></p>
+<p>没有权限：</p>
+<p><img src="https://i.imgur.com/nwIXhAE.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="四思考题-1">四、思考题</h2>
+<p>1、解释 10 个数据库操作权限的含义和影响。</p>
+<p><img src="https://i.imgur.com/RhycC2S.png" srcset="/img/loading.gif" lazyload /></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html">MySQL 8 docs</a></p>
 
             </div>
             <hr>
@@ -347,6 +376,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/12/09/LeetCode-21-25-%E8%AE%B0%E5%BD%95/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">LeetCode 21 - 25 记录</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
