@@ -18,7 +18,7 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-  <title>Android Studio Usage List - Fany Full&#39;s Blog</title>
+  <title>Android 布局学习 - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -166,12 +166,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/d1RLhCh.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/nxhGTn1.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Android Studio Usage List">
+            <span class="h2" id="subtitle" title="Android 布局学习">
               
             </span>
 
@@ -181,8 +181,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-12-13 11:12" pubdate>
-        2021年12月13日 上午
+      <time datetime="2021-12-14 10:04" pubdate>
+        2021年12月14日 上午
       </time>
     </span>
   
@@ -193,7 +193,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      107 字
+      496 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      7
        分钟
     </span>
   
@@ -233,23 +233,42 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Android Studio Usage List</h1>
+            <h1 style="display: none">Android 布局学习</h1>
             
             <div class="markdown-body">
-              <h1 id="unable-to-access-android-sdk-add-on-list">Unable to access Android SDK add-on list</h1>
-<p>One possible solution to this problem is as follows:</p>
-<ol type="1">
-<li>Open Settings</li>
-<li>Click HTTP Proxy, Choose Manual proxy configuration: set Host name as: <code>mirrors.neusoft.edu.cn</code> and set Port number as: 80.</li>
-</ol>
-<p>This way just works for me. Hope it can help others.</p>
-<h1 id="安卓模拟器的截屏的图片存放在了哪里">安卓模拟器的截屏的图片存放在了哪里</h1>
-<p>默认是放在桌面的。</p>
-<h1 id="kotlin-无法直接使用按钮的-id">Kotlin 无法直接使用按钮的 id</h1>
-<p>解决方法是，在 gradle 文件中引入插件：</p>
-<figure class="highlight gradle"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs gradle">id <span class="hljs-string">&#x27;kotlin-android-extensions&#x27;</span><br></code></pre></div></td></tr></table></figure>
-<p><img src="https://i.imgur.com/pwzwK5f.png" srcset="/img/loading.gif" lazyload /></p>
-<p><img src="https://i.imgur.com/niLggaN.png" srcset="/img/loading.gif" lazyload /></p>
+              <p>Youtube 学习记录。</p>
+<p>主要是根据 Youtube 的一个安卓 Youtuber 的视频教程来学习，或者说复习一下安卓的布局。以前看过《Android 第一行代码》第二版。</p>
+<h1 id="linearlayout">LinearLayout</h1>
+<p>线性布局。</p>
+<figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:app</span>=<span class="hljs-string">&quot;http://schemas.android.com/apk/res-auto&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:tools</span>=<span class="hljs-string">&quot;http://schemas.android.com/tools&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;match_parent&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">&quot;vertical&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:padding</span>=<span class="hljs-string">&quot;16dp&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">tools:context</span>=<span class="hljs-string">&quot;.MainActivity&quot;</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">&quot;horizontal&quot;</span>&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">EditText</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_weight</span>=<span class="hljs-string">&quot;1&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:hint</span>=<span class="hljs-string">&quot;First Name&quot;</span>/&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">EditText</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_weight</span>=<span class="hljs-string">&quot;1&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:hint</span>=<span class="hljs-string">&quot;Last Name&quot;</span>/&gt;</span><br><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">EditText</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:hint</span>=<span class="hljs-string">&quot;Birth Date&quot;</span> /&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">&quot;horizontal&quot;</span>&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">EditText</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_weight</span>=<span class="hljs-string">&quot;1&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:hint</span>=<span class="hljs-string">&quot;Country&quot;</span> /&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">Button</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_weight</span>=<span class="hljs-string">&quot;1&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:text</span>=<span class="hljs-string">&quot;Apply&quot;</span> /&gt;</span><br><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml">xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;<br>xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;<br>xmlns:tools=&quot;http://schemas.android.com/tools&quot;<br></code></pre></div></td></tr></table></figure>
+<p>一般来说，这三个命名空间是必须的。</p>
+<p>我们设置 <code>layout_width</code> 的值常用的有三种：</p>
+<ul>
+<li>match-parent: 最外面的 <code>LinearLayout</code> 如果使用这个值，会填充整个屏幕。</li>
+<li>wrap-content: 包裹内容的大小即可。</li>
+<li>20dp: 20 仅仅是一个示例，实际可以设置成任何值。</li>
+</ul>
+<p><code>orientation</code> 是放置的方式。分为水平和垂直两种方式。</p>
+<p>在 <code>LinearLayout</code> 布局中可以再嵌套 <code>LinearLayout</code> 布局。</p>
+<p><img src="https://i.imgur.com/CAD8ahy.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="constraintlayout">ConstraintLayout</h1>
+<p><a target="_blank" rel="noopener" href="https://youtu.be/PqkWT92BT3U">Youtube link</a></p>
+<p>首先，熟悉一下 Android Studio 的使用。</p>
+<p><img src="https://i.imgur.com/gvRffiy.png" srcset="/img/loading.gif" lazyload /></p>
+<p>创建三个按钮，并让它们水平和垂直居中：</p>
+<p><img src="https://i.imgur.com/oqD9hDb.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/FbEzZwj.png" srcset="/img/loading.gif" lazyload /></p>
+<p>然后依然是一些关于调整位置方面的东西。</p>
+<ul>
+<li>chains</li>
+<li>baseline</li>
+</ul>
+<p>利用纯拖拽创建的一个页面：</p>
+<p><img src="https://i.imgur.com/OrTq2bv.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/44Jdg6j.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="section"></h1>
+<p>Rename 快捷键：<code>Shift + F6</code></p>
 
             </div>
             <hr>
@@ -284,18 +303,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/12/13/Kotlin-Learning-Notes/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Kotlin Learning Notes</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/12/09/LeetCode-21-25-%E8%AE%B0%E5%BD%95/">
-                        <span class="hidden-mobile">LeetCode 21 - 25 记录</span>
+                      <a href="/2021/12/13/Kotlin-Learning-Notes/">
+                        <span class="hidden-mobile">Kotlin Learning Notes</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
