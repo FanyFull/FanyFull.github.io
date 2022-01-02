@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+<html lang="zh-CN" data-default-color-scheme=dark>
 
 
 
@@ -9,14 +9,28 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
   <link rel="icon" href="/img/myfavicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
+  
+    <meta name="description" content="咳咳，数据库实验十三准备重构中... 之前摆烂，现在得还债了。 实验十一 数据库的备份与恢复 一、实验目的 了解 Navicat 的数据备份和恢复机制，掌握 Navicat 中数据库备份和恢复的方法。 二、实验内容 1、备份 步骤：使用用户 root 打开连接 MySQL —打开数据库 world —点击界面上方的“备份”—新建备份，如图所示：   点击“backup”—成功完">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库第四次上机实验报告">
+<meta property="og:url" content="http://fanyfull.github.io/2021/12/24/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%AC%E5%9B%9B%E6%AC%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:description" content="咳咳，数据库实验十三准备重构中... 之前摆烂，现在得还债了。 实验十一 数据库的备份与恢复 一、实验目的 了解 Navicat 的数据备份和恢复机制，掌握 Navicat 中数据库备份和恢复的方法。 二、实验内容 1、备份 步骤：使用用户 root 打开连接 MySQL —打开数据库 world —点击界面上方的“备份”—新建备份，如图所示：   点击“backup”—成功完">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/yO2L4wB.png">
+<meta property="article:published_time" content="2021-12-24T02:48:15.000Z">
+<meta property="article:modified_time" content="2021-12-29T15:50:02.333Z">
+<meta property="article:author" content="Fany Full">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/yO2L4wB.png">
+  
   
   <title>数据库第四次上机实验报告 - Fany Full&#39;s Blog</title>
 
@@ -39,7 +53,6 @@
   
 
 
-
 <!-- 主题依赖的图标库，不要自行修改 -->
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
@@ -60,7 +73,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":false,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":false,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -75,8 +88,9 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fany Full's Blog</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -150,13 +164,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -190,21 +205,18 @@
 
 <div class="mt-1">
   
-    
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.1k 字
+      4k 字
     </span>
   
 
   
-    
     <span class="post-meta mr-2">
       <i class="iconfont icon-clock-fill"></i>
       
       
-      31
-       分钟
+      34 分钟
     </span>
   
 
@@ -528,7 +540,7 @@
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -594,6 +606,10 @@
 <!-- Plugins -->
 
 
+  <script  src="/js/local-search.js" ></script>
+
+
+
   
     <script  src="/js/img-lazyload.js" ></script>
   
@@ -604,17 +620,16 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
-
-
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  
+  
 
 
 
@@ -627,24 +642,9 @@
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
   </script>
 
 
@@ -659,6 +659,9 @@
       MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          
         },
         options: {
           renderActions: {

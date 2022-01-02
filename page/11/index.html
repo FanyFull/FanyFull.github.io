@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+<html lang="zh-CN" data-default-color-scheme=dark>
 
 
 
@@ -9,14 +9,21 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
   <link rel="icon" href="/img/myfavicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Fany Full&#39;s Blog">
+<meta property="og:url" content="http://fanyfull.github.io/page/11/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Fany Full">
+<meta name="twitter:card" content="summary_large_image">
+  
   
   <title>Fany Full&#39;s Blog</title>
 
@@ -44,7 +51,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":false,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":false,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -59,8 +66,9 @@
   <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fany Full's Blog</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -134,13 +142,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -204,18 +213,7 @@
       <p class="index-excerpt">
         <a href="/2021/06/21/IDEA-%E4%BD%BF%E7%94%A8%E5%86%85%E7%BD%AE-Maven-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA-Spring-%E9%A1%B9%E7%9B%AE/" target="_self">
           
-          
-            
-          
-          创建 Maven 项目
-首先，New Project
-
-next，
-
-这里的 Name 是项目的名称，然后修改包名，这里的 ArtifactId 默认和项目的 Name 保持一致。
-next，
-
-我这里的 3 个选项全部保持默认，这里要注意一点，这个 C:\Users\用户名\.m2\setting.xml 文件默认是不存在的，然后这时 IDEA 在项目中就会自动去其内置的 Mav
+          创建 Maven 项目 首先，New Project  next，  这里的 Name 是项目的名称，然后修改包名，这里的 ArtifactId 默认和项目的 Name 保持一致。 next，  我这里的 3 个选项全部保持默认，这里要注意一点，这个 C:\Users\用户名\.m2\setting.xml 文件默认是不存在的，然后这时 IDEA 在项目中就会自动去其内置的 Mav
         </a>
       </p>
 
@@ -274,20 +272,7 @@ next，
       <p class="index-excerpt">
         <a href="/2021/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3%E7%9A%84%E7%BC%A9%E5%86%99%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF/" target="_self">
           
-          
-            
-          
-          汇编相关
-
-GDT：Global Descriptor Table，全局描述符表
-IDT：Interrupt Descriptor Table，中断描述符表
-LDT：Local Descriptor Table，局部描述符表
-TI：Table Indicator
-RPL：Request Privilege Level
-
-前端相关
-
-Ajax: Asynchronous Java
+          汇编相关  GDT：Global Descriptor Table，全局描述符表 IDT：Interrupt Descriptor Table，中断描述符表 LDT：Local Descriptor Table，局部描述符表 TI：Table Indicator RPL：Request Privilege Level  前端相关  Ajax: Asynchronous Java
         </a>
       </p>
 
@@ -342,13 +327,7 @@ Ajax: Asynchronous Java
       <p class="index-excerpt">
         <a href="/2021/06/14/8086CPU-%E4%B8%AD%E7%9A%84%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80/" target="_self">
           
-          
-            
-          
-          前言
-关于 8086CPU 的物理地址，其实在上汇编语言这门课的时候，我对于这个概念是十分理解的，但是隔了一段时间之后，就忘掉了。所以，好记性不如烂键盘，还是记录一下比较好，这样一来，以后复习的时候比较方便。
-8086CPU 的物理地址让人感到有点奇怪的原因
-8086CPU 有 20 位地址总线，可以传送 20 位地址，达到 1MB 寻址能力（注一）。而 8086CPU 又是 16 位结构（
+          前言 关于 8086CPU 的物理地址，其实在上汇编语言这门课的时候，我对于这个概念是十分理解的，但是隔了一段时间之后，就忘掉了。所以，好记性不如烂键盘，还是记录一下比较好，这样一来，以后复习的时候比较方便。 8086CPU 的物理地址让人感到有点奇怪的原因 8086CPU 有 20 位地址总线，可以传送 20 位地址，达到 1MB 寻址能力（注一）。而 8086CPU 又是 16 位结构（
         </a>
       </p>
 
@@ -401,21 +380,7 @@ Ajax: Asynchronous Java
       <p class="index-excerpt">
         <a href="/2021/06/14/%E6%B1%87%E7%BC%96%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83%EF%BC%88%E5%AD%98%E5%82%A8%E5%8D%95%E4%BD%8D%EF%BC%89/" target="_self">
           
-          
-            
-          
-          汇编中的单位
-计算机的最小信息单位是 bit（比特，即一个位），也就是一个二进制位。然后，由此可以得出一下换算单位
-
-1B = 8b，即 1 Byte = 8 bit
-1K = 1024B
-1MB = 1024KB
-1GB = 1024MB
-1TB = 1024GB
-
-磁盘的容量单位同这里的存储单位一样，实际上以上单位是微机中常用的计量单位。
-其他的换算方法
-我们有时候可以看
+          汇编中的单位 计算机的最小信息单位是 bit（比特，即一个位），也就是一个二进制位。然后，由此可以得出一下换算单位  1B &#x3D; 8b，即 1 Byte &#x3D; 8 bit 1K &#x3D; 1024B 1MB &#x3D; 1024KB 1GB &#x3D; 1024MB 1TB &#x3D; 1024GB  磁盘的容量单位同这里的存储单位一样，实际上以上单位是微机中常用的计量单位。 其他的换算方法 我们有时候可以看
         </a>
       </p>
 
@@ -469,9 +434,6 @@ Ajax: Asynchronous Java
 
       <p class="index-excerpt">
         <a href="/2021/06/12/PyCharm%E8%AE%BE%E7%BD%AE%E6%96%87%E4%BB%B6%E5%A4%B4%E6%B3%A8%E9%87%8A%E5%92%8C%E5%85%89%E6%A0%87%E4%BD%8D%E7%BD%AE/" target="_self">
-          
-          
-            
           
           记录 PyCharm 设置文件头注释和光标位置的方法，以备将来用时备查。
         </a>
@@ -528,13 +490,7 @@ Ajax: Asynchronous Java
       <p class="index-excerpt">
         <a href="/2021/06/11/CMake-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" target="_self">
           
-          
-            
-          
-          一份最简单的 CMakeLists
-这是我在 CLion 中最长用的一种配置，其实也就是原始配置。在现阶段，顶天了也就是多 add 几个 executable，所以目前先给我这个 CMakeLists 加上注释，因为今天我我 add_executable() 都不会用了，我淦。
-这里补充一下，# 及后面的内容代表注释。
-123456789101112# CMake 最低版本号要求cmake_
+          一份最简单的 CMakeLists 这是我在 CLion 中最长用的一种配置，其实也就是原始配置。在现阶段，顶天了也就是多 add 几个 executable，所以目前先给我这个 CMakeLists 加上注释，因为今天我我 add_executable() 都不会用了，我淦。 这里补充一下，# 及后面的内容代表注释。 123456789101112# CMake 最低版本号要求cmake_
         </a>
       </p>
 
@@ -589,13 +545,7 @@ Ajax: Asynchronous Java
       <p class="index-excerpt">
         <a href="/2021/06/10/GCC-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%80%89%E9%A1%B9/" target="_self">
           
-          
-            
-          
-          -E: 在预处理操作(注一)之后停止之后的操作；不会运行接下来的正确编译阶段。输出的格式是预处理之后的源码，它们将会被输出到标准输出（这里是控制台）中。输入不需要预处理的文件将会被忽视。
--Wall: 这将会开启关于用户认为有问题的一些结构的所有警告，并且它们是很容易避免的（或者去修改以便阻止警告），即使与宏相结合。
-
-参考：《gcc.pdf》，即 GCC 官方文档（这里是 GCC 11.1
+          -E: 在预处理操作(注一)之后停止之后的操作；不会运行接下来的正确编译阶段。输出的格式是预处理之后的源码，它们将会被输出到标准输出（这里是控制台）中。输入不需要预处理的文件将会被忽视。 -Wall: 这将会开启关于用户认为有问题的一些结构的所有警告，并且它们是很容易避免的（或者去修改以便阻止警告），即使与宏相结合。  参考：《gcc.pdf》，即 GCC 官方文档（这里是 GCC 11.1
         </a>
       </p>
 
@@ -650,24 +600,7 @@ Ajax: Asynchronous Java
       <p class="index-excerpt">
         <a href="/2021/06/10/Windows-%E5%AE%89%E8%A3%85-MinGW-w64/" target="_self">
           
-          
-            
-          
-          下载
-下载网址为：http://mingw-w64.org/doku.php/download/mingw-builds
-然后点击 Sourceforge 进行下载
-
-
-安装
-双击刚刚的文件进行安装
-
-然后 Next
-
-这里 Version 选择最新版本即可。
-
-这里因为我的电脑是 64 位，所以选择 x86_64，而 i686 是 32 位的。
-
-这里的 Thread
+          下载 下载网址为：http:&#x2F;&#x2F;mingw-w64.org&#x2F;doku.php&#x2F;download&#x2F;mingw-builds 然后点击 Sourceforge 进行下载   安装 双击刚刚的文件进行安装  然后 Next  这里 Version 选择最新版本即可。  这里因为我的电脑是 64 位，所以选择 x86_64，而 i686 是 32 位的。  这里的 Thread
         </a>
       </p>
 
@@ -722,14 +655,7 @@ Ajax: Asynchronous Java
       <p class="index-excerpt">
         <a href="/2021/06/09/%E3%80%8A%E4%B8%80%E7%AB%99%E5%BC%8F%E5%AD%A6%E4%B9%A0C%E7%BC%96%E7%A8%8B%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" target="_self">
           
-          
-            
-          
-          16.2 CPU
-原书内容摘录如下
-
-
-3.执行指令，读内存，取上来的数是3，保存到eax寄存器。注意，地址0x804a01c～0x804a01f里存储的四个字节不能按地址从低到高的顺序看成0x03000000，而要按地址从高到低的顺序看成0x00000003。也就是说，对于多字节的整数类型，低地址保存的是整数的低位，这称为小端（Little Endian）字节序（ByteOrder）。x
+          16.2 CPU 原书内容摘录如下   3.执行指令，读内存，取上来的数是3，保存到eax寄存器。注意，地址0x804a01c～0x804a01f里存储的四个字节不能按地址从低到高的顺序看成0x03000000，而要按地址从高到低的顺序看成0x00000003。也就是说，对于多字节的整数类型，低地址保存的是整数的低位，这称为小端（Little Endian）字节序（ByteOrder）。x
         </a>
       </p>
 
@@ -784,13 +710,7 @@ Ajax: Asynchronous Java
       <p class="index-excerpt">
         <a href="/2021/06/09/%E6%88%91%E7%9A%84%E5%B9%A1%E7%84%B6%E9%86%92%E6%82%9F%E7%9A%84%E7%BC%96%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AF%AF%E5%8C%BA/" target="_self">
           
-          
-            
-          
-          汇编
-关于 16 进制
-16 进制的一个数字位（digit）对应的是半个字节，因为 16 进制的一个位相当于 2 进制的 4 个位，而一个字节是 8 位。
-
+          汇编 关于 16 进制 16 进制的一个数字位（digit）对应的是半个字节，因为 16 进制的一个位相当于 2 进制的 4 个位，而一个字节是 8 位。
         </a>
       </p>
 
@@ -845,7 +765,7 @@ Ajax: Asynchronous Java
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -911,6 +831,10 @@ Ajax: Asynchronous Java
 <!-- Plugins -->
 
 
+  <script  src="/js/local-search.js" ></script>
+
+
+
   
     <script  src="/js/img-lazyload.js" ></script>
   
@@ -926,36 +850,15 @@ Ajax: Asynchronous Java
 
 
 
-
-
-
-
-
-
   <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
   </script>
 
 

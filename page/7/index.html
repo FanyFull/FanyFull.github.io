@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+<html lang="zh-CN" data-default-color-scheme=dark>
 
 
 
@@ -9,14 +9,21 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
   <link rel="icon" href="/img/myfavicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Fany Full&#39;s Blog">
+<meta property="og:url" content="http://fanyfull.github.io/page/7/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Fany Full">
+<meta name="twitter:card" content="summary_large_image">
+  
   
   <title>Fany Full&#39;s Blog</title>
 
@@ -44,7 +51,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":false,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":false,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -59,8 +66,9 @@
   <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fany Full's Blog</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -134,13 +142,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -204,16 +213,7 @@
       <p class="index-excerpt">
         <a href="/2021/10/17/Python-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%B8%80/" target="_self">
           
-          
-            
-          
-          一、安装环境
-这个比较简单，直接一个 pip 命令安装即可：
-1pip install opencv-python
-然后，实验手册上建议的是使用 Python 虚拟环境，这个也比较简单，但是，我的笔记本上的 Python 物理环境暂时不需要作其他用途，所以，就直接用这个 Python 来做实验了。
-关于写 Python 的 IDE，这里推荐使用 PyCharm。
-二、实验内容
-2.1 
+          一、安装环境 这个比较简单，直接一个 pip 命令安装即可： 1pip install opencv-python 然后，实验手册上建议的是使用 Python 虚拟环境，这个也比较简单，但是，我的笔记本上的 Python 物理环境暂时不需要作其他用途，所以，就直接用这个 Python 来做实验了。 关于写 Python 的 IDE，这里推荐使用 PyCharm。 二、实验内容 2.1
         </a>
       </p>
 
@@ -268,16 +268,7 @@
       <p class="index-excerpt">
         <a href="/2021/10/17/%E5%8D%9A%E5%AE%A2%E9%97%AE%E9%A2%98%E7%B0%BF%E5%AD%90/" target="_self">
           
-          
-            
-          
-          
-井号 ＃ 渲染的问题
-
-在 LaTex 语句块中，不能够使用 \text&#123;&#125; 命令然后直接在花括号中加上＃。
-可以使用的方法是使用反斜杠然后加键盘上自带的＃。
-现在，我发现更好的写法是全角的＃。
-
+          井号 ＃ 渲染的问题  在 LaTex 语句块中，不能够使用 \text&amp;#123;&amp;#125; 命令然后直接在花括号中加上＃。 可以使用的方法是使用反斜杠然后加键盘上自带的＃。 现在，我发现更好的写法是全角的＃。
         </a>
       </p>
 
@@ -330,15 +321,7 @@
       <p class="index-excerpt">
         <a href="/2021/10/16/Hexo-%E9%85%8D%E7%BD%AE-fluid-%E4%B8%BB%E9%A2%98/" target="_self">
           
-          
-            
-          
-          关于这个主题的使用，官方文档 写得非常详细，十分推荐使用。
-关于安装这个主题，我个人推荐直接使用文档中的方式一：
-
-然后，基本上所有的操作按照官方文档来就可以了。
-这里给出我个人的配置，供参考：
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253
+          关于这个主题的使用，官方文档 写得非常详细，十分推荐使用。 关于安装这个主题，我个人推荐直接使用文档中的方式一：  然后，基本上所有的操作按照官方文档来就可以了。 这里给出我个人的配置，供参考： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253
         </a>
       </p>
 
@@ -393,13 +376,7 @@
       <p class="index-excerpt">
         <a href="/2021/10/16/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA-GitHub-%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/" target="_self">
           
-          
-            
-          
-          前言
-首先要感谢这篇博客，我这篇博客多有借鉴（copy），当时我搭建成功这个 GitHub Pages 的博客也离不开这篇博客的帮助。
-然后，简单介绍一下利用 GitHub + Hexo 搭建的原理。
-GitHub 是有名的代码托管网站，而它提供了一项服务 GitHub Pages，这个 GitHub Pages 可以将我们托管在 GitHub 上的一个仓库中的 html、css 和 js 
+          前言 首先要感谢这篇博客，我这篇博客多有借鉴（copy），当时我搭建成功这个 GitHub Pages 的博客也离不开这篇博客的帮助。 然后，简单介绍一下利用 GitHub + Hexo 搭建的原理。 GitHub 是有名的代码托管网站，而它提供了一项服务 GitHub Pages，这个 GitHub Pages 可以将我们托管在 GitHub 上的一个仓库中的 html、css 和 js
         </a>
       </p>
 
@@ -454,22 +431,7 @@ GitHub 是有名的代码托管网站，而它提供了一项服务 GitHub Pages
       <p class="index-excerpt">
         <a href="/2021/10/16/%E3%80%8A%E6%B5%AE%E7%94%9F%E5%85%AD%E8%AE%B0%E3%80%8B%E6%9C%AD%E8%AE%B0/" target="_self">
           
-          
-            
-          
-          ◆ 卷一　闺房记乐
-
-东坡云：“事如春梦了无痕。”
-
-按：不能说完全是了无痕的。万一梦遗了呢？万一醒来还记得很清楚呢？只是，不管是哪样，都是徒增惆怅罢了。
-
-刺绣之暇，渐通吟咏，有“秋侵人影瘦，霜染菊花肥”之句。
-
-按：此中诗趣，有趣。
-
-其形削肩长项，瘦不露骨，眉弯目秀，顾盼神飞，唯两齿微露，似非佳相。一种缠绵之态，令人之意也消。
-
-按：又见“顾盼神飞”，好多人都喜欢用这
+          ◆ 卷一　闺房记乐  东坡云：“事如春梦了无痕。”  按：不能说完全是了无痕的。万一梦遗了呢？万一醒来还记得很清楚呢？只是，不管是哪样，都是徒增惆怅罢了。  刺绣之暇，渐通吟咏，有“秋侵人影瘦，霜染菊花肥”之句。  按：此中诗趣，有趣。  其形削肩长项，瘦不露骨，眉弯目秀，顾盼神飞，唯两齿微露，似非佳相。一种缠绵之态，令人之意也消。  按：又见“顾盼神飞”，好多人都喜欢用这
         </a>
       </p>
 
@@ -526,18 +488,7 @@ GitHub 是有名的代码托管网站，而它提供了一项服务 GitHub Pages
       <p class="index-excerpt">
         <a href="/2021/10/14/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E4%BD%9C%E4%B8%9A%E4%B8%80/" target="_self">
           
-          
-            
-          
-          这几个概念要求用自己的话来描述，有够烦人哦。
-
-1、试述数据、数据库、数据库管理系统和数据库系统的概念。
-
-解：
-
-数据，描述事物的符号记录称为数据。所谓描述事物的符号，举例来说，数字、文字、图像、视频等可以用计算机来表示的都是符号。
-数据库，英文名 database，就是存储数据的仓库。数据库是长期储存在计算机内、有组织的大量数据的集合。
-数据库管理系统，英文名 database
+          这几个概念要求用自己的话来描述，有够烦人哦。  1、试述数据、数据库、数据库管理系统和数据库系统的概念。  解：  数据，描述事物的符号记录称为数据。所谓描述事物的符号，举例来说，数字、文字、图像、视频等可以用计算机来表示的都是符号。 数据库，英文名 database，就是存储数据的仓库。数据库是长期储存在计算机内、有组织的大量数据的集合。 数据库管理系统，英文名 database
         </a>
       </p>
 
@@ -592,19 +543,7 @@ GitHub 是有名的代码托管网站，而它提供了一项服务 GitHub Pages
       <p class="index-excerpt">
         <a href="/2021/10/13/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E5%BC%A0%E7%B4%A0%E7%90%B4%EF%BC%89%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/" target="_self">
           
-          
-            
-          
-          
-何为确定的自顶向下分析方法？
-
-确定的自顶向下分析方法，是从文法的开始符号出发，考虑如何根据当前的输入符号（单词符号）唯一地确定选用哪个产生式替换相应非终结符以往下推导，或如何构造一棵相应的语法树。
-
-如何理解 \(\text{FIRST()}\)？
-
-设 \(G = (V_T, V_N, P, S)\) 是上下文无关文法。
-\[
-\text{FIRST}(\alpha) = 
+          何为确定的自顶向下分析方法？  确定的自顶向下分析方法，是从文法的开始符号出发，考虑如何根据当前的输入符号（单词符号）唯一地确定选用哪个产生式替换相应非终结符以往下推导，或如何构造一棵相应的语法树。  如何理解 \(\text{FIRST()}\)？  设 \(G &#x3D; (V_T, V_N, P, S)\) 是上下文无关文法。 \[ \text{FIRST}(\alpha) &#x3D;
         </a>
       </p>
 
@@ -658,10 +597,6 @@ GitHub 是有名的代码托管网站，而它提供了一项服务 GitHub Pages
         <a href="/2021/10/13/%E3%80%8A%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90-CSS%E3%80%8B%E6%9C%AD%E8%AE%B0/" target="_self">
           
           
-            
-          
-          
-
         </a>
       </p>
 
@@ -716,23 +651,7 @@ GitHub 是有名的代码托管网站，而它提供了一项服务 GitHub Pages
       <p class="index-excerpt">
         <a href="/2021/10/12/%E3%80%8A%E7%BA%A2%E4%B8%8E%E9%BB%91%E3%80%8B%E6%9C%AD%E8%AE%B0/" target="_self">
           
-          
-            
-          
-          ◆ 19 多思则多忧
-
-或许天主会矜怜我拳拳之忱，而饶了我儿子！只要你指得出还有更凶的惩罚，我马上扑上去。
-
-
-她的生活，摆动于天堂与地狱之间：看不到于连，就像掉进了地狱；匍匐于他脚边，无异于进了天堂！
-
-◆ 20 匿名信
-
-我什么恶人都不怕；于我，世上只有一种不幸：那就是看到唯一使我对人生有所依恋的人——变心。
-
-◆ 21 与主人的谈话
-
-“我永远不会下作到吹嘘自己的勇
+          ◆ 19 多思则多忧  或许天主会矜怜我拳拳之忱，而饶了我儿子！只要你指得出还有更凶的惩罚，我马上扑上去。   她的生活，摆动于天堂与地狱之间：看不到于连，就像掉进了地狱；匍匐于他脚边，无异于进了天堂！  ◆ 20 匿名信  我什么恶人都不怕；于我，世上只有一种不幸：那就是看到唯一使我对人生有所依恋的人——变心。  ◆ 21 与主人的谈话  “我永远不会下作到吹嘘自己的勇
         </a>
       </p>
 
@@ -787,18 +706,7 @@ GitHub 是有名的代码托管网站，而它提供了一项服务 GitHub Pages
       <p class="index-excerpt">
         <a href="/2021/10/07/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E4%BA%8C/" target="_self">
           
-          
-            
-          
-          系第三章课后作业（仅限布置作业的部分）。
-1、构造下列正规式相应的 \(\text{DFA}\)。
-(1) \(1(0|1)^*101\)
-解：先构造 \(\text{NFA}\)
-
-然后，用子集法将 \(\text{NFA}\) 确定化
-
-除 X, A 外，重新命名其他状态，令 AB 为 B、AC 为 C、ABY 为 D，因为 D 含有 Y（NFA 的终态），所以 D 为终态。
-
+          系第三章课后作业（仅限布置作业的部分）。 1、构造下列正规式相应的 \(\text{DFA}\)。 (1) \(1(0|1)^*101\) 解：先构造 \(\text{NFA}\)  然后，用子集法将 \(\text{NFA}\) 确定化  除 X, A 外，重新命名其他状态，令 AB 为 B、AC 为 C、ABY 为 D，因为 D 含有 Y（NFA 的终态），所以 D 为终态。
         </a>
       </p>
 
@@ -849,7 +757,7 @@ GitHub 是有名的代码托管网站，而它提供了一项服务 GitHub Pages
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -915,6 +823,10 @@ GitHub 是有名的代码托管网站，而它提供了一项服务 GitHub Pages
 <!-- Plugins -->
 
 
+  <script  src="/js/local-search.js" ></script>
+
+
+
   
     <script  src="/js/img-lazyload.js" ></script>
   
@@ -930,36 +842,15 @@ GitHub 是有名的代码托管网站，而它提供了一项服务 GitHub Pages
 
 
 
-
-
-
-
-
-
   <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
   </script>
 
 

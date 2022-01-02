@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+<html lang="zh-CN" data-default-color-scheme=dark>
 
 
 
@@ -9,14 +9,21 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
   <link rel="icon" href="/img/myfavicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Fany Full&#39;s Blog">
+<meta property="og:url" content="http://fanyfull.github.io/page/6/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Fany Full">
+<meta name="twitter:card" content="summary_large_image">
+  
   
   <title>Fany Full&#39;s Blog</title>
 
@@ -44,7 +51,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":false,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":false,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -59,8 +66,9 @@
   <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fany Full's Blog</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -134,13 +142,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -204,26 +213,7 @@
       <p class="index-excerpt">
         <a href="/2021/10/30/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%B9%8B%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E5%88%86%E6%9E%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_self">
           
-          
-            
-          
-          系哈工大陈鄞慕课笔记。
-
-“句柄”的另一个定义？
-
-在“移入-归约”分析中，每次归约的符号串称为“句柄”。
-又：句柄是句型的最左直接短语。
-按：这个和句柄的最初的定义是一致且吻合的。
-
-一个移入-归约分析的例子。
-
-
-
-在移入-归约分析（可以参见上图）中，对 栈内符号串 + 剩余输入 = “规范句型” 的理解？
-
-可以结合下面的定义来理解：
-
-在形式语言中，最右推导
+          系哈工大陈鄞慕课笔记。  “句柄”的另一个定义？  在“移入-归约”分析中，每次归约的符号串称为“句柄”。 又：句柄是句型的最左直接短语。 按：这个和句柄的最初的定义是一致且吻合的。  一个移入-归约分析的例子。    在移入-归约分析（可以参见上图）中，对 栈内符号串 + 剩余输入 &#x3D; “规范句型” 的理解？  可以结合下面的定义来理解：  在形式语言中，最右推导
         </a>
       </p>
 
@@ -278,14 +268,7 @@
       <p class="index-excerpt">
         <a href="/2021/10/30/Python-%E9%85%8D%E7%BD%AE-OpenCV-%E7%8E%AF%E5%A2%83/" target="_self">
           
-          
-            
-          
-          在安装好了 Python 环境之后，直接使用 pip 命令安装即可：
-1pip install opencv-python
-
-我这里是使用 PyCharm 这个 IDE，并且使用了虚拟的 Python 环境，所以就在 PyCharm 提供的 Terminal 中进行安装。
-
+          在安装好了 Python 环境之后，直接使用 pip 命令安装即可： 1pip install opencv-python  我这里是使用 PyCharm 这个 IDE，并且使用了虚拟的 Python 环境，所以就在 PyCharm 提供的 Terminal 中进行安装。
         </a>
       </p>
 
@@ -340,14 +323,7 @@
       <p class="index-excerpt">
         <a href="/2021/10/30/%E3%80%8AOpenCV-4-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9APython-%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%EF%BC%88%E5%8E%9F%E4%B9%A6%E7%AC%AC-3-%E7%89%88%EF%BC%89%E3%80%8B%E9%98%85%E8%AF%BB%E6%9C%AD%E8%AE%B0/" target="_self">
           
-          
-            
-          
-          第 1 章 安装 OpenCV
-
-为何 OpenCV 的 Python 模块命名为 cv2？
-
-在 cv2 中的 2 与 OpenCV 的版本号无关，我们使用的是 OpenCV 4。历史上，有一个名为 cv 的 Python 模块封装了 OpenCV 的一个已经过时的 C 版本。在 OpenCV 4 中已经不存在任何 cv 模块。但是 OpenCV 文档有时会错误地将模块命名为 cv（而不
+          第 1 章 安装 OpenCV  为何 OpenCV 的 Python 模块命名为 cv2？  在 cv2 中的 2 与 OpenCV 的版本号无关，我们使用的是 OpenCV 4。历史上，有一个名为 cv 的 Python 模块封装了 OpenCV 的一个已经过时的 C 版本。在 OpenCV 4 中已经不存在任何 cv 模块。但是 OpenCV 文档有时会错误地将模块命名为 cv（而不
         </a>
       </p>
 
@@ -374,11 +350,11 @@
             
               <a href="/tags/Python/">Python</a>
             
-              <a href="/tags/%E8%AF%BB%E4%B9%A6/">读书</a>
-            
               <a href="/tags/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">数字图像处理</a>
             
               <a href="/tags/OpenCV/">OpenCV</a>
+            
+              <a href="/tags/%E8%AF%BB%E4%B9%A6/">读书</a>
             
           </div>
         
@@ -406,19 +382,7 @@
       <p class="index-excerpt">
         <a href="/2021/10/27/Plugin-org-springframework-boot-spring-boot-maven-plugin-not-found-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" target="_self">
           
-          
-            
-          
-          问题描述
-IDEA 报了一个 Plugin org.springframework.boot:spring-boot-maven-plugin: not found 问题，
-
-解决方法
-在报红的地方加上版本描述：
-1&lt;version&gt;2.5.5&lt;/version&gt;
-这个具体的版本号可以看这个 pom.xml 文件的 spring-boot 版本信息。
-
-
-
+          问题描述 IDEA 报了一个 Plugin org.springframework.boot:spring-boot-maven-plugin: not found 问题，  解决方法 在报红的地方加上版本描述： 1&lt;version&gt;2.5.5&lt;&#x2F;version&gt; 这个具体的版本号可以看这个 pom.xml 文件的 spring-boot 版本信息。
         </a>
       </p>
 
@@ -473,14 +437,7 @@ IDEA 报了一个 Plugin org.springframework.boot:spring-boot-maven-plugin: not 
       <p class="index-excerpt">
         <a href="/2021/10/26/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E6%9C%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E4%BD%9C%E4%B8%9A/" target="_self">
           
-          
-            
-          
-          一、简答题（共5题,50分）
-1、简答什么是图像颜色 HSI 模型。
-解：HSI 是这样一个彩色模型，该模型用色调、饱和度和亮度来描述一个彩色物体。色调是描述一种纯色（纯黄色、纯橙色或纯红色）的颜色属性；饱和度是一种纯色被白光稀释的程度的度量。亮度则用灰度级来描述。
-2、简答什么是图像的动态范围？
-解：有时灰度级的取值范围称为图像的动态范围。把占有灰度级全部有效段的图像叫做高动态范围图像。
+          一、简答题（共5题,50分） 1、简答什么是图像颜色 HSI 模型。 解：HSI 是这样一个彩色模型，该模型用色调、饱和度和亮度来描述一个彩色物体。色调是描述一种纯色（纯黄色、纯橙色或纯红色）的颜色属性；饱和度是一种纯色被白光稀释的程度的度量。亮度则用灰度级来描述。 2、简答什么是图像的动态范围？ 解：有时灰度级的取值范围称为图像的动态范围。把占有灰度级全部有效段的图像叫做高动态范围图像。
         </a>
       </p>
 
@@ -533,17 +490,7 @@ IDEA 报了一个 Plugin org.springframework.boot:spring-boot-maven-plugin: not 
       <p class="index-excerpt">
         <a href="/2021/10/25/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E5%BC%A0%E7%B4%A0%E7%90%B4%EF%BC%89%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/" target="_self">
           
-          
-            
-          
-          
-LR 分析表中像 s2 和 r3 这样的符号串的第一个字符 s 和 r 分别代表什么含义？
-
-
-s 表示 shift，即“移进”。
-r 表示 reduce，即“归约”。
-
-
+          LR 分析表中像 s2 和 r3 这样的符号串的第一个字符 s 和 r 分别代表什么含义？   s 表示 shift，即“移进”。 r 表示 reduce，即“归约”。
         </a>
       </p>
 
@@ -596,19 +543,7 @@ r 表示 reduce，即“归约”。
       <p class="index-excerpt">
         <a href="/2021/10/24/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E4%B8%89/" target="_self">
           
-          
-            
-          
-          系第四章课后作业（部分）。
-1、对文法 \(G[S]\)
-\[
-\begin{split}
-S &amp;\rightarrow a | \wedge | (T) \\
-T &amp;\rightarrow T, S | S
-\end{split}
-\]
-(1) 给出 \((a, (a, a))\) 和 \((((a, a), \wedge, (a)), a)\) 的最左推导。
-
+          系第四章课后作业（部分）。 1、对文法 \(G[S]\) \[ \begin{split} S &amp;\rightarrow a | \wedge | (T) \\ T &amp;\rightarrow T, S | S \end{split} \] (1) 给出 \((a, (a, a))\) 和 \((((a, a), \wedge, (a)), a)\) 的最左推导。
         </a>
       </p>
 
@@ -661,26 +596,7 @@ T &amp;\rightarrow T, S | S
       <p class="index-excerpt">
         <a href="/2021/10/21/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E4%BD%9C%E4%B8%9A%E4%BA%8C/" target="_self">
           
-          
-            
-          
-          
-1、试述数据模型的概念、作用及数据模型的三个重要方面。
-
-解：
-
-概念：数据模型（data model）是一种模型，它是对现实世界数据特征的一种抽象。
-作用：数据模型是用来描述数据、组织数据和对数据进行操作的。
-三个重要方面：
-
-一是能比较真实地模拟现实世界
-二是容易为人所理解
-三是便于在计算机上实现
-
-
-
-2、试述层次数据库、网状数据库和关系数据库的优缺点。
-
+          1、试述数据模型的概念、作用及数据模型的三个重要方面。  解：  概念：数据模型（data model）是一种模型，它是对现实世界数据特征的一种抽象。 作用：数据模型是用来描述数据、组织数据和对数据进行操作的。 三个重要方面：  一是能比较真实地模拟现实世界 二是容易为人所理解 三是便于在计算机上实现    2、试述层次数据库、网状数据库和关系数据库的优缺点。
         </a>
       </p>
 
@@ -735,25 +651,7 @@ T &amp;\rightarrow T, S | S
       <p class="index-excerpt">
         <a href="/2021/10/18/%E3%80%8A%E5%85%A8%E5%94%90%E8%AF%97%E3%80%8B%E6%9C%AD%E8%AE%B0/" target="_self">
           
-          
-            
-          
-          找这本书来读的缘由是在《李清照词集》中遇到了“公孙大娘舞剑”的注释，我想了一下，公孙大娘算是老朋友了，这下总该要把杜甫的那首诗拿过来读一读吧，遂搜罗来《全唐诗》。令我惊讶的是，这是很大的一部大部头。不急，带着慢慢看吧。
-
-观公孙大娘弟子舞剑器行
-
-
-《观公孙大娘弟子舞剑器行》
-
-
-
-昔有佳人公孙氏，一舞剑气动四方。
-
-
-观者如山色沮丧，天地为之久低昂。
-
-
-㸌如羿射九
+          找这本书来读的缘由是在《李清照词集》中遇到了“公孙大娘舞剑”的注释，我想了一下，公孙大娘算是老朋友了，这下总该要把杜甫的那首诗拿过来读一读吧，遂搜罗来《全唐诗》。令我惊讶的是，这是很大的一部大部头。不急，带着慢慢看吧。  观公孙大娘弟子舞剑器行   《观公孙大娘弟子舞剑器行》    昔有佳人公孙氏，一舞剑气动四方。   观者如山色沮丧，天地为之久低昂。   㸌如羿射九
         </a>
       </p>
 
@@ -810,11 +708,7 @@ T &amp;\rightarrow T, S | S
       <p class="index-excerpt">
         <a href="/2021/10/18/%E3%80%8A%E6%9D%8E%E6%B8%85%E7%85%A7%E8%AF%8D%E9%9B%86%EF%BC%88%E8%AF%8D%E7%B3%BB%E5%88%97%EF%BC%89%E3%80%8B%E6%9C%AD%E8%AE%B0/" target="_self">
           
-          
-            
-          
-          
-上海古籍出版社。读这本书的缘由是某一天迎着秋风，回忆起李清照的《声声慢》，只记得“寻寻觅觅，冷冷清清，凄凄惨惨戚戚”这句，实在是惭愧。遂到 zlibrary 搜罗来这本集子，读一读，补一补记忆，加上现在也一直在读古文，说不定读来别有一番滋味。上一次遇到，是在高中的语文课本上，阔别多年，有点想念，当年摇头晃脑背来背去，结果还是给背忘了，没有办法呀，当年的早读课，除了唱歌解解困，还真没有啥剩下来的
+          上海古籍出版社。读这本书的缘由是某一天迎着秋风，回忆起李清照的《声声慢》，只记得“寻寻觅觅，冷冷清清，凄凄惨惨戚戚”这句，实在是惭愧。遂到 zlibrary 搜罗来这本集子，读一读，补一补记忆，加上现在也一直在读古文，说不定读来别有一番滋味。上一次遇到，是在高中的语文课本上，阔别多年，有点想念，当年摇头晃脑背来背去，结果还是给背忘了，没有办法呀，当年的早读课，除了唱歌解解困，还真没有啥剩下来的
         </a>
       </p>
 
@@ -867,7 +761,7 @@ T &amp;\rightarrow T, S | S
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -933,6 +827,10 @@ T &amp;\rightarrow T, S | S
 <!-- Plugins -->
 
 
+  <script  src="/js/local-search.js" ></script>
+
+
+
   
     <script  src="/js/img-lazyload.js" ></script>
   
@@ -948,36 +846,15 @@ T &amp;\rightarrow T, S | S
 
 
 
-
-
-
-
-
-
   <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
   </script>
 
 

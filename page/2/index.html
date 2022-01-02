@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+<html lang="zh-CN" data-default-color-scheme=dark>
 
 
 
@@ -9,14 +9,21 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
   <link rel="icon" href="/img/myfavicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Fany Full&#39;s Blog">
+<meta property="og:url" content="http://fanyfull.github.io/page/2/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Fany Full">
+<meta name="twitter:card" content="summary_large_image">
+  
   
   <title>Fany Full&#39;s Blog</title>
 
@@ -44,7 +51,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":false,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":false,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -59,8 +66,9 @@
   <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fany Full's Blog</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -134,13 +142,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -204,14 +213,7 @@
       <p class="index-excerpt">
         <a href="/2021/12/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" target="_self">
           
-          
-            
-          
-          实验九 数据库的完整性设计
-一、实验目的
-熟练掌握使用 Navicat 和 Transact-SQL 语言两种方法创建、修改和删除表。掌握管理表的有关系统存储过程。
-二、实验内容
-1、利用 Navicat 创建满足以下要求的数据库：① 数据库存在于连接 MySQL 中；② 数据库名称为 xsgl； ③ 字符集选择 utf8--UTF-8 Unicode；排序规则选择 utf8_genera
+          实验九 数据库的完整性设计 一、实验目的 熟练掌握使用 Navicat 和 Transact-SQL 语言两种方法创建、修改和删除表。掌握管理表的有关系统存储过程。 二、实验内容 1、利用 Navicat 创建满足以下要求的数据库：① 数据库存在于连接 MySQL 中；② 数据库名称为 xsgl； ③ 字符集选择 utf8--UTF-8 Unicode；排序规则选择 utf8_genera
         </a>
       </p>
 
@@ -264,13 +266,7 @@
       <p class="index-excerpt">
         <a href="/2021/12/06/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E4%BD%9C%E4%B8%9A%E4%B8%89/" target="_self">
           
-          
-            
-          
-          用例图及用例开发
-
-考查常用的提供共享存储服务的网盘系统，分析其功能设计。为某个大学班级的同学开发一个专业学习资料的共享文件存储系统——“学霸网盘系统”。该系统包括客户端子系统和服务器端子系统两个部分。每位班级同学可以从客户端上传带有内容标注的本地文件，供本班同学下载使用。上传者应确定文件共享的有效时间，其上传文件及其内容标注需经过服务器端的管理员审查后才能被下载。
-1）列举该网盘系统的 3
+          用例图及用例开发  考查常用的提供共享存储服务的网盘系统，分析其功能设计。为某个大学班级的同学开发一个专业学习资料的共享文件存储系统——“学霸网盘系统”。该系统包括客户端子系统和服务器端子系统两个部分。每位班级同学可以从客户端上传带有内容标注的本地文件，供本班同学下载使用。上传者应确定文件共享的有效时间，其上传文件及其内容标注需经过服务器端的管理员审查后才能被下载。 1）列举该网盘系统的 3
         </a>
       </p>
 
@@ -323,13 +319,7 @@
       <p class="index-excerpt">
         <a href="/2021/12/06/%E7%AE%97%E6%B3%954-%E9%98%85%E8%AF%BB%E6%89%8B%E8%AE%B0/" target="_self">
           
-          
-            
-          
-          第二章
-2.4
-
-大多数在下沉排序期间重新插入堆的元素会被直接加入到堆底。Floyd 在 1964 年观察发现，我们正好可以通过免去检查元素是否到达正确位置来节省时间。在下沉中总是直接提升较大的子结点直至到达堆底，然后再使元素上浮到正确的位置。这个想法几乎可以将比较次数减少一半——接近了归并排序所需的比较次数（随机数组）。这种方法需要额外的空间，因此在实际应用中只有当比较操作代价较高时才有用
+          第二章 2.4  大多数在下沉排序期间重新插入堆的元素会被直接加入到堆底。Floyd 在 1964 年观察发现，我们正好可以通过免去检查元素是否到达正确位置来节省时间。在下沉中总是直接提升较大的子结点直至到达堆底，然后再使元素上浮到正确的位置。这个想法几乎可以将比较次数减少一半——接近了归并排序所需的比较次数（随机数组）。这种方法需要额外的空间，因此在实际应用中只有当比较操作代价较高时才有用
         </a>
       </p>
 
@@ -382,11 +372,7 @@
       <p class="index-excerpt">
         <a href="/2021/12/06/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97-Priority-Queues/" target="_self">
           
-          
-            
-          
-          algs4
-目前已经把 algs4 中的优先队列这一节阅读完毕。我改变以前的看法，以前我认为通过 algs4 这本书我是一个算法都学不会，真要学算法还是得看算法导论，这是一年前在看 KMP 算法时的想法，更早之前阅读前几章时我也是这么想的，之前不管是哪一个时段，我都没有把书中的源码给跑起来，加上那个 KMP 算法它讲得确实有点地方有问题，现在我明白了，可能作者的水平真的是很高，所有很多东西他的脑
+          algs4 目前已经把 algs4 中的优先队列这一节阅读完毕。我改变以前的看法，以前我认为通过 algs4 这本书我是一个算法都学不会，真要学算法还是得看算法导论，这是一年前在看 KMP 算法时的想法，更早之前阅读前几章时我也是这么想的，之前不管是哪一个时段，我都没有把书中的源码给跑起来，加上那个 KMP 算法它讲得确实有点地方有问题，现在我明白了，可能作者的水平真的是很高，所有很多东西他的脑
         </a>
       </p>
 
@@ -441,27 +427,7 @@
       <p class="index-excerpt">
         <a href="/2021/12/04/Java-%E7%83%B9%E9%A5%AA%E7%AC%94%E8%AE%B0/" target="_self">
           
-          
-            
-          
-          小碎点
-
-命令行查看 Java 版本。
-
-1java -version
-
-更改 PowerShell(或 CMD)中 javac 的输出为英文。
-
-在环境变量中添加这么一行：
-1JAVA_TOOL_OPTIONS=-Duser.language=en
-
-效果：
-
-参考：CSDN
-
-在 PowerShell 中编译很多个 java 文件。
-
-1javac &quot
+          小碎点  命令行查看 Java 版本。  1java -version  更改 PowerShell(或 CMD)中 javac 的输出为英文。  在环境变量中添加这么一行： 1JAVA_TOOL_OPTIONS&#x3D;-Duser.language&#x3D;en  效果：  参考：CSDN  在 PowerShell 中编译很多个 java 文件。  1javac &amp;quot
         </a>
       </p>
 
@@ -516,21 +482,7 @@
       <p class="index-excerpt">
         <a href="/2021/12/04/Ubuntu-%E7%83%B9%E9%A5%AA%E7%AC%94%E8%AE%B0/" target="_self">
           
-          
-            
-          
-          一些常用的 Linux 命令
-解压缩
-对于 .tar.gz 的解压缩：
-1tar -zxvf filename.tar.gz
-参考：https://www.cnblogs.com/cursorhu/p/5891699.html
-一些快捷键
-
-截图快捷键。
-
-
-PrtSc：全屏捕捉，截取的图片保存在 Pictures 目录下。
-Shift + PrtSc：自由选定区域，截取的图
+          一些常用的 Linux 命令 解压缩 对于 .tar.gz 的解压缩： 1tar -zxvf filename.tar.gz 参考：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;cursorhu&#x2F;p&#x2F;5891699.html 一些快捷键  截图快捷键。   PrtSc：全屏捕捉，截取的图片保存在 Pictures 目录下。 Shift + PrtSc：自由选定区域，截取的图
         </a>
       </p>
 
@@ -555,9 +507,9 @@ Shift + PrtSc：自由选定区域，截取的图
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Linux/">Linux</a>
-            
               <a href="/tags/Ubuntu/">Ubuntu</a>
+            
+              <a href="/tags/Linux/">Linux</a>
             
           </div>
         
@@ -585,13 +537,7 @@ Shift + PrtSc：自由选定区域，截取的图
       <p class="index-excerpt">
         <a href="/2021/12/04/MySQL-%E7%83%B9%E9%A5%AA%E7%AC%94%E8%AE%B0/" target="_self">
           
-          
-            
-          
-          说明
-这里的学习过程主要来自于此网站：https://www.mysqltutorial.org/，以前读过什么《MySQL 必知必会》，现在在学数据库系统概论这门课，比起这个时新的网站，其时效性还是差了些，更重要的是，目前看来，这个网站的教程质量很好，并且有示例的数据库，这个示例的数据库的质量也很好。
-数据库的脚本我复整了一份 gist：mysqlsampledatabase
-这个脚本可以
+          说明 这里的学习过程主要来自于此网站：https:&#x2F;&#x2F;www.mysqltutorial.org&#x2F;，以前读过什么《MySQL 必知必会》，现在在学数据库系统概论这门课，比起这个时新的网站，其时效性还是差了些，更重要的是，目前看来，这个网站的教程质量很好，并且有示例的数据库，这个示例的数据库的质量也很好。 数据库的脚本我复整了一份 gist：mysqlsampledatabase 这个脚本可以
         </a>
       </p>
 
@@ -644,14 +590,7 @@ Shift + PrtSc：自由选定区域，截取的图
       <p class="index-excerpt">
         <a href="/2021/12/01/Python-Some-Tricks/" target="_self">
           
-          
-            
-          
-          list 的复制
-一般来说，有三种方法：
-
-直接使用 = 赋值，这种方式的复制相当于给一个盒子贴上两个不同的标签，因此，如果操作任何一个标签，都会对另外一个标签进行数据同步。
-使用 copy() 方法，这种方式属于浅复制(shallow copy)，对于一般的字面值，如数字，不管是修改源 list 还是复制之后的 list，都不会影响另一个。但是，如果修改的是列表中的对象(Object)，
+          list 的复制 一般来说，有三种方法：  直接使用 &#x3D; 赋值，这种方式的复制相当于给一个盒子贴上两个不同的标签，因此，如果操作任何一个标签，都会对另外一个标签进行数据同步。 使用 copy() 方法，这种方式属于浅复制(shallow copy)，对于一般的字面值，如数字，不管是修改源 list 还是复制之后的 list，都不会影响另一个。但是，如果修改的是列表中的对象(Object)，
         </a>
       </p>
 
@@ -704,11 +643,7 @@ Shift + PrtSc：自由选定区域，截取的图
       <p class="index-excerpt">
         <a href="/2021/12/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E4%BD%9C%E4%B8%9A%E4%BA%8C/" target="_self">
           
-          
-            
-          
-          
-1. A simple digital watch has a display and two buttons to set it, the A button and the B button. The watch has two modes of operation, display time and set time. In the display time mode, the watch
+          1. A simple digital watch has a display and two buttons to set it, the A button and the B button. The watch has two modes of operation, display time and set time. In the display time mode, the watch
         </a>
       </p>
 
@@ -761,21 +696,7 @@ Shift + PrtSc：自由选定区域，截取的图
       <p class="index-excerpt">
         <a href="/2021/11/30/PowerShell-%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/" target="_self">
           
-          
-            
-          
-          小碎点
-
-在 WT 里面使用 PS 的翻页键。
-
-Ctrl + Shift + PageUp/PageDown。
-
-复制多个文件到某一文件夹下。
-
-1Copy-Item .\m1.txt, .\m2.txt, .\m3.txt -Destination ..\myalgs4\algs4\
-按：主要是分隔符 , 的使用，以及 -Destination 选项的使用。
-
-Power
+          小碎点  在 WT 里面使用 PS 的翻页键。  Ctrl + Shift + PageUp&#x2F;PageDown。  复制多个文件到某一文件夹下。  1Copy-Item .\m1.txt, .\m2.txt, .\m3.txt -Destination ..\myalgs4\algs4\ 按：主要是分隔符 , 的使用，以及 -Destination 选项的使用。  Power
         </a>
       </p>
 
@@ -826,7 +747,7 @@ Power
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -892,6 +813,10 @@ Power
 <!-- Plugins -->
 
 
+  <script  src="/js/local-search.js" ></script>
+
+
+
   
     <script  src="/js/img-lazyload.js" ></script>
   
@@ -907,36 +832,15 @@ Power
 
 
 
-
-
-
-
-
-
   <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
   </script>
 
 

@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+<html lang="zh-CN" data-default-color-scheme=dark>
 
 
 
@@ -9,14 +9,21 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
   <link rel="icon" href="/img/myfavicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Fany Full&#39;s Blog">
+<meta property="og:url" content="http://fanyfull.github.io/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Fany Full">
+<meta name="twitter:card" content="summary_large_image">
+  
   
   <title>Fany Full&#39;s Blog</title>
 
@@ -44,7 +51,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":false,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":false,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -59,8 +66,9 @@
   <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fany Full's Blog</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -134,13 +142,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -206,28 +215,7 @@
       <p class="index-excerpt">
         <a href="/2021/11/14/%E5%8D%9A%E5%AE%A2%E5%BE%85%E6%95%B4%E7%90%86%E5%86%85%E5%AE%B9%E7%9B%AE%E5%BD%95/" target="_self">
           
-          
-            
-          
-          未完成
-
-            gcc 编译选项整理
-          
-
-            gdb 调试用法整理
-          
-
-            编译原理作业三最后一题修正
-          
-
-            学习雅思
-          
-正在做
-
-            vim 搜索和替换快捷键
-          
-
-          
+          未完成              gcc 编译选项整理                         gdb 调试用法整理                         编译原理作业三最后一题修正                         学习雅思            正在做              vim 搜索和替换快捷键
         </a>
       </p>
 
@@ -280,18 +268,7 @@
       <p class="index-excerpt">
         <a href="/2022/01/02/VSCode-tricks-track/" target="_self">
           
-          
-            
-          
-          设置运行 Python 代码快捷键
-参考：stackoverflow
-file-&gt;preference-&gt;keyboard shortcuts
-我这里直接将其设置成 Ctrl + Alt + P。
-
-设置光标在编辑区和内置的控制台之间切换
-参考：stackoverflow
-照着设置，就可以使用 Ctrl + ` 快捷键切换了。
-
+          设置运行 Python 代码快捷键 参考：stackoverflow file-&gt;preference-&gt;keyboard shortcuts 我这里直接将其设置成 Ctrl + Alt + P。  设置光标在编辑区和内置的控制台之间切换 参考：stackoverflow 照着设置，就可以使用 Ctrl + &#96; 快捷键切换了。
         </a>
       </p>
 
@@ -348,16 +325,7 @@ file-&gt;preference-&gt;keyboard shortcuts
       <p class="index-excerpt">
         <a href="/2021/12/31/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" target="_self">
           
-          
-            
-          
-          按：有待进一步施工，尤其是最后一个问题...
-这一届(19级)的数学建模的上机题目是在晚上上机的三个小时(可以适当延时一到两个小时)完成一道题目的建模与求解。可以使用任何方法，如果使用计算机求解，那么需要给出代码。因此，这里在建模之后，当然是选择使用 Python 来求解。而题目本身则是一道经典的运筹学问题。在网上也比较容易找到相关的题目。
-问题描述
-
-
-
-以下没有排版的文字描述仅供搜
+          按：有待进一步施工，尤其是最后一个问题... 这一届(19级)的数学建模的上机题目是在晚上上机的三个小时(可以适当延时一到两个小时)完成一道题目的建模与求解。可以使用任何方法，如果使用计算机求解，那么需要给出代码。因此，这里在建模之后，当然是选择使用 Python 来求解。而题目本身则是一道经典的运筹学问题。在网上也比较容易找到相关的题目。 问题描述    以下没有排版的文字描述仅供搜
         </a>
       </p>
 
@@ -411,9 +379,6 @@ file-&gt;preference-&gt;keyboard shortcuts
 
       <p class="index-excerpt">
         <a href="/2021/12/28/LeetCode-26-30-%E8%AE%B0%E5%BD%95/" target="_self">
-          
-          
-            
           
           整理 leetcode 26 到 30 这几道题目
         </a>
@@ -472,20 +437,7 @@ file-&gt;preference-&gt;keyboard shortcuts
       <p class="index-excerpt">
         <a href="/2021/12/24/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%AC%E5%9B%9B%E6%AC%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" target="_self">
           
-          
-            
-          
-          咳咳，数据库实验十三准备重构中...
-之前摆烂，现在得还债了。
-实验十一 数据库的备份与恢复
-一、实验目的
-了解 Navicat 的数据备份和恢复机制，掌握 Navicat 中数据库备份和恢复的方法。
-二、实验内容
-1、备份
-步骤：使用用户 root 打开连接 MySQL —打开数据库 world —点击界面上方的“备份”—新建备份，如图所示：
-
-
-点击“backup”—成功完
+          咳咳，数据库实验十三准备重构中... 之前摆烂，现在得还债了。 实验十一 数据库的备份与恢复 一、实验目的 了解 Navicat 的数据备份和恢复机制，掌握 Navicat 中数据库备份和恢复的方法。 二、实验内容 1、备份 步骤：使用用户 root 打开连接 MySQL —打开数据库 world —点击界面上方的“备份”—新建备份，如图所示：   点击“backup”—成功完
         </a>
       </p>
 
@@ -538,11 +490,7 @@ file-&gt;preference-&gt;keyboard shortcuts
       <p class="index-excerpt">
         <a href="/2021/12/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E4%BD%9C%E4%B8%9A%E5%9B%9B/" target="_self">
           
-          
-            
-          
-          作业4 时序图及综合
-设计一个建材超市的系统，该系统的用例包括收银员收银、采购员采购物品、库存管理员入库登记、出库登记和盘存，实体类的类模型如图1所示。其中 Order 表示帐单类，一个账单对象表示一次购物，有该次购物的 dateTime 即日期时间、total 即总金额等属性；OrderItem 表示帐单项类，一个账单项对象表示一次购物中所购买的一种物品，包含所购买物品的 inventoryI
+          作业4 时序图及综合 设计一个建材超市的系统，该系统的用例包括收银员收银、采购员采购物品、库存管理员入库登记、出库登记和盘存，实体类的类模型如图1所示。其中 Order 表示帐单类，一个账单对象表示一次购物，有该次购物的 dateTime 即日期时间、total 即总金额等属性；OrderItem 表示帐单项类，一个账单项对象表示一次购物中所购买的一种物品，包含所购买物品的 inventoryI
         </a>
       </p>
 
@@ -595,14 +543,7 @@ file-&gt;preference-&gt;keyboard shortcuts
       <p class="index-excerpt">
         <a href="/2021/12/14/Android-%E5%B8%83%E5%B1%80%E5%AD%A6%E4%B9%A0/" target="_self">
           
-          
-            
-          
-          Youtube 学习记录。
-主要是根据 Youtube 的一个安卓 Youtuber 的视频教程来学习，或者说复习一下安卓的布局。以前看过《Android 第一行代码》第二版。
-LinearLayout
-线性布局。
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484
+          Youtube 学习记录。 主要是根据 Youtube 的一个安卓 Youtuber 的视频教程来学习，或者说复习一下安卓的布局。以前看过《Android 第一行代码》第二版。 LinearLayout 线性布局。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484
         </a>
       </p>
 
@@ -655,15 +596,7 @@ LinearLayout
       <p class="index-excerpt">
         <a href="/2021/12/13/Kotlin-Learning-Notes/" target="_self">
           
-          
-            
-          
-          Just look through the basic grammers of Kotlin. To conclude, Kotlin seems so like Java, but has a lot of additional grammar sugar.
-ep01
-Why you should learn Kotlin?
-
-Complete null safety
-Use all 
+          Just look through the basic grammers of Kotlin. To conclude, Kotlin seems so like Java, but has a lot of additional grammar sugar. ep01 Why you should learn Kotlin?  Complete null safety Use all
         </a>
       </p>
 
@@ -718,15 +651,7 @@ Use all
       <p class="index-excerpt">
         <a href="/2021/12/13/Android-Studio-Usage-List/" target="_self">
           
-          
-            
-          
-          Unable to access Android SDK add-on list
-One possible solution to this problem is as follows:
-设置代理为访问外网相关软件的端口，我这里是 Clash for Windows，
-
-所以将端口设置成 7890 即可。
-当然，网上还提供一个另外的做法，其实就是另外一个代理啦，但是，相比于直接访问国外的
+          Unable to access Android SDK add-on list One possible solution to this problem is as follows: 设置代理为访问外网相关软件的端口，我这里是 Clash for Windows，  所以将端口设置成 7890 即可。 当然，网上还提供一个另外的做法，其实就是另外一个代理啦，但是，相比于直接访问国外的
         </a>
       </p>
 
@@ -778,9 +703,6 @@ One possible solution to this problem is as follows:
 
       <p class="index-excerpt">
         <a href="/2021/12/09/LeetCode-21-25-%E8%AE%B0%E5%BD%95/" target="_self">
-          
-          
-            
           
           整理 leetcode 21 到 25 这几道题目
         </a>
@@ -837,7 +759,7 @@ One possible solution to this problem is as follows:
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -903,6 +825,10 @@ One possible solution to this problem is as follows:
 <!-- Plugins -->
 
 
+  <script  src="/js/local-search.js" ></script>
+
+
+
   
     <script  src="/js/img-lazyload.js" ></script>
   
@@ -918,36 +844,15 @@ One possible solution to this problem is as follows:
 
 
 
-
-
-
-
-
-
   <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
   </script>
 
 

@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+<html lang="zh-CN" data-default-color-scheme=dark>
 
 
 
@@ -9,14 +9,29 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
   <link rel="icon" href="/img/myfavicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
+  
+    <meta name="description" content="range(0, 10) range(10, 20) 15 三数之和  中等  https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;3sum&#x2F; 给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 \(a，b，c\) ，使得 \(a + b + c &#x3D; 0\) ？请你找出所有和为 0 且不重复的三元组。 注意：答案中不可以包含重复的三元组。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode 0-50 整理（Java）">
+<meta property="og:url" content="http://fanyfull.github.io/2021/10/05/LeetCode-0-50-%E6%95%B4%E7%90%86%EF%BC%88Java%EF%BC%89/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:description" content="range(0, 10) range(10, 20) 15 三数之和  中等  https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;3sum&#x2F; 给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 \(a，b，c\) ，使得 \(a + b + c &#x3D; 0\) ？请你找出所有和为 0 且不重复的三元组。 注意：答案中不可以包含重复的三元组。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211005202442.png">
+<meta property="article:published_time" content="2021-10-05T08:59:14.000Z">
+<meta property="article:modified_time" content="2021-10-08T13:32:57.700Z">
+<meta property="article:author" content="Fany Full">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="LeetCode">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211005202442.png">
+  
   
   <title>LeetCode 0-50 整理（Java） - Fany Full&#39;s Blog</title>
 
@@ -39,7 +54,6 @@
   
 
 
-
 <!-- 主题依赖的图标库，不要自行修改 -->
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
@@ -60,7 +74,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":false,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":false,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -75,8 +89,9 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fany Full's Blog</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -150,13 +165,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -190,21 +206,18 @@
 
 <div class="mt-1">
   
-    
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2k 字
+      6.9k 字
     </span>
   
 
   
-    
     <span class="post-meta mr-2">
       <i class="iconfont icon-clock-fill"></i>
       
       
-      31
-       分钟
+      58 分钟
     </span>
   
 
@@ -246,13 +259,13 @@
 <p>给你一个包含 <code>n</code> 个整数的数组 <code>nums</code>，判断 <code>nums</code> 中是否存在三个元素 <span class="math inline">\(a，b，c\)</span> ，使得 <span class="math inline">\(a + b + c = 0\)</span> ？请你找出所有和为 <code>0</code> 且不重复的三元组。</p>
 <p>注意：答案中不可以包含重复的三元组。</p>
 <p>示例 1：</p>
-<div class="hljs code-wrapper"><pre><code>输入：nums = [-1,0,1,2,-1,-4]
+<div class="hljs code-wrapper"><pre><code class="hljs">输入：nums = [-1,0,1,2,-1,-4]
 输出：[[-1,-1,2],[-1,0,1]]</code></pre></div>
 <p>示例 2：</p>
-<div class="hljs code-wrapper"><pre><code>输入：nums = []
+<div class="hljs code-wrapper"><pre><code class="hljs">输入：nums = []
 输出：[]</code></pre></div>
 <p>示例 3：</p>
-<div class="hljs code-wrapper"><pre><code>输入：nums = [0]
+<div class="hljs code-wrapper"><pre><code class="hljs">输入：nums = [0]
 输出：[]</code></pre></div>
 <p>提示：</p>
 <ul>
@@ -267,7 +280,7 @@
 </ul>
 <p>给定一个包括 <code>n</code> 个整数的数组 <code>nums</code> 和 一个目标值 <code>target</code>。找出 <code>nums</code> 中的三个整数，使得它们的和与 <code>target</code> 最接近。返回这三个数的和。假定每组输入只存在唯一答案。</p>
 <p>示例：</p>
-<div class="hljs code-wrapper"><pre><code>输入：nums = [-1,2,1,-4], target = 1
+<div class="hljs code-wrapper"><pre><code class="hljs">输入：nums = [-1,2,1,-4], target = 1
 输出：2
 解释：与 target 最接近的和是 2 (-1 + 2 + 1 = 2) 。</code></pre></div>
 <p>提示：</p>
@@ -283,13 +296,13 @@
 <p>给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211005201903.png" srcset="/img/loading.gif" lazyload /></p>
 <p>示例 1：</p>
-<div class="hljs code-wrapper"><pre><code>输入：digits = &quot;23&quot;
+<div class="hljs code-wrapper"><pre><code class="hljs">输入：digits = &quot;23&quot;
 输出：[&quot;ad&quot;,&quot;ae&quot;,&quot;af&quot;,&quot;bd&quot;,&quot;be&quot;,&quot;bf&quot;,&quot;cd&quot;,&quot;ce&quot;,&quot;cf&quot;]</code></pre></div>
 <p>示例 2：</p>
-<div class="hljs code-wrapper"><pre><code>输入：digits = &quot;&quot;
+<div class="hljs code-wrapper"><pre><code class="hljs">输入：digits = &quot;&quot;
 输出：[]</code></pre></div>
 <p>示例 3：</p>
-<div class="hljs code-wrapper"><pre><code>输入：digits = &quot;2&quot;
+<div class="hljs code-wrapper"><pre><code class="hljs">输入：digits = &quot;2&quot;
 输出：[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]</code></pre></div>
 <p>提示：</p>
 <ul>
@@ -309,10 +322,10 @@
 </ul>
 <p>你可以按 任意顺序 返回答案 。</p>
 <p>示例 1：</p>
-<div class="hljs code-wrapper"><pre><code>输入：nums = [1,0,-1,0,-2,2], target = 0
+<div class="hljs code-wrapper"><pre><code class="hljs">输入：nums = [1,0,-1,0,-2,2], target = 0
 输出：[[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]</code></pre></div>
 <p>示例 2：</p>
-<div class="hljs code-wrapper"><pre><code>输入：nums = [2,2,2,2,2], target = 8
+<div class="hljs code-wrapper"><pre><code class="hljs">输入：nums = [2,2,2,2,2], target = 8
 输出：[[2,2,2,2]]</code></pre></div>
 <p>提示：</p>
 <ul>
@@ -329,13 +342,13 @@
 <p>进阶：你能尝试使用一趟扫描实现吗？</p>
 <p>示例 1：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211008203304.png" srcset="/img/loading.gif" lazyload /></p>
-<div class="hljs code-wrapper"><pre><code>输入：head = [1,2,3,4,5], n = 2
+<div class="hljs code-wrapper"><pre><code class="hljs">输入：head = [1,2,3,4,5], n = 2
 输出：[1,2,3,5]</code></pre></div>
 <p>示例 2：</p>
-<div class="hljs code-wrapper"><pre><code>输入：head = [1], n = 1
+<div class="hljs code-wrapper"><pre><code class="hljs">输入：head = [1], n = 1
 输出：[]</code></pre></div>
 <p>示例 3：</p>
-<div class="hljs code-wrapper"><pre><code>输入：head = [1,2], n = 1
+<div class="hljs code-wrapper"><pre><code class="hljs">输入：head = [1,2], n = 1
 输出：[1]</code></pre></div>
 <p>提示：</p>
 <ul>
@@ -356,16 +369,16 @@
 <li>左括号必须以正确的顺序闭合。</li>
 </ol>
 <p>示例 1：</p>
-<div class="hljs code-wrapper"><pre><code>输入：s = &quot;()&quot;
+<div class="hljs code-wrapper"><pre><code class="hljs">输入：s = &quot;()&quot;
 输出：true</code></pre></div>
 <p>示例 2：</p>
-<div class="hljs code-wrapper"><pre><code>输入：s = &quot;()[]&#123;&#125;&quot;
+<div class="hljs code-wrapper"><pre><code class="hljs">输入：s = &quot;()[]&#123;&#125;&quot;
 输出：true</code></pre></div>
 <p>示例 3：</p>
-<div class="hljs code-wrapper"><pre><code>输入：s = &quot;(]&quot;
+<div class="hljs code-wrapper"><pre><code class="hljs">输入：s = &quot;(]&quot;
 输出：false</code></pre></div>
 <p>示例 4：</p>
-<div class="hljs code-wrapper"><pre><code>输入：s = &quot;([)]&quot;
+<div class="hljs code-wrapper"><pre><code class="hljs">输入：s = &quot;([)]&quot;
 输出：false</code></pre></div>
 <p>示例 5：</p>
 <p>输入：s = "{[]}" 输出：true</p>
@@ -455,7 +468,7 @@
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -521,6 +534,10 @@
 <!-- Plugins -->
 
 
+  <script  src="/js/local-search.js" ></script>
+
+
+
   
     <script  src="/js/img-lazyload.js" ></script>
   
@@ -531,17 +548,16 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
-
-
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  
+  
 
 
 
@@ -554,24 +570,9 @@
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
   </script>
 
 
@@ -586,6 +587,9 @@
       MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          
         },
         options: {
           renderActions: {
