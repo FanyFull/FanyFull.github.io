@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>线性代数笔记</title>
+    <link href="/2022/01/04/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0/"/>
+    <url>/2022/01/04/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<h1 id="矩阵的初等变换与线性方程组">矩阵的初等变换与线性方程组</h1><blockquote><p>矩阵的初等行变换？</p></blockquote><p><img src="https://i.imgur.com/sM4qR0q.png" /></p><blockquote><p>矩阵的初等列变换？</p></blockquote><p><img src="https://i.imgur.com/DZo8zLB.png" /></p><blockquote><p>矩阵的初等变换？</p></blockquote><p>矩阵的初等行变换与初等列变换，统称初等变换。</p><blockquote><p>矩阵的等价？</p></blockquote><p><img src="https://i.imgur.com/3FALS5H.png" /></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>数学</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数学</tag>
+      
+      <tag>工科数学</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 31-35 记录</title>
     <link href="/2022/01/03/LeetCode-31-35-%E8%AE%B0%E5%BD%95/"/>
     <url>/2022/01/03/LeetCode-31-35-%E8%AE%B0%E5%BD%95/</url>
