@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="当前正在写 leetcode 的题目，所以可能会经常用到 Python 的库函数，因此，在这里作一个记录，好记性不如烂键盘。 sort 函数 A simple ascending sort is very easy: just call the sorted() function. It returns a new sorted list: 12&gt;&gt;&gt; sorted([5,">
+    <meta name="description" content="当前正在写 leetcode 的题目，所以可能会经常用到 Python 的库函数，因此，在这里作一个记录，好记性不如烂键盘。 sort 函数 A simple ascending sort is very easy: just call the sorted() function. It returns a new sorted list: 12&gt;&gt;&gt; sorted([">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 库函数学习记录">
 <meta property="og:url" content="http://fanyfull.github.io/2021/11/28/Python-%E5%BA%93%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="当前正在写 leetcode 的题目，所以可能会经常用到 Python 的库函数，因此，在这里作一个记录，好记性不如烂键盘。 sort 函数 A simple ascending sort is very easy: just call the sorted() function. It returns a new sorted list: 12&gt;&gt;&gt; sorted([5,">
+<meta property="og:description" content="当前正在写 leetcode 的题目，所以可能会经常用到 Python 的库函数，因此，在这里作一个记录，好记性不如烂键盘。 sort 函数 A simple ascending sort is very easy: just call the sorted() function. It returns a new sorted list: 12&gt;&gt;&gt; sorted([">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/dRdaYdSl.png">
 <meta property="article:published_time" content="2021-11-28T13:06:52.000Z">
@@ -248,19 +248,28 @@
             <h1 style="display: none">Python 库函数学习记录</h1>
             
             <div class="markdown-body">
-              <p>当前正在写 leetcode 的题目，所以可能会经常用到 Python 的库函数，因此，在这里作一个记录，好记性不如烂键盘。</p>
+              <p>当前正在写 leetcode 的题目，所以可能会经常用到 Python
+的库函数，因此，在这里作一个记录，好记性不如烂键盘。</p>
 <h1 id="sort-函数">sort 函数</h1>
-<p>A simple ascending sort is very easy: just call the sorted() function. It returns a new sorted list:</p>
+<p>A simple ascending sort is very easy: just call the sorted()
+function. It returns a new sorted list:</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; sorted([5, 2, 3, 1, 4])</span><br>[1, 2, 3, 4, 5]<br></code></pre></div></td></tr></table></figure>
-<p>You can also use the list.sort() method. It modifies the list in-place (and returns None to avoid confusion). Usually it’s less convenient than sorted() - but if you don’t need the original list, it’s slightly more efficient.</p>
+<p>You can also use the list.sort() method. It modifies the list
+in-place (and returns None to avoid confusion). Usually it’s less
+convenient than sorted() - but if you don’t need the original list, it’s
+slightly more efficient.</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; a = [5, 2, 3, 1, 4]</span><br><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; a.sort()</span><br><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; a</span><br>[1, 2, 3, 4, 5]<br></code></pre></div></td></tr></table></figure>
-<p>Another difference is that the list.sort() method is only defined for lists. In contrast, the sorted() function accepts any iterable.</p>
+<p>Another difference is that the list.sort() method is only defined for
+lists. In contrast, the sorted() function accepts any iterable.</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; sorted(&#123;1: <span class="hljs-string">&#x27;D&#x27;</span>, 2: <span class="hljs-string">&#x27;B&#x27;</span>, 3: <span class="hljs-string">&#x27;B&#x27;</span>, 4: <span class="hljs-string">&#x27;E&#x27;</span>, 5: <span class="hljs-string">&#x27;A&#x27;</span>&#125;)</span><br>[1, 2, 3, 4, 5]<br></code></pre></div></td></tr></table></figure>
 <h1 id="abs-函数">abs 函数</h1>
 <blockquote>
 <p><code>abs(x)</code></p>
 </blockquote>
-<p>Return the absolute value of a number. The argument may be an integer, a floating point number, or an object implementing <strong>abs</strong>(). If the argument is a complex number, its magnitude is returned.</p>
+<p>Return the absolute value of a number. The argument may be an
+integer, a floating point number, or an object implementing
+<strong>abs</strong>(). If the argument is a complex number, its
+magnitude is returned.</p>
 
             </div>
             <hr>

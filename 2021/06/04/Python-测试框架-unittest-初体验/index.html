@@ -250,25 +250,38 @@
             
             <div class="markdown-body">
               <h2 id="前言">前言</h2>
-<p>这是我的软件工程课程的第二次上机实验。实验的基本内容是使用一门 OO(Object Oriented) 语言的测试框架。遂记录如下。</p>
+<p>这是我的软件工程课程的第二次上机实验。实验的基本内容是使用一门
+OO(Object Oriented) 语言的测试框架。遂记录如下。</p>
 <h2 id="简单使用说明">简单使用说明</h2>
 <p>官网示例如下</p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-comment"># 测试三种字符串方法</span><br><span class="hljs-keyword">import</span> unittest<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestStringMethods</span>(<span class="hljs-params">unittest.TestCase</span>):</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_upper</span>(<span class="hljs-params">self</span>):</span><br>        self.assertEqual(<span class="hljs-string">&#x27;foo&#x27;</span>.upper(), <span class="hljs-string">&#x27;FOO&#x27;</span>)<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_isupper</span>(<span class="hljs-params">self</span>):</span><br>        self.assertTrue(<span class="hljs-string">&#x27;FOO&#x27;</span>.isupper())<br>        self.assertFalse(<span class="hljs-string">&#x27;Foo&#x27;</span>.isupper())<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_split</span>(<span class="hljs-params">self</span>):</span><br>        s = <span class="hljs-string">&#x27;hello world&#x27;</span><br>        self.assertEqual(s.split(), [<span class="hljs-string">&#x27;hello&#x27;</span>, <span class="hljs-string">&#x27;world&#x27;</span>])<br>        <span class="hljs-comment"># check that s.split fails when the separator is not a string</span><br>        <span class="hljs-keyword">with</span> self.assertRaises(TypeError):<br>            s.split(<span class="hljs-number">2</span>)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    unittest.main()<br></code></pre></div></td></tr></table></figure>
 <p>运行结果</p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py">Testing started at <span class="hljs-number">21</span>:<span class="hljs-number">11</span> ...<br>Launching unittests <span class="hljs-keyword">with</span> arguments python -m unittest C:/Users/<span class="hljs-number">17309</span>/PycharmProjects/TDDExperiment/draft01.py <span class="hljs-keyword">in</span> C:\Users\<span class="hljs-number">17309</span>\PycharmProjects\TDDExperiment<br><br><br>Process finished <span class="hljs-keyword">with</span> exit code <span class="hljs-number">0</span><br><br><br>Ran <span class="hljs-number">3</span> tests <span class="hljs-keyword">in</span> <span class="hljs-number">0.010</span>s<br><br>OK<br><br></code></pre></div></td></tr></table></figure>
-<p>所谓测试，就是定义一个类，只是，这个类必须要继承 <code>unittest.TestCase</code> 这个父类。</p>
-<p>另外，上述的类中的三个独立的方法，就是三个独立的测试，这些方法的命名都以 <code>test</code> 开头。这个命名约定告诉测试运行类哪些方法表示测试。</p>
-<p>在 PyCharm 中，可以看出，以 <code>test</code> 开头的方法前面有一个绿色的可执行按钮。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210605005810.png" srcset="/img/loading.gif" lazyload /></p>
+<p>所谓测试，就是定义一个类，只是，这个类必须要继承
+<code>unittest.TestCase</code> 这个父类。</p>
+<p>另外，上述的类中的三个独立的方法，就是三个独立的测试，这些方法的命名都以
+<code>test</code> 开头。这个命名约定告诉测试运行类哪些方法表示测试。</p>
+<p>在 PyCharm 中，可以看出，以 <code>test</code>
+开头的方法前面有一个绿色的可执行按钮。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210605005810.png" srcset="/img/loading.gif" lazyload /></p>
 <p>根据 Python 文档</p>
 <blockquote>
-<p>调用 <code>assertEqual()</code> 来检查预期的输出；调用 <code>assertTrue()</code> 或 <code>assertFalse()</code> 来验证一个条件；调用 <code>assertRaises()</code> 来验证抛出了一个特定的异常。使用这些方法而不是 <code>assert</code> 语句是为了让测试运行者能聚合所有的测试结果并产生结果报告。</p>
+<p>调用 <code>assertEqual()</code> 来检查预期的输出；调用
+<code>assertTrue()</code> 或 <code>assertFalse()</code>
+来验证一个条件；调用 <code>assertRaises()</code>
+来验证抛出了一个特定的异常。使用这些方法而不是 <code>assert</code>
+语句是为了让测试运行者能聚合所有的测试结果并产生结果报告。</p>
 </blockquote>
 <p>这里简单选取几个函数记录它们的用法</p>
 <ul>
-<li><p><code>assertEqual(first, second, msg=None)</code>: 测试第一个参数和第二个参数是否是相等的。如果它们的值不等，那么这个 test 将会失败。</p></li>
-<li><p><code>assertTrue(expr, msg=None)</code>: 测试 expr 是否正确。</p></li>
-<li><p><code>assertRaises(exception, *, msg=None)</code>: 测试是否抛出了指定的异常。</p></li>
+<li><p><code>assertEqual(first, second, msg=None)</code>:
+测试第一个参数和第二个参数是否是相等的。如果它们的值不等，那么这个 test
+将会失败。</p></li>
+<li><p><code>assertTrue(expr, msg=None)</code>: 测试 expr
+是否正确。</p></li>
+<li><p><code>assertRaises(exception, *, msg=None)</code>:
+测试是否抛出了指定的异常。</p></li>
 </ul>
 <h2 id="依葫芦画瓢">依葫芦画瓢</h2>
 <p>待测试的函数</p>

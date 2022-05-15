@@ -250,7 +250,8 @@
             
             <div class="markdown-body">
               <h2 id="一题目链接">一、题目链接</h2>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/two-sum/" class="uri">https://leetcode.com/problems/two-sum/</a></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/two-sum/"
+class="uri">https://leetcode.com/problems/two-sum/</a></p>
 <h2 id="二解答">二、解答</h2>
 <h3 id="解法一暴力求解">2.1 解法一，暴力求解</h3>
 <p>直接使用暴力求解方法。这个不需要思考，直接就可以写出来。</p>
@@ -258,16 +259,24 @@
 <p>采用的思想就是直接遍历，没啥好说的。</p>
 <p>时间复杂度：<code>$O(N^2)$</code> 空间复杂度：<code>$O(1)$</code></p>
 <h3 id="解法二两次遍历">2.2 解法二，两次遍历</h3>
-<p>利用 Python 中的字典这一数据结构。其中，key 存的是 <code>nums[i]</code>，value 存的是 <code>i</code>，这里的 i 是给定数组的索引值。</p>
+<p>利用 Python 中的字典这一数据结构。其中，key 存的是
+<code>nums[i]</code>，value 存的是 <code>i</code>，这里的 i
+是给定数组的索引值。</p>
 <p>代码如下</p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution2</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">twoSum</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], target: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:</span><br>        dic = &#123;&#125;<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(nums)):<br>            dic[nums[i]] = i<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(nums)):<br>            complement = target - nums[i]<br>            <span class="hljs-keyword">if</span> complement <span class="hljs-keyword">in</span> dic.keys() <span class="hljs-keyword">and</span> dic[complement] != i:<br>                <span class="hljs-keyword">return</span> [i, dic[complement]]<br></code></pre></div></td></tr></table></figure>
 <p>这个解法采用了两次遍历的方法</p>
 <ul>
-<li>第一次遍历时，如果 nums 列表中有重复的元素，那么最后 <code>dic[nums[i]]</code> 存储的值将是最后一次的 i；</li>
+<li>第一次遍历时，如果 nums 列表中有重复的元素，那么最后
+<code>dic[nums[i]]</code> 存储的值将是最后一次的 i；</li>
 <li>第二个遍历中，if 语句要考虑两种情况
 <ul>
-<li>一是最后的两个 two nums 的值是不同的，那么，很显然，<code>dic[target - nums[i]]</code> 就是与当前的 i 对应的另一个索引值；</li>
-<li>二是最后的两个 two nums 的值是重复的，而且，根据题目给定的条件，题目一定有解，且是唯一解，那么，当前的 i 一定是索引值较小的那一个，<code>dic[target - nums[i]]</code> 则是另一个。</li>
+<li>一是最后的两个 two nums
+的值是不同的，那么，很显然，<code>dic[target - nums[i]]</code>
+就是与当前的 i 对应的另一个索引值；</li>
+<li>二是最后的两个 two nums
+的值是重复的，而且，根据题目给定的条件，题目一定有解，且是唯一解，那么，当前的
+i 一定是索引值较小的那一个，<code>dic[target - nums[i]]</code>
+则是另一个。</li>
 </ul></li>
 </ul>
 <p>时间复杂度：<code>$O(N)$</code> 空间复杂度：<code>$O(N)$</code></p>
@@ -276,8 +285,11 @@
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution3</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">twoSum</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], target: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:</span><br>        dic = &#123;&#125;<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(nums)):<br>            complement = target - nums[i]<br>            <span class="hljs-keyword">if</span> complement <span class="hljs-keyword">in</span> dic.keys():<br>                <span class="hljs-keyword">return</span> [dic[complement], i]<br>            dic[nums[i]] = i<br></code></pre></div></td></tr></table></figure>
 <p>我们只需要理解一点，找到相应的解时，分两种情况</p>
 <ul>
-<li>一，最后的两个 two nums 的值是不同的，那么，i 的值是大于 <code>dic[target - nums[i]]</code> 的；</li>
-<li>二，最后的两个 two nums 的值是重复的，那么，i 的值还是大于 <code>dic[target - nums[i]]</code> 的，和第一种情况没什么不同，之所以分两种情况，是为了捋得更清楚一些。</li>
+<li>一，最后的两个 two nums 的值是不同的，那么，i 的值是大于
+<code>dic[target - nums[i]]</code> 的；</li>
+<li>二，最后的两个 two nums 的值是重复的，那么，i 的值还是大于
+<code>dic[target - nums[i]]</code>
+的，和第一种情况没什么不同，之所以分两种情况，是为了捋得更清楚一些。</li>
 </ul>
 <p>时间复杂度：<code>$O(N)$</code> 空间复杂度：<code>$O(N)$</code></p>
 <h2 id="三完整代码">三、完整代码</h2>

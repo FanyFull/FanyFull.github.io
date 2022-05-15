@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前言 今天找到一本 txt 格式的书，想用 VSCode 打开看一下，结果已打开发现是乱码，究其原因，是 GBK 编码的锅，所以我需要将其转换为 utf-8 编码。所以就使用 Python 将其转换了一下，这里记录一下过程。 代码 初始版 12345678910import chardet# des.txt 是待转换的文件with open(&amp;#x27;des.txt&amp;#x27;, &amp;#x">
+    <meta name="description" content="前言 今天找到一本 txt 格式的书，想用 VSCode 打开看一下，结果已打开发现是乱码，究其原因，是 GBK 编码的锅，所以我需要将其转换为 utf-8 编码。所以就使用 Python 将其转换了一下，这里记录一下过程。 代码 初始版 12345678910import chardet# des.txt 是待转换的文件with open(&amp;#x27;des.txt&amp;#x27;,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 将文件从 GBK 编码转为 utf8 编码">
 <meta property="og:url" content="http://fanyfull.github.io/2021/06/05/Python-%E5%B0%86%E6%96%87%E4%BB%B6%E4%BB%8E-GBK-%E7%BC%96%E7%A0%81%E8%BD%AC%E4%B8%BA-utf8-%E7%BC%96%E7%A0%81/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="前言 今天找到一本 txt 格式的书，想用 VSCode 打开看一下，结果已打开发现是乱码，究其原因，是 GBK 编码的锅，所以我需要将其转换为 utf-8 编码。所以就使用 Python 将其转换了一下，这里记录一下过程。 代码 初始版 12345678910import chardet# des.txt 是待转换的文件with open(&amp;#x27;des.txt&amp;#x27;, &amp;#x">
+<meta property="og:description" content="前言 今天找到一本 txt 格式的书，想用 VSCode 打开看一下，结果已打开发现是乱码，究其原因，是 GBK 编码的锅，所以我需要将其转换为 utf-8 编码。所以就使用 Python 将其转换了一下，这里记录一下过程。 代码 初始版 12345678910import chardet# des.txt 是待转换的文件with open(&amp;#x27;des.txt&amp;#x27;,">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210606001712.png">
 <meta property="article:published_time" content="2021-06-05T15:59:09.000Z">
@@ -250,14 +250,19 @@
             
             <div class="markdown-body">
               <h2 id="前言">前言</h2>
-<p>今天找到一本 txt 格式的书，想用 VSCode 打开看一下，结果已打开发现是乱码，究其原因，是 GBK 编码的锅，所以我需要将其转换为 utf-8 编码。所以就使用 Python 将其转换了一下，这里记录一下过程。</p>
+<p>今天找到一本 txt 格式的书，想用 VSCode
+打开看一下，结果已打开发现是乱码，究其原因，是 GBK
+编码的锅，所以我需要将其转换为 utf-8 编码。所以就使用 Python
+将其转换了一下，这里记录一下过程。</p>
 <h2 id="代码">代码</h2>
 <h3 id="初始版">初始版</h3>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">import</span> chardet<br><br><span class="hljs-comment"># des.txt 是待转换的文件</span><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;des.txt&#x27;</span>, <span class="hljs-string">&#x27;rb&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>    data = f.read()<br>res = chardet.detect(data) <span class="hljs-comment"># 探测数据的信息，比如编码信息</span><br><span class="hljs-comment"># 打开 res.txt 文件，如果没有，程序会自动新建(res.txt 是转换之后的文件)</span><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;res.txt&#x27;</span>, <span class="hljs-string">&#x27;w&#x27;</span>, encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>) <span class="hljs-keyword">as</span> file:<br>    line = <span class="hljs-built_in">str</span>(data, encoding=res[<span class="hljs-string">&#x27;encoding&#x27;</span>])<br>    file.write(line)<br></code></pre></div></td></tr></table></figure>
 <p>这里有一个问题，运行这个程序之后会出现如下错误</p>
 <figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">UnicodeDecodeError</span>: &#x27;gb<span class="hljs-number">2312</span>&#x27; codec can&#x27;t decode byte <span class="hljs-number">0</span>xd<span class="hljs-number">0</span> in position <span class="hljs-number">2848</span>: illegal multibyte sequence<br></code></pre></div></td></tr></table></figure>
 <h3 id="改进版">改进版</h3>
-<p>上面的问题是由部分字符的编码问题引起的，所以我们手动把 <code>gb2312</code> 改为 <code>gbk</code>，因为 <code>gbk</code> 是 <code>gb2312</code> 的父集，所以这样做不会引起问题。</p>
+<p>上面的问题是由部分字符的编码问题引起的，所以我们手动把
+<code>gb2312</code> 改为 <code>gbk</code>，因为 <code>gbk</code> 是
+<code>gb2312</code> 的父集，所以这样做不会引起问题。</p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">import</span> chardet<br><br><span class="hljs-comment"># des.txt 是待转换的文件</span><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;des.txt&#x27;</span>, <span class="hljs-string">&#x27;rb&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>    data = f.read()<br>res = chardet.detect(data) <span class="hljs-comment"># 探测数据的信息，比如编码信息</span><br><span class="hljs-keyword">if</span> res[<span class="hljs-string">&#x27;encoding&#x27;</span>] == <span class="hljs-string">&#x27;GB2312&#x27;</span>:<br>    res[<span class="hljs-string">&#x27;encoding&#x27;</span>] = <span class="hljs-string">&#x27;GBK&#x27;</span> <span class="hljs-comment"># 手动改编码</span><br><span class="hljs-comment"># 打开 res.txt 文件，如果没有，程序会自动新建(res.txt 是转换之后的文件)</span><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;res.txt&#x27;</span>, <span class="hljs-string">&#x27;w&#x27;</span>, encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>) <span class="hljs-keyword">as</span> file:<br>    line = <span class="hljs-built_in">str</span>(data, encoding=res[<span class="hljs-string">&#x27;encoding&#x27;</span>])<br>    file.write(line)<br></code></pre></div></td></tr></table></figure>
 <p>这样一来就能够成功转换了。</p>
 <p>注：des.txt 和 res.txt 都是在当前程序所在的文件夹。</p>
@@ -266,7 +271,8 @@
 <p>这样一来我们就可以很方便地在别的地方调用这个函数了。</p>
 <hr />
 <p>参考：</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/coreych/article/details/101270551" class="uri">https://blog.csdn.net/coreych/article/details/101270551</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/coreych/article/details/101270551"
+class="uri">https://blog.csdn.net/coreych/article/details/101270551</a></p>
 
             </div>
             <hr>

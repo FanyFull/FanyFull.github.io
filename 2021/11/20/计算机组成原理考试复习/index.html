@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="考完回忆：那个字位扩展设计芯片的题目，地址范围我给计算错了，希望老师手下留情。另外，RISC 和 CISC 这两个本来考试之前时有打算看的，可是最后给整忘了，只能凭借记忆来写了。 第一章 计算机系统概论  世界上第一台电子计算机 ENIAC（1946）   计算机的分类？   总体分为电子模拟计算机和电子数字计算机。 电子数字计算机又可以分为通用计算机和专用计算机。 通用计算">
+    <meta name="description" content="考完回忆：那个字位扩展设计芯片的题目，地址范围我给计算错了，希望老师手下留情。另外，RISC 和 CISC 这两个本来考试之前时有打算看的，可是最后给整忘了，只能凭借记忆来写了。 第一章 计算机系统概论  世界上第一台电子计算机 ENIAC（1946）   计算机的分类？   总体分为电子模拟计算机和电子数字计算机。 电子数字计算机又可以分为通用计算机和专用计算机。 通用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机组成原理考试复习">
 <meta property="og:url" content="http://fanyfull.github.io/2021/11/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="考完回忆：那个字位扩展设计芯片的题目，地址范围我给计算错了，希望老师手下留情。另外，RISC 和 CISC 这两个本来考试之前时有打算看的，可是最后给整忘了，只能凭借记忆来写了。 第一章 计算机系统概论  世界上第一台电子计算机 ENIAC（1946）   计算机的分类？   总体分为电子模拟计算机和电子数字计算机。 电子数字计算机又可以分为通用计算机和专用计算机。 通用计算">
+<meta property="og:description" content="考完回忆：那个字位扩展设计芯片的题目，地址范围我给计算错了，希望老师手下留情。另外，RISC 和 CISC 这两个本来考试之前时有打算看的，可是最后给整忘了，只能凭借记忆来写了。 第一章 计算机系统概论  世界上第一台电子计算机 ENIAC（1946）   计算机的分类？   总体分为电子模拟计算机和电子数字计算机。 电子数字计算机又可以分为通用计算机和专用计算机。 通用">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/zUb9t8X.png">
 <meta property="article:published_time" content="2021-11-20T02:00:42.000Z">
@@ -249,7 +249,9 @@
             <h1 style="display: none">计算机组成原理考试复习</h1>
             
             <div class="markdown-body">
-              <p>考完回忆：那个字位扩展设计芯片的题目，地址范围我给计算错了，希望老师手下留情。另外，RISC 和 CISC 这两个本来考试之前时有打算看的，可是最后给整忘了，只能凭借记忆来写了。</p>
+              <p>考完回忆：那个字位扩展设计芯片的题目，地址范围我给计算错了，希望老师手下留情。另外，RISC
+和 CISC
+这两个本来考试之前时有打算看的，可是最后给整忘了，只能凭借记忆来写了。</p>
 <h1 id="第一章-计算机系统概论">第一章 计算机系统概论</h1>
 <blockquote>
 <p>世界上第一台电子计算机 ENIAC（1946）</p>
@@ -279,7 +281,8 @@
 <blockquote>
 <p>何为中断？</p>
 </blockquote>
-<p>主机接到信号（来自 CPU 外部或内部）时，立即中止原 来的工作，转去处理这一事件，处理完后，主机又回到原来工作点继续工作。</p>
+<p>主机接到信号（来自 CPU 外部或内部）时，立即中止原
+来的工作，转去处理这一事件，处理完后，主机又回到原来工作点继续工作。</p>
 <blockquote>
 <p>多道运行的特征？</p>
 </blockquote>
@@ -292,30 +295,45 @@
 <p>PC 和 IR 寄存器的功能？</p>
 </blockquote>
 <ul>
-<li>PC：存放下一条要执行的指令的地址，具有计数功能 <span class="math inline">\((PC) + 1 \rightarrow PC\)</span></li>
+<li>PC：存放下一条要执行的指令的地址，具有计数功能 <span
+class="math inline">\((PC) + 1 \rightarrow PC\)</span></li>
 <li>存放当前欲执行的指令</li>
 </ul>
 <blockquote>
 <p>何为时钟周期？</p>
 </blockquote>
-<p>又称为节拍周期或 T 周期,是时钟频率的倒数。是处理器操作最基本的时间单位。例如，主频为 1GHz 的 CPU 的时钟周期为 1ns。</p>
+<p>又称为节拍周期或 T
+周期,是时钟频率的倒数。是处理器操作最基本的时间单位。例如，主频为 1GHz
+的 CPU 的时钟周期为 1ns。</p>
 <p>按：</p>
 <ul>
-<li>时钟周期的定义其实应该是一个时钟脉冲所需要的时间。频率就是 1s 内可以产生的时钟脉冲数量。</li>
-<li>时钟频率应该表述为：<span class="math inline">\(f = \frac{1}{T}\)</span>，分子的 1 表示 1 秒钟。</li>
-<li>从时钟频率转换成时钟周期应该是这样：<span class="math inline">\(T = \frac{1}{f} \times 1\)</span>，后面乘的 1 表示 1 秒钟，而前面的分子的 1 表示占比。（f 个时钟周期中分出一个然后乘以 1 秒钟）</li>
+<li>时钟周期的定义其实应该是一个时钟脉冲所需要的时间。频率就是 1s
+内可以产生的时钟脉冲数量。</li>
+<li>时钟频率应该表述为：<span class="math inline">\(f =
+\frac{1}{T}\)</span>，分子的 1 表示 1 秒钟。</li>
+<li>从时钟频率转换成时钟周期应该是这样：<span class="math inline">\(T =
+\frac{1}{f} \times 1\)</span>，后面乘的 1 表示 1 秒钟，而前面的分子的 1
+表示占比。（f 个时钟周期中分出一个然后乘以 1 秒钟）</li>
 </ul>
 <blockquote>
-<p>何为 <span class="math inline">\(CPI\)</span> 和 <span class="math inline">\(CPI_i\)</span>？</p>
+<p>何为 <span class="math inline">\(CPI\)</span> 和 <span
+class="math inline">\(CPI_i\)</span>？</p>
 </blockquote>
 <ul>
 <li>CPI：表示执行每条指令（一个程序中的所有指令）所需要的平均时钟周期数。</li>
-<li><span class="math inline">\(CPI_i\)</span>：表示执行每条指令（一类指令中的所有指令）所需要的平均时钟周期数。</li>
+<li><span
+class="math inline">\(CPI_i\)</span>：表示执行每条指令（一类指令中的所有指令）所需要的平均时钟周期数。</li>
 </ul>
 <p><span class="math display">\[
 CPI = 一个程序的 CPU 时钟周期数 ÷ 程序指令数量
 \]</span></p>
-<p>设程序中每类指令的使用频度为 <span class="math inline">\(P_i\)</span>，每类指令的 <span class="math inline">\(CPI\)</span> 为 <span class="math inline">\(CPI_i\)</span>，每类指令的条数为 <span class="math inline">\(IC_i\)</span>，程序中的总指令条数为 <span class="math inline">\(IC\)</span>，则，程序的 <span class="math inline">\(CPI\)</span> 可用下列公式计算：</p>
+<p>设程序中每类指令的使用频度为 <span
+class="math inline">\(P_i\)</span>，每类指令的 <span
+class="math inline">\(CPI\)</span> 为 <span
+class="math inline">\(CPI_i\)</span>，每类指令的条数为 <span
+class="math inline">\(IC_i\)</span>，程序中的总指令条数为 <span
+class="math inline">\(IC\)</span>，则，程序的 <span
+class="math inline">\(CPI\)</span> 可用下列公式计算：</p>
 <p><span class="math display">\[
 CPI = \sum_{i = i}^{n} (CPI_i \times P_i)
 \]</span></p>
@@ -325,16 +343,23 @@ CPI = \sum_{i = 1}^{n} (CPI_i \times \frac{IC_i}{IC})
 <blockquote>
 <p>何为 CPU 执行时间？</p>
 </blockquote>
-<p>是指 CPU 计算某个任务所花费的时间，不包括 I/O 访问时的等待时间等。</p>
-<p>CPU 执行时间 = CPU 时钟周期总数 × 时钟周期 = (指令条数 × CPI) × 时钟周期</p>
-<p>CPU 执行时间 = CPU 时钟周期总数 / 时钟频率 = (指令条数 × CPI) / 时钟频率</p>
+<p>是指 CPU 计算某个任务所花费的时间，不包括 I/O
+访问时的等待时间等。</p>
+<p>CPU 执行时间 = CPU 时钟周期总数 × 时钟周期 = (指令条数 × CPI) ×
+时钟周期</p>
+<p>CPU 执行时间 = CPU 时钟周期总数 / 时钟频率 = (指令条数 × CPI) /
+时钟频率</p>
 <p>CPI = 一个程序的 CPU 时钟周期数 ÷ 程序指令数量</p>
 <p>CPU 执行时间 = CPU 时钟周期总数 / 时钟频率</p>
 <blockquote>
 <p>何为 MIPS？</p>
 </blockquote>
 <p>是指 CPU 每秒可以执行的百万条机器指令数。</p>
-<p>MIPS = 指令数 ÷ (程序执行的时间 <span class="math inline">\(\times\)</span> <span class="math inline">\(10^6\)</span>) = 时钟频率 ÷ (CPI <span class="math inline">\(\times\)</span> <span class="math inline">\(10^6\)</span>)</p>
+<p>MIPS = 指令数 ÷ (程序执行的时间 <span
+class="math inline">\(\times\)</span> <span
+class="math inline">\(10^6\)</span>) = 时钟频率 ÷ (CPI <span
+class="math inline">\(\times\)</span> <span
+class="math inline">\(10^6\)</span>)</p>
 <p>推导：</p>
 <p><span class="math display">\[
 \begin{split}
@@ -343,13 +368,16 @@ MIPS &amp;= \frac{指令数}{CPU 执行时间 \times 10^6 \quad \;} \\
 &amp;= \frac{f}{CPI \times 10^6}
 \end{split}
 \]</span></p>
-<h1 id="第二章-计算机中的数据表示方法">第二章 计算机中的数据表示方法</h1>
+<h1 id="第二章-计算机中的数据表示方法">第二章
+计算机中的数据表示方法</h1>
 <blockquote>
 <p>原码、反码、补码、移码相关？</p>
 </blockquote>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://fanlumaster.github.io/2021/09/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E5%92%8C%E8%A1%A5%E7%A0%81/">原码、反码、补码</a></li>
-<li><a href="https://fanyfull.github.io/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%BB%E7%A0%81/">补码</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://fanlumaster.github.io/2021/09/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E5%92%8C%E8%A1%A5%E7%A0%81/">原码、反码、补码</a></li>
+<li><a
+href="https://fanyfull.github.io/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%BB%E7%A0%81/">补码</a></li>
 </ul>
 <blockquote>
 <p>如何理解定点数？</p>
@@ -358,8 +386,10 @@ MIPS &amp;= \frac{指令数}{CPU 执行时间 \times 10^6 \quad \;} \\
 <p>这张图其实是有点问题的，小数点不应该被显示出来，因为这会让人误解的。</p>
 <p>所谓定点数，就是指小数的位置是固定的：</p>
 <ul>
-<li>对于小数，小数点的位置是在 <span class="math inline">\(X_1\)</span> 的前面，<span class="math inline">\(X_0\)</span> 表示符号位；</li>
-<li>对于整数，小数点的位置是在 <span class="math inline">\(X_n\)</span> 的后面，<span class="math inline">\(X_0\)</span> 还是表示符号位。</li>
+<li>对于小数，小数点的位置是在 <span class="math inline">\(X_1\)</span>
+的前面，<span class="math inline">\(X_0\)</span> 表示符号位；</li>
+<li>对于整数，小数点的位置是在 <span class="math inline">\(X_n\)</span>
+的后面，<span class="math inline">\(X_0\)</span> 还是表示符号位。</li>
 </ul>
 <p>定点小数表示数的范围：</p>
 <p><span class="math display">\[
@@ -373,12 +403,15 @@ MIPS &amp;= \frac{指令数}{CPU 执行时间 \times 10^6 \quad \;} \\
 <p>如何理解 IEEE754 标准浮点数？</p>
 </blockquote>
 <ul>
-<li><a href="https://fanyfull.github.io/2021/09/28/%E6%B5%AE%E7%82%B9%E6%95%B0%E4%B8%8E-IEEE754-%E6%A0%87%E5%87%86%E6%B5%AE%E7%82%B9%E6%95%B0/">IEEE754</a></li>
+<li><a
+href="https://fanyfull.github.io/2021/09/28/%E6%B5%AE%E7%82%B9%E6%95%B0%E4%B8%8E-IEEE754-%E6%A0%87%E5%87%86%E6%B5%AE%E7%82%B9%E6%95%B0/">IEEE754</a></li>
 </ul>
 <blockquote>
 <p>浮点数的规格化？</p>
 </blockquote>
-<p>在浮点运算过程中，为了保证数据的精度，要求尾数的最高位为非 0 数，即当尾数不为零时，其绝对值应大于或等于 <span class="math inline">\((1/2)_10\)</span>。</p>
+<p>在浮点运算过程中，为了保证数据的精度，要求尾数的最高位为非 0
+数，即当尾数不为零时，其绝对值应大于或等于 <span
+class="math inline">\((1/2)_10\)</span>。</p>
 <p>以补码表示为例，正数规格化后，尾数的形式为：</p>
 <p><span class="math display">\[
 0.1xx \cdots x
@@ -392,8 +425,14 @@ MIPS &amp;= \frac{指令数}{CPU 执行时间 \times 10^6 \quad \;} \\
 </blockquote>
 <ul>
 <li>将一组编码中任何两个合法编码之间代码不同的最小位数称为这编码的距离，简称码距或海明距离。</li>
-<li>四位二进制编码 0011 与 0001 的码距为 1；而 0011 与 0000 两组编码的距离为 2。 按：只有两个，所以任何两个合法编码之间代码不同的最小位数就是这两个编码的不同的位数。</li>
-<li>若用四位二进制编码只表示 0000、0011、0101、0110、1111、1001、1010、1100 等八种编码，则码距为 2。此时，这 8 种编码中的任何一位发生改变，如 0000 变成 1000 就从有效编码变成了无效编码，容易检测到这种错误。 按：这里的码距指的是取这一组中任何两个编码之间的最小“距离”。</li>
+<li>四位二进制编码 0011 与 0001 的码距为 1；而 0011 与 0000
+两组编码的距离为 2。
+按：只有两个，所以任何两个合法编码之间代码不同的最小位数就是这两个编码的不同的位数。</li>
+<li>若用四位二进制编码只表示
+0000、0011、0101、0110、1111、1001、1010、1100 等八种编码，则码距为
+2。此时，这 8 种编码中的任何一位发生改变，如 0000 变成 1000
+就从有效编码变成了无效编码，容易检测到这种错误。
+按：这里的码距指的是取这一组中任何两个编码之间的最小“距离”。</li>
 </ul>
 <p>这里的码距，有些地方叫做最小码距，而码距则是指两个编码之间的的不同位数。</p>
 <h1 id="第三章-运算方法与运算器">第三章 运算方法与运算器</h1>
@@ -401,7 +440,7 @@ MIPS &amp;= \frac{指令数}{CPU 执行时间 \times 10^6 \quad \;} \\
 <p>何为变形补码？</p>
 </blockquote>
 <p><span class="math display">\[
-[X]_{补} = 
+[X]_{补} =
 \left\{\begin{matrix}
 \begin{aligned}
 &amp;X &amp; 0 &amp; \leqslant X &lt; 2 \\
@@ -418,13 +457,15 @@ MIPS &amp;= \frac{指令数}{CPU 执行时间 \times 10^6 \quad \;} \\
 <ul>
 <li>上溢：双符号位为 01</li>
 <li>下溢：双符号位为 10</li>
-<li>溢出的判断：<span class="math inline">\(V = X_{f1} \oplus X_{f2}\)</span></li>
+<li>溢出的判断：<span class="math inline">\(V = X_{f1} \oplus
+X_{f2}\)</span></li>
 </ul>
 <p>注意，最高符号位（双符号位的第一位）为结果的真实符号。</p>
 <blockquote>
 <p>如何理解上溢和下溢？</p>
 </blockquote>
-<p>所谓上溢，就是指双符号位为 <code>01</code> 时的溢出，上溢也叫正溢出，因为第一位符号位是对的，所以，可以形象理解为两个正数相加得到负数时候的溢出。</p>
+<p>所谓上溢，就是指双符号位为 <code>01</code>
+时的溢出，上溢也叫正溢出，因为第一位符号位是对的，所以，可以形象理解为两个正数相加得到负数时候的溢出。</p>
 <p>下溢的理解同理。</p>
 <h1 id="第四章-存储系统">第四章 存储系统</h1>
 <blockquote>
@@ -471,7 +512,8 @@ MIPS &amp;= \frac{指令数}{CPU 执行时间 \times 10^6 \quad \;} \\
 <blockquote>
 <p>何为有效地址？</p>
 </blockquote>
-<p>操作数在内存中的地址，一般用 <span class="math inline">\(E\)</span> 表示，则数据 <span class="math inline">\(S = (E)\)</span>。</p>
+<p>操作数在内存中的地址，一般用 <span class="math inline">\(E\)</span>
+表示，则数据 <span class="math inline">\(S = (E)\)</span>。</p>
 <blockquote>
 <p>何为隐含寻址？</p>
 </blockquote>
@@ -506,13 +548,15 @@ MIPS &amp;= \frac{指令数}{CPU 执行时间 \times 10^6 \quad \;} \\
 <ul>
 <li>寄存器寻址：
 <ul>
-<li>操作数不放在内存中，而是放在通用寄存器中，此时，指令的形式地址字段 D 的值表示的是寄存器号。</li>
+<li>操作数不放在内存中，而是放在通用寄存器中，此时，指令的形式地址字段 D
+的值表示的是寄存器号。</li>
 <li>不计算 E，<span class="math inline">\(S = (R_D)\)</span></li>
 </ul></li>
 <li>寄存器间接寻址：
 <ul>
 <li>寄存器的内容不是操作数，而是操作数所在内存单元的地址。</li>
-<li><span class="math inline">\(E = (R_D)\)</span>，<span class="math inline">\(S = (E) = ((R_D))\)</span></li>
+<li><span class="math inline">\(E = (R_D)\)</span>，<span
+class="math inline">\(S = (E) = ((R_D))\)</span></li>
 </ul></li>
 </ul>
 <blockquote>
@@ -520,7 +564,8 @@ MIPS &amp;= \frac{指令数}{CPU 执行时间 \times 10^6 \quad \;} \\
 </blockquote>
 <p>数据在内存中。</p>
 <p>E = (PC) + D, S = (E) = ((PC) + D)</p>
-<p>把 PC 的值和指令中形式地址 D 的内容相加，作为有效地址。PC 的值是下一条指令的地址。</p>
+<p>把 PC 的值和指令中形式地址 D 的内容相加，作为有效地址。PC
+的值是下一条指令的地址。</p>
 <blockquote>
 <p>MIPS 的三类指令？</p>
 </blockquote>
@@ -639,7 +684,9 @@ MIPS &amp;= \frac{指令数}{CPU 执行时间 \times 10^6 \quad \;} \\
 </ul>
 <h1 id="结合试题复习知识点">结合试题复习知识点</h1>
 <blockquote>
-<p>原码表示法中，零有两个编码，即 <span class="math inline">\(0.0...0\)</span> 和 <span class="math inline">\(1.0...0\)</span>。</p>
+<p>原码表示法中，零有两个编码，即 <span
+class="math inline">\(0.0...0\)</span> 和 <span
+class="math inline">\(1.0...0\)</span>。</p>
 </blockquote>
 <p>按：</p>
 <p>实际上，原码表示法表示的零要分整数和小数来讨论，而且，不管是小数还是小数，各自都有两种方法来表示零：</p>
@@ -656,10 +703,13 @@ MIPS &amp;= \frac{指令数}{CPU 执行时间 \times 10^6 \quad \;} \\
 </ul></li>
 </ul>
 <blockquote>
-<p>设 <span class="math inline">\(X = 11001101\)</span>，数据采用奇校验时，其校验位 C = <span class="math inline">\(0\)</span>。</p>
+<p>设 <span class="math inline">\(X =
+11001101\)</span>，数据采用奇校验时，其校验位 C = <span
+class="math inline">\(0\)</span>。</p>
 </blockquote>
 <p>按：</p>
-<p>所谓奇校验，就是通过设置校验位的值，使待传数据中（含有一位校验位）1 的个数为奇数。设校验位为 C，则：</p>
+<p>所谓奇校验，就是通过设置校验位的值，使待传数据中（含有一位校验位）1
+的个数为奇数。设校验位为 C，则：</p>
 <p><span class="math display">\[
 C = \overline{X_0 \oplus X_1 \oplus \cdots \oplus X_{n - 1}}
 \]</span></p>
@@ -667,7 +717,9 @@ C = \overline{X_0 \oplus X_1 \oplus \cdots \oplus X_{n - 1}}
 <p>浮点表示法中，阶码决定浮点数的<strong>范围</strong>，尾数决定浮点数的<strong>精度</strong>。</p>
 </blockquote>
 <blockquote>
-<p>设 <span class="math inline">\(X = -35 / 64\)</span>，<span class="math inline">\(X\)</span> 的补码为 <span class="math inline">\(1.011101\)</span>。</p>
+<p>设 <span class="math inline">\(X = -35 / 64\)</span>，<span
+class="math inline">\(X\)</span> 的补码为 <span
+class="math inline">\(1.011101\)</span>。</p>
 </blockquote>
 <blockquote>
 <p>微程序控制器中的核心部件是<strong>控制存储器</strong>。</p>
@@ -680,7 +732,8 @@ C = \overline{X_0 \oplus X_1 \oplus \cdots \oplus X_{n - 1}}
 <li>微程序固化在其中</li>
 </ul>
 <blockquote>
-<p>74181 集成运算芯片能提供快速运算，是因为它内部具有<strong>并行</strong>逻辑。</p>
+<p>74181
+集成运算芯片能提供快速运算，是因为它内部具有<strong>并行</strong>逻辑。</p>
 </blockquote>
 <p>按：疑。</p>
 <blockquote>
@@ -702,51 +755,70 @@ C = \overline{X_0 \oplus X_1 \oplus \cdots \oplus X_{n - 1}}
 <ul>
 <li>MROM：Mask Read-Only Memory，掩模式只读存储器</li>
 <li>PROM：Programmable Read-Only memory，一次可编程只读存储器</li>
-<li>EPROM：Erasable Programmable Read-Only Memory，电写/光（紫外线）擦除可编程只读存储器</li>
-<li>EEPROM：Electronically Erasable Programmable Read-Only Memory，电可擦除可编程只读存储器</li>
+<li>EPROM：Erasable Programmable Read-Only
+Memory，电写/光（紫外线）擦除可编程只读存储器</li>
+<li>EEPROM：Electronically Erasable Programmable Read-Only
+Memory，电可擦除可编程只读存储器</li>
 </ul>
 <blockquote>
-<p>固件是一种具有<strong>软件</strong>特性的硬件，通常是将程序<strong>固化</strong>在 ROM 中实现。</p>
+<p>固件是一种具有<strong>软件</strong>特性的硬件，通常是将程序<strong>固化</strong>在
+ROM 中实现。</p>
 </blockquote>
 <blockquote>
 <p>指令寄存器用来保存<strong>正在执行的指令</strong>。指令计数器用来保存<strong>下一条要执行的指令</strong>。</p>
 </blockquote>
 <p>按：</p>
-<p>The program counter (<strong>PC</strong>) holds the address of the next instruction to be executed, while the instruction register (<strong>IR</strong>) holds the encoded instruction. Upon fetching the instruction, the program counter is incremented by one "address value" (to the location of the next instruction).</p>
+<p>The program counter (<strong>PC</strong>) holds the address of the
+next instruction to be executed, while the instruction register
+(<strong>IR</strong>) holds the encoded instruction. Upon fetching the
+instruction, the program counter is incremented by one "address value"
+(to the location of the next instruction).</p>
 <ul>
 <li>PC，存放下一条要执行的指令的地址</li>
 <li>IR，存放当前要执行的指令</li>
 </ul>
 <blockquote>
-<p>半导体 SRAM 存储元靠<strong>电路</strong>存储信息，而 DRAM 存储元靠<strong>电荷</strong>存储信息。</p>
+<p>半导体 SRAM 存储元靠<strong>电路</strong>存储信息，而 DRAM
+存储元靠<strong>电荷</strong>存储信息。</p>
 </blockquote>
 <p>按：存疑。</p>
 <blockquote>
-<p>间接寻址方式中，操作数的有效地址 E 的表达式为 <span class="math inline">\(E = (D)\)</span>。</p>
+<p>间接寻址方式中，操作数的有效地址 E 的表达式为 <span
+class="math inline">\(E = (D)\)</span>。</p>
 </blockquote>
 <blockquote>
 <p>控制存储器主要用来存放<strong>微程序</strong>。</p>
 </blockquote>
 <blockquote>
-<p>某机字长 32 位，主存容量位 16MB，若按字编址，其寻址范围为 <span class="math inline">\(0 \sim 4M\)</span>。</p>
+<p>某机字长 32 位，主存容量位 16MB，若按字编址，其寻址范围为 <span
+class="math inline">\(0 \sim 4M\)</span>。</p>
 </blockquote>
 <p>按：</p>
 <p>计算方法如下：</p>
-<p>某计算机字长是 32 位，它的存储容量是 256KB，按字编址，它的寻址范围是 0~64KB。</p>
+<p>某计算机字长是 32 位，它的存储容量是 256KB，按字编址，它的寻址范围是
+0~64KB。</p>
 <p>计算步骤：</p>
-<p>256KB 字节 = <span class="math inline">\(256 \times 1024 \times 8\)</span> 位，</p>
-<p>计算机按 32 位字长单字编址。则单字的位数为 32 位，范围为 (<span class="math inline">\(256 \times 1024 \times 8\)</span> 位) / 32 位 = 64KB。</p>
-<p>此外若计算机按 32 位字长半字编址，则半字的位数为 16 位，范围为 (<span class="math inline">\(256 \times 1024 \times 8\)</span> 位) / 16 位 = 128KB。</p>
-<p>存储容量是指存储器可以容纳的二进制信息量，用存储器中存储地址寄存器 MAR 的编址数与存储字位数的乘积表示。</p>
+<p>256KB 字节 = <span class="math inline">\(256 \times 1024 \times
+8\)</span> 位，</p>
+<p>计算机按 32 位字长单字编址。则单字的位数为 32 位，范围为 (<span
+class="math inline">\(256 \times 1024 \times 8\)</span> 位) / 32 位 =
+64KB。</p>
+<p>此外若计算机按 32 位字长半字编址，则半字的位数为 16 位，范围为 (<span
+class="math inline">\(256 \times 1024 \times 8\)</span> 位) / 16 位 =
+128KB。</p>
+<p>存储容量是指存储器可以容纳的二进制信息量，用存储器中存储地址寄存器
+MAR 的编址数与存储字位数的乘积表示。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs">1B = 8bit</code></pre></div>
 <p>所以寻址范围 = 256KB / 4B = 64K。</p>
 <p>按：所谓寻址范围，就是内存一共可以编址成的数据的数目。</p>
-<p>来源：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/claudia529/p/11073779.html">博客园</a></p>
+<p>来源：<a
+target="_blank" rel="noopener" href="https://www.cnblogs.com/claudia529/p/11073779.html">博客园</a></p>
 <blockquote>
 <p>CPU 中，反映指令执行后 CPU 状态的寄存器是<strong>PSW</strong>。</p>
 </blockquote>
 <blockquote>
-<p>某计算机有 100 条指令，采用定长编码指令格式时，其操作码的长度应为<strong>7</strong>位。</p>
+<p>某计算机有 100
+条指令，采用定长编码指令格式时，其操作码的长度应为<strong>7</strong>位。</p>
 </blockquote>
 <p>按：<span class="math inline">\(2^7 = 128\)</span>。</p>
 <blockquote>
@@ -756,10 +828,12 @@ C = \overline{X_0 \oplus X_1 \oplus \cdots \oplus X_{n - 1}}
 <p>中断向量是<strong>中断服务程序入口地址</strong>。</p>
 </blockquote>
 <blockquote>
-<p>设指令中的形式地址为 D，相对寻址时，操作数的有效地址 E = <strong>(PC) + D</strong>。</p>
+<p>设指令中的形式地址为 D，相对寻址时，操作数的有效地址 E = <strong>(PC)
++ D</strong>。</p>
 </blockquote>
 <blockquote>
-<p>DMA 方式下，设备与主存间的数据交换以<strong>数据块</strong>为基本单位进行。</p>
+<p>DMA
+方式下，设备与主存间的数据交换以<strong>数据块</strong>为基本单位进行。</p>
 </blockquote>
 <blockquote>
 <p>补码浮点加法运算步骤？</p>

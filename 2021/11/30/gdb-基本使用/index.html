@@ -257,7 +257,9 @@
 <p>结果显然错误。</p>
 <p>然后我们来调试，</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> gcc -g .\main.c -o main</span><br><span class="hljs-meta">$</span><span class="bash"> gdb .\main.exe</span><br>GNU gdb (GDB) 8.1<br>Copyright (C) 2018 Free Software Foundation, Inc.<br>License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;<br>This is free software: you are free to change and redistribute it.<br>There is NO WARRANTY, to the extent permitted by law.  Type &quot;show copying&quot;<br>and &quot;show warranty&quot; for details.<br>This GDB was configured as &quot;x86_64-w64-mingw32&quot;.<br>Type &quot;show configuration&quot; for configuration details.<br>For bug reporting instructions, please see:<br>&lt;http://www.gnu.org/software/gdb/bugs/&gt;.<br>Find the GDB manual and other documentation resources online at:<br>&lt;http://www.gnu.org/software/gdb/documentation/&gt;.<br>For help, type &quot;help&quot;.<br>Type &quot;apropos word&quot; to search for commands related to &quot;word&quot;...<br>Reading symbols from .\main.exe...done.<br>(gdb)<br></code></pre></div></td></tr></table></figure>
-<p><code>-g</code> 的作用是在目标文件中加入源代码的信息，比如目标文件的机器指令对应源代码的第几行，但并不是把整个源文件嵌入到目标文件中。所以在调试目标文件时必须保证 gdb 也能找到源文件。</p>
+<p><code>-g</code>
+的作用是在目标文件中加入源代码的信息，比如目标文件的机器指令对应源代码的第几行，但并不是把整个源文件嵌入到目标文件中。所以在调试目标文件时必须保证
+gdb 也能找到源文件。</p>
 <blockquote>
 <p><code>help</code> 命令。</p>
 </blockquote>
@@ -298,7 +300,8 @@
 </blockquote>
 <p>开始执行命令。</p>
 <p><img src="https://i.imgur.com/ZbJEAvY.png" srcset="/img/loading.gif" lazyload /></p>
-<p>这表示停在 main 函数中变量定义之后的第一条语句处等待我们发命令，gdb 列出这条语句表示它还没执行，并且马上要执行。</p>
+<p>这表示停在 main 函数中变量定义之后的第一条语句处等待我们发命令，gdb
+列出这条语句表示它还没执行，并且马上要执行。</p>
 <blockquote>
 <p><code>next</code>(简写为 <code>n</code>)。</p>
 </blockquote>
@@ -328,7 +331,8 @@
 <p><code>frame</code>(简写为 <code>f</code>)。</p>
 </blockquote>
 <p>选择栈帧。</p>
-<p>示例，查看 main 函数当前局部变量的值，先用 <code>frame</code> 命令选择 1 号栈帧然后再查看局部变量：</p>
+<p>示例，查看 main 函数当前局部变量的值，先用 <code>frame</code>
+命令选择 1 号栈帧然后再查看局部变量：</p>
 <p><img src="https://i.imgur.com/piu3gaU.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
 <p><code>print</code>(简写为 <code>p</code>)。</p>
@@ -336,15 +340,20 @@
 <p>打印变量的值。</p>
 <p>示例，打印 sum 的值：</p>
 <p><img src="https://i.imgur.com/0zZm821.png" srcset="/img/loading.gif" lazyload /></p>
-<p>这里的 <code>$1</code> 表示 gdb 保存着这些中间结果，<code>$</code> 后面的编号会自动增长，在命令中可以用 <code>$1、$2、$3</code> 等编号代替相应的值。</p>
+<p>这里的 <code>$1</code> 表示 gdb 保存着这些中间结果，<code>$</code>
+后面的编号会自动增长，在命令中可以用 <code>$1、$2、$3</code>
+等编号代替相应的值。</p>
 <blockquote>
 <p><code>finish</code>。</p>
 </blockquote>
 <p>让程序一直运行到当前函数返回为止。</p>
-<p>按：这里出了一个大问题，我现在的 mingw 中的 gdb 版本是 gdb8.1，在这个版本中，执行 <code>finish</code> 命令会直接退出 gdb！无奈之下，换了 mingw 的版本，现在继续整理。</p>
+<p>按：这里出了一个大问题，我现在的 mingw 中的 gdb 版本是
+gdb8.1，在这个版本中，执行 <code>finish</code> 命令会直接退出
+gdb！无奈之下，换了 mingw 的版本，现在继续整理。</p>
 <p><img src="https://i.imgur.com/fdgYOO1.png" srcset="/img/loading.gif" lazyload /></p>
 <p><img src="https://i.imgur.com/Tzfhoim.png" srcset="/img/loading.gif" lazyload /></p>
-<p>按：改换了 gdb 版本之后，这个程序的第一个结果变得正确了。但是这不是很重要，我们只是需要理解其背后的逻辑。</p>
+<p>按：改换了 gdb
+版本之后，这个程序的第一个结果变得正确了。但是这不是很重要，我们只是需要理解其背后的逻辑。</p>
 <p>接下来，继续调试：</p>
 <p><img src="https://i.imgur.com/jkseAv2.png" srcset="/img/loading.gif" lazyload /></p>
 <p><img src="https://i.imgur.com/kX34K1l.png" srcset="/img/loading.gif" lazyload /></p>
@@ -353,12 +362,16 @@
 <blockquote>
 <p><code>set</code>。</p>
 </blockquote>
-<p>但是，我们也可以使用 <code>set</code> 命令去立刻把 sum 的值改过来，然后继续执行代码，继续调试，</p>
+<p>但是，我们也可以使用 <code>set</code> 命令去立刻把 sum
+的值改过来，然后继续执行代码，继续调试，</p>
 <p><img src="https://i.imgur.com/tvbXpo2.png" srcset="/img/loading.gif" lazyload /></p>
-<p>修改变量的值也可以用 <code>print</code> 命令，我们可以用 <code>print</code> 来修改变量的值，或者调用函数：</p>
+<p>修改变量的值也可以用 <code>print</code> 命令，我们可以用
+<code>print</code> 来修改变量的值，或者调用函数：</p>
 <p><img src="https://i.imgur.com/UpEsRGp.png" srcset="/img/loading.gif" lazyload /></p>
 <p><img src="https://i.imgur.com/gr4Fj6w.png" srcset="/img/loading.gif" lazyload /></p>
-<p>按：<code>printf</code> 的返回值表示实际要打印的字符数，同时，这里要明确将 <code>printf</code> 的返回值 cast 成 int 类型。</p>
+<p>按：<code>printf</code>
+的返回值表示实际要打印的字符数，同时，这里要明确将 <code>printf</code>
+的返回值 cast 成 int 类型。</p>
 <table>
 <thead>
 <tr class="header">

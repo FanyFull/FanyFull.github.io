@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1. A simple digital watch has a display and two buttons to set it, the A button and the B button. The watch has two modes of operation, display time and set time. In the display time mode, the watch">
+    <meta name="description" content="1. A simple digital watch has a display and two buttons to set it, the A button and the B button. The watch has two modes of operation, display time and set time. In the display time mode, the wat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面向对象系统分析与设计作业二">
 <meta property="og:url" content="http://fanyfull.github.io/2021/12/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E4%BD%9C%E4%B8%9A%E4%BA%8C/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="1. A simple digital watch has a display and two buttons to set it, the A button and the B button. The watch has two modes of operation, display time and set time. In the display time mode, the watch">
+<meta property="og:description" content="1. A simple digital watch has a display and two buttons to set it, the A button and the B button. The watch has two modes of operation, display time and set time. In the display time mode, the wat">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/1RPrWdt.png">
 <meta property="article:published_time" content="2021-11-30T18:18:25.000Z">
@@ -249,11 +249,21 @@
             
             <div class="markdown-body">
               <blockquote>
-<p>1. A simple digital watch has a display and two buttons to set it, the A button and the B button. The watch has two modes of operation, display time and set time. In the display time mode, the watch displays hours and minutes, separated by a flashing colon. The set time mode has two sub modes, set hours and set minutes. The A button selects modes. Each time it is pressed, the mode advances in the sequence: display, set hours, set minutes, display, etc. Within the sub modes, the B button advances the hours or minutes once each time it is pressed. Buttons must be released before they can generate another event. Prepare a state diagram of the watch.</p>
+<p>1. A simple digital watch has a display and two buttons to set it,
+the A button and the B button. The watch has two modes of operation,
+display time and set time. In the display time mode, the watch displays
+hours and minutes, separated by a flashing colon. The set time mode has
+two sub modes, set hours and set minutes. The A button selects modes.
+Each time it is pressed, the mode advances in the sequence: display, set
+hours, set minutes, display, etc. Within the sub modes, the B button
+advances the hours or minutes once each time it is pressed. Buttons must
+be released before they can generate another event. Prepare a state
+diagram of the watch.</p>
 </blockquote>
 <p><img src="https://i.imgur.com/1bwMtIO.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
-<p>2. 考察一台闹钟，有如下关于状态和事件的描述，在此基础上，设计此闹钟的状态图。</p>
+<p>2.
+考察一台闹钟，有如下关于状态和事件的描述，在此基础上，设计此闹钟的状态图。</p>
 </blockquote>
 <div class="hljs code-wrapper"><pre><code class="hljs">State: AlamRinging
 Description: alarm on watch is ringing to indicate target time
@@ -270,7 +280,8 @@ Event response next state:
 <p><img src="https://i.imgur.com/piZCNet.png" srcset="/img/loading.gif" lazyload /></p>
 <p><img src="https://i.imgur.com/ZNkqfzJ.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
-<p>3. 考察你常用的某种中文输入法，分析中文输入的状态有哪些？状态之间是如何切换的？做一个状态图。</p>
+<p>3.
+考察你常用的某种中文输入法，分析中文输入的状态有哪些？状态之间是如何切换的？做一个状态图。</p>
 </blockquote>
 <p>我常用的是微软输入法。</p>
 <p>状态有：</p>
@@ -286,14 +297,28 @@ Event response next state:
 </ul>
 <p><img src="https://i.imgur.com/8Xj7QD4.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
-<p>4. 在探索一处古老城堡的时候, 你和一个朋友发现了一个书柜, 你怀疑它是通往秘密通道的入口。在你检查书柜的时候, 你的朋友从烛台上拿开一根蜡烛, 发现烛台是入口的控制开关。书柜转了半圈, 把你推向前去, 你和朋友因而分开。你的朋友把蜡烛放回。这次书柜转了一整圈, 你仍然在书柜后面。<br />
-你的朋友把蜡烛拿开。书柜又开始要转一圈, 但这次你用身体堵住它, 以防它转一整圈。你的朋友递给你蜡烛, 你们俩设法让书柜转回半圈, 但这使你的朋友转到书柜后面, 而你又在书柜前面。你把蜡烛放回。当书柜开始旋转时, 你拿开蜡烛, 书柜在四分之一圈后停止。你和朋友然后就可以继续前往探索。<br />
-为书柜的控制过程绘制一个状态图, 要符合前面的场景。你应该先做些什么才能最不费事地进去?</p>
+<p>4. 在探索一处古老城堡的时候, 你和一个朋友发现了一个书柜,
+你怀疑它是通往秘密通道的入口。在你检查书柜的时候,
+你的朋友从烛台上拿开一根蜡烛, 发现烛台是入口的控制开关。书柜转了半圈,
+把你推向前去, 你和朋友因而分开。你的朋友把蜡烛放回。这次书柜转了一整圈,
+你仍然在书柜后面。<br />
+你的朋友把蜡烛拿开。书柜又开始要转一圈, 但这次你用身体堵住它,
+以防它转一整圈。你的朋友递给你蜡烛, 你们俩设法让书柜转回半圈,
+但这使你的朋友转到书柜后面,
+而你又在书柜前面。你把蜡烛放回。当书柜开始旋转时, 你拿开蜡烛,
+书柜在四分之一圈后停止。你和朋友然后就可以继续前往探索。<br />
+为书柜的控制过程绘制一个状态图,
+要符合前面的场景。你应该先做些什么才能最不费事地进去?</p>
 </blockquote>
 <p><img src="https://i.imgur.com/hlRpVuU.png" srcset="/img/loading.gif" lazyload /></p>
 <p>应该先拿起蜡烛，在书架刚开始旋转的时候就把蜡烛放回。</p>
 <blockquote>
-<p>5. 图1中有一个类图，描述的是两人打一局乒乓球。乒乓球的规则如下。在游戏开始时，两名选手先试打以选择发球（ping for serve）——也就是说，他们击球越网，来回打几次。赢家先发球。试打的赢家要连续发5次球。然后另一名选手发5次球。接下来，试打的赢家再发5次。这种交替发球一直持续到选手赢得比赛为止。如果对方得零分（shutout, 11- 0），或者选手达到21分，并且至少有两分领先，那么该选手获胜。如果比分在20-20持平，选手要开始交替单独发球，直到有选手领先2分并获胜。<br />
+<p>5.
+图1中有一个类图，描述的是两人打一局乒乓球。乒乓球的规则如下。在游戏开始时，两名选手先试打以选择发球（ping
+for
+serve）——也就是说，他们击球越网，来回打几次。赢家先发球。试打的赢家要连续发5次球。然后另一名选手发5次球。接下来，试打的赢家再发5次。这种交替发球一直持续到选手赢得比赛为止。如果对方得零分（shutout,
+11-
+0），或者选手达到21分，并且至少有两分领先，那么该选手获胜。如果比分在20-20持平，选手要开始交替单独发球，直到有选手领先2分并获胜。<br />
 请给出类Player和类 Volley相对应的状态模型。</p>
 </blockquote>
 <p><img src="https://i.imgur.com/ode12uZ.png" srcset="/img/loading.gif" lazyload /></p>

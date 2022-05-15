@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="-c  编译生成目标文件(Relocatable)。 举个例子， 1$ gcc main.c -o main 等价于 123$ gcc -S main.c$ gcc -c main.s$ gcc main.o 按：-S 选项生成汇编代码，-c 选项生成目标文件，最后一步是链接。   -Dmacro[&#x3D;defn]  定义一个宏。 例如： -DMACHINE&#x3D;8086，">
+    <meta name="description" content="-c  编译生成目标文件(Relocatable)。 举个例子， 1$ gcc main.c -o main 等价于 123$ gcc -S main.c$ gcc -c main.s$ gcc main.o 按：-S 选项生成汇编代码，-c 选项生成目标文件，最后一步是链接。   -Dmacro[&#x3D;defn]  定义一个宏。 例如： -DMACHINE&#x3D;8086">
 <meta property="og:type" content="article">
 <meta property="og:title" content="gcc 常用选项整理">
 <meta property="og:url" content="http://fanyfull.github.io/2021/11/29/gcc-%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9%E6%95%B4%E7%90%86/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="-c  编译生成目标文件(Relocatable)。 举个例子， 1$ gcc main.c -o main 等价于 123$ gcc -S main.c$ gcc -c main.s$ gcc main.o 按：-S 选项生成汇编代码，-c 选项生成目标文件，最后一步是链接。   -Dmacro[&#x3D;defn]  定义一个宏。 例如： -DMACHINE&#x3D;8086，">
+<meta property="og:description" content="-c  编译生成目标文件(Relocatable)。 举个例子， 1$ gcc main.c -o main 等价于 123$ gcc -S main.c$ gcc -c main.s$ gcc main.o 按：-S 选项生成汇编代码，-c 选项生成目标文件，最后一步是链接。   -Dmacro[&#x3D;defn]  定义一个宏。 例如： -DMACHINE&#x3D;8086">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/oYdFPU3.png">
 <meta property="article:published_time" content="2021-11-29T07:44:00.000Z">
@@ -257,14 +257,16 @@
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> gcc main.c -o main</span><br></code></pre></div></td></tr></table></figure>
 <p>等价于</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> gcc -S main.c</span><br><span class="hljs-meta">$</span><span class="bash"> gcc -c main.s</span><br><span class="hljs-meta">$</span><span class="bash"> gcc main.o</span><br></code></pre></div></td></tr></table></figure>
-<p>按：<code>-S</code> 选项生成汇编代码，<code>-c</code> 选项生成目标文件，最后一步是链接。</p>
+<p>按：<code>-S</code> 选项生成汇编代码，<code>-c</code>
+选项生成目标文件，最后一步是链接。</p>
 <p><img src="https://i.imgur.com/Ii0BFUnh.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
 <p><code>-Dmacro[=defn]</code></p>
 </blockquote>
 <p>定义一个宏。</p>
 <p>例如：</p>
-<p><code>-DMACHINE=8086</code>，这个和在 C 语言中使用 <code>#define MACHINE 8086</code> 是一样的。</p>
+<p><code>-DMACHINE=8086</code>，这个和在 C 语言中使用
+<code>#define MACHINE 8086</code> 是一样的。</p>
 <blockquote>
 <p><code>-E</code></p>
 </blockquote>
@@ -272,27 +274,35 @@
 <blockquote>
 <p><code>-g</code></p>
 </blockquote>
-<p>在生成的目标文件中添加调试信息，所谓调试信息就是源代码和指令之间的对应关系，在 gdb 调试和 objdump 反汇编时要用到这些信息。</p>
-<p>按：在编译时要加上 <code>-g</code> 选项，生成的目标文件才能用 gdb 进行调试。</p>
+<p>在生成的目标文件中添加调试信息，所谓调试信息就是源代码和指令之间的对应关系，在
+gdb 调试和 objdump 反汇编时要用到这些信息。</p>
+<p>按：在编译时要加上 <code>-g</code> 选项，生成的目标文件才能用 gdb
+进行调试。</p>
 <blockquote>
 <p><code>-Idir</code></p>
 </blockquote>
 <p>dir 是头文件所在的目录。</p>
 <p>例如，一个目录：</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> tree</span><br>.<br>|-- main.c<br>`-- stack <br>    |-- stack.c <br>    `-- stack.h<br>    <br>1 directory, 3 files<br></code></pre></div></td></tr></table></figure>
-<p>我们需要使用 <code>gcc -c main.c -Istack</code> 编译。用 <code>-I</code> 选项告诉 gcc 头文件要到子目录 stack 里找。</p>
-<p>按：在 <code>#include</code> 预处理指示中可以使用相对路径，如果我们在代码中使用 <code>#include "stack/stack.h"</code>，那么编译时就不需要加 <code>-Istack</code> 选项了。</p>
+<p>我们需要使用 <code>gcc -c main.c -Istack</code> 编译。用
+<code>-I</code> 选项告诉 gcc 头文件要到子目录 stack 里找。</p>
+<p>按：在 <code>#include</code>
+预处理指示中可以使用相对路径，如果我们在代码中使用
+<code>#include "stack/stack.h"</code>，那么编译时就不需要加
+<code>-Istack</code> 选项了。</p>
 <blockquote>
 <p><code>-Ldir</code></p>
 </blockquote>
 <p>dir 是库文件所在的目录。</p>
 <p>例如：</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> gcc main.c -L. -lstack -Istack -o main</span><br></code></pre></div></td></tr></table></figure>
-<p><code>-L.</code> 表示在当前目录找。<code>-lstack</code> 告诉编译器要链接 libstack 库。</p>
+<p><code>-L.</code> 表示在当前目录找。<code>-lstack</code>
+告诉编译器要链接 libstack 库。</p>
 <blockquote>
 <p><code>-M</code> 和 <code>-MM</code></p>
 </blockquote>
-<p>输出 <code>".o文件:.c文件 .h文件"</code> 这种形式的 Makefile 规则，<code>-MM</code> 的输出不包括系统头文件。</p>
+<p>输出 <code>".o文件:.c文件 .h文件"</code> 这种形式的 Makefile
+规则，<code>-MM</code> 的输出不包括系统头文件。</p>
 <p>按：暂时不去深究。</p>
 <blockquote>
 <p><code>-o outfile</code></p>

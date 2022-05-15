@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="n 位原码乘法包括 n 个位积（注 1），也就是每次只利用乘数中的一位来计算位积，最终需要将 n 个位积全部累加起来得到乘积。这种方法称为原码一位乘法。 1、运算法则  符号位单独参加运算，数据位取绝对值参加运算。 运算法则：  设：\([X]_{原} &#x3D; X_0.X_1 X_2...X_n\)，\([Y]_{原} &#x3D; Y_0.Y_1 Y_2...Y_n\) 则：\(P_0 &#x3D; X_">
+    <meta name="description" content="n 位原码乘法包括 n 个位积（注 1），也就是每次只利用乘数中的一位来计算位积，最终需要将 n 个位积全部累加起来得到乘积。这种方法称为原码一位乘法。 1、运算法则  符号位单独参加运算，数据位取绝对值参加运算。 运算法则：  设：\([X]_{原} &#x3D; X_0.X_1 X_2...X_n\)，\([Y]_{原} &#x3D; Y_0.Y_1 Y_2...Y_n\) 则：\(P_0">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机原码一位乘法">
 <meta property="og:url" content="http://fanyfull.github.io/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%A0%81%E4%B8%80%E4%BD%8D%E4%B9%98%E6%B3%95/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="n 位原码乘法包括 n 个位积（注 1），也就是每次只利用乘数中的一位来计算位积，最终需要将 n 个位积全部累加起来得到乘积。这种方法称为原码一位乘法。 1、运算法则  符号位单独参加运算，数据位取绝对值参加运算。 运算法则：  设：\([X]_{原} &#x3D; X_0.X_1 X_2...X_n\)，\([Y]_{原} &#x3D; Y_0.Y_1 Y_2...Y_n\) 则：\(P_0 &#x3D; X_">
+<meta property="og:description" content="n 位原码乘法包括 n 个位积（注 1），也就是每次只利用乘数中的一位来计算位积，最终需要将 n 个位积全部累加起来得到乘积。这种方法称为原码一位乘法。 1、运算法则  符号位单独参加运算，数据位取绝对值参加运算。 运算法则：  设：\([X]_{原} &#x3D; X_0.X_1 X_2...X_n\)，\([Y]_{原} &#x3D; Y_0.Y_1 Y_2...Y_n\) 则：\(P_0">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210919170052.png">
 <meta property="article:published_time" content="2021-09-18T07:21:12.000Z">
@@ -248,20 +248,30 @@
             <h1 style="display: none">计算机原码一位乘法</h1>
             
             <div class="markdown-body">
-              <p>n 位原码乘法包括 n 个位积（<em>注 1</em>），也就是每次只利用乘数中的一位来计算位积，最终需要将 n 个位积全部累加起来得到乘积。这种方法称为<strong>原码一位乘法</strong>。</p>
+              <p>n 位原码乘法包括 n 个位积（<em>注
+1</em>），也就是每次只利用乘数中的一位来计算位积，最终需要将 n
+个位积全部累加起来得到乘积。这种方法称为<strong>原码一位乘法</strong>。</p>
 <h1 id="运算法则">1、运算法则</h1>
 <ul>
 <li>符号位单独参加运算，数据位取绝对值参加运算。</li>
 <li>运算法则：
 <ul>
-<li>设：<span class="math inline">\([X]_{原} = X_0.X_1 X_2...X_n\)</span>，<span class="math inline">\([Y]_{原} = Y_0.Y_1 Y_2...Y_n\)</span></li>
-<li>则：<span class="math inline">\(P_0 = X_0 \oplus Y_0\)</span>，<span class="math inline">\(|P| = |X| \cdot |Y|\)</span></li>
+<li>设：<span class="math inline">\([X]_{原} = X_0.X_1
+X_2...X_n\)</span>，<span class="math inline">\([Y]_{原} = Y_0.Y_1
+Y_2...Y_n\)</span></li>
+<li>则：<span class="math inline">\(P_0 = X_0 \oplus Y_0\)</span>，<span
+class="math inline">\(|P| = |X| \cdot |Y|\)</span></li>
 </ul></li>
-<li>每次循环累加的位积为 <span class="math inline">\(|X|\)</span> 或 0，没得到一次部分积，就将其右移一位，从而得到一位乘积。</li>
+<li>每次循环累加的位积为 <span class="math inline">\(|X|\)</span> 或
+0，没得到一次部分积，就将其右移一位，从而得到一位乘积。</li>
 </ul>
 <h1 id="举例">2、举例</h1>
-<p>设 <span class="math inline">\(X = 0.110\)</span>，<span class="math inline">\(Y = -0.101\)</span>，计算 <span class="math inline">\([X]_{原} \cdot [Y]_{原}\)</span>（<em>注 2</em>）</p>
-<p><span class="math display">\[解：[X]_{原} = 0.110, [Y]_{原} = 1.101 \qquad \qquad \qquad \qquad\]</span></p>
+<p>设 <span class="math inline">\(X = 0.110\)</span>，<span
+class="math inline">\(Y = -0.101\)</span>，计算 <span
+class="math inline">\([X]_{原} \cdot [Y]_{原}\)</span>（<em>注
+2</em>）</p>
+<p><span class="math display">\[解：[X]_{原} = 0.110, [Y]_{原} = 1.101
+\qquad \qquad \qquad \qquad\]</span></p>
 <p><span class="math display">\[
 \begin{equation}
 \begin{split}
@@ -307,7 +317,9 @@
 <hr />
 <p>注解：</p>
 <p>1、位积，表示乘法运算中被乘数与乘数中的一位所乘得到的积。</p>
-<p>2、这里使用的 LaTex 语法来列竖式，由于我没有找到合适的方法来加上水平的横线（如果是完整版的 LaTex，多写一些语法还是可以实现的），所以就用点号代替了。</p>
+<p>2、这里使用的 LaTex
+语法来列竖式，由于我没有找到合适的方法来加上水平的横线（如果是完整版的
+LaTex，多写一些语法还是可以实现的），所以就用点号代替了。</p>
 <hr />
 <p>参考：</p>
 <p>1、华科软院计组第 3 章 PPT。</p>

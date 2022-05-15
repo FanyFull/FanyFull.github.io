@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="这个问题的来由是《算法竞赛入门经典（第 2 版）》P27：  输入 &quot;20&quot;，按 Enter 之后...键盘输入的时间也被计算在内——这确实是程序启动之后才进行的。  所以，作者建议使用 echo 命令来消除键盘输入的影响：  在 Windows 命令行下执行 echo 20|abc，操作系统会自动把 20 输入，其中 abc 是程序名。Linux 下需要输入 echo 20|.&#x2F;ab">
+    <meta name="description" content="这个问题的来由是《算法竞赛入门经典（第 2 版）》P27：  输入 &quot;20&quot;，按 Enter 之后...键盘输入的时间也被计算在内——这确实是程序启动之后才进行的。  所以，作者建议使用 echo 命令来消除键盘输入的影响：  在 Windows 命令行下执行 echo 20|abc，操作系统会自动把 20 输入，其中 abc 是程序名。Linux 下需要输入 echo 20|.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows 和 Linux 下 clock 函数对 scanf 函数的测量问题">
 <meta property="og:url" content="http://fanyfull.github.io/2021/11/27/Windows-%E5%92%8C-Linux-%E4%B8%8B-clock-%E5%87%BD%E6%95%B0%E5%AF%B9-scanf-%E5%87%BD%E6%95%B0%E7%9A%84%E6%B5%8B%E9%87%8F%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="这个问题的来由是《算法竞赛入门经典（第 2 版）》P27：  输入 &quot;20&quot;，按 Enter 之后...键盘输入的时间也被计算在内——这确实是程序启动之后才进行的。  所以，作者建议使用 echo 命令来消除键盘输入的影响：  在 Windows 命令行下执行 echo 20|abc，操作系统会自动把 20 输入，其中 abc 是程序名。Linux 下需要输入 echo 20|.&#x2F;ab">
+<meta property="og:description" content="这个问题的来由是《算法竞赛入门经典（第 2 版）》P27：  输入 &quot;20&quot;，按 Enter 之后...键盘输入的时间也被计算在内——这确实是程序启动之后才进行的。  所以，作者建议使用 echo 命令来消除键盘输入的影响：  在 Windows 命令行下执行 echo 20|abc，操作系统会自动把 20 输入，其中 abc 是程序名。Linux 下需要输入 echo 20|.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/bic3wLH.png">
 <meta property="article:published_time" content="2021-11-27T11:37:11.000Z">
@@ -250,13 +250,18 @@
             <div class="markdown-body">
               <p>这个问题的来由是《算法竞赛入门经典（第 2 版）》P27：</p>
 <blockquote>
-<p>输入 "20"，按 Enter 之后...键盘输入的时间也被计算在内——这确实是程序启动之后才进行的。</p>
+<p>输入 "20"，按 Enter
+之后...键盘输入的时间也被计算在内——这确实是程序启动之后才进行的。</p>
 </blockquote>
 <p>所以，作者建议使用 <code>echo</code> 命令来消除键盘输入的影响：</p>
 <blockquote>
-<p>在 Windows 命令行下执行 <code>echo 20|abc</code>，操作系统会自动把 20 输入，其中 abc 是程序名。Linux 下需要输入 <code>echo 20|./abc</code>，因为在默认情况下，当前目录不在可执行文件的搜索路径中。</p>
+<p>在 Windows 命令行下执行 <code>echo 20|abc</code>，操作系统会自动把 20
+输入，其中 abc 是程序名。Linux 下需要输入
+<code>echo 20|./abc</code>，因为在默认情况下，当前目录不在可执行文件的搜索路径中。</p>
 </blockquote>
-<p>根据我的猜测，在 Windows 下使用 <code>clock()</code> 函数，<code>scanf</code> 函数的输入时间是要被算进去的，而在 Linux 环境下，<code>scanf</code> 的时间则会被省去。</p>
+<p>根据我的猜测，在 Windows 下使用 <code>clock()</code>
+函数，<code>scanf</code> 函数的输入时间是要被算进去的，而在 Linux
+环境下，<code>scanf</code> 的时间则会被省去。</p>
 <p>下面就来测试一下。</p>
 <p>测试程序如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;time.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> MOD = <span class="hljs-number">1000000</span>;<br>	<span class="hljs-keyword">int</span> n, S = <span class="hljs-number">0</span>;<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n);<br>	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>		<span class="hljs-keyword">int</span> factorial = <span class="hljs-number">1</span>;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= i; j++)<br>			factorial = (factorial * j % MOD);<br>		S = (S + factorial) % MOD;<br>	&#125;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,  S);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Time used = %.2f\n&quot;</span>, (<span class="hljs-keyword">double</span>)clock() / CLOCKS_PER_SEC);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
