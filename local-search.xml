@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>Visual Studio 2022 配置 winpcap 环境</title>
+    <link href="/2022/05/28/Visual-Studio-2022-%E9%85%8D%E7%BD%AE-winpcap-%E7%8E%AF%E5%A2%83/"/>
+    <url>/2022/05/28/Visual-Studio-2022-%E9%85%8D%E7%BD%AE-winpcap-%E7%8E%AF%E5%A2%83/</url>
+    
+    <content type="html"><![CDATA[<h1 id="安装软件">安装软件</h1><p>首先，到 <a href="https://www.winpcap.org/">winpcap</a> 官网下载winpcap 这个软件。注意，这个是软件，下面我们还要下载一个开发包。</p><p><img src="https://i.imgur.com/3GHQPH6.png" /></p><p>然后，安装即可，注意，在安装的过程中有一个选项要勾选上：</p><p><img src="https://i.imgur.com/Gg8iQyV.png" /></p><h1 id="安装开发包">安装开发包</h1><p>即开发者所需要用到的 api。</p><p>来着<ahref="https://www.winpcap.org/devel.htm">开发包下载网页</a>，然后解压到一个没有中文路径的目录即可：</p><p><img src="https://i.imgur.com/kqk9npg.png" /></p><h1 id="测试">测试</h1><p>上面的目录解压后，有一个官方示例：</p><p><img src="https://i.imgur.com/hGBjutV.png" /></p><p>这个我们使用 VS 打开工程的话，IDE会自动给我们升级项目，在这样的情况下，项目是可以正常运行的。</p><h1 id="配置">配置</h1><p>下面我们来手动配置这个环境。</p><p>打开项目配置，</p><p><img src="https://i.imgur.com/3dPp0Cz.png" /></p><p>然后将刚刚解压的目录中的 Include 路径和 Lib路径分别添加到包含目录和库目录中，</p><p><img src="https://i.imgur.com/xaW6hFH.png" /></p><p>然后设置预处理器，即添加<strong>WIN32;WPCAP;HAVE_REMOTE</strong>，</p><p><img src="https://i.imgur.com/InJzIdB.png" /></p><p>然后是链接器，添加这个附加库目录，<strong>注意</strong>这个附加库目录是Lib 目录下的 x64 子目录，</p><p><img src="https://i.imgur.com/ZE4Khav.png" /></p><p>然后添加两个附加依赖项，即<strong>wpcap.lib;Packet.lib</strong>，</p><p><img src="https://i.imgur.com/vkX5thl.png" /></p><p>然后在写代码时，我们需要添加经典的预定义：</p><figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> _MSC_VER</span><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * we do not want the warnings about the old deprecated and unsecure CRT functions</span><br><span class="hljs-comment"> * since these examples can be compiled under *nix as well</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> _CRT_SECURE_NO_WARNINGS</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span><br></code></pre></div></td></tr></table></figure><p>之后就可以愉快地写代码了。</p><p>下面是测试：</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>计网</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>VSCode Couldn&#39;t download IntelliCode model. Please check your network connectivity 问题解决</title>
     <link href="/2022/05/16/VSCode-Couldn-t-download-IntelliCode-model-Please-check-your-network-connectivity-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
     <url>/2022/05/16/VSCode-Couldn-t-download-IntelliCode-model-Please-check-your-network-connectivity-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</url>
