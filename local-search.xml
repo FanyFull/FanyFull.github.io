@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>记录一个 windows 修改 host 不生效的问题</title>
+    <link href="/2022/07/02/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%AA-windows-%E4%BF%AE%E6%94%B9-host-%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <url>/2022/07/02/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%AA-windows-%E4%BF%AE%E6%94%B9-host-%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<p>问题是这样，我想添加一个自己的域名映射规则，然后手动修改<code>C:\Windows\System32\drivers\etc</code>目录下的文件。但是修改之后，在浏览器端测试怎么都不生效。试了网上的改编辑器，改空格等等，都不行。</p><p>最后，发现问题处在了系统代理上。嗯。没错，把系统代理关掉即可。</p><p><img src="https://i.imgur.com/6GCcaXe.png" /></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>bugs</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>计算机网络实验报告完整版</title>
     <link href="/2022/06/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E5%AE%8C%E6%95%B4%E7%89%88/"/>
     <url>/2022/06/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E5%AE%8C%E6%95%B4%E7%89%88/</url>
