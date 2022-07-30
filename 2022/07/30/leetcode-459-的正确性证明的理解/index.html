@@ -16,23 +16,24 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="问题是这样，我想添加一个自己的域名映射规则，然后手动修改 C:\Windows\System32\drivers\etc 目录下的文件。但是修改之后，在浏览器端测试怎么都不生效。试了网上的改编辑器，改空格等等，都不行。 最后，发现问题处在了系统代理上。嗯。没错，把系统代理关掉即可。">
+    <meta name="description" content="When working on solving problems, it is not suitable to listen to music, but when writing blogs, there is no concern about this. Maybe I can also eat someting while writing.  About this leetcode p">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记录一个 windows 修改 host 不生效的问题">
-<meta property="og:url" content="http://fanyfull.github.io/2022/07/02/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%AA-windows-%E4%BF%AE%E6%94%B9-host-%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="leetcode 459 的正确性证明的理解">
+<meta property="og:url" content="http://fanyfull.github.io/2022/07/30/leetcode-459-%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%80%A7%E8%AF%81%E6%98%8E%E7%9A%84%E7%90%86%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="问题是这样，我想添加一个自己的域名映射规则，然后手动修改 C:\Windows\System32\drivers\etc 目录下的文件。但是修改之后，在浏览器端测试怎么都不生效。试了网上的改编辑器，改空格等等，都不行。 最后，发现问题处在了系统代理上。嗯。没错，把系统代理关掉即可。">
+<meta property="og:description" content="When working on solving problems, it is not suitable to listen to music, but when writing blogs, there is no concern about this. Maybe I can also eat someting while writing.  About this leetcode p">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/EaCt6iU.png">
-<meta property="article:published_time" content="2022-07-02T15:50:28.000Z">
-<meta property="article:modified_time" content="2022-07-23T10:15:51.484Z">
+<meta property="og:image" content="https://i.imgur.com/Jw4ZW8E.png">
+<meta property="article:published_time" content="2022-07-30T15:15:20.000Z">
+<meta property="article:modified_time" content="2022-07-30T15:44:33.116Z">
 <meta property="article:author" content="Fany Full">
-<meta property="article:tag" content="bugs">
+<meta property="article:tag" content="algorithm">
+<meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i.imgur.com/EaCt6iU.png">
+<meta name="twitter:image" content="https://i.imgur.com/Jw4ZW8E.png">
   
   
-  <title>记录一个 windows 修改 host 不生效的问题 - Fany Full&#39;s Blog</title>
+  <title>leetcode 459 的正确性证明的理解 - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -181,12 +182,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/EaCt6iU.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/Jw4ZW8E.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="记录一个 windows 修改 host 不生效的问题">
+            <span class="h2" id="subtitle" title="leetcode 459 的正确性证明的理解">
               
             </span>
 
@@ -196,8 +197,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-07-02 23:50" pubdate>
-        2022年7月2日 晚上
+      <time datetime="2022-07-30 23:15" pubdate>
+        2022年7月30日 晚上
       </time>
     </span>
   
@@ -207,7 +208,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      138 字
+      674 字
     </span>
   
 
@@ -216,7 +217,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2 分钟
+      6 分钟
     </span>
   
 
@@ -245,14 +246,28 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">记录一个 windows 修改 host 不生效的问题</h1>
+            <h1 style="display: none">leetcode 459 的正确性证明的理解</h1>
             
             <div class="markdown-body">
-              <p>问题是这样，我想添加一个自己的域名映射规则，然后手动修改
-<code>C:\Windows\System32\drivers\etc</code>
-目录下的文件。但是修改之后，在浏览器端测试怎么都不生效。试了网上的改编辑器，改空格等等，都不行。</p>
-<p>最后，发现问题处在了系统代理上。嗯。没错，把系统代理关掉即可。</p>
-<p><img src="https://i.imgur.com/6GCcaXe.png" srcset="/img/loading.gif" lazyload /></p>
+              <p>When working on solving problems, it is not suitable to listen to
+music, but when writing blogs, there is no concern about this. Maybe I
+can also eat someting while writing.</p>
+<p><img src="https://i.imgur.com/czq1QlN.png" srcset="/img/loading.gif" lazyload /></p>
+<p>About this leetcode problem, I think for a long time to try to
+understand it. For the purpose to understand it, I even try to seek for
+help from my roommate at colledge. Does not solve it.</p>
+<p>Then, I try to put more effort upon it. Eventually, I understand it
+tonight. After that, I went out for a rest. Anyway, it is a pleasant
+thing to go out for a rest and celebration.</p>
+<p>My draft papers to work on are as follows:</p>
+<p><img src="https://i.imgur.com/fDR40i8.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/LcxIOOy.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/dHeSEJg.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/Vaje2AP.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p>To conclude, there are two things to mention, one is the thinking
+style of discrete mathematics, the other is Euclidean algorithm.</p>
+<p>We must think about Euclidean algorithm first, then we may think of
+the solution of proving this algorithm.</p>
 
             </div>
             <hr>
@@ -263,7 +278,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/bugs/">bugs</a>
+                      <a class="hover-with-bg" href="/tags/algorithm/">algorithm</a>
+                    
+                      <a class="hover-with-bg" href="/tags/leetcode/">leetcode</a>
                     
                   </div>
                 
@@ -280,18 +297,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/30/leetcode-459-%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%80%A7%E8%AF%81%E6%98%8E%E7%9A%84%E7%90%86%E8%A7%A3/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">leetcode 459 的正确性证明的理解</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E5%AE%8C%E6%95%B4%E7%89%88/">
-                        <span class="hidden-mobile">计算机网络实验报告完整版</span>
+                      <a href="/2022/07/02/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%AA-windows-%E4%BF%AE%E6%94%B9-host-%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/">
+                        <span class="hidden-mobile">记录一个 windows 修改 host 不生效的问题</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -313,8 +324,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://fanyfull.github.io/2022/07/02/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%AA-windows-%E4%BF%AE%E6%94%B9-host-%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/';
-          this.page.identifier = '/2022/07/02/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%AA-windows-%E4%BF%AE%E6%94%B9-host-%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/';
+          this.page.url = 'http://fanyfull.github.io/2022/07/30/leetcode-459-%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%80%A7%E8%AF%81%E6%98%8E%E7%9A%84%E7%90%86%E8%A7%A3/';
+          this.page.identifier = '/2022/07/30/leetcode-459-%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%80%A7%E8%AF%81%E6%98%8E%E7%9A%84%E7%90%86%E8%A7%A3/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');

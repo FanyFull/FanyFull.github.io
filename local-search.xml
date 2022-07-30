@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>leetcode 459 的正确性证明的理解</title>
+    <link href="/2022/07/30/leetcode-459-%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%80%A7%E8%AF%81%E6%98%8E%E7%9A%84%E7%90%86%E8%A7%A3/"/>
+    <url>/2022/07/30/leetcode-459-%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%80%A7%E8%AF%81%E6%98%8E%E7%9A%84%E7%90%86%E8%A7%A3/</url>
+    
+    <content type="html"><![CDATA[<p>When working on solving problems, it is not suitable to listen tomusic, but when writing blogs, there is no concern about this. Maybe Ican also eat someting while writing.</p><p><img src="https://i.imgur.com/czq1QlN.png" /></p><p>About this leetcode problem, I think for a long time to try tounderstand it. For the purpose to understand it, I even try to seek forhelp from my roommate at colledge. Does not solve it.</p><p>Then, I try to put more effort upon it. Eventually, I understand ittonight. After that, I went out for a rest. Anyway, it is a pleasantthing to go out for a rest and celebration.</p><p>My draft papers to work on are as follows:</p><p><img src="https://i.imgur.com/fDR40i8.jpg" /></p><p><img src="https://i.imgur.com/LcxIOOy.jpg" /></p><p><img src="https://i.imgur.com/dHeSEJg.jpg" /></p><p><img src="https://i.imgur.com/Vaje2AP.jpg" /></p><p>To conclude, there are two things to mention, one is the thinkingstyle of discrete mathematics, the other is Euclidean algorithm.</p><p>We must think about Euclidean algorithm first, then we may think ofthe solution of proving this algorithm.</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>algorithm</tag>
+      
+      <tag>leetcode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>记录一个 windows 修改 host 不生效的问题</title>
     <link href="/2022/07/02/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%AA-windows-%E4%BF%AE%E6%94%B9-host-%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <url>/2022/07/02/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%AA-windows-%E4%BF%AE%E6%94%B9-host-%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/</url>
