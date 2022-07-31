@@ -4,6 +4,65 @@
   
   
   <entry>
+    <title>nvim 设置光标样式</title>
+    <link href="/2022/07/31/nvim-%E8%AE%BE%E7%BD%AE%E5%85%89%E6%A0%87%E6%A0%B7%E5%BC%8F/"/>
+    <url>/2022/07/31/nvim-%E8%AE%BE%E7%BD%AE%E5%85%89%E6%A0%87%E6%A0%B7%E5%BC%8F/</url>
+    
+    <content type="html"><![CDATA[<p>我想要的样式是在 insert 模式下是 line，然后在其他模式下是block，因此，设置语句如下</p><p><img src="https://i.imgur.com/b6qr7OU.png" /></p><p>:setguicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkon100</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>neovim</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Neovim 光标不闪烁，连带会导致 Windows Terminal 的光标也停止闪烁</title>
+    <link href="/2022/07/31/Neovim-%E5%85%89%E6%A0%87%E4%B8%8D%E9%97%AA%E7%83%81%EF%BC%8C%E8%BF%9E%E5%B8%A6%E4%BC%9A%E5%AF%BC%E8%87%B4-Windows-Terminal-%E7%9A%84%E5%85%89%E6%A0%87%E4%B9%9F%E5%81%9C%E6%AD%A2%E9%97%AA%E7%83%81/"/>
+    <url>/2022/07/31/Neovim-%E5%85%89%E6%A0%87%E4%B8%8D%E9%97%AA%E7%83%81%EF%BC%8C%E8%BF%9E%E5%B8%A6%E4%BC%9A%E5%AF%BC%E8%87%B4-Windows-Terminal-%E7%9A%84%E5%85%89%E6%A0%87%E4%B9%9F%E5%81%9C%E6%AD%A2%E9%97%AA%E7%83%81/</url>
+    
+    <content type="html"><![CDATA[<h2 id="问题描述">问题描述</h2><p>在使用 neovim 时，发现进入 neovim编辑之后，光标会处于静止状态，然后退出 nvim，windows terminal的原来闪烁的光标也会变成静止光标。</p><h2 id="解决方法">解决方法</h2><p>修改 nvim 的设置，使之变成闪烁的光标。</p><p>具体为，在配置文件中添加如下内容：</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">:set guicursor=a:blinkon100<br></code></pre></div></td></tr></table></figure><p><img src="https://i.imgur.com/b6qr7OU.png" /></p><hr /><p>参考：</p><p><ahref="https://www.reddit.com/r/neovim/comments/a4ypwm/can_i_make_the_cursor_blinking_in_neovim/"class="uri">https://www.reddit.com/r/neovim/comments/a4ypwm/can_i_make_the_cursor_blinking_in_neovim/</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>neovim</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>KMP 算法的理解与应用</title>
+    <link href="/2022/07/31/KMP-%E7%AE%97%E6%B3%95%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E5%BA%94%E7%94%A8/"/>
+    <url>/2022/07/31/KMP-%E7%AE%97%E6%B3%95%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E5%BA%94%E7%94%A8/</url>
+    
+    <content type="html"><![CDATA[<p>The reason why I encount KMP algotithm once again is leetcode 28,implement strStr.</p><p>The best practice for this problem is KMP. Needless to speak morewords, KMP is very important, and when I was reading <em>Introduction toAlogorithm</em>, I saw it, then I went to read Algorithm 4th edition, Icannot understand it either, for some reasons, some are theirs's, someare mine.</p><p>Now, when I try to solve this leetcode problem, I think this time Igrasp it well.</p><p>The following are my processing draft papers:</p><p><img src="https://i.imgur.com/9RElQUp.jpg" /></p><p><img src="https://i.imgur.com/A1t5qBj.jpg" /></p><p><img src="https://i.imgur.com/LXf3oXA.jpg" /></p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">strStr</span><span class="hljs-params">(String haystack, String needle)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span>[] next = generateNext(needle);<br>        <span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (i &lt; haystack.length()) &#123;<br>            <span class="hljs-keyword">while</span> (j &gt; <span class="hljs-number">0</span> &amp;&amp; needle.charAt(j) != haystack.charAt(i)) &#123;<br>                j = next[j - <span class="hljs-number">1</span>];<br>            &#125;<br>            <span class="hljs-keyword">if</span> (needle.charAt(j) == haystack.charAt(i)) &#123;<br>                j++;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (j == needle.length()) &#123;<br>                <span class="hljs-keyword">return</span> (i - j + <span class="hljs-number">1</span>);<br>            &#125;<br>            i++;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] generateNext(String s) &#123;<br>        <span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span>[] next = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[s.length()];<br>        next[<span class="hljs-number">0</span>] = j;<br>        <span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span> (i &lt; s.length()) &#123;<br>            <span class="hljs-keyword">while</span> (j &gt; <span class="hljs-number">0</span> &amp;&amp; s.charAt(j) != s.charAt(i)) &#123;<br>                j = next[j - <span class="hljs-number">1</span>];<br>            &#125;<br>            <span class="hljs-keyword">if</span> (s.charAt(j) == s.charAt(i)) &#123;<br>                j++;<br>            &#125;<br>            next[i] = j;<br>            i++;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> next;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">var</span> solu = <span class="hljs-keyword">new</span> Solution();<br>        String haystack = <span class="hljs-string">&quot;aabaabaafa&quot;</span>;<br>        String needle = <span class="hljs-string">&quot;aabaaf&quot;</span>;<br>        <span class="hljs-keyword">int</span> res = solu.strStr(haystack, needle);<br>        System.out.println(res);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>leetcode</tag>
+      
+      <tag>alogrithm</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>leetcode 459 的正确性证明的理解</title>
     <link href="/2022/07/30/leetcode-459-%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%80%A7%E8%AF%81%E6%98%8E%E7%9A%84%E7%90%86%E8%A7%A3/"/>
     <url>/2022/07/30/leetcode-459-%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%80%A7%E8%AF%81%E6%98%8E%E7%9A%84%E7%90%86%E8%A7%A3/</url>
