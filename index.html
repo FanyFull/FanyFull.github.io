@@ -1,0 +1,817 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Fany Full&#39;s Blog">
+<meta property="og:url" content="http://fanyfull.github.io/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Fany Full">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="我欲穿花寻路，直入白云深处，浩气展虹霓。"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          style="margin-top: 0">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/09/22/VSCode-%E9%85%8D%E7%BD%AE-C-%E5%8D%95%E6%96%87%E4%BB%B6%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E5%BC%8F/" target="_self">
+          <img src="https://i.imgur.com/kfrvhV9.png" srcset="/img/loading.gif" lazyload alt="VSCode 配置 C++ 单文件运行的方式">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2022/09/22/VSCode-%E9%85%8D%E7%BD%AE-C-%E5%8D%95%E6%96%87%E4%BB%B6%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E5%BC%8F/" target="_self">
+          VSCode 配置 C++ 单文件运行的方式
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2022/09/22/VSCode-%E9%85%8D%E7%BD%AE-C-%E5%8D%95%E6%96%87%E4%BB%B6%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E5%BC%8F/" target="_self">
+        <div>
+          好久没有在这个博客据点写博客了。 深夜，不方便打扰室友休息，所以就来到阳台，把移门关上，独自坐在椅子上泡脚，敲电脑。顺便感受一下窗外的凉意。 因为是在六楼，之前是到那个楼梯顶部的小区域，不过，那个地方的灯光不太方便。宿舍阳台的话，从卫生间可以开出一条小缝，正好光亮可以照过来，这也算是当时为了性价比而舍弃了这台 ThinkPad 的键盘背光的一个痛点吧。 好吧，说回这篇记录的重点啦。 说起来，感觉最
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-09-22 01:17" pubdate>
+              2022-09-22
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/VSCode/">#VSCode</a>
+            
+              <a href="/tags/Cpp/">#Cpp</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/07/31/leetcode-20/" target="_self">
+          <img src="https://i.imgur.com/JRheJF4.png" srcset="/img/loading.gif" lazyload alt="leetcode 20">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2022/07/31/leetcode-20/" target="_self">
+          leetcode 20
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2022/07/31/leetcode-20/" target="_self">
+        <div>
+          leetcode 20 的解题记录
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-31 21:46" pubdate>
+              2022-07-31
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/leetcode/">#leetcode</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/07/31/leetcode-225/" target="_self">
+          <img src="https://i.imgur.com/XqV2MRP.png" srcset="/img/loading.gif" lazyload alt="leetcode 225">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2022/07/31/leetcode-225/" target="_self">
+          leetcode 225
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2022/07/31/leetcode-225/" target="_self">
+        <div>
+          The reverse of leetcode 232. This time is using two stacks to simulate the operations of Queue. We can also use just one stack to get the work done, however, I think, simple is the best, isn't it? The
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-31 21:36" pubdate>
+              2022-07-31
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/leetcode/">#leetcode</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/07/31/leetcode-232/" target="_self">
+          <img src="https://i.imgur.com/W6O2yeR.png" srcset="/img/loading.gif" lazyload alt="leetcode 232">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2022/07/31/leetcode-232/" target="_self">
+          leetcode 232
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2022/07/31/leetcode-232/" target="_self">
+        <div>
+          leetcode 232 的解题记录
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-31 21:36" pubdate>
+              2022-07-31
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/leetcode/">#leetcode</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/07/31/nvim-%E8%AE%BE%E7%BD%AE%E5%85%89%E6%A0%87%E6%A0%B7%E5%BC%8F/" target="_self">
+          <img src="https://i.imgur.com/ghaqR1L.png" srcset="/img/loading.gif" lazyload alt="nvim 设置光标样式">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2022/07/31/nvim-%E8%AE%BE%E7%BD%AE%E5%85%89%E6%A0%87%E6%A0%B7%E5%BC%8F/" target="_self">
+          nvim 设置光标样式
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2022/07/31/nvim-%E8%AE%BE%E7%BD%AE%E5%85%89%E6%A0%87%E6%A0%B7%E5%BC%8F/" target="_self">
+        <div>
+          我想要的样式是在 insert 模式下是 line，然后在其他模式下是 block，因此，设置语句如下  :set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkon100
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-31 08:47" pubdate>
+              2022-07-31
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/neovim/">#neovim</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/07/31/Neovim-%E5%85%89%E6%A0%87%E4%B8%8D%E9%97%AA%E7%83%81%EF%BC%8C%E8%BF%9E%E5%B8%A6%E4%BC%9A%E5%AF%BC%E8%87%B4-Windows-Terminal-%E7%9A%84%E5%85%89%E6%A0%87%E4%B9%9F%E5%81%9C%E6%AD%A2%E9%97%AA%E7%83%81/" target="_self">
+          <img src="https://i.imgur.com/PkxhhDd.png" srcset="/img/loading.gif" lazyload alt="Neovim 光标不闪烁，连带会导致 Windows Terminal 的光标也停止闪烁">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2022/07/31/Neovim-%E5%85%89%E6%A0%87%E4%B8%8D%E9%97%AA%E7%83%81%EF%BC%8C%E8%BF%9E%E5%B8%A6%E4%BC%9A%E5%AF%BC%E8%87%B4-Windows-Terminal-%E7%9A%84%E5%85%89%E6%A0%87%E4%B9%9F%E5%81%9C%E6%AD%A2%E9%97%AA%E7%83%81/" target="_self">
+          Neovim 光标不闪烁，连带会导致 Windows Terminal 的光标也停止闪烁
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2022/07/31/Neovim-%E5%85%89%E6%A0%87%E4%B8%8D%E9%97%AA%E7%83%81%EF%BC%8C%E8%BF%9E%E5%B8%A6%E4%BC%9A%E5%AF%BC%E8%87%B4-Windows-Terminal-%E7%9A%84%E5%85%89%E6%A0%87%E4%B9%9F%E5%81%9C%E6%AD%A2%E9%97%AA%E7%83%81/" target="_self">
+        <div>
+          问题描述 在使用 neovim 时，发现进入 neovim 编辑之后，光标会处于静止状态，然后退出 nvim，windows terminal 的原来闪烁的光标也会变成静止光标。 解决方法 修改 nvim 的设置，使之变成闪烁的光标。 具体为，在配置文件中添加如下内容： 1:set guicursor=a:blinkon100   参考： https://www.reddit.com/r/neov
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-31 08:25" pubdate>
+              2022-07-31
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/neovim/">#neovim</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/07/31/KMP-%E7%AE%97%E6%B3%95%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E5%BA%94%E7%94%A8/" target="_self">
+          <img src="https://i.imgur.com/CbC0GqJ.png" srcset="/img/loading.gif" lazyload alt="KMP 算法的理解与应用">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2022/07/31/KMP-%E7%AE%97%E6%B3%95%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E5%BA%94%E7%94%A8/" target="_self">
+          KMP 算法的理解与应用
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2022/07/31/KMP-%E7%AE%97%E6%B3%95%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E5%BA%94%E7%94%A8/" target="_self">
+        <div>
+          The reason why I encount KMP algotithm once again is leetcode 28, implement strStr. The best practice for this problem is KMP. Needless to speak more words, KMP is very important, and when I was readi
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-31 08:00" pubdate>
+              2022-07-31
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/alogrithm/">#alogrithm</a>
+            
+              <a href="/tags/leetcode/">#leetcode</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/07/30/leetcode-459-%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%80%A7%E8%AF%81%E6%98%8E%E7%9A%84%E7%90%86%E8%A7%A3/" target="_self">
+          <img src="https://i.imgur.com/FV8CyyR.png" srcset="/img/loading.gif" lazyload alt="leetcode 459 的正确性证明的理解">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2022/07/30/leetcode-459-%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%80%A7%E8%AF%81%E6%98%8E%E7%9A%84%E7%90%86%E8%A7%A3/" target="_self">
+          leetcode 459 的正确性证明的理解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2022/07/30/leetcode-459-%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%80%A7%E8%AF%81%E6%98%8E%E7%9A%84%E7%90%86%E8%A7%A3/" target="_self">
+        <div>
+          When working on solving problems, it is not suitable to listen to music, but when writing blogs, there is no concern about this. Maybe I can also eat someting while writing.  About this leetcode probl
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-30 23:15" pubdate>
+              2022-07-30
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/leetcode/">#leetcode</a>
+            
+              <a href="/tags/algorithm/">#algorithm</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/07/02/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%AA-windows-%E4%BF%AE%E6%94%B9-host-%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/" target="_self">
+          <img src="https://i.imgur.com/T3sT2U4.png" srcset="/img/loading.gif" lazyload alt="记录一个 windows 修改 host 不生效的问题">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2022/07/02/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%AA-windows-%E4%BF%AE%E6%94%B9-host-%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/" target="_self">
+          记录一个 windows 修改 host 不生效的问题
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2022/07/02/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%AA-windows-%E4%BF%AE%E6%94%B9-host-%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/" target="_self">
+        <div>
+          问题是这样，我想添加一个自己的域名映射规则，然后手动修改 C:\Windows\System32\drivers\etc 目录下的文件。但是修改之后，在浏览器端测试怎么都不生效。试了网上的改编辑器，改空格等等，都不行。 最后，发现问题处在了系统代理上。嗯。没错，把系统代理关掉即可。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-02 23:50" pubdate>
+              2022-07-02
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/bugs/">#bugs</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/06/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E5%AE%8C%E6%95%B4%E7%89%88/" target="_self">
+          <img src="https://i.imgur.com/o7abZA2.png" srcset="/img/loading.gif" lazyload alt="计算机网络实验报告完整版">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2022/06/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E5%AE%8C%E6%95%B4%E7%89%88/" target="_self">
+          计算机网络实验报告完整版
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2022/06/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E5%AE%8C%E6%95%B4%E7%89%88/" target="_self">
+        <div>
+          计算机网络实验报告实验一 wireshark 抓包工具使用一、实验目的 学习wireshark抓包工具的使用。 了解wireshark抓包工具的功能，明确抓包软件的功能。 通过学习，进一步理解协议及网络体系结构思想。  二、实验原理Wireshark 是网络包分析工具。网络包分析工具的主要作用是尝试捕获网络包，并尝试显示包的尽可能详细的情况。 主要应用：  网络管理员用来解决网络问题 网络安全工程
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-29 16:03" pubdate>
+              2022-06-29
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">#实验报告</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/#board">17</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

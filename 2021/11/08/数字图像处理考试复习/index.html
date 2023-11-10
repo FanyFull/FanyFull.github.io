@@ -1,0 +1,1126 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一、图像处理的基本概念与术语  1. 数字图像？数字图像处理？  图像是一个二维亮度函数 \(f(x, y)\)。其中，\((x, y)\) 定义了空间坐标，\(f(x, y)\) 定义了该点的亮度或灰度。 数字图像处理是指图像的元素的空间坐标和亮度的数字化。数字图像是由有限的元素组成的，每一个元素都有一个特定的位置和幅值，这些元素称为图像元素或像素。 数字图像处理是指借用数字计算机处理数字图像。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字图像处理考试复习">
+<meta property="og:url" content="http://fanyfull.github.io/2021/11/08/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:description" content="一、图像处理的基本概念与术语  1. 数字图像？数字图像处理？  图像是一个二维亮度函数 \(f(x, y)\)。其中，\((x, y)\) 定义了空间坐标，\(f(x, y)\) 定义了该点的亮度或灰度。 数字图像处理是指图像的元素的空间坐标和亮度的数字化。数字图像是由有限的元素组成的，每一个元素都有一个特定的位置和幅值，这些元素称为图像元素或像素。 数字图像处理是指借用数字计算机处理数字图像。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/fMXf3Hk.png">
+<meta property="article:published_time" content="2021-11-08T11:52:50.000Z">
+<meta property="article:modified_time" content="2021-11-30T13:32:40.162Z">
+<meta property="article:author" content="Fany Full">
+<meta property="article:tag" content="数字图像处理">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/fMXf3Hk.png">
+  
+  
+  
+  <title>数字图像处理考试复习 - Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://i.imgur.com/fMXf3Hk.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="数字图像处理考试复习"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-11-08 19:52" pubdate>
+          2021年11月8日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          4.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          41 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">数字图像处理考试复习</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="一图像处理的基本概念与术语">一、图像处理的基本概念与术语</h1>
+<blockquote>
+<p>1. 数字图像？数字图像处理？</p>
+</blockquote>
+<p>图像是一个二维亮度函数 <span class="math inline">\(f(x,
+y)\)</span>。其中，<span class="math inline">\((x, y)\)</span>
+定义了空间坐标，<span class="math inline">\(f(x, y)\)</span>
+定义了该点的亮度或灰度。</p>
+<p>数字图像处理是指图像的元素的空间坐标和亮度的数字化。数字图像是由有限的元素组成的，每一个元素都有一个特定的位置和幅值，这些元素称为图像元素或像素。</p>
+<p>数字图像处理是指借用数字计算机处理数字图像。</p>
+<blockquote>
+<p>2. 亮度函数？入射分量？反射分量？</p>
+</blockquote>
+<p>亮度函数：</p>
+<ul>
+<li>二维离散亮度函数 <span class="math inline">\(f(x, y)\)</span></li>
+<li><span class="math inline">\(x, y\)</span>
+说明图像像素的空间坐标</li>
+<li>函数值 <span class="math inline">\(f\)</span> 代表了点 <span
+class="math inline">\((x, y)\)</span> 处像素的灰度值</li>
+</ul>
+<p>入射分量和反射分量：</p>
+<ul>
+<li>函数 <span class="math inline">\(f(x, y)\)</span> 的两个分量表征：
+<ul>
+<li>(1). 入射到被观察场景的光源照射量</li>
+<li>(2). 被场景中物体反射的照射量<br />
+它们称为入射分量和反射分量，并用 <span class="math inline">\(i(x,
+y)\)</span> 和 <span class="math inline">\(r(x, y)\)</span>
+表示。这两个函数乘积形成 <span class="math inline">\(f(x,
+y)\)</span>，即 <span class="math inline">\(f(x, y) = i(x, y)r(x,
+y)\)</span>，式中 <span class="math inline">\(0 \leqslant i(x, y)
+\leqslant \infty\)</span>，<span class="math inline">\(0 \leqslant r(x,
+y) \leqslant 1\)</span>，反射分量限制在 0（全吸收）和
+1（全反射）之间。</li>
+</ul></li>
+</ul>
+<p>按：</p>
+<p>入射和反射的英文分别为：incident(incidence), reflect。</p>
+<blockquote>
+<p>3. 图像分辨率？采样分辨率？灰度分辨率？图像深度？</p>
+</blockquote>
+<p>图像分辨率：</p>
+<p>图像分辨率指图像中存储的信息量，是每英寸图像内有多少个像素点，分辨率的单位为
+PPI（Pixels Per Inch），通常叫做像素每英寸。</p>
+<p>采样分辨率：</p>
+<p>单位长度上所包含的采样数。</p>
+<p>灰度分辨率：</p>
+<p>在灰度级中可分辨的最小变化，不像空间分辨率必须以每单位距离作为量化基础，灰度分辨率指的是用于量化灰度的比特数。</p>
+<p>按：何为最小变化。</p>
+<p>图像深度：</p>
+<p>是指存储每个像素所用的位数。它确定了彩色图像的每个像素可能有的颜色数，或者确定了灰度图像的每个像素可能有的灰度级数。</p>
+<blockquote>
+<p>4. 色彩的基本属性？RGB HSI(HSV, HSB, HSL)？</p>
+</blockquote>
+<p>色彩的基本属性：</p>
+<ul>
+<li>色相（H）：即颜色名称，如红色、黄色等，取值范围为 <span
+class="math inline">\([0, 360)\)</span></li>
+<li>饱和度（S）：色彩的纯度，越高色彩越纯，低则逐渐变灰，取值范围为
+<span class="math inline">\([0, 100\%]\)</span></li>
+<li>明度（V），亮度（L）：像素灰度值的强度，亮度越高则图像越发白，否则图像越黑，取值范围
+<span class="math inline">\([0, 100\%]\)</span></li>
+</ul>
+<p>RGB：</p>
+<p>基于笛卡尔坐标系，三原色位于三个角度上（其实就是三个维度）。在 RGB
+空间中，表示像素的比特数称为像素深度。考虑一幅 RGB
+图像，其中每幅红绿蓝图像都是 8 比特图像，所以每个 RGB 像素有 24
+比特。</p>
+<p>HSI：</p>
+<p>即色调（hue）、饱和度（saturation）、密度（intensity，对应图像亮度）。</p>
+<p>I 分量与图像的色彩信息无关。</p>
+<p>H 和 S 分量与人感受颜色的方式紧密相连（合成亮度）。</p>
+<p>HSI
+表示色调、饱和度、亮度混合的模型，该模型符合人描述和解释颜色的方式。其中，</p>
+<ul>
+<li>色调是光波混合中与主波长有关的属性，表示观察者主要感知的颜色，比如某一物体的颜色为红色、蓝色；</li>
+<li>饱和度指的是相对纯净度，或者说一种颜色混合白光的数量，纯谱色全饱和的，如纯红色、纯蓝色是饱和的，而深红色（红加白）和淡紫色（紫加白）是欠饱和的，饱和度与所加白光成反比；</li>
+<li>亮度指的是发光的强度。</li>
+</ul>
+<blockquote>
+<p>5.动态范围？灰度级？</p>
+</blockquote>
+<p>动态范围：</p>
+<p>统计一下每一点的像素灰度值，灰度级的最小和最大这一范围，便是该图像的动态范围。动态范围越大（灰度直方图越宽），那它的对比度就会越高，当然看着越清楚。</p>
+<p>灰度级：</p>
+<p>一幅灰度图像它的像素的强度值的取值范围表示为 <span
+class="math inline">\([0, L - 1]\)</span>,其中。如 8
+位色的灰度级，由于是 2 进制，灰度有 256
+个等级，从黑（0）到白（255）。</p>
+<blockquote>
+<p>6. 直方图？累积直方图？连续图像幅度的密度函数？幅度分布函数？</p>
+</blockquote>
+<p>直方图：</p>
+<p>一个灰度级在范围 <span class="math inline">\([0, L - 1]\)</span>
+的数字图像的直方图是一个离散函数</p>
+<p><span class="math display">\[
+p(r_k)= \frac{n_k}{n}
+\]</span></p>
+<p>其中，<span class="math inline">\(n\)</span> 是图像的像素总数，<span
+class="math inline">\(n_k\)</span> 是图像中灰度级为 <span
+class="math inline">\(r_k\)</span> 的像素个数，<span
+class="math inline">\(r_k\)</span> 是第 <span
+class="math inline">\(k\)</span> 个灰度级，<span class="math inline">\(k
+= 0,1,2, \cdots , L-1\)</span>。</p>
+<p>累积直方图：</p>
+<p>累积直方图反映了图像中灰度级小于或等于某值的像素的个数。灰度累积直方图是一个一维离散函数，可表示为</p>
+<p><span class="math display">\[
+H(k)= \sum_{i=0}^{k}ni, \;k=0,1,2..,L−1
+\]</span></p>
+<p>式中，<span class="math inline">\(k\)</span> 为某个灰度级；<span
+class="math inline">\(L\)</span> 为灰度级的数量，最大取 256；<span
+class="math inline">\(ni\)</span> 为具有第 <span
+class="math inline">\(i\)</span> 级灰度值的像素的数目。</p>
+<p>连续图像幅度的密度函数，幅度分布函数：</p>
+<blockquote>
+<p>7. 点运算？代数运算？几何运算？</p>
+</blockquote>
+<p>点运算：</p>
+<p>即灰度级变换，定义为</p>
+<ul>
+<li>像素灰度值变换函数 <span class="math inline">\(g(x, y) = T(f(x,
+y))\)</span></li>
+<li>灰度值变换函数 <span class="math inline">\(R = T(r)\)</span></li>
+<li>点运算有哪些：
+<ul>
+<li>线性变换</li>
+<li>对数变换：灰度压缩</li>
+<li>幂次变换：根据情况使图像变亮或变暗</li>
+<li>LUT（Look Up Table）变换</li>
+</ul></li>
+</ul>
+<p>代数运算：</p>
+<ul>
+<li>加、减、乘、除</li>
+<li>异或、或、与</li>
+</ul>
+<p>几何运算：</p>
+<p>对于原图像 <span class="math inline">\(f(x,
+y)\)</span>，坐标变换函数</p>
+<p><span class="math display">\[
+x^{&#39;} = T_1(x, y); \; y^{&#39;} = T_2(x, y)
+\]</span></p>
+<p>唯一确定了几何变换：</p>
+<p><span class="math display">\[
+g(x^{&#39;}, y^{&#39;}) = f(T_1(x, y), T_2(x, y))
+\]</span></p>
+<p><span class="math inline">\(g(x, y)\)</span> 是目标图像。</p>
+<p>常用的几何变换如下，</p>
+<ul>
+<li>平移变换</li>
+<li>镜像变换</li>
+<li>旋转变换</li>
+<li>放缩变换</li>
+<li>拉伸变换</li>
+</ul>
+<blockquote>
+<p>8. 双线性插值？最邻近插值？线性插值？</p>
+</blockquote>
+<p>双线性插值：</p>
+<p>通过 4 个邻近点去估计给定位置的灰度值，赋值公式为</p>
+<p>$$</p>
+<p>f(x, y) = ax + by + cxy + d $$</p>
+<p>最邻近插值：</p>
+<p>令输出像素的灰度值等于离它所映射到的位置最近的输入像素的灰度值。</p>
+<p>线性插值：</p>
+<p>通过在同一直线的 2 个点去估计给定点的灰度值。</p>
+<blockquote>
+<p>9. 线性系统？移不变系统？线性移不变系统？</p>
+</blockquote>
+<p>线性系统：</p>
+<p>先看两个原理，</p>
+<ul>
+<li>叠加原理：如果输入信号是两个序列之和，则输出信号也为两个对应的输出信号之和。即，若
+<span class="math inline">\(y_1 = T[x_1]\)</span>，<span
+class="math inline">\(y_2 = T[x_2]\)</span>，则有 <span
+class="math inline">\(y_1 + y_2 = T[x_1] + T[x_2]\)</span> <span
+class="math inline">\(=\)</span> <span class="math inline">\(T[x_1 +
+x_2]\)</span>；</li>
+<li>齐次原理：</li>
+</ul>
+<p>所谓线性系统，即对所有的输入信号 <span class="math inline">\(x_1,
+x_2\)</span> 以及所有复常数 <span class="math inline">\(a,
+b\)</span>，皆有</p>
+<p><span class="math display">\[
+ay_1 + by_2 = T[ax_1 + bx_2]
+\]</span></p>
+<p>线性系统对于输入信号的加权和的响应等于单个输入信号响应的加权和。</p>
+<p>移不变系统：</p>
+<p>所谓移不变系统，是指如果输入序列进行移位，则输出序列进行相应的移位。</p>
+<p>线性移不变系统：</p>
+<p>线性系统、移不变系统是系统的两个独立的特性。我们将具有移不变系统的线性系统称为线性移不变系统。</p>
+<blockquote>
+<p>10. 卷积？</p>
+</blockquote>
+<blockquote>
+<p>11. 图像幅值信息量？信息熵？</p>
+</blockquote>
+<p>图像幅值信息量：</p>
+<p>表征一幅图像含有的信息量有多少。</p>
+<p>信息熵：</p>
+<p>表示图像在被接收之前，信号传输过程中损失的信息量。</p>
+<blockquote>
+<p>12. 积分变换？</p>
+</blockquote>
+<blockquote>
+<p>13. 傅立叶变换对？傅立叶振幅谱？傅立叶相位谱？傅立叶能量谱？</p>
+</blockquote>
+<blockquote>
+<p>14. 图像增强技术？图像复原技术？</p>
+</blockquote>
+<p>图像增强技术：</p>
+<p>图像增强是指按照特定的需要突然感兴趣的信息，同时削弱或去除不感兴趣的信息.处理的结果并不能增加图像的信息，而只能增强对某些信息辨识能力，并且这种处理有可能损失一些其他信息。</p>
+<p>除去图象中的噪声，使边缘清晰，突出图象中的某些性质等。</p>
+<p>图像复原技术：</p>
+<p>图像复原则认为图像在某种情况下退化或恶化了，使得图像品质出现下降，现在需要根据相应的退化模型和知识重建或恢复原始的图像。因此，图像复原的目标是原始的反应真实物体或场景的图像，这是客观存在的，不以主观意志为转移。图像复原通过概率估计或先验知识千方百计地去还原图像的本来面貌。</p>
+<blockquote>
+<p>15. 直方图均衡化？直方图规定化？</p>
+</blockquote>
+<blockquote>
+<p>16. 图像平滑？图像锐化？</p>
+</blockquote>
+<p>图像平滑：</p>
+<p>图像平滑是一种区域增强的算法，平滑算法有邻域平均法、中指滤波、边界保持类滤波等。在图像产生、传输和复制过程中，常常会因为多方面原因而被噪声干扰或出现数据丢失，降低了图像的质量（某一像素，如果它与周围像素点相比有明显的不同，则该点被噪声所感染）。这就需要对图像进行一定的增强处理以减小这些缺陷带来的影响。</p>
+<p>图像锐化：</p>
+<p>图像锐化(image
+sharpening)是补偿图像的轮廓，增强图像的边缘及灰度跳变的部分，使图像变得清晰。</p>
+<blockquote>
+<p>17. 空域增强（滤波）？ 频域增强（滤波）？同态增强（滤波）？</p>
+</blockquote>
+<p>空域增强（滤波）：</p>
+<ul>
+<li>空域：指由像素组成的空间</li>
+<li>直接对图像空间中的像素灰度进行处理</li>
+</ul>
+<p>频域增强（滤波）：</p>
+<p>对图像经傅里叶变换后的频谱成分进行操作，然后经傅里叶逆变换获得所需结果。</p>
+<p>同态增强（滤波）：</p>
+<ul>
+<li>同态滤波，作用在频率域中，其作用是对图像灰度范围进行调整，通过消除图像上照明不均匀的问题，增强图像的细节，同时不损失亮区的图像细节。</li>
+<li>能够压缩图像亮度范围、增强图像对比度。</li>
+</ul>
+<blockquote>
+<p>18. 伪彩色？</p>
+</blockquote>
+<p>同灰度图像一样,也是单波段的图像，但是这个单波段图像是有颜色的，不再是灰度图那样的，而是它的每一个灰度值都对应颜色空间中的某一种颜色。</p>
+<h1
+id="二典型图像处理的基本过程及相关硬件设备">二、典型图像处理的基本过程及相关硬件设备</h1>
+<h1 id="三数字图像处理的主要内容">三、数字图像处理的主要内容</h1>
+<h1
+id="四数字图像处理所涉及的主要数学工具">四、数字图像处理所涉及的主要数学工具</h1>
+<blockquote>
+<p>1. 直方图 幅度密度函数 概率分布</p>
+</blockquote>
+<blockquote>
+<p>2. 线性移不变系统 卷积</p>
+</blockquote>
+<p>卷积：</p>
+<p><span class="math display">\[
+\int_{- \infty}^{+\infty} h(t - \iota) f(\iota) {\rm d}\iota
+\]</span></p>
+<blockquote>
+<p>3. 积分变换（傅立叶变换等）</p>
+</blockquote>
+<h1 id="五图像增强的基本方法">五、图像增强的基本方法</h1>
+<blockquote>
+<p>1. 直方图增强（均衡，规定）</p>
+</blockquote>
+<blockquote>
+<p>2. 平滑：均值滤波 中值滤波 低通滤波 多图像平均法 自适应中值滤波
+自适应局部降噪滤波器 修正 alpha 均值滤波器</p>
+</blockquote>
+<blockquote>
+<p>3. 锐化：微分锐化（Roberts，Priwitt，Sobel，高斯等） 高通锐化</p>
+</blockquote>
+<h2 id="privitt">Privitt</h2>
+<p><img src="https://i.imgur.com/v66R9PQ.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p>4. 同态滤波</p>
+</blockquote>
+<h1 id="六图像恢复">六、图像恢复</h1>
+<blockquote>
+<p>1. 图像退化的基本数学模型及复原中的主要问题。</p>
+</blockquote>
+<blockquote>
+<p>2. 运动模糊图像复原方法。</p>
+</blockquote>
+<h1 id="七形态学图像处理">七、形态学图像处理</h1>
+<blockquote>
+<p>膨胀、腐蚀、闭操作、开操作、填充、边缘提取、击中或击不中</p>
+</blockquote>
+<h2 id="膨胀">膨胀</h2>
+<p><span class="math display">\[
+A \oplus B = {\{ z | (\mathop{\hat{B}}\limits)_z \cap A \neq \varnothing
+\}}\]</span></p>
+<p>或</p>
+<p><span class="math display">\[
+A \oplus B = { \{z | ( \mathop {\hat{B}} \limits  )_ z \cap A ⊆ A \}}
+\]</span></p>
+<p>其中，<span class="math inline">\(A\)</span> 和 <span
+class="math inline">\(B\)</span> 是 <span
+class="math inline">\(Z^2\)</span> 中的集合。</p>
+<h2 id="腐蚀">腐蚀</h2>
+<p><span class="math inline">\(A\)</span> 被 <span
+class="math inline">\(B\)</span> 腐蚀：</p>
+<p><span class="math display">\[
+A \ominus B = { \{z | ( B )_z \subseteq A \}}
+\]</span></p>
+<p>或</p>
+<p><span class="math display">\[
+A \ominus B = { \{z | ( B )_z \cap A^c = \varnothing \}}
+\]</span></p>
+<h2 id="开操作">开操作</h2>
+<p>也叫开运算。</p>
+<p><span class="math display">\[
+A \circ B = (A \ominus B) \oplus B
+\]</span></p>
+<p>也就是先腐蚀，然后膨胀。</p>
+<h2 id="闭操作">闭操作</h2>
+<p>也叫闭运算</p>
+<p><span class="math display">\[
+A \bullet B = (A \oplus B) \ominus  B
+\]</span></p>
+<p>即先膨胀，后腐蚀。</p>
+<h2 id="填充">填充</h2>
+<p><span class="math display">\[
+X_k = (X_{k - 1} \oplus B) \cap A^c \qquad k = 1,2,3,\cdots
+\]</span></p>
+<p>填充过程实际上就是从边界上某一点 <span
+class="math inline">\(P\)</span>
+开始做以下迭代运算，用结构元素对其进行膨胀、求补和求交集的过程。</p>
+<h2 id="边缘提取">边缘提取</h2>
+<p>提取物体的轮廓边缘的形态学变换：</p>
+<p><span class="math display">\[
+Y = X - (X \ominus B)
+\]</span></p>
+<h2 id="击中和击不中">击中和击不中</h2>
+<p><span class="math display">\[
+A \otimes B=(A \ominus X) \cap [A^c \ominus (W−X)]=(A \ominus B_1) \cap
+[A^c \ominus B_2]=(A \cap B_1)−[A^c \oplus {\mathop {\hat{B}}\limits}_z]
+\]</span></p>
+<h1 id="八图像分割">八、图像分割</h1>
+<blockquote>
+<p>1. 点检测与线检测     Hough 变换与直线检测</p>
+</blockquote>
+<p>不考。</p>
+<blockquote>
+<p>2. 边缘检测：梯度算子 拉普拉斯算子 高斯拉普拉斯算子</p>
+</blockquote>
+<h2 id="梯度算子">梯度算子</h2>
+<p><img src="https://i.imgur.com/s4ApjT3.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="拉普拉斯算子">拉普拉斯算子</h2>
+<p><img src="https://i.imgur.com/ky6SwlF.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/5ejHDnm.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="sobel-算子">Sobel 算子</h2>
+<p><img src="https://i.imgur.com/Qeag8ui.png" srcset="/img/loading.gif" lazyload /></p>
+<p>[]</p>
+<blockquote>
+<p>3. 门限值分割：全局门限 局部门限 自适应门限
+一种自动确定门限值的方法</p>
+</blockquote>
+<blockquote>
+<p>4. 区域生长 区域分裂与合并</p>
+</blockquote>
+<blockquote>
+<p>5. 分水岭算法</p>
+</blockquote>
+<h1 id="九图像表示">九、图像表示</h1>
+<blockquote>
+<p>1. 表示方法：链码 多边形近似 边界分段 标记图</p>
+</blockquote>
+<h2 id="链码">链码</h2>
+<p>用于表示由顺次连接的具有指定长度和方向的直线段组成的边界。</p>
+<blockquote>
+<p>2. 边界描述方法：周成 直径 形状数 傅里叶描述子 统计矩</p>
+</blockquote>
+<blockquote>
+<p>3. 区域描述方法：面积 统计纹理（均值、标准差、熵、平滑度、一致性）
+灰度共生矩阵</p>
+</blockquote>
+<hr />
+<p>几张图：</p>
+<p><img src="https://i.imgur.com/u14Evrz.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/EqaRowV.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/XIFrIQw.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/aSMT8wC.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/PCwDM3P.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/tTq9HRD.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/Pp98im5.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/ATvJkzk.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/yIdcXdI.png" srcset="/img/loading.gif" lazyload alt="直方图均衡化" /></p>
+<p><img src="https://i.imgur.com/WLSdJB5.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/IoV2kW6.png" srcset="/img/loading.gif" lazyload alt="卷积" /></p>
+<p><img src="https://i.imgur.com/qWCusA8.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/AhhMJdA.png" srcset="/img/loading.gif" lazyload alt="各种算子" /></p>
+<p><img src="https://i.imgur.com/362U0jf.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/P3mZ9gz.png" srcset="/img/loading.gif" lazyload /></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="category-chain-item">数字图像处理</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="print-no-link">#数字图像处理</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>数字图像处理考试复习</div>
+      <div>http://fanyfull.github.io/2021/11/08/数字图像处理考试复习/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Fany Full</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年11月8日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/11/09/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AE%9E%E9%AA%8C%E6%89%8B%E8%AE%B0/" title="编译原理实验手记">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">编译原理实验手记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/11/07/Ubuntu-Linux-%E5%8D%87%E7%BA%A7-node-%E5%92%8C-npm/" title="Ubuntu Linux 升级 node 和 npm">
+                        <span class="hidden-mobile">Ubuntu Linux 升级 node 和 npm</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://fanyfull.github.io/2021/11/08/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/';
+          this.page.identifier = '/2021/11/08/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fanyfull' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

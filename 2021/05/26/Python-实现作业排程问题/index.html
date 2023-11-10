@@ -1,0 +1,751 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1. 问题描述 Automobile factory with two assembly lines Each line has n stations: $S_&#123;1, 1&#125;,...,S_&#123;1, n&#125;$ and $S_&#123;2, 1&#125;,...,S_&#123;2, n&#125;$ Corresponding stations $S_&amp;#123">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 实现作业排程问题">
+<meta property="og:url" content="http://fanyfull.github.io/2021/05/26/Python-%E5%AE%9E%E7%8E%B0%E4%BD%9C%E4%B8%9A%E6%8E%92%E7%A8%8B%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:description" content="1. 问题描述 Automobile factory with two assembly lines Each line has n stations: $S_&#123;1, 1&#125;,...,S_&#123;1, n&#125;$ and $S_&#123;2, 1&#125;,...,S_&#123;2, n&#125;$ Corresponding stations $S_&amp;#123">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210526180343.png">
+<meta property="article:published_time" content="2021-05-26T05:15:40.000Z">
+<meta property="article:modified_time" content="2021-06-01T03:08:49.490Z">
+<meta property="article:author" content="Fany Full">
+<meta property="article:tag" content="《算法导论》">
+<meta property="article:tag" content="算法设计与分析">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210526180343.png">
+  
+  
+  
+  <title>Python 实现作业排程问题 - Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210526180343.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Python 实现作业排程问题"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-05-26 13:15" pubdate>
+          2021年5月26日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          2.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          23 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Python 实现作业排程问题</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h2><ul>
+<li>Automobile factory with two assembly lines<ul>
+<li>Each line has n stations: <code>$S_&#123;1, 1&#125;,...,S_&#123;1, n&#125;$</code> and <code>$S_&#123;2, 1&#125;,...,S_&#123;2, n&#125;$</code></li>
+<li>Corresponding stations <code>$S_&#123;1, j&#125;$</code> and <code>$S_&#123;2, j&#125;$</code> perform the same function but can take different amounts of time <code>$a_&#123;1, j&#125;$</code> and <code>$a_&#123;2, j&#125;$</code></li>
+<li>Entry times <code>$e_1$</code> and <code>$e_2$</code> and exit times <code>$x_1$</code> and <code>$x_2$</code></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210526133002.png" srcset="/img/loading.gif" lazyload alt="装配线问题示意图"></p>
+<p>给出一个示例的装配线，要求输出最优的排程方案</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210526133309.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="2-思路分析"><a href="#2-思路分析" class="headerlink" title="2. 思路分析"></a>2. 思路分析</h2><p>首先, 利用动态规划思想找出递归关系, 这个是<strong>最重要</strong>的一步</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210526134353.png" srcset="/img/loading.gif" lazyload alt="递归式"></p>
+<p>这里的 <code>$f_1[j]$</code> 表示在第一条装配线的第 j 个站台处理完之后所花费的最少的时间. <code>$f_2[j]$</code> 也是同理.</p>
+<p>然后, 根据这个关系, 我们就可以自底向上构建 <code>$f_1$</code> 和 <code>$f_2$</code> 这两个数组了.</p>
+<p>伪码描述如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210526135533.png" srcset="/img/loading.gif" lazyload alt="伪码"></p>
+<h2 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3. 代码实现"></a>3. 代码实现</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment"># 最优排程问题</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">fastest_way</span>(<span class="hljs-params">a:<span class="hljs-built_in">list</span>, t:<span class="hljs-built_in">list</span>, e:<span class="hljs-built_in">list</span>, x:<span class="hljs-built_in">list</span>, n:<span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">list</span>:<br>    <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">    解决最优排程问题</span><br><span class="hljs-string">    :param a: 两条线上各自的每个站点的各自处理时间</span><br><span class="hljs-string">    :param t: 两条线上各自的每个前 n - 1 个站点的切换时间</span><br><span class="hljs-string">    :param e: 两条线的各自的 entry 时间</span><br><span class="hljs-string">    :param x: 两条线的各自的 exit 时间</span><br><span class="hljs-string">    :param n: 每条线的工作站的数目</span><br><span class="hljs-string">    :return: 最优时间, 路径和最后一个走过的工作站点</span><br><span class="hljs-string">    &#x27;&#x27;&#x27;</span><br>    <span class="hljs-comment"># 两条线上每个站的处理时间</span><br>    a1, a2 = a <span class="hljs-comment"># 自动解包</span><br>    <span class="hljs-comment"># 两条线在第 i 个站换线需要的时间</span><br>    t1, t2 = t<br>    <span class="hljs-comment"># 两条线上 e 和 x 的数值</span><br>    e1, e2 = e<br>    x1, x2 = x<br>    <span class="hljs-comment"># 两条线在每个装配点所花费的最小时间表（动态规划）</span><br>    f1 = [<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)]<br>    f2 = [<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)]<br>    route = [[<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)], [<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)]]  <span class="hljs-comment"># 存储路径</span><br>    time = <span class="hljs-built_in">float</span>(<span class="hljs-string">&#x27;inf&#x27;</span>) <span class="hljs-comment"># 最优时间</span><br>    final_line = <span class="hljs-number">0</span> <span class="hljs-comment"># 最后一个节点所在的线路</span><br>    <span class="hljs-comment"># 初始化</span><br>    f1[<span class="hljs-number">0</span>] = e1 + a1[<span class="hljs-number">0</span>]<br>    route[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span> <span class="hljs-comment"># 1 表示走第一条线路</span><br>    f2[<span class="hljs-number">0</span>] = e2 + a2[<span class="hljs-number">0</span>]<br>    route[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">2</span> <span class="hljs-comment"># 2 表示走第二条线路</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, n):<br>        <span class="hljs-keyword">if</span> f1[i - <span class="hljs-number">1</span>] + a1[i] &lt; f2[i - <span class="hljs-number">1</span>] + t2[i - <span class="hljs-number">1</span>] + a1[i]:<br>            f1[i] = f1[i - <span class="hljs-number">1</span>] + a1[i]<br>            route[<span class="hljs-number">0</span>][i] = <span class="hljs-number">1</span><br>        <span class="hljs-keyword">else</span>:<br>            f1[i] = f2[i - <span class="hljs-number">1</span>] + t2[i - <span class="hljs-number">1</span>] + a1[i]<br>            route[<span class="hljs-number">0</span>][i] = <span class="hljs-number">2</span><br>        <span class="hljs-keyword">if</span> f2[i - <span class="hljs-number">1</span>] + a2[i] &lt; f1[i - <span class="hljs-number">1</span>] + t1[i - <span class="hljs-number">1</span>] + a2[i]:<br>            f2[i] = f2[i - <span class="hljs-number">1</span>] + a2[i]<br>            route[<span class="hljs-number">1</span>][i] = <span class="hljs-number">2</span><br>        <span class="hljs-keyword">else</span>:<br>            f2[i] = f1[i - <span class="hljs-number">1</span>] + t1[i - <span class="hljs-number">1</span>] + a2[i]<br>            route[<span class="hljs-number">1</span>][i] = <span class="hljs-number">1</span><br>    <span class="hljs-keyword">if</span> (f1[n - <span class="hljs-number">1</span>] + x1 &lt; f2[n - <span class="hljs-number">1</span>] + x2):<br>        time = f1[n - <span class="hljs-number">1</span>] + x1<br>        final_line = <span class="hljs-number">1</span><br>    <span class="hljs-keyword">else</span>:<br>        time = f2[n - <span class="hljs-number">1</span>] + x2<br>        final_line = <span class="hljs-number">2</span><br>    <span class="hljs-keyword">return</span> [time, route, final_line]<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">print_route</span>(<span class="hljs-params">i:<span class="hljs-built_in">int</span>, j:<span class="hljs-built_in">int</span>, route:<span class="hljs-built_in">list</span>, n:<span class="hljs-built_in">int</span></span>):<br>    <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">    递归打印装配的线路图</span><br><span class="hljs-string">    :param i: 装配线, 0 represents the first assembly line, 1 represents the second line</span><br><span class="hljs-string">    :param j: 当前节点</span><br><span class="hljs-string">    :param route: 存储两条线路的节点的父节点的 list</span><br><span class="hljs-string">    :param n: 装配线的节点数</span><br><span class="hljs-string">    :return: None</span><br><span class="hljs-string">    &#x27;&#x27;&#x27;</span><br>    <span class="hljs-keyword">if</span> j == <span class="hljs-number">1</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;[Line: &#x27;</span> + <span class="hljs-built_in">str</span>(i) + <span class="hljs-string">&#x27; Station: &#x27;</span> + <span class="hljs-built_in">str</span>(j) + <span class="hljs-string">&#x27;]&#x27;</span>, end=<span class="hljs-string">&#x27; &#x27;</span>)<br>    <span class="hljs-keyword">else</span>:<br>        print_route(route[i - <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>], j - <span class="hljs-number">1</span>, route, n)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;[Line: &#x27;</span> + <span class="hljs-built_in">str</span>(i) + <span class="hljs-string">&#x27; Station: &#x27;</span> + <span class="hljs-built_in">str</span>(j) + <span class="hljs-string">&#x27;]&#x27;</span>, end=<span class="hljs-string">&#x27; &#x27;</span>)<br>    <span class="hljs-keyword">if</span> j != n:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;=&gt;&#x27;</span>, end=<span class="hljs-string">&#x27; &#x27;</span>)<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>()<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    n = <span class="hljs-number">5</span>  <span class="hljs-comment"># 每条线工作站的数目</span><br>    <span class="hljs-comment"># 两条线上每个站的处理时间</span><br>    a1 = [<span class="hljs-number">7</span>, <span class="hljs-number">9</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>]<br>    a2 = [<span class="hljs-number">8</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]<br>    <span class="hljs-comment"># 两条线在第 i 个站换线需要的时间</span><br>    t1 = [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>]<br>    t2 = [<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>]<br>    <span class="hljs-comment"># 两条线上 e 和 x 的数值</span><br>    e1 = <span class="hljs-number">2</span><br>    e2 = <span class="hljs-number">4</span><br>    x1 = <span class="hljs-number">3</span><br>    x2 = <span class="hljs-number">6</span><br>    a = [a1, a2]<br>    t = [t1, t2]<br>    e = [e1, e2]<br>    x = [x1, x2]<br>    res = fastest_way(a, t, e, x, n)<br>    time, route, final_line = res<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;The shortest time:&#x27;</span>, time)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;The best assembly line is: &#x27;</span>, end=<span class="hljs-string">&#x27;&#x27;</span>)<br>    print_route(final_line, <span class="hljs-number">5</span>, route, n)<br><br></code></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">The shortest <span class="hljs-type">time</span>: <span class="hljs-number">35</span><br>The best assembly <span class="hljs-type">line</span> <span class="hljs-keyword">is</span>: [<span class="hljs-type">Line</span>: <span class="hljs-number">1</span> Station: <span class="hljs-number">1</span>] =&gt; [<span class="hljs-type">Line</span>: <span class="hljs-number">2</span> Station: <span class="hljs-number">2</span>] =&gt; [<span class="hljs-type">Line</span>: <span class="hljs-number">1</span> Station: <span class="hljs-number">3</span>] =&gt; [<span class="hljs-type">Line</span>: <span class="hljs-number">1</span> Station: <span class="hljs-number">4</span>] =&gt; [<span class="hljs-type">Line</span>: <span class="hljs-number">1</span> Station: <span class="hljs-number">5</span>] <br><br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/" class="category-chain-item">算法设计与分析</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B/" class="print-no-link">#《算法导论》</a>
+      
+        <a href="/tags/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/" class="print-no-link">#算法设计与分析</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Python 实现作业排程问题</div>
+      <div>http://fanyfull.github.io/2021/05/26/Python-实现作业排程问题/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Fany Full</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年5月26日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/05/27/Python-%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84-m-%E5%8F%82%E6%95%B0/" title="Python 命令行的 -m 参数">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Python 命令行的 -m 参数</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/05/24/%E4%B8%80%E4%BA%9B%E5%81%8F%E5%83%BB%E4%BD%86%E6%9C%89%E7%94%A8%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E7%82%B9/" title="一些偏僻但有用的数学知识点">
+                        <span class="hidden-mobile">一些偏僻但有用的数学知识点</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://fanyfull.github.io/2021/05/26/Python-%E5%AE%9E%E7%8E%B0%E4%BD%9C%E4%B8%9A%E6%8E%92%E7%A8%8B%E9%97%AE%E9%A2%98/';
+          this.page.identifier = '/2021/05/26/Python-%E5%AE%9E%E7%8E%B0%E4%BD%9C%E4%B8%9A%E6%8E%92%E7%A8%8B%E9%97%AE%E9%A2%98/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fanyfull' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

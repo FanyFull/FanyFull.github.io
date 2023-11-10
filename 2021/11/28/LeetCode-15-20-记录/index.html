@@ -1,0 +1,765 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="整理 leetcode 15 到 20 这几道题目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode 15 - 20 记录">
+<meta property="og:url" content="http://fanyfull.github.io/2021/11/28/LeetCode-15-20-%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:description" content="整理 leetcode 15 到 20 这几道题目">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/yOtgtSxl.png">
+<meta property="article:published_time" content="2021-11-28T13:35:04.000Z">
+<meta property="article:modified_time" content="2021-12-09T08:48:28.048Z">
+<meta property="article:author" content="Fany Full">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/yOtgtSxl.png">
+  
+  
+  
+  <title>LeetCode 15 - 20 记录 - Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://i.imgur.com/yOtgtSxl.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="LeetCode 15 - 20 记录"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-11-28 21:35" pubdate>
+          2021年11月28日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          6.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          51 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">LeetCode 15 - 20 记录</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="15"><a href="#15" class="headerlink" title="15"></a>15</h1><p><img src="https://i.imgur.com/xPZlly6l.png" srcset="/img/loading.gif" lazyload></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/3sum/">https://leetcode.com/problems/3sum/</a></p>
+<p>求所有满足三数之和为 0 的子数组。</p>
+<p>这道题主要是利用双指针来做。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> <span class="hljs-type">List</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">threeSum</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]:<br>        res = []<br>        leng = <span class="hljs-built_in">len</span>(nums)<br>        <span class="hljs-keyword">if</span> (nums == <span class="hljs-literal">None</span> <span class="hljs-keyword">or</span> leng &lt; <span class="hljs-number">3</span>):<br>            <span class="hljs-keyword">return</span> res<br>        nums.sort() <span class="hljs-comment"># sort the nums list</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(leng):<br>            <span class="hljs-keyword">if</span> nums[i] &gt; <span class="hljs-number">0</span>:<br>                <span class="hljs-keyword">break</span><br>            <span class="hljs-keyword">if</span> i &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> nums[i] == nums[i - <span class="hljs-number">1</span>]: <span class="hljs-comment"># remove the dumplicated</span><br>                <span class="hljs-keyword">continue</span><br>            <span class="hljs-comment"># double pointers</span><br>            L = i + <span class="hljs-number">1</span><br>            R = leng - <span class="hljs-number">1</span><br>            <span class="hljs-keyword">while</span> L &lt; R:<br>                <span class="hljs-built_in">sum</span> = nums[i] + nums[L] + nums[R]<br>                <span class="hljs-keyword">if</span> <span class="hljs-built_in">sum</span> == <span class="hljs-number">0</span>:<br>                    res.append([nums[i], nums[L], nums[R]])<br>                    <span class="hljs-keyword">while</span> L &lt; R <span class="hljs-keyword">and</span> nums[L] == nums[L + <span class="hljs-number">1</span>]:<br>                        L = L + <span class="hljs-number">1</span><br>                    <span class="hljs-keyword">while</span> L &lt; R <span class="hljs-keyword">and</span> nums[R] == nums[R - <span class="hljs-number">1</span>]:<br>                        R = R - <span class="hljs-number">1</span><br>                    L = L + <span class="hljs-number">1</span><br>                    R = R - <span class="hljs-number">1</span><br>                <span class="hljs-keyword">elif</span> <span class="hljs-built_in">sum</span> &lt; <span class="hljs-number">0</span>:<br>                    L = L + <span class="hljs-number">1</span><br>                <span class="hljs-keyword">else</span>:<br>                    R = R - <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> res<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    solu = Solution()<br>    <span class="hljs-built_in">input</span> = [-<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,-<span class="hljs-number">1</span>,-<span class="hljs-number">4</span>]<br>    output = solu.threeSum(<span class="hljs-built_in">input</span>)<br>    <span class="hljs-built_in">print</span>(output)<br></code></pre></td></tr></table></figure>
+
+<h1 id="16"><a href="#16" class="headerlink" title="16"></a>16</h1><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/3sum-closest/">https://leetcode.com/problems/3sum-closest/</a></p>
+<p><img src="https://i.imgur.com/tIwDDS0l.png" srcset="/img/loading.gif" lazyload></p>
+<p>求三数之和最接近给定的 <code>target</code> 的情况。返回找到的三个数之和。</p>
+<p>依然是双指针。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> <span class="hljs-type">List</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">threeSumClosest</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], target: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        nums.sort()<br>        res = nums[<span class="hljs-number">0</span>] + nums[<span class="hljs-number">1</span>] + nums[<span class="hljs-number">2</span>]<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)):<br>            start = i + <span class="hljs-number">1</span><br>            end = <span class="hljs-built_in">len</span>(nums) - <span class="hljs-number">1</span><br>            <span class="hljs-keyword">while</span> start &lt; end:<br>                <span class="hljs-built_in">sum</span> = nums[i] + nums[start] + nums[end]<br>                <span class="hljs-keyword">if</span> <span class="hljs-built_in">abs</span>(target - <span class="hljs-built_in">sum</span>) &lt; <span class="hljs-built_in">abs</span>(target - res):<br>                    res = <span class="hljs-built_in">sum</span><br>                <span class="hljs-keyword">if</span> <span class="hljs-built_in">sum</span> &gt; target:<br>                    end = end - <span class="hljs-number">1</span><br>                <span class="hljs-keyword">elif</span> <span class="hljs-built_in">sum</span> &lt; target:<br>                    start = start + <span class="hljs-number">1</span><br>                <span class="hljs-keyword">else</span>:<br>                    <span class="hljs-keyword">return</span> res<br>        <span class="hljs-keyword">return</span> res<br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    solu = Solution()<br>    <span class="hljs-built_in">input</span> = [-<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,-<span class="hljs-number">4</span>]<br>    target = <span class="hljs-number">1</span><br>    output = solu.threeSumClosest(<span class="hljs-built_in">input</span>, target)<br>    <span class="hljs-built_in">print</span>(output)<br></code></pre></td></tr></table></figure>
+
+<h1 id="17"><a href="#17" class="headerlink" title="17"></a>17</h1><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> <span class="hljs-type">List</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">letterCombinations</span>(<span class="hljs-params">self, digits: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">str</span>]:<br>        res = []<br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(digits) == <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> digits == <span class="hljs-literal">None</span>:<br>            <span class="hljs-keyword">return</span>  res<br>        mydict = &#123;<span class="hljs-string">&#x27;2&#x27;</span>:<span class="hljs-string">&#x27;abc&#x27;</span>, <span class="hljs-string">&#x27;3&#x27;</span>:<span class="hljs-string">&#x27;def&#x27;</span>, <span class="hljs-string">&#x27;4&#x27;</span>:<span class="hljs-string">&#x27;ghi&#x27;</span>, <span class="hljs-string">&#x27;5&#x27;</span>:<span class="hljs-string">&#x27;jkl&#x27;</span>, <span class="hljs-string">&#x27;6&#x27;</span>:<span class="hljs-string">&#x27;mno&#x27;</span>, <span class="hljs-string">&#x27;7&#x27;</span>:<span class="hljs-string">&#x27;pqrs&#x27;</span>, <span class="hljs-string">&#x27;8&#x27;</span>:<span class="hljs-string">&#x27;tuv&#x27;</span>, <span class="hljs-string">&#x27;9&#x27;</span>:<span class="hljs-string">&#x27;wxyz&#x27;</span>&#125;<br>        <span class="hljs-comment"># print(len(digits))</span><br>        res = [[] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(digits))]<br>        <span class="hljs-comment"># print(res)</span><br>        res[<span class="hljs-number">0</span>] = [s <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> mydict[digits[<span class="hljs-number">0</span>]]]<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(digits)):<br>            <span class="hljs-keyword">for</span> mystr <span class="hljs-keyword">in</span> res[i - <span class="hljs-number">1</span>]:<br>                <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> mydict[digits[i]]:<br>                    res[i].append(mystr + s)<br>        <span class="hljs-keyword">return</span> res[<span class="hljs-built_in">len</span>(digits) - <span class="hljs-number">1</span>]<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    solu = Solution()<br>    <span class="hljs-built_in">input</span> = <span class="hljs-string">&quot;23&quot;</span> <br>    <span class="hljs-built_in">input</span> = <span class="hljs-string">&quot;&quot;</span><br>    <span class="hljs-built_in">input</span> = <span class="hljs-string">&quot;2&quot;</span><br>    output = solu.letterCombinations(<span class="hljs-built_in">input</span>)<br>    <span class="hljs-built_in">print</span>(output)<br></code></pre></td></tr></table></figure>
+
+<p>直观的想法是把这个电话号码的组合想象成一棵树，根节点是一个空字符串，然后根据输入的数字，一层一层地向下面生长。但是，这个和那种简单地暴力循环一样，是不容易实现的。注意到，这里的最终的结果字符串是有顺序的，所以，我们可以把上一次的结果暂存起来，然后把接下来一次的所有情况给遍历一下，生成新的一次的情况，直至最后得到想要的结果。上面的代码是把所有的中间结果都存储了起来。但是，实际上，我们只需要 size 为 2 的数组。因此，下面的代码进行了优化：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> <span class="hljs-type">List</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">letterCombinations</span>(<span class="hljs-params">self, digits: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">str</span>]:<br>        res = []<br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(digits) == <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> digits == <span class="hljs-literal">None</span>:<br>            <span class="hljs-keyword">return</span>  res<br>        mydict = &#123;<span class="hljs-string">&#x27;2&#x27;</span>:<span class="hljs-string">&#x27;abc&#x27;</span>, <span class="hljs-string">&#x27;3&#x27;</span>:<span class="hljs-string">&#x27;def&#x27;</span>, <span class="hljs-string">&#x27;4&#x27;</span>:<span class="hljs-string">&#x27;ghi&#x27;</span>, <span class="hljs-string">&#x27;5&#x27;</span>:<span class="hljs-string">&#x27;jkl&#x27;</span>, <span class="hljs-string">&#x27;6&#x27;</span>:<span class="hljs-string">&#x27;mno&#x27;</span>, <span class="hljs-string">&#x27;7&#x27;</span>:<span class="hljs-string">&#x27;pqrs&#x27;</span>, <span class="hljs-string">&#x27;8&#x27;</span>:<span class="hljs-string">&#x27;tuv&#x27;</span>, <span class="hljs-string">&#x27;9&#x27;</span>:<span class="hljs-string">&#x27;wxyz&#x27;</span>&#125;<br>        <span class="hljs-comment"># print(len(digits))</span><br>        res = [[] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(digits))]<br>        <span class="hljs-comment"># print(res)</span><br>        res[<span class="hljs-number">0</span>] = [s <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> mydict[digits[<span class="hljs-number">0</span>]]]<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(digits)):<br>            <span class="hljs-keyword">for</span> mystr <span class="hljs-keyword">in</span> res[i - <span class="hljs-number">1</span>]:<br>                <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> mydict[digits[i]]:<br>                    res[i].append(mystr + s)<br>        <span class="hljs-keyword">return</span> res[<span class="hljs-built_in">len</span>(digits) - <span class="hljs-number">1</span>]<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    solu = Solution()<br>    <span class="hljs-built_in">input</span> = <span class="hljs-string">&quot;23&quot;</span> <br>    <span class="hljs-built_in">input</span> = <span class="hljs-string">&quot;&quot;</span><br>    <span class="hljs-built_in">input</span> = <span class="hljs-string">&quot;2&quot;</span><br>    output = solu.letterCombinations(<span class="hljs-built_in">input</span>)<br>    <span class="hljs-built_in">print</span>(output)<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/UNzV7f8.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="18"><a href="#18" class="headerlink" title="18"></a>18</h1><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> <span class="hljs-type">List</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">fourSum</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], target: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]:<br>        res = <span class="hljs-built_in">set</span>()<br>        nums.sort()<br>        <span class="hljs-comment"># print(nums)</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums) - <span class="hljs-number">3</span>):<br>            num1 = nums[i]<br>            <span class="hljs-comment"># print(&#x27;num1:&#x27;, num1)</span><br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(i + <span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(nums) - <span class="hljs-number">2</span>):<br>                num2 = nums[j]<br>                left = j + <span class="hljs-number">1</span><br>                right = <span class="hljs-built_in">len</span>(nums) - <span class="hljs-number">1</span><br>                <span class="hljs-keyword">while</span> left &lt; right:<br>                    num3 = nums[left]<br>                    num4 = nums[right]<br>                    <span class="hljs-built_in">sum</span> = num1 + num2 + num3 + num4<br>                    <span class="hljs-comment"># print(&#x27;sum:&#x27;, sum)</span><br>                    <span class="hljs-keyword">if</span> <span class="hljs-built_in">sum</span> == target:<br>                        res.add((num1, num2, num3, num4))<br>                        left = left + <span class="hljs-number">1</span><br>                    <span class="hljs-keyword">elif</span> <span class="hljs-built_in">sum</span> &gt; target:<br>                        right = right - <span class="hljs-number">1</span><br>                    <span class="hljs-keyword">else</span>:<br>                        left = left + <span class="hljs-number">1</span><br>        res = [<span class="hljs-built_in">list</span>(each) <span class="hljs-keyword">for</span> each <span class="hljs-keyword">in</span> res]<br>        <span class="hljs-keyword">return</span> res<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    solu = Solution()<br>    <span class="hljs-built_in">input</span> = [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, -<span class="hljs-number">2</span>, <span class="hljs-number">2</span>]<br>    <span class="hljs-built_in">input</span> = [<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>]<br>    target = <span class="hljs-number">0</span><br>    target = <span class="hljs-number">8</span><br>    output = solu.fourSum(<span class="hljs-built_in">input</span>, target)<br>    <span class="hljs-built_in">print</span>(output)<br></code></pre></td></tr></table></figure>
+
+<p>一言以蔽之，双指针。</p>
+<p>注意一点，最后要去重。所以我一开始使用了 set，最后再转化成 list。可是，这样似乎有效率问题，而且，本题应该有更好的方法。抽时间研究。</p>
+<p><img src="https://i.imgur.com/mcmn1gs.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="19"><a href="#19" class="headerlink" title="19"></a>19</h1><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment"># use fast and slow pointer</span><br><span class="hljs-comment"># this method can&#x27;t be forgot any more!!</span><br><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> <span class="hljs-type">Optional</span>, <span class="hljs-type">List</span><br><span class="hljs-comment"># Definition for singly-linked list.</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ListNode</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, val=<span class="hljs-number">0</span>, <span class="hljs-built_in">next</span>=<span class="hljs-literal">None</span></span>):<br>        self.val = val<br>        self.<span class="hljs-built_in">next</span> = <span class="hljs-built_in">next</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">removeNthFromEnd</span>(<span class="hljs-params">self, head: <span class="hljs-type">Optional</span>[ListNode], n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-type">Optional</span>[ListNode]:<br>        slow = head<br>        fast = head<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>            fast = fast.<span class="hljs-built_in">next</span><br>        <span class="hljs-keyword">if</span> fast == <span class="hljs-literal">None</span>:<br>            <span class="hljs-keyword">return</span> slow.<span class="hljs-built_in">next</span><br>        <span class="hljs-keyword">while</span> fast.<span class="hljs-built_in">next</span> != <span class="hljs-literal">None</span>:<br>            slow = slow.<span class="hljs-built_in">next</span><br>            fast = fast.<span class="hljs-built_in">next</span><br>        slow.<span class="hljs-built_in">next</span> = slow.<span class="hljs-built_in">next</span>.<span class="hljs-built_in">next</span><br>        <span class="hljs-keyword">return</span> head<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">generate_linked_list</span>(<span class="hljs-params">data:<span class="hljs-type">List</span></span>):<br>    nodelist = []<br>    <span class="hljs-keyword">for</span> d <span class="hljs-keyword">in</span> data:<br>        nodelist.append(ListNode(d))<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nodelist) - <span class="hljs-number">1</span>):<br>        nodelist[i].<span class="hljs-built_in">next</span> = nodelist[i + <span class="hljs-number">1</span>]<br>    <span class="hljs-keyword">return</span> nodelist[<span class="hljs-number">0</span>]<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">print_linked_list</span>(<span class="hljs-params">head:ListNode</span>):<br>    cursor = head<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Linked List: &#x27;</span>, end=<span class="hljs-string">&#x27;&#x27;</span>)<br>    <span class="hljs-keyword">while</span> cursor != <span class="hljs-literal">None</span>:<br>        <span class="hljs-built_in">print</span>(cursor.val, end=<span class="hljs-string">&#x27; &#x27;</span>)<br>        cursor = cursor.<span class="hljs-built_in">next</span><br>    <span class="hljs-comment"># print(&#x27;head: &#x27;, head.val)</span><br>    <span class="hljs-built_in">print</span>()<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    headlist = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]<br>    head = generate_linked_list(headlist)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;before removed:&#x27;</span>)<br>    print_linked_list(head)<br>    <span class="hljs-comment"># print_linked_list(head)</span><br>    solu = Solution()<br>    n = <span class="hljs-number">2</span><br>    res = solu.removeNthFromEnd(head, n)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;after removed:&#x27;</span>)<br>    print_linked_list(res)<br></code></pre></td></tr></table></figure>
+
+<p>经典快慢指针。</p>
+<p><img src="https://i.imgur.com/cIPB0t8.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="20"><a href="#20" class="headerlink" title="20"></a>20</h1><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">isValid</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        strstack = []<br>        strstack.append(s[<span class="hljs-number">0</span>])<br>        <span class="hljs-keyword">for</span> ch <span class="hljs-keyword">in</span> s[<span class="hljs-number">1</span>:]:<br>            <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(strstack) == <span class="hljs-number">0</span>:<br>                strstack.append(ch)<br>                <span class="hljs-keyword">continue</span><br>            ch_lists = [<span class="hljs-string">&#x27;&#123;&#x27;</span>, <span class="hljs-string">&#x27;[&#x27;</span>, <span class="hljs-string">&#x27;(&#x27;</span>]<br>            <span class="hljs-keyword">if</span> strstack[-<span class="hljs-number">1</span>] == <span class="hljs-string">&#x27;&#123;&#x27;</span>:<br>                <span class="hljs-keyword">if</span> ch == <span class="hljs-string">&#x27;&#125;&#x27;</span>:<br>                    strstack.pop()<br>                    <span class="hljs-keyword">continue</span><br>                <span class="hljs-keyword">elif</span> ch <span class="hljs-keyword">in</span> ch_lists:<br>                    strstack.append(ch)<br>                    <span class="hljs-keyword">continue</span><br>                <span class="hljs-keyword">else</span>:<br>                    <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>            <span class="hljs-keyword">if</span> strstack[-<span class="hljs-number">1</span>] == <span class="hljs-string">&#x27;[&#x27;</span>:<br>                <span class="hljs-keyword">if</span> ch == <span class="hljs-string">&#x27;]&#x27;</span>:<br>                    strstack.pop()<br>                    <span class="hljs-keyword">continue</span><br>                <span class="hljs-keyword">elif</span> ch <span class="hljs-keyword">in</span> ch_lists:<br>                    strstack.append(ch)<br>                    <span class="hljs-keyword">continue</span><br>                <span class="hljs-keyword">else</span>:<br>                    <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>            <span class="hljs-keyword">if</span> strstack[-<span class="hljs-number">1</span>] == <span class="hljs-string">&#x27;(&#x27;</span>:<br>                <span class="hljs-keyword">if</span> ch == <span class="hljs-string">&#x27;)&#x27;</span>:<br>                    strstack.pop()<br>                    <span class="hljs-keyword">continue</span><br>                <span class="hljs-keyword">elif</span> ch <span class="hljs-keyword">in</span> ch_lists:<br>                    strstack.append(ch)<br>                    <span class="hljs-keyword">continue</span><br>                <span class="hljs-keyword">else</span>:<br>                    <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">len</span>(strstack) == <span class="hljs-number">0</span><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    solu = Solution()<br>    Input = <span class="hljs-string">&quot;()&quot;</span><br>    Input = <span class="hljs-string">&quot;()[]&#123;&#125;&quot;</span><br>    Input = <span class="hljs-string">&quot;(]&quot;</span><br>    Input = <span class="hljs-string">&quot;([)]&quot;</span><br>    <span class="hljs-comment"># Input = &quot;&#123;[]&#125;&quot;</span><br>    <span class="hljs-comment"># Input = &quot;([])&quot;</span><br>    Output = solu.isValid(Input)<br>    <span class="hljs-built_in">print</span>(Output)<br></code></pre></td></tr></table></figure>
+
+<p>经典堆栈问题。</p>
+<p><img src="https://i.imgur.com/fbfdIkJ.png" srcset="/img/loading.gif" lazyload></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/LeetCode/" class="category-chain-item">LeetCode</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/LeetCode/" class="print-no-link">#LeetCode</a>
+      
+        <a href="/tags/Python/" class="print-no-link">#Python</a>
+      
+        <a href="/tags/%E7%AE%97%E6%B3%95/" class="print-no-link">#算法</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>LeetCode 15 - 20 记录</div>
+      <div>http://fanyfull.github.io/2021/11/28/LeetCode-15-20-记录/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Fany Full</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年11月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/11/28/vim-%E7%9A%84%E6%90%9C%E7%B4%A2%E5%92%8C%E6%9B%BF%E6%8D%A2/" title="vim 的搜索和替换">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">vim 的搜索和替换</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/11/28/Python-%E5%BA%93%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" title="Python 库函数学习记录">
+                        <span class="hidden-mobile">Python 库函数学习记录</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://fanyfull.github.io/2021/11/28/LeetCode-15-20-%E8%AE%B0%E5%BD%95/';
+          this.page.identifier = '/2021/11/28/LeetCode-15-20-%E8%AE%B0%E5%BD%95/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fanyfull' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

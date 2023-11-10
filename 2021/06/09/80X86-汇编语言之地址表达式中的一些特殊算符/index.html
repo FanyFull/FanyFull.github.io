@@ -1,0 +1,768 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1、属性定义运算符1.1、类型运算符 PTRPTR 即 PoinTeR。 使用格式：类型  PTR  地址表达式 功能：指明紧跟其后的地址表达式的类型属性，但保持它原来的段属性和偏移地址属性不变。 根据地址表达式的不同值，类型可以是 BYTE、WORD、DWORD、FWORD、NEAR、FAR 等。 为了能将源程序中的机器指令语句正确翻译成目标代码，汇编程序要求操作数地址的类型非常明确。对大多数双">
+<meta property="og:type" content="article">
+<meta property="og:title" content="80X86 汇编语言之地址表达式中的一些特殊算符">
+<meta property="og:url" content="http://fanyfull.github.io/2021/06/09/80X86-%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E4%B9%8B%E5%9C%B0%E5%9D%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%89%B9%E6%AE%8A%E7%AE%97%E7%AC%A6/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:description" content="1、属性定义运算符1.1、类型运算符 PTRPTR 即 PoinTeR。 使用格式：类型  PTR  地址表达式 功能：指明紧跟其后的地址表达式的类型属性，但保持它原来的段属性和偏移地址属性不变。 根据地址表达式的不同值，类型可以是 BYTE、WORD、DWORD、FWORD、NEAR、FAR 等。 为了能将源程序中的机器指令语句正确翻译成目标代码，汇编程序要求操作数地址的类型非常明确。对大多数双">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210609221848.png">
+<meta property="article:published_time" content="2021-06-09T12:28:54.000Z">
+<meta property="article:modified_time" content="2021-06-12T09:07:31.070Z">
+<meta property="article:author" content="Fany Full">
+<meta property="article:tag" content="汇编语言">
+<meta property="article:tag" content="masm">
+<meta property="article:tag" content="未竟">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210609221848.png">
+  
+  
+  
+  <title>80X86 汇编语言之地址表达式中的一些特殊算符 - Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210609221848.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="80X86 汇编语言之地址表达式中的一些特殊算符"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-06-09 20:28" pubdate>
+          2021年6月9日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          1.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          16 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">80X86 汇编语言之地址表达式中的一些特殊算符</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="1、属性定义运算符"><a href="#1、属性定义运算符" class="headerlink" title="1、属性定义运算符"></a>1、属性定义运算符</h2><h3 id="1-1、类型运算符-PTR"><a href="#1-1、类型运算符-PTR" class="headerlink" title="1.1、类型运算符 PTR"></a>1.1、类型运算符 PTR</h3><p>PTR 即 PoinTeR。</p>
+<p>使用格式：<code>类型  PTR  地址表达式</code></p>
+<p>功能：指明紧跟其后的地址表达式的类型属性，但保持它原来的段属性和偏移地址属性不变。</p>
+<p>根据地址表达式的不同值，类型可以是 BYTE、WORD、DWORD、FWORD、NEAR、FAR 等。</p>
+<p>为了能将源程序中的机器指令语句正确翻译成目标代码，汇编程序要求操作数地址的类型非常明确。对大多数双操作数指令，还要求源、目的地址的类型一致，即同时为字节类型、字类型或双字类型， 否则， 在汇编时就会因为类型不明确或类型不一致而出错。为了避免这些语法错误， 就必须分清何谓类型明确， 何谓不明确（或说模糊）， 怎样使模糊的类型变为明确， 怎样使类型不一致的变为一致， 下面分别进行说明。</p>
+<p>由于寄存器明显地分为 8 位、16 位和 32 位，如果操作数在寄存器中，说明操作数的类型是相当明确的。例如：<code>MOV AL, BL</code> 为正确语句，因为语句中的源、目的地址类型明确且一致。用数据定义语句定义的变量，可根据所使用的伪指令 DB，DW，DD… 确定出变量的类型。因此，当采用直接寻址方式时，类型也是相当明确的。但是，语句 <code>MOV [SI], 100</code> 是错误语句，因为源操作数是立即操作数，没有类型，而 OPD 的类型是模糊的。它采用的寄存器间接方式只指出了数据存储单元的偏移地址，却无法指出它的类型， 汇编程序也就无法确定是将立即操作数 100 送入 SI 所指的字节单元、字单元，还是双字单元。除此以外，还有以变址、基址加变址等方式寻找操作数时，若表达式中没有变量或标号，则其地<br>址类型也是模糊的。</p>
+<p>汇编程序规定：由于单操作数指令只指定一个操作数地址，它的类型必须非常明确。而对双操作数指令，如果 OPS、OPD 的类型均明确，那么它们的类型必须一致；如果一个地址类型明确，一个地址类型模糊（或没有类型），汇编程序则取明确的那一个作为源和目的两操作数地址共同的类型。</p>
+<p>类型运算符 PTR 主要用于以下情况。</p>
+<p>① 使语句中类型模糊的操作数地址变得明确。例如 <code>MOV [SI], 100</code> 可改正为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs asm">MOV WORD PTR [SI], 100<br></code></pre></td></tr></table></figure>
+
+<p>② 可用来临时改变某一操作数地址的类型，使得类型不一致的两地址变为一致。</p>
+<p>举例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs asm">.386<br>DATA  SEGMENT  USE16<br>NUM   DB    11H,22H,33H,44H<br>LEN   EQU   LEN-NUM<br><br>DATA  ENDS<br>...<br>      MOV   EAX, DWORD PTR NUM  ; 临时改变 NUM 为双字类型，(NUM) = 44332211H<br></code></pre></td></tr></table></figure>
+
+<p>说明：<br>a. PTR 临时赋予地址表达式的新类型只能在本语句有效。<br>b. 不带方括号的寄存器符号不是地址表达式，因此，不能用 PTR 改变寄存器的类型，例如，以下语句为错误语句：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs asm">MOV  AL, BYTE  PTR  SI<br></code></pre></td></tr></table></figure>
+
+<p>③ PTR 运算符还可以与 EQU 或等号“&#x3D;”等伪指令连用，用来将同一存储区地址用不同类型的变量或标号来表示。</p>
+<h3 id="1-2、定义类型运算符-THIS"><a href="#1-2、定义类型运算符-THIS" class="headerlink" title="1.2、定义类型运算符 THIS"></a>1.2、定义类型运算符 THIS</h3><p>运算符 THIS 与 PTR 有类似功能，即指定某个变量、标号或地址表达式类型，但在具体用法上又有区别。</p>
+<p>使用格式：<code>THIS  类型</code></p>
+<p>功能：指定下一个能分配的存储单元（也称当前存储单元）的类型。往往与伪指令 EQU 或“&#x3D;”等连用，为当前存储单元定义一个指定类型的变量与标号。</p>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs asm">DATA    SEGMENT     USE16<br>B       EQU     THIS    WORD<br>A       DD      44332211H<br>BB      EQU     THIS    BYTE<br>        DW      0FFFFH<br>CC      EQU     BYTE    PTR     A   ; 这里 (CC) 应该为 11H<br>DATA    ENDS<br></code></pre></td></tr></table></figure>
+
+<p>在该例中，第一个语句是使用运算符 THIS 将紧跟它下面的一个双字类型变量 A 重新定义为字类型，命名为 B，而第五个语句是使用运算符 PTR 将双字类型的变量 A 重新定义为字节类型，并命名为 C。变量 B、C 与变量 A 具有相同的段属性和偏移地址属性。第三个语句是使用 THIS 将紧跟它下面的一个字存储单元重新定义为字节类型，命名为 BB。</p>
+<p>通过此例可看出 THIS 与 PTR 用法上的区别：带 THIS 的语句一定要放在定义存储单元语句的前面且不要求该语句一定有变量名（或标号）；带 PTR 的语句可放在任意位置，因此，它只能将指定名字的存储区重新定义为新类型。</p>
+<p>另外，THIS 不能像 PTR 那样临时改变地址表达式的类型。</p>
+<p>THIS 运算符常常用来定义远标号，这在模块化程序设计中是经常要用到的。</p>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs asm">BEGIN   EQU    THIS    FAR     ; 定义远标号 BEGIN<br>        MOV    CH, BL          ; BEGIN 实际上为该语句的标号<br>NEXT:   MOV    AL, [SI]        ; 定义近标号 NEXT<br></code></pre></td></tr></table></figure>
+
+<hr>
+<p>参考：《80X86汇编程序设计》（王元珍）</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" class="category-chain-item">汇编语言</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" class="print-no-link">#汇编语言</a>
+      
+        <a href="/tags/masm/" class="print-no-link">#masm</a>
+      
+        <a href="/tags/%E6%9C%AA%E7%AB%9F/" class="print-no-link">#未竟</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>80X86 汇编语言之地址表达式中的一些特殊算符</div>
+      <div>http://fanyfull.github.io/2021/06/09/80X86-汇编语言之地址表达式中的一些特殊算符/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Fany Full</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年6月9日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/06/09/%E6%88%91%E7%9A%84%E5%B9%A1%E7%84%B6%E9%86%92%E6%82%9F%E7%9A%84%E7%BC%96%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AF%AF%E5%8C%BA/" title="我的幡然醒悟的编程知识误区">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">我的幡然醒悟的编程知识误区</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/06/09/80X86-%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E4%B9%8B%E4%BC%AA%E6%8C%87%E4%BB%A4%E8%AF%AD%E5%8F%A5/" title="80X86 汇编语言之伪指令语句">
+                        <span class="hidden-mobile">80X86 汇编语言之伪指令语句</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://fanyfull.github.io/2021/06/09/80X86-%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E4%B9%8B%E5%9C%B0%E5%9D%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%89%B9%E6%AE%8A%E7%AE%97%E7%AC%A6/';
+          this.page.identifier = '/2021/06/09/80X86-%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E4%B9%8B%E5%9C%B0%E5%9D%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%89%B9%E6%AE%8A%E7%AE%97%E7%AC%A6/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fanyfull' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,922 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="实验二 数据库的创建和管理一、实验目的熟练掌握使用 Navicat 和 Transact-SQL 语言两种方法创建、修改和删除数据库。学习在 Navicat 中进行数据库的转储和导入。掌握管理数据库的有关系统存储过程。 二、实验内容1、利用Navicat创建满足以下要求的数据库：  1）数据库存在于连接 MySQL 中； 2）数据库名称为 mydb；  3）字符集选择 utf8 – UTF-8 U">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库第一次上机实验报告">
+<meta property="og:url" content="http://fanyfull.github.io/2021/11/14/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:description" content="实验二 数据库的创建和管理一、实验目的熟练掌握使用 Navicat 和 Transact-SQL 语言两种方法创建、修改和删除数据库。学习在 Navicat 中进行数据库的转储和导入。掌握管理数据库的有关系统存储过程。 二、实验内容1、利用Navicat创建满足以下要求的数据库：  1）数据库存在于连接 MySQL 中； 2）数据库名称为 mydb；  3）字符集选择 utf8 – UTF-8 U">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/Xt50HIN.png">
+<meta property="article:published_time" content="2021-11-14T02:08:39.000Z">
+<meta property="article:modified_time" content="2021-12-03T02:23:11.062Z">
+<meta property="article:author" content="Fany Full">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/Xt50HIN.png">
+  
+  
+  
+  <title>数据库第一次上机实验报告 - Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://i.imgur.com/Xt50HIN.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="数据库第一次上机实验报告"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-11-14 10:08" pubdate>
+          2021年11月14日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          5.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          45 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">数据库第一次上机实验报告</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="实验二-数据库的创建和管理"><a href="#实验二-数据库的创建和管理" class="headerlink" title="实验二 数据库的创建和管理"></a>实验二 数据库的创建和管理</h1><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>熟练掌握使用 Navicat 和 Transact-SQL 语言两种方法创建、修改和删除数据库。学习在 Navicat 中进行数据库的转储和导入。掌握管理数据库的有关系统存储过程。</p>
+<h2 id="二、实验内容"><a href="#二、实验内容" class="headerlink" title="二、实验内容"></a>二、实验内容</h2><p>1、利用Navicat创建满足以下要求的数据库：</p>
+<ul>
+<li>1）数据库存在于连接 MySQL 中；</li>
+<li>2）数据库名称为 mydb； </li>
+<li>3）字符集选择 utf8 – UTF-8 Unicode；</li>
+<li>4）排序规则选择 utf8_general_ci</li>
+</ul>
+<p>具体步骤如下：</p>
+<p>新建连接“MySQL”—单击选择并右键—“新建数据库”—输入数据库名“mydb”、字符集“utf8 – UTF-8 Unicode”、排序规则“utf8_general_ci”—“确定”。如图所示：</p>
+<p><img src="https://i.imgur.com/UIaHpCh.png" srcset="/img/loading.gif" lazyload></p>
+<p>右键—“Edit Database”，可以看到如下图所示结果：</p>
+<p><img src="https://i.imgur.com/1wl4HUr.png" srcset="/img/loading.gif" lazyload></p>
+<p>2、利用Transact-SQL语言创建满足以下要求的数据库：</p>
+<ul>
+<li>1）数据库存在于连接 MySQL 中；</li>
+<li>2）数据库名称为 testdb；</li>
+<li>3）字符集选择 utf8 – UTF-8 Unicode；</li>
+<li>4）排序规则选择 utf8_general_ci；</li>
+</ul>
+<p>具体步骤如下：</p>
+<p>点击“新建查询”，在查询编辑器输入以下代码，选中代码后，点击“运行”，完成后，左侧列表中选中连接“MySQL”，点击“刷新”按钮，列表即可见到“testdb”。如图所示：</p>
+<p><img src="https://i.imgur.com/wtRfYJs.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/uQRfOL6.png" srcset="/img/loading.gif" lazyload></p>
+<p>3、利用 Transact-SQL 语言查看数据库及表的信息。</p>
+<p>① 查看连接中的所有数据库</p>
+<p>步骤：点击“新建查询”，输入</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SHOW</span> DATABASES;<br></code></pre></td></tr></table></figure>
+
+<p>后运行，</p>
+<p><img src="https://i.imgur.com/6G5XEg6.png" srcset="/img/loading.gif" lazyload></p>
+<p>② 查看数据库 mysql 中所有的表</p>
+<p>步骤：打开查询窗口，输入</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">show</span> tables <span class="hljs-keyword">from</span> mysql;<br></code></pre></td></tr></table></figure>
+
+<p>后运行，</p>
+<p><img src="https://i.imgur.com/qn3QhYM.png" srcset="/img/loading.gif" lazyload></p>
+<p>③ 查看数据库“mysql”中表“help_keyword”的结构。</p>
+<p>步骤：打开查询窗口，输入</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql">USE mysql;<br><span class="hljs-keyword">DESCRIBE</span> help_keyword;<br></code></pre></td></tr></table></figure>
+
+<p>后运行，</p>
+<p><img src="https://i.imgur.com/WvfZaEj.png" srcset="/img/loading.gif" lazyload></p>
+<p>4、利用 Navicat 修改数据库 mydb，修改其排序方式为 utf8_bin。<br>步骤：右键单击数据库“mydb”—Edit Database，在排序方式中选择“utf8_bin”—“确定”。</p>
+<p><img src="https://i.imgur.com/bKdz53M.png" srcset="/img/loading.gif" lazyload></p>
+<p>5、利用 Transact-SQL 语言修改数据库 mydb 的字符集为 Latin1； </p>
+<p>步骤：打开查询窗口，输入以下代码，点击运行</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> DATABASE mydb <span class="hljs-keyword">DEFAULT</span> <span class="hljs-type">CHARACTER</span> <span class="hljs-keyword">SET</span> <span class="hljs-operator">=</span> latin1;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/ynDvj5T.png" srcset="/img/loading.gif" lazyload></p>
+<p>关闭数据库“mydb”后重新打开，查看数据库属性，可以看到如下图所示结果：</p>
+<p><img src="https://i.imgur.com/k6DhwMI.png" srcset="/img/loading.gif" lazyload></p>
+<p>6、利用 Navicat 删除数据库 mydb。</p>
+<p>步骤：直接右键点击 mydb 选择删除即可，注意要关闭当前的 SQL 语句编写界面。</p>
+<p>7、利用 Transact-SQL 语言删除数据库 testdb。</p>
+<p>步骤：点击“新建查询”，输入</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">DROP</span> DATABASE testdb;<br></code></pre></td></tr></table></figure>
+
+<p>后运行，</p>
+<p>刷新连接“MySQL”，查看结果。</p>
+<p>8、转储 MySQL 数据库。</p>
+<p>步骤：打开连接“MySQL”—右键单击数据库“mysql”—选择“转储 SQL 文件”—将文件名改为“sql.sql”后保存在桌面。</p>
+<p><img src="https://i.imgur.com/UBBFOZO.png" srcset="/img/loading.gif" lazyload></p>
+<p>9、导入MySQL数据库。</p>
+<p>① 在连接“MySQL”中新建数据库“sql”（字符集与排序方式尽量一致）。<br>② 打开数据库“sql”—右键单击—运行 SQL 文件—选择桌面的“sql.sql”文件—点击“确定”。<br>③ 关闭数据库 sql 后重新打开，对比数据库“sql”与最初的数据库“mysql”，看是否完全相同。</p>
+<p>这里实际操作的时候有错误。</p>
+<h2 id="三、课后练习题"><a href="#三、课后练习题" class="headerlink" title="三、课后练习题"></a>三、课后练习题</h2><p>1、分别用以下几种语句查看数据库“mysql”中任意表的结构或数据（先输入：<code>USE mysql;</code>）：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql">① <span class="hljs-keyword">SHOW</span> COLUMNS <span class="hljs-keyword">FROM</span> 表名;<br>② <span class="hljs-keyword">DESCRIBE</span> 表名;<br>③ <span class="hljs-keyword">DESC</span> 表名;<br>④ <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> 表名;  <br></code></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/jL6k95e.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/sx5ZdCJ.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/xq6rAj6.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/Eqn6dUU.png" srcset="/img/loading.gif" lazyload></p>
+<p>2、思考以下问题：</p>
+<p>1）mysql 中 utf8 编码的 utf8_bin, utf8_general_cs, utf8_general_ci 三者的区别。<br>2）不同编码方式的数据库之间进行转储和导入会不会出现错误。</p>
+<p>答：</p>
+<p>1）</p>
+<ul>
+<li><p><code>utf8_bin</code> 将字符串中的每一个字符用二进制数据存储，区分大小写。</p>
+</li>
+<li><p><code>utf8_genera_ci</code> 不区分大小写，ci 为 case insensitive 的缩写，即大小写不敏感。</p>
+</li>
+<li><p><code>utf8_general_cs</code> 区分大小写，cs 为 case sensitive 的缩写，即大小写敏感。</p>
+</li>
+</ul>
+<p>2）</p>
+<p>会。</p>
+<h1 id="实验三-表的创建和管理"><a href="#实验三-表的创建和管理" class="headerlink" title="实验三 表的创建和管理"></a>实验三 表的创建和管理</h1><h2 id="一、实验目的-1"><a href="#一、实验目的-1" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>熟练掌握使用 Navicat 和 Transact-SQL 语言两种方法创建、修改和删除表。掌握管理表的有关系统存储过程。</p>
+<h2 id="二、实验内容-1"><a href="#二、实验内容-1" class="headerlink" title="二、实验内容"></a>二、实验内容</h2><p>1、利用 Navicat 创建满足以下要求的数据库：</p>
+<p>① 数据库存在于连接 MySQL 中；<br>② 数据库名称为xsgl；<br>③ 字符集选择utf8 – UTF-8 Unicode；排序规则选择 utf8_general_ci。</p>
+<p>2、在数据库 xsgl 中，利用 Navicat 创建以下表格：</p>
+<p>1）表格名为xs（学生基本情况表）；<br>2）表格中各个属性的定义如下：</p>
+<p><img src="https://i.imgur.com/VTlZWP5.png" srcset="/img/loading.gif" lazyload></p>
+<p>具体步骤如下：打开新建的数据库“xsgl”–右键点击“表”–“新建表”。按照上表内容输入个属性的定义，填写“列名”、“数据类型”，并取消或选择“允许NULL值”前的选项，并右键点击“xh”，选择将其设为主键。</p>
+<p>3、按照以下步骤向表格 xs 中添加如下记录：</p>
+<p><img src="https://i.imgur.com/vH3jv8x.png" srcset="/img/loading.gif" lazyload></p>
+<p>1）打开 Navicat；<br>2）打开连接 MySQL 找到数据库 xsgl 中的表格 xs；<br>3）在表格 xs 上右击鼠标，选择“打开表”；<br>4）在接着出现的记录录入界面上添加记录。（方向键下增加新纪录）</p>
+<p>添加完后如图所示：</p>
+<p><img src="https://i.imgur.com/PavkGQQ.png" srcset="/img/loading.gif" lazyload></p>
+<p>4、向表xs中增加“入学时间”属性列，其列名为rxsj，数据类型为datetime型。</p>
+<p>步骤：右键单击 xs 表—设计表—加入列 rxsj，设置数据类型为 datetime。如图所示：</p>
+<p><img src="https://i.imgur.com/IVIWC6M.png" srcset="/img/loading.gif" lazyload></p>
+<p>5、将表 xs 中 nl（年龄）列的数据类型改为 int 型。</p>
+<p>步骤：与第 4 项类似。</p>
+<p>6、在数据库 xsgl 中，利用 Transact-SQL 语言创建以下表格：</p>
+<p>1）表格名为 kc（课程情况表）；<br>2）表格中各个属性的定义如下：</p>
+<p><img src="https://i.imgur.com/jDRKDgy.png" srcset="/img/loading.gif" lazyload></p>
+<p>步骤：点击“新建查询”，输入以下代码，点击运行，</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sql">USE xsgl;<br><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> kc<br>(<br>    kch <span class="hljs-type">char</span>(<span class="hljs-number">4</span>) <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span>,<br>    kcm <span class="hljs-type">char</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">null</span>,<br>    xss <span class="hljs-type">int</span> <span class="hljs-keyword">null</span>,<br>    xf <span class="hljs-type">int</span> <span class="hljs-keyword">null</span>,<br>    <span class="hljs-keyword">primary</span> key(kch)<br>)engine<span class="hljs-operator">=</span>innodb <span class="hljs-keyword">default</span> charset<span class="hljs-operator">=</span>utf8 auto_increment<span class="hljs-operator">=</span><span class="hljs-number">1</span>;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/sKdaB2t.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/mqop5eW.png" srcset="/img/loading.gif" lazyload></p>
+<p>7、利用 Transact-SQL 语言修改 kc 表。</p>
+<p>① 增加“成绩”一列 cj，int 型，允许为空值，默认为 0。</p>
+<p>步骤：点击“新建查询”，输入以下代码，点击运行，</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> kc <span class="hljs-keyword">ADD</span> <span class="hljs-keyword">COLUMN</span> cj <span class="hljs-type">INT</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-number">0</span>;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/o1c5xqG.png" srcset="/img/loading.gif" lazyload></p>
+<p>② 修改 cj 列的类型为 char。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> kc MODIFY <span class="hljs-keyword">COLUMN</span> cj <span class="hljs-type">char</span>;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/Ucu2c2z.png" srcset="/img/loading.gif" lazyload></p>
+<p>③ 修改 cj 列的列名为 mark。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> kc <br>RENAME <span class="hljs-keyword">COLUMN</span> cj <span class="hljs-keyword">TO</span> mark;<br></code></pre></td></tr></table></figure>
+
+<p>④ 删除 mark 列。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> kc <span class="hljs-keyword">DROP</span> <span class="hljs-keyword">COLUMN</span> mark;<br></code></pre></td></tr></table></figure>
+
+<p>8、利用 Navicat 和 Transact-SQL 语言两种方式删除表 kc。</p>
+<p>① 步骤：右键点击表“kc”，选择删除。<br>② 步骤：点击“新建查询”，输入以下代码，点击执行</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> kc;<br></code></pre></td></tr></table></figure>
+
+<p>9、利用 Transact-SQL 将表 xs 重命名为 Students。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">RENAME <span class="hljs-keyword">TABLE</span> xs <span class="hljs-keyword">TO</span> Students;<br></code></pre></td></tr></table></figure>
+
+<h2 id="三、课后练习题-1"><a href="#三、课后练习题-1" class="headerlink" title="三、课后练习题"></a>三、课后练习题</h2><p>1、创建一个名为 cpxs 的数据库，在该数据库中分别通过 Navicat 和查询分析器创建一个名为 cp 的表（产品表），表格中各个属性的定义如下：</p>
+<p><img src="https://i.imgur.com/FqsbP7t.png" srcset="/img/loading.gif" lazyload></p>
+<p>答：</p>
+<p>Navicat 建表从略。SQL 语句建表如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> `cp` (<br>  `cpbh` <span class="hljs-type">char</span>(<span class="hljs-number">6</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;主码&#x27;</span>,<br>  `cpmc` <span class="hljs-type">char</span>(<span class="hljs-number">30</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  `jg` <span class="hljs-type">float</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>  `kcl` <span class="hljs-type">int</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>  <span class="hljs-keyword">PRIMARY</span> KEY (`cpbh`)<br>) ENGINE<span class="hljs-operator">=</span>InnoDB <span class="hljs-keyword">DEFAULT</span> CHARSET<span class="hljs-operator">=</span>utf8mb3;<br></code></pre></td></tr></table></figure>
+
+<p>2、思考以下问题：</p>
+<p>1）如果要在一个已经存在的表格上删除一列并增加一列，能不能用一个 ALTER TABLE 语句来完成？</p>
+<p>答：可以。</p>
+<h1 id="实验四-表数据的简单查询"><a href="#实验四-表数据的简单查询" class="headerlink" title="实验四 表数据的简单查询"></a>实验四 表数据的简单查询</h1><h2 id="一、实验目的-2"><a href="#一、实验目的-2" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>掌握 SELECT 语句的基本用法。掌握计算列的用法。掌握 WHERE 子句中各类查询条件的写法。</p>
+<h2 id="二、实验内容-2"><a href="#二、实验内容-2" class="headerlink" title="二、实验内容"></a>二、实验内容</h2><p>1、在连接“MySQL”中新建数据库“world”，并将数据库文件 newworld.sql 导入到该数据库之中。</p>
+<p>2、查询 world 数据库的 country 表中的国名（Name）、洲名（Continent）和地区（Region）。</p>
+<p>步骤：点击“新建查询”，输入以下代码，点击执行，运行结果如图：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql">USE world;<br><span class="hljs-keyword">SELECT</span> NAME, Continent, Region <span class="hljs-keyword">From</span> country;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/pM4C27L.png" srcset="/img/loading.gif" lazyload></p>
+<p>3、从 world 数据库的 city 表中搜索返回前 20 条的数据。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> city LIMIT <span class="hljs-number">0</span>, <span class="hljs-number">10</span>;<br></code></pre></td></tr></table></figure>
+
+<p>4、使用 WHERE 子句从 world 数据库的 country 表中检索出所有领土面积超过一百万平方公里的国家名称（Name）、洲名（Continent）以及领土面积（SurfaceArea）。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Name, Continent, SurfaceArea <span class="hljs-keyword">FROM</span> country<br><span class="hljs-keyword">WHERE</span> SurfaceArea <span class="hljs-operator">&gt;</span> <span class="hljs-number">1000000</span>;<br></code></pre></td></tr></table></figure>
+
+<p>5、查询在 world 数据库的 country 表中 Name 以字母 C 开头的国家的洲名 Continent，地区 Region。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Continent, Region <span class="hljs-keyword">FROM</span> country<br><span class="hljs-keyword">WHERE</span> Name REGEXP <span class="hljs-string">&#x27;^C&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<p>6、查询 world 数据库 country 表中所有国家的 Name 和 Continent，并按生日 SurfaceArea 从小到大进行排列。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Name, Continent <span class="hljs-keyword">FROM</span> country<br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> SurfaceArea <span class="hljs-keyword">ASC</span>;<br></code></pre></td></tr></table></figure>
+
+<p>练习巩固</p>
+<p>7、查询 country 表中政体（GovernmentForm）属于共和国（Republic）的国家的 Name 和 Population、GovernmentForm。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Name, Population, GovernmentForm <span class="hljs-keyword">FROM</span> country<br><span class="hljs-keyword">WHERE</span> GovernmentForm <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Republic&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<p>8、country 表中查询前 20 个非洲国家的名称。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Name <span class="hljs-keyword">FROM</span> country<br><span class="hljs-keyword">WHERE</span> Continent <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Africa&#x27;</span><br>LIMIT <span class="hljs-number">20</span>;<br></code></pre></td></tr></table></figure>
+
+<p>9、city 表中查询阿富汗（Countrycode 为 AFG）的所有城市的名称和人口，并要求对查询结果按人口的降序排列。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Name, Population <span class="hljs-keyword">FROM</span> city<br><span class="hljs-keyword">WHERE</span> CountryCode <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;AFG&#x27;</span><br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> Population <span class="hljs-keyword">DESC</span>;<br></code></pre></td></tr></table></figure>
+
+<p>10、Country 表中查询领土面积介于一百万和五百万平方公里之间的国家的名称和领土面积（领土面积以除以一万的结果显示）。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Name, SurfaceArea <span class="hljs-operator">/</span> <span class="hljs-number">10000</span> <span class="hljs-keyword">FROM</span> country<br><span class="hljs-keyword">WHERE</span> SurfaceArea <span class="hljs-operator">&gt;</span> <span class="hljs-number">1000000</span> <span class="hljs-keyword">AND</span> SurfaceArea <span class="hljs-operator">&lt;</span> <span class="hljs-number">5000000</span>;<br></code></pre></td></tr></table></figure>
+
+<p>11、查询名称以“C”开头的亚洲国家或非洲国家的名称和洲名。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Name, Continent <span class="hljs-keyword">FROM</span> country<br><span class="hljs-keyword">WHERE</span> (Continent <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Asia&#x27;</span> <span class="hljs-keyword">OR</span> Continent <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Africa&#x27;</span>) <span class="hljs-keyword">AND</span> Name REGEXP <span class="hljs-string">&#x27;^C&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<p>12、country 表中查询独立年份为空的国家的名称、国家年份。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Name, IndepYear <span class="hljs-keyword">FROM</span> country<br><span class="hljs-keyword">WHERE</span> IndepYear <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NULL</span>;<br></code></pre></td></tr></table></figure>
+
+<h2 id="三、课后练习题-2"><a href="#三、课后练习题-2" class="headerlink" title="三、课后练习题"></a>三、课后练习题</h2><p>以下题目在数据库world中完成。</p>
+<p>1、查询 country 表中所有亚洲国家的名称、地区，要求查询结果按人口的升序排列。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Name, Region <span class="hljs-keyword">FROM</span> country<br><span class="hljs-keyword">WHERE</span> Continent <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Asia&#x27;</span><br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> Population <span class="hljs-keyword">ASC</span>;<br></code></pre></td></tr></table></figure>
+
+<p>2、查询 city 表中智利（CHL）或保加利亚（BGR）的城市名称。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Name <span class="hljs-keyword">FROM</span> city<br><span class="hljs-keyword">WHERE</span> CountryCode <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;CHL&#x27;</span> <span class="hljs-keyword">OR</span> CountryCode <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;BGR&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<p>3、查询 country 表中 Region 字段包含“Europe”的国家的全部信息。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> country<br><span class="hljs-keyword">WHERE</span> Region <span class="hljs-keyword">like</span> <span class="hljs-string">&#x27;%Europe%&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<p>4、查询所有君主立宪制（Constitutional Monarchy）国家的名称和人口，按人口降序排列。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Name, Population <span class="hljs-keyword">FROM</span> country<br><span class="hljs-keyword">WHERE</span> GovernmentForm <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Constitutional Monarchy&#x27;</span><br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> Population <span class="hljs-keyword">DESC</span>;<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-chain-item">数据库</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="print-no-link">#数据库</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>数据库第一次上机实验报告</div>
+      <div>http://fanyfull.github.io/2021/11/14/数据库第一次上机实验报告/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Fany Full</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年11月14日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/11/14/%E5%8D%9A%E5%AE%A2%E5%BE%85%E6%95%B4%E7%90%86%E5%86%85%E5%AE%B9%E7%9B%AE%E5%BD%95/" title="博客待整理内容目录">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">博客待整理内容目录</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/11/13/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/" title="编译原理考试复习">
+                        <span class="hidden-mobile">编译原理考试复习</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://fanyfull.github.io/2021/11/14/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/';
+          this.page.identifier = '/2021/11/14/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fanyfull' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

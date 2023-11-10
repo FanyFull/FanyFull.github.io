@@ -1,0 +1,872 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="考完按：考完了，希望老师能给 60 分。最后一题考了代码优化的问题，什么划分代码块啦，什么找出循环啦，没复习到。就这样。  何为 $L(G)$？  文法 $G$ 所产生的语言定义为集合 $${ x| S \mathop{\Rightarrow}\limits^* x, 其中 S 为文法识别符号，且 x \in V^*_T}$$ 可用 $L(G)$ 表示该集合。  何为最左推导、最右推导、规范推导、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编译原理考试复习">
+<meta property="og:url" content="http://fanyfull.github.io/2021/11/13/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:description" content="考完按：考完了，希望老师能给 60 分。最后一题考了代码优化的问题，什么划分代码块啦，什么找出循环啦，没复习到。就这样。  何为 $L(G)$？  文法 $G$ 所产生的语言定义为集合 $${ x| S \mathop{\Rightarrow}\limits^* x, 其中 S 为文法识别符号，且 x \in V^*_T}$$ 可用 $L(G)$ 表示该集合。  何为最左推导、最右推导、规范推导、">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/NCn63ft.png">
+<meta property="article:published_time" content="2021-11-13T06:31:12.000Z">
+<meta property="article:modified_time" content="2021-11-16T14:40:58.605Z">
+<meta property="article:author" content="Fany Full">
+<meta property="article:tag" content="编译原理">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/NCn63ft.png">
+  
+  
+  
+  <title>编译原理考试复习 - Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://i.imgur.com/NCn63ft.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="编译原理考试复习"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-11-13 14:31" pubdate>
+          2021年11月13日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          2.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          25 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">编译原理考试复习</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>考完按：考完了，希望老师能给 60 分。最后一题考了代码优化的问题，什么划分代码块啦，什么找出循环啦，没复习到。就这样。</p>
+<blockquote>
+<p>何为 $L(G)$？</p>
+</blockquote>
+<p>文法 $G$ 所产生的语言定义为集合</p>
+<p>$$<br>{ x| S \mathop{\Rightarrow}\limits^* x, 其中 S 为文法识别符号，且 x \in V^*_T}<br>$$</p>
+<p>可用 $L(G)$ 表示该集合。</p>
+<blockquote>
+<p>何为最左推导、最右推导、规范推导、右句型、规范句型？</p>
+</blockquote>
+<p>如果在推导的任何一步 $\alpha \Rightarrow \beta$，其中，$\alpha$、$\beta$ 是句型，都是对 $\alpha$ 中的最左非终结符进行替换，则称这种推导为<strong>最左推导</strong>。</p>
+<p>如果在推导的任何一步 $\alpha \Rightarrow \beta$，其中，$\alpha$、$\beta$ 是句型，都是对 $\alpha$ 中的最右非终结符进行替换，则称这种推导为<strong>最右推导</strong>。</p>
+<p>在形式语言中，最右推导常被称为<strong>规范推导</strong>。</p>
+<p>由规范推导所得的句型称为<strong>右句型</strong>或<strong>规范句型</strong>。</p>
+<blockquote>
+<p>何为短语、直接短语、和句柄？</p>
+</blockquote>
+<p>令 $G$ 是一个文法，$S$ 是文法的开始符号，$\alpha \beta \delta$ 是文法 $G$ 的一个句型。如果有 $S \mathop{\Rightarrow}\limits^* \alpha A \delta$ 且 $A \mathop{\Rightarrow}\limits^+ \beta$，则称 $\beta$ 是句型 $\alpha \beta \delta$ 相对于非终结符 $A$ 的<strong>短语</strong>。</p>
+<p>特别地，如果有 $A \Rightarrow \beta$，则称 $\beta$ 是句型 $\alpha \beta \delta$ 相对于规则 $A \rightarrow \beta$ 的<strong>直接短语</strong>（也称<strong>简单短语</strong>）。</p>
+<p>一个右句型的直接短语称为该句型的<strong>句柄</strong>。句柄的概念只适用于右句型。</p>
+<blockquote>
+<p>关于句柄的其他理解？</p>
+</blockquote>
+<p>在“移入-归约”分析中，每次归约的符号串称为“句柄”。</p>
+<p>又：句柄是句型的最左直接短语。</p>
+<blockquote>
+<p>何为 3 型文法？</p>
+</blockquote>
+<p>设 $G &#x3D; (V_N, V_T, P, S)$，若 $P$ 中的每一个产生式的形式都是 $A \rightarrow aB$ 或 $A \rightarrow a$，其中 $A$ 和 $B$ 都是非终结符，$a \in V_T^*$，则 $G$ 是 <strong>3 型文法</strong> 或 <strong>正规文法</strong>。</p>
+<blockquote>
+<p>如何消除文法的直接左递归？</p>
+</blockquote>
+<p>将</p>
+<p>$$<br>A \rightarrow A \alpha | \beta ; (\alpha \neq \varepsilon, \beta ;不以 A 开头)<br>$$</p>
+<p>转换成</p>
+<p>$$<br>\begin{split}<br>A \rightarrow \beta A^{‘} \<br>A^{‘} \rightarrow \alpha A^{‘} | \varepsilon<br>\end{split}<br>$$</p>
+<p><img src="https://i.imgur.com/LobTnUb.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/BTAs20o.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>如何消除文法的间接子递归？</p>
+</blockquote>
+<p><img src="https://i.imgur.com/ONRU6mw.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>消除左递归的算法？</p>
+</blockquote>
+<p><img src="https://i.imgur.com/RCSsK8L.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>何为上下文无关文法？</p>
+</blockquote>
+<p>设 $G &#x3D; (V_N, V_T, P, S)$。若 $P$ 中的每一个产生式 $\alpha \rightarrow \beta$ 满足：$\alpha$ 是一个非终结符，$\beta \in (V_N \cup V_T)^*$，则此文法称为 <strong>2 型的</strong> 或 <strong>上下文无关的（context-free）</strong></p>
+<p><strong>上下文无关文法</strong> 即 CFG(Context-Free Grammer))。</p>
+<blockquote>
+<p>对 $\text{FIRST}$ 的理解？</p>
+</blockquote>
+<p><img src="https://i.imgur.com/s8YqiDv.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/VmrkYxH.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/hgG2AXE.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>对 $\text{FOLLOW}$ 的理解？</p>
+</blockquote>
+<p><img src="https://i.imgur.com/BWChrVU.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/T9YnsK5.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>如何理解 $\text{SELECT()}$？</p>
+</blockquote>
+<p>给定上下文无关文法的产生式 $A \rightarrow \alpha$ $, $ $A \in V_N, \alpha \in V^*$，</p>
+<ul>
+<li>若 $\alpha \stackrel{*}{\nRightarrow} \varepsilon$，则 $\text{SELECT}(A \rightarrow \alpha)$ $&#x3D;$ $\text{FIRST}(\alpha)$。</li>
+<li>若 $\alpha \stackrel{*}{\Rightarrow} \varepsilon$，则 $\text{SELECT}(A \rightarrow \alpha)$ $&#x3D;$ $(\text{FIRST}(\alpha) - {\varepsilon})$ $\cup$ $\text{FOLLOW}(A)$。</li>
+</ul>
+<blockquote>
+<p>一个 $\text{SELECT}$ 的例子。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/OQut1Ok.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>一张预测分析表。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/rqhlpyx.png" srcset="/img/loading.gif" lazyload></p>
+<p>按：这张图中上面的那张表中差了一个表达式：$T^{‘} \rightarrow \varepsilon$。</p>
+<blockquote>
+<p>何为 $LL(1)$ 文法？</p>
+</blockquote>
+<p><img src="https://i.imgur.com/SkZeZY1.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/eC9gsif.png" srcset="/img/loading.gif" lazyload></p>
+<p>一个上下文无关文法是 $\text{LL}(1)$ 的充分必要条件是,</p>
+<p>对每个非终结符 $A$ 的两个不同产生式，$A \rightarrow \alpha$ $,$ $A \rightarrow \beta$，满足</p>
+<p>$$<br>\text{SELECT}(A \rightarrow \alpha) \cap \text{SELECT}(A \rightarrow \beta) &#x3D; \varnothing<br>$$</p>
+<p>其中 $\alpha、\beta$ 不同时能 $\stackrel{*}{\Rightarrow} \epsilon$。</p>
+<p>$\text{LL}(1)$ 的含义是：第 1 个 $\text{L}$ 表明自顶向下分析是从左向右扫描输入串，第 2 个 $\text{L}$ 表明分析过程中将用最左推导，1 表明只需要向右看一个符号便可决定如何推导，即选择哪个产生式（规则）进行推导。</p>
+<blockquote>
+<p>如何判别某文法是否是 $\text{LL}(1)$ 文法？</p>
+</blockquote>
+<p>首先计算 $\text{FIRST}$、$\text{FOLLOW}$、$\text{SELECT}$ 集合，然后根据定义判别文法是否是 $\text{LL}(1)$ 文法。</p>
+<blockquote>
+<p>在基本块范围内进行的优化？</p>
+</blockquote>
+<p>局部优化指的是在一个基本块范围内进行的优化。常见的局部优化有：</p>
+<ul>
+<li>常量传播</li>
+<li>常量合并</li>
+<li>删除公共子表达式</li>
+<li>复写传播</li>
+<li>删除无用代码</li>
+<li>代数化简</li>
+</ul>
+<blockquote>
+<p>循环优化的常见方法？</p>
+</blockquote>
+<ul>
+<li>代码外提</li>
+<li>归纳变量的删除</li>
+</ul>
+<blockquote>
+<p>文法描述的语言是<strong>由文法开始符推导的终结符号串</strong>的集合。</p>
+</blockquote>
+<blockquote>
+<p>何为可归前缀和活前缀？</p>
+</blockquote>
+<p>设文法 $G[S]$，如果 $S \stackrel{*}{\Rightarrow} \alpha A \omega$ $\Rightarrow \alpha \beta \omega$ 是句型 $\alpha \beta \omega$ 的规范推导，则 $\alpha \beta$ 称为<strong>可归前缀</strong>，$\alpha \beta$ 的前缀称为<strong>活前缀</strong>。</p>
+<p>活前缀就是可归前缀的前缀。</p>
+<p>例如文法 $G[S]$，</p>
+<p>$$<br>\begin{split}<br>S &amp;\rightarrow aAcBe \<br>A &amp;\rightarrow b \<br>A &amp;\rightarrow Ab \<br>B &amp;\rightarrow d<br>\end{split}<br>$$</p>
+<p>句型 $aAbcde$ 的句柄为 $Ab$，活前缀有：$\varepsilon$、$a$、$aA$ 和 $aAb$，其中，$aAb$ 为可归前缀。</p>
+<blockquote>
+<p>何为前缀？</p>
+</blockquote>
+<p>将符号串的任意含有头符号的子串称为<strong>前缀</strong>，特别地，空串 $\varepsilon$ 为任意串的前缀。</p>
+<blockquote>
+<p>如何将正则表达式（正规式）转成 $NFA$？</p>
+</blockquote>
+<p><img src="https://i.imgur.com/fOJVdfM.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/RlWv45O.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/Xz4JShv.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>如何将 $NFA$ 转成 $DFA$？</p>
+</blockquote>
+<p><img src="https://i.imgur.com/7kxQj4T.png" srcset="/img/loading.gif" lazyload></p>
+<p>按：在这里，像状态 $B$ 遇到 $a$，那么，其到达的状态是看成 $\varnothing$ 的。</p>
+<p><img src="https://i.imgur.com/HwHiVfv.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>一张预测分析表？</p>
+</blockquote>
+<p><img src="https://i.imgur.com/2kEstjG.png" srcset="/img/loading.gif" lazyload></p>
+<p>按：此为非递归的预测分析法，也叫表驱动的预测分析法。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" class="category-chain-item">编译原理</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" class="print-no-link">#编译原理</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>编译原理考试复习</div>
+      <div>http://fanyfull.github.io/2021/11/13/编译原理考试复习/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Fany Full</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年11月13日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/11/14/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" title="数据库第一次上机实验报告">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">数据库第一次上机实验报告</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/11/11/%E3%80%8A%E4%B8%80%E7%AB%99%E5%BC%8F%E5%AD%A6%E4%B9%A0-C-%E7%BC%96%E7%A8%8B%E3%80%8B%E9%98%85%E8%AF%BB%E6%89%8B%E8%AE%B0/" title="《一站式学习 C 编程》阅读手记">
+                        <span class="hidden-mobile">《一站式学习 C 编程》阅读手记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://fanyfull.github.io/2021/11/13/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/';
+          this.page.identifier = '/2021/11/13/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fanyfull' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

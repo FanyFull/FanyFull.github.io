@@ -1,0 +1,836 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="实验九 数据库的完整性设计一、实验目的熟练掌握使用 Navicat 和 Transact-SQL 语言两种方法创建、修改和删除表。掌握管理表的有关系统存储过程。 二、实验内容1、利用 Navicat 创建满足以下要求的数据库：① 数据库存在于连接 MySQL 中；② 数据库名称为 xsgl； ③ 字符集选择 utf8–UTF-8 Unicode；排序规则选择 utf8_general_ci。  1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库第三次上机实验报告">
+<meta property="og:url" content="http://fanyfull.github.io/2021/12/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:description" content="实验九 数据库的完整性设计一、实验目的熟练掌握使用 Navicat 和 Transact-SQL 语言两种方法创建、修改和删除表。掌握管理表的有关系统存储过程。 二、实验内容1、利用 Navicat 创建满足以下要求的数据库：① 数据库存在于连接 MySQL 中；② 数据库名称为 xsgl； ③ 字符集选择 utf8–UTF-8 Unicode；排序规则选择 utf8_general_ci。  1">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/vKgPXaK.png">
+<meta property="article:published_time" content="2021-12-08T10:22:57.000Z">
+<meta property="article:modified_time" content="2021-12-11T03:50:00.508Z">
+<meta property="article:author" content="Fany Full">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/vKgPXaK.png">
+  
+  
+  
+  <title>数据库第三次上机实验报告 - Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://i.imgur.com/vKgPXaK.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="数据库第三次上机实验报告"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-12-08 18:22" pubdate>
+          2021年12月8日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          5.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          44 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">数据库第三次上机实验报告</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="实验九-数据库的完整性设计"><a href="#实验九-数据库的完整性设计" class="headerlink" title="实验九 数据库的完整性设计"></a>实验九 数据库的完整性设计</h1><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>熟练掌握使用 Navicat 和 Transact-SQL 语言两种方法创建、修改和删除表。掌握管理表的有关系统存储过程。</p>
+<h2 id="二、实验内容"><a href="#二、实验内容" class="headerlink" title="二、实验内容"></a>二、实验内容</h2><p>1、利用 Navicat 创建满足以下要求的数据库：① 数据库存在于连接 MySQL 中；② 数据库名称为 xsgl； ③ 字符集选择 utf8–UTF-8 Unicode；排序规则选择 utf8_general_ci。</p>
+<p><img src="https://i.imgur.com/ngvRIPT.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> DATABASE IF <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> xsgl<br><span class="hljs-type">CHARACTER</span> <span class="hljs-keyword">SET</span> utf8<br><span class="hljs-keyword">COLLATE</span> utf8_general_ci;<br></code></pre></td></tr></table></figure>
+
+<p>2、在数据库 xsgl 中，利用 Navicat 和 SQL 语句创建以下表格：</p>
+<p>1）表格名为 xs（学生基本情况表），表格中各个属性的定义如下：</p>
+<p><img src="https://i.imgur.com/yoQt07s.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/vMuggV6.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> `xs` (<br>  `xh` <span class="hljs-type">int</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  `xm` <span class="hljs-type">char</span>(<span class="hljs-number">8</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>  `xb` <span class="hljs-type">char</span>(<span class="hljs-number">2</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>  `nl` tinyint <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>  `zy` <span class="hljs-type">char</span>(<span class="hljs-number">16</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>  `jtzz` <span class="hljs-type">char</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span><br>) ENGINE<span class="hljs-operator">=</span>InnoDB <span class="hljs-keyword">DEFAULT</span> CHARSET<span class="hljs-operator">=</span>utf8mb3;<br></code></pre></td></tr></table></figure>
+
+<p>2）表格名为 kc（课程情况表），表格中各个属性的定义如下：</p>
+<p><img src="https://i.imgur.com/r9GibC9.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/CuE7xbv.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> `kc` (<br>  `xh` <span class="hljs-type">int</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  `kch` <span class="hljs-type">int</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  `kcm` <span class="hljs-type">char</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>  `xss` <span class="hljs-type">int</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>  `xf` <span class="hljs-type">int</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>  `fs` <span class="hljs-type">int</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span><br>) ENGINE<span class="hljs-operator">=</span>InnoDB <span class="hljs-keyword">DEFAULT</span> CHARSET<span class="hljs-operator">=</span>utf8mb3;<br></code></pre></td></tr></table></figure>
+
+<p>&lt;1&gt;、在 xs 表中定义 xh 为主键。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> xs<br><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">PRIMARY</span> KEY(xh);<br></code></pre></td></tr></table></figure>
+
+<p>&lt;2&gt;、在 kc 表中定义 xh 和 kch 联合构成主键。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> kc<br><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">PRIMARY</span> KEY(xh, kch);<br></code></pre></td></tr></table></figure>
+
+<p>&lt;3&gt;、定义 kc 表中的 kcm 列满足唯一性约束。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> kc<br><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">UNIQUE</span>(kcm);<br></code></pre></td></tr></table></figure>
+
+<p>&lt;4&gt;、定义 kc 表中的 fs 列默认值为 0。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> kc<br><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">COLUMN</span> fs <span class="hljs-keyword">SET</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-number">0</span>;<br></code></pre></td></tr></table></figure>
+
+<p>&lt;5&gt;、定义 xs 表中的 xb 列的 CHECK 约束“男”或“女”。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> xs<br><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">CONSTRAINT</span> xb<br><span class="hljs-keyword">CHECK</span>(xb <span class="hljs-keyword">in</span> (<span class="hljs-string">&#x27;男&#x27;</span>, <span class="hljs-string">&#x27;女&#x27;</span>));<br></code></pre></td></tr></table></figure>
+
+<p>参考：<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/62516860/how-to-create-a-check-constraint-to-allow-certain-strings-in-a-table-mysql-8">stackoverflow</a></p>
+<p>&lt;6&gt;、在 xs 表与 kc 表之间定义外键 xh。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> kc<br><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">CONSTRAINT</span><br><span class="hljs-keyword">FOREIGN</span> KEY (xh) <br><span class="hljs-keyword">REFERENCES</span> xs(xh);<br></code></pre></td></tr></table></figure>
+
+<p>&lt;7&gt;、以下将创建一个学生—课程数据库，包括学生关系 Student、课程关系 Course 和选修关系 SC：</p>
+<ul>
+<li><p>① 建立学生-课程数据库 xskc，创建 Student 表，并将 Student 表中的 Sno 属性定义为主键。</p>
+<p>  <img src="https://i.imgur.com/Vi05SP7.png" srcset="/img/loading.gif" lazyload></p>
+<p>  <img src="https://i.imgur.com/3iUAoj8.png" srcset="/img/loading.gif" lazyload></p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> DATABASE IF <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> xskc<br><span class="hljs-type">CHARACTER</span> <span class="hljs-keyword">SET</span> utf8<br><span class="hljs-keyword">COLLATE</span> utf8_general_ci;<br><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> `student` (<br>    `Sno` <span class="hljs-type">char</span>(<span class="hljs-number">9</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>    `Sname` <span class="hljs-type">char</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>    `Ssex` <span class="hljs-type">smallint</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>    `Sdept` <span class="hljs-type">char</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>    <span class="hljs-keyword">PRIMARY</span> KEY (`Sno`)<br>) ENGINE<span class="hljs-operator">=</span>InnoDB <span class="hljs-keyword">DEFAULT</span> CHARSET<span class="hljs-operator">=</span>utf8mb3;<br></code></pre></td></tr></table></figure></li>
+<li><p>② 创建 Course 表和 SC 表，并将 SC 表中的 Sno, Cno 联合构成主键。</p>
+<p>  <img src="https://i.imgur.com/aa4Ooj7.png" srcset="/img/loading.gif" lazyload></p>
+<p>  <img src="https://i.imgur.com/lY5HJRm.png" srcset="/img/loading.gif" lazyload></p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> `course` (<br>    `Cno` <span class="hljs-type">char</span>(<span class="hljs-number">4</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>    `Cname` <span class="hljs-type">char</span>(<span class="hljs-number">40</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>    `Cpno` <span class="hljs-type">char</span>(<span class="hljs-number">40</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>    `Scredit` <span class="hljs-type">smallint</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span><br>) ENGINE<span class="hljs-operator">=</span>InnoDB <span class="hljs-keyword">DEFAULT</span> CHARSET<span class="hljs-operator">=</span>utf8mb3;<br><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> `sc` (<br>    `Sno` <span class="hljs-type">int</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>    `Cno` <span class="hljs-type">char</span>(<span class="hljs-number">4</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>    `Grade` <span class="hljs-type">smallint</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>    <span class="hljs-keyword">PRIMARY</span> KEY (`Sno`,`Cno`)<br>) ENGINE<span class="hljs-operator">=</span>InnoDB <span class="hljs-keyword">DEFAULT</span> CHARSET<span class="hljs-operator">=</span>utf8mb3;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>③ 定义 SC 表中的参照完整性</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> `sc` (<br>    `Sno` <span class="hljs-type">char</span>(<span class="hljs-number">9</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>    `Cno` <span class="hljs-type">char</span>(<span class="hljs-number">4</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>    `Grade` <span class="hljs-type">smallint</span>,<br>    <span class="hljs-keyword">PRIMARY</span> KEY (Sno,Cno),<br>    <span class="hljs-keyword">FOREIGN</span> KEY(Sno) <span class="hljs-keyword">REFERENCES</span> Student(Sno),<br>    <span class="hljs-keyword">FOREIGN</span> KEY(Cno) <span class="hljs-keyword">REFERENCES</span> Course(Cno)<br>) ENGINE<span class="hljs-operator">=</span>InnoDB <span class="hljs-keyword">DEFAULT</span> CHARSET<span class="hljs-operator">=</span>utf8mb3;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>④ 显示说明参照完整性的违约处理示例</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> SC<br>(Sno <span class="hljs-type">char</span>(<span class="hljs-number">9</span>),<br>Cno <span class="hljs-type">char</span>(<span class="hljs-number">4</span>),<br>Grade <span class="hljs-type">SMALLINT</span>,<br><span class="hljs-keyword">PRIMARY</span> KEY(Sno, Cno),<br><span class="hljs-keyword">FOREIGN</span> KEY(Sno) <span class="hljs-keyword">REFERENCES</span> Student(Sno)<br>        <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> CASCADE<br>        <span class="hljs-keyword">ON</span> <span class="hljs-keyword">UPDATE</span> CASCADE,<br><span class="hljs-keyword">FOREIGN</span> KEY(Cno) <span class="hljs-keyword">REFERENCES</span> Course(Cno)<br>        <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">NO</span> ACTION<br>        <span class="hljs-keyword">ON</span> <span class="hljs-keyword">UPDATE</span> CASCADE<br>);<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>⑤ 定义 SC 表 Grade 属性不允许为空</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> SC<br>(Sno <span class="hljs-type">char</span>(<span class="hljs-number">9</span>),<br>Cno <span class="hljs-type">char</span>(<span class="hljs-number">4</span>),<br>Grade <span class="hljs-type">SMALLINT</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br><span class="hljs-keyword">PRIMARY</span> KEY(Sno, Cno),<br><span class="hljs-keyword">FOREIGN</span> KEY(Sno) <span class="hljs-keyword">REFERENCES</span> Student(Sno)<br>        <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> CASCADE<br>        <span class="hljs-keyword">ON</span> <span class="hljs-keyword">UPDATE</span> CASCADE,<br><span class="hljs-keyword">FOREIGN</span> KEY(Cno) <span class="hljs-keyword">REFERENCES</span> Course(Cno)<br>        <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">NO</span> ACTION<br>        <span class="hljs-keyword">ON</span> <span class="hljs-keyword">UPDATE</span> CASCADE<br>);<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="三、课后练习题"><a href="#三、课后练习题" class="headerlink" title="三、课后练习题"></a>三、课后练习题</h2><p>1、新建名为 SPJ 的数据库。（其中数据表 S、P、J 和 SPJ 的关系模式及其含义见实验八）</p>
+<p>见实验八。</p>
+<p>2、在数据库 SPJ 中，合理地为库中每一个数据表定义主键和外键。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> `spj` (<br>  `SNO` <span class="hljs-type">char</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  `PNO` <span class="hljs-type">char</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  `JNO` <span class="hljs-type">char</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  `QTY` <span class="hljs-type">int</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  <span class="hljs-keyword">PRIMARY</span> KEY (`SNO`,`PNO`,`JNO`),<br>  KEY `PNO` (`PNO`),<br>  KEY `JNO` (`JNO`),<br>  <span class="hljs-keyword">CONSTRAINT</span> `spj_ibfk_1` <span class="hljs-keyword">FOREIGN</span> KEY (`SNO`) <span class="hljs-keyword">REFERENCES</span> `s` (`SNO`),<br>  <span class="hljs-keyword">CONSTRAINT</span> `spj_ibfk_2` <span class="hljs-keyword">FOREIGN</span> KEY (`PNO`) <span class="hljs-keyword">REFERENCES</span> `p` (`PNO`),<br>  <span class="hljs-keyword">CONSTRAINT</span> `spj_ibfk_3` <span class="hljs-keyword">FOREIGN</span> KEY (`JNO`) <span class="hljs-keyword">REFERENCES</span> `j` (`JNO`)<br>) ENGINE<span class="hljs-operator">=</span>InnoDB <span class="hljs-keyword">DEFAULT</span> CHARSET<span class="hljs-operator">=</span>utf8;<br></code></pre></td></tr></table></figure>
+
+<p>3、适当为各数据表及其字段添加约束（唯一性、默认值等）。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> `s` (<br>  `SNO` <span class="hljs-type">char</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  `SNAME` <span class="hljs-type">char</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>  `STATUS` <span class="hljs-type">char</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>  `CITY` <span class="hljs-type">char</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>  <span class="hljs-keyword">PRIMARY</span> KEY (`SNO`)<br>) ENGINE<span class="hljs-operator">=</span>InnoDB <span class="hljs-keyword">DEFAULT</span> CHARSET<span class="hljs-operator">=</span>utf8;<br><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> `p` (<br>  `PNO` <span class="hljs-type">char</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  `PNAME` <span class="hljs-type">char</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>  `COLOR` <span class="hljs-type">char</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>  `WEIGHT` <span class="hljs-type">int</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>  <span class="hljs-keyword">PRIMARY</span> KEY (`PNO`)<br>) ENGINE<span class="hljs-operator">=</span>InnoDB <span class="hljs-keyword">DEFAULT</span> CHARSET<span class="hljs-operator">=</span>utf8;<br><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> `j` (<br>  `JNO` <span class="hljs-type">char</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  `JNAME` <span class="hljs-type">char</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>  `CITY` <span class="hljs-type">char</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>  <span class="hljs-keyword">PRIMARY</span> KEY (`JNO`)<br>) ENGINE<span class="hljs-operator">=</span>InnoDB <span class="hljs-keyword">DEFAULT</span> CHARSET<span class="hljs-operator">=</span>utf8;<br></code></pre></td></tr></table></figure>
+
+<h2 id="四、思考题"><a href="#四、思考题" class="headerlink" title="四、思考题"></a>四、思考题</h2><p>1、使用参考语句创建好 xs 和 kc 两个表之后，语句中对于 xb 列的 CHECK 约束是否起作用？如果未起作用，思考语句通过却未起作用的原因。</p>
+<p>是。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> xs(xh, xm, xb) <span class="hljs-keyword">VALUES</span>(<span class="hljs-number">2021</span>, <span class="hljs-string">&#x27;张飞&#x27;</span>, <span class="hljs-string">&#x27;N&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<p>output:</p>
+<pre><code class="hljs">INSERT INTO xs(xh, xm, xb) VALUES(2021, &#39;张飞&#39;, &#39;N&#39;)
+&gt; 3819 - Check constraint &#39;xb&#39; is violated.
+&gt; Time: 0.001s
+</code></pre>
+<p>2、参考语句中参照完整性的违约处理示例“on delete cascade”和“on update cascade”的含义是什么？“on delete no action”又代表什么？</p>
+<p>“on delete cascade”：当删除 REFERENCE 的表中的元组时，同时删除本表中相应的元组。</p>
+<p>“on update cascade”：当更新 REFERENCE 的表中的元组时，同时更新删除本表中相应的元组。</p>
+<p>“on delete no action”：当删除 REFERENCE 的表中元组造成与本表不一致时，拒绝删除。</p>
+<h1 id="实验五-表数据的维护"><a href="#实验五-表数据的维护" class="headerlink" title="实验五 表数据的维护"></a>实验五 表数据的维护</h1><h2 id="一、实验目的-1"><a href="#一、实验目的-1" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>加深对数据安全性的理解，并掌握 Navicat 中有关用户，角色及操作权限的管理方法。</p>
+<h2 id="二、实验内容-1"><a href="#二、实验内容-1" class="headerlink" title="二、实验内容"></a>二、实验内容</h2><p>1、在 Navicat 中，管理建立用户和分配用户权限。</p>
+<p>在这里，我们可以发现 root 是 MySQL 最高级别权限的用户，它拥有查看、修改和删除 MySQL 软件中所有数据库的权限。当需要有多个数据库，并且分配给不同的用户使用，多个用户之间只有查看自己对应数据库的权限，不相互干扰, 需要建立多个数据库和用户，给用户设置管理指定数据库的权限。</p>
+<p>操作方法如下：<br>① 右键点击“MySQL”连接，选择“连接属性”，将“保存密码”取消。<br>② 鼠标右键点击“MySQL”连接，选择“创建数据库”，创建名为 xunmei 的数据库，字符集选择 utf8–UTF-8 Unicode 排序规则选择 utf8_general_ci。<br>③ 打开数据库 xunmei 后，点击界面上方的“用户”—“新建用户”—输入用户名“xmuser”、主机“localhost”、密码“1234”—保存（服务器权限自行定义）。<br>④点选新建的用户 xmuser—编辑用户—权限—添加权限–选择数据库 xunmei，添加相应权限（可不全选），如图1.1所示：<br>⑥设置到此完成。为了验证我们的设置是否正确，我们可以用刚才建立的用户 xmuser 和密码 1234 来连接 localhost 主机地址（方法：关闭连接 MySQL，该连接属于最高权限用户 root。我们用新用户新建一个到 localhost 的连接来模拟不同用户使用数据库的过程）。连上后，可使用用户 xmuser 对数据库 xunmei 或其他数据库进行操作，看是否与自己设置的权限相吻合。（可只添加添加少量权限，然后尝试在 xunmei 里进行操作，看是否能成功）。</p>
+<p><img src="https://i.imgur.com/v4Sq9Gv.png" srcset="/img/loading.gif" lazyload></p>
+<p>按：这里要注意 <code>Server Privileges</code> 和 <code>Privileges</code> 的使用，<code>Server Privileges</code> 的权限是很大的，一般来说，我们只需要操作 <code>Privileges</code>，不然，可能会出现 <code>Privileges</code> 被 <code>Server Privileges</code> 覆盖的情况。</p>
+<p><img src="https://i.imgur.com/yY32p1R.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="三、课后练习题-1"><a href="#三、课后练习题-1" class="headerlink" title="三、课后练习题"></a>三、课后练习题</h2><p>1、使用两个不同的用户通过 Navicat 和查询分析器查看 world 数据库中 country、city 两个表的所有数据。  </p>
+<p><img src="https://i.imgur.com/WhMGVDl.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/E2MEF6t.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/DZ6HEo4.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/hNITSae.png" srcset="/img/loading.gif" lazyload></p>
+<p>2、删除用户 xmuser，尝试新建另一个用户来管理数据库、表等：<br>添加新用户对数据库 world 的权限，比较在有无相关权限的情况之下进行操作的区别：</p>
+<ul>
+<li>①	Create。尝试新建表</li>
+<li>②	Update。尝试修改表数据或结构</li>
+<li>③ Select。尝试查询表</li>
+<li>④ Alt。尝试修改表</li>
+<li>⑤	Drop。尝试删除表</li>
+</ul>
+<p>新建用户 fanyfull，密码 1234。</p>
+<p>有权限的情况下：</p>
+<p><img src="https://i.imgur.com/m1JeNBk.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/GZFrdbd.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/40NogiF.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/PHmdpdM.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/OQepBmO.png" srcset="/img/loading.gif" lazyload></p>
+<p>没有权限：</p>
+<p><img src="https://i.imgur.com/nwIXhAE.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="四、思考题-1"><a href="#四、思考题-1" class="headerlink" title="四、思考题"></a>四、思考题</h2><p>1、解释 10 个数据库操作权限的含义和影响。</p>
+<p><img src="https://i.imgur.com/RhycC2S.png" srcset="/img/loading.gif" lazyload></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html">MySQL 8 docs</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-chain-item">数据库</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="print-no-link">#数据库</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>数据库第三次上机实验报告</div>
+      <div>http://fanyfull.github.io/2021/12/08/数据库第三次上机实验报告/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Fany Full</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年12月8日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/12/09/LeetCode-21-25-%E8%AE%B0%E5%BD%95/" title="LeetCode 21 - 25 记录">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">LeetCode 21 - 25 记录</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/06/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E4%BD%9C%E4%B8%9A%E4%B8%89/" title="面向对象系统分析与设计作业三">
+                        <span class="hidden-mobile">面向对象系统分析与设计作业三</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://fanyfull.github.io/2021/12/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/';
+          this.page.identifier = '/2021/12/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fanyfull' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

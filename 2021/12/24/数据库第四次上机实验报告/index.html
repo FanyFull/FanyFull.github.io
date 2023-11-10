@@ -1,0 +1,904 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="咳咳，数据库实验十三准备重构中… 之前摆烂，现在得还债了。 实验十一 数据库的备份与恢复一、实验目的了解 Navicat 的数据备份和恢复机制，掌握 Navicat 中数据库备份和恢复的方法。 二、实验内容1、备份 步骤：使用用户 root 打开连接 MySQL —打开数据库 world —点击界面上方的“备份”—新建备份，如图所示：   点击“backup”—成功完成后点击保存—保存名称为 wo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库第四次上机实验报告">
+<meta property="og:url" content="http://fanyfull.github.io/2021/12/24/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%AC%E5%9B%9B%E6%AC%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:description" content="咳咳，数据库实验十三准备重构中… 之前摆烂，现在得还债了。 实验十一 数据库的备份与恢复一、实验目的了解 Navicat 的数据备份和恢复机制，掌握 Navicat 中数据库备份和恢复的方法。 二、实验内容1、备份 步骤：使用用户 root 打开连接 MySQL —打开数据库 world —点击界面上方的“备份”—新建备份，如图所示：   点击“backup”—成功完成后点击保存—保存名称为 wo">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/yO2L4wB.png">
+<meta property="article:published_time" content="2021-12-24T02:48:15.000Z">
+<meta property="article:modified_time" content="2021-12-29T15:50:02.333Z">
+<meta property="article:author" content="Fany Full">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/yO2L4wB.png">
+  
+  
+  
+  <title>数据库第四次上机实验报告 - Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://i.imgur.com/yO2L4wB.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="数据库第四次上机实验报告"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-12-24 10:48" pubdate>
+          2021年12月24日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          34 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">数据库第四次上机实验报告</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>咳咳，数据库实验十三准备重构中…</p>
+<p>之前摆烂，现在得还债了。</p>
+<h1 id="实验十一-数据库的备份与恢复"><a href="#实验十一-数据库的备份与恢复" class="headerlink" title="实验十一 数据库的备份与恢复"></a>实验十一 数据库的备份与恢复</h1><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>了解 Navicat 的数据备份和恢复机制，掌握 Navicat 中数据库备份和恢复的方法。</p>
+<h2 id="二、实验内容"><a href="#二、实验内容" class="headerlink" title="二、实验内容"></a>二、实验内容</h2><p>1、备份</p>
+<p>步骤：使用用户 root 打开连接 MySQL —打开数据库 world —点击界面上方的“备份”—新建备份，如图所示：</p>
+<p><img src="https://i.imgur.com/5syemCi.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/MacUG55.png" srcset="/img/loading.gif" lazyload></p>
+<p>点击“backup”—成功完成后点击保存—保存名称为 world —确定，结果如图1.2所示：</p>
+<p><img src="https://i.imgur.com/6Zp5b6g.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/56HYLAy.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/iFSpurc.png" srcset="/img/loading.gif" lazyload></p>
+<p>2、恢复还原</p>
+<p>步骤：接第1部分操作—删除数据库 world — 在连接 MySQL 中新建一个空的数据库 world（名称需相同）–打开—点击“备份”可以看到如图所示界面：</p>
+<p><img src="https://i.imgur.com/yR8kCpc.png" srcset="/img/loading.gif" lazyload></p>
+<p>选择标有时间的备份文件—点击“还原备份”，会弹出如所示对话框：</p>
+<p><img src="https://i.imgur.com/jaU0043.png" srcset="/img/loading.gif" lazyload></p>
+<p>点击开始—确定。</p>
+<p>过程成功之后会发现数据库 world 已成功恢复（可能需要先关闭再打开）。</p>
+<p><img src="https://i.imgur.com/U0G8ifT.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/CtatXhd.png" srcset="/img/loading.gif" lazyload></p>
+<p>3、用 Navicat 计划任务备份 MySQL 数据库。</p>
+<p>备份连接 MySQL 中的所有数据库（也可以单独选择某一数据库进行备份）：</p>
+<p>① 点击“计划” -&gt; “新建批处理作业”<br>② 默认就有“Backup Server MySQL”这个备份动作。如图所示：</p>
+<p><img src="https://i.imgur.com/dG8mylR.png" srcset="/img/loading.gif" lazyload></p>
+<p>③ 双击它，它就被加入到了如图所示的计划队列中：</p>
+<p><img src="https://i.imgur.com/euv8DoD.png" srcset="/img/loading.gif" lazyload></p>
+<p>④ 点击“保存”，弹出设置文件名的对话框，输入这个计划的名称即可，如图所示：</p>
+<p><img src="https://i.imgur.com/Lt6G8cR.png" srcset="/img/loading.gif" lazyload></p>
+<p>⑤ 保存之后，任务栏上的“设置计划任务”变成可用状态。点击“设置计划任务”（可能会报错：“指定的错误：0x80041315，任务计划程序服务没有运行。”或者“指定错误：0x80070005：拒绝访问”解决方法见本实验的步骤4），弹出设置的对话框。在“任务”标签下设置密码，就是数据库所在电脑的登录密码，没有的话可以不设。如图所示：</p>
+<p><img src="https://i.imgur.com/qkX01bX.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/NaJTprK.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/0KZoriQ.png" srcset="/img/loading.gif" lazyload></p>
+<p>⑦ 设置完之后，点击确定，等这个计划运行过之后（可以控制设置的时间以尽快看到结果），看一下备份的效果，备份的文件的位置为：“我的文档” -&gt; “Navicat” -&gt; “MySQL” -&gt; “servers” -&gt; “MySQL”，里面就有各个数据库对应的文件夹，如图所示：</p>
+<p><img src="https://i.imgur.com/ESzgRCK.png" srcset="/img/loading.gif" lazyload></p>
+<p>⑧ 各文件中会生成 <code>.psc</code> 文件，包含了这个库的数据，以后可以用来做还原。如图所示：</p>
+<p><img src="https://i.imgur.com/szp48Av.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="三、课后练习题"><a href="#三、课后练习题" class="headerlink" title="三、课后练习题"></a>三、课后练习题</h2><p>1、创建一个备份设备用于备份数据库 master，并尝试还原数据库 master。</p>
+<p>备份：</p>
+<p><img src="https://i.imgur.com/tVVY2wR.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/cVjoGHI.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/5VOht1M.png" srcset="/img/loading.gif" lazyload></p>
+<p>还原：</p>
+<p><img src="https://i.imgur.com/V7A94Vq.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/UMlBQ7z.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/rfiCMSB.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/yEdMRGZ.png" srcset="/img/loading.gif" lazyload></p>
+<p>2、实验二中所用到的导出和导入方法也可以达到备份的效果，尝试用该方法备份和还原数据库 world。</p>
+<p>备份：</p>
+<p><img src="https://i.imgur.com/E7GrK7f.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/Xk4W0Le.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/4M3IJQt.png" srcset="/img/loading.gif" lazyload></p>
+<p>还原：</p>
+<p><img src="https://i.imgur.com/R3vy0cB.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/AdiFjwK.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/31h8sFj.png" srcset="/img/loading.gif" lazyload></p>
+<p>3、思考题：备份策略和备份规划指的分别是什么？</p>
+<p>备份策略：全量数据备份、增量数据备份、日志备份</p>
+<p>备份规划：备份的时间、内容、频率等等</p>
+<p>4、给数据库 world 设计一个备份规划（频率和时间自定，要可看到结果）。</p>
+<p><img src="https://i.imgur.com/i1Csi7R.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/6sXmneV.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/2t5qQxm.png" srcset="/img/loading.gif" lazyload></p>
+<p>结果：</p>
+<p><img src="https://i.imgur.com/YUYwajU.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="实验十三-综合实验"><a href="#实验十三-综合实验" class="headerlink" title="实验十三 综合实验"></a>实验十三 综合实验</h1><h2 id="一、实验目的-1"><a href="#一、实验目的-1" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>1、熟悉数据库应用系统需求分析；</p>
+<p>2、熟悉数据库设计的基本方法；</p>
+<p>3、掌握数据库和数据表的创建方法；</p>
+<p>4、掌握视图的创建方法；</p>
+<p>5、了解各种数据完整性约束；</p>
+<p>6、对存储过程和触发器有一个完整的认识。</p>
+<h2 id="二、实验要求"><a href="#二、实验要求" class="headerlink" title="二、实验要求"></a>二、实验要求</h2><p>给出网上书店管理系统的需求分析报告（见四），要求根据功能分析和数据分析设计概念模型，实现完整的数据库（包括：各种表，视图，必要的存储过程，触发器等）。</p>
+<h2 id="三、实验内容和步骤"><a href="#三、实验内容和步骤" class="headerlink" title="三、实验内容和步骤"></a>三、实验内容和步骤</h2><p>1、需求分析：</p>
+<p>一个书店中的书籍类别、数量是非常庞大的，虽然书籍的分类是非常规范，但仅仅局限于概念上的分类仍无法运用于实践当中，这就给管理人员带来了极大的工作量，因此就需要一个比较科学的管理办法来解决此问题——利用 MySQL 数据库来进行数据管理。</p>
+<p>2、概要分析：</p>
+<p>该系统主要分为两部分，一个为普通会员用户部分，亦即前台系统。另外一个是系统的管理员部分，即后台系统。网上书店前台系统部分主要是实现网上选书、购书、产生订单等功能的系统。后台实现书籍管理、用户管理、订单处理等功能。</p>
+<p>3、开发技术：</p>
+<p>MySQL 8.0.25，Navicat。</p>
+<p>开发语言：MySQL</p>
+<p>开发技术：数据库开发技术</p>
+<p>面向对象：需求者</p>
+<p>4、系统 E-R 图</p>
+<p><img src="https://i.imgur.com/ptQ14JN.png" srcset="/img/loading.gif" lazyload></p>
+<p>5、概念结构设计</p>
+<p>系统共有 6 个实体：图书目录、图书库存、采购、客户、订单、发货、供应商</p>
+<p>（1）图书目录的属性：书号、书名、作者、出版社、价格、关键字、本书的目录、封皮</p>
+<p>（2）图书库存的属性：书号、存货量、供书商、丛书、库存存放位置</p>
+<p>（3）采购的属性：书号、书名、出版社、供书商、数量、登记日期、顾客email</p>
+<p>（4）客户的属性：网上ID、登录密码、名称、地址、帐户余额、信用等级</p>
+<p>（5）订单的属性：订单号、订货日期、客户ID、书号、订书数量、金额、发货地址、发货情况</p>
+<p>（6）供应商的属性：供应商编号、供应商基本信息、供应商供货信息、现有书目信息</p>
+<p>6、逻辑结构设计</p>
+<p>图书（书号，书名，出版社，价格，目录，封皮）</p>
+<p>作者（作者名，书号，顺序号）</p>
+<p>关键字（关键字，书号）</p>
+<p>供应（书号，供书商）</p>
+<p>丛书（书号，书名）</p>
+<p>库存（书号，存货量，库存存放位置）</p>
+<p>采购单（书号，数量，登记日期，顾客email）</p>
+<p>客户（网上ID，登录密码，名称，地址，帐户余额，信用等级，信用额度）</p>
+<p>订单（订单号，订货日期，客户ID，订单金额）</p>
+<p>订单中的书（订单号，书号，数量）</p>
+<p>发货（订单号，发货情况）</p>
+<p>供应商（供应商编号，供应商基本信息）</p>
+<p>供应商供货（供应商编号，供应商供货信息）</p>
+<p>供应商现有书目（供应商编号，书号，数量）</p>
+<p>7、细化表结构</p>
+<p>(1) 图书信息表book_info：</p>
+<p><img src="https://i.imgur.com/QBzALcc.png" srcset="/img/loading.gif" lazyload></p>
+<p>(2) 作者信息表 author_list：</p>
+<p><img src="https://i.imgur.com/WhUw8EC.png" srcset="/img/loading.gif" lazyload></p>
+<p>(3) 关键字表 keywords_list：</p>
+<p><img src="https://i.imgur.com/0N6fvKY.png" srcset="/img/loading.gif" lazyload></p>
+<p>(4) 供应表 provide_list：</p>
+<p><img src="https://i.imgur.com/xLuSelR.png" srcset="/img/loading.gif" lazyload></p>
+<p>(5) 丛书情况表 series_book：</p>
+<p><img src="https://i.imgur.com/Hkx3QgN.png" srcset="/img/loading.gif" lazyload></p>
+<p>(6) 库存情况表 reserve_info：</p>
+<p><img src="https://i.imgur.com/f9ovJ2M.png" srcset="/img/loading.gif" lazyload></p>
+<p>(7) 采购表 purchase_list：</p>
+<p><img src="https://i.imgur.com/kgp1sMR.png" srcset="/img/loading.gif" lazyload></p>
+<p>(8) 客户表 customer_info：</p>
+<p><img src="https://i.imgur.com/bMwb5k1.png" srcset="/img/loading.gif" lazyload></p>
+<p>(9) 订单表 order_list：</p>
+<p><img src="https://i.imgur.com/uUP2I1b.png" srcset="/img/loading.gif" lazyload></p>
+<p>(10) 订单中的书 books_in_order：</p>
+<p><img src="https://i.imgur.com/T4soVAb.png" srcset="/img/loading.gif" lazyload></p>
+<p>(11) 发货表 delivery_info：</p>
+<p><img src="https://i.imgur.com/LKeBT8W.png" srcset="/img/loading.gif" lazyload></p>
+<p>(12) 供应商 provider_list：</p>
+<p><img src="https://i.imgur.com/ZfXACo1.png" srcset="/img/loading.gif" lazyload></p>
+<p>(13) 供应商供货 provider_supply：</p>
+<p><img src="https://i.imgur.com/xAcxr7K.png" srcset="/img/loading.gif" lazyload></p>
+<p>(14) 供应商现有书目 provider_books：</p>
+<p><img src="https://i.imgur.com/UaD0xNz.png" srcset="/img/loading.gif" lazyload></p>
+<p>8、创建数据库</p>
+<p><img src="https://i.imgur.com/dSXxtMD.png" srcset="/img/loading.gif" lazyload></p>
+<p>9、创建数据表及必要的约束：</p>
+<p><img src="https://i.imgur.com/b81103u.png" srcset="/img/loading.gif" lazyload></p>
+<p>10、建立必要的视图：</p>
+<p><img src="https://i.imgur.com/QgHQWYQ.png" srcset="/img/loading.gif" lazyload></p>
+<p>11、创建必要的外键：</p>
+<p><img src="https://i.imgur.com/DndpFW1.png" srcset="/img/loading.gif" lazyload></p>
+<p>12、创建必要的触发器：</p>
+<p><img src="https://i.imgur.com/eeFLXLI.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="四、相关资料"><a href="#四、相关资料" class="headerlink" title="四、相关资料"></a>四、相关资料</h2><p><strong>网上书店管理系统的需求分析报告</strong></p>
+<p>设计一个小型的数据库应用系统，服务于一个网上书店的日常处理业务及网上购书业务，包括供书目录、库存管理、采购管理、客户管理，顾客订单管理、发货管理，供应商管理及网上浏览等。</p>
+<p>总体设计要求：书店内部日常处理业务通过C&#x2F;S模式来实现，而顾客可通过Internet进行网上订书及查询浏览，为改善性能，应尽量将业务规则放在中间层或数据库服务器一端。<br>该系统的主要功能如下：</p>
+<p>1、供书目录及库存管理</p>
+<p>供书目录管理及库存管理为书店的主要日常业务，应包括建立和更新供书目录，新书入库功能等。需要记录供书的信息有：书号，书名，作者（最多可包括四个作者，有序），出版社，价格，关键字（最多10个），本书的目录（可选），封皮（可选），存货量，供书商（一本书可有多个供应商，可选）等，并且需考虑丛书的问题（即一个书号包含多本书），库存存放位置（可采用示意图表示，可选）。</p>
+<p>2、采购管理</p>
+<p>采购管理为书店的主要日常业务之一，包括缺书登记管理及采购单管理。<br>缺书登记可通过以下几种方法生成：</p>
+<ul>
+<li>1）直接进行缺书登记，包括书号，书名，出版社，供书商，数量，登记日期。</li>
+<li>2）存书量低于一定限度时，自动生成缺书记录（注：不能有重复）,最低存书量可设定。（可选）</li>
+<li>3）顾客在网上进行缺书登记或订货数量超出库存时，生成缺书记录（注：不能有重复），必要时，应记录下顾客的缺书请求，以便答复。（可选）<br>采购单管理：根据缺书记录单可选择生成采购单，到货时对采购单作相应处理，并增加库存量，删除缺书记录，EMAIL通知缺书登记的顾客（可选）等。</li>
+</ul>
+<p>采购单管理：根据缺书记录单可选择生成采购单，到货时对采购单作相应处理，并增加库存量，删除缺书记录，EMAIL 通知缺书登记的顾客（可选）等。</p>
+<p>3、客户管理</p>
+<p>客户管理包括客户信息管理及信用管理。需要记录客户的信息包括：网上 ID，登录密码，名称，地址，帐户余额，信用等级等。</p>
+<p>有关客户信息的管理，分别由书店管理和客户网上管理完成，书店管理包括收到客户的款项后，增加客户的帐户余额；调整信用额度。客户其他信息由客户在网上维护，如注册一个新的用户，修改用户信息等等。</p>
+<p>信用等级分为五级，一级为 10% 的折扣，不能透支；二级为 15% 的折扣，不能透支；三级为15%的折扣，可先发书再付款，透支有额度限制；四级为 20% 的折扣，可先发书再付款，透支有额度限制；五级为 25% 的折扣，可先发书再付款，透支无额度限制。信用等级管理有两种形式：一种是书店进行管理；一种是自动进行管理，即在每月月初根据该帐户的余额或累计购书总金额进行调整，如帐户余额超过一定金额，提升其信用额度，或者累计购书总金额超过一定金额提升其信用额度（可选）。</p>
+<p>4、顾客订单管理和发货管理</p>
+<p>顾客订单包括订单号，订货日期，客户ID，书号，订书数量，金额，发货地址，发货情况等。</p>
+<p>订单由顾客在网上申请生成。一个订单可订多本书（可选）。并仅能对书库中已有的书目进行订购，库存量不足时可以先订货；当客户查询的书目在书库中没有找到时，将会询问客户是否希望做进一步的询价及报价。</p>
+<p>发货管理为书店日常业务管理之一，必须根据订单情况及客户的信用等级判断其付款额是否到帐，并相应扣减其帐户余额后，才能发货。对一个订单可分次发货（可选）</p>
+<p>5、供应商管理</p>
+<p>供应商相关信息，包括：供应商基本信息，供应商供货信息，并且不同的供应商发布自己现有书目信息。</p>
+<p>6、网上浏览查询</p>
+<p>可查询以下二类信息：</p>
+<ul>
+<li>1）客户相关信息，包括：客户基本信息，客户历史订单信息，相关订单的发货信息等。</li>
+<li>2）书目信息：可按照书号，书名，出版社，关键字（可指定匹配程度（可选））、作者（按第一，第二……作者查询（可选）），进行查询，并可进行模糊查询（可选）。<br>要求：必须根据所有必选的功能和数据需求设计实现完整的数据库（包括：各种表，视图，必要的存储过程，触发器等）。</li>
+</ul>
+<hr>
+<p>参考：</p>
+<p>1、<a target="_blank" rel="noopener" href="https://blog.csdn.net/lee1hong/article/details/105763631?spm=1001.2014.3001.5501">哆啦一泓</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-chain-item">数据库</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="print-no-link">#数据库</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>数据库第四次上机实验报告</div>
+      <div>http://fanyfull.github.io/2021/12/24/数据库第四次上机实验报告/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Fany Full</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年12月24日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/12/28/LeetCode-26-30-%E8%AE%B0%E5%BD%95/" title="LeetCode 26 - 30 记录">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">LeetCode 26 - 30 记录</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E4%BD%9C%E4%B8%9A%E5%9B%9B/" title="面向对象系统分析与设计作业四">
+                        <span class="hidden-mobile">面向对象系统分析与设计作业四</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://fanyfull.github.io/2021/12/24/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%AC%E5%9B%9B%E6%AC%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/';
+          this.page.identifier = '/2021/12/24/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%AC%E5%9B%9B%E6%AC%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fanyfull' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

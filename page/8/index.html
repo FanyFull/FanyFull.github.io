@@ -1,0 +1,1031 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Fany Full&#39;s Blog">
+<meta property="og:url" content="http://fanyfull.github.io/page/8/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Fany Full">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="我欲穿花寻路，直入白云深处，浩气展虹霓。"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          style="margin-top: 0">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/11/13/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/" target="_self">
+          <img src="https://i.imgur.com/NCn63ft.png" srcset="/img/loading.gif" lazyload alt="编译原理考试复习">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2021/11/13/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/" target="_self">
+          编译原理考试复习
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2021/11/13/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/" target="_self">
+        <div>
+          考完按：考完了，希望老师能给 60 分。最后一题考了代码优化的问题，什么划分代码块啦，什么找出循环啦，没复习到。就这样。  何为 $L(G)$？  文法 $G$ 所产生的语言定义为集合 $${ x| S \mathop{\Rightarrow}\limits^* x, 其中 S 为文法识别符号，且 x \in V^*_T}$$ 可用 $L(G)$ 表示该集合。  何为最左推导、最右推导、规范推导、
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-11-13 14:31" pubdate>
+              2021-11-13
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" class="category-chain-item">编译原理</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">#编译原理</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/11/11/%E3%80%8A%E4%B8%80%E7%AB%99%E5%BC%8F%E5%AD%A6%E4%B9%A0-C-%E7%BC%96%E7%A8%8B%E3%80%8B%E9%98%85%E8%AF%BB%E6%89%8B%E8%AE%B0/" target="_self">
+          <img src="https://i.imgur.com/EIoU6Yv.png" srcset="/img/loading.gif" lazyload alt="《一站式学习 C 编程》阅读手记">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2021/11/11/%E3%80%8A%E4%B8%80%E7%AB%99%E5%BC%8F%E5%AD%A6%E4%B9%A0-C-%E7%BC%96%E7%A8%8B%E3%80%8B%E9%98%85%E8%AF%BB%E6%89%8B%E8%AE%B0/" target="_self">
+          《一站式学习 C 编程》阅读手记
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2021/11/11/%E3%80%8A%E4%B8%80%E7%AB%99%E5%BC%8F%E5%AD%A6%E4%B9%A0-C-%E7%BC%96%E7%A8%8B%E3%80%8B%E9%98%85%E8%AF%BB%E6%89%8B%E8%AE%B0/" target="_self">
+        <div>
+          对于整数中的位的位运算？   &amp; 是按位与（Bitwise AND）运算符 | 是按位或（Bitwise OR）运算符 ~（Tilde）是按位取反（Bitwise NOT）运算符 ^（Caret）是按位异或（Bitwise XOR）运算符   奇偶性的英文？  Parity  不借助额外的存储空间，交换两个变量的值？  123a = a^b;b = b^a;a = a^b;  利用的原理
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-11-11 11:02" pubdate>
+              2021-11-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AF%BB%E4%B9%A6/" class="category-chain-item">读书</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%AF%BB%E4%B9%A6/">#读书</a>
+            
+              <a href="/tags/%E6%8A%80%E6%9C%AF/">#技术</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/11/10/%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/" target="_self">
+          <img src="https://i.imgur.com/9tigIEy.png" srcset="/img/loading.gif" lazyload alt="软件体系结构考试复习">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2021/11/10/%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/" target="_self">
+          软件体系结构考试复习
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2021/11/10/%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/" target="_self">
+        <div>
+          考完回忆华科软院以后如果还在的话，同志们可以参考一下。 题目的结构和打印店买的卷子的结构是一样的。 填空题考了一个关于性能的战术好像，总之是一个战术，要求写它的几个方面。 然后简答题有一题比较深刻，就是问架构师应如何和项目经理相互合作。 还有一个，为什么说架构师的沟通也很重要？ 大题就是自选项目，然后什么 ADD 啦，ATAM 啦，质量属性效用树啦等等分析。 最后一题是分析京东或者淘宝等购物网站针
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-11-10 20:04" pubdate>
+              2021-11-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%80%83%E8%AF%95/" class="category-chain-item">考试</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%80%83%E8%AF%95/">#考试</a>
+            
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">#软件体系结构</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/11/09/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AE%9E%E9%AA%8C%E6%89%8B%E8%AE%B0/" target="_self">
+          <img src="https://i.imgur.com/KsSdifk.png" srcset="/img/loading.gif" lazyload alt="编译原理实验手记">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2021/11/09/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AE%9E%E9%AA%8C%E6%89%8B%E8%AE%B0/" target="_self">
+          编译原理实验手记
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2021/11/09/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AE%9E%E9%AA%8C%E6%89%8B%E8%AE%B0/" target="_self">
+        <div>
+          知识点 如何理解 bison -d 的 -d 选项？  可以在英文版 flex and bison 中的 P13 找到如下解释：  First it runs bison with the -d (for “definitions” file) flag, which creates fb1-5.tab.c and fb1-5.tab.h, and it runs flex to create l
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-11-09 10:11" pubdate>
+              2021-11-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" class="category-chain-item">编译原理</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">#编译原理</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/11/08/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/" target="_self">
+          <img src="https://i.imgur.com/fMXf3Hk.png" srcset="/img/loading.gif" lazyload alt="数字图像处理考试复习">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2021/11/08/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/" target="_self">
+          数字图像处理考试复习
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2021/11/08/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/" target="_self">
+        <div>
+          一、图像处理的基本概念与术语  1. 数字图像？数字图像处理？  图像是一个二维亮度函数 \(f(x, y)\)。其中，\((x, y)\) 定义了空间坐标，\(f(x, y)\) 定义了该点的亮度或灰度。 数字图像处理是指图像的元素的空间坐标和亮度的数字化。数字图像是由有限的元素组成的，每一个元素都有一个特定的位置和幅值，这些元素称为图像元素或像素。 数字图像处理是指借用数字计算机处理数字图像。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-11-08 19:52" pubdate>
+              2021-11-08
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="category-chain-item">数字图像处理</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">#数字图像处理</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/11/07/Ubuntu-Linux-%E5%8D%87%E7%BA%A7-node-%E5%92%8C-npm/" target="_self">
+          <img src="https://i.imgur.com/hGydbgv.png" srcset="/img/loading.gif" lazyload alt="Ubuntu Linux 升级 node 和 npm">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2021/11/07/Ubuntu-Linux-%E5%8D%87%E7%BA%A7-node-%E5%92%8C-npm/" target="_self">
+          Ubuntu Linux 升级 node 和 npm
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2021/11/07/Ubuntu-Linux-%E5%8D%87%E7%BA%A7-node-%E5%92%8C-npm/" target="_self">
+        <div>
+          在 Ubuntu 21.10 中，使用 sudo apt install node 安装的 node 和 npm 的版本有点低，因为之后需要安装 Hexo，如果 node 版本过低的话，可能会报一些奇怪的错误，所以，这里就记录一下升级 node 和 npm 的过程。 按：其实只需要升级 node，因为 npm 是和 node 绑在一起的。 执行以下命令，用 npm 安装 node 工具包 n，使用
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-11-07 00:00" pubdate>
+              2021-11-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Ubuntu/" class="category-chain-item">Ubuntu</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Ubuntu/">#Ubuntu</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/11/05/Vim-%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/" target="_self">
+          <img src="https://i.imgur.com/lJy8vvR.png" srcset="/img/loading.gif" lazyload alt="Vim 使用笔记(快捷键)">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2021/11/05/Vim-%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/" target="_self">
+          Vim 使用笔记(快捷键)
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2021/11/05/Vim-%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/" target="_self">
+        <div>
+          Vim 设置相关问题 Vim 中和 IDEA 中的 Shift + Enter 快捷键相当的操作是什么？  Esc 回到 NORMAL 模式，然后按小写的 o，这样就会在当前行下面插入一行，并且光标会来到下一行的开头，模式会自动切换到 INSERT 模式。 如果是按大写的 O，那么，就会在当前行的上一行插入新的一行，然后光标来到上一行的开头，模式自动切换到 INSERT 模式。  如何设置 Vim
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-11-05 18:32" pubdate>
+              2021-11-05
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux/">#Linux</a>
+            
+              <a href="/tags/Vim/">#Vim</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/10/31/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E5%9B%9B/" target="_self">
+          <img src="https://i.imgur.com/BiRqHbs.png" srcset="/img/loading.gif" lazyload alt="编译原理作业四">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2021/10/31/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E5%9B%9B/" target="_self">
+          编译原理作业四
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2021/10/31/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E5%9B%9B/" target="_self">
+        <div>
+          1、已知文法  \[ A \rightarrow aAd | aAb | \varepsilon \] 判断该文法是否是 \(SLR(1)\) 文法，若是，请构造相应分析表，并对输入串 \(ab\#\) 给出分析过程。 解： 文法 \(A \rightarrow aAd | aAb | \varepsilon\) 的增广文法为 \(G^{&#39;}\)，增加产生式 \(S^{&#39;} \r
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-31 21:52" pubdate>
+              2021-10-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" class="category-chain-item">编译原理</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">#编译原理</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/10/30/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%B9%8B%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E5%88%86%E6%9E%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_self">
+          <img src="https://i.imgur.com/g2Q9mJv.png" srcset="/img/loading.gif" lazyload alt="编译原理之自底向上分析学习笔记">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2021/10/30/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%B9%8B%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E5%88%86%E6%9E%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_self">
+          编译原理之自底向上分析学习笔记
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2021/10/30/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%B9%8B%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E5%88%86%E6%9E%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_self">
+        <div>
+          系哈工大陈鄞慕课笔记。  “句柄”的另一个定义？  在“移入-归约”分析中，每次归约的符号串称为“句柄”。 又：句柄是句型的最左直接短语。 按：这个和句柄的最初的定义是一致且吻合的。  一个移入-归约分析的例子。    在移入-归约分析（可以参见上图）中，对 栈内符号串 + 剩余输入 = “规范句型” 的理解？  可以结合下面的定义来理解：  在形式语言中，最右推导常被称为规范推导。  由规范推导
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-30 21:23" pubdate>
+              2021-10-30
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" class="category-chain-item">编译原理</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">#编译原理</a>
+            
+              <a href="/tags/%E7%BD%91%E8%AF%BE%E7%AC%94%E8%AE%B0/">#网课笔记</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/10/30/Python-%E9%85%8D%E7%BD%AE-OpenCV-%E7%8E%AF%E5%A2%83/" target="_self">
+          <img src="https://i.imgur.com/3C4NhSJ.png" srcset="/img/loading.gif" lazyload alt="Python 配置 OpenCV 环境">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2021/10/30/Python-%E9%85%8D%E7%BD%AE-OpenCV-%E7%8E%AF%E5%A2%83/" target="_self">
+          Python 配置 OpenCV 环境
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2021/10/30/Python-%E9%85%8D%E7%BD%AE-OpenCV-%E7%8E%AF%E5%A2%83/" target="_self">
+        <div>
+          在安装好了 Python 环境之后，直接使用 pip 命令安装即可： 1pip install opencv-python   我这里是使用 PyCharm 这个 IDE，并且使用了虚拟的 Python 环境，所以就在 PyCharm 提供的 Terminal 中进行安装。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-30 17:26" pubdate>
+              2021-10-30
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/OpenCV/" class="category-chain-item">OpenCV</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Python/">#Python</a>
+            
+              <a href="/tags/OpenCV/">#OpenCV</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/7/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#board">6</a><a class="page-number" href="/page/7/#board">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/#board">9</a><a class="page-number" href="/page/10/#board">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/#board">17</a><a class="extend next" rel="next" href="/page/9/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

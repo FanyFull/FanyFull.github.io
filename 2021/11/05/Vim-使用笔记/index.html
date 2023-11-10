@@ -1,0 +1,959 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Vim 设置相关问题 Vim 中和 IDEA 中的 Shift + Enter 快捷键相当的操作是什么？  Esc 回到 NORMAL 模式，然后按小写的 o，这样就会在当前行下面插入一行，并且光标会来到下一行的开头，模式会自动切换到 INSERT 模式。 如果是按大写的 O，那么，就会在当前行的上一行插入新的一行，然后光标来到上一行的开头，模式自动切换到 INSERT 模式。  如何设置 Vim">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vim 使用笔记(快捷键)">
+<meta property="og:url" content="http://fanyfull.github.io/2021/11/05/Vim-%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:description" content="Vim 设置相关问题 Vim 中和 IDEA 中的 Shift + Enter 快捷键相当的操作是什么？  Esc 回到 NORMAL 模式，然后按小写的 o，这样就会在当前行下面插入一行，并且光标会来到下一行的开头，模式会自动切换到 INSERT 模式。 如果是按大写的 O，那么，就会在当前行的上一行插入新的一行，然后光标来到上一行的开头，模式自动切换到 INSERT 模式。  如何设置 Vim">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/lJy8vvR.png">
+<meta property="article:published_time" content="2021-11-05T10:32:16.000Z">
+<meta property="article:modified_time" content="2021-12-03T16:04:30.905Z">
+<meta property="article:author" content="Fany Full">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Vim">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/lJy8vvR.png">
+  
+  
+  
+  <title>Vim 使用笔记(快捷键) - Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://i.imgur.com/lJy8vvR.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Vim 使用笔记(快捷键)"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-11-05 18:32" pubdate>
+          2021年11月5日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          2.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          22 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Vim 使用笔记(快捷键)</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Vim-设置相关问题"><a href="#Vim-设置相关问题" class="headerlink" title="Vim 设置相关问题"></a>Vim 设置相关问题</h1><blockquote>
+<p>Vim 中和 IDEA 中的 Shift + Enter 快捷键相当的操作是什么？</p>
+</blockquote>
+<p>Esc 回到 NORMAL 模式，然后按小写的 o，这样就会在当前行下面插入一行，并且光标会来到下一行的开头，模式会自动切换到 INSERT 模式。</p>
+<p>如果是按大写的 O，那么，就会在当前行的上一行插入新的一行，然后光标来到上一行的开头，模式自动切换到 INSERT 模式。</p>
+<blockquote>
+<p>如何设置 Vim 大括号自动补全并且换行对齐？</p>
+</blockquote>
+<p>首先，要有以下的配置：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">set</span> smartindent<br><span class="hljs-keyword">set</span> tabstop=<span class="hljs-number">4</span><br><span class="hljs-keyword">set</span> <span class="hljs-built_in">shiftwidth</span>=<span class="hljs-number">4</span><br><span class="hljs-keyword">set</span> expandtab<br></code></pre></td></tr></table></figure>
+
+<p>按：这个配置是用来设置智能缩进的。</p>
+<p>然后，添加映射：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">imap</span> &#123; &#123;&#125;<span class="hljs-symbol">&lt;ESC&gt;</span>i<span class="hljs-symbol">&lt;CR&gt;</span><span class="hljs-symbol">&lt;ESC&gt;</span>V&lt;O<br></code></pre></td></tr></table></figure>
+
+<p>按：这个自动补全似乎不是一个好主意。之后还是被我取消掉了。</p>
+<p>这个主要是为了写 C 语言时候用。</p>
+<blockquote>
+<p>如何设置 Vim 显示行号？</p>
+</blockquote>
+<p>添加如下配置：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">set</span> <span class="hljs-keyword">number</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Vim 有关 C 语言缩进相关的问题？</p>
+</blockquote>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">set</span> <span class="hljs-keyword">number</span><br><span class="hljs-keyword">set</span> tabstop=<span class="hljs-number">4</span><br><span class="hljs-keyword">set</span> softtabstop=<span class="hljs-number">4</span><br><span class="hljs-keyword">set</span> <span class="hljs-built_in">shiftwidth</span>=<span class="hljs-number">4</span><br><span class="hljs-keyword">set</span> autoindent<br><span class="hljs-keyword">set</span> <span class="hljs-built_in">cindent</span><br><span class="hljs-keyword">set</span> smartindent<br><span class="hljs-keyword">set</span> clipboard^=unnamed,unnamedplus<br><span class="hljs-keyword">source</span> $VIMRUNTIME/vimrc_example.<span class="hljs-keyword">vim</span><br><span class="hljs-keyword">set</span> nobackup<br><span class="hljs-keyword">set</span> noundofile<br></code></pre></td></tr></table></figure>
+
+<p>对于设置的解释：</p>
+<ul>
+<li>tabstop&#x3D;X  # 一个 TAB 字符占 X 个空格，C&#x2F;C++、python 都建议设置为 4，下同</li>
+<li>softtabstop&#x3D;X  # 前面有 X 个空格时，再按下一次 tab，这 X 个空格就会和上一个 X 个空格组合成一个制表符，也就是方便退格</li>
+<li>shiftwidth&#x3D;X  # 每行缩进 X 个空格</li>
+<li>autoindent  # 自动缩进</li>
+<li>cindent  # C 语言风格的缩进</li>
+<li>smartindent  # 智能缩进，每行都和前一行的缩进量相同，还能识别花括号，遇到 <code>&#123;</code> 则取消缩进。</li>
+<li>expandtab  # expandtab 是把输入的tab转换成空格</li>
+</ul>
+<blockquote>
+<p>设置字符编码相关？</p>
+</blockquote>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">set</span> fileencoding=utf-<span class="hljs-number">8</span><br><span class="hljs-keyword">set</span> encoding=utf-<span class="hljs-number">8</span><br><span class="hljs-keyword">set</span> termencoding=utf-<span class="hljs-number">8</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Windows 的 Vim 使其不要创建多余的文件？消除 <code>~</code> 和 <code>.un~</code> 后缀文件生成的操作？</p>
+</blockquote>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">set</span> nobackup<br><span class="hljs-keyword">set</span> noundofile<br></code></pre></td></tr></table></figure>
+
+<h1 id="Vim-快捷键相关问题"><a href="#Vim-快捷键相关问题" class="headerlink" title="Vim 快捷键相关问题"></a>Vim 快捷键相关问题</h1><blockquote>
+<p>基本操作？</p>
+</blockquote>
+<ul>
+<li><code>ESC</code>：从当前模式转换到 NORMAL 模式；</li>
+<li><code>i</code>：从 NORMAL 模式转到 INSERT 模式；</li>
+<li><code>:</code>：命令行模式。Vim 希望你输入类似于保存该文档命令的地方。</li>
+</ul>
+<h2 id="方向键"><a href="#方向键" class="headerlink" title="方向键"></a>方向键</h2><blockquote>
+<p>光标向左移动一个字符？</p>
+</blockquote>
+<p><code>h</code></p>
+<blockquote>
+<p>光标向下移动一行？</p>
+</blockquote>
+<p><code>j</code> 或 <code>Ctrl + J</code></p>
+<blockquote>
+<p>光标向上移动一行？</p>
+</blockquote>
+<p><code>k</code> 或 <code>Ctrl + P</code></p>
+<blockquote>
+<p>光标向右移动一个字符？</p>
+</blockquote>
+<p><code>l</code></p>
+<p>按：是英文字母 <code>l</code>。</p>
+<blockquote>
+<p>移动光标至本行开头？</p>
+</blockquote>
+<p><code>0</code></p>
+<p>按：是数字 <code>0</code>。</p>
+<blockquote>
+<p>移动光标到本行末尾？</p>
+</blockquote>
+<p><code>$</code></p>
+<blockquote>
+<p>移动光标至本行第一个非空字符处？</p>
+</blockquote>
+<p><code>^</code></p>
+<blockquote>
+<p>向右移动一个词？</p>
+</blockquote>
+<p><code>w</code></p>
+<p>按：上一个字母和数字组成的词之后。</p>
+<blockquote>
+<p>向右移动一个词？</p>
+</blockquote>
+<p><code>W</code></p>
+<p>按：以空格分隔的词。</p>
+<blockquote>
+<p>向右移动 5 个词？</p>
+</blockquote>
+<p><code>5w</code></p>
+<blockquote>
+<p>向左移动一个词？</p>
+</blockquote>
+<p><code>b</code></p>
+<p>按：下一个字母和数字组成的词之后。</p>
+<blockquote>
+<p>向左移动一个词？</p>
+</blockquote>
+<p><code>B</code></p>
+<p>按：以空格分隔的词。</p>
+<blockquote>
+<p>向左移动 5 个词？</p>
+</blockquote>
+<p><code>5b</code></p>
+<blockquote>
+<p>移动至文件末尾？</p>
+</blockquote>
+<p><code>G</code></p>
+<blockquote>
+<p>移动至文件开头？</p>
+</blockquote>
+<p><code>gg</code></p>
+<blockquote>
+<p>设置缓冲区使当前行居中？</p>
+</blockquote>
+<p>zz。</p>
+<h2 id="删除文本"><a href="#删除文本" class="headerlink" title="删除文本"></a>删除文本</h2><blockquote>
+<p>删除光标处字符？</p>
+</blockquote>
+<p><code>x</code></p>
+<blockquote>
+<p>删除一个词？</p>
+</blockquote>
+<p><code>dw</code>：从光标当前的位置开始删除，直到删除到单词的最后。</p>
+<p><code>daw</code>：删除光标所在的一个单词。delete a word。</p>
+<p><code>caw</code>：删除光标所在的一个单词，并且模式转成 INSERT 模式。</p>
+<ul>
+<li>如果该单词是在一段文字的中间部分，即，前面也有单词，后面也有单词，此时，此命令在删除单词的同时，会将此单词后面的空格连带着删除，但是不删除前面的空格。</li>
+<li>如果该单词是最后一个单词，并且后面紧跟着半角句号，那么，此命令会连带着删除原单词前面的空格。</li>
+<li>如果如果该单词是最后一个单词，并且后面没有标点符号，那么，此命令不会删除原单词前面的空格。</li>
+</ul>
+<p><code>bdw</code>：这是一个复合命令。b 可以让光标退回到单词开头的位置，而 dw 上面描述过的命令。</p>
+<blockquote>
+<p>删除光标前面的单词。</p>
+</blockquote>
+<p>在 NORMAL 模式下，键入 <code>Ctrl + W</code>。</p>
+<p>这个和在 bash 以及 PowerShell 中删除一个单词的方法是一样的。</p>
+<blockquote>
+<p>删除至行首？</p>
+</blockquote>
+<p><code>d0</code></p>
+<blockquote>
+<p>删除至行末？</p>
+</blockquote>
+<p><code>d$</code></p>
+<blockquote>
+<p>删除至句末？</p>
+</blockquote>
+<p><code>d)</code></p>
+<p>按：啥叫句末？</p>
+<blockquote>
+<p>删至文件开头？</p>
+</blockquote>
+<p><code>dgg</code></p>
+<blockquote>
+<p>删除至文件末尾？</p>
+</blockquote>
+<p><code>dG</code></p>
+<blockquote>
+<p>删除当前行？</p>
+</blockquote>
+<p><code>dd</code></p>
+<blockquote>
+<p>删除 3 行？</p>
+</blockquote>
+<p><code>3dd</code></p>
+<h2 id="剪切、复制"><a href="#剪切、复制" class="headerlink" title="剪切、复制"></a>剪切、复制</h2><blockquote>
+<p>剪切某一行？</p>
+</blockquote>
+<p>dd。</p>
+<blockquote>
+<p>如何全选复制？</p>
+</blockquote>
+<p>按 ESC 键后，先按 <code>gg</code>，然后按 <code>yG</code>。</p>
+<p>按：<code>gg</code> 是让光标回到文件开头，<code>yG</code> 是从当前行复制到文件结尾。</p>
+<blockquote>
+<p>复制一个单词？</p>
+</blockquote>
+<p><code>yaw</code>：复制光标所在处的单词。</p>
+<p><code>yw</code>：和 <code>dw</code> 类似，只是，这个是复制。从光标所在处复制，直到复制到单词的最后。</p>
+<p>更多见：<a target="_blank" rel="noopener" href="https://fanlumaster.github.io/2021/11/26/vim-%E7%9A%84%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/">vim 的复制粘贴</a>。</p>
+<h2 id="翻页"><a href="#翻页" class="headerlink" title="翻页"></a>翻页</h2><blockquote>
+<p>翻到下一页？</p>
+</blockquote>
+<p>在 vim 中翻页，同样可以使用 PageUp 和 PageDown，不过，这会使手指移出主键盘区。</p>
+<p>所以，可以使用 <code>Ctrl + B</code> 和 <code>Ctrl + F</code> 来进行翻页，它们的功能等同于 PageUp 和 PageDown。</p>
+<p><code>Ctrl + B</code> 和 <code>Ctrl + F</code> 前也可以加数字，来表示向上或向下翻多少页。</p>
+<blockquote>
+<p>向下翻一行？向上翻一行？</p>
+</blockquote>
+<ul>
+<li>向下：<code>Ctrl + E</code></li>
+<li>向上：<code>Ctrl + Y</code></li>
+</ul>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>In Vim, you can find and replace text using the :substitute (:s) command.</p>
+<blockquote>
+<p>搜索一个单词？</p>
+</blockquote>
+<p>按 <code>/</code> 然后输入要搜索的单词</p>
+<p>更多内容，见：</p>
+<h1 id="Some-Tricks"><a href="#Some-Tricks" class="headerlink" title="Some Tricks"></a>Some Tricks</h1><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">%s/./&amp;/g<br></code></pre></td></tr></table></figure>
+
+<p>按：<code>&amp;</code> 表示匹配到的内容。这个命令执行完之后，文本不会发生任何变化，但是会有一个 Side Effect，即我们会得到当前这个文本的字符数量。</p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><blockquote>
+<p>如何判断 Vim 是否剪切板？</p>
+</blockquote>
+<p>在 Shell 输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">vim --version | grep clipboard</span><br></code></pre></td></tr></table></figure>
+
+<p>如果输出包含 <code>+clipboard</code> 就表示支持，如果是 <code>-clipboard</code> 就表示不支持。</p>
+<p>如果不支持，Ubuntu 可以先卸载原来的 Vim，然后安装 vim-gtk。</p>
+<blockquote>
+<p>Window 下的 Git Bash 如何配置 Vim？</p>
+</blockquote>
+<p>在 <code>C:\Program Files\Git\etc</code> 目录下找到 vimrc 文件，然后使用 VSCode 打开进行配置（需要管理员权限）。</p>
+<hr>
+<p>参考：</p>
+<p>1、<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42037232/article/details/100069365">缩进相关</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
+      
+        <a href="/tags/Vim/" class="print-no-link">#Vim</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Vim 使用笔记(快捷键)</div>
+      <div>http://fanyfull.github.io/2021/11/05/Vim-使用笔记/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Fany Full</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年11月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/11/07/Ubuntu-Linux-%E5%8D%87%E7%BA%A7-node-%E5%92%8C-npm/" title="Ubuntu Linux 升级 node 和 npm">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Ubuntu Linux 升级 node 和 npm</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/31/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E5%9B%9B/" title="编译原理作业四">
+                        <span class="hidden-mobile">编译原理作业四</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://fanyfull.github.io/2021/11/05/Vim-%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/';
+          this.page.identifier = '/2021/11/05/Vim-%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fanyfull' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

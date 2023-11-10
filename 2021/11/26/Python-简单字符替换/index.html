@@ -1,0 +1,948 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="这里仅仅是作了一个简单的操作，即，将一个含有很多汉字的文本中的所有汉字都替换成 unicode 表中对应的下一个字符。然后输出。 123456789101112131415161718192021222324252627282930313233343536373839404142# -*- coding: utf-8 -*-# print all the Chinese characters# f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 简单字符替换">
+<meta property="og:url" content="http://fanyfull.github.io/2021/11/26/Python-%E7%AE%80%E5%8D%95%E5%AD%97%E7%AC%A6%E6%9B%BF%E6%8D%A2/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:description" content="这里仅仅是作了一个简单的操作，即，将一个含有很多汉字的文本中的所有汉字都替换成 unicode 表中对应的下一个字符。然后输出。 123456789101112131415161718192021222324252627282930313233343536373839404142# -*- coding: utf-8 -*-# print all the Chinese characters# f">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/WwWzuFV.png">
+<meta property="article:published_time" content="2021-11-26T03:17:32.000Z">
+<meta property="article:modified_time" content="2021-12-03T02:23:46.604Z">
+<meta property="article:author" content="Fany Full">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="小脚本">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/WwWzuFV.png">
+  
+  
+  
+  <title>Python 简单字符替换 - Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://i.imgur.com/WwWzuFV.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Python 简单字符替换"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-11-26 11:17" pubdate>
+          2021年11月26日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          25 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Python 简单字符替换</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>这里仅仅是作了一个简单的操作，即，将一个含有很多汉字的文本中的所有汉字都替换成 unicode 表中对应的下一个字符。然后输出。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><br><span class="hljs-comment"># print all the Chinese characters</span><br><span class="hljs-comment"># for i in range(0x4e00,0x9fa6):</span><br><span class="hljs-comment"># 	print (chr(i))</span><br><br><span class="hljs-built_in">str</span> = <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">【第一章】道可道，非常道；名可名，非常名。无名天地之始，有名万物之母。故常无欲，以观其妙；常</span><br><span class="hljs-string">有欲，以观其徼（jiào）。此两者同出而异名，同谓之玄，玄之又玄，众妙之门。〖译文〗</span><br><span class="hljs-string">【第二章】天下皆知美之为美，斯恶（è）已；皆知善之为善，斯不善已。故有无相生，难易相成，长短相</span><br><span class="hljs-string">较，高下相倾，音声相和（hè），前后相随。是以圣人处无为之事，行不言之教，万物作焉而不辞，生而</span><br><span class="hljs-string">不有，为而不恃，功成而弗居。夫（fú）唯弗居，是以不去。 〖译文〗</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><br><span class="hljs-comment"># judge whether a char is a chinese character</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">is_chinese</span>(<span class="hljs-params">char</span>):<br>    <span class="hljs-keyword">if</span> char &gt;= <span class="hljs-string">u&#x27;\u4e00&#x27;</span> <span class="hljs-keyword">and</span> char &lt;= <span class="hljs-string">u&#x27;\u9fa5&#x27;</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>reverted_str = <span class="hljs-string">&quot;&quot;&quot;&quot;&quot;&quot;</span><br><br><span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> <span class="hljs-built_in">str</span>:<br>    <span class="hljs-keyword">if</span> char == <span class="hljs-string">&quot;\n&quot;</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">r&quot;\n&quot;</span>, <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">ord</span>(char), <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-string">r&#x27;\n&#x27;</span>)<br>        reverted_str = reverted_str + char<br>        <span class="hljs-keyword">continue</span><br>    <span class="hljs-keyword">if</span> char == <span class="hljs-string">&#x27; &#x27;</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">r&quot;blank&quot;</span>, <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">ord</span>(char), <span class="hljs-string">&#x27;\t&#x27;</span>, char)<br>        reverted_str = reverted_str + char<br>        <span class="hljs-keyword">continue</span><br>    <span class="hljs-keyword">if</span> is_chinese(char) == <span class="hljs-literal">False</span>:<br>        <span class="hljs-built_in">print</span>(char, <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">ord</span>(char), <span class="hljs-string">&#x27;\t&#x27;</span>, char)<br>        reverted_str = reverted_str + char<br>        <span class="hljs-keyword">continue</span><br>    <span class="hljs-built_in">print</span>(char, <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">ord</span>(char), <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(char) + <span class="hljs-number">1</span>))<br>    reverted_str = reverted_str + <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(char) + <span class="hljs-number">1</span>)<br><br><span class="hljs-built_in">print</span>(reverted_str)<br><br><span class="hljs-comment"># print(&#x27;&gt;&#x27;, &#x27;\t&#x27;, ord(&#x27;&gt;&#x27;), &#x27;\t&#x27;, chr(ord(&#x27;&gt;&#x27;) + 1))</span><br></code></pre></td></tr></table></figure>
+
+<p>output:</p>
+<pre><code class="hljs">\n       10      \n
+【       12304   【
+第       31532   笭
+一       19968   丁
+章       31456   竡
+】       12305   】
+道       36947   達
+可       21487   台
+道       36947   達
+，       65292   ，
+非       38750   靟
+常       24120   帹
+道       36947   達
+；       65307   ；
+名       21517   后
+可       21487   台
+名       21517   后
+，       65292   ，
+非       38750   靟
+常       24120   帹
+名       21517   后
+。       12290   。
+无       26080   旡
+名       21517   后
+天       22825   太
+地       22320   圱
+之       20043   乌
+始       22987   姌
+，       65292   ，
+有       26377   朊
+名       21517   后
+万       19975   丈
+物       29289   牪
+之       20043   乌
+母       27597   毎
+。       12290   。
+故       25925   敆
+常       24120   帹
+无       26080   旡
+欲       27442   欳
+，       65292   ，
+以       20197   仦
+观       35266   觃
+其       20854   具
+妙       22937   妚
+；       65307   ；
+常       24120   帹
+\n       10      \n
+有       26377   朊
+欲       27442   欳
+，       65292   ，
+以       20197   仦
+观       35266   觃
+其       20854   具
+徼       24508   徽
+（       65288   （
+j        106     j
+i        105     i
+à        224     à
+o        111     o
+）       65289   ）
+。       12290   。
+此       27492   步
+两       20004   严
+者       32773   耆
+同       21516   名
+出       20986   击
+而       32780   耍
+异       24322   弃
+名       21517   后
+，       65292   ，
+同       21516   名
+谓       35859   谔
+之       20043   乌
+玄       29572   玅
+，       65292   ，
+玄       29572   玅
+之       20043   乌
+又       21448   叉
+玄       29572   玅
+，       65292   ，
+众       20247   优
+妙       22937   妚
+之       20043   乌
+门       38376   闩
+。       12290   。
+〖       12310   〖
+译       35793   诒
+文       25991   斈
+〗       12311   〗
+\n       10      \n
+【       12304   【
+第       31532   笭
+二       20108   亍
+章       31456   竡
+】       12305   】
+天       22825   太
+下       19979   丌
+皆       30342   皇
+知       30693   矦
+美       32654   羏
+之       20043   乌
+为       20026   主
+美       32654   羏
+，       65292   ，
+斯       26031   新
+恶       24694   恷
+（       65288   （
+è        232     è
+）       65289   ）
+已       24050   巳
+；       65307   ；
+皆       30342   皇
+知       30693   矦
+善       21892   喅
+之       20043   乌
+为       20026   主
+善       21892   喅
+，       65292   ，
+斯       26031   新
+不       19981   与
+善       21892   喅
+已       24050   巳
+。       12290   。
+故       25925   敆
+有       26377   朊
+无       26080   旡
+相       30456   盹
+生       29983   甠
+，       65292   ，
+难       38590   隿
+易       26131   昔
+相       30456   盹
+成       25104   我
+，       65292   ，
+长       38271   門
+短       30701   矮
+相       30456   盹
+\n       10      \n
+较       36739   辄
+，       65292   ，
+高       39640   髙
+下       19979   丌
+相       30456   盹
+倾       20542   倿
+，       65292   ，
+音       38899   韴
+声       22768   壱
+相       30456   盹
+和       21644   咍
+（       65288   （
+h        104     h
+è        232     è
+）       65289   ）
+，       65292   ，
+前       21069   剎
+后       21518   吏
+相       30456   盹
+随       38543   隐
+。       12290   。
+是       26159   昰
+以       20197   仦
+圣       22307   圤
+人       20154   亻
+处       22788   夅
+无       26080   旡
+为       20026   主
+之       20043   乌
+事       20107   二
+，       65292   ，
+行       34892   衍
+不       19981   与
+言       35328   訁
+之       20043   乌
+教       25945   敚
+，       65292   ，
+万       19975   丈
+物       29289   牪
+作       20316   佝
+焉       28937   焊
+而       32780   耍
+不       19981   与
+辞       36766   辟
+，       65292   ，
+生       29983   甠
+而       32780   耍
+\n       10      \n
+不       19981   与
+有       26377   朊
+，       65292   ，
+为       20026   主
+而       32780   耍
+不       19981   与
+恃       24643   恄
+，       65292   ，
+是       26159   昰
+以       20197   仦
+不       19981   与
+去       21435   厼
+。       12290   。
+blank    32
+〖       12310   〖
+译       35793   诒
+文       25991   斈
+〗       12311   〗
+\n       10      \n
+
+【笭丁竡】達台達，靟帹達；后台后，靟帹后。旡后太圱乌姌，朊后丈牪乌毎。敆帹旡欳，仦觃具妚；帹
+朊欳，仦觃具徽（jiào）。步严耆名击耍弃后，名谔乌玅，玅乌叉玅，优妚乌闩。〖诒斈〗
+【笭亍竡】太丌皇矦羏乌主羏，新恷（è）巳；皇矦喅乌主喅，新与喅巳。敆朊旡盹甠，隿昔盹我，門矮盹
+辄，髙丌盹倿，韴壱盹咍（hè），剎吏盹隐。昰仦圤亻夅旡主乌二，衍与訁乌敚，丈牪佝焊耍与辟，甠耍
+与朊，主耍与恄，加我耍弘屆。夬（fú）唰弘屆，昰仦与厼。 〖诒斈〗
+</code></pre>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Python/" class="print-no-link">#Python</a>
+      
+        <a href="/tags/%E5%B0%8F%E8%84%9A%E6%9C%AC/" class="print-no-link">#小脚本</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Python 简单字符替换</div>
+      <div>http://fanyfull.github.io/2021/11/26/Python-简单字符替换/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Fany Full</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年11月26日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/11/26/%E4%BF%AE%E6%94%B9-VSCode-%E9%BB%98%E8%AE%A4-Shell-%E4%B8%BA-Powershell7/" title="修改 VSCode 默认 Shell 为 Powershell7">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">修改 VSCode 默认 Shell 为 Powershell7</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/11/25/%E5%8D%8E%E7%A7%91%E8%BD%AF%E9%99%A2%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AE%9E%E9%AA%8C%E6%95%B4%E7%90%86/" title="华科软院计算机组成原理实验整理">
+                        <span class="hidden-mobile">华科软院计算机组成原理实验整理</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://fanyfull.github.io/2021/11/26/Python-%E7%AE%80%E5%8D%95%E5%AD%97%E7%AC%A6%E6%9B%BF%E6%8D%A2/';
+          this.page.identifier = '/2021/11/26/Python-%E7%AE%80%E5%8D%95%E5%AD%97%E7%AC%A6%E6%9B%BF%E6%8D%A2/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fanyfull' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

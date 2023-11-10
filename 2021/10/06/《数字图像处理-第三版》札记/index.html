@@ -1,0 +1,823 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="第一章 何为强度或灰度？  一幅图像可定义为一个二维函数 $f(x, y)$，其中 $x$ 和 $y$ 是空间（平面）坐标，而在任何一对空间坐标 $(x, y)$ 处的幅值（amplitude，振幅）$f$ 称为图像在该点处的强度或灰度。 关于灰度的更通俗的解释如下：  The grey level or grey value indicates the brightness of a pixel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《数字图像处理 第三版》札记">
+<meta property="og:url" content="http://fanyfull.github.io/2021/10/06/%E3%80%8A%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%E6%9C%AD%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:description" content="第一章 何为强度或灰度？  一幅图像可定义为一个二维函数 $f(x, y)$，其中 $x$ 和 $y$ 是空间（平面）坐标，而在任何一对空间坐标 $(x, y)$ 处的幅值（amplitude，振幅）$f$ 称为图像在该点处的强度或灰度。 关于灰度的更通俗的解释如下：  The grey level or grey value indicates the brightness of a pixel">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211006110136.png">
+<meta property="article:published_time" content="2021-10-06T01:59:17.000Z">
+<meta property="article:modified_time" content="2021-10-08T12:25:00.663Z">
+<meta property="article:author" content="Fany Full">
+<meta property="article:tag" content="数字图像处理">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211006110136.png">
+  
+  
+  
+  <title>《数字图像处理 第三版》札记 - Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211006110136.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="《数字图像处理 第三版》札记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-10-06 09:59" pubdate>
+          2021年10月6日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          2.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          22 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">《数字图像处理 第三版》札记</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><blockquote>
+<p>何为强度或灰度？</p>
+</blockquote>
+<p>一幅图像可定义为一个二维函数 $f(x, y)$，其中 $x$ 和 $y$ 是空间（平面）坐标，而在任何一对空间坐标 $(x, y)$ 处的幅值（amplitude，振幅）$f$ 称为图像在该点处的<strong>强度</strong>或<strong>灰度</strong>。</p>
+<p>关于灰度的更通俗的解释如下：</p>
+<blockquote>
+<p>The grey level or grey value indicates the brightness of a pixel.<br>The minimum grey level is 0. The maximum grey level depends on the digitisation depth of the image. For an 8-bit-deep image it is 255. In a binary image a pixel can only take on either the value 0 or the value 255. In contrast, in a greyscale or colour image a pixel can take on any value between 0 and 255.</p>
+</blockquote>
+<p>引用自：<a target="_blank" rel="noopener" href="https://www.stemmer-imaging.com/en-ie/knowledge-base/grey-level-grey-value/">https://www.stemmer-imaging.com/en-ie/knowledge-base/grey-level-grey-value/</a></p>
+<blockquote>
+<p>何为数字图像？</p>
+</blockquote>
+<p>接上一条，当 $x, y$ 和灰度值 $f$ 是有限的离散数值时，我们称该图像为<strong>数字图像</strong>。</p>
+<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><blockquote>
+<p>如何理解人眼的结构？</p>
+</blockquote>
+<p>眼睛的形状近似为一个球体，其平均直径约为 20 mm。有三层薄膜包围着眼睛：<strong>角膜</strong>与<strong>巩膜</strong>外壳、<strong>脉络膜</strong>和<strong>视网膜</strong>。</p>
+<ul>
+<li>角膜是一种硬而透明的组织，覆盖着眼睛的前表面。与角膜相连的巩膜是一层包围着眼球其余部分的不透明的膜。</li>
+<li>脉络膜位于巩膜的正下方。脉络膜包含有血管网，它是眼睛的重要滋养源。即使是对脉络膜表面并不严重的损害，也有可能严重地损害眼睛，引起限制血液流动的炎症。脉络膜外壳着色很重，因此有助于减少进入眼内的外来光和眼球内反向散射光的数量。</li>
+<li>脉络膜的最前面分为睫状肌和虹膜。虹膜的收缩和扩张控制着进入眼睛的光量。虹膜中间的开口（瞳孔）的直径是可变的，范围大约在 2-8 mm。虹膜的前面包含有眼睛的可见色素，而后面则包含有黑色色素。<br>按：这里要从三维视角来看。  </li>
+<li>晶状体由同心的纤维细胞层组成，并由附在睫状肌上的纤维悬挂着。晶状体包含 60%~70% 的水、6% 的脂肪和比眼睛中任何其他组织都多的蛋白质。晶状体由稍黄的色素着色，其颜色随着人的年龄的增大而加深。晶状体吸收大约 8% 的可见光谱，对短波长的光有较高的吸收率。在晶状体结构中，蛋白质吸收红外光和紫外光，吸收过量时会伤害眼睛。</li>
+<li>眼睛最里面的膜是视网膜，它布满了整个后部和内壁。当眼睛适当地聚焦时，来自眼睛外部物体的光在视网膜上成像。由视网膜表面分布的不连续的光，感受器提供了图案视觉。有两类光感受器：<strong>锥状体</strong>和<strong>杆状体</strong>。</li>
+<li>每只眼睛中的锥状体数量在 600~700 万之间。他们主要位于视网膜的中间部分，称之为中央凹，且对颜色高度敏感。用这些锥状体，人可以充分地分辨图像细节，因为每个锥状体都连接到自身地神经末梢。肌肉控制眼球转动，直到感兴趣的物体落到中央凹上。锥状体视觉称为白昼视觉或亮视觉。</li>
+<li>杆状体的数量更多：约有 7500~15 000 万个杆状体分布在视网膜表面。由于分布面积较大而且几个杆状体连接到一个神经末梢，因此减少了这些感受器感知细节的数量。杆状体用来给出视野内的一般的总体图像。它们没有彩色感觉，而对低照明度敏感。例如，在白天呈现鲜明色彩的物体，在月光下都没有颜色，因为此时只有杆状体收到刺激。这种现象称为暗视觉或微光视觉。</li>
+</ul>
+<p>下图显示了右眼中通过眼睛视神经出现区的剖面的杆状体和锥状体密度。The absence of receptors in this area results in the so-called <em>blind spot</em>. </p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211006233652.png" srcset="/img/loading.gif" lazyload></p>
+<p>疑问：这里是怎么剖开的？？？</p>
+<ul>
+<li>Ciliary body: 睫状体</li>
+<li>Sclera: 巩膜</li>
+<li>Choroid: 脉络膜</li>
+<li>Nerve &amp; sheath: 神经和鞘</li>
+<li>Ciliary muscle: 睫状肌</li>
+<li>Iris: 虹膜</li>
+<li>Cornea: 角膜</li>
+<li>Anterior chamber: 前房</li>
+<li>Lens: 晶状体</li>
+<li>Ciliary fibers: 睫状小带</li>
+<li>Visual axis: 视轴</li>
+<li>Vitreous humor: 玻璃体</li>
+<li>Fovea: 中央凹</li>
+<li>Blind spot: 盲点</li>
+<li>Retina: 视网膜</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211006110830.jpg" srcset="/img/loading.gif" lazyload alt="人眼剖面简图"></p>
+<blockquote>
+<p>何为马赫带效应？</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211007152354.png" srcset="/img/loading.gif" lazyload></p>
+<p>视觉系统对亮度的感知不是简单的强度函数。然后，这个马赫带效应就是，每一条带上的亮度是均匀的，但是在不同带的交界处，我们会看到，亮的那一侧会出现更亮的一条线，暗的那一侧会出现更暗的一条线。简单来讲，这就是马赫带效应。</p>
+<blockquote>
+<p>何为同时对比现象？</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211007152901.png" srcset="/img/loading.gif" lazyload></p>
+<p>和马赫带效应类似，我们人眼观察到好像第一个图中间的小方块最亮，第三个中间的小方块最暗。实际上，它们的灰度（亮度）是一样的。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211007153502.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>何为灰度级？</p>
+</blockquote>
+<p>灰度级的典型取值是 2 的整数次幂。通常假设离散灰度级是等间隔的并且是区间 $[0, L - 1]$ 内的整数。（L 即 2 的整数次幂）</p>
+<blockquote>
+<p>何为 k 比特图像？</p>
+</blockquote>
+<p>当一幅图像有 $2^k$ 灰度级时，通常称该图像是 k 比特图像。</p>
+<blockquote>
+<p>何为动态范围？</p>
+</blockquote>
+<p>有时灰度级的取值范围称为图像的动态范围。把占有灰度级全部有效段的图像叫做高动态范围图像。当相当可观数目的像素呈现这样的特征时，图像就有较高的对比度。相反，低动态范围的图像看上去似乎是冲淡了的灰暗格调。</p>
+<blockquote>
+<p>何为图像采样分辨率？</p>
+</blockquote>
+<p>单位长度上所包含的采样数。</p>
+<blockquote>
+<p>何为空间分辨率？</p>
+</blockquote>
+<p>直观上讲，空间分辨率是图像中可辨别的最小细节的度量。在数量上，空间分辨率可以有很多方法来说明，其中每单位距离线对数和每单位距离点数（像素数）是最通用的度量。</p>
+<p>举例来说，每英寸点数（dpi）就是描述空间分辨率的一个例子。</p>
+<blockquote>
+<p>何为灰度分辨率？</p>
+</blockquote>
+<p>灰度分辨率是指在灰度级中可分辨的最小变化。</p>
+<p>灰度分辨率指的是用于量化灰度的比特数。</p>
+<p>例如，通常说一幅被量化为 256 级的图像有 8 比特的灰度分辨率。</p>
+<blockquote>
+<p>关于直方图变换的推导？</p>
+</blockquote>
+<p>书上的证明很精确，而且易于理解。</p>
+<blockquote>
+<p>直方图均衡的离散形式为？</p>
+</blockquote>
+<p>$$<br>s_k &#x3D; T(r_k) &#x3D; (L - 1) \sum_{j &#x3D; 0}^{k} p_r(r_j) &#x3D; \frac{L -1}{MN} \sum_{j &#x3D; 0}^{k} n_j, \quad k &#x3D; 0, 1, 2,…, L -1<br>$$</p>
+<p>详情见教材。这一块，似乎不用非常熟练地理解，大概只要思路跟着教材或者老师走一遍就行。真的需要具体用的时候再回来看。不过，这玩意儿还挺绕的。</p>
+<p>如果考试需要考的话，那么，就得把西电的网课上的那一道例题给看一下了。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="category-chain-item">数字图像处理</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="print-no-link">#数字图像处理</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>《数字图像处理 第三版》札记</div>
+      <div>http://fanyfull.github.io/2021/10/06/《数字图像处理-第三版》札记/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Fany Full</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年10月6日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/10/06/%E6%97%A5%E8%AF%AD%E4%BA%94%E5%8D%81%E9%9F%B3/" title="日语五十音">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">日语五十音</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/05/LeetCode-0-50-%E6%95%B4%E7%90%86%EF%BC%88Java%EF%BC%89/" title="LeetCode 0-50 整理（Java）">
+                        <span class="hidden-mobile">LeetCode 0-50 整理（Java）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://fanyfull.github.io/2021/10/06/%E3%80%8A%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%E6%9C%AD%E8%AE%B0/';
+          this.page.identifier = '/2021/10/06/%E3%80%8A%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%E6%9C%AD%E8%AE%B0/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fanyfull' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

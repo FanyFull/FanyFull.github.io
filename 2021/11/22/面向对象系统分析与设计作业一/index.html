@@ -1,0 +1,828 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1. 讨论下列 4 类事物, 每类有哪些共同的属性(或描述值)和行为(或操作), 在每个类上添加更多的事物.   a. 显微镜&#x2F;望远镜&#x2F;眼镜&#x2F;瞄准镜&#x2F; b. 自行车&#x2F;卡车&#x2F;飞机&#x2F;摩托车&#x2F;马 c. 帐篷&#x2F;宿舍&#x2F;工棚&#x2F;摩天大楼 d. 手机&#x2F;服务器&#x2F;台式机&#x2F;便携计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象系统分析与设计作业一">
+<meta property="og:url" content="http://fanyfull.github.io/2021/11/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E4%BD%9C%E4%B8%9A%E4%B8%80/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:description" content="1. 讨论下列 4 类事物, 每类有哪些共同的属性(或描述值)和行为(或操作), 在每个类上添加更多的事物.   a. 显微镜&#x2F;望远镜&#x2F;眼镜&#x2F;瞄准镜&#x2F; b. 自行车&#x2F;卡车&#x2F;飞机&#x2F;摩托车&#x2F;马 c. 帐篷&#x2F;宿舍&#x2F;工棚&#x2F;摩天大楼 d. 手机&#x2F;服务器&#x2F;台式机&#x2F;便携计">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/8kKSxbt.png">
+<meta property="article:published_time" content="2021-11-21T16:02:42.000Z">
+<meta property="article:modified_time" content="2021-12-06T08:09:50.109Z">
+<meta property="article:author" content="Fany Full">
+<meta property="article:tag" content="作业">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/8kKSxbt.png">
+  
+  
+  
+  <title>面向对象系统分析与设计作业一 - Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://i.imgur.com/8kKSxbt.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="面向对象系统分析与设计作业一"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-11-22 00:02" pubdate>
+          2021年11月22日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          1.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          13 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">面向对象系统分析与设计作业一</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>1. 讨论下列 4 类事物, 每类有哪些共同的属性(或描述值)和行为(或操作), 在每个类上添加更多的事物.</p>
+</blockquote>
+<ul>
+<li>a. 显微镜&#x2F;望远镜&#x2F;眼镜&#x2F;瞄准镜&#x2F;</li>
+<li>b. 自行车&#x2F;卡车&#x2F;飞机&#x2F;摩托车&#x2F;马</li>
+<li>c. 帐篷&#x2F;宿舍&#x2F;工棚&#x2F;摩天大楼</li>
+<li>d. 手机&#x2F;服务器&#x2F;台式机&#x2F;便携计算机</li>
+</ul>
+<p>答：</p>
+<ul>
+<li>a. 显微镜&#x2F;望远镜&#x2F;眼镜&#x2F;瞄准镜&#x2F;<ul>
+<li>共同的属性：镜片、镜框</li>
+<li>共同的行为：将景物映射到人的眼中，变换取景效果</li>
+<li>添加：放大镜、护目镜</li>
+</ul>
+</li>
+<li>b. 自行车&#x2F;卡车&#x2F;飞机&#x2F;摩托车&#x2F;马<ul>
+<li>共同的属性：速度、使用年限</li>
+<li>共同的行为：载人、载物</li>
+<li>添加：轮船、电动车</li>
+</ul>
+</li>
+<li>c. 帐篷&#x2F;宿舍&#x2F;工棚&#x2F;摩天大楼<ul>
+<li>共同的属性：面积、位置</li>
+<li>共同的行为：供人居留</li>
+<li>添加：小区楼、茅草屋</li>
+</ul>
+</li>
+<li>d. 手机&#x2F;服务器&#x2F;台式机&#x2F;便携计算机<ul>
+<li>共同的属性：处理器、性能、价格</li>
+<li>共同的行为：提供计算服务</li>
+<li>添加：单片机</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>2. 当几个独立系统要确定同一对象时, 就会出现问题. 例如, 机动车辆管理部门&#x2F;保险公司&#x2F;银行&#x2F;警察可能都需要识别某台机动车. 讨论使用以下识别方法的好处和或不足.</p>
+</blockquote>
+<ul>
+<li>a. 根据车辆的拥有者识别;</li>
+<li>b. 根据厂商&#x2F;模型编号&#x2F;年份等属性确定;</li>
+<li>c. 使用由厂商分配给汽车的车辆识别号(VIN); </li>
+<li>d. 使用有关管理部门内部生成的ID.</li>
+</ul>
+<p>答：</p>
+<ul>
+<li>a. 根据车辆的拥有者识别;<ul>
+<li>好处：查找人物相较于查找车，更加容易</li>
+<li>不足：人物拥有多辆车的时候不好确定</li>
+</ul>
+</li>
+<li>b. 根据厂商&#x2F;模型编号&#x2F;年份等属性确定;<ul>
+<li>好处：能唯一确定一辆车</li>
+<li>不足：这类信息一般没有专门的数据库保存，不易查找</li>
+</ul>
+</li>
+<li>c. 使用由厂商分配给汽车的车辆识别号(VIN); <ul>
+<li>好处：数据易于查找</li>
+<li>不足：所有者可能会偷换车辆识别号</li>
+</ul>
+</li>
+<li>d. 使用有关管理部门内部生成的 ID.<ul>
+<li>好处：数据易于获取和查找</li>
+<li>不足：现实中变数太大，ID 可能没有及时更新而导致 ID 对应不上车辆</li>
+</ul>
+</li>
+</ul>
+<p><strong>参考答案</strong>：</p>
+<p>选择 c。因为是车辆的内在的固有属性，并且具有唯一性。所以应该选择这个。</p>
+<blockquote>
+<p>3. 所有的对象都有标识, 都可以辨别. 考察一张商品的购买发票, 如图所示, 其中对买方和卖方分别采用了哪些标识, 这些标识如何设计的? 例如: 购买方名称:”华中科技大学”字符串, 购买方名称全称.</p>
+</blockquote>
+<p><img src="https://i.imgur.com/sOXQFNc.png" srcset="/img/loading.gif" lazyload></p>
+<p>答：</p>
+<p>对买方：</p>
+<ul>
+<li>买方：“华中科技大学”，购买方名称全称；</li>
+<li>纳税人识别号：“12100000441626842D”，购买方纳税识别号码；</li>
+<li>地址、电话：空，购买方的地址和电话；</li>
+<li>开户行及账号：空，购买方开户的银行及账号。</li>
+</ul>
+<p>对卖方（销售方）：</p>
+<ul>
+<li>名称：“四川金创越贸易有限公司”，销售方名称全称；</li>
+<li>纳税人识别号：“91510000767291042W”，销售方纳税人识别号码；</li>
+<li>地址、电话：“四川成都市武侯区一环路南二段十五号 028-85482280”，销售方具体地址和电话；</li>
+<li>开户行及账号：“成都银行洗面桥支行03042003219726800016”，销售方的开户银行及账号。</li>
+</ul>
+<blockquote>
+<p>4. 绘制一个类模型来描述无向图. 无向图由一组顶点和边组成. 边连接顶点对. 包括顶点的名称和位置, 边的名称&#x2F;宽度和颜色. 类似的, 绘制一个类模型来描述有向图, 有向图的边是有方向的.</p>
+</blockquote>
+<p>解：</p>
+<p><img src="https://i.imgur.com/k9q2BHQ.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/4b1Nuji.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>5. 为哲学家就餐问题绘制一个类图. 圆桌周围有 5 位哲学家, 5 把餐叉. 每位哲学家可以使用两把餐叉, 一边一把. 每把餐叉可以被两位哲学家使用. 每把餐叉要么放在桌上, 要么正在被哲学家使用. 哲学家必须用两把餐叉才能吃饭.</p>
+</blockquote>
+<p>解：</p>
+<p><img src="https://i.imgur.com/63y7gjz.png" srcset="/img/loading.gif" lazyload></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E4%BD%9C%E4%B8%9A/" class="category-chain-item">作业</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E4%BD%9C%E4%B8%9A/" class="print-no-link">#作业</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>面向对象系统分析与设计作业一</div>
+      <div>http://fanyfull.github.io/2021/11/22/面向对象系统分析与设计作业一/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Fany Full</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年11月22日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/11/22/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%85%A5%E9%97%A8%E7%BB%8F%E5%85%B8%EF%BC%88%E7%AC%AC-2-%E7%89%88%E3%80%8B%E9%98%85%E8%AF%BB%E6%9C%AD%E8%AE%B0/" title="《算法竞赛入门经典（第 2 版》阅读札记">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">《算法竞赛入门经典（第 2 版》阅读札记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/11/20/%E5%8D%81%E8%BF%9B%E5%88%B6%E5%B0%8F%E6%95%B0%E8%BD%AC%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%B0%8F%E6%95%B0/" title="十进制小数转二进制小数">
+                        <span class="hidden-mobile">十进制小数转二进制小数</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://fanyfull.github.io/2021/11/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E4%BD%9C%E4%B8%9A%E4%B8%80/';
+          this.page.identifier = '/2021/11/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E4%BD%9C%E4%B8%9A%E4%B8%80/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fanyfull' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

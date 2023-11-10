@@ -1,0 +1,792 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一、数值类型 INT（或 INTEGER）: 整数值，支持 -21474836482147483647（如果是 UNSIGNED，为 04294967295，边界值都可以取到）的数。  一般来说，只需要用到 INT 类型，比如，存储数据的 id。 二、串类型即字符串类型。  CHAR: 定长串。大小是 0 ~ 255 个字节。注意，不是字符。而我们在定义时用的 CHAR(n) 中的 n 表示字符。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL 常用数据类型">
+<meta property="og:url" content="http://fanyfull.github.io/2021/08/04/MySQL-%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:description" content="一、数值类型 INT（或 INTEGER）: 整数值，支持 -21474836482147483647（如果是 UNSIGNED，为 04294967295，边界值都可以取到）的数。  一般来说，只需要用到 INT 类型，比如，存储数据的 id。 二、串类型即字符串类型。  CHAR: 定长串。大小是 0 ~ 255 个字节。注意，不是字符。而我们在定义时用的 CHAR(n) 中的 n 表示字符。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210804235025.png">
+<meta property="article:published_time" content="2021-08-04T09:35:45.000Z">
+<meta property="article:modified_time" content="2021-08-04T15:51:02.100Z">
+<meta property="article:author" content="Fany Full">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210804235025.png">
+  
+  
+  
+  <title>MySQL 常用数据类型 - Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210804235025.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="MySQL 常用数据类型"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-08-04 17:35" pubdate>
+          2021年8月4日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          25 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">MySQL 常用数据类型</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="一、数值类型"><a href="#一、数值类型" class="headerlink" title="一、数值类型"></a>一、数值类型</h2><ul>
+<li><code>INT</code>（或 <code>INTEGER</code>）: 整数值，支持 -2147483648<del>2147483647（如果是 UNSIGNED，为 0</del>4294967295，边界值都可以取到）的数。</li>
+</ul>
+<p>一般来说，只需要用到 INT 类型，比如，存储数据的 id。</p>
+<h2 id="二、串类型"><a href="#二、串类型" class="headerlink" title="二、串类型"></a>二、串类型</h2><p>即字符串类型。</p>
+<ul>
+<li><code>CHAR</code>: 定长串。大小是 0 ~ 255 个字节。注意，不是字符。而我们在定义时用的 <code>CHAR(n)</code> 中的 n 表示字符。要注意，英文字符是一个字符的大小为一个字节。而中文的一个字符的长度，要分类讨论。UTF-8 编码一个汉字等 &#x3D; 3 个字节；GBK编码一个汉字 &#x3D; 2 个字节。它的长度必须在创建时指定，否则 MySQL 假定为 <code>CHAR(1)</code>。</li>
+<li><code>VARCHAR</code>: 变长串。大小是 0 ~ 65532 个字节。同样地，要注意字节与字符的区别。如果在创建时指定为 <code>VARCHAR(n)</code>，则可存储 0 到 n 个字符的变长串（其中 <code>$n \leq 255$</code>）。</li>
+</ul>
+<p>串类型中最常用的就是 <code>CHAR</code> 和 <code>VARCHAR</code> 这两个类型，关于在何种情况下使用这两个类型，我曾经在一篇国外博客看到如下总结（原文链接已经遗失）：</p>
+<ul>
+<li>经常变化的字段用 VARCAHR</li>
+<li>知道固定长度的字段用 CHAR</li>
+<li>知道固定长度的字段用 CHAR</li>
+<li>超过 255 字符的只能用 VARCHAR 或者 TEXT</li>
+<li>能用 VARCHAR 的地方不能用 TEXT</li>
+</ul>
+<h2 id="三、日期和时间数据类型"><a href="#三、日期和时间数据类型" class="headerlink" title="三、日期和时间数据类型"></a>三、日期和时间数据类型</h2><p>| 类型 | 大小（bytes） | 取值范围 | 格式 | 用途 | 零值 |<br>| :-: | :-: | :-: | :-: | :-: | :-: | :-: |<br>| DATE | 3 | 1000-01-01<del>9999-12-31 | YYYY-MM-DD | 日期值 | 0000:00:00 |<br>| TIME | 3 | -838:59:59</del>838:59:59 | HH:MM:SS | 时间值或持续时间 | 00:00:00 |<br>| DATETIME | 8 | 1000-01-01 00:00:00<del>9999-12-31 23:59:59 | YYYY-MM-HH:MM:SS | 混合日期和时间值 | 0000-00-00 00:00:00 |<br>| YEAR | 1 | 1901</del>2155 | YYYY | 年份值 | 0000 |<br>| TIMESTAMP | 4 | 1970-01-01 00:00:00~2038-01-19 03:14:07（格林尼治时间） 开始时间是 0 秒，结束时间是第 2147483647 秒 | YYYYMMDD HHMMSS | 混合日期和时间值，时间戳 | 0000-00-00 00:00:00 |</p>
+<p>关于这里的取值范围，官方文档有这样的说法：</p>
+<blockquote>
+<p>For the DATE and DATETIME range descriptions, “supported” means that although earlier values might work, there is no guarantee.</p>
+</blockquote>
+<p>要注意，也就是说，比如 DATE 可能支持插入数据 0999-01-01，但是 MySQL 并不保证这一点。这里具有明确范围的是 TIMESTAMP。我在使用时会严格按照支持的范围进行插值。</p>
+<h3 id="3-1、DATE"><a href="#3-1、DATE" class="headerlink" title="3.1、DATE"></a>3.1、DATE</h3><ol>
+<li>一般来讲，我会使用严格的 <code>YYYY-MM-DD</code> 来给 DATE 类型的数据赋值。</li>
+<li>使用 <code>current_date</code> 或 <code>current_date()</code> 或 <code>now()</code> 来插入当前的系统时间。</li>
+</ol>
+<p>示例</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> test_tb (<br>	`id` <span class="hljs-type">INT</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">PRIMARY</span> KEY,<br>	`<span class="hljs-type">date</span>` <span class="hljs-type">DATE</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span><br>);<br><br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb (`id`, `<span class="hljs-type">date</span>`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">1</span>, <span class="hljs-string">&#x27;2021-07-08&#x27;</span>);<br># 插入当前的日期<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb (`id`, `<span class="hljs-type">date</span>`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">2</span>, <span class="hljs-built_in">CURRENT_DATE</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb (`id`, `<span class="hljs-type">date</span>`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">3</span>, <span class="hljs-built_in">CURRENT_DATE</span>());<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb (`id`, `<span class="hljs-type">date</span>`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">4</span>, NOW());<br><br><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> test_tb;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210804232424.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="3-2、TIME"><a href="#3-2、TIME" class="headerlink" title="3.2、TIME"></a>3.2、TIME</h3><ol>
+<li>注意到 TIME 类型的范围是 <code>-838:59:59~838:59:59</code>，838 这个表示小时的数字是为了表示某种特殊需要的时间间隔。</li>
+<li>一般来说，只需要严格按照格式 <code>HH:MM:SS</code> 进行插值即可。</li>
+<li>使用 <code>current_time</code> 或 <code>current_time()</code> 或 <code>now()</code> 来插入当前时间。</li>
+</ol>
+<p>示例</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> test_tb02 (<br>	`id` <span class="hljs-type">INT</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">PRIMARY</span> KEY,<br>	`<span class="hljs-type">time</span>` <span class="hljs-type">TIME</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span><br>);<br><br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb02 (`id`, `<span class="hljs-type">time</span>`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">1</span>, <span class="hljs-string">&#x27;23:26:28&#x27;</span>);<br># 插入当前的日期<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb02 (`id`, `<span class="hljs-type">time</span>`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">2</span>, <span class="hljs-built_in">CURRENT_TIME</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb02 (`id`, `<span class="hljs-type">time</span>`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">3</span>, <span class="hljs-built_in">CURRENT_TIME</span>());<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb02 (`id`, `<span class="hljs-type">time</span>`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">4</span>, NOW());<br><br><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> test_tb02;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210804233249.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="3-3、DATETIME"><a href="#3-3、DATETIME" class="headerlink" title="3.3、DATETIME"></a>3.3、DATETIME</h3><ol>
+<li>我在插值时会严格按照格式 <code>YYYY-MM-DD HH:MM:SS</code> 来进行插值。</li>
+<li>使用 <code>now()</code> 来插入当前系统的日期和时间。</li>
+</ol>
+<p>示例</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> test_tb03 (<br>	`id` <span class="hljs-type">INT</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">PRIMARY</span> KEY,<br>	`datetime` DATETIME <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span><br>);<br><br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb03 (`id`, `datetime`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">1</span>, <span class="hljs-string">&#x27;2021-07-26 23:26:28&#x27;</span>);<br># 插入当前的日期和时间<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb03 (`id`, `datetime`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">4</span>, NOW());<br><br><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> test_tb03;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210804233808.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="3-4、YEAR"><a href="#3-4、YEAR" class="headerlink" title="3.4、YEAR"></a>3.4、YEAR</h3><ol>
+<li>我会严格按照格式 <code>YYYY</code> 来进行插值。</li>
+</ol>
+<p>示例</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> test_tb04 (<br>	`id` <span class="hljs-type">INT</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">PRIMARY</span> KEY,<br>	`<span class="hljs-keyword">year</span>` <span class="hljs-keyword">YEAR</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span><br>);<br><br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb04 (`id`, `<span class="hljs-keyword">year</span>`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">1</span>, <span class="hljs-string">&#x27;2021&#x27;</span>);<br><br><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> test_tb04;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210804234154.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="3-5、TIMESTAMP"><a href="#3-5、TIMESTAMP" class="headerlink" title="3.5、TIMESTAMP"></a>3.5、TIMESTAMP</h3><ol>
+<li>TIMESTAMP 类型在 MySQL 中也是以 <code>YYYY-MM-DD HH:MM:SS</code> 的形式显示的，其形式和 DATETIME 一样，它们的差异在于范围。</li>
+<li>这里我就直接使用给 DATETIME 赋值的方式来给 TIMESTAMP 赋值。</li>
+<li>使用 <code>now()</code> 插入当前系统的时间。</li>
+</ol>
+<p>示例</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> test_tb05 (<br>	`id` <span class="hljs-type">INT</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">PRIMARY</span> KEY,<br>	`<span class="hljs-type">timestamp</span>` <span class="hljs-type">TIMESTAMP</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span><br>);<br><br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb05 (`id`, `<span class="hljs-type">timestamp</span>`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">1</span>, <span class="hljs-string">&#x27;2021-07-26 23:26:28&#x27;</span>);<br># 插入当前的日期和时间<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb05 (`id`, `<span class="hljs-type">timestamp</span>`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">4</span>, NOW());<br><br><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> test_tb05;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210804234926.png" srcset="/img/loading.gif" lazyload></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/MySQL/" class="category-chain-item">MySQL</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/MySQL/" class="print-no-link">#MySQL</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>MySQL 常用数据类型</div>
+      <div>http://fanyfull.github.io/2021/08/04/MySQL-常用数据类型/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Fany Full</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年8月4日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/08/09/%E3%80%8A%E5%A4%A9%E5%85%83%E7%AA%81%E7%A0%B4%E3%80%8B%E8%A7%82%E5%90%8E%E6%84%9F/" title="谈谈我对《天元突破》的观感">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">谈谈我对《天元突破》的观感</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/07/18/%E5%A4%A7%E5%AD%A6%E7%9A%84%E5%9B%9B%E5%8F%A0%E5%8D%8A%E7%A7%8D%E5%8F%AF%E8%83%BD%E6%80%A7/" title="大学的四叠半种可能性">
+                        <span class="hidden-mobile">大学的四叠半种可能性</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://fanyfull.github.io/2021/08/04/MySQL-%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/';
+          this.page.identifier = '/2021/08/04/MySQL-%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fanyfull' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

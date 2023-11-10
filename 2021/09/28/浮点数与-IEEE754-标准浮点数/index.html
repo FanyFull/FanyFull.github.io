@@ -1,0 +1,814 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="浮点表示是对形如 $V &#x3D; x \times 2^y$ 的有理数进行编码。 1. 二进制小数考虑一个形如 $$b_mb_{m - 1} \cdots b_1b_0.b_{-1}b_{-2} \cdots b_{-n - 1}b_{-n}$$ 的表示法，其中每个二进制数字，或者称为位，$b_i$ 的取值是 0 或 1，如下图所示。  这种表示方法表示的数 $b$ 定义如下： $$b &amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浮点数与 IEEE754 标准浮点数">
+<meta property="og:url" content="http://fanyfull.github.io/2021/09/28/%E6%B5%AE%E7%82%B9%E6%95%B0%E4%B8%8E-IEEE754-%E6%A0%87%E5%87%86%E6%B5%AE%E7%82%B9%E6%95%B0/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:description" content="浮点表示是对形如 $V &#x3D; x \times 2^y$ 的有理数进行编码。 1. 二进制小数考虑一个形如 $$b_mb_{m - 1} \cdots b_1b_0.b_{-1}b_{-2} \cdots b_{-n - 1}b_{-n}$$ 的表示法，其中每个二进制数字，或者称为位，$b_i$ 的取值是 0 或 1，如下图所示。  这种表示方法表示的数 $b$ 定义如下： $$b &amp;#x">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210928172237.png">
+<meta property="article:published_time" content="2021-09-28T02:51:38.000Z">
+<meta property="article:modified_time" content="2021-11-20T12:21:21.376Z">
+<meta property="article:author" content="Fany Full">
+<meta property="article:tag" content="计算机组成原理">
+<meta property="article:tag" content="CSAPP 笔记">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210928172237.png">
+  
+  
+  
+  <title>浮点数与 IEEE754 标准浮点数 - Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210928172237.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="浮点数与 IEEE754 标准浮点数"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-09-28 10:51" pubdate>
+          2021年9月28日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          4.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          41 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">浮点数与 IEEE754 标准浮点数</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>浮点表示是对形如 $V &#x3D; x \times 2^y$ 的有理数进行编码。</p>
+<h1 id="1-二进制小数"><a href="#1-二进制小数" class="headerlink" title="1. 二进制小数"></a>1. 二进制小数</h1><p>考虑一个形如</p>
+<p>$$<br>b_mb_{m - 1} \cdots b_1b_0.b_{-1}b_{-2} \cdots b_{-n - 1}b_{-n}<br>$$</p>
+<p>的表示法，其中每个二进制数字，或者称为位，$b_i$ 的取值是 0 或 1，如下图所示。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210928110052.png" srcset="/img/loading.gif" lazyload></p>
+<p>这种表示方法表示的数 $b$ 定义如下：</p>
+<p>$$<br>b &#x3D; \sum_{i &#x3D; -n}^{m} 2^i \times b_i<br>$$</p>
+<p>计算举例：</p>
+<p>$$<br>101.11_2 &#x3D; 1 \times 2^2 + 0 \times 2^1 + 1 \times 2^0 + 1 \times 2^{-1} + 1 \times 2^{-2} &#x3D; 5 \frac{3}{4}<br>$$</p>
+<p>注意，形如 $0.11 \cdots 1_2$ 的数表示的是刚好小于 1 的数。例如，$0.111111_2$ 表示 $\frac{63}{64}$，我们用简单的表达法 $1.0 - \varepsilon$ 来表示这样的数值。</p>
+<p>按：$\varepsilon$ 这个是我们的老朋友了，在物理实验或者计算方法这些课程中，学习误差的表达时经常会见到。</p>
+<p>假定我们仅考虑有限长度的编码，那么十进制表示法不能准确地表达像 $\frac{1}{3}$ 和 $\frac{5}{7}$ 这样的数。类似，小数的二进制表示法只能表示哪些能够被写成 $x \times 2^y$ 的数。其他的值只能够被近似地表示。例如，数字 $\frac{1}{5}$ 可以用十进制小数 $0.20$ 精确表示。不过，我们并不能把它准确地表示为一个二进制小数，我们只能近似地表示它，增加二进制表示的长度可以提高表示的精度。</p>
+<h1 id="2-IEEE-浮点数表示"><a href="#2-IEEE-浮点数表示" class="headerlink" title="2. IEEE 浮点数表示"></a>2. IEEE 浮点数表示</h1><p>IEEE 浮点数即采用 IEEE754 标准来表示的浮点数。</p>
+<p>IEEE 浮点标准用 $V &#x3D; (-1)^s \times M \times 2^E$ 的形式来表示一个数：</p>
+<ul>
+<li>符号（sign）$s$ 决定这个数是负数（$s &#x3D; 1$）还是正数（$s &#x3D; 0$），而对于数值 0 的符号位解释作为特殊情况处理（后面有讲，即非规格数相关）。</li>
+<li>尾数（significand）$M$ 是一个二进制小数，它的范围是 $1 \sim 2 - \epsilon$，或者是 $0 \sim 1 - \varepsilon$。</li>
+<li>阶码（exponent）$E$ 的作用是对浮点数加权，这个权重是 2 的 $E$ 次幂（可能是负数）。<br>  按：这里的“权重是 2 的 $E$ 次幂”并不是指 $E$ 是 2 的幂，而是指 $2^E$ 是 2 的幂。</li>
+</ul>
+<p>将浮点数的位表示划分成三个字段，分别对这些值进行编码：</p>
+<ul>
+<li>一个单独的符号位 $s$ 直接编码符号 $s$。</li>
+<li>$k$ 位的阶码字段 $exp &#x3D; e_{k - 1} \cdots e_1e_0$ 编码阶码 $E$。</li>
+<li>$n$ 位小数字段 $frac &#x3D; f_{n -1} \cdots f_1f_0$ 编码尾数 $M$，但是编码出来的值也依赖阶码字段的值是否等于 0（这个涉及到规格数和非规格数，具体见下面的讲解）。</li>
+</ul>
+<p>在单精度浮点格式（C 语言中的 float）中，$s$、$exp$ 和 $frac$ 字段分别为 1 位、$k &#x3D; 8$ 位和 $n &#x3D; 23$ 位，得到一个 32 位的表示。<br>在双精度浮点格式（C 语言中的 double）中，$s$、$exp$ 和 $frac$ 字段分别为 1 位、$k &#x3D; 11$ 位和 $n &#x3D; 52$ 位，得到一个 64 位的表示。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210928113022.png" srcset="/img/loading.gif" lazyload alt="单精度"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210928113102.png" srcset="/img/loading.gif" lazyload alt="双精度"></p>
+<p>给定位的表示，根据 $exp$ 的值，被编码的值可以分成三种不同的情况（第三种情况有两个变种）。</p>
+<p>举例，单精度格式的情况：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210928113430.png" srcset="/img/loading.gif" lazyload alt="阶码的值决定了这个数是规格化的、非规格化的或特殊值"></p>
+<p><strong>情况 1；规格化的值</strong></p>
+<p>当 $exp$ 的所有位既不全为 0（即 $exp$ 数值为 0），也不全为 1（单精度数值为 255，双精度数值为 2047），都属于这类情况。在这种情况下，阶码字段被解释为以偏置值（biased）形式表示的有符号整数。也就是说，阶码的值是 $E &#x3D; e - Bias$（$e$ 即 $exp$），其中 $e$ 是无符号数，其位表示为 $e_{k - 1} \cdots e_1e_0$，而 $Bias$ 是一个等于 $2^{k - 1} - 1$（单精度是 127，双精度是 1023）的偏置值。由此产生指数的取值范围，对于单精度是 $-126 \sim +127$，而对于双精度是 $-1022 \sim +1023$。</p>
+<p>按：这里说的指数范围，就拿单精度的范围 $-126 \sim +127$，因为单精度阶码一共有 8 位，所以 $e$ 的范围是 $0 \sim 255$，然后根据 $E &#x3D; e - Bias$、$Bias &#x3D; 127$ 来算，得到的指数 $E$ 的取值范围是 $-127 \sim +128$，但是，别忘了 $e$ 还要去掉 0 和 255 两个值，然后再算，就得到了 $-126 \sim +127$。</p>
+<p>小数字段 $frac$ 被解释为描述小数值 $f$，其中 $0 \leqslant f &lt; 1$，其二进制表示为 $0.f_{n - 1} \cdots f_1f_0$，也就是二进制小数点在最高有效位的左边。尾数定义为 $M &#x3D; 1 + f$。有时，这种方式也叫做隐含的以 1 开头的（implied leading 1）表示，因为我们可以把 $M$ 看成一个二进制表达式为 $1.f_{n - 1}f_{n - 2} \cdots f_0$ 的数字。因为我们是可以通过调整阶码 $E$，使得尾数 $M$ 在范围 $1 \leqslant M &lt; 2$ 之中（假设没有溢出），所以这种表达方式的好处是可以轻松获得一个额外的精度位。因为第一位总是等于 1，那么我们就不需要显式地表示它。</p>
+<p><strong>情况 2：非规格化的值</strong></p>
+<p>当阶码域为全 0 时，所表示的数是非规格化形式。在这种情况下，阶码值是 $E &#x3D; 1 - Bias$，而尾数的值是 $M &#x3D; f$，也就是小数字段的值，不包含隐含的开头的 1。</p>
+<p>按：这里要仔细注意。</p>
+<p>非规格化数有两个用途。首先，它们提供了一种表示数值 0 的方法，因为使用规格化数，我们必须要使 $M \geqslant 1$，因此我们就不能表示 0。实际上，$+0.0$ 的浮点表示的位模式为全 0：符号位是 0，阶码字段全为 0（表明是一个非规格化值），而小数域也全为 0，这就得到了 $M &#x3D; f &#x3D; 0$。令人奇怪的是，当符号位为 1，而其他域全为 0 时，我们得到值 $-0.0$。根据 IEEE 的浮点格式，值 $+0.0$ 和 $-0.0$ 在某些方面被认为是不同的，而在其他方面是相同的。</p>
+<p>非规格化数的另外一个功能是表示哪些非常接近于 $0.0$ 的数。它们提供了一种属性，称为逐渐溢出（gradual underflow），其中，可能的数值分布均匀地接近于 $0.0$。</p>
+<p>按：这里的逐渐溢出表示的大概是从非规格数平滑地溢出，然后就到了规格数（可以参考之后的表格示例）。</p>
+<p><strong>情况 3：特殊值</strong></p>
+<p>最后一类数值是指阶码全为 1 的时候出现的值。</p>
+<ul>
+<li>当小数域全为 0 时，得到的值表示无穷，当 $s &#x3D; 0$ 时是 $+\infty$，或者当 $s &#x3D; 1$ 时是 $-\infty$。当我们把两个非常大的数相乘，或者除以零时，无穷能够表示溢出的结果。</li>
+<li>当小数域为非零时，结果值被称为“$NaN$”，即“不是一个数（Not a Number）”的缩写。一些运算的结果不能是实数或无穷，就会返回这样的 $NaN$ 值，比如当计算 $\sqrt{-1}$ 或 $\infty - \infty$ 时。在某些应用中，表示未初始化的数据时，它们也很有用处。</li>
+</ul>
+<h1 id="3-数字示例"><a href="#3-数字示例" class="headerlink" title="3. 数字示例"></a>3. 数字示例</h1><p>下图的表格是 8 位浮点格式的非负值示例。由于阶码位 $k &#x3D; 4$，小数位 $n &#x3D; 3$，所以偏置量是 $2^{4 - 1} - 1 &#x3D; 7$。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210928164817.png" srcset="/img/loading.gif" lazyload></p>
+<p>上图被分成了三个区域，来描述三类数字。不同的列给出了阶码字段是如何编码阶码 $E$ 的，小数字段是如何编码尾数 $M$ 的，以及它们一起是如何形成要表示的值 $V &#x3D; 2^E \times M$ 的。</p>
+<p>从 0 自身开始，最靠近 0 的是非规格数（包括 0）.这种格式的非规格化数的 $E &#x3D; 1 - 7 &#x3D; -6$，得到权 $2^E &#x3D; \frac{1}{64}$。小数 $f$ 的范围是 $0, \frac{1}{8}, \cdots, \frac{7}{8}$，从而得到数 $V$ 的范围是 $0 \sim \frac{1}{64} \times \frac{7}{8} &#x3D; \frac{7}{512}$。</p>
+<p>然后是规格化数。</p>
+<ul>
+<li>首先是最小规格化数，其 $E &#x3D; 1 - 7 &#x3D; -6$，和非规格化数是一样的，并且小数的取值范围也是 $0, \frac{1}{8}, \cdots, \frac{7}{8}$。然而，其尾数却是在范围 $1 + 0 &#x3D; 1$ 和 $1 + \frac{7}{8} &#x3D; \frac{15}{8}$ 之间，得出数 $V$ 在范围 $\frac{8}{512} &#x3D; \frac{1}{64}$ 和 $\frac{15}{512}$ 之间。<br>  按：这里可以观察到最大非规格化数 $\frac{7}{512}$ 到最小规格化数 $\frac{8}{512}$ 之间的平滑转变。这种平滑性归功于我们对非规格化数的 $E$ 的定义。通过将 $E$ 定义为 $1 - Bias$，而不是 $-Bias$，我们通过补偿非规格化数的尾数没有隐含的 1 这样一种方式，达到了既可以表示数值 0 又可以实现平滑转变的目的（平滑转变对浮点数之间的比较大小很有帮助）。</li>
+<li>当增大阶码时，我们成功地得到更大的规格化数。然后，我们可以得到最大的规格化数，这个数具有阶码 $E &#x3D; 7$，权 $2^E &#x3D; 128$，小数等于 $\frac{7}{8}$ 得到尾数 $M &#x3D; \frac{15}{8}$，因此，其数值是 $V &#x3D; 240$。超出这个值就会溢出到 $+\infty$。</li>
+</ul>
+<p>IEEE 的这种表示具有一个有趣的属性，我们可以发现上面 8 位浮点格式的非负值示例表格中的数据，如果把它们的位表达式看成是无符号整数，那么它们从上到下是按照升序的方式排列的，而它们所表示的浮点数也是升序排列的。IEEE 这样设计的目的其实就是为了让浮点数能够使用整数排序来进行排序。当比较负数时，同样可以使用类似的方法。</p>
+<p>还有一点要注意的地方，就是 IEEE754 这个阶码的部分（e），它是用移码来表示的，关于移码，可以参看<a href="https://fanyfull.github.io/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%BB%E7%A0%81/">另一篇博客</a>。</p>
+<h1 id="4-例题"><a href="#4-例题" class="headerlink" title="4. 例题"></a>4. 例题</h1><blockquote>
+<p>例1 将十进制数 20.59375 转换成 32 位 IEEE754 格式浮点数的二进制格式来存储。</p>
+</blockquote>
+<p>解：先将十进制数转换成二进制数：</p>
+<p>$$<br>20.59375 &#x3D; 10100.10011 ; (0.5 + 0.25 + 0.125 + 0.0625 + 0.03125)<br>$$</p>
+<p>移动小数点，使其变成 $1.M$ 的形式：</p>
+<p>$$<br>10100.10011 &#x3D; 1.010010011 \times 2^4<br>$$</p>
+<p>得到：</p>
+<p>$$<br>S &#x3D; 0, e &#x3D; 4, E &#x3D; 100_2 + 01111111_2 &#x3D; 10000011_2, M &#x3D; 010010011<br>$$</p>
+<p>最后得到 32 位浮点数的二进制存储格式为：</p>
+<p>$$<br>\begin{split}<br>&amp;0100 ; 0001 ; 1010 ; 0100 ; 1100 ; 0000 ; 0000 ; 0000 \<br>&amp;&#x3D; (41A4C000)_16<br>\end{split}<br>$$</p>
+<blockquote>
+<p>例2 若某浮点数 x 的二进制存储格式为 $(41360000)_16$，求与其对应的 32 位浮点表示的十进的值。</p>
+</blockquote>
+<p>解：</p>
+<p>首先判断是规格数。</p>
+<p>然后进行处理，</p>
+<p>$$<br>\begin{split}<br>&amp;(41360000)_16 \<br>&amp;&#x3D; (0 ; 100,0001,0 ; 011,0110,0000,0000,0000,0000)_2<br>\end{split}<br>$$</p>
+<p>由此可得：</p>
+<p>$$<br>\begin{split}<br>&amp;s &#x3D; 0 \<br>&amp;E &#x3D; e - Bias &#x3D; 10000010 - 01111111 &#x3D; &amp;00000011 &#x3D; (3)_10 \<br>&amp;M &#x3D; 1.011011<br>\end{split}<br>$$</p>
+<p>则上述浮点数对应的真值为</p>
+<p>$$<br>V &#x3D; (-1)^s \times M \times 2^E &#x3D; (-1)^0 \times 2^3 &#x3D; 1011.011 &#x3D; (11.375)_10<br>$$</p>
+<hr>
+<p>参考：</p>
+<p>1、《深入理解计算机系统 第三版》</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" class="category-chain-item">计算机组成原理</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" class="print-no-link">#计算机组成原理</a>
+      
+        <a href="/tags/CSAPP-%E7%AC%94%E8%AE%B0/" class="print-no-link">#CSAPP 笔记</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>浮点数与 IEEE754 标准浮点数</div>
+      <div>http://fanyfull.github.io/2021/09/28/浮点数与-IEEE754-标准浮点数/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Fany Full</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年9月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/10/02/%E3%80%8A%E5%B0%8F%E5%A7%90%EF%BC%9A%E5%8B%9E%E5%8B%95%E7%9A%84%E6%AC%8A%E5%88%A9%E3%80%8B%E6%9C%AD%E8%A8%98/" title="《小姐：勞動的權利》札記">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">《小姐：勞動的權利》札記</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/09/27/LeetCode-14-Longest-Common-Prefix/" title="LeetCode 14 Longest Common Prefix">
+                        <span class="hidden-mobile">LeetCode 14 Longest Common Prefix</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://fanyfull.github.io/2021/09/28/%E6%B5%AE%E7%82%B9%E6%95%B0%E4%B8%8E-IEEE754-%E6%A0%87%E5%87%86%E6%B5%AE%E7%82%B9%E6%95%B0/';
+          this.page.identifier = '/2021/09/28/%E6%B5%AE%E7%82%B9%E6%95%B0%E4%B8%8E-IEEE754-%E6%A0%87%E5%87%86%E6%B5%AE%E7%82%B9%E6%95%B0/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fanyfull' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

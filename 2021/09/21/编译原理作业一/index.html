@@ -1,0 +1,832 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1、第一章课后作业1、解释下列术语： 编译程序，源程序，目标程序，编译程序的前端、后端和遍 解： (1) 编译程序：从功能上看，一个编译程序就是一个语言翻译程序。语言翻译程序把一种语言（称作源语言）书写的程序翻译成另一种语言（称作目标语言）的等价程序。(2) 源程序：源语言编写的程序。(3) 目标程序：目标语言书写的程序。(4) 编译程序的前端：将与仅依赖于源程序而与目标机器（硬件）无关的阶段组合">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编译原理作业一">
+<meta property="og:url" content="http://fanyfull.github.io/2021/09/21/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E4%B8%80/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:description" content="1、第一章课后作业1、解释下列术语： 编译程序，源程序，目标程序，编译程序的前端、后端和遍 解： (1) 编译程序：从功能上看，一个编译程序就是一个语言翻译程序。语言翻译程序把一种语言（称作源语言）书写的程序翻译成另一种语言（称作目标语言）的等价程序。(2) 源程序：源语言编写的程序。(3) 目标程序：目标语言书写的程序。(4) 编译程序的前端：将与仅依赖于源程序而与目标机器（硬件）无关的阶段组合">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210922231045.png">
+<meta property="article:published_time" content="2021-09-21T09:47:02.000Z">
+<meta property="article:modified_time" content="2021-11-16T07:13:17.599Z">
+<meta property="article:author" content="Fany Full">
+<meta property="article:tag" content="编译原理">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210922231045.png">
+  
+  
+  
+  <title>编译原理作业一 - Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210922231045.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="编译原理作业一"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-09-21 17:47" pubdate>
+          2021年9月21日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          3.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          33 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">编译原理作业一</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="1、第一章课后作业"><a href="#1、第一章课后作业" class="headerlink" title="1、第一章课后作业"></a>1、第一章课后作业</h2><p>1、解释下列术语：</p>
+<p>编译程序，源程序，目标程序，编译程序的前端、后端和遍</p>
+<p>解：</p>
+<p>(1) 编译程序：从功能上看，一个编译程序就是一个语言翻译程序。语言翻译程序把一种语言（称作源语言）书写的程序翻译成另一种语言（称作目标语言）的等价程序。<br>(2) 源程序：源语言编写的程序。<br>(3) 目标程序：目标语言书写的程序。<br>(4) 编译程序的前端：将与仅依赖于源程序而与目标机器（硬件）无关的阶段组合成前端。<br>(5) 后端：将与目标机器（硬件）相关的阶段组合成后端。<br>(6) 遍：“遍”也称为“趟”。所谓“一遍”，就是对源程序或等价的中间程序从头到尾扫视一次，并完成编译任务之过程。</p>
+<p>2、编译程序有哪些主要构成成分？各自的主要功能是什么？</p>
+<p>解：</p>
+<p>一个典型的编译程序通常包含 8 个组成部分，它们是：词法分析程序、语法分析程序、语义分析程序、中间代码生成程序、代码优化程序、目标代码生成程序、表格管理程序和出错处理程序。</p>
+<p>各自的功能如下：</p>
+<ul>
+<li>词法分析程序：从左至右扫描字符流的源程序、分解构成源程序的字符串，识别出一个个的单词。</li>
+<li>语法分析程序：层次分析。依据源程序的语法规则把源程序的单词序列组成语法短语（表示成语法树）。</li>
+<li>语义分析程序：审查程序有无语义错误，为代码生成阶段收集类型信息。</li>
+<li>中间代码生成程序：按照语义规则，将语法分析程序分析的结果保存到各类语义信息表中。</li>
+<li>代码优化程序：改进中间代码，以便生成更好的目标代码。</li>
+<li>目标代码生成：以源程序的中间表示形式作为输入，并把它映射到目标语言。</li>
+<li>表格管理程序：记录源程序中使用的变量的名字，并收集和每个名字的各种属性有关的信息。</li>
+<li>出错处理程序：报告出错信息、排错和恢复编译工作。</li>
+</ul>
+<p>3、什么是解释程序？它与编译程序的主要不同是什么？</p>
+<p>解释程序是解释、执行高级语言源程序的程序。</p>
+<p>它与编译程序的主要不同是它并部通过翻译的方式生成目标程序。从用户的角度看，解释器直接利用用户提供的输入执行源程序中指定的操作。</p>
+<p>4、对下列错误信息，请指出可能是编译的哪个阶段（词法分析、语法分析、语义分析、代码生成）报告的。</p>
+<p>(1) else 没有匹配的 if。<br>(2) 数组下标越界。<br>(3) 使用的函数没有定义。<br>(4) 在数中出现非数字字符。  </p>
+<p>解：</p>
+<p>(1) 语法分析<br>(2) 语义分析<br>(3) 语法分析<br>(4) 词法分析  </p>
+<h2 id="2、课堂作业"><a href="#2、课堂作业" class="headerlink" title="2、课堂作业"></a>2、课堂作业</h2><p>试设计一文法 $G$，使得 $L(G)$ 为能被 $3$ 整除的整数集。</p>
+<p>解：</p>
+<p>首先，将 0-9 这十个数字分成三组。</p>
+<ul>
+<li>0，3，6，9：可以被 3 整除</li>
+<li>1，4，7：被 3 整除余 1</li>
+<li>2，5，8：被 3 整除余 2</li>
+</ul>
+<p>文法表达式为：$G &#x3D; (V_N, V_T, P, S)$，其中</p>
+<p>$$<br>\begin{split}<br>V_N &#x3D; { S, A, B } \<br>V_T &#x3D; { 0, 1, 2, 3, 4, 5, 6, 7, 8 9 }<br>\end{split}<br>$$</p>
+<p>然后，分类讨论。</p>
+<ol>
+<li><p>对开始符 $S$</p>
+<ul>
+<li>若和 $0, 3, 6, 9$ 组合，有 $S \rightarrow (0|3|6|9)S|\varepsilon$</li>
+<li>若和 $1, 4, 7$ 组合，有 $S \rightarrow (1, 4, 7)A$</li>
+<li>若和 $2, 5, 8$ 组合，有 $S \rightarrow (2|5|8)B$</li>
+</ul>
+</li>
+<li><p>对非终结符 $A$，其左边是 $1, 4, 7$ 三个数字。</p>
+<ul>
+<li>若和 $0, 3, 6, 9$ 组合，有 $A \rightarrow (0, 3, 6, 9)A$</li>
+<li>若和 $2, 5, 8$ 组合，有 $A \rightarrow (2|5|8)S$</li>
+<li>若和 $1, 4, 7$ 组合，有 $A \rightarrow (1|4|7)B$</li>
+</ul>
+</li>
+<li><p>对非终结符 $B$，其左边是 $1, 4, 7$ 三个数字。</p>
+<ul>
+<li>若和 $0, 3, 6, 9$ 组合，有 $B \rightarrow (0|3|6|9)B$</li>
+<li>若和 $1, 4, 7$ 组合，有 $B \rightarrow (1|4|7)S$</li>
+<li>若和 $2, 5, 8$ 组合，有 $B \rightarrow (2|5|8)A$</li>
+</ul>
+</li>
+</ol>
+<p>综上，$P$ 的规则是</p>
+<p>$$<br>\begin{align}<br>&amp;S \rightarrow (0|3|6|9)S|(1|4|7)A|(2|5|8)B|\varepsilon \<br>&amp;A \rightarrow (0|3|6|9)A|(2|5|8)S|(1|4|7)B \<br>&amp;B \rightarrow (0|3|6|9)B|(1|4|7)S|(2|5|8)A<br>\end{align}<br>$$</p>
+<h2 id="3、第二章课后作业"><a href="#3、第二章课后作业" class="headerlink" title="3、第二章课后作业"></a>3、第二章课后作业</h2><p>1、文法 $G &#x3D; ({ A, B, S }, { a, b, c }, P, S)$，其中 $P$ 为</p>
+<p>$$<br>\begin{align}<br>&amp; S \rightarrow Ac|aB \<br>&amp; A \rightarrow ab \<br>&amp; B \rightarrow bc<br>\end{align}<br>$$</p>
+<p>写出 $L(G[S])$ 的全部元素。</p>
+<p>解：</p>
+<p>$$<br>L(G[S]) &#x3D; { abc }<br>$$</p>
+<p>4、证明文法</p>
+<p>$$<br>G &#x3D; ({ E, O }, { (, ), +, *, v, d }, P, E)<br>$$</p>
+<p>是二义的，其中 $P$ 为</p>
+<p>$$<br>\begin{align}<br>&amp;E \rightarrow EOE|(E)|v|d \<br>&amp;O \rightarrow +|*<br>\end{align}<br>$$</p>
+<p>证明：</p>
+<p>可为句子 $v * v + v$ 构造两个不同的最左推导：</p>
+<p>$$<br>\begin{align}<br>E &amp;\Rightarrow EOE \<br>&amp;\Rightarrow EOEOE \<br>&amp;\Rightarrow vOEOE \<br>&amp;\Rightarrow v<em>EOE \<br>&amp;\Rightarrow v</em>vOE \<br>&amp;\Rightarrow v<em>v+E \<br>&amp;\Rightarrow v</em>v+v \<br>E &amp;\Rightarrow EOE \<br>&amp;\Rightarrow vOE \<br>&amp;\Rightarrow v<em>E \<br>&amp;\Rightarrow v</em>EOE \<br>&amp;\Rightarrow v<em>vOE \<br>&amp;\Rightarrow v</em>v+E \<br>&amp;\Rightarrow v*v+v<br>\end{align}<br>$$</p>
+<p>故文法 $G$ 是二义的。</p>
+<p>11、一个上下文无关语法生成句子 $abbaa$ 的唯一语法树如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210926101048.png" srcset="/img/loading.gif" lazyload></p>
+<p>(1)、给出该句子相应的最左推导和最右推导。<br>(2)、该文法的产生式集合 $P$ 可能有哪些元素？<br>(3)、找出该句子的所有短语、简单短语、句柄。</p>
+<p>解：</p>
+<p>(1)、句子 $abbaa$ 的最左推导如下</p>
+<p>$$<br>\begin{align}<br>S &amp;\Rightarrow ABS \<br>&amp;\Rightarrow aBS \<br>&amp;\Rightarrow aSBBS \<br>&amp;\Rightarrow a\varepsilon BBS \<br>&amp;\Rightarrow a\varepsilon bBS \<br>&amp;\Rightarrow a\varepsilon bbS \<br>&amp;\Rightarrow a\varepsilon bbAa \<br>&amp;\Rightarrow a\varepsilon bbaa \<br>\end{align}<br>$$</p>
+<p>最右推导如下</p>
+<p>$$<br>\begin{align}<br>S &amp;\Rightarrow ABS \<br>&amp;\Rightarrow ABAa \<br>&amp;\Rightarrow ABaa \<br>&amp;\Rightarrow ASBBaa \<br>&amp;\Rightarrow ASBbaa \<br>&amp;\Rightarrow ASbbaa \<br>&amp;\Rightarrow A\varepsilon bbaa \<br>&amp;\Rightarrow a\varepsilon bbaa \<br>\end{align}<br>$$</p>
+<p>(2)、</p>
+<p>产生式有：</p>
+<p>$$<br>\begin{split}<br>S &amp;\rightarrow ABS|Aa|\varepsilon \<br>A &amp;\rightarrow a \<br>B &amp;\rightarrow SBB|b<br>\end{split}<br>$$</p>
+<p>可能的元素有：</p>
+<p>$$<br>\varepsilon ; aa ; ab ; abbaa ; aaabbaa ; \cdots<br>$$</p>
+<p>(3)、</p>
+<p>该句子的短语有：<br>$a$ 是相对 $A$ 的短语；<br>$\varepsilon$ 是相对 $S$ 的短语；<br>$b$ 是相对 $B$ 的短语；<br>$\varepsilon bb$ 是相对 $B$ 的短语；<br>$aa$ 是相对 $S$ 的短语；<br>$a\varepsilon bbaa$ 是相对 $S$ 的短语；</p>
+<p>直接短语有：$a ; \varepsilon ; b$；</p>
+<p>句柄是：$a$。</p>
+<p>12、构造产生如下语言的上下文无关文法各一个：</p>
+<p>$$<br>\begin{align}<br>&amp;(2) ; { a^m b^n | m \geqslant n \geqslant 0 } \<br>&amp;(5) ; { a^n b^m | n \geqslant 0, m \geqslant 0, 且 3n \geqslant m \geqslant 2n } \<br>&amp;(6) ; { ww^R | w \in { a, b }^*, 其中, w^R 表示 w 的反向串，其含义是将 w 中的字母依次反转，首尾字母交换位置 } \<br>\end{align}<br>$$</p>
+<p>解：</p>
+<p>(2)、</p>
+<p>$$<br>\begin{split}<br>S \rightarrow aSb|aS|\varepsilon<br>\end{split}<br>$$</p>
+<p>(5)、</p>
+<p>$$<br>\begin{split}<br>S \rightarrow aSbb|aSbbb|\varepsilon<br>\end{split}<br>$$</p>
+<p>(6)、</p>
+<p>$$<br>S \rightarrow aSa|bSb|\varepsilon<br>$$</p>
+<p>18、给出生成下述语言的一个 3 型文法：</p>
+<p>(2)、${ a^nb^m|n, m \geqslant 1 }$</p>
+<p>解：</p>
+<p>$$<br>\begin{split}<br>S &amp;\rightarrow aA \<br>A &amp;\rightarrow aA|B \<br>B &amp;\rightarrow bB|b<br>\end{split}<br>$$</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" class="category-chain-item">编译原理</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" class="print-no-link">#编译原理</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>编译原理作业一</div>
+      <div>http://fanyfull.github.io/2021/09/21/编译原理作业一/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Fany Full</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年9月21日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/09/22/%E8%A7%A3%E5%86%B3-Hexo-%E5%9C%A8%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84-Accessing-non-existent-property-xxx-of-module-exports-inside-circular-dependency-%E9%97%AE%E9%A2%98/" title="解决 Hexo 在生成博客过程中的 Accessing non-existent property xxx of module exports inside circular dependency 问题">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">解决 Hexo 在生成博客过程中的 Accessing non-existent property xxx of module exports inside circular dependency 问题</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/09/20/LeetCode-12-Integer-to-Roman/" title="LeetCode 12 Integer to Roman">
+                        <span class="hidden-mobile">LeetCode 12 Integer to Roman</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://fanyfull.github.io/2021/09/21/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E4%B8%80/';
+          this.page.identifier = '/2021/09/21/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E4%B8%80/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fanyfull' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

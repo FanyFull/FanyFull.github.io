@@ -1,0 +1,1076 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Fany Full">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="记载本书所有章节的阅读札记。 第二章 何为符号 $\Rightarrow$？  符号 $\Rightarrow$ 的含义是，使用一条规则，代替左端的某个符号，产生其右端的符号串。  何为规则？  规则，也称重写规则、产生式或生成式，是形如 $\alpha \rightarrow \beta$ 或 $\alpha ::&#x3D; \beta$ 的有序对，其中 $\alpha$ 称为规则的左部，$\">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《编译原理第三版》（张素琴）学习札记">
+<meta property="og:url" content="http://fanyfull.github.io/2021/09/23/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E5%BC%A0%E7%B4%A0%E7%90%B4%EF%BC%89%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Fany Full&#39;s Blog">
+<meta property="og:description" content="记载本书所有章节的阅读札记。 第二章 何为符号 $\Rightarrow$？  符号 $\Rightarrow$ 的含义是，使用一条规则，代替左端的某个符号，产生其右端的符号串。  何为规则？  规则，也称重写规则、产生式或生成式，是形如 $\alpha \rightarrow \beta$ 或 $\alpha ::&#x3D; \beta$ 的有序对，其中 $\alpha$ 称为规则的左部，$\">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210923231105.png">
+<meta property="article:published_time" content="2021-09-23T00:55:38.000Z">
+<meta property="article:modified_time" content="2021-11-16T10:01:36.729Z">
+<meta property="article:author" content="Fany Full">
+<meta property="article:tag" content="编译原理">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210923231105.png">
+  
+  
+  
+  <title>《编译原理第三版》（张素琴）学习札记 - Fany Full&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fany Full&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210923231105.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="《编译原理第三版》（张素琴）学习札记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-09-23 08:55" pubdate>
+          2021年9月23日 早上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          15k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          126 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">《编译原理第三版》（张素琴）学习札记</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>记载本书所有章节的阅读札记。</p>
+<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><blockquote>
+<p>何为符号 $\Rightarrow$？</p>
+</blockquote>
+<p>符号 $\Rightarrow$ 的含义是，使用一条规则，代替左端的某个符号，产生其右端的符号串。</p>
+<blockquote>
+<p>何为规则？</p>
+</blockquote>
+<p>规则，也称重写规则、产生式或生成式，是形如 $\alpha \rightarrow \beta$ 或 $\alpha ::&#x3D; \beta$ 的有序对，其中 $\alpha$ 称为规则的左部，$\beta$ 称作规则的右部。</p>
+<blockquote>
+<p>设某一文法 $G$，何为文法 $G$ 的字母表？</p>
+</blockquote>
+<p>$$V_N \cup V_T &#x3D; \varnothing$$</p>
+<p>通常用 $V$ 表示 $V_N \cup V_T$，$V$ 称为文法 $G$ 的字母表或词汇表。</p>
+<p>关于符号 $\rightarrow$ 或 $::&#x3D;$？</p>
+<p>符号 $\rightarrow$ 或 $::&#x3D;$ 读作“定义为”。</p>
+<p>例如，$A \rightarrow a$ 读作“$A$ 定义为 $a$”。也把它说成是一条关于 $A$ 的规则（产生式）。</p>
+<blockquote>
+<p>何为四元组？</p>
+</blockquote>
+<p>文法 $G$ 定义为四元组 $\displaystyle{(V_N, V_T, P, S)}$。</p>
+<ul>
+<li>$V_N$：非终结符（或语法实体，或变量）集；</li>
+<li>$V_T$：终结符集；</li>
+<li>$P$：规则 $(\alpha \rightarrow \beta)$ 的集合<ul>
+<li>$\alpha \in (V_N \cup V_T)^{*}$ 且至少包含一个非终止符</li>
+<li>$\beta \in (V_N \cup V_T)^{*}$；</li>
+</ul>
+</li>
+<li>$V_N, V_T, P$ 是非空有穷集；</li>
+<li>$S$ 称作识别符或者开始符，它是一个非终结符，至少要在一条规则中作为左部出现。</li>
+</ul>
+<p>关于文法 $G$ 的一些规定？</p>
+<ul>
+<li>一般约定，第一条产生式的左部是识别符；</li>
+<li>用尖括号括起来的是非终结符，不用尖括号括起来的是终结符；</li>
+<li>或者用大写字母表示非终结符，小写字母表示终结符；</li>
+<li>另外，还有一种习惯写法，将 $G$ 写成 $G[S]$，其中 $S$ 是识别符。</li>
+</ul>
+<blockquote>
+<p>何为 0 型文法？</p>
+</blockquote>
+<p>设 $G &#x3D; (V_N, V_T, P, S)$，如果它的每一个产生式 $\alpha \rightarrow \beta$ 是这样一种结构：$\alpha \in (V_N \cup V_T)^*$ 且至少含有一个非终结符，而 $\beta \in (V_N \cup V_T)^*$，则 $G$ 是一个 <strong>0 型语法文法</strong>。</p>
+<p>0 型文法也称 短语语法。</p>
+<blockquote>
+<p>何为 1 型文法？</p>
+</blockquote>
+<p>设 $G &#x3D; (V_N, V_T, P, S)$ 为一个文法，若 $P$ 中的每一个产生式 $\alpha \rightarrow \beta$ 均满足 $|\beta| \geqslant |\alpha|$，仅仅 $S \rightarrow \varepsilon$ 除外，则文法 $G$ 是 <strong>1 型</strong> 或 <strong>上下文有关的（context-sensitive）</strong>。</p>
+<blockquote>
+<p>何为 2 型文法？</p>
+</blockquote>
+<p>设 $G &#x3D; (V_N, V_T, P, S)$。若 $P$ 中的每一个产生式 $\alpha \rightarrow \beta$ 满足：$\alpha$ 是一个非终结符，$\beta \in (V_N \cup V_T)^*$，则此文法称为 <strong>2 型的</strong> 或 <strong>上下文无关的（context-free）</strong></p>
+<blockquote>
+<p>何为 3 型文法？</p>
+</blockquote>
+<p>设 $G &#x3D; (V_N, V_T, P, S)$，若 $P$ 中的每一个产生式的形式都是 $A \rightarrow aB$ 或 $A \rightarrow a$，其中 $A$ 和 $B$ 都是非终结符，$a \in V_T^*$，则 $G$ 是 <strong>3 型文法</strong> 或 <strong>正规文法</strong>。</p>
+<p>问题：P25，上下文有关法的等价定义的理解？</p>
+<p>似乎 $A$ 在 $V_N$ 中，是单个字符。</p>
+<blockquote>
+<p>何为符号 $\mathop{\Rightarrow}\limits^{+}$？</p>
+</blockquote>
+<p>如果存在直接推导的序列：$$v &#x3D; w_0 \Rightarrow w_1 \Rightarrow w_2 \Rightarrow \cdots \Rightarrow w_n &#x3D; w ; (n &gt; 0)$$ 则称 $v$ 推导出（产生）$w$（推导长度为 $n$），或称 $w$ 归约到 $v$，记作 $v \mathop{\Rightarrow}\limits^{+} w$。</p>
+<p>若有 $v \mathop{\Rightarrow}\limits^{+} w$，或 $v &#x3D; w$，则记作 $v \mathop{\Rightarrow}\limits^{*} w$。</p>
+<blockquote>
+<p>何为句型，何为句子？</p>
+</blockquote>
+<p>设 $G[S]$ 是一个文法，如果符号串 $x$ 是从识别符推导出来的，即有 $S \mathop{\Rightarrow}\limits^{*} x$，则称 $x$ 是文法 $G[S]$ 的<strong>句型</strong>。</p>
+<p>按：注意上面的 $S \mathop{\Rightarrow}\limits^{<em>} x$ 是 $</em>$ 闭包，所以 $S$ 本身也是句型。</p>
+<p>若 $x$ 仅由终结符号组成，即 $S \mathop{\Rightarrow}\limits^{<em>} x, ; x \in V_T^</em>$，则称 $x$ 为 $G[S]$ 的<strong>句子</strong>。</p>
+<blockquote>
+<p>何为 $L(G)$？</p>
+</blockquote>
+<p>文法 $G$ 所产生的语言定义为集合</p>
+<p>$$<br>{ x| S \mathop{\Rightarrow}\limits^* x, 其中 S 为文法识别符号，且 x \in V^*_T}<br>$$</p>
+<p>可用 $L(G)$ 表示该集合。</p>
+<blockquote>
+<p>何为文法的二义性？</p>
+</blockquote>
+<p>如果一个文法存在某个句子对应两棵不同的语法树，则说这个语法是<strong>二义</strong>的。或者说，若一个文法中存在某个句子，它有两个不同的最左（最右）推导，则这个语法是<strong>二义</strong>的。</p>
+<p>举例：文法 $G &#x3D; ({ E }, { +, *, i, (, ) }, P, E)$，其中 $P$ 为：</p>
+<p>$$<br>\begin{align}<br>&amp;E \rightarrow i \<br>&amp;E \rightarrow E + E \<br>&amp;E \rightarrow E * E \<br>&amp;E \rightarrow (E)<br>\end{align}<br>$$</p>
+<p>对于这个文法 $G$，句型 $i * i + i$ 有两个不同的最左推导 1 和 2，它们的语法树如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210925114214.png" srcset="/img/loading.gif" lazyload alt="推导 1 的语法树"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210925114311.png" srcset="/img/loading.gif" lazyload alt="推导 2 的语法树"></p>
+<p>$$<br>\begin{align}<br>&amp;推导 1：E \Rightarrow E + E \Rightarrow E * E + E \Rightarrow i * E + E \Rightarrow i * i + E \Rightarrow i * i + i \<br>&amp;推导 2：E \Rightarrow E * E \Rightarrow i * E \Rightarrow i * E + E \Rightarrow i * i + E \Rightarrow i * i + i<br>\end{align}<br>$$</p>
+<blockquote>
+<p>何为最左推导、最右推导、规范推导、右句型、规范句型？</p>
+</blockquote>
+<p>如果在推导的任何一步 $\alpha \Rightarrow \beta$，其中，$\alpha$、$\beta$ 是句型，都是对 $\alpha$ 中的最左非终结符进行替换，则称这种推导为<strong>最左推导</strong>。</p>
+<p>如果在推导的任何一步 $\alpha \Rightarrow \beta$，其中，$\alpha$、$\beta$ 是句型，都是对 $\alpha$ 中的最右非终结符进行替换，则称这种推导为<strong>最右推导</strong>。</p>
+<p>在形式语言中，最右推导常被称为<strong>规范推导</strong>。</p>
+<p>由规范推导所得的句型称为<strong>右句型</strong>或<strong>规范句型</strong>。</p>
+<blockquote>
+<p>何为短语、直接短语、和句柄？</p>
+</blockquote>
+<p>令 $G$ 是一个文法，$S$ 是文法的开始符号，$\alpha \beta \delta$ 是文法 $G$ 的一个句型。如果有 $S \mathop{\Rightarrow}\limits^* \alpha A \delta$ 且 $A \mathop{\Rightarrow}\limits^+ \beta$，则称 $\beta$ 是句型 $\alpha \beta \delta$ 相对于非终结符 $A$ 的<strong>短语</strong>。</p>
+<p>特别地，如果有 $A \Rightarrow \beta$，则称 $\beta$ 是句型 $\alpha \beta \delta$ 相对于规则 $A \rightarrow \beta$ 的<strong>直接短语</strong>（也称<strong>简单短语</strong>）。</p>
+<p>一个右句型的直接短语称为该句型的<strong>句柄</strong>。句柄的概念只适用于右句型。</p>
+<p><em>最后两个定理要再看看。</em></p>
+<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1><blockquote>
+<p>何为正规文法？</p>
+</blockquote>
+<p>这个概念在第二章有讲过，这里再次摘录一下。</p>
+<p>正规文法也称为 3 型文法 $G &#x3D; (V_N, V_T, S, P)$，其 $P$ 中的每一条规则都有下述形式：$A \rightarrow aB$ 或 $A \rightarrow a$，其中 $A, B \in V_N, ; a \in V_T^*$。</p>
+<p>正规文法所描述的是 $V_T$ 上的正规集。</p>
+<blockquote>
+<p>何为正规集？</p>
+</blockquote>
+<p>按：本书中似乎没有正规集的概念。遂从《编译原理 第二版》黑书摘录其定义如下</p>
+<blockquote>
+<p>可以用一个正则表达式定义的语言叫做<strong>正则集合（regular set）</strong>。</p>
+</blockquote>
+<p>黑书中的翻译是“正则集合”，其实和“正规集”是一个意思。</p>
+<p>结合老师所讲，所谓正规集，可以和前面第二章的语言（$L(G)$）这一概念结合来看，它们表达的东西其实是很类似的，因此，正规集所表达的意思就是正规式（正则表达式）所产生的所有字串的集合。</p>
+<blockquote>
+<p>何为正规式？</p>
+</blockquote>
+<p>正规式也称正则表达式，是表示正规集的工具。</p>
+<p>(1). $\varepsilon$ 和 $\varnothing$ 都是 $\Sigma$ 上的正规式，它们所表示的正规集分别为 ${ \varepsilon }$ 和 $\varnothing$。<br>(2). 任何 $a \in \Sigma$，$a$ 是 $\Sigma$ 上的一个正规式，它所表示的正规集为 ${ a }$。<br>(3). 假定 $e_1$ 和 $e_2$ 都是 $\Sigma$ 上的正规式，它们所表示的正规集分别为 $L(e_1)$ 和 $L(e_2)$，那么，$(e_1)$、$e_1|e_2$、$e_1 \cdot e_2$ 和 $e_1^*$ 也都是正规式，它们所表示的正规集分别为 $L(e_1)$、$L(e_1) \cup L(e_2)$、$L(e_1)L(e_2)$ 和 $(L(e_1))^*$。<br>(4). 仅由有限次使用上述 3 个步骤而定义的表达式才是 $\Sigma$ 上的正规式，仅由这些正规式所表示的符号串的集合才是 $\Sigma$ 上的正规集。</p>
+<p>其中的 $|$ 读为“或”；$\cdot$ 读为“连接”；$<em>$ 读为“闭包”。在不致混淆时，括号可省去，但规定算符的优先顺序为先 $</em>$，再 $\cdot$，最后 $|$。连接符 $\cdot$ 一般可省略不写。$*$、$\cdot$、和 $|$ 都是左结合的。</p>
+<blockquote>
+<p>正规文法转正规式的 3 条规则？</p>
+</blockquote>
+<ol>
+<li><p>正规式：$A \rightarrow xy$</p>
+<p> 正规文法：</p>
+<p> $$<br> \begin{split}<br> A &amp;\rightarrow xB \<br> B &amp;\rightarrow y<br> \end{split}<br> $$</p>
+</li>
+<li><p>正规式：$A \rightarrow x^*y$</p>
+<p> 正规文法：</p>
+<p> $$<br> \begin{split}<br> A &amp;\rightarrow xB \<br> A &amp;\rightarrow y \<br> B &amp;\rightarrow xB \<br> B &amp;\rightarrow y<br> \end{split}<br> $$</p>
+</li>
+<li><p>正规式：$A \rightarrow x|y$</p>
+<p> 正规文法：</p>
+<p> $$<br> \begin{split}<br> A &amp;\rightarrow x \<br> A &amp;\rightarrow y<br> \end{split}<br> $$</p>
+</li>
+</ol>
+<p>课堂小问：</p>
+<p>$$<br>A \rightarrow xA \<br>A \rightarrow y<br>$$</p>
+<p>$x$ 可能是多个 $*$ 闭包的组合。</p>
+<p>疑问 P45？</p>
+<p>(1). 例 3.3，表示无符号数的正规式似乎有点问题。</p>
+<p>可以利用 $\varepsilon A &#x3D; A$ 来理解。那么，这个式子就是对的。</p>
+<p>P45 $(a|b)^* &#x3D; (a^* b^*)^*$ 如何理解？</p>
+<p>可以将 $(a|b)^*$ 展开成类似 $(a|b)(a|b) \cdots (a|b)$ 的形式，然后每一个括号内可以随便是 $a$ 或 $b$。</p>
+<blockquote>
+<p>正规式的代数规律？</p>
+</blockquote>
+<p>$$<br>\begin{split}<br>&amp;(1) ; r|s &#x3D; s|r \<br>&amp;(2) ; r|(s|t) &#x3D; (r|s)|t \<br>&amp;(3) ; (rs)t &#x3D; r(st) \<br>&amp;(4) ; r(s|t) &#x3D; rs|rt, ; (s|t)r &#x3D; sr|tr \<br>&amp;(5) ; \varepsilon r &#x3D; r, ; r\varepsilon &#x3D; r \<br>&amp;(6) ; r|r &#x3D; r<br>\end{split}<br>$$</p>
+<blockquote>
+<p>将正规文法转换成正规式的 3 条规则？</p>
+</blockquote>
+<ol>
+<li><p>规则一：</p>
+<p> $$<br> \begin{split}<br> 文法产生式：&amp;A \rightarrow xB \quad B \rightarrow y \<br> 正规式：&amp;A &#x3D; xy<br> \end{split}<br> $$</p>
+</li>
+<li><p>规则二：</p>
+<p> $$<br> \begin{split}<br> 文法产生式：&amp;A \rightarrow xA|y \<br> 正规式：&amp;A &#x3D; x^*y<br> \end{split}<br> $$</p>
+</li>
+<li><p>文法产生式：</p>
+<p> $$<br> \begin{split}<br> 文法产生式：&amp;A \rightarrow x \quad A \rightarrow y \<br> 正规式：&amp;A &#x3D; x|y<br> \end{split}<br> $$</p>
+</li>
+</ol>
+<blockquote>
+<p>何为确定的有穷自动机（$\textrm{DFA}$）？</p>
+</blockquote>
+<p>一个确定的有穷自动机 $M$ 是一个五元组：</p>
+<p>$$<br>M &#x3D; (K, \Sigma, f, S, Z)<br>$$</p>
+<p>其中：</p>
+<p>(1) $K$ 是一个有穷集，它的每一个元素称为一个状态。<br>(2) $\Sigma$ 是一个有穷字母表，它的每一个元素称为一个输入符号，所以也称 $\Sigma$ 为输入符号表。<br>(3) $f$ 是转换函数，是 $K \times \Sigma \rightarrow K$ 上的映像。例如，$f(k_i, a) &#x3D; k_j$ $(k_i \in K, k_j \in K, a \in \Sigma)$ 就意味着，当前状态为 $k$、输入字符为 $a$ 时，将转换到下一状态 $k_j$，把 $k_j$ 称作 $k_i$ 的一个后继状态。<br>(4) $S \in K$，是唯一的一个初态。<br>(5) $Z \subseteq K$，是一个终态集，终态也称可接受或结束状态。</p>
+<p>一个 $DFA$ 可以表示成一个状态图（或称状态转换图）。假定 $DFA ; M$ 含有 $m$ 个状态，$n$ 个输入符号，那么这个状态图含有 $m$ 个节点，每个节点最多有 $n$ 个弧射出，整个图含有唯一一个初态节点和若干个终态节点，初态节点冠以“$\Rightarrow$”或标以“$-$”，终态节点终态节点用双圈表示或标以“$+$”，若 $f(k_i, a) &#x3D; k_j$，则从状态节点 $k_i$ 到状态节点 $k_j$ 画标记为 $a$ 的弧。</p>
+<p>对于 $\Sigma^*$ 中的任何符号串，若存在一条从初态节点到某一终态节点的道路，且这条路上所有弧的标记连接成的符号串等于 $t$，则称 $t$ 可为 $DFA ; M$ 所接受，若 $M$ 的初态节点同时又是终态节点，则空字可为 $M$ <strong>所识别（接受）</strong>。<br>可换一种方式叙述如下：<br>若 $t \in \Sigma^*, $ $f(S, t) &#x3D; P$，其中 $S$ 为 $\textrm{DFA M}$ 的开始状态， $P \in Z$，$Z$ 为终态集。则称 $t$ 可为 $\textrm{DFA M}$ 所<strong>接受（识别）</strong>。</p>
+<blockquote>
+<p>何为不确定的有穷自动机（$\textrm{NFA}$）？</p>
+</blockquote>
+<p>一个不确定的有穷自动机 $M$ 是一个五元组：</p>
+<p>$$<br>M &#x3D; (K, \Sigma, f, S, Z)<br>$$</p>
+<p>其中：</p>
+<p>(1) $K$ 是一个有穷集，它的每个元素称为一个状态。<br>(2) $\Sigma$ 是一个有穷字母表，它的每个元素称为一个输入符号。<br>(3) $f$ 是一个从 $K \times \Sigma^*$ 到 $K$ 的全体子集的映像，即 $K \times \Sigma^* \rightarrow 2^K$，其中 $2^K$ 表示 $K$ 的幂集。<br>(4) $S \subseteq K$，是一个非空初态集。<br>(5) $Z \subseteq K$，是一个终态集。</p>
+<p>一个含有 $m$ 个状态和 $n$ 个输入符号的 $\textrm{NFA}$ 可表示成一张状态转换图，这张图含有 $m$ 个状态结点，每个结点可射出若干条箭弧与别的节点相连接，每条弧用 $\Sigma^*$ 中的一个串作标记，整个图至少含有一个初态结点以及若干个终态结点。</p>
+<blockquote>
+<p>何为状态集合 $I$ 的 $\varepsilon\text{-闭包}$？</p>
+</blockquote>
+<p>状态集合 $I$ 的 $\varepsilon\text{-闭包}$，表示为 $\varepsilon \text{-closure(I)}$，定义为一个状态集，是状态集 $I$ 中任何状态 $S$ 经任意条 $\varepsilon$ 弧能到达的状态的集合。</p>
+<blockquote>
+<p>何为状态集合 $I$ 的 $a$ 弧转换？</p>
+</blockquote>
+<p>状态集合 $I$ 的 $a$ 弧转换，表示为 $move(I, a)$，定义为状态集合 $J$，其中 $J$ 是所有哪些可从 $I$ 中的某一状态经过一条 $a$ 弧而到达的状态的全体。</p>
+<blockquote>
+<p>如何将一个 $\textrm{NFA}$ 转换为等价的 $\textrm{DFA}$？</p>
+</blockquote>
+<p>这里介绍的方法就是<strong>子集法</strong>。</p>
+<p>假设 $\textrm{NFA N} &#x3D;$ ${K, \Sigma, f, K_0, K_t}$ 按照如下方法构造一个 $\textrm{DFA M} &#x3D;$ $(S, \Sigma, D, S_0, S_t)$ 使得 $L(M) &#x3D; L(N)$：</p>
+<p>(1) $M$ 的状态集 $S$ 由 $K$ 的一些子集（构造 $K$ 的子集见下图）组成。用 $[S_1, S_2, …, S_j]$ 表示 $S$ 的元素，其中 $S_1, S_2, …, S_j$ 是 $K$ 的状态。并且约定，状态 $S_1, S_2, …, S_j$ 是按某种规则排列的，即对于子集 $S &#x3D; { S_2, S_1 }$ 来说，$S$ 的状态就是 $[S_1S_2]$。</p>
+<p>疑问：P51 这里的 S 规则排列与状态究竟是什么？  </p>
+<blockquote>
+<p>疑问：如果 $K_0$ 中不止一个元素怎么办？</p>
+</blockquote>
+<p>解答：这个观察 $\varepsilon \text{-闭包}$ 的定义即可解决。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211002163758.png" srcset="/img/loading.gif" lazyload alt="图 1：子集的构造算法"></p>
+<p>按：</p>
+<p>(2) $M$ 和 $N$ 的输入字母表是相同的，即是 $\Sigma$。<br>(3) 转换函数 $D$ 是这样定义的。</p>
+<p>$$<br>D([S_1, S_2, …, S_j], a) &#x3D; [R_1, R_2, …, R_j]<br>$$</p>
+<p>其中 $\varepsilon(move([S_1, S_2, $ $… S_j], a)) &#x3D; $ $[R_1, R_2, …, R_j]$。<br>(4) $S_0 &#x3D; $ $\varepsilon \text{-closure}(K_0)$ 为 $M$ 的开始状态。<br>(5) $S_t &#x3D; $ ${ [S_j, S_k,…,S_e] }$，其中 $[S_j, S_k,…,S_e]$ $\in S$ 且 ${ S_j, S_k,…,S_e }$ $\cap ; K_t \neq \varnothing }$</p>
+<p>图 1 是构造 $\text{NFA } N$ 的状态 $K$ 的子集的算法。假定所构造的子集族为 $C$，即 $C &#x3D; (T_1, T_2,…,T_i)$，其中 $T_1, T_2,…,T_i$ 为状态 $K$ 的子集。</p>
+<p>这个概念必须要用具体的例子辅助理解才能够最终掌握，所以，这里就举一个例子：应用上面的算法对下面的图 2 的 $\text{NFA } N$ 构造子集。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211004145119.png" srcset="/img/loading.gif" lazyload alt="图 2"></p>
+<p>步骤如下：</p>
+<p>(1) 首先计算 $\varepsilon \text{-closure(0)}$，令 $T_0 &#x3D; \varepsilon \text{-closure(0)}$ $&#x3D;{0, 1, 2, 4, 7}$，$T_0$ 未被标记，它现在是子集族 $C$ 的唯一成员。<br>(2) 标记 $T_0$；计算 $move(T_0, a) &#x3D; $ ${ 3, 8 }$。令 $T_1 &#x3D; $ $\varepsilon \text{-closure} (move(T_0, a))$ $&#x3D; {1, 2, 3, 4, 6, 7, 8}$，将 $T_1$ 加入 $C$ 中，$T_1$ 未被标记。<br>计算 $move(T_0, b) &#x3D; $ ${ 5 }$。令 $T_2 &#x3D; \varepsilon$ $\text{-closure} (move(T_0, b))$ $&#x3D; { 1, 2, 4, 5, 6, 7 }$，将 $T_2$ 加入 $C$ 中，它未被标记。<br>(3) 标记 $T_1$；计算 $move(T_1, a) &#x3D; $ ${ 3, 8 }$。计算 $\varepsilon \text{-closure} (move(T_1, a))$，结果为 ${ 1, 2, 3, 4, 6, 7, 8 }$，即 $T_1$，$T_1$ 已在 $C$ 中。<br>计算 $move(T_1, b) &#x3D; $ ${ 5, 9 }$。 计算 $\varepsilon \text{-closure} (move(T_1, b))$，结果为 ${ 1, 2, 4, 5, 6, 7, 9 }$，令其为 $T_3$，加至 $C$ 中，它未被标记。<br>(4) （从这里开始，就不单独计算 $move$ 的结果了）标记 $T_2$，计算 $\varepsilon \text{-closure} (move(T_2, a))$，结果为 ${1, 2, 3, 4, 6, 7, 8}$，即 $T_1$，$T_1$ 已在 $C$ 中。<br>计算 $\varepsilon \text{-closure} (move(T_2, b))$，结果为 ${1, 2, 4, 5, 6, 7}$，即 $T_2$，$T_2$ 已在 $C$ 中。<br>(5) 标记 $T_3$，计算 $\varepsilon \text{-closure} (move(T_3, a))$，结果为 ${1, 2, 3, 4, 6, 7, 8}$，即 $T_1$。<br>计算 $\varepsilon \text{-closure} (move(T_3, b))$，结果为 ${1, 2, 4, 5, 6, 7, 10}$，令其为 $T_4$，加入 $C$ 中，$T_4$ 未被标记。<br>(6) 标记 $T_4$，计算 $\varepsilon \text{-closure} (move(T_4, a))$，结果为 ${1, 2, 3, 4, 6, 7, 8}$，即 T_1$$。<br>计算 $\varepsilon \text{-closure} (move(T_4, b))$，结果为 ${1, 2, 4, 5, 6, 7}$，即 $T_2$。<br>至此，算法终止，共构造了 5 个子集：</p>
+<p>$$<br>\begin{split}<br>T_0 &amp;&#x3D; {0, 1, 2, 4, 7} \<br>T_1 &amp;&#x3D; {1, 2, 3, 4, 6, 7, 8} \<br>T_2 &amp;&#x3D; { 1, 2, 4, 5, 6, 7 } \<br>T_3 &amp;&#x3D; { 1, 2, 4, 5, 6, 7, 9 } \<br>T_4 &amp;&#x3D; {1, 2, 4, 5, 6, 7, 10}<br>\end{split}<br>$$</p>
+<p>那么，图 2 的 $\text{NFA } N$ 构造的 $\text{DFA } M$ 如下：</p>
+<p>$$<br>\begin{split}<br>(1); &amp;S &#x3D; {[T_0], [T_1], [T_2], [T_3], [T_4]} \<br>(2); &amp;\Sigma &#x3D; {a, b} \<br>(3); &amp;D([T_0], a) &#x3D; [T_1] \<br>   ; &amp;D([T_0], b) &#x3D; [T_2] \<br>   ; &amp;D([T_1], a) &#x3D; [T_1] \<br>   ; &amp;D([T_1], b) &#x3D; [T_3] \<br>   ; &amp;D([T_2], a) &#x3D; [T_1] \<br>   ; &amp;D([T_2], b) &#x3D; [T_2] \<br>   ; &amp;D([T_3], a) &#x3D; [T_1] \<br>   ; &amp;D([T_3], b) &#x3D; [T_4] \<br>   ; &amp;D([T_4], a) &#x3D; [T_1] \<br>   ; &amp;D([T_4], b) &#x3D; [T_2] \<br>(4); &amp;S_0 &#x3D; [T_0] \<br>(5); &amp;S_t &#x3D; [T_4]<br>\end{split}<br>$$</p>
+<blockquote>
+<p>何为有穷自动机的无用状态？</p>
+</blockquote>
+<p>所谓有穷自动机的无用状态，是指这样的状态：从该自动机的开始状态出发，任何输入串也不能到达的那个状态，或者从这个状态没有通路到达终态。</p>
+<blockquote>
+<p>在有穷自动机中，两个状态 $s$ 和 $t$ 等价的条件？</p>
+</blockquote>
+<ul>
+<li>一致性条件——状态 $s$ 和 $t$ 必须同时为可接受状态（终态）或不可接受状态（非终态）。</li>
+<li>蔓延性条件——对于所有输入符号，状态 $s$ 和状态 $t$ 必须转换到等价的状态里。</li>
+</ul>
+<blockquote>
+<p>正规式和有穷自动机的等价性如何说明？</p>
+</blockquote>
+<p>可由以下两点说明：</p>
+<ul>
+<li>对于 $\Sigma$ 上的 $\textrm{NFA M}$，可以构造一个 $\Sigma$ 上的正规式，使得 $L(r) &#x3D; L(M)$。</li>
+<li>对于 $\Sigma$ 上的每个正规式 $r$，可以构造一个 $\Sigma$ 上的 $\textrm{NFA M}$，使得 $L(M) &#x3D; L(r)$。</li>
+</ul>
+<blockquote>
+<p>如何为 $\Sigma$ 上的 $\textrm{NFA M}$ 构造相应的正规式 $r$？</p>
+</blockquote>
+<p>第 1 步，在 $M$ 的状态转换图上加进两个结点，一个为 $x$ 结点，一个为 $y$ 结点。从 $x$ 结点用 $\varepsilon$ 弧连接到 $M$ 的所有初态结点，从 $M$ 的所有终态结点用 $\varepsilon$ 弧连接到 $y$ 结点。形成一个与 $M$ 等价的 $M^{‘}$，$M^{‘}$ 只有一个初态 $x$ 和一个终态 $y$。<br>第 2 步，逐步消去 $M^{‘}$ 中的所有结点，直至只剩下 $x$ 和 $y$ 结点。在消去的过程中，逐步用正规式来标记弧。其消去的规则如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/draft06.drawio.png" srcset="/img/loading.gif" lazyload></p>
+<p>最后 $x$ 和 $y$ 结点间的弧上的标记则为所求的正规式 $r$。</p>
+<blockquote>
+<p>如何从 $\Sigma$ 上的一个正规式 $r$ 构造一个 $\textrm{NFA M}$，使得 $L(M) &#x3D; L(r)$？</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/draft07.drawio.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>如何从正规文法 $G$ 直接构造一个有穷自动机 $\text{NFA } M$，使得 $L(M) &#x3D; L(G)$？</p>
+</blockquote>
+<p>(1) $M$ 的字母表与 $G$ 的终结符集相同。<br>(2) 为 $G$ 中的每个非终结符生成 $M$ 的一个状态（不妨取成相同的名字），$G$ 的开始符 $S$ 是 $M$ 的开始状态 $S$。<br>(3) 增加一个新状态 $Z$，作为 $M$ 的终态。<br>(4) 对 $G$ 中的形如 $A \rightarrow tB$ 的规则（其中 $t$ 为终结符或 $\varepsilon$，$A$ 和 $B$ 为非终结符的产生式），构造 $M$ 的一个转换函数 $f(A, t) &#x3D; B$。<br>(5) 对 $G$ 中形如 $A \rightarrow t$ 的产生式，构造 $M$ 的一个转换函数 $f(A, t) &#x3D; Z$。</p>
+<h1 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h1><blockquote>
+<p>何为确定的自顶向下分析方法？</p>
+</blockquote>
+<p>确定的自顶向下分析方法，是从文法的开始符号出发，考虑如何根据当前的输入符号（单词符号）唯一地确定选用哪个产生式替换相应非终结符以往下推导，或如何构造一棵相应的语法树。</p>
+<blockquote>
+<p>如何理解 $\text{FIRST()}$？</p>
+</blockquote>
+<p>设 $G &#x3D; (V_T, V_N, P, S)$ 是上下文无关文法。</p>
+<p>$$<br>\text{FIRST}(\alpha) &#x3D; {a|\alpha \stackrel{<em>}{\Rightarrow} \alpha \beta, \quad a \in V_T, \alpha, \beta \in V^</em>}<br>$$</p>
+<p>若 $\alpha \stackrel{*}{\Rightarrow} \epsilon$，则规定 $\epsilon \in \text{FIRST}(\alpha)$。称 $\text{FIRST}(\alpha)$ 为 $\alpha$ 的<strong>开始符号集</strong>或<strong>首符号集</strong>。</p>
+<blockquote>
+<p>如何理解 $\text{FOLLOW()}$？</p>
+</blockquote>
+<p>设 $G &#x3D; (V_T, V_N, P, S)$ 是上下文无关文法，$A \in V_N$，$S$ 是开始符号。</p>
+<p>$$<br>\text{FOLLOW}(A) &#x3D; {a|S \stackrel{<em>}{\Rightarrow} \mu A \beta ; 且 ; a \in V_T, a \in \text{FIRST}(\beta), \mu \in V_T^</em>, \beta \in V^{+}}<br>$$</p>
+<p>若 $S \stackrel{<em>}{\Rightarrow} \mu A \beta$，且 $\beta \stackrel{</em>}{\Rightarrow} \epsilon$，则 $＃ \in \text{FOLLOW}(A)$。</p>
+<p>$$<br>\text{FOLLOW}(A) &#x3D; {a|S \stackrel{*}{\Rightarrow} \cdots Aa \cdots, ; a \in V_T}<br>$$</p>
+<p>若有 $S \stackrel{*}{\Rightarrow} \cdots A$，则规定 $＃ \in \text{FOLLOW}(A)$。</p>
+<p>这里用 $＃$ 作为输入串的结束符，也称为输入串符号。</p>
+<p>因此当文法中含有形如</p>
+<p>$$<br>\begin{split}<br>A \rightarrow \alpha \<br>A \rightarrow \beta<br>\end{split}<br>$$</p>
+<p>的产生式时，其中 $A \in V_N, \alpha、\beta \in V^*$，若 $\alpha$ 和 $\beta$ 不能同时推导出空，假定 $\alpha \stackrel{<em>}{\nRightarrow} \epsilon$ $, \beta \stackrel{</em>}{\Rightarrow} \epsilon$，则当 $\text{FIRST}(\alpha)$ $\cap$ $(\text{FIRST}(\beta)$ $\cup$ $\text{FOLLOW}(A)) &#x3D; \varnothing$ 时，对于非终结符 $A$ 的替换仍可唯一地确定候选。</p>
+<blockquote>
+<p>如何理解 $\text{SELECT()}$？</p>
+</blockquote>
+<p>给定上下文无关文法的产生式 $A \rightarrow \alpha$ $, $ $A \in V_N, \alpha \in V^*$，</p>
+<ul>
+<li>若 $\alpha \stackrel{*}{\nRightarrow} \varepsilon$，则 $\text{SELECT}(A \rightarrow \alpha)$ $&#x3D;$ $\text{FIRST}(\alpha)$。</li>
+<li>若 $\alpha \stackrel{*}{\Rightarrow} \varepsilon$，则 $\text{SELECT}(A \rightarrow \alpha)$ $&#x3D;$ $(\text{FIRST}(\alpha) - {\varepsilon})$ $\cup$ $\text{FOLLOW}(A)$。</li>
+</ul>
+<blockquote>
+<p>何为 $\text{LL}(1)$ 文法？</p>
+</blockquote>
+<p>一个上下文无关文法是 $\text{LL}(1)$ 的充分必要条件是,</p>
+<p>对每个非终结符 $A$ 的两个不同产生式，$A \rightarrow \alpha$ $,$ $A \rightarrow \beta$，满足</p>
+<p>$$<br>\text{SELECT}(A \rightarrow \alpha) \cap \text{SELECT}(A \rightarrow \beta) &#x3D; \varnothing<br>$$</p>
+<p>其中 $\alpha、\beta$ 不同时能 $\stackrel{*}{\Rightarrow} \epsilon$。</p>
+<p>$\text{LL}(1)$ 的含义是：第 1 个 $\text{L}$ 表明自顶向下分析是从左向右扫描输入串，第 2 个 $\text{L}$ 表明分析过程中将用最左推导，1 表明只需要向右看一个符号便可决定如何推导，即选择哪个产生式（规则）进行推导。</p>
+<blockquote>
+<p>如何判别某文法是否是 $\text{LL}(1)$ 文法？</p>
+</blockquote>
+<p>首先计算 $\text{FIRST}$、$\text{FOLLOW}$、$\text{SELECT}$ 集合，然后根据定义判别文法是否是 $\text{LL}(1)$ 文法。</p>
+<blockquote>
+<p>如何计算一个文法符号 $X \in V$ 的 $\text{FIRST}$ 集 $\text{FIRST}(X)$？</p>
+</blockquote>
+<p>① 若 $X \in V_T$，则 $\text{FIRST}(X) &#x3D; {X}$。<br>② 若 $X \in V_N$，且有产生式 $X \rightarrow a \cdots$ $,$ $a \in V_T$，则 $a \in \text{FIRST}(X)$。<br>③ 若 $X \in V_N$，$X \rightarrow \varepsilon$，则 $\varepsilon \in \text{FIRST}(X)$。<br>④ 若 $X, Y_1, Y_2,$ $\cdots$ $, Y_n \in V_N$，而有产生式 $X \rightarrow Y_1Y_2 \cdots Y_n$。当 $Y_1, Y_2, \cdots, Y_{i - 1}$ $\stackrel{*}{\Rightarrow} \varepsilon$ 时（其中 $1 \leqslant i \leqslant n$），则 $\text{FIRST}(Y_1) - {\varepsilon},$ $\text{FIRST}(Y_2) - {\varepsilon},$ $\cdots$ $, \text{FIRST}(Y_{i - 1}) - {\varepsilon},$ $\text{FIRST}(Y_i)$ 都包含在 $\text{FIRST}(X)$ 中，即</p>
+<p>$$<br>\text{FIRST}(X) &#x3D; (\text{FIRST}(Y_1) \cup \text{FIRST}(Y_2) \cdots \cup \text{FIRST}(Y_i)) - {\varepsilon}<br>$$</p>
+<p>⑤ 当 ④ 中所有 $Y_i \stackrel{*}{\Rightarrow} \varepsilon$ $,$ $(i &#x3D; 1, 2, \cdots, n)$，则 </p>
+<p>$$<br>\text{FIRST}(X) &#x3D; (\text{FIRST}(Y_1) \cup \text{FIRST}(Y_2) \cdots \cup \text{FIRST}(Y_n)) \cup {\varepsilon}<br>$$</p>
+<p>反复使用上述 ②~⑤ 步，直到每个符号的 $\text{FIRST}$ 集合不再增大为止。</p>
+<blockquote>
+<p>如何计算一个符号串的 $\text{FIRST}$ 集合？</p>
+</blockquote>
+<p>若符号串 $\alpha \in V^*$ $,$ $\alpha &#x3D; X_1 X_2 \cdots X_n$，当 $X_1$ 不能 $\stackrel{*}{\Rightarrow} \varepsilon$，则置 $\text{FIRST}(\alpha) &#x3D; \text{FIRST}(X_1)$。</p>
+<p>若对任何 $j(1 \leqslant j \leqslant i - 1,$ $2 \leqslant i \leqslant n)$ $,$ $\varepsilon \in \text{FIRST}(X_j)$ $,$ $\varepsilon \notin \text{FIRST}(X_i)$，则</p>
+<p>$$<br>\text{FIRST}(\alpha) &#x3D; \bigcup_{j &#x3D; 1}^{i - 1}(\text{FIRST}(X_j) - {\varepsilon}) \cup \text{FIRST}(X_i)<br>$$</p>
+<p>当对任何 $j(1 \leqslant j \leqslant n)$，$\text{FIRST}(X_j)$ 都含有 $\varepsilon$ 时，则</p>
+<p>$$<br>\text{FIRST}(\alpha) &#x3D; \bigcup_{j &#x3D; 1}^{n}(\text{FIRST}(X_j) - {\varepsilon}) \cup {\varepsilon}<br>$$</p>
+<p>按：这里最后一个公式书上的写法似乎有点问题。</p>
+<blockquote>
+<p>如何计算 $\text{FOLLOW}$ 集？</p>
+</blockquote>
+<p>对文法中的每一个 $A \in V_N$，根据定义计算 $\text{FOLLOW}(A)$。</p>
+<p>① 设 $S$ 为文法的开始符号，把 ${＃}$ 加入 $\text{FOLLOW}(S)$ 中（这里＃为句子括号）。</p>
+<p>按：＃似为句子结束符号。</p>
+<p>② 若 $A \rightarrow \alpha B \beta$ 是一个产生式，则把 $\text{FIRST}(\beta)$ 的非空元素加入 $\text{FOLLOW}(B)$ 中。<br>如果 $\beta \stackrel{*}{\Rightarrow} \varepsilon$，则把 $\text{FOLLOW}(A)$ 也加入 $\text{FOLLOW}(B)$ 中，因为当有形如</p>
+<p>$$<br>\begin{split}<br>D &amp;\rightarrow \alpha_{1} A \beta_{1} \<br>A &amp;\rightarrow \alpha B \beta<br>\end{split}<br>$$</p>
+<p>的产生式时，$A, B, D \in V_N$，$\alpha, \alpha_{1}, \beta, \beta_{1} \in V^*$，在推导过程中可能出现如下的句型序列：</p>
+<p>$$<br>S \stackrel{*}{\Rightarrow} \cdots \alpha_{1} A \beta_{1} \cdots \Rightarrow \alpha_{1} \alpha B \beta \beta{1} \cdots \Rightarrow \cdots \alpha_{1} \alpha B \beta_{1} \cdots<br>$$</p>
+<p>因此，有 $\text{FOLLOW}(A)$ $\subseteq$ $\text{FOLLOW}(B)$。</p>
+<p>③ 反复使用 ② 直到每个非终结符的 $\text{FOLLOW}$ 集不再增大为止。</p>
+<blockquote>
+<p>如何计算某一文法中的每一个产生式的 $\text{SELECT}$ 集？</p>
+</blockquote>
+<p>直接根据定义来判断：</p>
+<p>给定上下文无关文法的产生式 $A \rightarrow \alpha$ $, $ $A \in V_N, \alpha \in V^*$，</p>
+<ul>
+<li>若 $\alpha \stackrel{*}{\nRightarrow} \varepsilon$，则 $\text{SELECT}(A \rightarrow \alpha)$ $&#x3D;$ $\text{FIRST}(\alpha)$。</li>
+<li>若 $\alpha \stackrel{*}{\Rightarrow} \varepsilon$，则 $\text{SELECT}(A \rightarrow \alpha)$ $&#x3D;$ $(\text{FIRST}(\alpha) - {\varepsilon})$ $\cup$ $\text{FOLLOW}(A)$。</li>
+</ul>
+<blockquote>
+</blockquote>
+<hr>
+<p>附：哈工大慕课陈鄞对于 $\text{FIRST}$、$\text{FOLLOW}$ 和 $\text{SELECT}$ 的理解。</p>
+<blockquote>
+<p>对 $\text{FIRST}$ 的理解？</p>
+</blockquote>
+<p><img src="https://i.imgur.com/s8YqiDv.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/VmrkYxH.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/hgG2AXE.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>对 $\text{FOLLOW}$ 的理解？</p>
+</blockquote>
+<p><img src="https://i.imgur.com/BWChrVU.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/T9YnsK5.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>一个 $\text{SELECT}$ 的例子。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/OQut1Ok.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>一张预测分析表。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/rqhlpyx.png" srcset="/img/loading.gif" lazyload></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" class="category-chain-item">编译原理</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" class="print-no-link">#编译原理</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>《编译原理第三版》（张素琴）学习札记</div>
+      <div>http://fanyfull.github.io/2021/09/23/《编译原理第三版》（张素琴）学习札记/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Fany Full</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年9月23日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/09/25/LeetCode-13-Roman-to-Integer/" title="LeetCode 13 Roman to Integer">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">LeetCode 13 Roman to Integer</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/09/22/%E8%A7%A3%E5%86%B3-Hexo-%E5%9C%A8%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84-Accessing-non-existent-property-xxx-of-module-exports-inside-circular-dependency-%E9%97%AE%E9%A2%98/" title="解决 Hexo 在生成博客过程中的 Accessing non-existent property xxx of module exports inside circular dependency 问题">
+                        <span class="hidden-mobile">解决 Hexo 在生成博客过程中的 Accessing non-existent property xxx of module exports inside circular dependency 问题</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://fanyfull.github.io/2021/09/23/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E5%BC%A0%E7%B4%A0%E7%90%B4%EF%BC%89%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/';
+          this.page.identifier = '/2021/09/23/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E5%BC%A0%E7%B4%A0%E7%90%B4%EF%BC%89%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fanyfull' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
