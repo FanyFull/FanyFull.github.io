@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>一次关于博客物理搬迁的记录</title>
+    <link href="/2023/11/11/%E4%B8%80%E6%AC%A1%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%89%A9%E7%90%86%E6%90%AC%E8%BF%81%E7%9A%84%E8%AE%B0%E5%BD%95/"/>
+    <url>/2023/11/11/%E4%B8%80%E6%AC%A1%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%89%A9%E7%90%86%E6%90%AC%E8%BF%81%E7%9A%84%E8%AE%B0%E5%BD%95/</url>
+    
+    <content type="html"><![CDATA[<p>这一个博客似乎是因为我重装了 manjaro的系统之后，因为种种原因，没有去重新配置写博客的这样一个设置，好吧，其实是我的🏓打得太多了，时间不够用，也是因为潜意识里面的怕麻烦的心理在作祟。实际呢，其实是一点都不麻烦的，甚至不要半个小时就可以解决。</p><p>然后，最近因为已经工作的缘故，所以，时时刻刻、所有的时间都可以说是扑在了计算机上面，因此，麻烦什么的，就不可以再说了。妈的，有人在另一种场景和我说，你怎么能嫌麻烦呢？我才不嫌麻烦好吧。这又涉及到了一些夏虫的论题。不谈也罢。</p><p>好吧，说正事儿。这里我是直接把以前的备份的 <code>_config.yml</code>和 <code>_config_fluid.yml</code> 以及 source 目录，以及 scaffolds目录直接搬运过来了，所以，其实到这里就差不多了。安装好相关的包裹之后，就可以<code>hexo g</code> 然后 <code>hexo s</code> 看看效果了。</p><p>好吧，以后在这台 pc 上遇到的问题就在本机上记录就好了。</p><p>剩下的事情，就是<strong>写写写</strong>了。就像村上的舞舞舞一样。</p><h2 id="遇到的问题">遇到的问题</h2><p>一开始，需要安装 hexo-cli，</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo npm install -g hexo-cli<br></code></pre></td></tr></table></figure><p>然后，我因为是使用 hexo-cli 主题，并且，是使用 mathjax渲染数学公式，所以，需要安装如下包，</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yay -S pandoc<br></code></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm uninstall hexo-renderer-marked --save<br>npm install hexo-renderer-pandoc --save<br></code></pre></td></tr></table></figure><p>这个，可以见文档<ahref="https://hexo.fluid-dev.com/docs/guide/#latex-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F">这里</a>的描述。</p><p><code>hexo d</code> 不生效的问题，</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ERROR Deployer not found: git<br></code></pre></td></tr></table></figure><p>这个其实是没有安装 <code>hexo-deployer-git</code>的缘故，上一次配置博客的时间太古老了，我都忘记了。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>记录</tag>
+      
+      <tag>日常</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>VSCode 配置 C++ 单文件运行的方式</title>
     <link href="/2022/09/22/VSCode-%E9%85%8D%E7%BD%AE-C-%E5%8D%95%E6%96%87%E4%BB%B6%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E5%BC%8F/"/>
     <url>/2022/09/22/VSCode-%E9%85%8D%E7%BD%AE-C-%E5%8D%95%E6%96%87%E4%BB%B6%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E5%BC%8F/</url>
