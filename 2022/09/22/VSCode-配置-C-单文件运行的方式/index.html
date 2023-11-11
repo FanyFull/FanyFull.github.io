@@ -23,14 +23,14 @@
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
 <meta property="og:description" content="好久没有在这个博客据点写博客了。 深夜，不方便打扰室友休息，所以就来到阳台，把移门关上，独自坐在椅子上泡脚，敲电脑。顺便感受一下窗外的凉意。 因为是在六楼，之前是到那个楼梯顶部的小区域，不过，那个地方的灯光不太方便。宿舍阳台的话，从卫生间可以开出一条小缝，正好光亮可以照过来，这也算是当时为了性价比而舍弃了这台 ThinkPad 的键盘背光的一个痛点吧。 好吧，说回这篇记录的重点啦。 说起来，感觉最">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/kfrvhV9.png">
+<meta property="og:image" content="https://i.imgur.com/UOkCiz3.png">
 <meta property="article:published_time" content="2022-09-21T17:17:21.000Z">
-<meta property="article:modified_time" content="2022-09-21T17:58:28.078Z">
+<meta property="article:modified_time" content="2023-11-11T12:53:19.354Z">
 <meta property="article:author" content="Fany Full">
 <meta property="article:tag" content="VSCode">
 <meta property="article:tag" content="Cpp">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i.imgur.com/kfrvhV9.png">
+<meta name="twitter:image" content="https://i.imgur.com/UOkCiz3.png">
   
   
   
@@ -198,7 +198,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://i.imgur.com/kfrvhV9.png') no-repeat center center; background-size: cover;">
+     style="background: url('https://i.imgur.com/UOkCiz3.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -284,21 +284,24 @@
                 
                 <p>好久没有在这个博客据点写博客了。</p>
 <p>深夜，不方便打扰室友休息，所以就来到阳台，把移门关上，独自坐在椅子上泡脚，敲电脑。顺便感受一下窗外的凉意。</p>
-<p>因为是在六楼，之前是到那个楼梯顶部的小区域，不过，那个地方的灯光不太方便。宿舍阳台的话，从卫生间可以开出一条小缝，正好光亮可以照过来，这也算是当时为了性价比而舍弃了这台 ThinkPad 的键盘背光的一个痛点吧。</p>
+<p>因为是在六楼，之前是到那个楼梯顶部的小区域，不过，那个地方的灯光不太方便。宿舍阳台的话，从卫生间可以开出一条小缝，正好光亮可以照过来，这也算是当时为了性价比而舍弃了这台
+ThinkPad 的键盘背光的一个痛点吧。</p>
 <p>好吧，说回这篇记录的重点啦。</p>
 <p>说起来，感觉最适合这个单文件运行 C++ 的编辑器，还得是 VSCode 呀。</p>
-<p>配合 multi-command 插件，直接修改 <code>Ctrl+F5</code> 的默认行为，一气呵成。</p>
-<p>编写 <code>run.ps1</code> 脚本，powershell 脚本，没什么好说的，查一查文档，把一堆命令捆在一起运行罢了，</p>
+<p>配合 multi-command 插件，直接修改 <code>Ctrl+F5</code>
+的默认行为，一气呵成。</p>
+<p>编写 <code>run.ps1</code> 脚本，powershell
+脚本，没什么好说的，查一查文档，把一堆命令捆在一起运行罢了，</p>
 <figure class="highlight ps1"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs ps1"><span class="hljs-variable">$filename</span>=<span class="hljs-variable">$args</span>[<span class="hljs-number">0</span>]<br><span class="hljs-variable">$start</span>=<span class="hljs-variable">$filename</span>.LastIndexOf(<span class="hljs-string">&quot;\&quot;</span>) + <span class="hljs-number">1</span><br><span class="hljs-variable">$strLength</span>=<span class="hljs-variable">$filename</span>.Length - <span class="hljs-variable">$start</span> - <span class="hljs-number">4</span><br><span class="hljs-variable">$outputName</span>=<span class="hljs-variable">$filename</span>.Substring(<span class="hljs-variable">$start</span>, <span class="hljs-variable">$strLength</span>)<br><span class="hljs-variable">$exeName</span>=<span class="hljs-variable">$outputName</span>+<span class="hljs-string">&quot;.exe&quot;</span><br><span class="hljs-comment"># echo $filename</span><br><span class="hljs-comment"># echo $exeName</span><br>g++ <span class="hljs-variable">$filename</span> <span class="hljs-literal">-o</span> .\bin\<span class="hljs-variable">$outputName</span><br><span class="hljs-comment"># echo &#x27;compile completed and start execute:&#x27;</span><br>&amp; .\bin\<span class="hljs-variable">$exeName</span><br></code></pre></td></tr></table></figure>
-
-<p>这个要在项目目录下建立一个 <code>bin</code> 目录来存放可执行文件。C++ 的源文件随便放，命令行的运行目录就在默认的项目的根目录就可以了。</p>
+<p>这个要在项目目录下建立一个 <code>bin</code> 目录来存放可执行文件。C++
+的源文件随便放，命令行的运行目录就在默认的项目的根目录就可以了。</p>
 <p>然后，定制 <code>Ctrl + F5</code> 快捷键，</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;key&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ctrl+f5&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;extension.multiCommand.execute&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;when&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;editorTextFocus &amp;&amp; editorLangId == &#x27;cpp&#x27;&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;sequence&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>            <span class="hljs-string">&quot;workbench.action.files.saveAll&quot;</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-punctuation">&#123;</span><br>                <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;workbench.action.terminal.sendSequence&quot;</span><span class="hljs-punctuation">,</span><br>                <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>                    <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;clear \u000D&quot;</span><br>                <span class="hljs-punctuation">&#125;</span><br>            <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-string">&quot;workbench.action.terminal.focus&quot;</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-punctuation">&#123;</span><br>                <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;workbench.action.terminal.sendSequence&quot;</span><span class="hljs-punctuation">,</span><br>                <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>                    <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;./run.ps1 $&#123;file&#125; \u000D&quot;</span><br>                <span class="hljs-punctuation">&#125;</span><br>            <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-string">&quot;workbench.action.focusActiveEditorGroup&quot;</span><br>        <span class="hljs-punctuation">]</span><br>    <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br></code></pre></td></tr></table></figure>
-
 <p>最后，别忘了安装 multi-command 这个插件就可以了。</p>
 <p>测试走一个，</p>
-<p><img src="https://i.imgur.com/e0KIFop.png" srcset="/img/loading.gif" lazyload></p>
-<p>这个用起来感觉还是要方便简洁一点的，其实吧，这个单文件运行用来熟悉 C++ 语法和写 leetcode 的题目是很方便的哦。</p>
+<p><img src="https://i.imgur.com/e0KIFop.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这个用起来感觉还是要方便简洁一点的，其实吧，这个单文件运行用来熟悉
+C++ 语法和写 leetcode 的题目是很方便的哦。</p>
 
                 
               </div>
