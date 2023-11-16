@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="建议直接阅读这一篇博客：https:&#x2F;&#x2F;www.haoyizebo.com&#x2F;posts&#x2F;710984d0&#x2F; 我在这里仅仅是作一个备份。 对于我来说，有用的两个步骤是： (1) 执行以下两个命令 12yarn remove hexo-renderer-stylusyarn add hexo-renderer-stylus  (2) 到 Hexo 博客的根目录下，找到 package.json 文件，">
+    <meta name="description" content="建议直接阅读这一篇博客：https:&#x2F;&#x2F;www.haoyizebo.com&#x2F;posts&#x2F;710984d0&#x2F; 我在这里仅仅是作一个备份。 对于我来说，有用的两个步骤是：  执行以下两个命令  12yarn remove hexo-renderer-stylusyarn add hexo-renderer-stylus  到 Hexo 博客的根目录下，找到 package.json 文件，添加如下部分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决 Hexo 在生成博客过程中的 Accessing non-existent property xxx of module exports inside circular dependency 问题">
 <meta property="og:url" content="http://fanyfull.github.io/2021/09/22/%E8%A7%A3%E5%86%B3-Hexo-%E5%9C%A8%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84-Accessing-non-existent-property-xxx-of-module-exports-inside-circular-dependency-%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="建议直接阅读这一篇博客：https:&#x2F;&#x2F;www.haoyizebo.com&#x2F;posts&#x2F;710984d0&#x2F; 我在这里仅仅是作一个备份。 对于我来说，有用的两个步骤是： (1) 执行以下两个命令 12yarn remove hexo-renderer-stylusyarn add hexo-renderer-stylus  (2) 到 Hexo 博客的根目录下，找到 package.json 文件，">
+<meta property="og:description" content="建议直接阅读这一篇博客：https:&#x2F;&#x2F;www.haoyizebo.com&#x2F;posts&#x2F;710984d0&#x2F; 我在这里仅仅是作一个备份。 对于我来说，有用的两个步骤是：  执行以下两个命令  12yarn remove hexo-renderer-stylusyarn add hexo-renderer-stylus  到 Hexo 博客的根目录下，找到 package.json 文件，添加如下部分">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210922231123.png">
 <meta property="article:published_time" content="2021-09-22T15:04:55.000Z">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -227,7 +227,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          339 字
+          333 字
         
       </span>
     
@@ -281,19 +281,28 @@
             
               <div class="markdown-body">
                 
-                <p>建议直接阅读这一篇博客：<a target="_blank" rel="noopener" href="https://www.haoyizebo.com/posts/710984d0/">https://www.haoyizebo.com/posts/710984d0/</a></p>
+                <p>建议直接阅读这一篇博客：<a
+target="_blank" rel="noopener" href="https://www.haoyizebo.com/posts/710984d0/"
+class="uri">https://www.haoyizebo.com/posts/710984d0/</a></p>
 <p>我在这里仅仅是作一个备份。</p>
 <p>对于我来说，有用的两个步骤是：</p>
-<p>(1) 执行以下两个命令</p>
+<ol type="1">
+<li>执行以下两个命令</li>
+</ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">yarn remove hexo-renderer-stylus<br>yarn add hexo-renderer-stylus<br></code></pre></td></tr></table></figure>
-
-<p>(2) 到 Hexo 博客的根目录下，找到 <code>package.json</code> 文件，添加如下部分：</p>
+<ol start="2" type="1">
+<li>到 Hexo 博客的根目录下，找到 <code>package.json</code>
+文件，添加如下部分：</li>
+</ol>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-attr">&quot;resolutions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;stylus&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^0.54.8&quot;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210922230847.png" srcset="/img/loading.gif" lazyload alt="图片示意"></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210922230847.png" srcset="/img/loading.gif" lazyload
+alt="图片示意" /></p>
 <p>然后重新生成部署博客即可。</p>
-<p>注意，如果电脑中原来没有 yarn，那么，可以在命令行通过以下命令安装：</p>
+<p>注意，如果电脑中原来没有
+yarn，那么，可以在命令行通过以下命令安装：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install --global yarn<br></code></pre></td></tr></table></figure>
+
                 
               </div>
             
@@ -625,6 +634,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一份最简单的 CMakeLists这是我在 CLion 中最长用的一种配置，其实也就是原始配置。在现阶段，顶天了也就是多 add 几个 executable，所以目前先给我这个 CMakeLists 加上注释，因为今天我我 add_executable() 都不会用了，我淦。 这里补充一下，# 及后面的内容代表注释。 123456789101112# CMake 最低版本号要求cmake_mini">
+    <meta name="description" content="一份最简单的 CMakeLists 这是我在 CLion 中最长用的一种配置，其实也就是原始配置。在现阶段，顶天了也就是多 add 几个 executable，所以目前先给我这个 CMakeLists 加上注释，因为今天我我 add_executable() 都不会用了，我淦。 这里补充一下，# 及后面的内容代表注释。 123456789101112# CMake 最低版本号要求cmake_min">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CMake 学习记录">
 <meta property="og:url" content="http://fanyfull.github.io/2021/06/11/CMake-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="一份最简单的 CMakeLists这是我在 CLion 中最长用的一种配置，其实也就是原始配置。在现阶段，顶天了也就是多 add 几个 executable，所以目前先给我这个 CMakeLists 加上注释，因为今天我我 add_executable() 都不会用了，我淦。 这里补充一下，# 及后面的内容代表注释。 123456789101112# CMake 最低版本号要求cmake_mini">
+<meta property="og:description" content="一份最简单的 CMakeLists 这是我在 CLion 中最长用的一种配置，其实也就是原始配置。在现阶段，顶天了也就是多 add 几个 executable，所以目前先给我这个 CMakeLists 加上注释，因为今天我我 add_executable() 都不会用了，我淦。 这里补充一下，# 及后面的内容代表注释。 123456789101112# CMake 最低版本号要求cmake_min">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210611000954.png">
 <meta property="article:published_time" content="2021-06-10T16:06:57.000Z">
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -282,22 +282,36 @@
             
               <div class="markdown-body">
                 
-                <h2 id="一份最简单的-CMakeLists"><a href="#一份最简单的-CMakeLists" class="headerlink" title="一份最简单的 CMakeLists"></a>一份最简单的 CMakeLists</h2><p>这是我在 CLion 中最长用的一种配置，其实也就是原始配置。在现阶段，顶天了也就是多 add 几个 executable，所以目前先给我这个 CMakeLists 加上注释，因为今天我我 <code>add_executable()</code> 都不会用了，我淦。</p>
+                <h2 id="一份最简单的-cmakelists">一份最简单的 CMakeLists</h2>
+<p>这是我在 CLion
+中最长用的一种配置，其实也就是原始配置。在现阶段，顶天了也就是多 add
+几个 executable，所以目前先给我这个 CMakeLists 加上注释，因为今天我我
+<code>add_executable()</code> 都不会用了，我淦。</p>
 <p>这里补充一下，<code>#</code> 及后面的内容代表注释。</p>
 <figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs scss"># CMake 最低版本号要求<br><span class="hljs-built_in">cmake_minimum_required</span>(VERSION <span class="hljs-number">3.19</span>)<br><br># 项目信息<br><span class="hljs-built_in">project</span>(LinuxCLearning C)<br><br># 设定 C 的标准<br><span class="hljs-built_in">set</span>(CMAKE_C_STANDARD <span class="hljs-number">99</span>)<br><br># 执行生成目标<br><span class="hljs-built_in">add_executable</span>(LinuxCLearning main.c)<br><span class="hljs-built_in">add_executable</span>(draft01 draft01.c)<br></code></pre></td></tr></table></figure>
-
 <p>下面对上面的几个命令作具体说明。</p>
-<ol>
-<li><code>cmake_minimum_required</code>: 指定运行此配置文件所需的 CMake 的最低版本；</li>
-<li><code>project</code>: 参数值是 <code>LinuxCLearning C</code>，表明该项目的名称是 <code>LinuxCLearning</code>，并且明确了项目的语言是 C 语言；</li>
-<li><code>set</code>: 第一个参数是 CMake 的自带的用来指定 C 标准的变量，第二个参数就是具体的 C 标准；</li>
-<li><code>add_executable</code>: 第一个参数的作用是指定生成的可执行文件的名称，第二个参数是待编译的源文件。</li>
+<ol type="1">
+<li><code>cmake_minimum_required</code>: 指定运行此配置文件所需的 CMake
+的最低版本；</li>
+<li><code>project</code>: 参数值是
+<code>LinuxCLearning C</code>，表明该项目的名称是
+<code>LinuxCLearning</code>，并且明确了项目的语言是 C 语言；</li>
+<li><code>set</code>: 第一个参数是 CMake 的自带的用来指定 C
+标准的变量，第二个参数就是具体的 C 标准；</li>
+<li><code>add_executable</code>:
+第一个参数的作用是指定生成的可执行文件的名称，第二个参数是待编译的源文件。</li>
 </ol>
-<p>我这里主要的需求其实还是将当前目录下的多个 C 源文件编译成可执行文件，所以 <code>add_executable</code> 用得比较多一点。</p>
-<h2 id="命令指南"><a href="#命令指南" class="headerlink" title="命令指南"></a>命令指南</h2><p>这里秉持即用即查的理念，用到时再查，再记录，点到为止。</p>
-<hr>
+<p>我这里主要的需求其实还是将当前目录下的多个 C
+源文件编译成可执行文件，所以 <code>add_executable</code>
+用得比较多一点。</p>
+<h2 id="命令指南">命令指南</h2>
+<p>这里秉持即用即查的理念，用到时再查，再记录，点到为止。</p>
+<hr />
 <p>参考：</p>
-<p>1、<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/267803605">https://zhuanlan.zhihu.com/p/267803605</a><br>2、官方帮助手册：<a target="_blank" rel="noopener" href="https://cmake.org/cmake/help/v3.19/">https://cmake.org/cmake/help/v3.19/</a></p>
+<p>1、<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/267803605"
+class="uri">https://zhuanlan.zhihu.com/p/267803605</a>
+2、官方帮助手册：<a target="_blank" rel="noopener" href="https://cmake.org/cmake/help/v3.19/"
+class="uri">https://cmake.org/cmake/help/v3.19/</a></p>
 
                 
               </div>
@@ -632,6 +646,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

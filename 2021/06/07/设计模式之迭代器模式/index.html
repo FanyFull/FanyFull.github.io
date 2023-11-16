@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="迭代器模式的定义 Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.  提供一种方法顺序地访问一组组合对象（一个容器）中的各个元素，而又不需要暴露该对象的内部细节。 迭代器模式的设计思想迭代器模式也称为迭代模式">
+    <meta name="description" content="迭代器模式的定义  Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.  提供一种方法顺序地访问一组组合对象（一个容器）中的各个元素，而又不需要暴露该对象的内部细节。 ## 迭代器模式的设计思想 迭代器模式也称">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式之迭代器模式">
 <meta property="og:url" content="http://fanyfull.github.io/2021/06/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="迭代器模式的定义 Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.  提供一种方法顺序地访问一组组合对象（一个容器）中的各个元素，而又不需要暴露该对象的内部细节。 迭代器模式的设计思想迭代器模式也称为迭代模式">
+<meta property="og:description" content="迭代器模式的定义  Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.  提供一种方法顺序地访问一组组合对象（一个容器）中的各个元素，而又不需要暴露该对象的内部细节。 ## 迭代器模式的设计思想 迭代器模式也称">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607121901.png">
 <meta property="article:published_time" content="2021-06-07T02:40:38.000Z">
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -282,11 +282,14 @@
             
               <div class="markdown-body">
                 
-                <h2 id="迭代器模式的定义"><a href="#迭代器模式的定义" class="headerlink" title="迭代器模式的定义"></a>迭代器模式的定义</h2><blockquote>
-<p>Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.</p>
+                <h2 id="迭代器模式的定义">迭代器模式的定义</h2>
+<blockquote>
+<p>Provide a way to access the elements of an aggregate object
+sequentially without exposing its underlying representation.</p>
 </blockquote>
-<p>提供一种方法顺序地访问一组组合对象（一个容器）中的各个元素，而又不需要暴露该对象的内部细节。</p>
-<h2 id="迭代器模式的设计思想"><a href="#迭代器模式的设计思想" class="headerlink" title="迭代器模式的设计思想"></a>迭代器模式的设计思想</h2><p>迭代器模式也称为迭代模式。迭代器其实就是一个指向容器中当前元素的指针，这个指针可以返回当前所指向的元素，可以移到下一个元素的位置，通过这个指针可以遍历容器中的所有元素。迭代器一般至少有以下两种方法</p>
+<p>提供一种方法顺序地访问一组组合对象（一个容器）中的各个元素，而又不需要暴露该对象的内部细节。
+## 迭代器模式的设计思想</p>
+<p>迭代器模式也称为迭代模式。迭代器其实就是一个指向容器中当前元素的指针，这个指针可以返回当前所指向的元素，可以移到下一个元素的位置，通过这个指针可以遍历容器中的所有元素。迭代器一般至少有以下两种方法</p>
 <ul>
 <li><code>current()</code>: 获取当前所指向的元素</li>
 <li><code>next()</code>: 将指针移至下一个元素</li>
@@ -299,39 +302,49 @@
 <li><code>next()</code>: 将指针移至下一个元素</li>
 <li><code>previous()</code>: 将指针移至上一个元素</li>
 </ul>
-<h2 id="迭代器模式的抽象模型"><a href="#迭代器模式的抽象模型" class="headerlink" title="迭代器模式的抽象模型"></a>迭代器模式的抽象模型</h2><h3 id="代码框架"><a href="#代码框架" class="headerlink" title="代码框架"></a>代码框架</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">class</span> <span class="hljs-title class_">BaseIterator</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;迭代器&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, data</span>):<br>        self.__data = data<br>        self.toBegin()<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">toBegin</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;将指针移至起始位置&quot;&quot;&quot;</span><br>        self.__curIdx = -<span class="hljs-number">1</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">toEnd</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;将指针移至结尾位置&quot;&quot;&quot;</span><br>        self.__curIdx = <span class="hljs-built_in">len</span>(self.__data)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">next</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;移动至下一个元素&quot;&quot;&quot;</span><br>        <span class="hljs-keyword">if</span> (self.__curIdx &lt; <span class="hljs-built_in">len</span>(self.__data) - <span class="hljs-number">1</span>):<br>            self.__curIdx += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">previous</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;移动至上一个元素&quot;&quot;&quot;</span><br>        <span class="hljs-keyword">if</span> (self.__curIdx &gt; <span class="hljs-number">0</span>):<br>            self.__curIdx -= <span class="hljs-number">1</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">current</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;获取当前的元素&quot;&quot;&quot;</span><br>        <span class="hljs-keyword">return</span> self.__data[self.__curIdx] <span class="hljs-keyword">if</span> (self.__curIdx &lt; <span class="hljs-built_in">len</span>(self.__data) <span class="hljs-keyword">and</span> self.__curIdx &gt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">else</span> <span class="hljs-literal">None</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">testBaseIterator</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;从前往后遍历:&quot;</span>)<br>    iterator = BaseIterator(<span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>))<br>    <span class="hljs-keyword">while</span> (iterator.<span class="hljs-built_in">next</span>()):<br>        customer = iterator.current()<br>        <span class="hljs-built_in">print</span>(customer, end=<span class="hljs-string">&#x27;\t&#x27;</span>)<br>    <span class="hljs-built_in">print</span>()<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;从后往前遍历:&quot;</span>)<br>    iterator.toEnd()<br>    <span class="hljs-keyword">while</span> (iterator.previous()):<br>        customer = iterator.current()<br>        <span class="hljs-built_in">print</span>(customer, end=<span class="hljs-string">&#x27;\t&#x27;</span>)<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    testBaseIterator()<br></code></pre></td></tr></table></figure>
-
+<h2 id="迭代器模式的抽象模型">迭代器模式的抽象模型</h2>
+<h3 id="代码框架">代码框架</h3>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">class</span> <span class="hljs-title class_">BaseIterator</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;迭代器&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, data</span>):<br>        self.__data = data<br>        self.toBegin()<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">toBegin</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;将指针移至起始位置&quot;&quot;&quot;</span><br>        self.__curIdx = -<span class="hljs-number">1</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">toEnd</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;将指针移至结尾位置&quot;&quot;&quot;</span><br>        self.__curIdx = <span class="hljs-built_in">len</span>(self.__data)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">next</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;移动至下一个元素&quot;&quot;&quot;</span><br>        <span class="hljs-keyword">if</span> (self.__curIdx &lt; <span class="hljs-built_in">len</span>(self.__data) - <span class="hljs-number">1</span>):<br>            self.__curIdx += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">previous</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;移动至上一个元素&quot;&quot;&quot;</span><br>        <span class="hljs-keyword">if</span> (self.__curIdx &gt; <span class="hljs-number">0</span>):<br>            self.__curIdx -= <span class="hljs-number">1</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">current</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;获取当前的元素&quot;&quot;&quot;</span><br>        <span class="hljs-keyword">return</span> self.__data[self.__curIdx] <span class="hljs-keyword">if</span> (self.__curIdx &lt; <span class="hljs-built_in">len</span>(self.__data) <span class="hljs-keyword">and</span> self.__curIdx &gt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">else</span> <span class="hljs-literal">None</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">testBaseIterator</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;从前往后遍历:&quot;</span>)<br>    iterator = BaseIterator(<span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>))<br>    <span class="hljs-keyword">while</span> (iterator.<span class="hljs-built_in">next</span>()):<br>        customer = iterator.current()<br>        <span class="hljs-built_in">print</span>(customer, end=<span class="hljs-string">&#x27;\t&#x27;</span>)<br>    <span class="hljs-built_in">print</span>()<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;从后往前遍历:&quot;</span>)<br>    iterator.toEnd()<br>    <span class="hljs-keyword">while</span> (iterator.previous()):<br>        customer = iterator.current()<br>        <span class="hljs-built_in">print</span>(customer, end=<span class="hljs-string">&#x27;\t&#x27;</span>)<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    testBaseIterator()<br></code></pre></td></tr></table></figure>
 <p>输出结果</p>
 <pre><code class="hljs">从前往后遍历:
-0	1	2	3	4	5	6	7	8	9	
+0   1   2   3   4   5   6   7   8   9   
 从后往前遍历:
-9	8	7	6	5	4	3	2	1	0
-</code></pre>
-<h3 id="Python-中的迭代器"><a href="#Python-中的迭代器" class="headerlink" title="Python 中的迭代器"></a>Python 中的迭代器</h3><h4 id="Iterable"><a href="#Iterable" class="headerlink" title="Iterable"></a>Iterable</h4><p>可以直接作用于 for 循环的对象统称为可迭代对象(Iterable)，它们有如下两种类型</p>
-<ol>
+9   8   7   6   5   4   3   2   1   0</code></pre>
+<h3 id="python-中的迭代器">Python 中的迭代器</h3>
+<h4 id="iterable">Iterable</h4>
+<p>可以直接作用于 for
+循环的对象统称为可迭代对象(Iterable)，它们有如下两种类型</p>
+<ol type="1">
 <li>集合数据类型，如 list、tuple、dict、set、str 等</li>
-<li>生成器(Generator)，包括 () 语法定义的生成器和带 yield 的 generator 函数</li>
+<li>生成器(Generator)，包括 () 语法定义的生成器和带 yield 的 generator
+函数</li>
 </ol>
 <p>Iterable 对象的代码示例如下</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment"># 方法一：使用 () 定义生成器</span><br>gen = (x * x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>))<br><br><span class="hljs-comment"># 方法二：使用 yield 定义 generator 函数</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">fibonacci</span>(<span class="hljs-params">maxNum</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;斐波那契数列的生成器&quot;&quot;&quot;</span><br>    a = b = <span class="hljs-number">1</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(maxNum):<br>        <span class="hljs-keyword">yield</span> a<br>        a, b = b, a + b<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">testIterable</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;方法一，0~9 的平方数：&quot;</span>)<br>    <span class="hljs-keyword">for</span> e <span class="hljs-keyword">in</span> gen:<br>        <span class="hljs-built_in">print</span>(e, end=<span class="hljs-string">&#x27;\t&#x27;</span>)<br>    <span class="hljs-built_in">print</span>()<br><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;方法二，斐波那契数列：&quot;</span>)<br>    fib = fibonacci(<span class="hljs-number">10</span>)<br>    <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> fib:<br>        <span class="hljs-built_in">print</span>(n, end=<span class="hljs-string">&#x27;\t&#x27;</span>)<br>    <span class="hljs-built_in">print</span>()<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;内置容器的 for 循环：&quot;</span>)<br>    arr = [x * x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>)]<br>    <span class="hljs-keyword">for</span> e <span class="hljs-keyword">in</span> arr:<br>        <span class="hljs-built_in">print</span>(e, end=<span class="hljs-string">&#x27;\t&#x27;</span>)<br>    <span class="hljs-built_in">print</span>()<br><br>    <span class="hljs-built_in">print</span>()<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(gen))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(fib))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(arr))<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    testIterable()<br></code></pre></td></tr></table></figure>
-
 <p>输出结果</p>
 <pre><code class="hljs">内置容器的 for 循环：
-0	1	4	9	16	25	36	49	64	81	
+0   1   4   9   16  25  36  49  64  81  
 
 &lt;class &#39;generator&#39;&gt;
 &lt;class &#39;generator&#39;&gt;
-&lt;class &#39;list&#39;&gt;
-</code></pre>
+&lt;class &#39;list&#39;&gt;</code></pre>
 <p>关于生成器，在《流畅的 Python》中有这样的描述</p>
 <blockquote>
-<p>Python 2.2（2001年）加入了 yield 关建字。这个关建字用于构建生成器(generator)，其作用与迭代器一样。<br>所有生成器都是迭代器，因为生成器完全实现了迭代器接口。不过，根据《设计模式：可复用面向对象软件的基础》一书的定义，迭代器用于从集合中取出元素；而生成器用于“凭空”生成元素。通过斐波纳契数列能很好地说明二者之间的区别：斐波纳契数列中的数有无穷个，在一个集合中放不下。不过要知道，在 Python 社区中，大多数时候都把<strong>迭代器</strong>和<strong>生成器</strong>视作同一概念。</p>
+<p>Python 2.2（2001年）加入了 yield
+关建字。这个关建字用于构建生成器(generator)，其作用与迭代器一样。
+所有生成器都是迭代器，因为生成器完全实现了迭代器接口。不过，根据《设计模式：可复用面向对象软件的基础》一书的定义，迭代器用于从集合中取出元素；而生成器用于“凭空”生成元素。通过斐波纳契数列能很好地说明二者之间的区别：斐波纳契数列中的数有无穷个，在一个集合中放不下。不过要知道，在
+Python
+社区中，大多数时候都把<strong>迭代器</strong>和<strong>生成器</strong>视作同一概念。</p>
 </blockquote>
-<h4 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h4><p>生成器(Generator)不但可以作用于 for 循环，还可以被 next() 函数不断调用并返回下一个值，直到最后抛出 StopIteration 错误，表示无法继续返回下一个值。</p>
-<p>可以被 next() 函数调用并不断返回下一个值的对象称为**迭代器(Iterator)**。</p>
-<p>我们可以使用 <code>isinstance()</code> 来判断一个对象是否为 Iterable 对象或 Iterator 对象，示例代码如下</p>
+<h4 id="iterator">Iterator</h4>
+<p>生成器(Generator)不但可以作用于 for 循环，还可以被 next()
+函数不断调用并返回下一个值，直到最后抛出 StopIteration
+错误，表示无法继续返回下一个值。</p>
+<p>可以被 next()
+函数调用并不断返回下一个值的对象称为<strong>迭代器(Iterator)</strong>。</p>
+<p>我们可以使用 <code>isinstance()</code> 来判断一个对象是否为 Iterable
+对象或 Iterator 对象，示例代码如下</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment"># 方法一：使用 () 定义生成器</span><br>gen = (x * x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>))<br><br><span class="hljs-comment"># 方法二：使用 yield 定义 generator 函数</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">fibonacci</span>(<span class="hljs-params">maxNum</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;斐波那契数列的生成器&quot;&quot;&quot;</span><br>    a = b = <span class="hljs-number">1</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(maxNum):<br>        <span class="hljs-keyword">yield</span> a<br>        a, b = b, a + b<br><br><span class="hljs-keyword">from</span> collections.abc <span class="hljs-keyword">import</span> Iterable, Iterator<br><span class="hljs-comment"># 引入 Iterable 和 Iterator</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">testIsIterator</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;是否为 Iterable 对象：&quot;</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">isinstance</span>([], Iterable))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">isinstance</span>(&#123;&#125;, Iterable))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">isinstance</span>((<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>), Iterable))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">isinstance</span>(<span class="hljs-built_in">set</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]), Iterable))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">isinstance</span>(<span class="hljs-string">&quot;string&quot;</span>, Iterable))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">isinstance</span>(gen, Iterable))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">isinstance</span>(fibonacci(<span class="hljs-number">10</span>), Iterable))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;是否为 Iterator 对象：&quot;</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">isinstance</span>([], Iterator))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">isinstance</span>(&#123;&#125;, Iterator))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">isinstance</span>((<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>), Iterator))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">isinstance</span>(<span class="hljs-built_in">set</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]), Iterator))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">isinstance</span>(<span class="hljs-string">&quot;string&quot;</span>, Iterator))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">isinstance</span>(gen, Iterator))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">isinstance</span>(fibonacci(<span class="hljs-number">10</span>), Iterator))<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    testIsIterator()<br></code></pre></td></tr></table></figure>
-
 <p>输出结果</p>
 <pre><code class="hljs">是否为 Iterable 对象：
 True
@@ -348,12 +361,13 @@ False
 False
 False
 True
-True
-</code></pre>
-<h4 id="Iterator-和-Iterable-的区别"><a href="#Iterator-和-Iterable-的区别" class="headerlink" title="Iterator 和 Iterable 的区别"></a>Iterator 和 Iterable 的区别</h4><p>Iterator 对象可以被 next() 函数不断调用并返回下一个值，直到最后抛出 StopIteration 错误，表示无法继续返回下一个值。</p>
-<p>Iterable 对象不能被 next() 函数调用，可以用 <code>iter()</code> 函数将 Iterable 对象转成 Iterator 对象，示例代码如下</p>
+True</code></pre>
+<h4 id="iterator-和-iterable-的区别">Iterator 和 Iterable 的区别</h4>
+<p>Iterator 对象可以被 next() 函数不断调用并返回下一个值，直到最后抛出
+StopIteration 错误，表示无法继续返回下一个值。</p>
+<p>Iterable 对象不能被 next() 函数调用，可以用 <code>iter()</code>
+函数将 Iterable 对象转成 Iterator 对象，示例代码如下</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">def</span> <span class="hljs-title function_">testNextItem</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;将 Iterable 对象转成 Iterator 对象：&quot;</span>)<br>    l = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br>    iterL = <span class="hljs-built_in">iter</span>(l)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(iterL))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(iterL))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(iterL))<br><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;next() 函数遍历迭代器元素：&quot;</span>)<br>    fib = fibonacci(<span class="hljs-number">4</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(fib))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(fib))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(fib))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(fib))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(fib))<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    testNextItem()<br></code></pre></td></tr></table></figure>
-
 <p>输出结果</p>
 <pre><code class="hljs">将 Iterable 对象转成 Iterator 对象：
 1
@@ -369,24 +383,32 @@ File &quot;C:/Users/17309/PycharmProjects/DesignPatterns/iterator/iterable.py&qu
     testNextItem()
 File &quot;C:/Users/17309/PycharmProjects/DesignPatterns/iterator/iterable.py&quot;, line 68, in testNextItem
     print(next(fib))
-StopIteration
-</code></pre>
-<h4 id="使自定义的类具有-Iterable-或-Iterator-属性"><a href="#使自定义的类具有-Iterable-或-Iterator-属性" class="headerlink" title="使自定义的类具有 Iterable 或 Iterator 属性"></a>使自定义的类具有 Iterable 或 Iterator 属性</h4><p>要使自定义的类具有 Iterable 属性，需要实现 <code>__iter__</code> 方法。</p>
-<p>要使自定义的类具有 Iterator 属性，需要实现 <code>__iter__</code> 和 <code>__next__</code> 方法，示例代码如下</p>
+StopIteration</code></pre>
+<h4 id="使自定义的类具有-iterable-或-iterator-属性">使自定义的类具有
+Iterable 或 Iterator 属性</h4>
+<p>要使自定义的类具有 Iterable 属性，需要实现 <code>__iter__</code>
+方法。</p>
+<p>要使自定义的类具有 Iterator 属性，需要实现 <code>__iter__</code> 和
+<code>__next__</code> 方法，示例代码如下</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">class</span> <span class="hljs-title class_">NumberSequence</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;生成一个间隔为 step 的数字序列&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, init, step, <span class="hljs-built_in">max</span> = <span class="hljs-number">100</span></span>):<br>        self.__data = init<br>        self.__step = step<br>        self.__<span class="hljs-built_in">max</span> = <span class="hljs-built_in">max</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__iter__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> self<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__next__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">if</span> (self.__data &lt; self.__<span class="hljs-built_in">max</span>):<br>            tmp = self.__data<br>            self.__data += self.__step<br>            <span class="hljs-keyword">return</span> tmp<br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-keyword">raise</span> StopIteration<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">testNumberSequence</span>():<br>    numSeq = NumberSequence(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>, <span class="hljs-number">20</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">isinstance</span>(numSeq, Iterable))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">isinstance</span>(numSeq, Iterator))<br>    <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> numSeq:<br>        <span class="hljs-built_in">print</span>(n, end=<span class="hljs-string">&#x27;\t&#x27;</span>)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    testNumberSequence()<br></code></pre></td></tr></table></figure>
-
 <p>输出结果</p>
 <pre><code class="hljs">True
 True
-0	5	10	15	
-</code></pre>
-<h3 id="迭代器的类图"><a href="#迭代器的类图" class="headerlink" title="迭代器的类图"></a>迭代器的类图</h3><p>一个迭代器一般对应着一个容器类，而一个容器会包含多个元素，这些元素可能会有不同的子类。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607115855.png" srcset="/img/loading.gif" lazyload alt="迭代器模式的类图"></p>
-<p>在实际的项目开发中有可能会遇到一些更复杂的逻辑。例如，具有层级关系的组织架构：一个公司有 A、B、C 三个部门，每个部门有自己的成员，这时要遍历一个公司的所有成员，就有如下的类图关系</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607120605.png" srcset="/img/loading.gif" lazyload alt="具有层级结构的容器的迭代器实现"></p>
-<hr>
+0   5   10  15  </code></pre>
+<h3 id="迭代器的类图">迭代器的类图</h3>
+<p>一个迭代器一般对应着一个容器类，而一个容器会包含多个元素，这些元素可能会有不同的子类。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607115855.png" srcset="/img/loading.gif" lazyload
+alt="迭代器模式的类图" /></p>
+<p>在实际的项目开发中有可能会遇到一些更复杂的逻辑。例如，具有层级关系的组织架构：一个公司有
+A、B、C
+三个部门，每个部门有自己的成员，这时要遍历一个公司的所有成员，就有如下的类图关系</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607120605.png" srcset="/img/loading.gif" lazyload
+alt="具有层级结构的容器的迭代器实现" /></p>
+<hr />
 <p>参考：</p>
-<p>1、《人人都懂设计模式》（罗伟富）<br>2、《流畅的 Python》</p>
+<p>1、《人人都懂设计模式》（罗伟富） 2、《流畅的 Python》</p>
 
                 
               </div>
@@ -721,6 +743,8 @@ True
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

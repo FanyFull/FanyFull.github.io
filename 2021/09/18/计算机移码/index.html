@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="移码表示浮点数的阶码，只有整数形式，如 IEEE754 中阶码用移码表示。 设定点整数 $X$ 的移码形式为 $X_0 X_1 X_2 X_3…X_n$，则移码的定义是： $$[X]_{移} &#x3D; 2^n + X \quad -2^n \leqslant X &lt; 2^n$$ 具体实现：数值位与 $X$ 的补码相同，符号位与补码相反。 举例 $$\begin{matrix}X &amp;#x3">
+    <meta name="description" content="移码表示浮点数的阶码，只有整数形式，如 IEEE754 中阶码用移码表示。 设定点整数 \(X\) 的移码形式为 \(X_0 X_1 X_2 X_3...X_n\)，则移码的定义是： \[ [X]_{移} &#x3D; 2^n + X \quad -2^n \leqslant X &lt; 2^n \] 具体实现：数值位与 \(X\) 的补码相同，符号位与补码相反。 举例 \[ \begin{matrix}">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机移码">
 <meta property="og:url" content="http://fanyfull.github.io/2021/09/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%BB%E7%A0%81/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="移码表示浮点数的阶码，只有整数形式，如 IEEE754 中阶码用移码表示。 设定点整数 $X$ 的移码形式为 $X_0 X_1 X_2 X_3…X_n$，则移码的定义是： $$[X]_{移} &#x3D; 2^n + X \quad -2^n \leqslant X &lt; 2^n$$ 具体实现：数值位与 $X$ 的补码相同，符号位与补码相反。 举例 $$\begin{matrix}X &amp;#x3">
+<meta property="og:description" content="移码表示浮点数的阶码，只有整数形式，如 IEEE754 中阶码用移码表示。 设定点整数 \(X\) 的移码形式为 \(X_0 X_1 X_2 X_3...X_n\)，则移码的定义是： \[ [X]_{移} &#x3D; 2^n + X \quad -2^n \leqslant X &lt; 2^n \] 具体实现：数值位与 \(X\) 的补码相同，符号位与补码相反。 举例 \[ \begin{matrix}">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210919170138.png">
 <meta property="article:published_time" content="2021-09-18T06:55:10.000Z">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -227,7 +227,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          314 字
+          292 字
         
       </span>
     
@@ -282,12 +282,22 @@
               <div class="markdown-body">
                 
                 <p>移码表示浮点数的阶码，只有整数形式，如 IEEE754 中阶码用移码表示。</p>
-<p>设定点整数 $X$ 的移码形式为 $X_0 X_1 X_2 X_3…X_n$，则移码的定义是：</p>
-<p>$$<br>[X]_{移} &#x3D; 2^n + X \quad -2^n \leqslant X &lt; 2^n<br>$$</p>
-<p>具体实现：数值位与 $X$ 的补码相同，符号位与补码相反。</p>
+<p>设定点整数 <span class="math inline">\(X\)</span> 的移码形式为 <span
+class="math inline">\(X_0 X_1 X_2
+X_3...X_n\)</span>，则移码的定义是：</p>
+<p><span class="math display">\[
+[X]_{移} = 2^n + X \quad -2^n \leqslant X &lt; 2^n
+\]</span></p>
+<p>具体实现：数值位与 <span class="math inline">\(X\)</span>
+的补码相同，符号位与补码相反。</p>
 <p><strong>举例</strong></p>
-<p>$$<br>\begin{matrix}<br>X &#x3D; +0101 \quad [X]<em>{补} &#x3D; 00101 \quad [X]</em>{移} &#x3D; 10101 \<br>X &#x3D; -0101 \quad [X]<em>{补} &#x3D; 11011 \quad [X]</em>{移} &#x3D; 01011<br>\end{matrix}<br>$$</p>
-<hr>
+<p><span class="math display">\[
+\begin{matrix}
+X = +0101 \quad [X]_{补} = 00101 \quad [X]_{移} = 10101 \\
+X = -0101 \quad [X]_{补} = 11011 \quad [X]_{移} = 01011
+\end{matrix}
+\]</span></p>
+<hr />
 <p>参考：</p>
 <p>1、华科软院计组第二章 PPT。</p>
 
@@ -622,6 +632,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

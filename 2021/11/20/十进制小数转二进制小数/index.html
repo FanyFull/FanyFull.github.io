@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -228,7 +228,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          563 字
+          555 字
         
       </span>
     
@@ -282,18 +282,20 @@
             
               <div class="markdown-body">
                 
-                <p>转自：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xkfz007/articles/2590472.html">https://www.cnblogs.com/xkfz007/articles/2590472.html</a></p>
+                <p>转自：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xkfz007/articles/2590472.html"
+class="uri">https://www.cnblogs.com/xkfz007/articles/2590472.html</a></p>
 <ul>
 <li>十进制小数转换成二进制小数采用“乘 2 取整，顺序排列”法。</li>
-<li>具体做法是：用 2 乘十进制小数，可以得到积，将积的整数部分取出，再用 2 乘余下的小数部分，又得到一个积，再将积的整数部分取出，如此进行，直到积中的小数部分为零，或者达到所要求的精度为止。</li>
+<li>具体做法是：用 2 乘十进制小数，可以得到积，将积的整数部分取出，再用
+2
+乘余下的小数部分，又得到一个积，再将积的整数部分取出，如此进行，直到积中的小数部分为零，或者达到所要求的精度为止。</li>
 <li>最后把取出的整数部分按顺序排列起来，先取的整数作为二进制小数的高位有效位，后取的整数作为低位有效位。</li>
 </ul>
-<p>如：0.625 &#x3D; (0.101)B</p>
+<p>如：0.625 = (0.101)B</p>
 <pre><code class="hljs">0.625 * 2 = 1.25 ====== 取出整数部分 1 
 0.25 * 2 = 0.5 ======== 取出整数部分 0 
-0.5 * 2 = 1 ========== 取出整数部分 1 
-</code></pre>
-<p>再如：0.7 &#x3D; (0.1011 0011 0…)B</p>
+0.5 * 2 = 1 ========== 取出整数部分 1 </code></pre>
+<p>再如：0.7 = (0.1011 0011 0...)B</p>
 <pre><code class="hljs">0.7 * 2 = 1.4 ======== 取出整数部分 1 
 0.4 * 2 = 0.8 ======== 取出整数部分 0 
 0.8 * 2 = 1.6 ======== 取出整数部分 1 
@@ -302,8 +304,7 @@
 0.4 * 2 = 0.8 ======== 取出整数部分 0 
 0.8 * 2 = 1.6 ======== 取出整数部分 1 
 0.6 * 2 = 1.2 ======== 取出整数部分 1 
-0.2 * 2 = 0.4 ======== 取出整数部分 0
-</code></pre>
+0.2 * 2 = 0.4 ======== 取出整数部分 0</code></pre>
 
                 
               </div>
@@ -638,6 +639,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

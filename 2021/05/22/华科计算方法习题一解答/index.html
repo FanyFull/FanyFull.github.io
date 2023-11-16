@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="习题解答1.1 试证明: (1) $||\mathbf&#123;x&#125;||_&#123;\infty&#125; &#x3D; \mathop&#123;max&#125;\limits_&#123;1 \leqslant i \leqslant n&#125; |x_i|, $ $\quad \mathbf&#123;x&#125; &#x3D; (x_1, x_2, ..., x_n)^T \in \m">
+    <meta name="description" content="习题解答 1.1 试证明:  $||\mathbf&#123;x&#125;||_&#123;\infty&#125; &#x3D; \mathop&#123;max&#125;\limits_&#123;1 \leqslant i \leqslant n&#125; |x_i|, $ $\quad \mathbf&#123;x&#125; &#x3D; (x_1, x_2, ..., x_n)^T \in \mat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="华科计算方法习题一解答">
 <meta property="og:url" content="http://fanyfull.github.io/2021/05/22/%E5%8D%8E%E7%A7%91%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E4%B9%A0%E9%A2%98%E4%B8%80%E8%A7%A3%E7%AD%94/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="习题解答1.1 试证明: (1) $||\mathbf&#123;x&#125;||_&#123;\infty&#125; &#x3D; \mathop&#123;max&#125;\limits_&#123;1 \leqslant i \leqslant n&#125; |x_i|, $ $\quad \mathbf&#123;x&#125; &#x3D; (x_1, x_2, ..., x_n)^T \in \m">
+<meta property="og:description" content="习题解答 1.1 试证明:  $||\mathbf&#123;x&#125;||_&#123;\infty&#125; &#x3D; \mathop&#123;max&#125;\limits_&#123;1 \leqslant i \leqslant n&#125; |x_i|, $ $\quad \mathbf&#123;x&#125; &#x3D; (x_1, x_2, ..., x_n)^T \in \mat">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210522120806.png">
 <meta property="article:published_time" content="2021-05-21T16:29:27.000Z">
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -282,39 +282,90 @@
             
               <div class="markdown-body">
                 
-                <h2 id="习题解答"><a href="#习题解答" class="headerlink" title="习题解答"></a>习题解答</h2><p>1.1 试证明:</p>
-<p>(1) <code>$||\mathbf&#123;x&#125;||_&#123;\infty&#125; = \mathop&#123;max&#125;\limits_&#123;1 \leqslant i \leqslant n&#125; |x_i|, $</code> <code>$\quad \mathbf&#123;x&#125; = (x_1, x_2, ..., x_n)^T \in \mathbf&#123;R&#125;^&#123;n&#125;;$</code></p>
-<p>(2) <code>$\displaystyle ||\mathbf&#123;A&#125;||_&#123;\infty&#125; = \mathop&#123;max&#125;_&#123;1 \leqslant i \leqslant n&#125; \sum_&#123;j = 1&#125;^&#123;n&#125;|a_&#123;ij&#125;|,$</code> <code>$\quad \mathbf&#123;A&#125; = (a_&#123;ij&#125;) \in \mathbf&#123;R&#125;^&#123;n \times n&#125;.$</code></p>
-<p>证明: </p>
-<p>(1) 令 <code>$|x_r| = \mathop&#123;max&#125;\limits_&#123;1 \leqslant i \leqslant n&#125;|x_i|$</code>, 则有:</p>
-<p>$$|x_r| \leqslant (\sum_{i &#x3D; 1}^{n} |x_i|^{p})^{\frac{1}{p}} \leqslant (n|x_r|^p)^{\frac{1}{p}} &#x3D; n^{\frac{1}{p}} \cdot |x_r|, $$</p>
+                <h2 id="习题解答">习题解答</h2>
+<p>1.1 试证明:</p>
+<ol type="1">
+<li><p><code>$||\mathbf&#123;x&#125;||_&#123;\infty&#125; = \mathop&#123;max&#125;\limits_&#123;1 \leqslant i \leqslant n&#125; |x_i|, $</code>
+<code>$\quad \mathbf&#123;x&#125; = (x_1, x_2, ..., x_n)^T \in \mathbf&#123;R&#125;^&#123;n&#125;;$</code></p></li>
+<li><p><code>$\displaystyle ||\mathbf&#123;A&#125;||_&#123;\infty&#125; = \mathop&#123;max&#125;_&#123;1 \leqslant i \leqslant n&#125; \sum_&#123;j = 1&#125;^&#123;n&#125;|a_&#123;ij&#125;|,$</code>
+<code>$\quad \mathbf&#123;A&#125; = (a_&#123;ij&#125;) \in \mathbf&#123;R&#125;^&#123;n \times n&#125;.$</code></p></li>
+</ol>
+<p>证明:</p>
+<ol type="1">
+<li>令
+<code>$|x_r| = \mathop&#123;max&#125;\limits_&#123;1 \leqslant i \leqslant n&#125;|x_i|$</code>,
+则有:</li>
+</ol>
+<p><span class="math display">\[|x_r| \leqslant (\sum_{i = 1}^{n}
+|x_i|^{p})^{\frac{1}{p}} \leqslant (n|x_r|^p)^{\frac{1}{p}} =
+n^{\frac{1}{p}} \cdot |x_r|, \]</span></p>
 <p>令 <code>$p \to \infty$</code>, 由夹逼定理得:</p>
-<p>$$||\mathbf{x}||<em>{\infty} &#x3D; \lim</em>{p \to \infty} (\sum_{i &#x3D; 1}^{n}|x_i|^p)^{\frac{1}{p}} &#x3D; |x_r|.$$</p>
-<p>(2) 令 <code>$\mathbf&#123;x&#125; = (x_1, x_2, ..., x_n)^T \neq 0$</code>, 不妨设 <code>$\mathbf&#123;A&#125; \neq \mathbf&#123;0&#125;$</code>,</p>
-<p>令 <code>$\displaystyle \mu = \mathop&#123;max&#125;_&#123;1 \leqslant i \leqslant n&#125; \sum_&#123;j = 1&#125;^&#123;n&#125; |a_&#123;ij&#125;|$</code>, 则有</p>
-<p>$$||\mathbf{Ax}||<em>{\infty} &#x3D; \mathop{max}</em>{1 \leqslant i \leqslant n} \sum_{j &#x3D; 1}^{n}|a_{ij} x_{j}| \leqslant \mathop{max}<em>{1 \leqslant i \leqslant n} \sum</em>{j &#x3D; 1}^{n}|a_{ij}| \cdot \mathop{max}<em>{1 \leqslant i \leqslant n}|x_i|  &#x3D; \mu||\mathbf{x}||</em>{\infty},$$</p>
+<p><span class="math display">\[||\mathbf{x}||_{\infty} = \lim_{p \to
+\infty} (\sum_{i = 1}^{n}|x_i|^p)^{\frac{1}{p}} = |x_r|.\]</span></p>
+<ol start="2" type="1">
+<li>令 <code>$\mathbf&#123;x&#125; = (x_1, x_2, ..., x_n)^T \neq 0$</code>, 不妨设
+<code>$\mathbf&#123;A&#125; \neq \mathbf&#123;0&#125;$</code>,</li>
+</ol>
+<p>令
+<code>$\displaystyle \mu = \mathop&#123;max&#125;_&#123;1 \leqslant i \leqslant n&#125; \sum_&#123;j = 1&#125;^&#123;n&#125; |a_&#123;ij&#125;|$</code>,
+则有</p>
+<p><span class="math display">\[||\mathbf{Ax}||_{\infty} =
+\mathop{max}_{1 \leqslant i \leqslant n} \sum_{j = 1}^{n}|a_{ij} x_{j}|
+\leqslant \mathop{max}_{1 \leqslant i \leqslant n} \sum_{j =
+1}^{n}|a_{ij}| \cdot \mathop{max}_{1 \leqslant i \leqslant n}|x_i|  =
+\mu||\mathbf{x}||_{\infty},\]</span></p>
 <p>即对任意非零 <code>$\mathbf&#123;x&#125; \in \mathbf&#123;R&#125;^n$</code>, 有</p>
-<p>$$\frac{||\mathbf{Ax}||<em>{\infty}}{||\mathbf{x}||</em>{\infty}} \leqslant \mu$$</p>
-<p>下面证明存在向量 <code>$\mathbf&#123;x_0&#125; \neq \mathbf&#123;0&#125;$</code>, 使得 <code>$\displaystyle \frac&#123;||\mathbf&#123;Ax_0&#125;||_&#123;\infty&#125;&#125;&#123;||\mathbf&#123;x_0&#125;||_&#123;\infty&#125;&#125; = \mu$</code>.</p>
-<p>设 <code>$\displaystyle \mu = \sum_&#123;j = 1&#125;^&#123;n&#125;|a_&#123;i_0j&#125;| = \mathop&#123;max&#125;_i\sum_&#123;j = 1&#125;^&#123;n&#125;\left|a_&#123;ij&#125;x_j\right|$</code>, 取向量 <code>$\mathbf&#123;x_0&#125; = (x_1, x_2, ..., x_n)^T$</code>, 其中 <code>$x_j = sign(a_&#123;i_0j&#125;) \: (j = 1, 2, ..., n)$</code>. 显然, <code>$||\mathbf&#123;x_0&#125;||_&#123;\infty&#125; = 1$</code>, 且 <code>$\mathbf&#123;Ax_0&#125;$</code> 任意分量为 <code>$\displaystyle \sum_&#123;i = 1&#125;^&#123;n&#125;|a_&#123;i_0j&#125;x_j| = \sum_&#123;i = 1&#125;^&#123;n&#125;|a_&#123;i_0j&#125;|$</code>, </p>
-<p>故有 <code>$||\displaystyle \mathbf&#123;Ax_0&#125;||_&#123;\infty&#125; = \mathop&#123;max&#125;_i\sum_&#123;j = 1&#125;^&#123;n&#125;\left|a_&#123;ij&#125;x_j\right| = \sum_&#123;j = 1&#125;^&#123;n&#125;\left| a_&#123;i_0j&#125; \right| = \mu$</code>.</p>
-<p>注: <code>$sign(x)$</code> 或者 <code>$Sign(x)$</code> 叫做符号函数, 在数学和计算机运算中, 其功能是取某个数的符号(正或负),</p>
+<p><span
+class="math display">\[\frac{||\mathbf{Ax}||_{\infty}}{||\mathbf{x}||_{\infty}}
+\leqslant \mu\]</span></p>
+<p>下面证明存在向量 <code>$\mathbf&#123;x_0&#125; \neq \mathbf&#123;0&#125;$</code>, 使得
+<code>$\displaystyle \frac&#123;||\mathbf&#123;Ax_0&#125;||_&#123;\infty&#125;&#125;&#123;||\mathbf&#123;x_0&#125;||_&#123;\infty&#125;&#125; = \mu$</code>.</p>
+<p>设
+<code>$\displaystyle \mu = \sum_&#123;j = 1&#125;^&#123;n&#125;|a_&#123;i_0j&#125;| = \mathop&#123;max&#125;_i\sum_&#123;j = 1&#125;^&#123;n&#125;\left|a_&#123;ij&#125;x_j\right|$</code>,
+取向量 <code>$\mathbf&#123;x_0&#125; = (x_1, x_2, ..., x_n)^T$</code>, 其中
+<code>$x_j = sign(a_&#123;i_0j&#125;) \: (j = 1, 2, ..., n)$</code>. 显然,
+<code>$||\mathbf&#123;x_0&#125;||_&#123;\infty&#125; = 1$</code>, 且
+<code>$\mathbf&#123;Ax_0&#125;$</code> 任意分量为
+<code>$\displaystyle \sum_&#123;i = 1&#125;^&#123;n&#125;|a_&#123;i_0j&#125;x_j| = \sum_&#123;i = 1&#125;^&#123;n&#125;|a_&#123;i_0j&#125;|$</code>,</p>
+<p>故有
+<code>$||\displaystyle \mathbf&#123;Ax_0&#125;||_&#123;\infty&#125; = \mathop&#123;max&#125;_i\sum_&#123;j = 1&#125;^&#123;n&#125;\left|a_&#123;ij&#125;x_j\right| = \sum_&#123;j = 1&#125;^&#123;n&#125;\left| a_&#123;i_0j&#125; \right| = \mu$</code>.</p>
+<p>注: <code>$sign(x)$</code> 或者 <code>$Sign(x)$</code> 叫做符号函数,
+在数学和计算机运算中, 其功能是取某个数的符号(正或负),</p>
 <p>当 <code>$x &gt; 0, sign(x) = 1$</code>;</p>
 <p>当 <code>$x = 0, sign(x) = 0$</code>;</p>
 <p>当 <code>$x &lt; 0, sign(x) = -1$</code>.</p>
-<p>1.3 设矩阵 <code>$\mathbf&#123;A, B&#125; \in \mathbf&#123;R&#125;^&#123;n \times n&#125;$</code>, 其中 <code>$\mathbf&#123;A&#125;$</code> 可逆, 且存在矩阵范数 $||\cdot||$ 使得</p>
-<p>$$||\mathbf{A}^{-1}|| \leqslant \alpha, \quad ||\mathbf{A} - \mathbf{B} \leqslant \beta||, \quad \alpha \beta &lt; 1.$$</p>
+<p>1.3 设矩阵 <code>$\mathbf&#123;A, B&#125; \in \mathbf&#123;R&#125;^&#123;n \times n&#125;$</code>,
+其中 <code>$\mathbf&#123;A&#125;$</code> 可逆, 且存在矩阵范数 <span
+class="math inline">\(||\cdot||\)</span> 使得</p>
+<p><span class="math display">\[||\mathbf{A}^{-1}|| \leqslant \alpha,
+\quad ||\mathbf{A} - \mathbf{B} \leqslant \beta||, \quad \alpha \beta
+&lt; 1.\]</span></p>
 <p>试证明矩阵 <code>$\mathbf&#123;B&#125;$</code> 也可逆, 且其逆矩阵满足估计</p>
-<p>$$||\mathbf{B}^{-1}|| \leqslant \frac{\alpha}{1 - \alpha \beta}.$$</p>
+<p><span class="math display">\[||\mathbf{B}^{-1}|| \leqslant
+\frac{\alpha}{1 - \alpha \beta}.\]</span></p>
 <p>证明:</p>
 <p>由已知条件有:</p>
-<p>$$||\mathbf{I} - \mathbf{A}^{-1}\mathbf{B}|| &#x3D; ||\mathbf{A}^{-1}(\mathbf{A} - \mathbf{B]})|| \leqslant \alpha \beta &lt; 1.$$</p>
-<p>又 <code>$\mathbf&#123;A&#125;^&#123;-1&#125;\mathbf&#123;B&#125; = \mathbf&#123;I&#125; - (\mathbf&#123;I&#125; - \mathbf&#123;A&#125;^&#123;-1&#125;\mathbf&#123;B&#125;)$</code>. 因此, 根据定理 1.8 <code>$\mathbf&#123;A&#125;^&#123;-1&#125;\mathbf&#123;B&#125;$</code> 可逆, 从而 <code>$\mathbf&#123;B&#125;$</code> 也可逆, 且有</p>
-<p>$$||\mathbf{B}^{-1}|| &#x3D; ||[\mathbf{I} - (\mathbf{I} - \mathbf{A}^{-1}\mathbf{B})]^{-1} \mathbf{A}^{-1}|| \leqslant ||[\mathbf{I} - (\mathbf{I} - \mathbf{A}^{-1} \mathbf{B})]^{-1}|| : ||\mathbf{A}^{-1}|| \leqslant \frac{\alpha}{1 - \alpha \beta}.$$</p>
+<p><span class="math display">\[||\mathbf{I} -
+\mathbf{A}^{-1}\mathbf{B}|| = ||\mathbf{A}^{-1}(\mathbf{A} -
+\mathbf{B]})|| \leqslant \alpha \beta &lt; 1.\]</span></p>
+<p>又
+<code>$\mathbf&#123;A&#125;^&#123;-1&#125;\mathbf&#123;B&#125; = \mathbf&#123;I&#125; - (\mathbf&#123;I&#125; - \mathbf&#123;A&#125;^&#123;-1&#125;\mathbf&#123;B&#125;)$</code>.
+因此, 根据定理 1.8 <code>$\mathbf&#123;A&#125;^&#123;-1&#125;\mathbf&#123;B&#125;$</code> 可逆, 从而
+<code>$\mathbf&#123;B&#125;$</code> 也可逆, 且有</p>
+<p><span class="math display">\[||\mathbf{B}^{-1}|| = ||[\mathbf{I} -
+(\mathbf{I} - \mathbf{A}^{-1}\mathbf{B})]^{-1} \mathbf{A}^{-1}||
+\leqslant ||[\mathbf{I} - (\mathbf{I} - \mathbf{A}^{-1}
+\mathbf{B})]^{-1}|| \: ||\mathbf{A}^{-1}|| \leqslant \frac{\alpha}{1 -
+\alpha \beta}.\]</span></p>
 <p>注: 这里的定理 1.8 如下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210521100526.png" srcset="/img/loading.gif" lazyload></p>
-<p>复习一下, 这里的非奇异指的是 $det(\mathbf{I} - \mathbf{A}) \neq 0$.</p>
-<h2 id="考试知识点整理"><a href="#考试知识点整理" class="headerlink" title="考试知识点整理"></a>考试知识点整理</h2><h3 id="范数"><a href="#范数" class="headerlink" title="范数"></a>范数</h3><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210520202427.png" srcset="/img/loading.gif" lazyload></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210521100526.png" srcset="/img/loading.gif" lazyload /></p>
+<p>复习一下, 这里的非奇异指的是 <span
+class="math inline">\(det(\mathbf{I} - \mathbf{A}) \neq 0\)</span>.</p>
+<h2 id="考试知识点整理">考试知识点整理</h2>
+<h3 id="范数">范数</h3>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210520202427.png" srcset="/img/loading.gif" lazyload /></p>
 
                 
               </div>
@@ -649,6 +700,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

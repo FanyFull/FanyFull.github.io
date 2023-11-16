@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="下载下载网址为：http:&#x2F;&#x2F;mingw-w64.org&#x2F;doku.php&#x2F;download&#x2F;mingw-builds 然后点击 Sourceforge 进行下载   安装双击刚刚的文件进行安装  然后 Next  这里 Version 选择最新版本即可。  这里因为我的电脑是 64 位，所以选择 x86_64，而 i686 是 32 位的。  这里的 Threads 我选择了 posix 接口，">
+    <meta name="description" content="下载 下载网址为：http:&#x2F;&#x2F;mingw-w64.org&#x2F;doku.php&#x2F;download&#x2F;mingw-builds 然后点击 Sourceforge 进行下载   安装 双击刚刚的文件进行安装  然后 Next  这里 Version 选择最新版本即可。  这里因为我的电脑是 64 位，所以选择 x86_64，而 i686 是 32 位的。  这里的 Threads 我选择了 posix 接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows 安装 MinGW-w64">
 <meta property="og:url" content="http://fanyfull.github.io/2021/06/10/Windows-%E5%AE%89%E8%A3%85-MinGW-w64/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="下载下载网址为：http:&#x2F;&#x2F;mingw-w64.org&#x2F;doku.php&#x2F;download&#x2F;mingw-builds 然后点击 Sourceforge 进行下载   安装双击刚刚的文件进行安装  然后 Next  这里 Version 选择最新版本即可。  这里因为我的电脑是 64 位，所以选择 x86_64，而 i686 是 32 位的。  这里的 Threads 我选择了 posix 接口，">
+<meta property="og:description" content="下载 下载网址为：http:&#x2F;&#x2F;mingw-w64.org&#x2F;doku.php&#x2F;download&#x2F;mingw-builds 然后点击 Sourceforge 进行下载   安装 双击刚刚的文件进行安装  然后 Next  这里 Version 选择最新版本即可。  这里因为我的电脑是 64 位，所以选择 x86_64，而 i686 是 32 位的。  这里的 Threads 我选择了 posix 接">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610204350.png">
 <meta property="article:published_time" content="2021-06-10T11:58:57.000Z">
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -282,48 +282,81 @@
             
               <div class="markdown-body">
                 
-                <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>下载网址为：<a target="_blank" rel="noopener" href="http://mingw-w64.org/doku.php/download/mingw-builds">http://mingw-w64.org/doku.php/download/mingw-builds</a></p>
+                <h2 id="下载">下载</h2>
+<p>下载网址为：<a
+target="_blank" rel="noopener" href="http://mingw-w64.org/doku.php/download/mingw-builds"
+class="uri">http://mingw-w64.org/doku.php/download/mingw-builds</a></p>
 <p>然后点击 Sourceforge 进行下载</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610200242.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610200400.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>双击刚刚的文件进行安装</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610200504.png" srcset="/img/loading.gif" lazyload></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610200242.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610200400.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="安装">安装</h2>
+<p>双击刚刚的文件进行安装</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610200504.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后 Next</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610200922.png" srcset="/img/loading.gif" lazyload></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610200922.png" srcset="/img/loading.gif" lazyload /></p>
 <p>这里 Version 选择最新版本即可。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610201008.png" srcset="/img/loading.gif" lazyload></p>
-<p>这里因为我的电脑是 64 位，所以选择 <code>x86_64</code>，而 <code>i686</code> 是 32 位的。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610202214.png" srcset="/img/loading.gif" lazyload></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610201008.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这里因为我的电脑是 64 位，所以选择 <code>x86_64</code>，而
+<code>i686</code> 是 32 位的。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610202214.png" srcset="/img/loading.gif" lazyload /></p>
 <p>这里的 Threads 我选择了 posix 接口，即可移植的类 Unix 接口。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610201843.png" srcset="/img/loading.gif" lazyload></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610201843.png" srcset="/img/loading.gif" lazyload /></p>
 <p>这里的异常处理机制我选择的是 seh，它的性能是比较好的。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610202133.png" srcset="/img/loading.gif" lazyload></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610202133.png" srcset="/img/loading.gif" lazyload /></p>
 <p>最后一个下拉框只有一个选项，所以我们直接下一步即可。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610202320.png" srcset="/img/loading.gif" lazyload></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610202320.png" srcset="/img/loading.gif" lazyload /></p>
 <p>安装路径这里我直接选择默认。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610202634.png" srcset="/img/loading.gif" lazyload></p>
-<p>由于网速的原因，我这里实在是下不动，所以就选择了另外一种下载方式，直接到 <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/files/">https://sourceforge.net/projects/mingw-w64/files/</a> 下载离线文件</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610202919.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610203318.png" srcset="/img/loading.gif" lazyload></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610202634.png" srcset="/img/loading.gif" lazyload /></p>
+<p>由于网速的原因，我这里实在是下不动，所以就选择了另外一种下载方式，直接到
+<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/files/"
+class="uri">https://sourceforge.net/projects/mingw-w64/files/</a>
+下载离线文件</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610202919.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610203318.png" srcset="/img/loading.gif" lazyload /></p>
 <p>这个和刚刚在线安装时选择的版本是一样的。</p>
-<p>将刚刚下载的文件解压到 Program Files 文件夹下，解压后的文件夹是 mingw64，这个也可以放在其他目录下。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610203227.png" srcset="/img/loading.gif" lazyload></p>
-<p>然后将该文件夹下的 bin 目录的路径添加到系统环境变量中的 Path 中去，如下图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610203549.png" srcset="/img/loading.gif" lazyload></p>
+<p>将刚刚下载的文件解压到 Program Files 文件夹下，解压后的文件夹是
+mingw64，这个也可以放在其他目录下。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610203227.png" srcset="/img/loading.gif" lazyload /></p>
+<p>然后将该文件夹下的 bin 目录的路径添加到系统环境变量中的 Path
+中去，如下图</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610203549.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后输入以下命令，检验是否安装成功</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">gcc -v<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610203804.png" srcset="/img/loading.gif" lazyload></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210610203804.png" srcset="/img/loading.gif" lazyload /></p>
 <p>到这里就安装成功了。</p>
 <p>2021.11.30 更新：</p>
 <p>建议 mingw 版本换成如下的版本：</p>
 <p><a target="_blank" rel="noopener" href="https://winlibs.com/">下载网址</a></p>
-<p><img src="https://i.imgur.com/JCHDxRf.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/fdgYOO1.png" srcset="/img/loading.gif" lazyload></p>
-<p><strong>因为</strong>原来的的在 sourceforge 上下载的 mingw 版本中的 gdb 的版本是 gdb 8.1.0，<strong>此版本有bug！</strong> 目前是因为 <code>finish</code> 命令会直接退出 gdb。</p>
-<hr>
+<p><img src="https://i.imgur.com/JCHDxRf.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/fdgYOO1.png" srcset="/img/loading.gif" lazyload /></p>
+<p><strong>因为</strong>原来的的在 sourceforge 上下载的 mingw 版本中的
+gdb 的版本是 gdb 8.1.0，<strong>此版本有bug！</strong> 目前是因为
+<code>finish</code> 命令会直接退出 gdb。</p>
+<hr />
 <p>参考：</p>
-<p>1、<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d66c2f2e3537">https://www.jianshu.com/p/d66c2f2e3537</a><br>2、<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/67574925/update-gdb-version-on-windows-10">https://stackoverflow.com/questions/67574925/update-gdb-version-on-windows-10</a><br>3、<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/50654681/gdb-quits-when-running-the-finish-command">https://stackoverflow.com/questions/50654681/gdb-quits-when-running-the-finish-command</a></p>
+<p>1、<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d66c2f2e3537"
+class="uri">https://www.jianshu.com/p/d66c2f2e3537</a><br />
+2、<a
+target="_blank" rel="noopener" href="https://stackoverflow.com/questions/67574925/update-gdb-version-on-windows-10"
+class="uri">https://stackoverflow.com/questions/67574925/update-gdb-version-on-windows-10</a><br />
+3、<a
+target="_blank" rel="noopener" href="https://stackoverflow.com/questions/50654681/gdb-quits-when-running-the-finish-command"
+class="uri">https://stackoverflow.com/questions/50654681/gdb-quits-when-running-the-finish-command</a></p>
 
                 
               </div>
@@ -658,6 +691,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

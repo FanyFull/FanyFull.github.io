@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一、数值类型 INT（或 INTEGER）: 整数值，支持 -21474836482147483647（如果是 UNSIGNED，为 04294967295，边界值都可以取到）的数。  一般来说，只需要用到 INT 类型，比如，存储数据的 id。 二、串类型即字符串类型。  CHAR: 定长串。大小是 0 ~ 255 个字节。注意，不是字符。而我们在定义时用的 CHAR(n) 中的 n 表示字符。">
+    <meta name="description" content="一、数值类型  INT（或 INTEGER）: 整数值，支持 -2147483648~2147483647（如果是 UNSIGNED，为 0~4294967295，边界值都可以取到）的数。  一般来说，只需要用到 INT 类型，比如，存储数据的 id。 二、串类型 即字符串类型。  CHAR: 定长串。大小是 0 ~ 255 个字节。注意，不是字符。而我们在定义时用的 CHAR(n) 中的 n 表">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL 常用数据类型">
 <meta property="og:url" content="http://fanyfull.github.io/2021/08/04/MySQL-%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="一、数值类型 INT（或 INTEGER）: 整数值，支持 -21474836482147483647（如果是 UNSIGNED，为 04294967295，边界值都可以取到）的数。  一般来说，只需要用到 INT 类型，比如，存储数据的 id。 二、串类型即字符串类型。  CHAR: 定长串。大小是 0 ~ 255 个字节。注意，不是字符。而我们在定义时用的 CHAR(n) 中的 n 表示字符。">
+<meta property="og:description" content="一、数值类型  INT（或 INTEGER）: 整数值，支持 -2147483648~2147483647（如果是 UNSIGNED，为 0~4294967295，边界值都可以取到）的数。  一般来说，只需要用到 INT 类型，比如，存储数据的 id。 二、串类型 即字符串类型。  CHAR: 定长串。大小是 0 ~ 255 个字节。注意，不是字符。而我们在定义时用的 CHAR(n) 中的 n 表">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210804235025.png">
 <meta property="article:published_time" content="2021-08-04T09:35:45.000Z">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -227,7 +227,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          3k 字
+          2.9k 字
         
       </span>
     
@@ -281,16 +281,29 @@
             
               <div class="markdown-body">
                 
-                <h2 id="一、数值类型"><a href="#一、数值类型" class="headerlink" title="一、数值类型"></a>一、数值类型</h2><ul>
-<li><code>INT</code>（或 <code>INTEGER</code>）: 整数值，支持 -2147483648<del>2147483647（如果是 UNSIGNED，为 0</del>4294967295，边界值都可以取到）的数。</li>
+                <h2 id="一数值类型">一、数值类型</h2>
+<ul>
+<li><code>INT</code>（或 <code>INTEGER</code>）: 整数值，支持
+-2147483648~2147483647（如果是 UNSIGNED，为
+0~4294967295，边界值都可以取到）的数。</li>
 </ul>
 <p>一般来说，只需要用到 INT 类型，比如，存储数据的 id。</p>
-<h2 id="二、串类型"><a href="#二、串类型" class="headerlink" title="二、串类型"></a>二、串类型</h2><p>即字符串类型。</p>
+<h2 id="二串类型">二、串类型</h2>
+<p>即字符串类型。</p>
 <ul>
-<li><code>CHAR</code>: 定长串。大小是 0 ~ 255 个字节。注意，不是字符。而我们在定义时用的 <code>CHAR(n)</code> 中的 n 表示字符。要注意，英文字符是一个字符的大小为一个字节。而中文的一个字符的长度，要分类讨论。UTF-8 编码一个汉字等 &#x3D; 3 个字节；GBK编码一个汉字 &#x3D; 2 个字节。它的长度必须在创建时指定，否则 MySQL 假定为 <code>CHAR(1)</code>。</li>
-<li><code>VARCHAR</code>: 变长串。大小是 0 ~ 65532 个字节。同样地，要注意字节与字符的区别。如果在创建时指定为 <code>VARCHAR(n)</code>，则可存储 0 到 n 个字符的变长串（其中 <code>$n \leq 255$</code>）。</li>
+<li><code>CHAR</code>: 定长串。大小是 0 ~ 255
+个字节。注意，不是字符。而我们在定义时用的 <code>CHAR(n)</code> 中的 n
+表示字符。要注意，英文字符是一个字符的大小为一个字节。而中文的一个字符的长度，要分类讨论。UTF-8
+编码一个汉字等 = 3 个字节；GBK编码一个汉字 = 2
+个字节。它的长度必须在创建时指定，否则 MySQL 假定为
+<code>CHAR(1)</code>。</li>
+<li><code>VARCHAR</code>: 变长串。大小是 0 ~ 65532
+个字节。同样地，要注意字节与字符的区别。如果在创建时指定为
+<code>VARCHAR(n)</code>，则可存储 0 到 n 个字符的变长串（其中
+<code>$n \leq 255$</code>）。</li>
 </ul>
-<p>串类型中最常用的就是 <code>CHAR</code> 和 <code>VARCHAR</code> 这两个类型，关于在何种情况下使用这两个类型，我曾经在一篇国外博客看到如下总结（原文链接已经遗失）：</p>
+<p>串类型中最常用的就是 <code>CHAR</code> 和 <code>VARCHAR</code>
+这两个类型，关于在何种情况下使用这两个类型，我曾经在一篇国外博客看到如下总结（原文链接已经遗失）：</p>
 <ul>
 <li>经常变化的字段用 VARCAHR</li>
 <li>知道固定长度的字段用 CHAR</li>
@@ -298,53 +311,132 @@
 <li>超过 255 字符的只能用 VARCHAR 或者 TEXT</li>
 <li>能用 VARCHAR 的地方不能用 TEXT</li>
 </ul>
-<h2 id="三、日期和时间数据类型"><a href="#三、日期和时间数据类型" class="headerlink" title="三、日期和时间数据类型"></a>三、日期和时间数据类型</h2><p>| 类型 | 大小（bytes） | 取值范围 | 格式 | 用途 | 零值 |<br>| :-: | :-: | :-: | :-: | :-: | :-: | :-: |<br>| DATE | 3 | 1000-01-01<del>9999-12-31 | YYYY-MM-DD | 日期值 | 0000:00:00 |<br>| TIME | 3 | -838:59:59</del>838:59:59 | HH:MM:SS | 时间值或持续时间 | 00:00:00 |<br>| DATETIME | 8 | 1000-01-01 00:00:00<del>9999-12-31 23:59:59 | YYYY-MM-HH:MM:SS | 混合日期和时间值 | 0000-00-00 00:00:00 |<br>| YEAR | 1 | 1901</del>2155 | YYYY | 年份值 | 0000 |<br>| TIMESTAMP | 4 | 1970-01-01 00:00:00~2038-01-19 03:14:07（格林尼治时间） 开始时间是 0 秒，结束时间是第 2147483647 秒 | YYYYMMDD HHMMSS | 混合日期和时间值，时间戳 | 0000-00-00 00:00:00 |</p>
+<h2 id="三日期和时间数据类型">三、日期和时间数据类型</h2>
+<table style="width:100%;">
+
+<thead>
+<tr class="header">
+<th style="text-align: center;">类型</th>
+<th style="text-align: center;">大小（bytes）</th>
+<th style="text-align: center;">取值范围</th>
+<th style="text-align: center;">格式</th>
+<th style="text-align: center;">用途</th>
+<th style="text-align: center;">零值</th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">DATE</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1000-01-01~9999-12-31</td>
+<td style="text-align: center;">YYYY-MM-DD</td>
+<td style="text-align: center;">日期值</td>
+<td style="text-align: center;">0000:00:00</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">TIME</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">-838:59:59~838:59:59</td>
+<td style="text-align: center;">HH:MM:SS</td>
+<td style="text-align: center;">时间值或持续时间</td>
+<td style="text-align: center;">00:00:00</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">DATETIME</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">1000-01-01 00:00:00~9999-12-31
+23:59:59</td>
+<td style="text-align: center;">YYYY-MM-HH:MM:SS</td>
+<td style="text-align: center;">混合日期和时间值</td>
+<td style="text-align: center;">0000-00-00 00:00:00</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">YEAR</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1901~2155</td>
+<td style="text-align: center;">YYYY</td>
+<td style="text-align: center;">年份值</td>
+<td style="text-align: center;">0000</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">TIMESTAMP</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1970-01-01 00:00:00~2038-01-19
+03:14:07（格林尼治时间） 开始时间是 0 秒，结束时间是第 2147483647
+秒</td>
+<td style="text-align: center;">YYYYMMDD HHMMSS</td>
+<td style="text-align: center;">混合日期和时间值，时间戳</td>
+<td style="text-align: center;">0000-00-00 00:00:00</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
 <p>关于这里的取值范围，官方文档有这样的说法：</p>
 <blockquote>
-<p>For the DATE and DATETIME range descriptions, “supported” means that although earlier values might work, there is no guarantee.</p>
+<p>For the DATE and DATETIME range descriptions, “supported” means that
+although earlier values might work, there is no guarantee.</p>
 </blockquote>
-<p>要注意，也就是说，比如 DATE 可能支持插入数据 0999-01-01，但是 MySQL 并不保证这一点。这里具有明确范围的是 TIMESTAMP。我在使用时会严格按照支持的范围进行插值。</p>
-<h3 id="3-1、DATE"><a href="#3-1、DATE" class="headerlink" title="3.1、DATE"></a>3.1、DATE</h3><ol>
-<li>一般来讲，我会使用严格的 <code>YYYY-MM-DD</code> 来给 DATE 类型的数据赋值。</li>
-<li>使用 <code>current_date</code> 或 <code>current_date()</code> 或 <code>now()</code> 来插入当前的系统时间。</li>
+<p>要注意，也就是说，比如 DATE 可能支持插入数据 0999-01-01，但是 MySQL
+并不保证这一点。这里具有明确范围的是
+TIMESTAMP。我在使用时会严格按照支持的范围进行插值。</p>
+<h3 id="date">3.1、DATE</h3>
+<ol type="1">
+<li>一般来讲，我会使用严格的 <code>YYYY-MM-DD</code> 来给 DATE
+类型的数据赋值。</li>
+<li>使用 <code>current_date</code> 或 <code>current_date()</code> 或
+<code>now()</code> 来插入当前的系统时间。</li>
 </ol>
 <p>示例</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> test_tb (<br>	`id` <span class="hljs-type">INT</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">PRIMARY</span> KEY,<br>	`<span class="hljs-type">date</span>` <span class="hljs-type">DATE</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span><br>);<br><br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb (`id`, `<span class="hljs-type">date</span>`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">1</span>, <span class="hljs-string">&#x27;2021-07-08&#x27;</span>);<br># 插入当前的日期<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb (`id`, `<span class="hljs-type">date</span>`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">2</span>, <span class="hljs-built_in">CURRENT_DATE</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb (`id`, `<span class="hljs-type">date</span>`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">3</span>, <span class="hljs-built_in">CURRENT_DATE</span>());<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb (`id`, `<span class="hljs-type">date</span>`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">4</span>, NOW());<br><br><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> test_tb;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210804232424.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="3-2、TIME"><a href="#3-2、TIME" class="headerlink" title="3.2、TIME"></a>3.2、TIME</h3><ol>
-<li>注意到 TIME 类型的范围是 <code>-838:59:59~838:59:59</code>，838 这个表示小时的数字是为了表示某种特殊需要的时间间隔。</li>
-<li>一般来说，只需要严格按照格式 <code>HH:MM:SS</code> 进行插值即可。</li>
-<li>使用 <code>current_time</code> 或 <code>current_time()</code> 或 <code>now()</code> 来插入当前时间。</li>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210804232424.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="time">3.2、TIME</h3>
+<ol type="1">
+<li>注意到 TIME 类型的范围是 <code>-838:59:59~838:59:59</code>，838
+这个表示小时的数字是为了表示某种特殊需要的时间间隔。</li>
+<li>一般来说，只需要严格按照格式 <code>HH:MM:SS</code>
+进行插值即可。</li>
+<li>使用 <code>current_time</code> 或 <code>current_time()</code> 或
+<code>now()</code> 来插入当前时间。</li>
 </ol>
 <p>示例</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> test_tb02 (<br>	`id` <span class="hljs-type">INT</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">PRIMARY</span> KEY,<br>	`<span class="hljs-type">time</span>` <span class="hljs-type">TIME</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span><br>);<br><br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb02 (`id`, `<span class="hljs-type">time</span>`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">1</span>, <span class="hljs-string">&#x27;23:26:28&#x27;</span>);<br># 插入当前的日期<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb02 (`id`, `<span class="hljs-type">time</span>`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">2</span>, <span class="hljs-built_in">CURRENT_TIME</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb02 (`id`, `<span class="hljs-type">time</span>`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">3</span>, <span class="hljs-built_in">CURRENT_TIME</span>());<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb02 (`id`, `<span class="hljs-type">time</span>`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">4</span>, NOW());<br><br><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> test_tb02;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210804233249.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="3-3、DATETIME"><a href="#3-3、DATETIME" class="headerlink" title="3.3、DATETIME"></a>3.3、DATETIME</h3><ol>
-<li>我在插值时会严格按照格式 <code>YYYY-MM-DD HH:MM:SS</code> 来进行插值。</li>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210804233249.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="datetime">3.3、DATETIME</h3>
+<ol type="1">
+<li>我在插值时会严格按照格式 <code>YYYY-MM-DD HH:MM:SS</code>
+来进行插值。</li>
 <li>使用 <code>now()</code> 来插入当前系统的日期和时间。</li>
 </ol>
 <p>示例</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> test_tb03 (<br>	`id` <span class="hljs-type">INT</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">PRIMARY</span> KEY,<br>	`datetime` DATETIME <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span><br>);<br><br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb03 (`id`, `datetime`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">1</span>, <span class="hljs-string">&#x27;2021-07-26 23:26:28&#x27;</span>);<br># 插入当前的日期和时间<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb03 (`id`, `datetime`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">4</span>, NOW());<br><br><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> test_tb03;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210804233808.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="3-4、YEAR"><a href="#3-4、YEAR" class="headerlink" title="3.4、YEAR"></a>3.4、YEAR</h3><ol>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210804233808.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="year">3.4、YEAR</h3>
+<ol type="1">
 <li>我会严格按照格式 <code>YYYY</code> 来进行插值。</li>
 </ol>
 <p>示例</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> test_tb04 (<br>	`id` <span class="hljs-type">INT</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">PRIMARY</span> KEY,<br>	`<span class="hljs-keyword">year</span>` <span class="hljs-keyword">YEAR</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span><br>);<br><br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb04 (`id`, `<span class="hljs-keyword">year</span>`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">1</span>, <span class="hljs-string">&#x27;2021&#x27;</span>);<br><br><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> test_tb04;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210804234154.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="3-5、TIMESTAMP"><a href="#3-5、TIMESTAMP" class="headerlink" title="3.5、TIMESTAMP"></a>3.5、TIMESTAMP</h3><ol>
-<li>TIMESTAMP 类型在 MySQL 中也是以 <code>YYYY-MM-DD HH:MM:SS</code> 的形式显示的，其形式和 DATETIME 一样，它们的差异在于范围。</li>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210804234154.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="timestamp">3.5、TIMESTAMP</h3>
+<ol type="1">
+<li>TIMESTAMP 类型在 MySQL 中也是以 <code>YYYY-MM-DD HH:MM:SS</code>
+的形式显示的，其形式和 DATETIME 一样，它们的差异在于范围。</li>
 <li>这里我就直接使用给 DATETIME 赋值的方式来给 TIMESTAMP 赋值。</li>
 <li>使用 <code>now()</code> 插入当前系统的时间。</li>
 </ol>
 <p>示例</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> test_tb05 (<br>	`id` <span class="hljs-type">INT</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">PRIMARY</span> KEY,<br>	`<span class="hljs-type">timestamp</span>` <span class="hljs-type">TIMESTAMP</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span><br>);<br><br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb05 (`id`, `<span class="hljs-type">timestamp</span>`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">1</span>, <span class="hljs-string">&#x27;2021-07-26 23:26:28&#x27;</span>);<br># 插入当前的日期和时间<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> test_tb05 (`id`, `<span class="hljs-type">timestamp</span>`) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">4</span>, NOW());<br><br><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> test_tb05;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210804234926.png" srcset="/img/loading.gif" lazyload></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210804234926.png" srcset="/img/loading.gif" lazyload /></p>
 
                 
               </div>
@@ -677,6 +769,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

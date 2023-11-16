@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1、处理器选择伪指令2、数据定义伪指令3、符号定义伪指令3.1、等价伪指令语句格式：符号名  EQU  表达式 功能：为常量、表达式及其他各种符号定义一个等价的符号名，但不申请分配存储单元（在该语句中，符号名一定不可省）。 EQU 伪指令用法较广泛，下面分别进行说明。 ① 为常量定义一个符号名，以便在程序中使用符号来表示常量，这就是符号常量。 例如： 12A  EQU  5B  EQU  A *">
+    <meta name="description" content="1、处理器选择伪指令 2、数据定义伪指令 3、符号定义伪指令 3.1、等价伪指令 语句格式：符号名  EQU  表达式 功能：为常量、表达式及其他各种符号定义一个等价的符号名，但不申请分配存储单元（在该语句中，符号名一定不可省）。 EQU 伪指令用法较广泛，下面分别进行说明。 ① 为常量定义一个符号名，以便在程序中使用符号来表示常量，这就是符号常量。 例如： 12A  EQU  5B  EQU">
 <meta property="og:type" content="article">
 <meta property="og:title" content="80X86 汇编语言之伪指令语句">
 <meta property="og:url" content="http://fanyfull.github.io/2021/06/09/80X86-%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E4%B9%8B%E4%BC%AA%E6%8C%87%E4%BB%A4%E8%AF%AD%E5%8F%A5/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="1、处理器选择伪指令2、数据定义伪指令3、符号定义伪指令3.1、等价伪指令语句格式：符号名  EQU  表达式 功能：为常量、表达式及其他各种符号定义一个等价的符号名，但不申请分配存储单元（在该语句中，符号名一定不可省）。 EQU 伪指令用法较广泛，下面分别进行说明。 ① 为常量定义一个符号名，以便在程序中使用符号来表示常量，这就是符号常量。 例如： 12A  EQU  5B  EQU  A *">
+<meta property="og:description" content="1、处理器选择伪指令 2、数据定义伪指令 3、符号定义伪指令 3.1、等价伪指令 语句格式：符号名  EQU  表达式 功能：为常量、表达式及其他各种符号定义一个等价的符号名，但不申请分配存储单元（在该语句中，符号名一定不可省）。 EQU 伪指令用法较广泛，下面分别进行说明。 ① 为常量定义一个符号名，以便在程序中使用符号来表示常量，这就是符号常量。 例如： 12A  EQU  5B  EQU">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210609221738.png">
 <meta property="article:published_time" content="2021-06-09T12:00:33.000Z">
@@ -77,7 +77,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -229,7 +229,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          868 字
+          863 字
         
       </span>
     
@@ -283,28 +283,36 @@
             
               <div class="markdown-body">
                 
-                <h2 id="1、处理器选择伪指令"><a href="#1、处理器选择伪指令" class="headerlink" title="1、处理器选择伪指令"></a>1、处理器选择伪指令</h2><h2 id="2、数据定义伪指令"><a href="#2、数据定义伪指令" class="headerlink" title="2、数据定义伪指令"></a>2、数据定义伪指令</h2><h2 id="3、符号定义伪指令"><a href="#3、符号定义伪指令" class="headerlink" title="3、符号定义伪指令"></a>3、符号定义伪指令</h2><h3 id="3-1、等价伪指令"><a href="#3-1、等价伪指令" class="headerlink" title="3.1、等价伪指令"></a>3.1、等价伪指令</h3><p>语句格式：<code>符号名  EQU  表达式</code></p>
+                <h2 id="处理器选择伪指令">1、处理器选择伪指令</h2>
+<h2 id="数据定义伪指令">2、数据定义伪指令</h2>
+<h2 id="符号定义伪指令">3、符号定义伪指令</h2>
+<h3 id="等价伪指令">3.1、等价伪指令</h3>
+<p>语句格式：<code>符号名  EQU  表达式</code></p>
 <p>功能：为常量、表达式及其他各种符号定义一个等价的符号名，但不申请分配存储单元（在该语句中，符号名一定不可省）。</p>
 <p><code>EQU</code> 伪指令用法较广泛，下面分别进行说明。</p>
-<p>① 为常量定义一个符号名，以便在程序中使用符号来表示常量，这就是符号常量。</p>
+<p>①
+为常量定义一个符号名，以便在程序中使用符号来表示常量，这就是符号常量。</p>
 <p>例如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs asm">A  EQU  5<br>B  EQU  A * 3 + 2       ; 即 B = 17<br></code></pre></td></tr></table></figure>
-
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs asm">AA  EQU  50<br>...<br>MOV AX,  AA     ; AA 为立即数。该语句执行后，(AX) = 50<br></code></pre></td></tr></table></figure>
-
 <p>使用符号常量可使程序简单明了，可读性强。如果将符号常量作为程序的参数，可方便地实现参数的修改，增强程序的通用性。</p>
-<p>② EQU 与特殊运算符 PTR 或 THIS 连用，可以给变量或标号定义新的类型属性并重新命名，但其段属性和偏移地址属性不变。</p>
-<p>③ 利用 EQU 命令可以为较复杂的表达式及源程序中的任何符号，如指令助记符、寄存器名、变量名、标号、段名、组名、宏定义名等定义一个替换名。在程序中，使用新替换名的作用与使用原来的表达式或符号名的作用完全等价。</p>
+<p>② EQU 与特殊运算符 PTR 或 THIS
+连用，可以给变量或标号定义新的类型属性并重新命名，但其段属性和偏移地址属性不变。</p>
+<p>③ 利用 EQU
+命令可以为较复杂的表达式及源程序中的任何符号，如指令助记符、寄存器名、变量名、标号、段名、组名、宏定义名等定义一个替换名。在程序中，使用新替换名的作用与使用原来的表达式或符号名的作用完全等价。</p>
 <p>例如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs asm">...<br>SUBC    EQU     SBB<br>COUNT   EQU     DEC<br>ARR     EQU     BYTE PTR    [SI]<br>...<br>        SUBC    DX, CX      ; 该语句与“SBB DX, CX”等价<br>        CMP     ARR, 0      ; 该语句与“CMP BYTE PTR [SI], 0”等价<br>        COUNT   CX          ; 该语句与“DEC CX” 等价<br></code></pre></td></tr></table></figure>
-
-<p>注意：使用 EQU 语句定义的符号不得与本程序中的其他符号名同名。另外，EQU 语句不能重新定义，即在同一个源程序中用 EQU　语句定义的符号不能再赋不同的值。<strong>这里要注意与下面的“&#x3D;”区分</strong>。</p>
-<h3 id="3-2、等号伪指令"><a href="#3-2、等号伪指令" class="headerlink" title="3.2、等号伪指令"></a>3.2、等号伪指令</h3><p>语句格式：<code>符号名 = 表达式</code></p>
-<p>功能：与 EQU 语句类似，不同的是等号语句能对所定义的符号名再重新定义。当使用等号语句连续地定义同一符号名时，以最后一次定义的值为准。</p>
+<p>注意：使用 EQU
+语句定义的符号不得与本程序中的其他符号名同名。另外，EQU
+语句不能重新定义，即在同一个源程序中用
+EQU　语句定义的符号不能再赋不同的值。<strong>这里要注意与下面的“=”区分</strong>。</p>
+<h3 id="等号伪指令">3.2、等号伪指令</h3>
+<p>语句格式：<code>符号名 = 表达式</code></p>
+<p>功能：与 EQU
+语句类似，不同的是等号语句能对所定义的符号名再重新定义。当使用等号语句连续地定义同一符号名时，以最后一次定义的值为准。</p>
 <p>例如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs asm">...<br>A = 5<br>    MOV   AX, A     ; 5 赋给 AX<br>    ...<br>A = A - 10<br>    MOV   BX, A     ; 0FFFBH 赋给 BX<br>A = 10H<br>A = 20H<br>    MOV   CX, A     ; 20H 赋给 CX<br></code></pre></td></tr></table></figure>
-
-<hr>
+<hr />
 <p>参考：《80X86汇编程序设计》（王元珍）</p>
 
                 
@@ -642,6 +650,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

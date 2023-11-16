@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="第 3 章 数组和字符串 fgetc(fin)；fgetc(stdin) 等价于 getchar()，即从标准输入读取一个字符。  按： 这里有一点要说明，从终端设备读有一个特点，用户输入一般字符并不会使 getchar 函数返回，而是仍然阻塞着，只有当用户输入回车或者文件结束标志时 getchar 才返回。这个特性取决于终端的工作模式，终端可以配置成一次输入一行的模式，也可以配置一次输入一个字符">
+    <meta name="description" content="第 3 章 数组和字符串  fgetc(fin)；fgetc(stdin) 等价于 getchar()，即从标准输入读取一个字符。  按： 这里有一点要说明，从终端设备读有一个特点，用户输入一般字符并不会使 getchar 函数返回，而是仍然阻塞着，只有当用户输入回车或者文件结束标志时 getchar 才返回。这个特性取决于终端的工作模式，终端可以配置成一次输入一行的模式，也可以配置一次输入一个字">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《算法竞赛入门经典（第 2 版》阅读札记">
 <meta property="og:url" content="http://fanyfull.github.io/2021/11/22/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%85%A5%E9%97%A8%E7%BB%8F%E5%85%B8%EF%BC%88%E7%AC%AC-2-%E7%89%88%E3%80%8B%E9%98%85%E8%AF%BB%E6%9C%AD%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="第 3 章 数组和字符串 fgetc(fin)；fgetc(stdin) 等价于 getchar()，即从标准输入读取一个字符。  按： 这里有一点要说明，从终端设备读有一个特点，用户输入一般字符并不会使 getchar 函数返回，而是仍然阻塞着，只有当用户输入回车或者文件结束标志时 getchar 才返回。这个特性取决于终端的工作模式，终端可以配置成一次输入一行的模式，也可以配置一次输入一个字符">
+<meta property="og:description" content="第 3 章 数组和字符串  fgetc(fin)；fgetc(stdin) 等价于 getchar()，即从标准输入读取一个字符。  按： 这里有一点要说明，从终端设备读有一个特点，用户输入一般字符并不会使 getchar 函数返回，而是仍然阻塞着，只有当用户输入回车或者文件结束标志时 getchar 才返回。这个特性取决于终端的工作模式，终端可以配置成一次输入一行的模式，也可以配置一次输入一个字">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/aOFzjIY.png">
 <meta property="article:published_time" content="2021-11-22T06:53:00.000Z">
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -282,11 +282,17 @@
             
               <div class="markdown-body">
                 
-                <h1 id="第-3-章-数组和字符串"><a href="#第-3-章-数组和字符串" class="headerlink" title="第 3 章 数组和字符串"></a>第 3 章 数组和字符串</h1><blockquote>
-<p><code>fgetc(fin)</code>；<code>fgetc(stdin)</code> 等价于 <code>getchar()</code>，即从标准输入读取一个字符。</p>
+                <h1 id="第-3-章-数组和字符串">第 3 章 数组和字符串</h1>
+<blockquote>
+<p><code>fgetc(fin)</code>；<code>fgetc(stdin)</code> 等价于
+<code>getchar()</code>，即从标准输入读取一个字符。</p>
 </blockquote>
 <p>按：</p>
-<p>这里有一点要说明，从终端设备读有一个特点，用户输入一般字符并不会使 <code>getchar</code> 函数返回，而是仍然阻塞着，只有当用户输入回车或者文件结束标志时 <code>getchar</code> 才返回。这个特性取决于终端的工作模式，终端可以配置成一次输入一行的模式，也可以配置一次输入一个字符的模式，默认是一次输入一行的模式。</p>
+<p>这里有一点要说明，从终端设备读有一个特点，用户输入一般字符并不会使
+<code>getchar</code>
+函数返回，而是仍然阻塞着，只有当用户输入回车或者文件结束标志时
+<code>getchar</code>
+才返回。这个特性取决于终端的工作模式，终端可以配置成一次输入一行的模式，也可以配置一次输入一个字符的模式，默认是一次输入一行的模式。</p>
 <p>参考：Linux C 25.2.5</p>
 
                 
@@ -622,6 +628,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

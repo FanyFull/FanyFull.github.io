@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="小碎点 在 WT 里面使用 PS 的翻页键。  Ctrl + Shift + PageUp&#x2F;PageDown。  复制多个文件到某一文件夹下。  1Copy-Item .\m1.txt, .\m2.txt, .\m3.txt -Destination ..\myalgs4\algs4\  按：主要是分隔符 , 的使用，以及 -Destination 选项的使用。  PowerShell 中无法执行">
+    <meta name="description" content="小碎点  在 WT 里面使用 PS 的翻页键。  Ctrl + Shift + PageUp&#x2F;PageDown。  复制多个文件到某一文件夹下。  1Copy-Item .\m1.txt, .\m2.txt, .\m3.txt -Destination ..\myalgs4\algs4\ 按：主要是分隔符 , 的使用，以及 -Destination 选项的使用。  PowerShell 中无法执行">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PowerShell 使用笔记">
 <meta property="og:url" content="http://fanyfull.github.io/2021/11/30/PowerShell-%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="小碎点 在 WT 里面使用 PS 的翻页键。  Ctrl + Shift + PageUp&#x2F;PageDown。  复制多个文件到某一文件夹下。  1Copy-Item .\m1.txt, .\m2.txt, .\m3.txt -Destination ..\myalgs4\algs4\  按：主要是分隔符 , 的使用，以及 -Destination 选项的使用。  PowerShell 中无法执行">
+<meta property="og:description" content="小碎点  在 WT 里面使用 PS 的翻页键。  Ctrl + Shift + PageUp&#x2F;PageDown。  复制多个文件到某一文件夹下。  1Copy-Item .\m1.txt, .\m2.txt, .\m3.txt -Destination ..\myalgs4\algs4\ 按：主要是分隔符 , 的使用，以及 -Destination 选项的使用。  PowerShell 中无法执行">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/WsdVdhi.png">
 <meta property="article:published_time" content="2021-11-30T08:52:25.000Z">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -281,7 +281,8 @@
             
               <div class="markdown-body">
                 
-                <h1 id="小碎点"><a href="#小碎点" class="headerlink" title="小碎点"></a>小碎点</h1><blockquote>
+                <h1 id="小碎点">小碎点</h1>
+<blockquote>
 <p>在 WT 里面使用 PS 的翻页键。</p>
 </blockquote>
 <p><code>Ctrl + Shift + PageUp/PageDown</code>。</p>
@@ -289,97 +290,106 @@
 <p>复制多个文件到某一文件夹下。</p>
 </blockquote>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">Copy-Item</span> .\m1.txt, .\m2.txt, .\m3.txt <span class="hljs-literal">-Destination</span> ..\myalgs4\algs4\<br></code></pre></td></tr></table></figure>
-
-<p>按：主要是分隔符 <code>,</code> 的使用，以及 <code>-Destination</code> 选项的使用。</p>
+<p>按：主要是分隔符 <code>,</code> 的使用，以及
+<code>-Destination</code> 选项的使用。</p>
 <blockquote>
 <p>PowerShell 中无法执行 <code>javac @sources.txt</code> 命令。</p>
 </blockquote>
 <p>替换成：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">javac <span class="hljs-string">&quot;@sources.txt&quot;</span> <span class="hljs-literal">-encoding</span> UTF8<br></code></pre></td></tr></table></figure>
-
 <p>即可。</p>
 <blockquote>
 <p>在 PowerShell 中编译很多个 java 文件。</p>
 </blockquote>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">javac <span class="hljs-string">&quot;@sources.txt&quot;</span> <span class="hljs-literal">-encoding</span> UTF8<br></code></pre></td></tr></table></figure>
-
 <blockquote>
 <p>移动多个文件。</p>
 </blockquote>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-variable">$</span> <span class="hljs-built_in">Move-Item</span> <span class="hljs-literal">-Path</span> .\main.c, .\main.exe <span class="hljs-literal">-Destination</span> .\ex01\<br></code></pre></td></tr></table></figure>
-
 <p>按：重要的是这里的分隔符不能像在 Linux 中那样是空格。</p>
 <blockquote>
 <p>统计当前目录下的文件个数。</p>
 </blockquote>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">(<span class="hljs-built_in">Get-ChildItem</span> | <span class="hljs-built_in">Measure-Object</span>).Count<br></code></pre></td></tr></table></figure>
-
 <blockquote>
 <p>快速删除一个单词。</p>
 </blockquote>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Ctrl + W<br></code></pre></td></tr></table></figure>
-
 <blockquote>
 <p>PowerShell 显示当前路径。</p>
 </blockquote>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">echo</span> <span class="hljs-variable">$PWD</span><br></code></pre></td></tr></table></figure>
-
 <p>或者</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">Get-Location</span><br></code></pre></td></tr></table></figure>
-
 <blockquote>
 <p>PowerShell 进入上一次的目录。</p>
 </blockquote>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">cd</span> -<br></code></pre></td></tr></table></figure>
-
 <blockquote>
 <p>PowerShell 的安装路径。</p>
 </blockquote>
-<pre><code class="hljs">C:\Program Files\PowerShell
-</code></pre>
+<pre><code class="hljs">C:\Program Files\PowerShell</code></pre>
 <blockquote>
 <p>查看 PowerShell 的安装路径。</p>
 </blockquote>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">echo</span> <span class="hljs-variable">$PSHOME</span><br></code></pre></td></tr></table></figure>
-
 <blockquote>
 <p><code>more</code> 命令是啥？</p>
 </blockquote>
-<p>Linux <code>more</code> 命令类似 cat ，不过会以一页一页的形式显示，更方便使用者逐页阅读，而最基本的指令就是按空白键（space）就往下一页显示，按 b 键就会往回（back）一页显示，而且还有搜寻字串的功能（与 vi 相似）。</p>
-<p>参考：<a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-more.html">菜鸟教程</a></p>
-<h1 id="如何为-PowerShell-创建一个-profile？"><a href="#如何为-PowerShell-创建一个-profile？" class="headerlink" title="如何为 PowerShell 创建一个 profile？"></a>如何为 PowerShell 创建一个 profile？</h1><p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.2">Microsoft Docs</a></p>
-<p>根据文档，然后创建一个 <code>Profile.ps1</code> 文件，我这里是使用 vim 创建的：</p>
-<p><img src="https://i.imgur.com/Y1pAPMG.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/1jr56G0.png" srcset="/img/loading.gif" lazyload></p>
-<p>然后自己想改变 PowerShell 的什么特性，就直接往这个文件里面写配置即可。</p>
-<p>小知识：<code>$PSHOME</code> 这个是指 PowerShell 的安装路径，可以使用 <code>echo $PSHOME</code> 打印这个路径，然后我们进入这个目录创建这个配置文件即可。</p>
-<h1 id="如何使-PowerShell-的提示路径-Prompt-不要显示那么长？"><a href="#如何使-PowerShell-的提示路径-Prompt-不要显示那么长？" class="headerlink" title="如何使 PowerShell 的提示路径(Prompt)不要显示那么长？"></a>如何使 PowerShell 的提示路径(Prompt)不要显示那么长？</h1><p>在 profile 文件中添加如下配置：</p>
+<p>Linux <code>more</code> 命令类似 cat
+，不过会以一页一页的形式显示，更方便使用者逐页阅读，而最基本的指令就是按空白键（space）就往下一页显示，按
+b 键就会往回（back）一页显示，而且还有搜寻字串的功能（与 vi 相似）。</p>
+<p>参考：<a
+target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-more.html">菜鸟教程</a></p>
+<h1 id="如何为-powershell-创建一个-profile">如何为 PowerShell 创建一个
+profile？</h1>
+<p><a
+target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.2">Microsoft
+Docs</a></p>
+<p>根据文档，然后创建一个 <code>Profile.ps1</code> 文件，我这里是使用
+vim 创建的：</p>
+<p><img src="https://i.imgur.com/Y1pAPMG.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/1jr56G0.png" srcset="/img/loading.gif" lazyload /></p>
+<p>然后自己想改变 PowerShell
+的什么特性，就直接往这个文件里面写配置即可。</p>
+<p>小知识：<code>$PSHOME</code> 这个是指 PowerShell 的安装路径，可以使用
+<code>echo $PSHOME</code>
+打印这个路径，然后我们进入这个目录创建这个配置文件即可。</p>
+<h1 id="如何使-powershell-的提示路径prompt不要显示那么长">如何使
+PowerShell 的提示路径(Prompt)不要显示那么长？</h1>
+<p>在 profile 文件中添加如下配置：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">global</span>:<span class="hljs-title">prompt</span></span> &#123;<br>  <span class="hljs-variable">$dirSep</span> = [<span class="hljs-type">IO.Path</span>]::DirectorySeparatorChar<br>  <span class="hljs-variable">$pathComponents</span> = <span class="hljs-variable">$PWD</span>.Path.Split(<span class="hljs-variable">$dirSep</span>)<br>  <span class="hljs-variable">$displayPath</span> = <span class="hljs-keyword">if</span> (<span class="hljs-variable">$pathComponents</span>.Count <span class="hljs-operator">-le</span> <span class="hljs-number">3</span>) &#123;<br>    <span class="hljs-variable">$PWD</span>.Path<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-string">&#x27;…&#123;0&#125;&#123;1&#125;&#x27;</span> <span class="hljs-operator">-f</span> <span class="hljs-variable">$dirSep</span>, (<span class="hljs-variable">$pathComponents</span>[-<span class="hljs-number">2</span>,-<span class="hljs-number">1</span>] <span class="hljs-operator">-join</span> <span class="hljs-variable">$dirSep</span>)<br>  &#125;<br>  <span class="hljs-string">&quot;PS &#123;0&#125;<span class="hljs-variable">$</span>(&#x27;&gt;&#x27; * (<span class="hljs-variable">$nestedPromptLevel</span> + 1)) &quot;</span> <span class="hljs-operator">-f</span> <span class="hljs-variable">$displayPath</span><br>&#125;<br></code></pre></td></tr></table></figure>
-
 <p>修改之前：</p>
-<p><img src="https://i.imgur.com/vk11RpS.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/vk11RpS.png" srcset="/img/loading.gif" lazyload /></p>
 <p>之后：</p>
-<p><img src="https://i.imgur.com/VB3foQc.png" srcset="/img/loading.gif" lazyload></p>
-<p>参考：<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/58574397/how-can-i-change-the-powershell-prompt-to-show-just-the-parent-directory-and-cur">stackoverflow</a></p>
-<h1 id="Powershell-无法正常退出-Python-的虚拟环境？"><a href="#Powershell-无法正常退出-Python-的虚拟环境？" class="headerlink" title="Powershell 无法正常退出 Python 的虚拟环境？"></a>Powershell 无法正常退出 Python 的虚拟环境？</h1><p>参考：<a target="_blank" rel="noopener" href="https://github.com/pypa/virtualenv/issues/1756">https://github.com/pypa/virtualenv/issues/1756</a></p>
+<p><img src="https://i.imgur.com/VB3foQc.png" srcset="/img/loading.gif" lazyload /></p>
+<p>参考：<a
+target="_blank" rel="noopener" href="https://stackoverflow.com/questions/58574397/how-can-i-change-the-powershell-prompt-to-show-just-the-parent-directory-and-cur">stackoverflow</a></p>
+<h1 id="powershell-无法正常退出-python-的虚拟环境">Powershell
+无法正常退出 Python 的虚拟环境？</h1>
+<p>参考：<a target="_blank" rel="noopener" href="https://github.com/pypa/virtualenv/issues/1756"
+class="uri">https://github.com/pypa/virtualenv/issues/1756</a></p>
 <p>直接运行：</p>
 <figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ps">deactivate<br></code></pre></td></tr></table></figure>
-
-<h1 id="给-Powershell-设置代理"><a href="#给-Powershell-设置代理" class="headerlink" title="给 Powershell 设置代理"></a>给 Powershell 设置代理</h1><p>在 PowerShell 中执行如下命令，这里是以设置本地代理为例：</p>
+<h1 id="给-powershell-设置代理">给 Powershell 设置代理</h1>
+<p>在 PowerShell 中执行如下命令，这里是以设置本地代理为例：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-variable">$env:HTTP_PROXY</span>=<span class="hljs-string">&quot;http://127.0.0.1:7890&quot;</span><br></code></pre></td></tr></table></figure>
-
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-variable">$env:HTTPS_PROXY</span>=<span class="hljs-string">&quot;http://127.0.0.1:7890&quot;</span><br></code></pre></td></tr></table></figure>
-
 <p>上面的命令只是临时设置代理，如果想要永久设置代理，建议使用如下方法：</p>
 <p>1、在 PowerShell 窗口中运行如下指令：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-keyword">if</span> (!(<span class="hljs-built_in">Test-Path</span> <span class="hljs-literal">-Path</span> <span class="hljs-variable">$PROFILE</span> )) &#123; <span class="hljs-built_in">New-Item</span> <span class="hljs-literal">-Type</span> File <span class="hljs-literal">-Path</span> <span class="hljs-variable">$PROFILE</span> <span class="hljs-literal">-Force</span> &#125;<br>notepad <span class="hljs-variable">$PROFILE</span><br></code></pre></td></tr></table></figure>
-
 <p>2、默认会使用记事本打开一个文件，在文件中加入上面设置代理的命令，保存关闭即可。</p>
-<p>上面的配置文件在 <code>此电脑\文档\WindowsPowerShell</code> 下，文件名为：<code>Microsoft.PowerShell_profile.ps1</code>， 这个文件的内容会在 PowerShell 的每次运行时使用。（注意不要修改文件位置，除非你明白这样操作的目的）</p>
+<p>上面的配置文件在 <code>此电脑\文档\WindowsPowerShell</code>
+下，文件名为：<code>Microsoft.PowerShell_profile.ps1</code>，
+这个文件的内容会在 PowerShell
+的每次运行时使用。（注意不要修改文件位置，除非你明白这样操作的目的）</p>
 <p>上述的自定义配置方法，便于设置和修改，故为我所推崇，如果你使用网上的永久设置，我想可能会有各种问题，不如这样设置的直观，当然观点仅供参考。</p>
-<p>以上摘自：<a target="_blank" rel="noopener" href="https://www.yixuju.cn/other/talking-about-proxy/">https://www.yixuju.cn/other/talking-about-proxy/</a></p>
-<h1 id="设置启动时窗口居中"><a href="#设置启动时窗口居中" class="headerlink" title="设置启动时窗口居中"></a>设置启动时窗口居中</h1><p>实际上是设置 Windows Terminal 窗口启动时居中。</p>
-<p>参考：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/terminal/customize-settings/startup#center-on-launch">文档</a></p>
+<p>以上摘自：<a target="_blank" rel="noopener" href="https://www.yixuju.cn/other/talking-about-proxy/"
+class="uri">https://www.yixuju.cn/other/talking-about-proxy/</a></p>
+<h1 id="设置启动时窗口居中">设置启动时窗口居中</h1>
+<p>实际上是设置 Windows Terminal 窗口启动时居中。</p>
+<p>参考：<a
+target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/terminal/customize-settings/startup#center-on-launch">文档</a></p>
 
                 
               </div>
@@ -712,6 +722,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

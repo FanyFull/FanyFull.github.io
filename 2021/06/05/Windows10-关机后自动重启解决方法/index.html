@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前言不知为何，我的这台 ThinkPad X13 锐龙版经常会出现关机之后自动重启的症状，现在总结一下我目前了解的解决方法。 方案一打开高级系统设置，  然后将自动重新启动取消勾选。  这个解决了我一段时间的问题，但是，后来又失效了。遂进入方案二。 按：这个方法在大部分时间是有效的。根据我个人的经验，我发现它失效的那几次是我没有正确关闭 cmd 窗口的 Python 控制台，我应该使用 exit(">
+    <meta name="description" content="前言 不知为何，我的这台 ThinkPad X13 锐龙版经常会出现关机之后自动重启的症状，现在总结一下我目前了解的解决方法。 方案一 打开高级系统设置，  然后将自动重新启动取消勾选。  这个解决了我一段时间的问题，但是，后来又失效了。遂进入方案二。 按：这个方法在大部分时间是有效的。根据我个人的经验，我发现它失效的那几次是我没有正确关闭 cmd 窗口的 Python 控制台，我应该使用 exi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows10 关机后自动重启解决方法">
 <meta property="og:url" content="http://fanyfull.github.io/2021/06/05/Windows10-%E5%85%B3%E6%9C%BA%E5%90%8E%E8%87%AA%E5%8A%A8%E9%87%8D%E5%90%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="前言不知为何，我的这台 ThinkPad X13 锐龙版经常会出现关机之后自动重启的症状，现在总结一下我目前了解的解决方法。 方案一打开高级系统设置，  然后将自动重新启动取消勾选。  这个解决了我一段时间的问题，但是，后来又失效了。遂进入方案二。 按：这个方法在大部分时间是有效的。根据我个人的经验，我发现它失效的那几次是我没有正确关闭 cmd 窗口的 Python 控制台，我应该使用 exit(">
+<meta property="og:description" content="前言 不知为何，我的这台 ThinkPad X13 锐龙版经常会出现关机之后自动重启的症状，现在总结一下我目前了解的解决方法。 方案一 打开高级系统设置，  然后将自动重新启动取消勾选。  这个解决了我一段时间的问题，但是，后来又失效了。遂进入方案二。 按：这个方法在大部分时间是有效的。根据我个人的经验，我发现它失效的那几次是我没有正确关闭 cmd 窗口的 Python 控制台，我应该使用 exi">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210605232526.png">
 <meta property="article:published_time" content="2021-06-05T15:15:51.000Z">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -281,14 +281,22 @@
             
               <div class="markdown-body">
                 
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>不知为何，我的这台 ThinkPad X13 锐龙版经常会出现关机之后自动重启的症状，现在总结一下我目前了解的解决方法。</p>
-<h2 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h2><p>打开高级系统设置，</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210605232018.png" srcset="/img/loading.gif" lazyload></p>
+                <h2 id="前言">前言</h2>
+<p>不知为何，我的这台 ThinkPad X13
+锐龙版经常会出现关机之后自动重启的症状，现在总结一下我目前了解的解决方法。</p>
+<h2 id="方案一">方案一</h2>
+<p>打开高级系统设置，</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210605232018.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后将自动重新启动取消勾选。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210605232115.png" srcset="/img/loading.gif" lazyload></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210605232115.png" srcset="/img/loading.gif" lazyload /></p>
 <p>这个解决了我一段时间的问题，但是，后来又失效了。遂进入方案二。</p>
-<p>按：这个方法在大部分时间是有效的。根据我个人的经验，我发现它失效的那几次是我没有正确关闭 cmd 窗口的 Python 控制台，我应该使用 exit() 函数退出，而不是直接关闭 cmd 窗口。</p>
-<h2 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h2><p>笔计本电脑拔掉电源。</p>
+<p>按：这个方法在大部分时间是有效的。根据我个人的经验，我发现它失效的那几次是我没有正确关闭
+cmd 窗口的 Python 控制台，我应该使用 exit() 函数退出，而不是直接关闭 cmd
+窗口。</p>
+<h2 id="方案二">方案二</h2>
+<p>笔计本电脑拔掉电源。</p>
 
                 
               </div>
@@ -621,6 +629,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

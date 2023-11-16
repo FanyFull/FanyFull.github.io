@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="何为确定的自顶向下分析方法？  确定的自顶向下分析方法，是从文法的开始符号出发，考虑如何根据当前的输入符号（单词符号）唯一地确定选用哪个产生式替换相应非终结符以往下推导，或如何构造一棵相应的语法树。  如何理解 $\text{FIRST()}$？  设 $G &#x3D; (V_T, V_N, P, S)$ 是上下文无关文法。 $$\text{FIRST}(\alpha) &#x3D; {a|\">
+    <meta name="description" content="何为确定的自顶向下分析方法？  确定的自顶向下分析方法，是从文法的开始符号出发，考虑如何根据当前的输入符号（单词符号）唯一地确定选用哪个产生式替换相应非终结符以往下推导，或如何构造一棵相应的语法树。  如何理解 \(\text{FIRST()}\)？  设 \(G &#x3D; (V_T, V_N, P, S)\) 是上下文无关文法。 \[ \text{FIRST}(\alpha) &#x3D; \{a|\alph">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《编译原理第三版》（张素琴）第四章学习札记">
 <meta property="og:url" content="http://fanyfull.github.io/2021/10/13/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E5%BC%A0%E7%B4%A0%E7%90%B4%EF%BC%89%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="何为确定的自顶向下分析方法？  确定的自顶向下分析方法，是从文法的开始符号出发，考虑如何根据当前的输入符号（单词符号）唯一地确定选用哪个产生式替换相应非终结符以往下推导，或如何构造一棵相应的语法树。  如何理解 $\text{FIRST()}$？  设 $G &#x3D; (V_T, V_N, P, S)$ 是上下文无关文法。 $$\text{FIRST}(\alpha) &#x3D; {a|\">
+<meta property="og:description" content="何为确定的自顶向下分析方法？  确定的自顶向下分析方法，是从文法的开始符号出发，考虑如何根据当前的输入符号（单词符号）唯一地确定选用哪个产生式替换相应非终结符以往下推导，或如何构造一棵相应的语法树。  如何理解 \(\text{FIRST()}\)？  设 \(G &#x3D; (V_T, V_N, P, S)\) 是上下文无关文法。 \[ \text{FIRST}(\alpha) &#x3D; \{a|\alph">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211013105941.png">
 <meta property="article:published_time" content="2021-10-13T02:58:27.000Z">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -227,7 +227,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          5.2k 字
+          5.4k 字
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
           <!-- compatible with older versions-->
-          43 分钟
+          45 分钟
         
       </span>
     
@@ -286,122 +286,301 @@
 </blockquote>
 <p>确定的自顶向下分析方法，是从文法的开始符号出发，考虑如何根据当前的输入符号（单词符号）唯一地确定选用哪个产生式替换相应非终结符以往下推导，或如何构造一棵相应的语法树。</p>
 <blockquote>
-<p>如何理解 $\text{FIRST()}$？</p>
+<p>如何理解 <span class="math inline">\(\text{FIRST()}\)</span>？</p>
 </blockquote>
-<p>设 $G &#x3D; (V_T, V_N, P, S)$ 是上下文无关文法。</p>
-<p>$$<br>\text{FIRST}(\alpha) &#x3D; {a|\alpha \stackrel{<em>}{\Rightarrow} \alpha \beta, \quad a \in V_T, \alpha, \beta \in V^</em>}<br>$$</p>
-<p>若 $\alpha \stackrel{*}{\Rightarrow} \epsilon$，则规定 $\epsilon \in \text{FIRST}(\alpha)$。称 $\text{FIRST}(\alpha)$ 为 $\alpha$ 的<strong>开始符号集</strong>或<strong>首符号集</strong>。</p>
+<p>设 <span class="math inline">\(G = (V_T, V_N, P, S)\)</span>
+是上下文无关文法。</p>
+<p><span class="math display">\[
+\text{FIRST}(\alpha) = \{a|\alpha \stackrel{*}{\Rightarrow} \alpha
+\beta, \quad a \in V_T, \alpha, \beta \in V^*\}
+\]</span></p>
+<p>若 <span class="math inline">\(\alpha \stackrel{*}{\Rightarrow}
+\epsilon\)</span>，则规定 <span class="math inline">\(\epsilon \in
+\text{FIRST}(\alpha)\)</span>。称 <span
+class="math inline">\(\text{FIRST}(\alpha)\)</span> 为 <span
+class="math inline">\(\alpha\)</span>
+的<strong>开始符号集</strong>或<strong>首符号集</strong>。</p>
 <blockquote>
-<p>如何理解 $\text{FOLLOW()}$？</p>
+<p>如何理解 <span class="math inline">\(\text{FOLLOW()}\)</span>？</p>
 </blockquote>
-<p>设 $G &#x3D; (V_T, V_N, P, S)$ 是上下文无关文法，$A \in V_N$，$S$ 是开始符号。</p>
-<p>$$<br>\text{FOLLOW}(A) &#x3D; {a|S \stackrel{<em>}{\Rightarrow} \mu A \beta ; 且 ; a \in V_T, a \in \text{FIRST}(\beta), \mu \in V_T^</em>, \beta \in V^{+}}<br>$$</p>
-<p>若 $S \stackrel{<em>}{\Rightarrow} \mu A \beta$，且 $\beta \stackrel{</em>}{\Rightarrow} \epsilon$，则 $＃ \in \text{FOLLOW}(A)$。</p>
-<p>$$<br>\text{FOLLOW}(A) &#x3D; {a|S \stackrel{*}{\Rightarrow} \cdots Aa \cdots, ; a \in V_T}<br>$$</p>
-<p>若有 $S \stackrel{*}{\Rightarrow} \cdots A$，则规定 $＃ \in \text{FOLLOW}(A)$。</p>
-<p>这里用 $＃$ 作为输入串的结束符，也称为输入串符号。</p>
+<p>设 <span class="math inline">\(G = (V_T, V_N, P, S)\)</span>
+是上下文无关文法，<span class="math inline">\(A \in V_N\)</span>，<span
+class="math inline">\(S\)</span> 是开始符号。</p>
+<p><span class="math display">\[
+\text{FOLLOW}(A) = \{a|S \stackrel{*}{\Rightarrow} \mu A \beta \; 且 \;
+a \in V_T, a \in \text{FIRST}(\beta), \mu \in V_T^*, \beta \in V^{+}\}
+\]</span></p>
+<p>若 <span class="math inline">\(S \stackrel{*}{\Rightarrow} \mu A
+\beta\)</span>，且 <span class="math inline">\(\beta
+\stackrel{*}{\Rightarrow} \epsilon\)</span>，则 <span
+class="math inline">\(＃ \in \text{FOLLOW}(A)\)</span>。</p>
+<p><span class="math display">\[
+\text{FOLLOW}(A) = \{a|S \stackrel{*}{\Rightarrow} \cdots Aa \cdots, \;
+a \in V_T\}
+\]</span></p>
+<p>若有 <span class="math inline">\(S \stackrel{*}{\Rightarrow} \cdots
+A\)</span>，则规定 <span class="math inline">\(＃ \in
+\text{FOLLOW}(A)\)</span>。</p>
+<p>这里用 <span class="math inline">\(＃\)</span>
+作为输入串的结束符，也称为输入串符号。</p>
 <p>因此当文法中含有形如</p>
-<p>$$<br>\begin{split}<br>A \rightarrow \alpha \<br>A \rightarrow \beta<br>\end{split}<br>$$</p>
-<p>的产生式时，其中 $A \in V_N, \alpha、\beta \in V^*$，若 $\alpha$ 和 $\beta$ 不能同时推导出空，假定 $\alpha \stackrel{<em>}{\nRightarrow} \epsilon$ $, \beta \stackrel{</em>}{\Rightarrow} \epsilon$，则当 $\text{FIRST}(\alpha)$ $\cap$ $(\text{FIRST}(\beta)$ $\cup$ $\text{FOLLOW}(A)) &#x3D; \varnothing$ 时，对于非终结符 $A$ 的替换仍可唯一地确定候选。</p>
+<p><span class="math display">\[
+\begin{split}
+A \rightarrow \alpha \\
+A \rightarrow \beta
+\end{split}
+\]</span></p>
+<p>的产生式时，其中 <span class="math inline">\(A \in V_N, \alpha、\beta
+\in V^*\)</span>，若 <span class="math inline">\(\alpha\)</span> 和
+<span class="math inline">\(\beta\)</span> 不能同时推导出空，假定 <span
+class="math inline">\(\alpha \stackrel{*}{\nRightarrow}
+\epsilon\)</span> <span class="math inline">\(, \beta
+\stackrel{*}{\Rightarrow} \epsilon\)</span>，则当 <span
+class="math inline">\(\text{FIRST}(\alpha)\)</span> <span
+class="math inline">\(\cap\)</span> <span
+class="math inline">\((\text{FIRST}(\beta)\)</span> <span
+class="math inline">\(\cup\)</span> <span
+class="math inline">\(\text{FOLLOW}(A)) = \varnothing\)</span>
+时，对于非终结符 <span class="math inline">\(A\)</span>
+的替换仍可唯一地确定候选。</p>
 <blockquote>
-<p>如何理解 $\text{SELECT()}$？</p>
+<p>如何理解 <span class="math inline">\(\text{SELECT()}\)</span>？</p>
 </blockquote>
-<p>给定上下文无关文法的产生式 $A \rightarrow \alpha$ $, $ $A \in V_N, \alpha \in V^*$，</p>
+<p>给定上下文无关文法的产生式 <span class="math inline">\(A \rightarrow
+\alpha\)</span> $, $ <span class="math inline">\(A \in V_N, \alpha \in
+V^*\)</span>，</p>
 <ul>
-<li>若 $\alpha \stackrel{*}{\nRightarrow} \varepsilon$，则 $\text{SELECT}(A \rightarrow \alpha)$ $&#x3D;$ $\text{FIRST}(\alpha)$。</li>
-<li>若 $\alpha \stackrel{*}{\Rightarrow} \varepsilon$，则 $\text{SELECT}(A \rightarrow \alpha)$ $&#x3D;$ $(\text{FIRST}(\alpha) - {\varepsilon})$ $\cup$ $\text{FOLLOW}(A)$。</li>
+<li>若 <span class="math inline">\(\alpha \stackrel{*}{\nRightarrow}
+\varepsilon\)</span>，则 <span class="math inline">\(\text{SELECT}(A
+\rightarrow \alpha)\)</span> <span class="math inline">\(=\)</span>
+<span class="math inline">\(\text{FIRST}(\alpha)\)</span>。</li>
+<li>若 <span class="math inline">\(\alpha \stackrel{*}{\Rightarrow}
+\varepsilon\)</span>，则 <span class="math inline">\(\text{SELECT}(A
+\rightarrow \alpha)\)</span> <span class="math inline">\(=\)</span>
+<span class="math inline">\((\text{FIRST}(\alpha) -
+\{\varepsilon\})\)</span> <span class="math inline">\(\cup\)</span>
+<span class="math inline">\(\text{FOLLOW}(A)\)</span>。</li>
 </ul>
 <blockquote>
-<p>何为 $\text{LL}(1)$ 文法？</p>
+<p>何为 <span class="math inline">\(\text{LL}(1)\)</span> 文法？</p>
 </blockquote>
-<p>一个上下文无关文法是 $\text{LL}(1)$ 的充分必要条件是,</p>
-<p>对每个非终结符 $A$ 的两个不同产生式，$A \rightarrow \alpha$ $,$ $A \rightarrow \beta$，满足</p>
-<p>$$<br>\text{SELECT}(A \rightarrow \alpha) \cap \text{SELECT}(A \rightarrow \beta) &#x3D; \varnothing<br>$$</p>
-<p>其中 $\alpha、\beta$ 不同时能 $\stackrel{*}{\Rightarrow} \epsilon$。</p>
-<p>$\text{LL}(1)$ 的含义是：第 1 个 $\text{L}$ 表明自顶向下分析是从左向右扫描输入串，第 2 个 $\text{L}$ 表明分析过程中将用最左推导，1 表明只需要向右看一个符号便可决定如何推导，即选择哪个产生式（规则）进行推导。</p>
+<p>一个上下文无关文法是 <span
+class="math inline">\(\text{LL}(1)\)</span> 的充分必要条件是,</p>
+<p>对每个非终结符 <span class="math inline">\(A\)</span>
+的两个不同产生式，<span class="math inline">\(A \rightarrow
+\alpha\)</span> <span class="math inline">\(,\)</span> <span
+class="math inline">\(A \rightarrow \beta\)</span>，满足</p>
+<p><span class="math display">\[
+\text{SELECT}(A \rightarrow \alpha) \cap \text{SELECT}(A \rightarrow
+\beta) = \varnothing
+\]</span></p>
+<p>其中 <span class="math inline">\(\alpha、\beta\)</span> 不同时能
+<span class="math inline">\(\stackrel{*}{\Rightarrow}
+\epsilon\)</span>。</p>
+<p><span class="math inline">\(\text{LL}(1)\)</span> 的含义是：第 1 个
+<span class="math inline">\(\text{L}\)</span>
+表明自顶向下分析是从左向右扫描输入串，第 2 个 <span
+class="math inline">\(\text{L}\)</span> 表明分析过程中将用最左推导，1
+表明只需要向右看一个符号便可决定如何推导，即选择哪个产生式（规则）进行推导。</p>
 <blockquote>
-<p>如何判别某文法是否是 $\text{LL}(1)$ 文法？</p>
+<p>如何判别某文法是否是 <span
+class="math inline">\(\text{LL}(1)\)</span> 文法？</p>
 </blockquote>
-<p>首先计算 $\text{FIRST}$、$\text{FOLLOW}$、$\text{SELECT}$ 集合，然后根据定义判别文法是否是 $\text{LL}(1)$ 文法。</p>
+<p>首先计算 <span class="math inline">\(\text{FIRST}\)</span>、<span
+class="math inline">\(\text{FOLLOW}\)</span>、<span
+class="math inline">\(\text{SELECT}\)</span>
+集合，然后根据定义判别文法是否是 <span
+class="math inline">\(\text{LL}(1)\)</span> 文法。</p>
 <blockquote>
-<p>如何计算一个文法符号 $X \in V$ 的 $\text{FIRST}$ 集 $\text{FIRST}(X)$？</p>
+<p>如何计算一个文法符号 <span class="math inline">\(X \in V\)</span> 的
+<span class="math inline">\(\text{FIRST}\)</span> 集 <span
+class="math inline">\(\text{FIRST}(X)\)</span>？</p>
 </blockquote>
-<p>① 若 $X \in V_T$，则 $\text{FIRST}(X) &#x3D; {X}$。<br>② 若 $X \in V_N$，且有产生式 $X \rightarrow a \cdots$ $,$ $a \in V_T$，则 $a \in \text{FIRST}(X)$。<br>③ 若 $X \in V_N$，$X \rightarrow \varepsilon$，则 $\varepsilon \in \text{FIRST}(X)$。<br>④ 若 $X, Y_1, Y_2,$ $\cdots$ $, Y_n \in V_N$，而有产生式 $X \rightarrow Y_1Y_2 \cdots Y_n$。当 $Y_1, Y_2, \cdots, Y_{i - 1}$ $\stackrel{*}{\Rightarrow} \varepsilon$ 时（其中 $1 \leqslant i \leqslant n$），则 $\text{FIRST}(Y_1) - {\varepsilon},$ $\text{FIRST}(Y_2) - {\varepsilon},$ $\cdots$ $, \text{FIRST}(Y_{i - 1}) - {\varepsilon},$ $\text{FIRST}(Y_i)$ 都包含在 $\text{FIRST}(X)$ 中，即</p>
-<p>$$<br>\text{FIRST}(X) &#x3D; (\text{FIRST}(Y_1) \cup \text{FIRST}(Y_2) \cdots \cup \text{FIRST}(Y_i)) - {\varepsilon}<br>$$</p>
-<p>⑤ 当 ④ 中所有 $Y_i \stackrel{*}{\Rightarrow} \varepsilon$ $,$ $(i &#x3D; 1, 2, \cdots, n)$，则 </p>
-<p>$$<br>\text{FIRST}(X) &#x3D; (\text{FIRST}(Y_1) \cup \text{FIRST}(Y_2) \cdots \cup \text{FIRST}(Y_n)) \cup {\varepsilon}<br>$$</p>
-<p>反复使用上述 ②~⑤ 步，直到每个符号的 $\text{FIRST}$ 集合不再增大为止。</p>
+<p>① 若 <span class="math inline">\(X \in V_T\)</span>，则 <span
+class="math inline">\(\text{FIRST}(X) = \{X\}\)</span>。<br />
+② 若 <span class="math inline">\(X \in V_N\)</span>，且有产生式 <span
+class="math inline">\(X \rightarrow a \cdots\)</span> <span
+class="math inline">\(,\)</span> <span class="math inline">\(a \in
+V_T\)</span>，则 <span class="math inline">\(a \in
+\text{FIRST}(X)\)</span>。<br />
+③ 若 <span class="math inline">\(X \in V_N\)</span>，<span
+class="math inline">\(X \rightarrow \varepsilon\)</span>，则 <span
+class="math inline">\(\varepsilon \in \text{FIRST}(X)\)</span>。<br />
+④ 若 <span class="math inline">\(X, Y_1, Y_2,\)</span> <span
+class="math inline">\(\cdots\)</span> <span class="math inline">\(, Y_n
+\in V_N\)</span>，而有产生式 <span class="math inline">\(X \rightarrow
+Y_1Y_2 \cdots Y_n\)</span>。当 <span class="math inline">\(Y_1, Y_2,
+\cdots, Y_{i - 1}\)</span> <span
+class="math inline">\(\stackrel{*}{\Rightarrow} \varepsilon\)</span>
+时（其中 <span class="math inline">\(1 \leqslant i \leqslant
+n\)</span>），则 <span class="math inline">\(\text{FIRST}(Y_1) -
+\{\varepsilon\},\)</span> <span class="math inline">\(\text{FIRST}(Y_2)
+- \{\varepsilon\},\)</span> <span class="math inline">\(\cdots\)</span>
+<span class="math inline">\(, \text{FIRST}(Y_{i - 1}) -
+\{\varepsilon\},\)</span> <span
+class="math inline">\(\text{FIRST}(Y_i)\)</span> 都包含在 <span
+class="math inline">\(\text{FIRST}(X)\)</span> 中，即</p>
+<p><span class="math display">\[
+\text{FIRST}(X) = (\text{FIRST}(Y_1) \cup \text{FIRST}(Y_2) \cdots \cup
+\text{FIRST}(Y_i)) - \{\varepsilon\}
+\]</span></p>
+<p>⑤ 当 ④ 中所有 <span class="math inline">\(Y_i
+\stackrel{*}{\Rightarrow} \varepsilon\)</span> <span
+class="math inline">\(,\)</span> <span class="math inline">\((i = 1, 2,
+\cdots, n)\)</span>，则</p>
+<p><span class="math display">\[
+\text{FIRST}(X) = (\text{FIRST}(Y_1) \cup \text{FIRST}(Y_2) \cdots \cup
+\text{FIRST}(Y_n)) \cup \{\varepsilon\}
+\]</span></p>
+<p>反复使用上述 ②~⑤ 步，直到每个符号的 <span
+class="math inline">\(\text{FIRST}\)</span> 集合不再增大为止。</p>
 <blockquote>
-<p>如何计算一个符号串的 $\text{FIRST}$ 集合？</p>
+<p>如何计算一个符号串的 <span
+class="math inline">\(\text{FIRST}\)</span> 集合？</p>
 </blockquote>
-<p>若符号串 $\alpha \in V^*$ $,$ $\alpha &#x3D; X_1 X_2 \cdots X_n$，当 $X_1$ 不能 $\stackrel{*}{\Rightarrow} \varepsilon$，则置 $\text{FIRST}(\alpha) &#x3D; \text{FIRST}(X_1)$。</p>
-<p>若对任何 $j(1 \leqslant j \leqslant i - 1,$ $2 \leqslant i \leqslant n)$ $,$ $\varepsilon \in \text{FIRST}(X_j)$ $,$ $\varepsilon \notin \text{FIRST}(X_i)$，则</p>
-<p>$$<br>\text{FIRST}(\alpha) &#x3D; \bigcup_{j &#x3D; 1}^{i - 1}(\text{FIRST}(X_j) - {\varepsilon}) \cup \text{FIRST}(X_i)<br>$$</p>
-<p>当对任何 $j(1 \leqslant j \leqslant n)$，$\text{FIRST}(X_j)$ 都含有 $\varepsilon$ 时，则</p>
-<p>$$<br>\text{FIRST}(\alpha) &#x3D; \bigcup_{j &#x3D; 1}^{n}(\text{FIRST}(X_j) - {\varepsilon}) \cup {\varepsilon}<br>$$</p>
+<p>若符号串 <span class="math inline">\(\alpha \in V^*\)</span> <span
+class="math inline">\(,\)</span> <span class="math inline">\(\alpha =
+X_1 X_2 \cdots X_n\)</span>，当 <span class="math inline">\(X_1\)</span>
+不能 <span class="math inline">\(\stackrel{*}{\Rightarrow}
+\varepsilon\)</span>，则置 <span
+class="math inline">\(\text{FIRST}(\alpha) =
+\text{FIRST}(X_1)\)</span>。</p>
+<p>若对任何 <span class="math inline">\(j(1 \leqslant j \leqslant i -
+1,\)</span> <span class="math inline">\(2 \leqslant i \leqslant
+n)\)</span> <span class="math inline">\(,\)</span> <span
+class="math inline">\(\varepsilon \in \text{FIRST}(X_j)\)</span> <span
+class="math inline">\(,\)</span> <span class="math inline">\(\varepsilon
+\notin \text{FIRST}(X_i)\)</span>，则</p>
+<p><span class="math display">\[
+\text{FIRST}(\alpha) = \bigcup_{j = 1}^{i - 1}(\text{FIRST}(X_j) -
+\{\varepsilon\}) \cup \text{FIRST}(X_i)
+\]</span></p>
+<p>当对任何 <span class="math inline">\(j(1 \leqslant j \leqslant
+n)\)</span>，<span class="math inline">\(\text{FIRST}(X_j)\)</span>
+都含有 <span class="math inline">\(\varepsilon\)</span> 时，则</p>
+<p><span class="math display">\[
+\text{FIRST}(\alpha) = \bigcup_{j = 1}^{n}(\text{FIRST}(X_j) -
+\{\varepsilon\}) \cup \{\varepsilon\}
+\]</span></p>
 <p>按：这里最后一个公式书上的写法似乎有点问题。</p>
 <blockquote>
-<p>如何计算 $\text{FOLLOW}$ 集？</p>
+<p>如何计算 <span class="math inline">\(\text{FOLLOW}\)</span> 集？</p>
 </blockquote>
-<p>对文法中的每一个 $A \in V_N$，根据定义计算 $\text{FOLLOW}(A)$。</p>
-<p>① 设 $S$ 为文法的开始符号，把 ${＃}$ 加入 $\text{FOLLOW}(S)$ 中（这里＃为句子括号）。</p>
+<p>对文法中的每一个 <span class="math inline">\(A \in
+V_N\)</span>，根据定义计算 <span
+class="math inline">\(\text{FOLLOW}(A)\)</span>。</p>
+<p>① 设 <span class="math inline">\(S\)</span> 为文法的开始符号，把
+<span class="math inline">\(\{＃\}\)</span> 加入 <span
+class="math inline">\(\text{FOLLOW}(S)\)</span>
+中（这里＃为句子括号）。</p>
 <p>按：＃似为句子结束符号。</p>
-<p>② 若 $A \rightarrow \alpha B \beta$ 是一个产生式，则把 $\text{FIRST}(\beta)$ 的非空元素加入 $\text{FOLLOW}(B)$ 中。<br>如果 $\beta \stackrel{*}{\Rightarrow} \varepsilon$，则把 $\text{FOLLOW}(A)$ 也加入 $\text{FOLLOW}(B)$ 中，因为当有形如</p>
-<p>$$<br>\begin{split}<br>D &amp;\rightarrow \alpha_{1} A \beta_{1} \<br>A &amp;\rightarrow \alpha B \beta<br>\end{split}<br>$$</p>
-<p>的产生式时，$A, B, D \in V_N$，$\alpha, \alpha_{1}, \beta, \beta_{1} \in V^*$，在推导过程中可能出现如下的句型序列：</p>
-<p>$$<br>S \stackrel{*}{\Rightarrow} \cdots \alpha_{1} A \beta_{1} \cdots \Rightarrow \alpha_{1} \alpha B \beta \beta{1} \cdots \Rightarrow \cdots \alpha_{1} \alpha B \beta_{1} \cdots<br>$$</p>
-<p>因此，有 $\text{FOLLOW}(A)$ $\subseteq$ $\text{FOLLOW}(B)$。</p>
-<p>③ 反复使用 ② 直到每个非终结符的 $\text{FOLLOW}$ 集不再增大为止。</p>
+<p>② 若 <span class="math inline">\(A \rightarrow \alpha B
+\beta\)</span> 是一个产生式，则把 <span
+class="math inline">\(\text{FIRST}(\beta)\)</span> 的非空元素加入 <span
+class="math inline">\(\text{FOLLOW}(B)\)</span> 中。<br />
+如果 <span class="math inline">\(\beta \stackrel{*}{\Rightarrow}
+\varepsilon\)</span>，则把 <span
+class="math inline">\(\text{FOLLOW}(A)\)</span> 也加入 <span
+class="math inline">\(\text{FOLLOW}(B)\)</span> 中，因为当有形如</p>
+<p><span class="math display">\[
+\begin{split}
+D &amp;\rightarrow \alpha_{1} A \beta_{1} \\
+A &amp;\rightarrow \alpha B \beta
+\end{split}
+\]</span></p>
+<p>的产生式时，<span class="math inline">\(A, B, D \in
+V_N\)</span>，<span class="math inline">\(\alpha, \alpha_{1}, \beta,
+\beta_{1} \in V^*\)</span>，在推导过程中可能出现如下的句型序列：</p>
+<p><span class="math display">\[
+S \stackrel{*}{\Rightarrow} \cdots \alpha_{1} A \beta_{1} \cdots
+\Rightarrow \alpha_{1} \alpha B \beta \beta{1} \cdots \Rightarrow \cdots
+\alpha_{1} \alpha B \beta_{1} \cdots
+\]</span></p>
+<p>因此，有 <span class="math inline">\(\text{FOLLOW}(A)\)</span> <span
+class="math inline">\(\subseteq\)</span> <span
+class="math inline">\(\text{FOLLOW}(B)\)</span>。</p>
+<p>③ 反复使用 ② 直到每个非终结符的 <span
+class="math inline">\(\text{FOLLOW}\)</span> 集不再增大为止。</p>
 <blockquote>
-<p>如何计算某一文法中的每一个产生式的 $\text{SELECT}$ 集？</p>
+<p>如何计算某一文法中的每一个产生式的 <span
+class="math inline">\(\text{SELECT}\)</span> 集？</p>
 </blockquote>
 <p>直接根据定义来判断：</p>
-<p>给定上下文无关文法的产生式 $A \rightarrow \alpha$ $, $ $A \in V_N, \alpha \in V^*$，</p>
+<p>给定上下文无关文法的产生式 <span class="math inline">\(A \rightarrow
+\alpha\)</span> $, $ <span class="math inline">\(A \in V_N, \alpha \in
+V^*\)</span>，</p>
 <ul>
-<li>若 $\alpha \stackrel{*}{\nRightarrow} \varepsilon$，则 $\text{SELECT}(A \rightarrow \alpha)$ $&#x3D;$ $\text{FIRST}(\alpha)$。</li>
-<li>若 $\alpha \stackrel{*}{\Rightarrow} \varepsilon$，则 $\text{SELECT}(A \rightarrow \alpha)$ $&#x3D;$ $(\text{FIRST}(\alpha) - {\varepsilon})$ $\cup$ $\text{FOLLOW}(A)$。</li>
+<li>若 <span class="math inline">\(\alpha \stackrel{*}{\nRightarrow}
+\varepsilon\)</span>，则 <span class="math inline">\(\text{SELECT}(A
+\rightarrow \alpha)\)</span> <span class="math inline">\(=\)</span>
+<span class="math inline">\(\text{FIRST}(\alpha)\)</span>。</li>
+<li>若 <span class="math inline">\(\alpha \stackrel{*}{\Rightarrow}
+\varepsilon\)</span>，则 <span class="math inline">\(\text{SELECT}(A
+\rightarrow \alpha)\)</span> <span class="math inline">\(=\)</span>
+<span class="math inline">\((\text{FIRST}(\alpha) -
+\{\varepsilon\})\)</span> <span class="math inline">\(\cup\)</span>
+<span class="math inline">\(\text{FOLLOW}(A)\)</span>。</li>
 </ul>
 <blockquote>
 <p>如何消除文法的直接左递归？</p>
 </blockquote>
 <p>将</p>
-<p>$$<br>A \rightarrow A \alpha | \beta ; (\alpha \neq \varepsilon, \beta ;不以 A 开头)<br>$$</p>
+<p><span class="math display">\[
+A \rightarrow A \alpha | \beta \; (\alpha \neq \varepsilon, \beta \;不以
+A 开头)
+\]</span></p>
 <p>转换成</p>
-<p>$$<br>\begin{split}<br>A \rightarrow \beta A^{‘} \<br>A^{‘} \rightarrow \alpha A^{‘} | \varepsilon<br>\end{split}<br>$$</p>
-<p><img src="https://i.imgur.com/LobTnUb.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/BTAs20o.png" srcset="/img/loading.gif" lazyload></p>
+<p><span class="math display">\[
+\begin{split}
+A \rightarrow \beta A^{&#39;} \\
+A^{&#39;} \rightarrow \alpha A^{&#39;} | \varepsilon
+\end{split}
+\]</span></p>
+<p><img src="https://i.imgur.com/LobTnUb.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/BTAs20o.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
 <p>如何消除文法的间接子递归？</p>
 </blockquote>
-<p><img src="https://i.imgur.com/ONRU6mw.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/ONRU6mw.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
 <p>消除左递归的算法？</p>
 </blockquote>
-<p><img src="https://i.imgur.com/RCSsK8L.png" srcset="/img/loading.gif" lazyload></p>
-<hr>
-<p>附：哈工大慕课陈鄞老师对于 $\text{FIRST}$、$\text{FOLLOW}$ 和 $\text{SELECT}$ 的理解。</p>
+<p><img src="https://i.imgur.com/RCSsK8L.png" srcset="/img/loading.gif" lazyload /></p>
+<hr />
+<p>附：哈工大慕课陈鄞老师对于 <span
+class="math inline">\(\text{FIRST}\)</span>、<span
+class="math inline">\(\text{FOLLOW}\)</span> 和 <span
+class="math inline">\(\text{SELECT}\)</span> 的理解。</p>
 <blockquote>
-<p>对 $\text{FIRST}$ 的理解？</p>
+<p>对 <span class="math inline">\(\text{FIRST}\)</span> 的理解？</p>
 </blockquote>
-<p><img src="https://i.imgur.com/s8YqiDv.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/VmrkYxH.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/hgG2AXE.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/s8YqiDv.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/VmrkYxH.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/hgG2AXE.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
-<p>对 $\text{FOLLOW}$ 的理解？</p>
+<p>对 <span class="math inline">\(\text{FOLLOW}\)</span> 的理解？</p>
 </blockquote>
-<p><img src="https://i.imgur.com/BWChrVU.png" srcset="/img/loading.gif" lazyload></p>
-<p>按；这里有一点，“如果 A 是某个句型的最右符号，则将结束符 <code>$</code> 添加到 FOLLOW(A) 中”，拿下面的 $FOLLOW(E)$ 来看，$E \rightarrow E$ 右面的 $E$ 是其本身，同时也是 $E$ 这个句型的最右符号，所以要把 <code>$</code> 加入到该符号的 FOLLOW 集中。</p>
-<p>另按：$FOLLOW$ 集中没有 $\varepsilon$。</p>
-<p><img src="https://i.imgur.com/T9YnsK5.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/BWChrVU.png" srcset="/img/loading.gif" lazyload /></p>
+<p>按；这里有一点，“如果 A 是某个句型的最右符号，则将结束符
+<code>$</code> 添加到 FOLLOW(A) 中”，拿下面的 <span
+class="math inline">\(FOLLOW(E)\)</span> 来看，<span
+class="math inline">\(E \rightarrow E\)</span> 右面的 <span
+class="math inline">\(E\)</span> 是其本身，同时也是 <span
+class="math inline">\(E\)</span> 这个句型的最右符号，所以要把
+<code>$</code> 加入到该符号的 FOLLOW 集中。</p>
+<p>另按：<span class="math inline">\(FOLLOW\)</span> 集中没有 <span
+class="math inline">\(\varepsilon\)</span>。</p>
+<p><img src="https://i.imgur.com/T9YnsK5.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
-<p>一个 $\text{SELECT}$ 的例子。</p>
+<p>一个 <span class="math inline">\(\text{SELECT}\)</span> 的例子。</p>
 </blockquote>
-<p><img src="https://i.imgur.com/OQut1Ok.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/OQut1Ok.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
 <p>一张预测分析表。</p>
 </blockquote>
-<p><img src="https://i.imgur.com/rqhlpyx.png" srcset="/img/loading.gif" lazyload></p>
-<p>按：这张图中上面的那张表中差了一个表达式：$T^{‘} \rightarrow \varepsilon$。</p>
+<p><img src="https://i.imgur.com/rqhlpyx.png" srcset="/img/loading.gif" lazyload /></p>
+<p>按：这张图中上面的那张表中差了一个表达式：<span
+class="math inline">\(T^{&#39;} \rightarrow \varepsilon\)</span>。</p>
 
                 
               </div>
@@ -734,6 +913,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

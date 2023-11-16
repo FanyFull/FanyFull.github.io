@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="第一章 何为强度或灰度？  一幅图像可定义为一个二维函数 $f(x, y)$，其中 $x$ 和 $y$ 是空间（平面）坐标，而在任何一对空间坐标 $(x, y)$ 处的幅值（amplitude，振幅）$f$ 称为图像在该点处的强度或灰度。 关于灰度的更通俗的解释如下：  The grey level or grey value indicates the brightness of a pixel">
+    <meta name="description" content="第一章  何为强度或灰度？  一幅图像可定义为一个二维函数 \(f(x, y)\)，其中 \(x\) 和 \(y\) 是空间（平面）坐标，而在任何一对空间坐标 \((x, y)\) 处的幅值（amplitude，振幅）\(f\) 称为图像在该点处的强度或灰度。 关于灰度的更通俗的解释如下：  The grey level or grey value indicates the brightness">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《数字图像处理 第三版》札记">
 <meta property="og:url" content="http://fanyfull.github.io/2021/10/06/%E3%80%8A%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%E6%9C%AD%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="第一章 何为强度或灰度？  一幅图像可定义为一个二维函数 $f(x, y)$，其中 $x$ 和 $y$ 是空间（平面）坐标，而在任何一对空间坐标 $(x, y)$ 处的幅值（amplitude，振幅）$f$ 称为图像在该点处的强度或灰度。 关于灰度的更通俗的解释如下：  The grey level or grey value indicates the brightness of a pixel">
+<meta property="og:description" content="第一章  何为强度或灰度？  一幅图像可定义为一个二维函数 \(f(x, y)\)，其中 \(x\) 和 \(y\) 是空间（平面）坐标，而在任何一对空间坐标 \((x, y)\) 处的幅值（amplitude，振幅）\(f\) 称为图像在该点处的强度或灰度。 关于灰度的更通俗的解释如下：  The grey level or grey value indicates the brightness">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211006110136.png">
 <meta property="article:published_time" content="2021-10-06T01:59:17.000Z">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -281,34 +281,64 @@
             
               <div class="markdown-body">
                 
-                <h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><blockquote>
+                <h1 id="第一章">第一章</h1>
+<blockquote>
 <p>何为强度或灰度？</p>
 </blockquote>
-<p>一幅图像可定义为一个二维函数 $f(x, y)$，其中 $x$ 和 $y$ 是空间（平面）坐标，而在任何一对空间坐标 $(x, y)$ 处的幅值（amplitude，振幅）$f$ 称为图像在该点处的<strong>强度</strong>或<strong>灰度</strong>。</p>
+<p>一幅图像可定义为一个二维函数 <span class="math inline">\(f(x,
+y)\)</span>，其中 <span class="math inline">\(x\)</span> 和 <span
+class="math inline">\(y\)</span>
+是空间（平面）坐标，而在任何一对空间坐标 <span class="math inline">\((x,
+y)\)</span> 处的幅值（amplitude，振幅）<span
+class="math inline">\(f\)</span>
+称为图像在该点处的<strong>强度</strong>或<strong>灰度</strong>。</p>
 <p>关于灰度的更通俗的解释如下：</p>
 <blockquote>
-<p>The grey level or grey value indicates the brightness of a pixel.<br>The minimum grey level is 0. The maximum grey level depends on the digitisation depth of the image. For an 8-bit-deep image it is 255. In a binary image a pixel can only take on either the value 0 or the value 255. In contrast, in a greyscale or colour image a pixel can take on any value between 0 and 255.</p>
+<p>The grey level or grey value indicates the brightness of a pixel. The
+minimum grey level is 0. The maximum grey level depends on the
+digitisation depth of the image. For an 8-bit-deep image it is 255. In a
+binary image a pixel can only take on either the value 0 or the value
+255. In contrast, in a greyscale or colour image a pixel can take on any
+value between 0 and 255.</p>
 </blockquote>
-<p>引用自：<a target="_blank" rel="noopener" href="https://www.stemmer-imaging.com/en-ie/knowledge-base/grey-level-grey-value/">https://www.stemmer-imaging.com/en-ie/knowledge-base/grey-level-grey-value/</a></p>
+<p>引用自：<a
+target="_blank" rel="noopener" href="https://www.stemmer-imaging.com/en-ie/knowledge-base/grey-level-grey-value/"
+class="uri">https://www.stemmer-imaging.com/en-ie/knowledge-base/grey-level-grey-value/</a></p>
 <blockquote>
 <p>何为数字图像？</p>
 </blockquote>
-<p>接上一条，当 $x, y$ 和灰度值 $f$ 是有限的离散数值时，我们称该图像为<strong>数字图像</strong>。</p>
-<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><blockquote>
+<p>接上一条，当 <span class="math inline">\(x, y\)</span> 和灰度值 <span
+class="math inline">\(f\)</span>
+是有限的离散数值时，我们称该图像为<strong>数字图像</strong>。</p>
+<h1 id="第二章">第二章</h1>
+<blockquote>
 <p>如何理解人眼的结构？</p>
 </blockquote>
-<p>眼睛的形状近似为一个球体，其平均直径约为 20 mm。有三层薄膜包围着眼睛：<strong>角膜</strong>与<strong>巩膜</strong>外壳、<strong>脉络膜</strong>和<strong>视网膜</strong>。</p>
+<p>眼睛的形状近似为一个球体，其平均直径约为 20
+mm。有三层薄膜包围着眼睛：<strong>角膜</strong>与<strong>巩膜</strong>外壳、<strong>脉络膜</strong>和<strong>视网膜</strong>。</p>
 <ul>
 <li>角膜是一种硬而透明的组织，覆盖着眼睛的前表面。与角膜相连的巩膜是一层包围着眼球其余部分的不透明的膜。</li>
 <li>脉络膜位于巩膜的正下方。脉络膜包含有血管网，它是眼睛的重要滋养源。即使是对脉络膜表面并不严重的损害，也有可能严重地损害眼睛，引起限制血液流动的炎症。脉络膜外壳着色很重，因此有助于减少进入眼内的外来光和眼球内反向散射光的数量。</li>
-<li>脉络膜的最前面分为睫状肌和虹膜。虹膜的收缩和扩张控制着进入眼睛的光量。虹膜中间的开口（瞳孔）的直径是可变的，范围大约在 2-8 mm。虹膜的前面包含有眼睛的可见色素，而后面则包含有黑色色素。<br>按：这里要从三维视角来看。  </li>
-<li>晶状体由同心的纤维细胞层组成，并由附在睫状肌上的纤维悬挂着。晶状体包含 60%~70% 的水、6% 的脂肪和比眼睛中任何其他组织都多的蛋白质。晶状体由稍黄的色素着色，其颜色随着人的年龄的增大而加深。晶状体吸收大约 8% 的可见光谱，对短波长的光有较高的吸收率。在晶状体结构中，蛋白质吸收红外光和紫外光，吸收过量时会伤害眼睛。</li>
+<li>脉络膜的最前面分为睫状肌和虹膜。虹膜的收缩和扩张控制着进入眼睛的光量。虹膜中间的开口（瞳孔）的直径是可变的，范围大约在
+2-8 mm。虹膜的前面包含有眼睛的可见色素，而后面则包含有黑色色素。<br />
+按：这里要从三维视角来看。<br />
+</li>
+<li>晶状体由同心的纤维细胞层组成，并由附在睫状肌上的纤维悬挂着。晶状体包含
+60%~70% 的水、6%
+的脂肪和比眼睛中任何其他组织都多的蛋白质。晶状体由稍黄的色素着色，其颜色随着人的年龄的增大而加深。晶状体吸收大约
+8%
+的可见光谱，对短波长的光有较高的吸收率。在晶状体结构中，蛋白质吸收红外光和紫外光，吸收过量时会伤害眼睛。</li>
 <li>眼睛最里面的膜是视网膜，它布满了整个后部和内壁。当眼睛适当地聚焦时，来自眼睛外部物体的光在视网膜上成像。由视网膜表面分布的不连续的光，感受器提供了图案视觉。有两类光感受器：<strong>锥状体</strong>和<strong>杆状体</strong>。</li>
-<li>每只眼睛中的锥状体数量在 600~700 万之间。他们主要位于视网膜的中间部分，称之为中央凹，且对颜色高度敏感。用这些锥状体，人可以充分地分辨图像细节，因为每个锥状体都连接到自身地神经末梢。肌肉控制眼球转动，直到感兴趣的物体落到中央凹上。锥状体视觉称为白昼视觉或亮视觉。</li>
-<li>杆状体的数量更多：约有 7500~15 000 万个杆状体分布在视网膜表面。由于分布面积较大而且几个杆状体连接到一个神经末梢，因此减少了这些感受器感知细节的数量。杆状体用来给出视野内的一般的总体图像。它们没有彩色感觉，而对低照明度敏感。例如，在白天呈现鲜明色彩的物体，在月光下都没有颜色，因为此时只有杆状体收到刺激。这种现象称为暗视觉或微光视觉。</li>
+<li>每只眼睛中的锥状体数量在 600~700
+万之间。他们主要位于视网膜的中间部分，称之为中央凹，且对颜色高度敏感。用这些锥状体，人可以充分地分辨图像细节，因为每个锥状体都连接到自身地神经末梢。肌肉控制眼球转动，直到感兴趣的物体落到中央凹上。锥状体视觉称为白昼视觉或亮视觉。</li>
+<li>杆状体的数量更多：约有 7500~15 000
+万个杆状体分布在视网膜表面。由于分布面积较大而且几个杆状体连接到一个神经末梢，因此减少了这些感受器感知细节的数量。杆状体用来给出视野内的一般的总体图像。它们没有彩色感觉，而对低照明度敏感。例如，在白天呈现鲜明色彩的物体，在月光下都没有颜色，因为此时只有杆状体收到刺激。这种现象称为暗视觉或微光视觉。</li>
 </ul>
-<p>下图显示了右眼中通过眼睛视神经出现区的剖面的杆状体和锥状体密度。The absence of receptors in this area results in the so-called <em>blind spot</em>. </p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211006233652.png" srcset="/img/loading.gif" lazyload></p>
+<p>下图显示了右眼中通过眼睛视神经出现区的剖面的杆状体和锥状体密度。The
+absence of receptors in this area results in the so-called <em>blind
+spot</em>.</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211006233652.png" srcset="/img/loading.gif" lazyload /></p>
 <p>疑问：这里是怎么剖开的？？？</p>
 <ul>
 <li>Ciliary body: 睫状体</li>
@@ -327,26 +357,35 @@
 <li>Blind spot: 盲点</li>
 <li>Retina: 视网膜</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211006110830.jpg" srcset="/img/loading.gif" lazyload alt="人眼剖面简图"></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211006110830.jpg" srcset="/img/loading.gif" lazyload
+alt="人眼剖面简图" /></p>
 <blockquote>
 <p>何为马赫带效应？</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211007152354.png" srcset="/img/loading.gif" lazyload></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211007152354.png" srcset="/img/loading.gif" lazyload /></p>
 <p>视觉系统对亮度的感知不是简单的强度函数。然后，这个马赫带效应就是，每一条带上的亮度是均匀的，但是在不同带的交界处，我们会看到，亮的那一侧会出现更亮的一条线，暗的那一侧会出现更暗的一条线。简单来讲，这就是马赫带效应。</p>
 <blockquote>
 <p>何为同时对比现象？</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211007152901.png" srcset="/img/loading.gif" lazyload></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211007152901.png" srcset="/img/loading.gif" lazyload /></p>
 <p>和马赫带效应类似，我们人眼观察到好像第一个图中间的小方块最亮，第三个中间的小方块最暗。实际上，它们的灰度（亮度）是一样的。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211007153502.png" srcset="/img/loading.gif" lazyload></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211007153502.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
 <p>何为灰度级？</p>
 </blockquote>
-<p>灰度级的典型取值是 2 的整数次幂。通常假设离散灰度级是等间隔的并且是区间 $[0, L - 1]$ 内的整数。（L 即 2 的整数次幂）</p>
+<p>灰度级的典型取值是 2
+的整数次幂。通常假设离散灰度级是等间隔的并且是区间 <span
+class="math inline">\([0, L - 1]\)</span> 内的整数。（L 即 2
+的整数次幂）</p>
 <blockquote>
 <p>何为 k 比特图像？</p>
 </blockquote>
-<p>当一幅图像有 $2^k$ 灰度级时，通常称该图像是 k 比特图像。</p>
+<p>当一幅图像有 <span class="math inline">\(2^k\)</span>
+灰度级时，通常称该图像是 k 比特图像。</p>
 <blockquote>
 <p>何为动态范围？</p>
 </blockquote>
@@ -373,7 +412,10 @@
 <blockquote>
 <p>直方图均衡的离散形式为？</p>
 </blockquote>
-<p>$$<br>s_k &#x3D; T(r_k) &#x3D; (L - 1) \sum_{j &#x3D; 0}^{k} p_r(r_j) &#x3D; \frac{L -1}{MN} \sum_{j &#x3D; 0}^{k} n_j, \quad k &#x3D; 0, 1, 2,…, L -1<br>$$</p>
+<p><span class="math display">\[
+s_k = T(r_k) = (L - 1) \sum_{j = 0}^{k} p_r(r_j) = \frac{L -1}{MN}
+\sum_{j = 0}^{k} n_j, \quad k = 0, 1, 2,..., L -1
+\]</span></p>
 <p>详情见教材。这一块，似乎不用非常熟练地理解，大概只要思路跟着教材或者老师走一遍就行。真的需要具体用的时候再回来看。不过，这玩意儿还挺绕的。</p>
 <p>如果考试需要考的话，那么，就得把西电的网课上的那一道例题给看一下了。</p>
 
@@ -708,6 +750,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

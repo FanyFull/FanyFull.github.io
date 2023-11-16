@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -283,11 +283,13 @@
                 
                 <p>今天被这个问题困扰了好久没有解决。</p>
 <p>经过一番查找探究，发现其实应该是微软的这个官方扩展的版本更新之后出了问题。所以回退到上一个版本即可。</p>
-<p><img src="https://i.imgur.com/3X5tItq.png" srcset="/img/loading.gif" lazyload></p>
-<p>在此之前，试了各种方案，什么设置 Proxy Support 的 mode，设置 Strict SSL，都不管用，</p>
-<p><img src="https://i.imgur.com/unWAEWn.png" srcset="/img/loading.gif" lazyload></p>
-<p>其实，微软官方描述了这个问题，详见<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/visualstudio/intellicode/intellicode-visual-studio-code">这个链接</a>，</p>
-<p><img src="https://i.imgur.com/hTVJwbs.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/3X5tItq.png" srcset="/img/loading.gif" lazyload /></p>
+<p>在此之前，试了各种方案，什么设置 Proxy Support 的 mode，设置 Strict
+SSL，都不管用，</p>
+<p><img src="https://i.imgur.com/unWAEWn.png" srcset="/img/loading.gif" lazyload /></p>
+<p>其实，微软官方描述了这个问题，详见<a
+target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/visualstudio/intellicode/intellicode-visual-studio-code">这个链接</a>，</p>
+<p><img src="https://i.imgur.com/hTVJwbs.png" srcset="/img/loading.gif" lazyload /></p>
 <p>我也是点进它给的几个链接才学到切换版本的方法，毕竟在今天之前一直这个扩展一直都是正常运行的。</p>
 
                 
@@ -621,6 +623,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

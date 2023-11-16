@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="系哈工大陈鄞慕课笔记。  “句柄”的另一个定义？  在“移入-归约”分析中，每次归约的符号串称为“句柄”。 又：句柄是句型的最左直接短语。 按：这个和句柄的最初的定义是一致且吻合的。  一个移入-归约分析的例子。    在移入-归约分析（可以参见上图）中，对 栈内符号串 + 剩余输入 &#x3D; “规范句型” 的理解？  可以结合下面的定义来理解：  在形式语言中，最右推导常被称为规范推导。  由规范推导">
+    <meta name="description" content="系哈工大陈鄞慕课笔记。  “句柄”的另一个定义？  在“移入-归约”分析中，每次归约的符号串称为“句柄”。 又：句柄是句型的最左直接短语。 按：这个和句柄的最初的定义是一致且吻合的。  一个移入-归约分析的例子。    在移入-归约分析（可以参见上图）中，对 栈内符号串 + 剩余输入 &#x3D; “规范句型” 的理解？  可以结合下面的定义来理解：  在形式语言中，最右推导常被称为规范推导。 由规范推导所">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译原理之自底向上分析学习笔记">
 <meta property="og:url" content="http://fanyfull.github.io/2021/10/30/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%B9%8B%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E5%88%86%E6%9E%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="系哈工大陈鄞慕课笔记。  “句柄”的另一个定义？  在“移入-归约”分析中，每次归约的符号串称为“句柄”。 又：句柄是句型的最左直接短语。 按：这个和句柄的最初的定义是一致且吻合的。  一个移入-归约分析的例子。    在移入-归约分析（可以参见上图）中，对 栈内符号串 + 剩余输入 &#x3D; “规范句型” 的理解？  可以结合下面的定义来理解：  在形式语言中，最右推导常被称为规范推导。  由规范推导">
+<meta property="og:description" content="系哈工大陈鄞慕课笔记。  “句柄”的另一个定义？  在“移入-归约”分析中，每次归约的符号串称为“句柄”。 又：句柄是句型的最左直接短语。 按：这个和句柄的最初的定义是一致且吻合的。  一个移入-归约分析的例子。    在移入-归约分析（可以参见上图）中，对 栈内符号串 + 剩余输入 &#x3D; “规范句型” 的理解？  可以结合下面的定义来理解：  在形式语言中，最右推导常被称为规范推导。 由规范推导所">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/g2Q9mJv.png">
 <meta property="article:published_time" content="2021-10-30T13:23:55.000Z">
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -228,7 +228,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          4.4k 字
+          4.7k 字
         
       </span>
     
@@ -240,7 +240,7 @@
         
         
           <!-- compatible with older versions-->
-          37 分钟
+          39 分钟
         
       </span>
     
@@ -292,16 +292,15 @@
 <blockquote>
 <p>一个移入-归约分析的例子。</p>
 </blockquote>
-<p><img src="https://i.imgur.com/HFplruP.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/HFplruP.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
-<p>在移入-归约分析（可以参见上图）中，对 <code>栈内符号串 + 剩余输入 = “规范句型”</code> 的理解？</p>
+<p>在移入-归约分析（可以参见上图）中，对
+<code>栈内符号串 + 剩余输入 = “规范句型”</code> 的理解？</p>
 </blockquote>
 <p>可以结合下面的定义来理解：</p>
 <ul>
-<li><p>在形式语言中，最右推导常被称为<strong>规范推导</strong>。</p>
-</li>
-<li><p>由规范推导所得的句型称为<strong>右句型</strong>或<strong>规范句型</strong>。</p>
-</li>
+<li><p>在形式语言中，最右推导常被称为<strong>规范推导</strong>。</p></li>
+<li><p>由规范推导所得的句型称为<strong>右句型</strong>或<strong>规范句型</strong>。</p></li>
 </ul>
 <p>按：本来这个移入-归约分析采用的就是最左归约方式（反向构造最右推导），所以，从例子的最后一行往上看，那么，显然它就是最右推导嘛，那么，结果就很显然了。</p>
 <blockquote>
@@ -319,181 +318,347 @@
 </blockquote>
 <p>在归约的过程中，应该被归约的字符串的左端可能不会被正确识别到，即错误地识别了句柄。</p>
 <blockquote>
-<p>$LR$ 分析的含义？</p>
+<p><span class="math inline">\(LR\)</span> 分析的含义？</p>
 </blockquote>
-<ol>
-<li><p>$LR$ 文法是最大的、可以构造出相应移入-归约语法分析器的文法类</p>
+<ol type="1">
+<li><p><span class="math inline">\(LR\)</span>
+文法是最大的、可以构造出相应移入-归约语法分析器的文法类</p>
 <ul>
 <li>L：对输入进行从左到右的扫描</li>
 <li>R：反向构造出一个最右推导序列</li>
 </ul>
-<p> 按：这和前面那张移入-归约分析图的过程很像啊。</p>
-</li>
-<li><p>$LR(k)$ 分析</p>
+<p>按：这和前面那张移入-归约分析图的过程很像啊。</p></li>
+<li><p><span class="math inline">\(LR(k)\)</span> 分析</p>
 <ul>
-<li>需要向前查看 k 个输入符号的 LR 分析<br> 按：这里的向前在输入符号串中表现为向右。</li>
-</ul>
-</li>
+<li>需要向前查看 k 个输入符号的 LR 分析<br />
+按：这里的向前在输入符号串中表现为向右。</li>
+</ul></li>
 </ol>
 <blockquote>
 <p>如何用“状态”表示句柄识别的进展程度？</p>
 </blockquote>
-<p><img src="https://i.imgur.com/52H3LGJ.png" srcset="/img/loading.gif" lazyload></p>
-<p>$$<br>\begin{split}<br>S &amp;\rightarrow \cdot bBB \quad &amp;移进状态\<br>S &amp;\rightarrow b \cdot BB \quad &amp;待约状态\<br>S &amp;\rightarrow bB \cdot B \quad &amp;待约状态 \<br>S &amp;\rightarrow bBB \cdot \quad &amp;归约状态 \<br>\end{split}<br>$$</p>
+<p><img src="https://i.imgur.com/52H3LGJ.png" srcset="/img/loading.gif" lazyload /></p>
+<p><span class="math display">\[
+\begin{split}
+S &amp;\rightarrow \cdot bBB \quad &amp;移进状态\\
+S &amp;\rightarrow b \cdot BB \quad &amp;待约状态\\
+S &amp;\rightarrow bB \cdot B \quad &amp;待约状态 \\
+S &amp;\rightarrow bBB \cdot \quad &amp;归约状态 \\
+\end{split}
+\]</span></p>
 <blockquote>
-<p>$LR$ 分析表的结构？</p>
+<p><span class="math inline">\(LR\)</span> 分析表的结构？</p>
 </blockquote>
-<p><img src="https://i.imgur.com/3uKaGLp.png" srcset="/img/loading.gif" lazyload></p>
-<p>注意这里的 $sn$ 和 $rn$ 的含义：</p>
+<p><img src="https://i.imgur.com/3uKaGLp.png" srcset="/img/loading.gif" lazyload /></p>
+<p>注意这里的 <span class="math inline">\(sn\)</span> 和 <span
+class="math inline">\(rn\)</span> 的含义：</p>
 <ul>
-<li>$sn$：将符号 $a$、状态 $n$ 压入栈</li>
-<li>$rn$：用第 $n$ 个产生式进行归约</li>
+<li><span class="math inline">\(sn\)</span>：将符号 <span
+class="math inline">\(a\)</span>、状态 <span
+class="math inline">\(n\)</span> 压入栈</li>
+<li><span class="math inline">\(rn\)</span>：用第 <span
+class="math inline">\(n\)</span> 个产生式进行归约</li>
 </ul>
 <blockquote>
-<p>一个 $LR$ 分析的例子？</p>
+<p>一个 <span class="math inline">\(LR\)</span> 分析的例子？</p>
 </blockquote>
 <p>文法：</p>
-<p>$$<br>\begin{split}<br>① ; &amp;S \rightarrow BB \<br>② ; &amp;B \rightarrow aB \<br>③ ; &amp;B \rightarrow b<br>\end{split}<br>$$</p>
-<p><img src="https://i.imgur.com/bDn8OPS.png" srcset="/img/loading.gif" lazyload alt="状态表"></p>
+<p><span class="math display">\[
+\begin{split}
+① \; &amp;S \rightarrow BB \\
+② \; &amp;B \rightarrow aB \\
+③ \; &amp;B \rightarrow b
+\end{split}
+\]</span></p>
+<p><img src="https://i.imgur.com/bDn8OPS.png" srcset="/img/loading.gif" lazyload alt="状态表" /></p>
 <p>初始情况：</p>
-<p>输入：$b ; a ; b$</p>
-<p>$$<br>\begin{split}<br>&amp;栈 \qquad &amp;剩余输入 \<br>&amp;0 \qquad &amp;　\<br>&amp;$ \qquad &amp;bab$<br>\end{split}<br>$$</p>
+<p>输入：<span class="math inline">\(b \; a \; b\)</span></p>
+<p><span class="math display">\[
+\begin{split}
+&amp;栈 \qquad &amp;剩余输入 \\
+&amp;0 \qquad &amp;　\\
+&amp;\$ \qquad &amp;bab\$
+\end{split}
+\]</span></p>
 <p>然后分析过程如下：</p>
-<p>初始状态是 0，遇到输入的符号 b，其操作是 $s4$，即将 $b$、状态 $4$ 压入栈，</p>
-<p>$$<br>\begin{split}<br>&amp;栈 \qquad &amp;剩余输入 \<br>&amp;04 \qquad &amp;　\<br>&amp;$b \qquad &amp;ab$<br>\end{split}<br>$$</p>
-<p>然后是状态 4 遇到输入 a，查表，得 $r3$，即用文法中的第 3 个式子进行归约，状态 4 和符号 $b$ 出栈，$B$ 入栈，然后此时状态栈的 0 遇到了刚入栈的 $B$，就会 “GOTO” 到状态 2，这个可以通过查表得到，</p>
-<p>$$<br>\begin{split}<br>&amp;栈 \qquad &amp;剩余输入 \<br>&amp;02 \qquad &amp;　\<br>&amp;$B \qquad &amp;ab$<br>\end{split}<br>$$</p>
-<p>然后，状态 2 遇到 a，采取 $s3$ 操作，</p>
-<p>$$<br>\begin{split}<br>&amp;栈 \qquad &amp;剩余输入 \<br>&amp;023 \qquad &amp;　\<br>&amp;$Ba \qquad &amp;b$<br>\end{split}<br>$$</p>
-<p>然后，3 遇到 b，$s4$，</p>
-<p>$$<br>\begin{split}<br>&amp;栈 \qquad &amp;剩余输入 \<br>&amp;0234 \qquad &amp;　\<br>&amp;$Bab \qquad &amp;$<br>\end{split}<br>$$</p>
-<p>然后，4 遇到 $$$，$r3$，将状态 4 和栈顶符号 $b$ 一起出栈，然后将刚刚的 $b$ 归约成 $B$ 并将其入栈，然后现在的状态栈栈顶的 3 遇到刚刚入栈的 B，就会 “GOTO” 到状态 6，</p>
-<p>$$<br>\begin{split}<br>&amp;栈 \qquad &amp;剩余输入 \<br>&amp;0236 \qquad &amp;　\<br>&amp;$BaB \qquad &amp;$<br>\end{split}<br>$$</p>
-<p>然后，6 遇到 $$$，$r2$，将状态 $3$、$6$ 和符号 $a$、$B$ 一起出栈，然后将归约成的 $B$ 入栈，然后现在状态栈栈顶的 2 遇到刚刚入栈的 $B$，会 “GOTO” 到状态 5，</p>
-<p>$$<br>\begin{split}<br>&amp;栈 \qquad &amp;剩余输入 \<br>&amp;025 \qquad &amp;　\<br>&amp;$BB \qquad &amp;$<br>\end{split}<br>$$</p>
-<p>然后，5 遇到 $$$，$r1$，</p>
-<p>$$<br>\begin{split}<br>&amp;栈 \qquad &amp;剩余输入 \<br>&amp;01 \qquad &amp;　\<br>&amp;$S \qquad &amp;$<br>\end{split}<br>$$</p>
-<p>然后，1 遇到 $$$，到达状态 “acc”，分析成功，分析到此结束。</p>
+<p>初始状态是 0，遇到输入的符号 b，其操作是 <span
+class="math inline">\(s4\)</span>，即将 <span
+class="math inline">\(b\)</span>、状态 <span
+class="math inline">\(4\)</span> 压入栈，</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;栈 \qquad &amp;剩余输入 \\
+&amp;04 \qquad &amp;　\\
+&amp;\$b \qquad &amp;ab\$
+\end{split}
+\]</span></p>
+<p>然后是状态 4 遇到输入 a，查表，得 <span
+class="math inline">\(r3\)</span>，即用文法中的第 3 个式子进行归约，状态
+4 和符号 <span class="math inline">\(b\)</span> 出栈，<span
+class="math inline">\(B\)</span> 入栈，然后此时状态栈的 0 遇到了刚入栈的
+<span class="math inline">\(B\)</span>，就会 "GOTO" 到状态
+2，这个可以通过查表得到，</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;栈 \qquad &amp;剩余输入 \\
+&amp;02 \qquad &amp;　\\
+&amp;\$B \qquad &amp;ab\$
+\end{split}
+\]</span></p>
+<p>然后，状态 2 遇到 a，采取 <span class="math inline">\(s3\)</span>
+操作，</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;栈 \qquad &amp;剩余输入 \\
+&amp;023 \qquad &amp;　\\
+&amp;\$Ba \qquad &amp;b\$
+\end{split}
+\]</span></p>
+<p>然后，3 遇到 b，<span class="math inline">\(s4\)</span>，</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;栈 \qquad &amp;剩余输入 \\
+&amp;0234 \qquad &amp;　\\
+&amp;\$Bab \qquad &amp;\$
+\end{split}
+\]</span></p>
+<p>然后，4 遇到 <span class="math inline">\(\$\)</span>，<span
+class="math inline">\(r3\)</span>，将状态 4 和栈顶符号 <span
+class="math inline">\(b\)</span> 一起出栈，然后将刚刚的 <span
+class="math inline">\(b\)</span> 归约成 <span
+class="math inline">\(B\)</span> 并将其入栈，然后现在的状态栈栈顶的 3
+遇到刚刚入栈的 B，就会 "GOTO" 到状态 6，</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;栈 \qquad &amp;剩余输入 \\
+&amp;0236 \qquad &amp;　\\
+&amp;\$BaB \qquad &amp;\$
+\end{split}
+\]</span></p>
+<p>然后，6 遇到 <span class="math inline">\(\$\)</span>，<span
+class="math inline">\(r2\)</span>，将状态 <span
+class="math inline">\(3\)</span>、<span class="math inline">\(6\)</span>
+和符号 <span class="math inline">\(a\)</span>、<span
+class="math inline">\(B\)</span> 一起出栈，然后将归约成的 <span
+class="math inline">\(B\)</span> 入栈，然后现在状态栈栈顶的 2
+遇到刚刚入栈的 <span class="math inline">\(B\)</span>，会 "GOTO" 到状态
+5，</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;栈 \qquad &amp;剩余输入 \\
+&amp;025 \qquad &amp;　\\
+&amp;\$BB \qquad &amp;\$
+\end{split}
+\]</span></p>
+<p>然后，5 遇到 <span class="math inline">\(\$\)</span>，<span
+class="math inline">\(r1\)</span>，</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;栈 \qquad &amp;剩余输入 \\
+&amp;01 \qquad &amp;　\\
+&amp;\$S \qquad &amp;\$
+\end{split}
+\]</span></p>
+<p>然后，1 遇到 <span class="math inline">\(\$\)</span>，到达状态
+"acc"，分析成功，分析到此结束。</p>
 <blockquote>
-<p>何为 $LR(0)$ 项目？</p>
+<p>何为 <span class="math inline">\(LR(0)\)</span> 项目？</p>
 </blockquote>
-<p>右部某位置标有圆点的产生式称为相应文法的一个 $LR(0)$ 项目（简称为项目）。</p>
-<p>$$<br>A \rightarrow \alpha_{1} \cdot \alpha_{2}<br>$$</p>
+<p>右部某位置标有圆点的产生式称为相应文法的一个 <span
+class="math inline">\(LR(0)\)</span> 项目（简称为项目）。</p>
+<p><span class="math display">\[
+A \rightarrow \alpha_{1} \cdot \alpha_{2}
+\]</span></p>
 <blockquote>
 <p>何为增广文法？</p>
 </blockquote>
-<p>如果 $G$ 是一个以 $S$ 为开始符号的文法，则 $G$ 的增广文法 $G^{‘}$ 就是在 $G$ 中加上新开始符号 $S^{‘}$ 和产生式 $S^{‘} \rightarrow S$ 而得到的文法。</p>
+<p>如果 <span class="math inline">\(G\)</span> 是一个以 <span
+class="math inline">\(S\)</span> 为开始符号的文法，则 <span
+class="math inline">\(G\)</span> 的增广文法 <span
+class="math inline">\(G^{&#39;}\)</span> 就是在 <span
+class="math inline">\(G\)</span> 中加上新开始符号 <span
+class="math inline">\(S^{&#39;}\)</span> 和产生式 <span
+class="math inline">\(S^{&#39;} \rightarrow S\)</span>
+而得到的文法。</p>
 <p>引入这个新的开始产生式的目的是使得文法开始符号仅出现在一个产生式的左边，从而使得分析器只有一个接受状态。</p>
 <blockquote>
 <p>何为后继项目（Successive Item）？</p>
 </blockquote>
 <ul>
 <li>同属于一个产生式的项目，但圆点的位置只相差一个符号，则称后者是前者的后继项目；</li>
-<li>$A \rightarrow \alpha \cdot X \beta$ 的后继项目是 $A \rightarrow \alpha X \cdot \beta$。</li>
+<li><span class="math inline">\(A \rightarrow \alpha \cdot X
+\beta\)</span> 的后继项目是 <span class="math inline">\(A \rightarrow
+\alpha X \cdot \beta\)</span>。</li>
 </ul>
 <blockquote>
 <p>如何理解某些项目是等价的？</p>
 </blockquote>
-<p><img src="https://i.imgur.com/fofA0QW.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/fofA0QW.png" srcset="/img/loading.gif" lazyload /></p>
 <p>以上面的文法举例。</p>
-<p>项目 <code>(0)</code> 和 项目 <code>(2)</code> 是等价的，理由是：对于项目 <code>(0)</code>，我们在等待 $S$ 的时候，根据产生式②，就相当于我们在等待 $v$，所以 <code>(0)</code> 和 <code>(2)</code> 是等价的。</p>
+<p>项目 <code>(0)</code> 和 项目 <code>(2)</code>
+是等价的，理由是：对于项目 <code>(0)</code>，我们在等待 <span
+class="math inline">\(S\)</span> 的时候，根据产生式②，就相当于我们在等待
+<span class="math inline">\(v\)</span>，所以 <code>(0)</code> 和
+<code>(2)</code> 是等价的。</p>
 <p>同理，其它的等价的项目归类如下：</p>
-<p>$$<br>\begin{split}<br>&amp;(3) ; (7) ; (11) \<br>&amp;(5) ; (13)<br>\end{split}<br>$$</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;(3) \; (7) \; (11) \\
+&amp;(5) \; (13)
+\end{split}
+\]</span></p>
 <p>按：当圆点后面是非终结符时，就存在等价项目。</p>
 <blockquote>
 <p>何为项目集闭包？</p>
 </blockquote>
-<p>可以把等价的项目组成一个项目集($I$)，称为项目集闭包（Closure of Item Sets），每个项目集闭包对应着自动机的一个状态。</p>
+<p>可以把等价的项目组成一个项目集(<span
+class="math inline">\(I\)</span>)，称为项目集闭包（Closure of Item
+Sets），每个项目集闭包对应着自动机的一个状态。</p>
 <blockquote>
-<p>如何计算给定项目集 $I$ 的闭包？</p>
+<p>如何计算给定项目集 <span class="math inline">\(I\)</span>
+的闭包？</p>
 </blockquote>
-<p>$$<br>\text{CLOSURE}(I) &#x3D; I \cup {B \rightarrow \cdot \gamma | A \rightarrow \alpha \cdot B \beta \in \text{CLOSURE}(I), ; B \rightarrow \gamma \in P}<br>$$</p>
+<p><span class="math display">\[
+\text{CLOSURE}(I) = I \cup \{B \rightarrow \cdot \gamma | A \rightarrow
+\alpha \cdot B \beta \in \text{CLOSURE}(I), \; B \rightarrow \gamma \in
+P\}
+\]</span></p>
 <p>根据这个公式计算即可。</p>
 <p>按：可以从第一个项目依次往下计算，在计算的过程中，如果有已经被加入相应项目集闭包的项目，就跳过。</p>
 <blockquote>
-<p>如何理解和计算 $\text{GOTO()}$ 函数？</p>
+<p>如何理解和计算 <span class="math inline">\(\text{GOTO()}\)</span>
+函数？</p>
 </blockquote>
-<p>此函数返回项目集 $I$ 对应于文法符号 $X$ 的后继项目集闭包</p>
-<p>$$<br>\text{GOTO}(I, X) &#x3D; \text{CLOSURE}({A \rightarrow \alpha X \cdot \beta | A \rightarrow \alpha \cdot X \beta \in I})<br>$$</p>
-<p>按：一个 $I$ 就相当于一个状态，然后，对于 $\text{GOTO}$，简单理解，就是状态 $I$ 接受了一个符号 $X$ 之后就“GOTO”到了另外一个状态。</p>
+<p>此函数返回项目集 <span class="math inline">\(I\)</span>
+对应于文法符号 <span class="math inline">\(X\)</span>
+的后继项目集闭包</p>
+<p><span class="math display">\[
+\text{GOTO}(I, X) = \text{CLOSURE}(\{A \rightarrow \alpha X \cdot \beta
+| A \rightarrow \alpha \cdot X \beta \in I\})
+\]</span></p>
+<p>按：一个 <span class="math inline">\(I\)</span>
+就相当于一个状态，然后，对于 <span
+class="math inline">\(\text{GOTO}\)</span>，简单理解，就是状态 <span
+class="math inline">\(I\)</span> 接受了一个符号 <span
+class="math inline">\(X\)</span> 之后就“GOTO”到了另外一个状态。</p>
 <blockquote>
-<p>如何构造 $LR(0)$ 自动机的状态机？</p>
+<p>如何构造 <span class="math inline">\(LR(0)\)</span>
+自动机的状态机？</p>
 </blockquote>
-<p>规范 $LR(0)$ 项集族（Canonical $LR(0) Collection$）</p>
-<p>$$<br>C &#x3D; {I_0} \cup {I | \exists J \in C, X \in V_N \cup V_T, I &#x3D; GOTO(J, X)}<br>$$</p>
+<p>规范 <span class="math inline">\(LR(0)\)</span> 项集族（Canonical
+<span class="math inline">\(LR(0) Collection\)</span>）</p>
+<p><span class="math display">\[
+C = \{I_0\} \cup \{I | \exists J \in C, X \in V_N \cup V_T, I = GOTO(J,
+X)\}
+\]</span></p>
 <p>按：简单来讲，就是从初始项目集一步一步往下构造。</p>
 <blockquote>
-<p>$LR(0)$ 分析表的构造算法？</p>
+<p><span class="math inline">\(LR(0)\)</span> 分析表的构造算法？</p>
 </blockquote>
-<p><img src="https://i.imgur.com/6AVfn7Y.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/6AVfn7Y.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
-<p>$LR(0)$ 自动机的形式化定义？</p>
+<p><span class="math inline">\(LR(0)\)</span> 自动机的形式化定义？</p>
 </blockquote>
-<p><img src="https://i.imgur.com/RTQl9dd.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/RTQl9dd.png" srcset="/img/loading.gif" lazyload /></p>
 <ul>
-<li>$I_0$ 代表初始状态集合；</li>
-<li>$F$ 代表终止状态集合。</li>
+<li><span class="math inline">\(I_0\)</span> 代表初始状态集合；</li>
+<li><span class="math inline">\(F\)</span> 代表终止状态集合。</li>
 </ul>
 <blockquote>
-<p>何为移进&#x2F;归约冲突？</p>
+<p>何为移进/归约冲突？</p>
 </blockquote>
 <p>简单来讲，就是某个状态遇到某一个输入符号时，不知道该进行移进动作还是归约动作。</p>
-<p><img src="https://i.imgur.com/PTeoz8m.png" srcset="/img/loading.gif" lazyload></p>
-<p>按：这里的状态 2 在遇到 <code>*</code> 时，不知道是该将 $E \rightarrow T \cdot$ 归约成 $E$，还是针对 $T \rightarrow T \cdot * F$ 将 <code>*</code> 给移进。状态 9 也是同样的问题。但是，就状态 2 而言，如果采取归约动作的话，即，将 $T \cdot$ 归约成 $E$，那么，由于 $E$ 的 $FOLLOW$ 集中没有 $*$，显然，这是不合理的。</p>
-<p><img src="https://i.imgur.com/IbwRzYV.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/PTeoz8m.png" srcset="/img/loading.gif" lazyload /></p>
+<p>按：这里的状态 2 在遇到 <code>*</code> 时，不知道是该将 <span
+class="math inline">\(E \rightarrow T \cdot\)</span> 归约成 <span
+class="math inline">\(E\)</span>，还是针对 <span class="math inline">\(T
+\rightarrow T \cdot * F\)</span> 将 <code>*</code> 给移进。状态 9
+也是同样的问题。但是，就状态 2 而言，如果采取归约动作的话，即，将 <span
+class="math inline">\(T \cdot\)</span> 归约成 <span
+class="math inline">\(E\)</span>，那么，由于 <span
+class="math inline">\(E\)</span> 的 <span
+class="math inline">\(FOLLOW\)</span> 集中没有 <span
+class="math inline">\(*\)</span>，显然，这是不合理的。</p>
+<p><img src="https://i.imgur.com/IbwRzYV.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
-<p>何为归约&#x2F;归约冲突？</p>
+<p>何为归约/归约冲突？</p>
 </blockquote>
-<p>理解的方法同上面的移进&#x2F;归约冲突。</p>
+<p>理解的方法同上面的移进/归约冲突。</p>
 <blockquote>
-<p>如何判定一个文法是否是 $LR(0)$ 文法？</p>
+<p>如何判定一个文法是否是 <span class="math inline">\(LR(0)\)</span>
+文法？</p>
 </blockquote>
-<p>如果 $LR(0)$ 分析表中没有语法分析动作冲突，那么给定的文法就称为 $LR(0)$ 文法。</p>
+<p>如果 <span class="math inline">\(LR(0)\)</span>
+分析表中没有语法分析动作冲突，那么给定的文法就称为 <span
+class="math inline">\(LR(0)\)</span> 文法。</p>
 <blockquote>
-<p>何为 $CFG$？</p>
+<p>何为 <span class="math inline">\(CFG\)</span>？</p>
 </blockquote>
-<p>所谓 $CFG$，就是指上下文无关文法（Context-Free Grammar, CFG），也即 2 型文法（Type-2 Grammar）。</p>
+<p>所谓 <span
+class="math inline">\(CFG\)</span>，就是指上下文无关文法（Context-Free
+Grammar, CFG），也即 2 型文法（Type-2 Grammar）。</p>
 <blockquote>
-<p>何为 $SLR$ 分析法？</p>
+<p>何为 <span class="math inline">\(SLR\)</span> 分析法？</p>
 </blockquote>
-<p>这里的 $S$ 代表 Simple 的意思，$SLR$ 就表示简单的 $LR$ 分析法，要注意这里的 $SLR$ 是省略的写法，完整的写法是 $SLR(1)$。</p>
+<p>这里的 <span class="math inline">\(S\)</span> 代表 Simple
+的意思，<span class="math inline">\(SLR\)</span> 就表示简单的 <span
+class="math inline">\(LR\)</span> 分析法，要注意这里的 <span
+class="math inline">\(SLR\)</span> 是省略的写法，完整的写法是 <span
+class="math inline">\(SLR(1)\)</span>。</p>
 <blockquote>
-<p>$SLR$ 分析的基本思想？</p>
+<p><span class="math inline">\(SLR\)</span> 分析的基本思想？</p>
 </blockquote>
-<p><img src="https://i.imgur.com/DvhquUd.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/DvhquUd.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
-<p>何为 $\text{SLR}$ 文法？</p>
+<p>何为 <span class="math inline">\(\text{SLR}\)</span> 文法？</p>
 </blockquote>
-<p>如果给定文法的 SLR 分析表中不存在有冲突的动作，那么该文法称为 SLR 文法。</p>
+<p>如果给定文法的 SLR 分析表中不存在有冲突的动作，那么该文法称为 SLR
+文法。</p>
 <blockquote>
-<p>$\text{SLR}$ 分析的冲突举例？</p>
+<p><span class="math inline">\(\text{SLR}\)</span> 分析的冲突举例？</p>
 </blockquote>
-<p><img src="https://i.imgur.com/nR0MSyS.png" srcset="/img/loading.gif" lazyload></p>
-<p>所谓 $\text{SLR}$ 分析的冲突，如状态 2，如果选择归约动作，即，将 $L \cdot$ 归约成 $R$，由于 $R$ 的 $FOLLOW$ 中有 <code>=</code> 这个符号，所以这个动作是可以；但是显然在这里采取移进动作也是可行的，所以就产生了冲突。</p>
+<p><img src="https://i.imgur.com/nR0MSyS.png" srcset="/img/loading.gif" lazyload /></p>
+<p>所谓 <span class="math inline">\(\text{SLR}\)</span>
+分析的冲突，如状态 2，如果选择归约动作，即，将 <span
+class="math inline">\(L \cdot\)</span> 归约成 <span
+class="math inline">\(R\)</span>，由于 <span
+class="math inline">\(R\)</span> 的 <span
+class="math inline">\(FOLLOW\)</span> 中有 <code>=</code>
+这个符号，所以这个动作是可以；但是显然在这里采取移进动作也是可行的，所以就产生了冲突。</p>
 <blockquote>
-<p>$SLR$ 分析存在的问题？</p>
+<p><span class="math inline">\(SLR\)</span> 分析存在的问题？</p>
 </blockquote>
-<p>$SLR$ 只是简单地考察下一个输入符号 $b$ 是否属于归约项目 $A \rightarrow \alpha$ 相关联的 $FOLLOW(A)$。</p>
-<p>按：$FOLLOW$ 集可以帮助我们排除一些不合理的归约，但是不能确保正确的归约。</p>
-<p><img src="https://i.imgur.com/bJPhHk4.png" srcset="/img/loading.gif" lazyload></p>
+<p><span class="math inline">\(SLR\)</span> 只是简单地考察下一个输入符号
+<span class="math inline">\(b\)</span> 是否属于归约项目 <span
+class="math inline">\(A \rightarrow \alpha\)</span> 相关联的 <span
+class="math inline">\(FOLLOW(A)\)</span>。</p>
+<p>按：<span class="math inline">\(FOLLOW\)</span>
+集可以帮助我们排除一些不合理的归约，但是不能确保正确的归约。</p>
+<p><img src="https://i.imgur.com/bJPhHk4.png" srcset="/img/loading.gif" lazyload /></p>
 <p>按；</p>
 <ul>
 <li>注意，图中的树状图并不是语法树，而是该文法的一个句型对应的分析树，这个要结合文法来看。</li>
-<li>对于图中红色的式子，拿最右边的 $R \rightarrow L \cdot, $$ 来举例，它表示的含义是只有当下一个输入符号是 $$$ 时才能够将 $L \cdot, $$ 归约成 $R$。</li>
+<li>对于图中红色的式子，拿最右边的 <span class="math inline">\(R
+\rightarrow L \cdot, \$\)</span>
+来举例，它表示的含义是只有当下一个输入符号是 <span
+class="math inline">\(\$\)</span> 时才能够将 <span
+class="math inline">\(L \cdot, \$\)</span> 归约成 <span
+class="math inline">\(R\)</span>。</li>
 </ul>
 <blockquote>
-<p>何为规范 $LR(1)$ 项目？</p>
+<p>何为规范 <span class="math inline">\(LR(1)\)</span> 项目？</p>
 </blockquote>
-<p><img src="https://i.imgur.com/1rgfjao.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/1rgfjao.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
-<p>如何理解等价 $LR(1)$ 项目？</p>
+<p>如何理解等价 <span class="math inline">\(LR(1)\)</span> 项目？</p>
 </blockquote>
-<p><img src="https://i.imgur.com/Rq8ABfL.png" srcset="/img/loading.gif" lazyload></p>
-<p>按：这个概念的理解可以类比等价的 $LR(0)$ 项目。</p>
+<p><img src="https://i.imgur.com/Rq8ABfL.png" srcset="/img/loading.gif" lazyload /></p>
+<p>按：这个概念的理解可以类比等价的 <span
+class="math inline">\(LR(0)\)</span> 项目。</p>
 <blockquote>
-<p>一个 $LR(1)$ 自动机的例子？</p>
+<p>一个 <span class="math inline">\(LR(1)\)</span> 自动机的例子？</p>
 </blockquote>
-<p><img src="https://i.imgur.com/DwQbGYR.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/DwQbGYR.png" srcset="/img/loading.gif" lazyload /></p>
 
                 
               </div>
@@ -828,6 +993,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

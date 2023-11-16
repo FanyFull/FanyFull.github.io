@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="创建 Maven 项目首先，New Project  next，  这里的 Name 是项目的名称，然后修改包名，这里的 ArtifactId 默认和项目的 Name 保持一致。 next，  我这里的 3 个选项全部保持默认，这里要注意一点，这个 C:\Users\用户名\.m2\setting.xml 文件默认是不存在的，然后这时 IDEA 在项目中就会自动去其内置的 Maven 中寻找配置文">
+    <meta name="description" content="创建 Maven 项目 首先，New Project  next，  这里的 Name 是项目的名称，然后修改包名，这里的 ArtifactId 默认和项目的 Name 保持一致。 next，  我这里的 3 个选项全部保持默认，这里要注意一点，这个 C:\Users\用户名\.m2\setting.xml 文件默认是不存在的，然后这时 IDEA 在项目中就会自动去其内置的 Maven 中寻找配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IDEA 使用内置 Maven 创建一个 Spring 项目">
 <meta property="og:url" content="http://fanyfull.github.io/2021/06/21/IDEA-%E4%BD%BF%E7%94%A8%E5%86%85%E7%BD%AE-Maven-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA-Spring-%E9%A1%B9%E7%9B%AE/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="创建 Maven 项目首先，New Project  next，  这里的 Name 是项目的名称，然后修改包名，这里的 ArtifactId 默认和项目的 Name 保持一致。 next，  我这里的 3 个选项全部保持默认，这里要注意一点，这个 C:\Users\用户名\.m2\setting.xml 文件默认是不存在的，然后这时 IDEA 在项目中就会自动去其内置的 Maven 中寻找配置文">
+<meta property="og:description" content="创建 Maven 项目 首先，New Project  next，  这里的 Name 是项目的名称，然后修改包名，这里的 ArtifactId 默认和项目的 Name 保持一致。 next，  我这里的 3 个选项全部保持默认，这里要注意一点，这个 C:\Users\用户名\.m2\setting.xml 文件默认是不存在的，然后这时 IDEA 在项目中就会自动去其内置的 Maven 中寻找配置">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621173913.png">
 <meta property="article:published_time" content="2021-06-21T07:34:21.000Z">
@@ -78,7 +78,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -284,52 +284,75 @@
             
               <div class="markdown-body">
                 
-                <h2 id="创建-Maven-项目"><a href="#创建-Maven-项目" class="headerlink" title="创建 Maven 项目"></a>创建 Maven 项目</h2><p>首先，New Project</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621153555.png" srcset="/img/loading.gif" lazyload></p>
+                <h2 id="创建-maven-项目">创建 Maven 项目</h2>
+<p>首先，New Project</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621153555.png" srcset="/img/loading.gif" lazyload /></p>
 <p>next，</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621155045.png" srcset="/img/loading.gif" lazyload></p>
-<p>这里的 Name 是项目的名称，然后修改包名，这里的 ArtifactId 默认和项目的 Name 保持一致。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621155045.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这里的 Name 是项目的名称，然后修改包名，这里的 ArtifactId
+默认和项目的 Name 保持一致。</p>
 <p>next，</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621155230.png" srcset="/img/loading.gif" lazyload></p>
-<p>我这里的 3 个选项全部保持默认，这里要注意一点，这个 <code>C:\Users\用户名\.m2\setting.xml</code> 文件默认是不存在的，然后这时 IDEA 在项目中就会自动去其内置的 Maven 中寻找配置文件，其在文件中的路径默认为 <code>C:\Program Files\JetBrains\IntelliJ IDEA 2021.1.2\plugins\maven\lib\maven3\conf</code>，如下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621155617.png" srcset="/img/loading.gif" lazyload></p>
-<p>然后我们添加 Maven 的阿里云镜像也是直接修改这个文件，如下，在 <code>setting.xml</code> 中添加如下代码</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621155230.png" srcset="/img/loading.gif" lazyload /></p>
+<p>我这里的 3 个选项全部保持默认，这里要注意一点，这个
+<code>C:\Users\用户名\.m2\setting.xml</code>
+文件默认是不存在的，然后这时 IDEA 在项目中就会自动去其内置的 Maven
+中寻找配置文件，其在文件中的路径默认为
+<code>C:\Program Files\JetBrains\IntelliJ IDEA 2021.1.2\plugins\maven\lib\maven3\conf</code>，如下</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621155617.png" srcset="/img/loading.gif" lazyload /></p>
+<p>然后我们添加 Maven 的阿里云镜像也是直接修改这个文件，如下，在
+<code>setting.xml</code> 中添加如下代码</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">mirror</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>nexus-aliyun<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">mirrorOf</span>&gt;</span>central<span class="hljs-tag">&lt;/<span class="hljs-name">mirrorOf</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>Nexus aliyun<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mirror</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621155909.png" srcset="/img/loading.gif" lazyload></p>
-<p>由于我这里的 repository 使用的默认的位置，所以我就没有配置本地的 repository。需要配置时再到网上搜索相关配置进行配置即可。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621155909.png" srcset="/img/loading.gif" lazyload /></p>
+<p>由于我这里的 repository 使用的默认的位置，所以我就没有配置本地的
+repository。需要配置时再到网上搜索相关配置进行配置即可。</p>
 <p>然后 finish。</p>
-<p>这里可能会出现 <code>No archetype found in remote catalog. Defaulting to internal catalog.</code> 这样的警告，这个问题是由阿里云的仓库导致的，我在使用官方默认的仓库（需要科学上网）就不会出现这样的问题。不过，这个警告不会对项目产生什么大的影响。</p>
+<p>这里可能会出现
+<code>No archetype found in remote catalog. Defaulting to internal catalog.</code>
+这样的警告，这个问题是由阿里云的仓库导致的，我在使用官方默认的仓库（需要科学上网）就不会出现这样的问题。不过，这个警告不会对项目产生什么大的影响。</p>
 <p>我们运行一下默认的项目，得到如下的结果</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621162034.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="Spring-相关配置"><a href="#Spring-相关配置" class="headerlink" title="Spring 相关配置"></a>Spring 相关配置</h2><p>首先，去 Maven 的中央仓库（<a target="_blank" rel="noopener" href="https://mvnrepository.com/">https://mvnrepository.com/</a>）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621171445.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621171610.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621171542.png" srcset="/img/loading.gif" lazyload></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621162034.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="spring-相关配置">Spring 相关配置</h2>
+<p>首先，去 Maven 的中央仓库（<a target="_blank" rel="noopener" href="https://mvnrepository.com/"
+class="uri">https://mvnrepository.com/</a>）</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621171445.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621171610.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621171542.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后将上面的代码框中的代码复制下来，并粘贴到 IDEA 的 pom 文件下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621171739.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621171838.png" srcset="/img/loading.gif" lazyload></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621171739.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621171838.png" srcset="/img/loading.gif" lazyload /></p>
 <p>右键 main 目录，在下面新建一个 resources 目录，</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621172029.png" srcset="/img/loading.gif" lazyload></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621172029.png" srcset="/img/loading.gif" lazyload /></p>
 <p>IDEA 有自动提示的 resources 目录，点击创建即可</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621171947.png" srcset="/img/loading.gif" lazyload></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621171947.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后在 resources 目录下创建一个 <code>beans.xml</code> 配置文件</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621172241.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621172402.png" srcset="/img/loading.gif" lazyload></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621172241.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621172402.png" srcset="/img/loading.gif" lazyload /></p>
 <p>接下来我们就简单写个类测试一下。</p>
 <p>首先写一个 Student 类</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621172716.png" srcset="/img/loading.gif" lazyload></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210621172716.png" srcset="/img/loading.gif" lazyload /></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.hust.bean;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span> &#123;<br><br>    <span class="hljs-keyword">private</span> String name;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> age;<br>    <span class="hljs-keyword">private</span> String tel;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Student</span><span class="hljs-params">()</span> &#123;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Student</span><span class="hljs-params">(String name, <span class="hljs-type">int</span> age, String tel)</span> &#123;<br>        <span class="hljs-built_in">this</span>.name = name;<br>        <span class="hljs-built_in">this</span>.age = age;<br>        <span class="hljs-built_in">this</span>.tel = tel;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setName</span><span class="hljs-params">(String name)</span> &#123;<br>        <span class="hljs-built_in">this</span>.name = name;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getAge</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> age;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setAge</span><span class="hljs-params">(<span class="hljs-type">int</span> age)</span> &#123;<br>        <span class="hljs-built_in">this</span>.age = age;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getTel</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> tel;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setTel</span><span class="hljs-params">(String tel)</span> &#123;<br>        <span class="hljs-built_in">this</span>.tel = tel;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
-
 <p>然后在 <code>bean.xml</code> 中增加一个 bean，如下</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans&quot;</span></span><br><span class="hljs-tag">       <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span><br><span class="hljs-tag">       <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span><br>    <br>    <span class="hljs-comment">&lt;!--属性注入--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;zhangsan&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.hust.bean.Student&quot;</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">&quot;prototype&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;张三&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;age&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;20&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;tel&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;18627158203&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br>    <br><span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
 <p>最后在 App 类中进行测试</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.hust;<br><br><span class="hljs-keyword">import</span> com.hust.bean.Student;<br><span class="hljs-keyword">import</span> org.springframework.beans.factory.BeanFactory;<br><span class="hljs-keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Hello world!</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">App</span> <br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">( String[] args )</span><br>    &#123;<br>        <span class="hljs-type">BeanFactory</span> <span class="hljs-variable">factory</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClassPathXmlApplicationContext</span>(<span class="hljs-string">&quot;beans.xml&quot;</span>);<br>        <span class="hljs-type">Student</span> <span class="hljs-variable">student</span> <span class="hljs-operator">=</span> (Student) factory.getBean(<span class="hljs-string">&quot;zhangsan&quot;</span>);<br>        System.out.println(student.getName() + <span class="hljs-string">&quot;:&quot;</span> + student.getAge() + <span class="hljs-string">&quot;:&quot;</span> + student.getTel());<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
-
 <p>输出结果</p>
-<pre><code class="hljs">张三:20:18627158203
-</code></pre>
+<pre><code class="hljs">张三:20:18627158203</code></pre>
 <p>到此，基本就完成了。</p>
 
                 
@@ -669,6 +692,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

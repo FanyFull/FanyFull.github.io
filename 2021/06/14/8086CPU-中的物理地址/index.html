@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前言关于 8086CPU 的物理地址，其实在上汇编语言这门课的时候，我对于这个概念是十分理解的，但是隔了一段时间之后，就忘掉了。所以，好记性不如烂键盘，还是记录一下比较好，这样一来，以后复习的时候比较方便。 8086CPU 的物理地址让人感到有点奇怪的原因8086CPU 有 20 位地址总线，可以传送 20 位地址，达到 1MB 寻址能力（注一）。而 8086CPU 又是 16 位结构（注二），在">
+    <meta name="description" content="前言 关于 8086CPU 的物理地址，其实在上汇编语言这门课的时候，我对于这个概念是十分理解的，但是隔了一段时间之后，就忘掉了。所以，好记性不如烂键盘，还是记录一下比较好，这样一来，以后复习的时候比较方便。 8086CPU 的物理地址让人感到有点奇怪的原因 8086CPU 有 20 位地址总线，可以传送 20 位地址，达到 1MB 寻址能力（注一）。而 8086CPU 又是 16 位结构（注二）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="8086CPU 中的物理地址">
 <meta property="og:url" content="http://fanyfull.github.io/2021/06/14/8086CPU-%E4%B8%AD%E7%9A%84%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="前言关于 8086CPU 的物理地址，其实在上汇编语言这门课的时候，我对于这个概念是十分理解的，但是隔了一段时间之后，就忘掉了。所以，好记性不如烂键盘，还是记录一下比较好，这样一来，以后复习的时候比较方便。 8086CPU 的物理地址让人感到有点奇怪的原因8086CPU 有 20 位地址总线，可以传送 20 位地址，达到 1MB 寻址能力（注一）。而 8086CPU 又是 16 位结构（注二），在">
+<meta property="og:description" content="前言 关于 8086CPU 的物理地址，其实在上汇编语言这门课的时候，我对于这个概念是十分理解的，但是隔了一段时间之后，就忘掉了。所以，好记性不如烂键盘，还是记录一下比较好，这样一来，以后复习的时候比较方便。 8086CPU 的物理地址让人感到有点奇怪的原因 8086CPU 有 20 位地址总线，可以传送 20 位地址，达到 1MB 寻址能力（注一）。而 8086CPU 又是 16 位结构（注二）">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210614154130.png">
 <meta property="article:published_time" content="2021-06-14T05:55:23.000Z">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -227,7 +227,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.7k 字
+          1.6k 字
         
       </span>
     
@@ -281,42 +281,79 @@
             
               <div class="markdown-body">
                 
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关于 8086CPU 的物理地址，其实在上汇编语言这门课的时候，我对于这个概念是十分理解的，但是隔了一段时间之后，就忘掉了。所以，好记性不如烂键盘，还是记录一下比较好，这样一来，以后复习的时候比较方便。</p>
-<h2 id="8086CPU-的物理地址让人感到有点奇怪的原因"><a href="#8086CPU-的物理地址让人感到有点奇怪的原因" class="headerlink" title="8086CPU 的物理地址让人感到有点奇怪的原因"></a>8086CPU 的物理地址让人感到有点奇怪的原因</h2><p>8086CPU 有 20 位地址总线，可以传送 20 位地址，达到 1MB 寻址能力（<em>注一</em>）。而 8086CPU 又是 16 位结构（<em>注二</em>），在内部一次性处理、传输、暂时存储的地址为 16 位。</p>
-<p>而为了有效利用 20 位地址总线，8086CPU 采用了一种在内部用两个 16 位地址合成的方法来形成一个 20 位的物理地址。</p>
+                <h2 id="前言">前言</h2>
+<p>关于 8086CPU
+的物理地址，其实在上汇编语言这门课的时候，我对于这个概念是十分理解的，但是隔了一段时间之后，就忘掉了。所以，好记性不如烂键盘，还是记录一下比较好，这样一来，以后复习的时候比较方便。</p>
+<h2 id="cpu-的物理地址让人感到有点奇怪的原因">8086CPU
+的物理地址让人感到有点奇怪的原因</h2>
+<p>8086CPU 有 20 位地址总线，可以传送 20 位地址，达到 1MB
+寻址能力（<em>注一</em>）。而 8086CPU 又是 16
+位结构（<em>注二</em>），在内部一次性处理、传输、暂时存储的地址为 16
+位。</p>
+<p>而为了有效利用 20 位地址总线，8086CPU 采用了一种在内部用两个 16
+位地址合成的方法来形成一个 20 位的物理地址。</p>
 <p>物理地址的计算方法如下：</p>
-<p><strong>物理地址 &#x3D; 段地址 × 16 + 偏移地址</strong>（<em>注三</em>）</p>
-<h2 id="“段地址×16-偏移地址-物理地址”的本质含义"><a href="#“段地址×16-偏移地址-物理地址”的本质含义" class="headerlink" title="“段地址×16+偏移地址&#x3D;物理地址”的本质含义"></a>“段地址×16+偏移地址&#x3D;物理地址”的本质含义</h2><p>“段地址×16+偏移地址&#x3D;物理地址”的本质含义是：CPU 在访问内存时，用一个基础地址（段地址×16）和一个相对于基础地址的偏移地址相加，给出内存单元的物理地址。</p>
-<p>更一般地说，8086CPU 的这种寻址功能是“基础地质+偏移地址&#x3D;物理地址”寻址模式的一种具体实现方案。8086CPU 中，段地址×16可看作是基础地址。</p>
+<p><strong>物理地址 = 段地址 × 16 +
+偏移地址</strong>（<em>注三</em>）</p>
+<h2
+id="段地址16偏移地址物理地址的本质含义">“段地址×16+偏移地址=物理地址”的本质含义</h2>
+<p>“段地址×16+偏移地址=物理地址”的本质含义是：CPU
+在访问内存时，用一个基础地址（段地址×16）和一个相对于基础地址的偏移地址相加，给出内存单元的物理地址。</p>
+<p>更一般地说，8086CPU
+的这种寻址功能是“基础地质+偏移地址=物理地址”寻址模式的一种具体实现方案。8086CPU
+中，段地址×16可看作是基础地址。</p>
 <p>下面用两个比喻来进一步说明。</p>
-<p>第一个比喻说明“基础地址+偏移地址&#x3D;物理地址”的思想。</p>
-<p>比如说，学校、体育馆、图书馆同在一条笔直的单行路上，如下图，学校位于路的起点（从路的起点到学校的距离是 0 米）。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210614151821.png" srcset="/img/loading.gif" lazyload alt="学校、体育馆、图书馆的位置关系"></p>
+<p>第一个比喻说明“基础地址+偏移地址=物理地址”的思想。</p>
+<p>比如说，学校、体育馆、图书馆同在一条笔直的单行路上，如下图，学校位于路的起点（从路的起点到学校的距离是
+0 米）。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210614151821.png" srcset="/img/loading.gif" lazyload
+alt="学校、体育馆、图书馆的位置关系" /></p>
 <p>我们可以用两种方式来描述图书馆的地址：</p>
-<ol>
+<ol type="1">
 <li>从学校走 2826m 到图书馆。这 2826m 可以认为是图书馆的物理地址。</li>
-<li>从学校走 2000m 到体育馆，从体育馆再走 826m 到图书馆。第一个距离 2000m，是相对于起点的基础地址，第二个距离 826m 是相对于基础地地址的偏移地址。</li>
+<li>从学校走 2000m 到体育馆，从体育馆再走 826m 到图书馆。第一个距离
+2000m，是相对于起点的基础地址，第二个距离 826m
+是相对于基础地地址的偏移地址。</li>
 </ol>
-<p>第一种方式是直接给出物理地址 2826m，而第二种方式是用基础地址和偏移地址相加来得到物理地址的。</p>
-<p>第二个比喻进一步说明“段地址×16+偏移地址&#x3D;物理地址”的思想。</p>
+<p>第一种方式是直接给出物理地址
+2826m，而第二种方式是用基础地址和偏移地址相加来得到物理地址的。</p>
+<p>第二个比喻进一步说明“段地址×16+偏移地址=物理地址”的思想。</p>
 <p>比如有一个 4 位数</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210614152608.png" srcset="/img/loading.gif" lazyload></p>
-<p>假设有某种限制，我们只能使用 3 位数，那么，我们可以用下面这两个 3 位数来表示上面的 4 位数，</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210614152621.png" srcset="/img/loading.gif" lazyload></p>
-<p>表示方法为：200（段地址）×10+826（偏移地址）&#x3D;2826（物理地址）。这和 8086CPU 表示物理地址的方法是类似的。</p>
-<h2 id="段的概念"><a href="#段的概念" class="headerlink" title="段的概念"></a>段的概念</h2><p>我们注意到，“段地址”这个名称包含着“段”的概念。这种说法可能对一些学习者产生了误导，使人误以为内存被划分成了一个个的段，每一个段有一个段地址，实际上不是这样。</p>
-<p>其实，内存并没有分段，段的划分来自于 CPU，由于 8086CPU 用“基础地址（段地址×16）+偏移地址&#x3D;物理地址”的方式给出内存单元的物理地址，使得我们可以用分段的方式来管理内存。如下图所示，我们可以认为：地址10000H<del>100FFH 的内存单元组成了一个段，该段的起始地址（基础地址）为 10000H，段地址为 1000H，段大小为 100H；我们也可以认为地址 10000H</del>1007FH、10080H~100FFH 的内存单元组成两个段，它们的起始地址（基础地址）分别为：10000H 和 10080H，段地址分别为：1000H 和 1008H，大小都为 80H。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210614153310.png" srcset="/img/loading.gif" lazyload alt="分段"></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210614152608.png" srcset="/img/loading.gif" lazyload /></p>
+<p>假设有某种限制，我们只能使用 3 位数，那么，我们可以用下面这两个 3
+位数来表示上面的 4 位数，</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210614152621.png" srcset="/img/loading.gif" lazyload /></p>
+<p>表示方法为：200（段地址）×10+826（偏移地址）=2826（物理地址）。这和
+8086CPU 表示物理地址的方法是类似的。</p>
+<h2 id="段的概念">段的概念</h2>
+<p>我们注意到，“段地址”这个名称包含着“段”的概念。这种说法可能对一些学习者产生了误导，使人误以为内存被划分成了一个个的段，每一个段有一个段地址，实际上不是这样。</p>
+<p>其实，内存并没有分段，段的划分来自于 CPU，由于 8086CPU
+用“基础地址（段地址×16）+偏移地址=物理地址”的方式给出内存单元的物理地址，使得我们可以用分段的方式来管理内存。如下图所示，我们可以认为：地址10000H~100FFH
+的内存单元组成了一个段，该段的起始地址（基础地址）为 10000H，段地址为
+1000H，段大小为 100H；我们也可以认为地址
+10000H<sub>1007FH、10080H</sub>100FFH
+的内存单元组成两个段，它们的起始地址（基础地址）分别为：10000H 和
+10080H，段地址分别为：1000H 和 1008H，大小都为 80H。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210614153310.png" srcset="/img/loading.gif" lazyload
+alt="分段" /></p>
 <p>在编程中，我们可以根据需要，将若干地址连续的内存单元看作一个段，用段地址×16定位段的起始地址（基础地址），用偏移地址定位段中的内存单元。</p>
-<p>有两点需要注意：段地址×16必然是 16 的倍数，所以一个段的起始地址也一定是 16 的倍数；偏移地址为 16 位，16 位地址的寻址能力为 64KB，所以一个段的长度最大为 64KB。</p>
-<hr>
+<p>有两点需要注意：段地址×16必然是 16
+的倍数，所以一个段的起始地址也一定是 16 的倍数；偏移地址为 16 位，16
+位地址的寻址能力为 64KB，所以一个段的长度最大为 64KB。</p>
+<hr />
 <p>注释：</p>
-<p>注一：这里的寻址能力是 1MB，因为 <code>$2^&#123;20&#125; = 1024 \times 1024$</code>，它可以表示 <code>$1024 \times 1024$</code> 个不同的 8 位二进制数，即一个字节（Byte），所以 20 位地址总线的寻址能力是 1MB。<br>注二：16 位结构描述了一个 CPU 具有下面几方面的结构特性</p>
-<ul>
-<li>运算器一次最多可以处理 16 位的数据；</li>
-<li>寄存器的最大宽度为 16 位；</li>
-<li>寄存器和运算器之间的通路为 16 位。<br>注三：段地址×16相当于向左移动了一位，因为这里是 16 进制。</li>
-</ul>
+<p>注一：这里的寻址能力是 1MB，因为
+<code>$2^&#123;20&#125; = 1024 \times 1024$</code>，它可以表示
+<code>$1024 \times 1024$</code> 个不同的 8
+位二进制数，即一个字节（Byte），所以 20 位地址总线的寻址能力是 1MB。
+注二：16 位结构描述了一个 CPU 具有下面几方面的结构特性 -
+运算器一次最多可以处理 16 位的数据； - 寄存器的最大宽度为 16 位； -
+寄存器和运算器之间的通路为 16 位。
+注三：段地址×16相当于向左移动了一位，因为这里是 16 进制。</p>
 <p>参考：《汇编语言》（王爽）</p>
 
                 
@@ -650,6 +687,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

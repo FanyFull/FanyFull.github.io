@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="先贴上我在 v2ex 上问的这个问题： 让我疑惑的代码： 12345678#include &lt;stdio.h&gt;int main()&#123;    float a &#x3D; 3.3f;    int b &#x3D; 2;    printf(&quot;%d&quot;, a * b);&#125;  运行截图：  运行环境： 12Microsoft Windows [版本 10.0.19043.">
+    <meta name="description" content="先贴上我在 v2ex 上问的这个问题： 让我疑惑的代码： 12345678#include &lt;stdio.h&gt;int main()&#123;    float a &#x3D; 3.3f;    int b &#x3D; 2;    printf(&quot;%d&quot;, a * b);&#125; 运行截图：  运行环境： 12Microsoft Windows [版本 10.0.19043.1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C 语言关于 %d 打印 double 值的问题">
 <meta property="og:url" content="http://fanyfull.github.io/2022/05/15/C-%E8%AF%AD%E8%A8%80%E5%85%B3%E4%BA%8E-d-%E6%89%93%E5%8D%B0-double-%E5%80%BC%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="先贴上我在 v2ex 上问的这个问题： 让我疑惑的代码： 12345678#include &lt;stdio.h&gt;int main()&#123;    float a &#x3D; 3.3f;    int b &#x3D; 2;    printf(&quot;%d&quot;, a * b);&#125;  运行截图：  运行环境： 12Microsoft Windows [版本 10.0.19043.">
+<meta property="og:description" content="先贴上我在 v2ex 上问的这个问题： 让我疑惑的代码： 12345678#include &lt;stdio.h&gt;int main()&#123;    float a &#x3D; 3.3f;    int b &#x3D; 2;    printf(&quot;%d&quot;, a * b);&#125; 运行截图：  运行环境： 12Microsoft Windows [版本 10.0.19043.1">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/7LlvsIu.png">
 <meta property="article:published_time" content="2022-05-15T11:17:09.000Z">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -281,43 +281,47 @@
             
               <div class="markdown-body">
                 
-                <p>先贴上我在 v2ex 上问的<a target="_blank" rel="noopener" href="https://www.v2ex.com/t/852434">这个问题</a>：</p>
+                <p>先贴上我在 v2ex 上问的<a
+target="_blank" rel="noopener" href="https://www.v2ex.com/t/852434">这个问题</a>：</p>
 <p>让我疑惑的代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>    <span class="hljs-type">float</span> a = <span class="hljs-number">3.3f</span>;<br>    <span class="hljs-type">int</span> b = <span class="hljs-number">2</span>;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>, a * b);<br>&#125;<br></code></pre></td></tr></table></figure>
-
 <p>运行截图：</p>
-<p><img src="https://i.imgur.com/vBxXbL8.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/vBxXbL8.png" srcset="/img/loading.gif" lazyload /></p>
 <p>运行环境：</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Microsoft</span> Windows<span class="hljs-meta"> [版本 10.0.19043.1645]</span><br><span class="hljs-attribute">gcc</span> version <span class="hljs-number">11</span>.<span class="hljs-number">3</span>.<span class="hljs-number">0</span> (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders)<br></code></pre></td></tr></table></figure>
-
 <p>在这个环境下每一次运行出来的结果都是一样的。</p>
 <p>然后切换到 Linux 的环境：</p>
 <p>运行截图：</p>
-<p><img src="https://i.imgur.com/ytf92lJ.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/ytf92lJ.png" srcset="/img/loading.gif" lazyload /></p>
 <p>运行环境：</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">cenos</span><br><span class="hljs-attribute">gcc</span> version <span class="hljs-number">8</span>.<span class="hljs-number">5</span>.<span class="hljs-number">0</span> <span class="hljs-number">20210514</span> (Red Hat <span class="hljs-number">8</span>.<span class="hljs-number">5</span>.<span class="hljs-number">0</span>-<span class="hljs-number">4</span>) (GCC)<br></code></pre></td></tr></table></figure>
-
 <p>在 Linux 这个环境下每一次的运行结果都是不一样的。</p>
-<p>然后我想弄清楚的是，这个问题是不是就是<strong>将 double 类型的值在内存中截掉一半</strong>然后打印出来(截掉前半段)。</p>
+<p>然后我想弄清楚的是，这个问题是不是就是<strong>将 double
+类型的值在内存中截掉一半</strong>然后打印出来(截掉前半段)。</p>
 <p>所以我们用一个程序来验证一下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-class"><span class="hljs-keyword">union</span> <span class="hljs-title">HEXDOUBLE</span></span><br><span class="hljs-class">&#123;</span><br>    <span class="hljs-type">double</span> num;<br>    <span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> bnum[<span class="hljs-number">8</span>];<br>&#125;;<br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>    <span class="hljs-type">float</span> m = <span class="hljs-number">3.3f</span>;<br>    <span class="hljs-type">int</span> n = <span class="hljs-number">2</span>;<br>    <span class="hljs-class"><span class="hljs-keyword">union</span> <span class="hljs-title">HEXDOUBLE</span> <span class="hljs-title">a</span>;</span><br>    a.num = (<span class="hljs-type">double</span>)m * n;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, a.num);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">8</span>; ++i) <span class="hljs-comment">//大端模式顺着来0-8，小端模式逆着来8-0</span><br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%x &quot;</span>, a.bnum[<span class="hljs-number">8</span> - i - <span class="hljs-number">1</span>]);<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, a.num);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%lf&quot;</span>, a.num);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
 <p>运行结果：</p>
-<p><img src="https://i.imgur.com/d3pO6xQ.png" srcset="/img/loading.gif" lazyload></p>
-<p>(double) a * b &#x3D; 0x40 1a 66 66 60 00 00 00, 截断四个字节后 0x60 00 00 00 &#x3D; 1610612736</p>
-<p>我利用这个<a target="_blank" rel="noopener" href="https://tooltt.com/floatconverter/">工具网</a>将 16 进制的数转换了一下，使用 IEEE754 标准，如下：</p>
-<p><img src="https://i.imgur.com/GjH8NrJ.png" srcset="/img/loading.gif" lazyload></p>
-<p>发现在 Windows 下，C 语言 %d 打印 double 的结果确实是把 double 类型在内存中的值截掉一半然后打印。</p>
+<p><img src="https://i.imgur.com/d3pO6xQ.png" srcset="/img/loading.gif" lazyload /></p>
+<p>(double) a * b = 0x40 1a 66 66 60 00 00 00, 截断四个字节后 0x60 00 00
+00 = 1610612736</p>
+<p>我利用这个<a target="_blank" rel="noopener" href="https://tooltt.com/floatconverter/">工具网</a>将
+16 进制的数转换了一下，使用 IEEE754 标准，如下：</p>
+<p><img src="https://i.imgur.com/GjH8NrJ.png" srcset="/img/loading.gif" lazyload /></p>
+<p>发现在 Windows 下，C 语言 %d 打印 double 的结果确实是把 double
+类型在内存中的值截掉一半然后打印。</p>
 <p>对于 Linux 系统中的值，我在 v 站中得到了这样的解释：</p>
 <blockquote>
-<p>在 x86_64 下，整数和指针参数通过通用寄存器传递，浮点数通过浮点数寄存器传递。<br>这里调用时往浮点数寄存器写入了参数，但函数里面却去通用寄存器里读取，所以结果是随机的。<br>在 x86 下，参数都通过栈传递，结果应该是 double 截断的结果。</p>
+<p>在 x86_64
+下，整数和指针参数通过通用寄存器传递，浮点数通过浮点数寄存器传递。<br />
+这里调用时往浮点数寄存器写入了参数，但函数里面却去通用寄存器里读取，所以结果是随机的。<br />
+在 x86 下，参数都通过栈传递，结果应该是 double 截断的结果。</p>
 </blockquote>
-<p>但是，新的问题又来了，为什么第二次打印 <code>a.num</code> 的值一直是 <code>10</code> 呢？</p>
-<p><img src="https://i.imgur.com/gJlMDv9.png" srcset="/img/loading.gif" lazyload></p>
+<p>但是，新的问题又来了，为什么第二次打印 <code>a.num</code> 的值一直是
+<code>10</code> 呢？</p>
+<p><img src="https://i.imgur.com/gJlMDv9.png" srcset="/img/loading.gif" lazyload /></p>
 <p>也罢，暂时把这个问题先搁置在这里，汇编编译出来的代码如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs s">	.file	&quot;test_format_d.c&quot;<br>	.text<br>	.section	.rodata<br>.LC1:<br>	.string	&quot;%d\n&quot;<br>.LC2:<br>	.string	&quot;%x &quot;<br>.LC3:<br>	.string	&quot;%lf&quot;<br>	.text<br>	.globl	main<br>	.type	main, @function<br>main:<br>.LFB0:<br>	.cfi_startproc<br>	pushq	%rbp<br>	.cfi_def_cfa_offset 16<br>	.cfi_offset 6, -16<br>	movq	%rsp, %rbp<br>	.cfi_def_cfa_register 6<br>	subq	$32, %rsp<br>	movss	.LC0(%rip), %xmm0<br>	movss	%xmm0, -8(%rbp)<br>	movl	$2, -12(%rbp)<br>	cvtss2sd	-8(%rbp), %xmm1<br>	cvtsi2sd	-12(%rbp), %xmm0<br>	mulsd	%xmm1, %xmm0<br>	movsd	%xmm0, -24(%rbp)<br>	movsd	-24(%rbp), %xmm0<br>	movl	$.LC1, %edi<br>	movl	$1, %eax<br>	call	printf<br>	movsd	-24(%rbp), %xmm0<br>	movl	$.LC1, %edi<br>	movl	$1, %eax<br>	call	printf<br>	movl	$0, -4(%rbp)<br>	jmp	.L2<br>.L3:<br>	movl	$7, %eax<br>	subl	-4(%rbp), %eax<br>	cltq<br>	movzbl	-24(%rbp,%rax), %eax<br>	movzbl	%al, %eax<br>	movl	%eax, %esi<br>	movl	$.LC2, %edi<br>	movl	$0, %eax<br>	call	printf<br>	addl	$1, -4(%rbp)<br>.L2:<br>	cmpl	$7, -4(%rbp)<br>	jle	.L3<br>	movl	$10, %edi<br>	call	putchar<br>	movsd	-24(%rbp), %xmm0<br>	movl	$.LC1, %edi<br>	movl	$1, %eax<br>	call	printf<br>	movsd	-24(%rbp), %xmm0<br>	movl	$.LC3, %edi<br>	movl	$1, %eax<br>	call	printf<br>	movl	$0, %eax<br>	leave<br>	.cfi_def_cfa 7, 8<br>	ret<br>	.cfi_endproc<br>.LFE0:<br>	.size	main, .-main<br>	.section	.rodata<br>	.align 4<br>.LC0:<br>	.long	1079194419<br>	.ident	&quot;GCC: (GNU) 8.5.0 20210514 (Red Hat 8.5.0-4)&quot;<br>	.section	.note.GNU-stack,&quot;&quot;,@progbits<br><br></code></pre></td></tr></table></figure>
-
-<p><img src="https://i.imgur.com/y0bv5PU.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/y0bv5PU.png" srcset="/img/loading.gif" lazyload /></p>
 
                 
               </div>
@@ -650,6 +654,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

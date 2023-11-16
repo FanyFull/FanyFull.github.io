@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -281,49 +281,63 @@
             
               <div class="markdown-body">
                 
-                <p>这个可以同样地应用到 npcap 中。可以说，npcap 的配置和 winpcap <strong>完全一致</strong>。</p>
-<p>另，说明，虽然本篇博客写的是 winpcap 的配置，但是本人在实验中使用的其实还是 npcap，另外，我也建议你使用 npcap，因为那是针对 win10 和 win11 升级的，winpcap 的很多功能在 win10 和 win11 中无法使用，比如有些适配器它根本识别不了。诸君，慎重。</p>
+                <p>这个可以同样地应用到 npcap 中。可以说，npcap 的配置和 winpcap
+<strong>完全一致</strong>。</p>
+<p>另，说明，虽然本篇博客写的是 winpcap
+的配置，但是本人在实验中使用的其实还是 npcap，另外，我也建议你使用
+npcap，因为那是针对 win10 和 win11 升级的，winpcap 的很多功能在 win10 和
+win11 中无法使用，比如有些适配器它根本识别不了。诸君，慎重。</p>
 <p>之所以这篇博客没有改成 npcap 的配置教程，单纯是因为我懒。</p>
-<h1 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h1><p>首先，到 <a target="_blank" rel="noopener" href="https://www.winpcap.org/">winpcap</a> 官网下载 winpcap 这个软件。注意，这个是软件，下面我们还要下载一个开发包。</p>
-<p><img src="https://i.imgur.com/3GHQPH6.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="安装软件">安装软件</h1>
+<p>首先，到 <a target="_blank" rel="noopener" href="https://www.winpcap.org/">winpcap</a> 官网下载
+winpcap 这个软件。注意，这个是软件，下面我们还要下载一个开发包。</p>
+<p><img src="https://i.imgur.com/3GHQPH6.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后，安装即可，注意，在安装的过程中有一个选项要勾选上：</p>
-<p><img src="https://i.imgur.com/Gg8iQyV.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="安装开发包"><a href="#安装开发包" class="headerlink" title="安装开发包"></a>安装开发包</h1><p>即开发者所需要用到的 api。</p>
-<p>来着<a target="_blank" rel="noopener" href="https://www.winpcap.org/devel.htm">开发包下载网页</a>，然后解压到一个没有中文路径的目录即可：</p>
-<p><img src="https://i.imgur.com/kqk9npg.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>上面的目录解压后，有一个官方示例：</p>
-<p><img src="https://i.imgur.com/hGBjutV.png" srcset="/img/loading.gif" lazyload></p>
-<p>这个我们使用 VS 打开工程的话，IDE 会自动给我们升级项目，在这样的情况下，项目是可以正常运行的。</p>
-<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>下面我们来手动配置这个环境。</p>
+<p><img src="https://i.imgur.com/Gg8iQyV.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="安装开发包">安装开发包</h1>
+<p>即开发者所需要用到的 api。</p>
+<p>来着<a
+target="_blank" rel="noopener" href="https://www.winpcap.org/devel.htm">开发包下载网页</a>，然后解压到一个没有中文路径的目录即可：</p>
+<p><img src="https://i.imgur.com/kqk9npg.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="测试">测试</h1>
+<p>上面的目录解压后，有一个官方示例：</p>
+<p><img src="https://i.imgur.com/hGBjutV.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这个我们使用 VS 打开工程的话，IDE
+会自动给我们升级项目，在这样的情况下，项目是可以正常运行的。</p>
+<h1 id="配置">配置</h1>
+<p>下面我们来手动配置这个环境。</p>
 <p>打开项目配置，</p>
-<p><img src="https://i.imgur.com/3dPp0Cz.png" srcset="/img/loading.gif" lazyload></p>
-<p>然后将刚刚解压的目录中的 Include 路径和 Lib 路径分别添加到包含目录和库目录中，</p>
-<p><img src="https://i.imgur.com/xaW6hFH.png" srcset="/img/loading.gif" lazyload></p>
-<p>然后设置预处理器，即添加 <strong>WIN32;WPCAP;HAVE_REMOTE</strong>，</p>
-<p><img src="https://i.imgur.com/InJzIdB.png" srcset="/img/loading.gif" lazyload></p>
-<p>然后是链接器，添加这个附加库目录，<strong>注意</strong>这个附加库目录是 Lib 目录下的 x64 子目录，</p>
-<p><img src="https://i.imgur.com/ZE4Khav.png" srcset="/img/loading.gif" lazyload></p>
-<p>然后添加两个附加依赖项，即 <strong>wpcap.lib;Packet.lib</strong>，</p>
-<p><img src="https://i.imgur.com/vkX5thl.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/3dPp0Cz.png" srcset="/img/loading.gif" lazyload /></p>
+<p>然后将刚刚解压的目录中的 Include 路径和 Lib
+路径分别添加到包含目录和库目录中，</p>
+<p><img src="https://i.imgur.com/xaW6hFH.png" srcset="/img/loading.gif" lazyload /></p>
+<p>然后设置预处理器，即添加
+<strong>WIN32;WPCAP;HAVE_REMOTE</strong>，</p>
+<p><img src="https://i.imgur.com/InJzIdB.png" srcset="/img/loading.gif" lazyload /></p>
+<p>然后是链接器，添加这个附加库目录，<strong>注意</strong>这个附加库目录是
+Lib 目录下的 x64 子目录，</p>
+<p><img src="https://i.imgur.com/ZE4Khav.png" srcset="/img/loading.gif" lazyload /></p>
+<p>然后添加两个附加依赖项，即
+<strong>wpcap.lib;Packet.lib</strong>，</p>
+<p><img src="https://i.imgur.com/vkX5thl.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后在写代码时，我们需要添加经典的预定义：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">ifdef</span> _MSC_VER</span><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * we do not want the warnings about the old deprecated and unsecure CRT functions</span><br><span class="hljs-comment"> * since these examples can be compiled under *nix as well</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> _CRT_SECURE_NO_WARNINGS</span><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br></code></pre></td></tr></table></figure>
-
 <p>之后就可以愉快地写代码了。</p>
 <p>下面是测试：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">ifdef</span> _MSC_VER</span><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * we do not want the warnings about the old deprecated and unsecure CRT functions</span><br><span class="hljs-comment"> * since these examples can be compiled under *nix as well</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> _CRT_SECURE_NO_WARNINGS</span><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;pcap.h&quot;</span></span><br><br> <span class="hljs-comment">// 函数原型</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">ifprint</span><span class="hljs-params">(<span class="hljs-type">pcap_if_t</span>* d)</span>;<br><span class="hljs-type">char</span>* <span class="hljs-title function_">iptos</span><span class="hljs-params">(u_long in)</span>;<br><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>	<span class="hljs-type">pcap_if_t</span>* alldevs;<br>	<span class="hljs-type">pcap_if_t</span>* d;<br>	<span class="hljs-type">char</span> errbuf[PCAP_ERRBUF_SIZE + <span class="hljs-number">1</span>];<br>	<span class="hljs-type">char</span> source[PCAP_ERRBUF_SIZE + <span class="hljs-number">1</span>];<br><br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Enter the device you want to list:\n&quot;</span><br>		<span class="hljs-string">&quot;rpcap://              ==&gt; lists interfaces in the local machine\n&quot;</span><br>		<span class="hljs-string">&quot;rpcap://hostname:port ==&gt; lists interfaces in a remote machine\n&quot;</span><br>		<span class="hljs-string">&quot;                          (rpcapd daemon must be up and running\n&quot;</span><br>		<span class="hljs-string">&quot;                           and it must accept &#x27;null&#x27; authentication)\n&quot;</span><br>		<span class="hljs-string">&quot;file://foldername     ==&gt; lists all pcap files in the give folder\n\n&quot;</span><br>		<span class="hljs-string">&quot;Enter your choice: &quot;</span>);<br><br>	fgets(source, PCAP_ERRBUF_SIZE, <span class="hljs-built_in">stdin</span>);<br>	source[PCAP_ERRBUF_SIZE] = <span class="hljs-string">&#x27;\0&#x27;</span>;<br><br>	<span class="hljs-comment">/* 获得接口列表 */</span><br>	<span class="hljs-keyword">if</span> (pcap_findalldevs_ex(source, <span class="hljs-literal">NULL</span>, &amp;alldevs, errbuf) == <span class="hljs-number">-1</span>)<br>	&#123;<br>		<span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>, <span class="hljs-string">&quot;Error in pcap_findalldevs: %s\n&quot;</span>, errbuf);<br>		<span class="hljs-built_in">exit</span>(<span class="hljs-number">1</span>);<br>	&#125;<br><br>	<span class="hljs-comment">/* 扫描列表并打印每一项 */</span><br>	<span class="hljs-keyword">for</span> (d = alldevs; d; d = d-&gt;next)<br>	&#123;<br>		ifprint(d);<br>	&#125;<br><br>	pcap_freealldevs(alldevs);<br>	getchar();<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br><br><br><span class="hljs-comment">/* 打印所有可用信息 */</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">ifprint</span><span class="hljs-params">(<span class="hljs-type">pcap_if_t</span>* d)</span><br>&#123;<br>	<span class="hljs-type">pcap_addr_t</span>* a;<br><br>	<span class="hljs-comment">/* 设备名(Name) */</span><br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s\n&quot;</span>, d-&gt;name);<br><br>	<span class="hljs-comment">/* 设备描述(Description) */</span><br>	<span class="hljs-keyword">if</span> (d-&gt;description)<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tDescription: %s\n&quot;</span>, d-&gt;description);<br><br>	<span class="hljs-comment">/* Loopback Address*/</span><br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tLoopback: %s\n&quot;</span>, (d-&gt;flags &amp; PCAP_IF_LOOPBACK) ? <span class="hljs-string">&quot;yes&quot;</span> : <span class="hljs-string">&quot;no&quot;</span>);<br><br>	<span class="hljs-comment">/* IP addresses */</span><br>	<span class="hljs-keyword">for</span> (a = d-&gt;addresses; a; a = a-&gt;next) &#123;<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tAddress Family: #%d\n&quot;</span>, a-&gt;addr-&gt;sa_family);<br><br>		<span class="hljs-keyword">switch</span> (a-&gt;addr-&gt;sa_family)<br>		&#123;<br>		<span class="hljs-keyword">case</span> AF_INET:<br>			<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tAddress Family Name: AF_INET\n&quot;</span>);<br>			<span class="hljs-keyword">if</span> (a-&gt;addr)<br>				<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tAddress: %s\n&quot;</span>, iptos(((<span class="hljs-keyword">struct</span> sockaddr_in*)a-&gt;addr)-&gt;sin_addr.s_addr));<br>			<span class="hljs-keyword">if</span> (a-&gt;netmask)<br>				<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tNetmask: %s\n&quot;</span>, iptos(((<span class="hljs-keyword">struct</span> sockaddr_in*)a-&gt;netmask)-&gt;sin_addr.s_addr));<br>			<span class="hljs-keyword">if</span> (a-&gt;broadaddr)<br>				<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tBroadcast Address: %s\n&quot;</span>, iptos(((<span class="hljs-keyword">struct</span> sockaddr_in*)a-&gt;broadaddr)-&gt;sin_addr.s_addr));<br>			<span class="hljs-keyword">if</span> (a-&gt;dstaddr)<br>				<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tDestination Address: %s\n&quot;</span>, iptos(((<span class="hljs-keyword">struct</span> sockaddr_in*)a-&gt;dstaddr)-&gt;sin_addr.s_addr));<br>			<span class="hljs-keyword">break</span>;<br><br>		<span class="hljs-keyword">default</span>:<br>			<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tAddress Family Name: Unknown\n&quot;</span>);<br>			<span class="hljs-keyword">break</span>;<br>		&#125;<br>	&#125;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>&#125;<br><br><br><br><span class="hljs-comment">/* 将数字类型的IP地址转换成字符串类型的 */</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> IPTOSBUFFERS    12</span><br><span class="hljs-type">char</span>* <span class="hljs-title function_">iptos</span><span class="hljs-params">(u_long in)</span><br>&#123;<br>	<span class="hljs-type">static</span> <span class="hljs-type">char</span> output[IPTOSBUFFERS][<span class="hljs-number">3</span> * <span class="hljs-number">4</span> + <span class="hljs-number">3</span> + <span class="hljs-number">1</span>];<br>	<span class="hljs-type">static</span> <span class="hljs-type">short</span> which;<br>	u_char* p;<br><br>	p = (u_char*)&amp;in;<br>	which = (which + <span class="hljs-number">1</span> == IPTOSBUFFERS ? <span class="hljs-number">0</span> : which + <span class="hljs-number">1</span>);<br>	<span class="hljs-built_in">sprintf</span>(output[which], <span class="hljs-string">&quot;%d.%d.%d.%d&quot;</span>, p[<span class="hljs-number">0</span>], p[<span class="hljs-number">1</span>], p[<span class="hljs-number">2</span>], p[<span class="hljs-number">3</span>]);<br>	<span class="hljs-keyword">return</span> output[which];<br>&#125;<br></code></pre></td></tr></table></figure>
-
 <p>运行结果：</p>
-<p><img src="https://i.imgur.com/fvrgHvp.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="其它可能会出现的问题"><a href="#其它可能会出现的问题" class="headerlink" title="其它可能会出现的问题"></a>其它可能会出现的问题</h1><p>如果出现如下的错误：</p>
+<p><img src="https://i.imgur.com/fvrgHvp.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="其它可能会出现的问题">其它可能会出现的问题</h1>
+<p>如果出现如下的错误：</p>
 <figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs subunit"><span class="hljs-keyword">Error	</span>LNK2019	unresolved external symbol __imp_getnameinfo referenced in function ip6tos<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://i.imgur.com/HGCG4DO.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/HGCG4DO.png" srcset="/img/loading.gif" lazyload /></p>
 <p>那么，解决的方法很简单，只需要在链接器的输入的附加依赖中。</p>
-<p><img src="https://i.imgur.com/HucWZkc.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/HucWZkc.png" srcset="/img/loading.gif" lazyload /></p>
 <p>至于为什么要添加这个库，只需要稍微到网上了解一下这个库就行。</p>
-<hr>
+<hr />
 <p>参考：</p>
-<p>1、<a target="_blank" rel="noopener" href="https://blog.csdn.net/qsycn/article/details/4455531">https://blog.csdn.net/qsycn/article/details/4455531</a></p>
+<p>1、<a target="_blank" rel="noopener" href="https://blog.csdn.net/qsycn/article/details/4455531"
+class="uri">https://blog.csdn.net/qsycn/article/details/4455531</a></p>
 
                 
               </div>
@@ -635,6 +649,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

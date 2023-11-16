@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="系第四章课后作业（部分）。 1、对文法 $G[S]$ $$\begin{split}S &amp;\rightarrow a | \wedge | (T) \T &amp;\rightarrow T, S | S\end{split}$$ (1) 给出 $(a, (a, a))$ 和 $(((a, a), \wedge, (a)), a)$ 的最左推导。(2) 对文法 $G$ 进行改写，然后对每个">
+    <meta name="description" content="系第四章课后作业（部分）。 1、对文法 \(G[S]\) \[ \begin{split} S &amp;\rightarrow a | \wedge | (T) \\ T &amp;\rightarrow T, S | S \end{split} \] (1) 给出 \((a, (a, a))\) 和 \((((a, a), \wedge, (a)), a)\) 的最左推导。 (2) 对文法 \">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译原理作业三">
 <meta property="og:url" content="http://fanyfull.github.io/2021/10/24/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A%E4%B8%89/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="系第四章课后作业（部分）。 1、对文法 $G[S]$ $$\begin{split}S &amp;\rightarrow a | \wedge | (T) \T &amp;\rightarrow T, S | S\end{split}$$ (1) 给出 $(a, (a, a))$ 和 $(((a, a), \wedge, (a)), a)$ 的最左推导。(2) 对文法 $G$ 进行改写，然后对每个">
+<meta property="og:description" content="系第四章课后作业（部分）。 1、对文法 \(G[S]\) \[ \begin{split} S &amp;\rightarrow a | \wedge | (T) \\ T &amp;\rightarrow T, S | S \end{split} \] (1) 给出 \((a, (a, a))\) 和 \((((a, a), \wedge, (a)), a)\) 的最左推导。 (2) 对文法 \">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211024191046.png">
 <meta property="article:published_time" content="2021-10-24T07:28:47.000Z">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -227,7 +227,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          4.4k 字
+          4.5k 字
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
           <!-- compatible with older versions-->
-          37 分钟
+          38 分钟
         
       </span>
     
@@ -282,184 +282,344 @@
               <div class="markdown-body">
                 
                 <p>系第四章课后作业（部分）。</p>
-<p>1、对文法 $G[S]$</p>
-<p>$$<br>\begin{split}<br>S &amp;\rightarrow a | \wedge | (T) \<br>T &amp;\rightarrow T, S | S<br>\end{split}<br>$$</p>
-<p>(1) 给出 $(a, (a, a))$ 和 $(((a, a), \wedge, (a)), a)$ 的最左推导。<br>(2) 对文法 $G$ 进行改写，然后对每个非终结符写出不带回溯的递归子程序。<br>(3) 经改写后的文法是否是 $LL(1)$ 的？给出它的预测分析表。<br>(4) 给出输入串 $(a, a)＃$ 的分析过程，并说明该串是否为 $G$ 的句子。</p>
+<p>1、对文法 <span class="math inline">\(G[S]\)</span></p>
+<p><span class="math display">\[
+\begin{split}
+S &amp;\rightarrow a | \wedge | (T) \\
+T &amp;\rightarrow T, S | S
+\end{split}
+\]</span></p>
+<p>(1) 给出 <span class="math inline">\((a, (a, a))\)</span> 和 <span
+class="math inline">\((((a, a), \wedge, (a)), a)\)</span>
+的最左推导。<br />
+(2) 对文法 <span class="math inline">\(G\)</span>
+进行改写，然后对每个非终结符写出不带回溯的递归子程序。<br />
+(3) 经改写后的文法是否是 <span class="math inline">\(LL(1)\)</span>
+的？给出它的预测分析表。<br />
+(4) 给出输入串 <span class="math inline">\((a, a)＃\)</span>
+的分析过程，并说明该串是否为 <span class="math inline">\(G\)</span>
+的句子。</p>
 <p>解：</p>
-<p>(1) 对 $(a, (a, a))$ 的最左推导为：</p>
-<p>$$<br>\begin{split}<br>S &amp;\Rightarrow (T) \<br>&amp;\Rightarrow (T, S) \<br>&amp;\Rightarrow (S, S) \<br>&amp;\Rightarrow (a, S) \<br>&amp;\Rightarrow (a, (T)) \<br>&amp;\Rightarrow (a, (T, S)) \<br>&amp;\Rightarrow (a, (S, S)) \<br>&amp;\Rightarrow (a, (a, S)) \<br>&amp;\Rightarrow (a, (a, a))<br>&amp;\end{split}<br>$$</p>
-<p>对 $(((a, a), \wedge, (a)), a)$ 的最左推导如下：</p>
-<p>$$<br>\begin{split}<br>S &amp;\Rightarrow (T) \<br>&amp;\Rightarrow (T, S) \<br>&amp;\Rightarrow (S, S) \<br>&amp;\Rightarrow ((T), S) \<br>&amp;\Rightarrow ((T, S), S) \<br>&amp;\Rightarrow ((T, S, S), S) \<br>&amp;\Rightarrow (((S, S), S, S), S) \<br>&amp;\Rightarrow (((a, S), S, S), S) \<br>&amp;\Rightarrow (((a, a), S, S), S) \<br>&amp;\Rightarrow (((a, a), \wedge, S), S) \<br>&amp;\Rightarrow (((a, a), \wedge, (T)), S) \<br>&amp;\Rightarrow (((a, a), \wedge, (S)), S) \<br>&amp;\Rightarrow (((a, a), \wedge, (a)), S) \<br>&amp;\Rightarrow (((a, a), \wedge, (a)), a) \<br>\end{split}<br>$$</p>
+<p>(1) 对 <span class="math inline">\((a, (a, a))\)</span>
+的最左推导为：</p>
+<p><span class="math display">\[
+\begin{split}
+S &amp;\Rightarrow (T) \\
+&amp;\Rightarrow (T, S) \\
+&amp;\Rightarrow (S, S) \\
+&amp;\Rightarrow (a, S) \\
+&amp;\Rightarrow (a, (T)) \\
+&amp;\Rightarrow (a, (T, S)) \\
+&amp;\Rightarrow (a, (S, S)) \\
+&amp;\Rightarrow (a, (a, S)) \\
+&amp;\Rightarrow (a, (a, a))
+&amp;\end{split}
+\]</span></p>
+<p>对 <span class="math inline">\((((a, a), \wedge, (a)), a)\)</span>
+的最左推导如下：</p>
+<p><span class="math display">\[
+\begin{split}
+S &amp;\Rightarrow (T) \\
+&amp;\Rightarrow (T, S) \\
+&amp;\Rightarrow (S, S) \\
+&amp;\Rightarrow ((T), S) \\
+&amp;\Rightarrow ((T, S), S) \\
+&amp;\Rightarrow ((T, S, S), S) \\
+&amp;\Rightarrow (((S, S), S, S), S) \\
+&amp;\Rightarrow (((a, S), S, S), S) \\
+&amp;\Rightarrow (((a, a), S, S), S) \\
+&amp;\Rightarrow (((a, a), \wedge, S), S) \\
+&amp;\Rightarrow (((a, a), \wedge, (T)), S) \\
+&amp;\Rightarrow (((a, a), \wedge, (S)), S) \\
+&amp;\Rightarrow (((a, a), \wedge, (a)), S) \\
+&amp;\Rightarrow (((a, a), \wedge, (a)), a) \\
+\end{split}
+\]</span></p>
 <p>(2) 改写文法为：</p>
-<p>$$<br>\begin{split}<br>(0) &amp;S \rightarrow a \<br>(1) &amp;S \rightarrow \wedge \<br>(2) &amp;S \rightarrow (T) \<br>(3) &amp;T \rightarrow SN \<br>(4) &amp;N \rightarrow ,S N \<br>(5) &amp;N \rightarrow \varepsilon<br>\end{split}<br>$$</p>
+<p><span class="math display">\[
+\begin{split}
+(0) &amp;S \rightarrow a \\
+(1) &amp;S \rightarrow \wedge \\
+(2) &amp;S \rightarrow (T) \\
+(3) &amp;T \rightarrow SN \\
+(4) &amp;N \rightarrow ,S N \\
+(5) &amp;N \rightarrow \varepsilon
+\end{split}
+\]</span></p>
 <p>对每个非终结符，其不带回溯的递归子程序如下：</p>
 <figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs delphi"><span class="hljs-function"><span class="hljs-keyword">PROCEDURE</span> <span class="hljs-title">S</span><span class="hljs-params">(TOKEN)</span>;</span><br><span class="hljs-keyword">BEGIN</span><br>    <span class="hljs-keyword">IF</span> TOKEN != <span class="hljs-string">&#x27;a&#x27;</span> <span class="hljs-keyword">AND</span> TOKEN != <span class="hljs-string">&#x27;∧&#x27;</span> <span class="hljs-keyword">THEN</span><br>        <span class="hljs-keyword">BEGIN</span><br>            <span class="hljs-keyword">IF</span> TOKEN = <span class="hljs-string">&#x27;(&#x27;</span> <span class="hljs-keyword">THEN</span><br>                <span class="hljs-keyword">BEGIN</span><br>                    GETNEXT(TOKEN);<br>                    T(TOKEN);<br>                    GETNEXT(TOKEN);<br>                    <span class="hljs-keyword">IF</span> TOKEN != <span class="hljs-string">&#x27;)&#x27;</span> <span class="hljs-keyword">THEN</span> ERROR<br>                <span class="hljs-keyword">END</span><br>            <span class="hljs-keyword">ELSE</span> ERROR<br>        <span class="hljs-keyword">END</span><br><span class="hljs-keyword">END</span><br><br><span class="hljs-function"><span class="hljs-keyword">PROCEDURE</span> <span class="hljs-title">T</span><span class="hljs-params">(TOKEN)</span>;</span><br><span class="hljs-keyword">BEGIN</span><br>    S(TOKEN);<br>    N(TOKEN);<br><span class="hljs-keyword">END</span><br><br><span class="hljs-function"><span class="hljs-keyword">PROCEDURE</span> <span class="hljs-title">N</span><span class="hljs-params">(TOKEN)</span>;</span><br><span class="hljs-keyword">BEGIN</span><br>    <span class="hljs-keyword">IF</span> TOKEN = <span class="hljs-string">&#x27;,&#x27;</span> <span class="hljs-keyword">THEN</span><br>        <span class="hljs-keyword">BEGIN</span><br>            GETNEXT(TOKEN);<br>            S(TOKEN);<br>            N(TOKEN);<br>        <span class="hljs-keyword">END</span><br><span class="hljs-keyword">END</span><br></code></pre></td></tr></table></figure>
-
-<p>(3) 经改写后的文法是 $LL(1)$ 文法，</p>
-<p>对改写后的文法，求其 $FIRST$ 集、$FOLLOW$ 集、$SELECT$ 集如下：</p>
+<p>(3) 经改写后的文法是 <span class="math inline">\(LL(1)\)</span>
+文法，</p>
+<p>对改写后的文法，求其 <span class="math inline">\(FIRST\)</span>
+集、<span class="math inline">\(FOLLOW\)</span> 集、<span
+class="math inline">\(SELECT\)</span> 集如下：</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>符号</th>
-<th>$FIRST$</th>
-<th>$FOLLOW$</th>
+<th><span class="math inline">\(FIRST\)</span></th>
+<th><span class="math inline">\(FOLLOW\)</span></th>
 </tr>
 </thead>
-<tbody><tr>
-<td>$S$</td>
-<td>${A, \wedge, (}$</td>
-<td>$#, , , )$</td>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(S\)</span></td>
+<td><span class="math inline">\(\{A, \wedge, (\}\)</span></td>
+<td><span class="math inline">\(\#, , , )\)</span></td>
 </tr>
-<tr>
-<td>$T$</td>
-<td>${a, \wedge, (}$</td>
-<td>${ ) }$</td>
+<tr class="even">
+<td><span class="math inline">\(T\)</span></td>
+<td><span class="math inline">\(\{a, \wedge, (\}\)</span></td>
+<td><span class="math inline">\(\{ ) \}\)</span></td>
 </tr>
-<tr>
-<td>$N$</td>
-<td>${, , \varepsilon}$</td>
-<td>${ ) }$</td>
+<tr class="odd">
+<td><span class="math inline">\(N\)</span></td>
+<td><span class="math inline">\(\{, , \varepsilon\}\)</span></td>
+<td><span class="math inline">\(\{ ) \}\)</span></td>
 </tr>
-</tbody></table>
-<p>$$<br>\begin{split}<br>&amp;SELECT(0) &#x3D; { a } \<br>&amp;SELECT(1) &#x3D; { \wedge } \<br>&amp;SELECT(2) &#x3D; { ( } \<br>&amp;SELECT(3) &#x3D; { a, \wedge, ( } \<br>&amp;SELECT(4) &#x3D; { , } \<br>&amp;SELECT(5) &#x3D; { ) } \<br>\end{split}<br>$$</p>
+</tbody>
+</table>
+<p><span class="math display">\[
+\begin{split}
+&amp;SELECT(0) = \{ a \} \\
+&amp;SELECT(1) = \{ \wedge \} \\
+&amp;SELECT(2) = \{ ( \} \\
+&amp;SELECT(3) = \{ a, \wedge, ( \} \\
+&amp;SELECT(4) = \{ , \} \\
+&amp;SELECT(5) = \{ ) \} \\
+\end{split}
+\]</span></p>
 <p>它的预测分析表如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211024173212.png" srcset="/img/loading.gif" lazyload></p>
-<p>(4) 对输入串 $(a, a)＃$ 的分析过程如下：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211024173212.png" srcset="/img/loading.gif" lazyload /></p>
+<p>(4) 对输入串 <span class="math inline">\((a, a)＃\)</span>
+的分析过程如下：</p>
 <table>
+
 <thead>
-<tr>
+<tr class="header">
 <th>栈</th>
 <th>当前输入符</th>
 <th>剩余输入符</th>
 <th>所用产生式</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>#S</td>
 <td>(</td>
 <td>a,a)#</td>
-<td>S $\rightarrow$ (T)</td>
+<td>S <span class="math inline">\(\rightarrow\)</span> (T)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>#)T(</td>
 <td>(</td>
 <td>a,a)#</td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>#)T</td>
 <td>a</td>
 <td>,a)#</td>
-<td>T $\rightarrow$ SN, S $\rightarrow$ a</td>
+<td>T <span class="math inline">\(\rightarrow\)</span> SN, S <span
+class="math inline">\(\rightarrow\)</span> a</td>
 </tr>
-<tr>
+<tr class="even">
 <td>#)NS</td>
 <td>a</td>
 <td>,a)#</td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>#)Na</td>
 <td>a</td>
 <td>,a)#</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>#)N</td>
 <td>,</td>
 <td>a)#</td>
-<td>N $\rightarrow$,SN</td>
+<td>N <span class="math inline">\(\rightarrow\)</span>,SN</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>#)NS,</td>
 <td>,</td>
 <td>a)#</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>#)NS</td>
 <td>a</td>
 <td>)#</td>
-<td>S $\rightarrow$ a</td>
+<td>S <span class="math inline">\(\rightarrow\)</span> a</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>#)Na</td>
 <td>a</td>
 <td>)#</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>#)N</td>
 <td>)</td>
 <td>#</td>
-<td>N $\rightarrow \varepsilon$</td>
+<td>N <span class="math inline">\(\rightarrow \varepsilon\)</span></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>#)</td>
 <td>)</td>
 <td>#</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>#</td>
 <td>#</td>
 <td></td>
 <td></td>
 </tr>
-</tbody></table>
-<p>可见输入串 $(a, a)＃$ 是文法的句子。</p>
-<p>4、证明下述文法不是 $LL(1)$ 的。</p>
-<p>$$<br>\begin{split}<br>S &amp;\rightarrow C$ \<br>C &amp;\rightarrow bA | aB \<br>A &amp;\rightarrow a | aC | bAA \<br>B &amp;\rightarrow b | bC | aBB<br>\end{split}<br>$$</p>
-<p>能否构造一等价的文法，使其是 $LL(1)$ 的？并给出判断过程。</p>
+</tbody>
+</table>
+<p>可见输入串 <span class="math inline">\((a, a)＃\)</span>
+是文法的句子。</p>
+<p>4、证明下述文法不是 <span class="math inline">\(LL(1)\)</span>
+的。</p>
+<p><span class="math display">\[
+\begin{split}
+S &amp;\rightarrow C\$ \\
+C &amp;\rightarrow bA | aB \\
+A &amp;\rightarrow a | aC | bAA \\
+B &amp;\rightarrow b | bC | aBB
+\end{split}
+\]</span></p>
+<p>能否构造一等价的文法，使其是 <span
+class="math inline">\(LL(1)\)</span> 的？并给出判断过程。</p>
 <p>解：</p>
 <p>题中文法的 SELECT 集如下：</p>
-<p>$$<br>\begin{split}<br>&amp;SELECT(S \rightarrow C$) &#x3D; {b, a} \<br>&amp;SELECT(A \rightarrow a) &#x3D; {a} \<br>&amp;SELECT(A \rightarrow aC) &#x3D; {a} \<br>&amp;SELECT(A \rightarrow bAA) &#x3D; {b} \<br>&amp;SELECT(C \rightarrow bA) &#x3D; {b} \<br>&amp;SELECT(C \rightarrow aB) &#x3D; {a} \<br>&amp;SELECT(B \rightarrow b) &#x3D; {b} \<br>&amp;SELECT(B \rightarrow bc) &#x3D; {b} \<br>&amp;SELECT(B \rightarrow aBB) &#x3D; {a} \<br>\end{split}<br>$$</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;SELECT(S \rightarrow C\$) = \{b, a\} \\
+&amp;SELECT(A \rightarrow a) = \{a\} \\
+&amp;SELECT(A \rightarrow aC) = \{a\} \\
+&amp;SELECT(A \rightarrow bAA) = \{b\} \\
+&amp;SELECT(C \rightarrow bA) = \{b\} \\
+&amp;SELECT(C \rightarrow aB) = \{a\} \\
+&amp;SELECT(B \rightarrow b) = \{b\} \\
+&amp;SELECT(B \rightarrow bc) = \{b\} \\
+&amp;SELECT(B \rightarrow aBB) = \{a\} \\
+\end{split}
+\]</span></p>
 <p>由于</p>
-<p>$$<br>SELECT(A \rightarrow a) \cap SELECT(A \rightarrow ac) \cap SELECT(A \rightarrow bAA) \neq \varnothing<br>$$</p>
-<p>所以该文法不是 $LL(1)$ 文法。</p>
+<p><span class="math display">\[
+SELECT(A \rightarrow a) \cap SELECT(A \rightarrow ac) \cap SELECT(A
+\rightarrow bAA) \neq \varnothing
+\]</span></p>
+<p>所以该文法不是 <span class="math inline">\(LL(1)\)</span> 文法。</p>
 <p>构造等价文法如下：</p>
-<p>$$<br>\begin{split}<br>S &amp;\rightarrow C$ \<br>C &amp;\rightarrow bA | aB \<br>A &amp;\rightarrow aN | bAA \<br>B &amp;\rightarrow bN | aBB \<br>N &amp;\rightarrow C | \varepsilon<br>\end{split}<br>$$</p>
-<p>计算 $SELECT$ 集如下：</p>
-<p>$$<br>\begin{split}<br>&amp;SELECT(S \rightarrow C$) &#x3D; {b, a} \<br>&amp;SELECT(C \rightarrow bA) &#x3D; {b} \<br>&amp;SELECT(C \rightarrow aB) &#x3D; {a} \<br>&amp;SELECT(A \rightarrow aN) &#x3D; {a} \<br>&amp;SELECT(A \rightarrow bAA) &#x3D; {b} \<br>&amp;SELECT(B \rightarrow bN) &#x3D; {b} \<br>&amp;SELECT(B \rightarrow aBB) &#x3D; {a} \<br>&amp;SELECT(N \rightarrow C) &#x3D; {b, a} \<br>&amp;SELECT(N \rightarrow \varepsilon) &#x3D; {a, b} \<br>\end{split}<br>$$</p>
+<p><span class="math display">\[
+\begin{split}
+S &amp;\rightarrow C\$ \\
+C &amp;\rightarrow bA | aB \\
+A &amp;\rightarrow aN | bAA \\
+B &amp;\rightarrow bN | aBB \\
+N &amp;\rightarrow C | \varepsilon
+\end{split}
+\]</span></p>
+<p>计算 <span class="math inline">\(SELECT\)</span> 集如下：</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;SELECT(S \rightarrow C\$) = \{b, a\} \\
+&amp;SELECT(C \rightarrow bA) = \{b\} \\
+&amp;SELECT(C \rightarrow aB) = \{a\} \\
+&amp;SELECT(A \rightarrow aN) = \{a\} \\
+&amp;SELECT(A \rightarrow bAA) = \{b\} \\
+&amp;SELECT(B \rightarrow bN) = \{b\} \\
+&amp;SELECT(B \rightarrow aBB) = \{a\} \\
+&amp;SELECT(N \rightarrow C) = \{b, a\} \\
+&amp;SELECT(N \rightarrow \varepsilon) = \{a, b\} \\
+\end{split}
+\]</span></p>
 <p>由于</p>
-<p>$$<br>SELECT(N \rightarrow C) \cap SELECT(N \rightarrow \varepsilon) \neq \varnothing<br>$$</p>
-<p>所以改写后的文法不是 $LL(1)$ 文法。</p>
-<p>7、对于一个文法若消除了左递归，提取了左公共因子后是否一定为 $LL(1)$ 文法？试对下面的文法进行改写，并对改写后的文法进行判断。</p>
-<p>$$<br>\begin{split}<br>(4) S &amp;\rightarrow AS | b \<br>A &amp;\rightarrow SA | a<br>\end{split}<br>$$</p>
+<p><span class="math display">\[
+SELECT(N \rightarrow C) \cap SELECT(N \rightarrow \varepsilon) \neq
+\varnothing
+\]</span></p>
+<p>所以改写后的文法不是 <span class="math inline">\(LL(1)\)</span>
+文法。</p>
+<p>7、对于一个文法若消除了左递归，提取了左公共因子后是否一定为 <span
+class="math inline">\(LL(1)\)</span>
+文法？试对下面的文法进行改写，并对改写后的文法进行判断。</p>
+<p><span class="math display">\[
+\begin{split}
+(4) S &amp;\rightarrow AS | b \\
+A &amp;\rightarrow SA | a
+\end{split}
+\]</span></p>
 <p>解：对文法进行改写如下：</p>
-<p>$$<br>\begin{split}<br>S &amp;\rightarrow AS | b \<br>A &amp;\rightarrow baA^{‘} | aA^{‘} \<br>A^{‘} &amp;\rightarrow SAA^{‘} | \varepsilon<br>\end{split}<br>$$</p>
+<p><span class="math display">\[
+\begin{split}
+S &amp;\rightarrow AS | b \\
+A &amp;\rightarrow baA^{&#39;} | aA^{&#39;} \\
+A^{&#39;} &amp;\rightarrow SAA^{&#39;} | \varepsilon
+\end{split}
+\]</span></p>
 <p>首先，消除左递归，</p>
-<p>$$<br>\begin{split}<br>&amp;(0) ; S \rightarrow AS \<br>&amp;(1) ;S \rightarrow b \<br>&amp;(2) ;A \rightarrow baA^{‘}\<br>&amp;(3) ;A \rightarrow aA^{‘} \<br>&amp;(4) ;A^{‘} \rightarrow SAA^{‘} \<br>&amp;(5) ;A^{‘} \rightarrow \varepsilon<br>\end{split}<br>$$</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;(0) \; S \rightarrow AS \\
+&amp;(1) \;S \rightarrow b \\
+&amp;(2) \;A \rightarrow baA^{&#39;}\\
+&amp;(3) \;A \rightarrow aA^{&#39;} \\
+&amp;(4) \;A^{&#39;} \rightarrow SAA^{&#39;} \\
+&amp;(5) \;A^{&#39;} \rightarrow \varepsilon
+\end{split}
+\]</span></p>
 <p>然后，提取隐式公共因子，</p>
-<p>然后计算各个符号的 $FIRST$ 集、$FOLLOW$ 集 以及文法的 $SELECT$ 集：</p>
+<p>然后计算各个符号的 <span class="math inline">\(FIRST\)</span>
+集、<span class="math inline">\(FOLLOW\)</span> 集 以及文法的 <span
+class="math inline">\(SELECT\)</span> 集：</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>符号</th>
-<th>$FIRST$</th>
-<th>$FOLLOW$</th>
+<th><span class="math inline">\(FIRST\)</span></th>
+<th><span class="math inline">\(FOLLOW\)</span></th>
 </tr>
 </thead>
-<tbody><tr>
-<td>$S$</td>
-<td>${a, b}$</td>
-<td>${a, b}$</td>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(S\)</span></td>
+<td><span class="math inline">\(\{a, b\}\)</span></td>
+<td><span class="math inline">\(\{a, b\}\)</span></td>
 </tr>
-<tr>
-<td>$A$</td>
-<td>${a, b}$</td>
-<td>${a, b}$</td>
+<tr class="even">
+<td><span class="math inline">\(A\)</span></td>
+<td><span class="math inline">\(\{a, b\}\)</span></td>
+<td><span class="math inline">\(\{a, b\}\)</span></td>
 </tr>
-<tr>
-<td>$A^{‘}$</td>
-<td>${a, b, \varepsilon}$</td>
-<td>${a, b}$</td>
+<tr class="odd">
+<td><span class="math inline">\(A^{&#39;}\)</span></td>
+<td><span class="math inline">\(\{a, b, \varepsilon\}\)</span></td>
+<td><span class="math inline">\(\{a, b\}\)</span></td>
 </tr>
-</tbody></table>
-<p>$$<br>\begin{split}<br>&amp;SELECT(0) &#x3D; { a, b } \<br>&amp;SELECT(1) &#x3D; { b } \<br>&amp;SELECT(2) &#x3D; { b } \<br>&amp;SELECT(3) &#x3D; { a } \<br>&amp;SELECT(4) &#x3D; { a, b } \<br>&amp;SELECT(5) &#x3D; { a, b } \<br>\end{split}<br>$$</p>
+</tbody>
+</table>
+<p><span class="math display">\[
+\begin{split}
+&amp;SELECT(0) = \{ a, b \} \\
+&amp;SELECT(1) = \{ b \} \\
+&amp;SELECT(2) = \{ b \} \\
+&amp;SELECT(3) = \{ a \} \\
+&amp;SELECT(4) = \{ a, b \} \\
+&amp;SELECT(5) = \{ a, b \} \\
+\end{split}
+\]</span></p>
 <p>由于</p>
-<p>$$<br>SELECT(0) \cap SELECT(1) \neq \varnothing<br>$$</p>
-<p>所以改写后的文法不是 $LL(1)$ 文法。</p>
+<p><span class="math display">\[
+SELECT(0) \cap SELECT(1) \neq \varnothing
+\]</span></p>
+<p>所以改写后的文法不是 <span class="math inline">\(LL(1)\)</span>
+文法。</p>
 
                 
               </div>
@@ -792,6 +952,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

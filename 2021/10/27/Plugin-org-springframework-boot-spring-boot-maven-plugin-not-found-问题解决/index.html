@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="问题描述IDEA 报了一个 Plugin org.springframework.boot:spring-boot-maven-plugin: not found 问题，  解决方法在报红的地方加上版本描述： 1&lt;version&gt;2.5.5&lt;&#x2F;version&gt;  这个具体的版本号可以看这个 pom.xml 文件的 spring-boot 版本信息。   然后刷新一下 mav">
+    <meta name="description" content="问题描述 IDEA 报了一个 Plugin org.springframework.boot:spring-boot-maven-plugin: not found 问题，  解决方法 在报红的地方加上版本描述： 1&lt;version&gt;2.5.5&lt;&#x2F;version&gt; 这个具体的版本号可以看这个 pom.xml 文件的 spring-boot 版本信息。   然后刷新一下 ma">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Plugin org.springframework.boot:spring-boot-maven-plugin: not found 问题解决">
 <meta property="og:url" content="http://fanyfull.github.io/2021/10/27/Plugin-org-springframework-boot-spring-boot-maven-plugin-not-found-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="问题描述IDEA 报了一个 Plugin org.springframework.boot:spring-boot-maven-plugin: not found 问题，  解决方法在报红的地方加上版本描述： 1&lt;version&gt;2.5.5&lt;&#x2F;version&gt;  这个具体的版本号可以看这个 pom.xml 文件的 spring-boot 版本信息。   然后刷新一下 mav">
+<meta property="og:description" content="问题描述 IDEA 报了一个 Plugin org.springframework.boot:spring-boot-maven-plugin: not found 问题，  解决方法 在报红的地方加上版本描述： 1&lt;version&gt;2.5.5&lt;&#x2F;version&gt; 这个具体的版本号可以看这个 pom.xml 文件的 spring-boot 版本信息。   然后刷新一下 ma">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/yEZ6EMV.png">
 <meta property="article:published_time" content="2021-10-27T07:37:04.000Z">
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -282,16 +282,26 @@
             
               <div class="markdown-body">
                 
-                <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>IDEA 报了一个 <code>Plugin org.springframework.boot:spring-boot-maven-plugin: not found</code> 问题，</p>
-<p><img src="https://i.imgur.com/Y7apJYP.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>在报红的地方加上版本描述：</p>
+                <h1 id="问题描述">问题描述</h1>
+<p>IDEA 报了一个
+<code>Plugin org.springframework.boot:spring-boot-maven-plugin: not found</code>
+问题，</p>
+<p><img src="https://i.imgur.com/Y7apJYP.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="解决方法">解决方法</h1>
+<p>在报红的地方加上版本描述：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.5.5<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<p>这个具体的版本号可以看这个 <code>pom.xml</code> 文件的 <code>spring-boot</code> 版本信息。</p>
-<p><img src="https://i.imgur.com/lnGYmhL.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/aHIoeJ8.png" srcset="/img/loading.gif" lazyload></p>
+<p>这个具体的版本号可以看这个 <code>pom.xml</code> 文件的
+<code>spring-boot</code> 版本信息。</p>
+<p><img src="https://i.imgur.com/lnGYmhL.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/aHIoeJ8.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后刷新一下 maven 即可。</p>
-<h1 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h1><p>出现这个问题的原因，我猜测是当前项目所用 spring boot 的版本和 maven 仓库中的插件版本不匹配，所有没有办法使用默认的版本号，比如，我这个项目用的 spring boot 版本是 <code>2.5.5</code>，而之前用的版本是 <code>2.3.3</code>，所以本地 maven 仓库中只有 <code>2.3.3</code> 版本的插件，这就导致了 <code>2.3.3</code> 和 <code>2.5.5</code> 版本的项目都不会默认匹配本地仓库中的插件，而必须明确给出版本号的说明。</p>
+<h1 id="问题原因">问题原因</h1>
+<p>出现这个问题的原因，我猜测是当前项目所用 spring boot 的版本和 maven
+仓库中的插件版本不匹配，所有没有办法使用默认的版本号，比如，我这个项目用的
+spring boot 版本是 <code>2.5.5</code>，而之前用的版本是
+<code>2.3.3</code>，所以本地 maven 仓库中只有 <code>2.3.3</code>
+版本的插件，这就导致了 <code>2.3.3</code> 和 <code>2.5.5</code>
+版本的项目都不会默认匹配本地仓库中的插件，而必须明确给出版本号的说明。</p>
 
                 
               </div>
@@ -626,6 +636,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

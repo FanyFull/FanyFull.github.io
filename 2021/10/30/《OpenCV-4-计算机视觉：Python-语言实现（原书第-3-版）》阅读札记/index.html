@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="第 1 章 安装 OpenCV 为何 OpenCV 的 Python 模块命名为 cv2？  在 cv2 中的 2 与 OpenCV 的版本号无关，我们使用的是 OpenCV 4。历史上，有一个名为 cv 的 Python 模块封装了 OpenCV 的一个已经过时的 C 版本。在 OpenCV 4 中已经不存在任何 cv 模块。但是 OpenCV 文档有时会错误地将模块命名为 cv（而不是 cv2">
+    <meta name="description" content="第 1 章 安装 OpenCV  为何 OpenCV 的 Python 模块命名为 cv2？  在 cv2 中的 2 与 OpenCV 的版本号无关，我们使用的是 OpenCV 4。历史上，有一个名为 cv 的 Python 模块封装了 OpenCV 的一个已经过时的 C 版本。在 OpenCV 4 中已经不存在任何 cv 模块。但是 OpenCV 文档有时会错误地将模块命名为 cv（而不是 cv">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《OpenCV 4 计算机视觉：Python 语言实现（原书第 3 版）》阅读札记">
 <meta property="og:url" content="http://fanyfull.github.io/2021/10/30/%E3%80%8AOpenCV-4-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9APython-%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%EF%BC%88%E5%8E%9F%E4%B9%A6%E7%AC%AC-3-%E7%89%88%EF%BC%89%E3%80%8B%E9%98%85%E8%AF%BB%E6%9C%AD%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="第 1 章 安装 OpenCV 为何 OpenCV 的 Python 模块命名为 cv2？  在 cv2 中的 2 与 OpenCV 的版本号无关，我们使用的是 OpenCV 4。历史上，有一个名为 cv 的 Python 模块封装了 OpenCV 的一个已经过时的 C 版本。在 OpenCV 4 中已经不存在任何 cv 模块。但是 OpenCV 文档有时会错误地将模块命名为 cv（而不是 cv2">
+<meta property="og:description" content="第 1 章 安装 OpenCV  为何 OpenCV 的 Python 模块命名为 cv2？  在 cv2 中的 2 与 OpenCV 的版本号无关，我们使用的是 OpenCV 4。历史上，有一个名为 cv 的 Python 模块封装了 OpenCV 的一个已经过时的 C 版本。在 OpenCV 4 中已经不存在任何 cv 模块。但是 OpenCV 文档有时会错误地将模块命名为 cv（而不是 cv">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/vbXlizC.png">
 <meta property="article:published_time" content="2021-10-30T08:52:22.000Z">
@@ -78,7 +78,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -230,7 +230,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          2.5k 字
+          2.4k 字
         
       </span>
     
@@ -284,23 +284,33 @@
             
               <div class="markdown-body">
                 
-                <h1 id="第-1-章-安装-OpenCV"><a href="#第-1-章-安装-OpenCV" class="headerlink" title="第 1 章 安装 OpenCV"></a>第 1 章 安装 OpenCV</h1><blockquote>
+                <h1 id="第-1-章-安装-opencv">第 1 章 安装 OpenCV</h1>
+<blockquote>
 <p>为何 OpenCV 的 Python 模块命名为 cv2？</p>
 </blockquote>
-<p>在 cv2 中的 2 与 OpenCV 的版本号无关，我们使用的是 OpenCV 4。历史上，有一个名为 cv 的 Python 模块封装了 OpenCV 的一个已经过时的 C 版本。在 OpenCV 4 中已经不存在任何 cv 模块。但是 OpenCV 文档有时会错误地将模块命名为 cv（而不是 cv2）。请记住，在 OpenCV 4 中，正确的 Python 模块名称始终是 cv2。</p>
-<h1 id="第-2-章-处理文件、摄像头和-GUI"><a href="#第-2-章-处理文件、摄像头和-GUI" class="headerlink" title="第 2 章 处理文件、摄像头和 GUI"></a>第 2 章 处理文件、摄像头和 GUI</h1><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs py">img = numpy.zeros((<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), dtype=numpy.uint8)<br></code></pre></td></tr></table></figure>
-
+<p>在 cv2 中的 2 与 OpenCV 的版本号无关，我们使用的是 OpenCV
+4。历史上，有一个名为 cv 的 Python 模块封装了 OpenCV 的一个已经过时的 C
+版本。在 OpenCV 4 中已经不存在任何 cv 模块。但是 OpenCV
+文档有时会错误地将模块命名为 cv（而不是 cv2）。请记住，在 OpenCV 4
+中，正确的 Python 模块名称始终是 cv2。</p>
+<h1 id="第-2-章-处理文件摄像头和-gui">第 2 章 处理文件、摄像头和
+GUI</h1>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs py">img = numpy.zeros((<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), dtype=numpy.uint8)<br></code></pre></td></tr></table></figure>
 <p>按：</p>
-<p><code>(3, 3)</code> 中前一个 3 表示 3 行，后一个 3 表示 3 列（如果把它想象成矩阵的话）；<code>uint8</code> 表示无符号整数，范围是 <code>0~255</code>。<br>这里，使用 8 位整数来表示像素，所以像素的值的范围是 <code>0~255</code>，其中 0 表示 黑色，255 表示白色，中间的值表示灰色。</p>
+<p><code>(3, 3)</code> 中前一个 3 表示 3 行，后一个 3 表示 3
+列（如果把它想象成矩阵的话）；<code>uint8</code> 表示无符号整数，范围是
+<code>0~255</code>。<br />
+这里，使用 8 位整数来表示像素，所以像素的值的范围是
+<code>0~255</code>，其中 0 表示 黑色，255
+表示白色，中间的值表示灰色。</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs py">img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)<br></code></pre></td></tr></table></figure>
-
-<p>按：使用 <code>cv2.cvtColor</code> 函数将上面的图像转换成蓝-绿-红（Blue-Green-Red，BGR）格式。</p>
+<p>按：使用 <code>cv2.cvtColor</code>
+函数将上面的图像转换成蓝-绿-红（Blue-Green-Red，BGR）格式。</p>
 <p>图像的变化过程如下：</p>
 <pre><code class="hljs">array([[0, 0, 0],
        [0, 0, 0],
-       [0, 0, 0]], dtype=uint8)
-</code></pre>
-<p>&#x3D;&#x3D;&gt;</p>
+       [0, 0, 0]], dtype=uint8)</code></pre>
+<p>==&gt;</p>
 <pre><code class="hljs">array([[[0, 0, 0],
         [0, 0, 0],
         [0, 0, 0]],
@@ -311,65 +321,88 @@
 
        [[0, 0, 0],
         [0, 0, 0],
-        [0, 0, 0]]], dtype=uint8)
-</code></pre>
-<p>按：转换后的图像每个像素都用一个三元数组表示，每个整数分别表示三个颜色通道（B、G 和 R）中的一个。</p>
+        [0, 0, 0]]], dtype=uint8)</code></pre>
+<p>按：转换后的图像每个像素都用一个三元数组表示，每个整数分别表示三个颜色通道（B、G
+和 R）中的一个。</p>
 <blockquote>
 <p>shape 属性返回行、列和通道数（如果有多个通道的话）。</p>
 </blockquote>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs py">img = numpy.zeros((<span class="hljs-number">5</span>, <span class="hljs-number">3</span>), dtype=numpy.uint8)<br><span class="hljs-built_in">print</span>(img.shape)<br></code></pre></td></tr></table></figure>
-
 <p>output:</p>
-<pre><code class="hljs">(5, 3)
-</code></pre>
-<p>按：输出 <code>(5, 3)</code>，表示我们有一幅 5 行 3 列的灰度图像，如果将该图像转换成 BGR 格式，shape 将是 <code>(5, 3, 3)</code>，表示每个像素有 3 个通道。</p>
+<pre><code class="hljs">(5, 3)</code></pre>
+<p>按：输出 <code>(5, 3)</code>，表示我们有一幅 5 行 3
+列的灰度图像，如果将该图像转换成 BGR 格式，shape 将是
+<code>(5, 3, 3)</code>，表示每个像素有 3 个通道。</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">import</span> cv2<br><br>image = cv2.imread(<span class="hljs-string">&#x27;MyPic.png&#x27;</span>)<br>cv2.imwrite(<span class="hljs-string">&#x27;MyPic.jpg&#x27;</span>, image)<br></code></pre></td></tr></table></figure>
-
 <p>按：从 <code>png</code> 格式加载并保存为 <code>jpg</code> 格式。</p>
 <blockquote>
-<p>默认情况下，<code>imread</code> 返回 BGR 格式的图像，即使该文件使用的是灰度格式。<br>BGR 表示与红-绿-蓝（Red-Green-Blue，RGB）相同的颜色模型，只是字节顺序相反。</p>
+<p>默认情况下，<code>imread</code> 返回 BGR
+格式的图像，即使该文件使用的是灰度格式。 BGR
+表示与红-绿-蓝（Red-Green-Blue，RGB）相同的颜色模型，只是字节顺序相反。</p>
 </blockquote>
 <blockquote>
 <p><code>imread</code> 支持的模式选项有哪些？</p>
 </blockquote>
 <ul>
-<li>cv2.IMREAD_COLOR：该模式是默认选项，提供 3 通道的 BGR 图像，每个通道一个 8 位值（0～255）。</li>
+<li>cv2.IMREAD_COLOR：该模式是默认选项，提供 3 通道的 BGR
+图像，每个通道一个 8 位值（0～255）。</li>
 <li>cv2.IMREAD_GRAYSCALE：该模式提供 8 位灰度图像。</li>
-<li>cv2.IMREAD_ANYCOLOR：该模式提供每个通道 8 位的 BGR 图像或者 8 位灰度图像，具体取决于文件中的元数据。</li>
-<li>cv2.IMREAD_UNCHANGED：该模式读取所有的图像数据，包括作为第 4 通道的 α 或透明度通道（如果有的话）。</li>
-<li>cv2.IMREAD_ANYDEPTH：该模式加载原始位深度的灰度图像。例如，如果文件以这种格式表示一幅图像，那么它提供每个通道 16 位的一幅灰度图像。</li>
-<li>cv2.IMREAD_ANYDEPTH｜cv2.IMREAD_COLOR：该组合模式加载原始位深度的 BGR 彩色图像。</li>
-<li>cv2.IMREAD_REDUCED_GRAYSCALE_2：该模式加载的灰度图像的分辨率是原始分辨率的 1&#x2F;2。例如，如果文件包括一幅 640×480 的图像，那么它加载的是一幅 320×240 的图像。</li>
-<li>cv2.IMREAD_REDUCED_COLOR_2：该模式加载每个通道 8 位的 BGR 彩色图像，分辨率是原始图像的 1&#x2F;2。</li>
-<li>cv2.IMREAD_REDUCED_GRAYSCALE_4：该模式加载灰度图像，分辨率是原始图像的 1&#x2F;4。</li>
-<li>cv2.IMREAD_REDUCED_COLOR_4：该模式加载每个通道 8 位的彩色图像，分辨率是原始图像的 1&#x2F;4。</li>
-<li>cv2.IMREAD_REDUCED_GRAYSCALE_8：该模式加载灰度图像，分辨率是原始图像的 1&#x2F;8。</li>
-<li>cv2.IMREAD_REDUCED_COLOR_8：该模式加载每个通道 8 位的彩色图像，分辨率为原始图像的 1&#x2F;8。</li>
+<li>cv2.IMREAD_ANYCOLOR：该模式提供每个通道 8 位的 BGR 图像或者 8
+位灰度图像，具体取决于文件中的元数据。</li>
+<li>cv2.IMREAD_UNCHANGED：该模式读取所有的图像数据，包括作为第 4 通道的
+α 或透明度通道（如果有的话）。</li>
+<li>cv2.IMREAD_ANYDEPTH：该模式加载原始位深度的灰度图像。例如，如果文件以这种格式表示一幅图像，那么它提供每个通道
+16 位的一幅灰度图像。</li>
+<li>cv2.IMREAD_ANYDEPTH｜cv2.IMREAD_COLOR：该组合模式加载原始位深度的
+BGR 彩色图像。</li>
+<li>cv2.IMREAD_REDUCED_GRAYSCALE_2：该模式加载的灰度图像的分辨率是原始分辨率的
+1/2。例如，如果文件包括一幅 640×480 的图像，那么它加载的是一幅 320×240
+的图像。</li>
+<li>cv2.IMREAD_REDUCED_COLOR_2：该模式加载每个通道 8 位的 BGR
+彩色图像，分辨率是原始图像的 1/2。</li>
+<li>cv2.IMREAD_REDUCED_GRAYSCALE_4：该模式加载灰度图像，分辨率是原始图像的
+1/4。</li>
+<li>cv2.IMREAD_REDUCED_COLOR_4：该模式加载每个通道 8
+位的彩色图像，分辨率是原始图像的 1/4。</li>
+<li>cv2.IMREAD_REDUCED_GRAYSCALE_8：该模式加载灰度图像，分辨率是原始图像的
+1/8。</li>
+<li>cv2.IMREAD_REDUCED_COLOR_8：该模式加载每个通道 8
+位的彩色图像，分辨率为原始图像的 1/8。</li>
 </ul>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">import</span> cv2<br><br>grayImage = cv2.imread(<span class="hljs-string">&#x27;MyPic.png&#x27;</span>, cv2.IMREAD_GRAYSCALE)<br>cv2.imwrite(<span class="hljs-string">&#x27;MyPicGray.png&#x27;</span>, grayImage)<br></code></pre></td></tr></table></figure>
-
-<p>按：将一个 PNG 文件加载为灰度图像（在此过程中会丢失所有的颜色信息），再将其保存为一个灰度 PNG 图像。</p>
+<p>按：将一个 PNG
+文件加载为灰度图像（在此过程中会丢失所有的颜色信息），再将其保存为一个灰度
+PNG 图像。</p>
 <blockquote>
-<p><code>imread</code> 和 <code>imwrite</code> 操作文件时，对文件的路径有什么要求？</p>
+<p><code>imread</code> 和 <code>imwrite</code>
+操作文件时，对文件的路径有什么要求？</p>
 </blockquote>
 <ul>
-<li>如果希望直接使用文件名来读取文件，那么，图片文件必须和当前的 Python 脚本位于同一目录。这时用的是相对路径；</li>
+<li>如果希望直接使用文件名来读取文件，那么，图片文件必须和当前的 Python
+脚本位于同一目录。这时用的是相对路径；</li>
 <li>使用绝对路径。</li>
 </ul>
 <blockquote>
 <p><code>imwrite</code> 函数对图像有什么要求？</p>
 </blockquote>
-<p>imwrite() 函数要求图像为 BGR 格式或者灰度格式，每个通道具有输出格式可以支持的特定位数。例如，BMP 文件格式要求每个通道 8 位，而 PNG 允许每个通道 8 位或 16 位。</p>
+<p>imwrite() 函数要求图像为 BGR
+格式或者灰度格式，每个通道具有输出格式可以支持的特定位数。例如，BMP
+文件格式要求每个通道 8 位，而 PNG 允许每个通道 8 位或 16 位。</p>
 <blockquote>
-<p>我们可以通过使用类似于 <code>image[0, 0]</code> 或者 <code>image[0, 0, 0]</code> 的表达式来访问 numpy.array 类型的数据中的值。第一个索引是像素的 y 坐标或者行，第二个索引是像素的 x 坐标或列，第三个索引（如果有的话）表示一个颜色通道。</p>
+<p>我们可以通过使用类似于 <code>image[0, 0]</code> 或者
+<code>image[0, 0, 0]</code> 的表达式来访问 numpy.array
+类型的数据中的值。第一个索引是像素的 y 坐标或者行，第二个索引是像素的 x
+坐标或列，第三个索引（如果有的话）表示一个颜色通道。</p>
 </blockquote>
 <blockquote>
 <p>一个例子？</p>
 </blockquote>
-<p>在左上角为白色像素的 8 位灰度图像中，<code>image[0,0]</code> 是 255。在左上角为蓝色像素的 24 位（每个通道 8 位）BGR 图像中，<code>image[0,0]</code> 是 <code>[255,0,0]</code>。</p>
+<p>在左上角为白色像素的 8 位灰度图像中，<code>image[0,0]</code> 是
+255。在左上角为蓝色像素的 24 位（每个通道 8 位）BGR
+图像中，<code>image[0,0]</code> 是 <code>[255,0,0]</code>。</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs py">byteArray = <span class="hljs-built_in">bytearray</span>(image)<br></code></pre></td></tr></table></figure>
-
-<p>按：假设图像的每个通道有 8 位，我们可以将其强制转换为标准的 Python bytearray 对象（一维的）。</p>
+<p>按：假设图像的每个通道有 8 位，我们可以将其强制转换为标准的 Python
+bytearray 对象（一维的）。</p>
 
                 
               </div>
@@ -708,6 +741,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

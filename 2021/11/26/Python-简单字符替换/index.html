@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -282,9 +282,9 @@
             
               <div class="markdown-body">
                 
-                <p>这里仅仅是作了一个简单的操作，即，将一个含有很多汉字的文本中的所有汉字都替换成 unicode 表中对应的下一个字符。然后输出。</p>
+                <p>这里仅仅是作了一个简单的操作，即，将一个含有很多汉字的文本中的所有汉字都替换成
+unicode 表中对应的下一个字符。然后输出。</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><br><span class="hljs-comment"># print all the Chinese characters</span><br><span class="hljs-comment"># for i in range(0x4e00,0x9fa6):</span><br><span class="hljs-comment"># 	print (chr(i))</span><br><br><span class="hljs-built_in">str</span> = <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">【第一章】道可道，非常道；名可名，非常名。无名天地之始，有名万物之母。故常无欲，以观其妙；常</span><br><span class="hljs-string">有欲，以观其徼（jiào）。此两者同出而异名，同谓之玄，玄之又玄，众妙之门。〖译文〗</span><br><span class="hljs-string">【第二章】天下皆知美之为美，斯恶（è）已；皆知善之为善，斯不善已。故有无相生，难易相成，长短相</span><br><span class="hljs-string">较，高下相倾，音声相和（hè），前后相随。是以圣人处无为之事，行不言之教，万物作焉而不辞，生而</span><br><span class="hljs-string">不有，为而不恃，功成而弗居。夫（fú）唯弗居，是以不去。 〖译文〗</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><br><span class="hljs-comment"># judge whether a char is a chinese character</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">is_chinese</span>(<span class="hljs-params">char</span>):<br>    <span class="hljs-keyword">if</span> char &gt;= <span class="hljs-string">u&#x27;\u4e00&#x27;</span> <span class="hljs-keyword">and</span> char &lt;= <span class="hljs-string">u&#x27;\u9fa5&#x27;</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>reverted_str = <span class="hljs-string">&quot;&quot;&quot;&quot;&quot;&quot;</span><br><br><span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> <span class="hljs-built_in">str</span>:<br>    <span class="hljs-keyword">if</span> char == <span class="hljs-string">&quot;\n&quot;</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">r&quot;\n&quot;</span>, <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">ord</span>(char), <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-string">r&#x27;\n&#x27;</span>)<br>        reverted_str = reverted_str + char<br>        <span class="hljs-keyword">continue</span><br>    <span class="hljs-keyword">if</span> char == <span class="hljs-string">&#x27; &#x27;</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">r&quot;blank&quot;</span>, <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">ord</span>(char), <span class="hljs-string">&#x27;\t&#x27;</span>, char)<br>        reverted_str = reverted_str + char<br>        <span class="hljs-keyword">continue</span><br>    <span class="hljs-keyword">if</span> is_chinese(char) == <span class="hljs-literal">False</span>:<br>        <span class="hljs-built_in">print</span>(char, <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">ord</span>(char), <span class="hljs-string">&#x27;\t&#x27;</span>, char)<br>        reverted_str = reverted_str + char<br>        <span class="hljs-keyword">continue</span><br>    <span class="hljs-built_in">print</span>(char, <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">ord</span>(char), <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(char) + <span class="hljs-number">1</span>))<br>    reverted_str = reverted_str + <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(char) + <span class="hljs-number">1</span>)<br><br><span class="hljs-built_in">print</span>(reverted_str)<br><br><span class="hljs-comment"># print(&#x27;&gt;&#x27;, &#x27;\t&#x27;, ord(&#x27;&gt;&#x27;), &#x27;\t&#x27;, chr(ord(&#x27;&gt;&#x27;) + 1))</span><br></code></pre></td></tr></table></figure>
-
 <p>output:</p>
 <pre><code class="hljs">\n       10      \n
 【       12304   【
@@ -497,8 +497,7 @@ blank    32
 朊欳，仦觃具徽（jiào）。步严耆名击耍弃后，名谔乌玅，玅乌叉玅，优妚乌闩。〖诒斈〗
 【笭亍竡】太丌皇矦羏乌主羏，新恷（è）巳；皇矦喅乌主喅，新与喅巳。敆朊旡盹甠，隿昔盹我，門矮盹
 辄，髙丌盹倿，韴壱盹咍（hè），剎吏盹隐。昰仦圤亻夅旡主乌二，衍与訁乌敚，丈牪佝焊耍与辟，甠耍
-与朊，主耍与恄，加我耍弘屆。夬（fú）唰弘屆，昰仦与厼。 〖诒斈〗
-</code></pre>
+与朊，主耍与恄，加我耍弘屆。夬（fú）唰弘屆，昰仦与厼。 〖诒斈〗</code></pre>
 
                 
               </div>
@@ -833,6 +832,8 @@ blank    32
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

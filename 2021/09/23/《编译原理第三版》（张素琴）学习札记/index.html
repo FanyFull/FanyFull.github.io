@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="记载本书所有章节的阅读札记。 第二章 何为符号 $\Rightarrow$？  符号 $\Rightarrow$ 的含义是，使用一条规则，代替左端的某个符号，产生其右端的符号串。  何为规则？  规则，也称重写规则、产生式或生成式，是形如 $\alpha \rightarrow \beta$ 或 $\alpha ::&#x3D; \beta$ 的有序对，其中 $\alpha$ 称为规则的左部，$\">
+    <meta name="description" content="记载本书所有章节的阅读札记。 第二章  何为符号 \(\Rightarrow\)？  符号 \(\Rightarrow\) 的含义是，使用一条规则，代替左端的某个符号，产生其右端的符号串。  何为规则？  规则，也称重写规则、产生式或生成式，是形如 \(\alpha \rightarrow \beta\) 或 \(\alpha ::&#x3D; \beta\) 的有序对，其中 \(\alpha\) 称为规则">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《编译原理第三版》（张素琴）学习札记">
 <meta property="og:url" content="http://fanyfull.github.io/2021/09/23/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%89%88%E3%80%8B%EF%BC%88%E5%BC%A0%E7%B4%A0%E7%90%B4%EF%BC%89%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="记载本书所有章节的阅读札记。 第二章 何为符号 $\Rightarrow$？  符号 $\Rightarrow$ 的含义是，使用一条规则，代替左端的某个符号，产生其右端的符号串。  何为规则？  规则，也称重写规则、产生式或生成式，是形如 $\alpha \rightarrow \beta$ 或 $\alpha ::&#x3D; \beta$ 的有序对，其中 $\alpha$ 称为规则的左部，$\">
+<meta property="og:description" content="记载本书所有章节的阅读札记。 第二章  何为符号 \(\Rightarrow\)？  符号 \(\Rightarrow\) 的含义是，使用一条规则，代替左端的某个符号，产生其右端的符号串。  何为规则？  规则，也称重写规则、产生式或生成式，是形如 \(\alpha \rightarrow \beta\) 或 \(\alpha ::&#x3D; \beta\) 的有序对，其中 \(\alpha\) 称为规则">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210923231105.png">
 <meta property="article:published_time" content="2021-09-23T00:55:38.000Z">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -227,7 +227,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          15k 字
+          16k 字
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
           <!-- compatible with older versions-->
-          126 分钟
+          133 分钟
         
       </span>
     
@@ -282,353 +282,1006 @@
               <div class="markdown-body">
                 
                 <p>记载本书所有章节的阅读札记。</p>
-<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><blockquote>
-<p>何为符号 $\Rightarrow$？</p>
+<h1 id="第二章">第二章</h1>
+<blockquote>
+<p>何为符号 <span class="math inline">\(\Rightarrow\)</span>？</p>
 </blockquote>
-<p>符号 $\Rightarrow$ 的含义是，使用一条规则，代替左端的某个符号，产生其右端的符号串。</p>
+<p>符号 <span class="math inline">\(\Rightarrow\)</span>
+的含义是，使用一条规则，代替左端的某个符号，产生其右端的符号串。</p>
 <blockquote>
 <p>何为规则？</p>
 </blockquote>
-<p>规则，也称重写规则、产生式或生成式，是形如 $\alpha \rightarrow \beta$ 或 $\alpha ::&#x3D; \beta$ 的有序对，其中 $\alpha$ 称为规则的左部，$\beta$ 称作规则的右部。</p>
+<p>规则，也称重写规则、产生式或生成式，是形如 <span
+class="math inline">\(\alpha \rightarrow \beta\)</span> 或 <span
+class="math inline">\(\alpha ::= \beta\)</span> 的有序对，其中 <span
+class="math inline">\(\alpha\)</span> 称为规则的左部，<span
+class="math inline">\(\beta\)</span> 称作规则的右部。</p>
 <blockquote>
-<p>设某一文法 $G$，何为文法 $G$ 的字母表？</p>
+<p>设某一文法 <span class="math inline">\(G\)</span>，何为文法 <span
+class="math inline">\(G\)</span> 的字母表？</p>
 </blockquote>
-<p>$$V_N \cup V_T &#x3D; \varnothing$$</p>
-<p>通常用 $V$ 表示 $V_N \cup V_T$，$V$ 称为文法 $G$ 的字母表或词汇表。</p>
-<p>关于符号 $\rightarrow$ 或 $::&#x3D;$？</p>
-<p>符号 $\rightarrow$ 或 $::&#x3D;$ 读作“定义为”。</p>
-<p>例如，$A \rightarrow a$ 读作“$A$ 定义为 $a$”。也把它说成是一条关于 $A$ 的规则（产生式）。</p>
+<p><span class="math display">\[V_N \cup V_T = \varnothing\]</span></p>
+<p>通常用 <span class="math inline">\(V\)</span> 表示 <span
+class="math inline">\(V_N \cup V_T\)</span>，<span
+class="math inline">\(V\)</span> 称为文法 <span
+class="math inline">\(G\)</span> 的字母表或词汇表。</p>
+<p>关于符号 <span class="math inline">\(\rightarrow\)</span> 或 <span
+class="math inline">\(::=\)</span>？</p>
+<p>符号 <span class="math inline">\(\rightarrow\)</span> 或 <span
+class="math inline">\(::=\)</span> 读作“定义为”。</p>
+<p>例如，<span class="math inline">\(A \rightarrow a\)</span> 读作“<span
+class="math inline">\(A\)</span> 定义为 <span
+class="math inline">\(a\)</span>”。也把它说成是一条关于 <span
+class="math inline">\(A\)</span> 的规则（产生式）。</p>
 <blockquote>
 <p>何为四元组？</p>
 </blockquote>
-<p>文法 $G$ 定义为四元组 $\displaystyle{(V_N, V_T, P, S)}$。</p>
+<p>文法 <span class="math inline">\(G\)</span> 定义为四元组 <span
+class="math inline">\(\displaystyle{(V_N, V_T, P, S)}\)</span>。</p>
 <ul>
-<li>$V_N$：非终结符（或语法实体，或变量）集；</li>
-<li>$V_T$：终结符集；</li>
-<li>$P$：规则 $(\alpha \rightarrow \beta)$ 的集合<ul>
-<li>$\alpha \in (V_N \cup V_T)^{*}$ 且至少包含一个非终止符</li>
-<li>$\beta \in (V_N \cup V_T)^{*}$；</li>
+<li><span
+class="math inline">\(V_N\)</span>：非终结符（或语法实体，或变量）集；</li>
+<li><span class="math inline">\(V_T\)</span>：终结符集；</li>
+<li><span class="math inline">\(P\)</span>：规则 <span
+class="math inline">\((\alpha \rightarrow \beta)\)</span> 的集合
+<ul>
+<li><span class="math inline">\(\alpha \in (V_N \cup V_T)^{*}\)</span>
+且至少包含一个非终止符</li>
+<li><span class="math inline">\(\beta \in (V_N \cup
+V_T)^{*}\)</span>；</li>
+</ul></li>
+<li><span class="math inline">\(V_N, V_T, P\)</span> 是非空有穷集；</li>
+<li><span class="math inline">\(S\)</span>
+称作识别符或者开始符，它是一个非终结符，至少要在一条规则中作为左部出现。</li>
 </ul>
-</li>
-<li>$V_N, V_T, P$ 是非空有穷集；</li>
-<li>$S$ 称作识别符或者开始符，它是一个非终结符，至少要在一条规则中作为左部出现。</li>
-</ul>
-<p>关于文法 $G$ 的一些规定？</p>
+<p>关于文法 <span class="math inline">\(G\)</span> 的一些规定？</p>
 <ul>
 <li>一般约定，第一条产生式的左部是识别符；</li>
 <li>用尖括号括起来的是非终结符，不用尖括号括起来的是终结符；</li>
 <li>或者用大写字母表示非终结符，小写字母表示终结符；</li>
-<li>另外，还有一种习惯写法，将 $G$ 写成 $G[S]$，其中 $S$ 是识别符。</li>
+<li>另外，还有一种习惯写法，将 <span class="math inline">\(G\)</span>
+写成 <span class="math inline">\(G[S]\)</span>，其中 <span
+class="math inline">\(S\)</span> 是识别符。</li>
 </ul>
 <blockquote>
 <p>何为 0 型文法？</p>
 </blockquote>
-<p>设 $G &#x3D; (V_N, V_T, P, S)$，如果它的每一个产生式 $\alpha \rightarrow \beta$ 是这样一种结构：$\alpha \in (V_N \cup V_T)^*$ 且至少含有一个非终结符，而 $\beta \in (V_N \cup V_T)^*$，则 $G$ 是一个 <strong>0 型语法文法</strong>。</p>
+<p>设 <span class="math inline">\(G = (V_N, V_T, P,
+S)\)</span>，如果它的每一个产生式 <span class="math inline">\(\alpha
+\rightarrow \beta\)</span> 是这样一种结构：<span
+class="math inline">\(\alpha \in (V_N \cup V_T)^*\)</span>
+且至少含有一个非终结符，而 <span class="math inline">\(\beta \in (V_N
+\cup V_T)^*\)</span>，则 <span class="math inline">\(G\)</span> 是一个
+<strong>0 型语法文法</strong>。</p>
 <p>0 型文法也称 短语语法。</p>
 <blockquote>
 <p>何为 1 型文法？</p>
 </blockquote>
-<p>设 $G &#x3D; (V_N, V_T, P, S)$ 为一个文法，若 $P$ 中的每一个产生式 $\alpha \rightarrow \beta$ 均满足 $|\beta| \geqslant |\alpha|$，仅仅 $S \rightarrow \varepsilon$ 除外，则文法 $G$ 是 <strong>1 型</strong> 或 <strong>上下文有关的（context-sensitive）</strong>。</p>
+<p>设 <span class="math inline">\(G = (V_N, V_T, P, S)\)</span>
+为一个文法，若 <span class="math inline">\(P\)</span> 中的每一个产生式
+<span class="math inline">\(\alpha \rightarrow \beta\)</span> 均满足
+<span class="math inline">\(|\beta| \geqslant |\alpha|\)</span>，仅仅
+<span class="math inline">\(S \rightarrow \varepsilon\)</span>
+除外，则文法 <span class="math inline">\(G\)</span> 是 <strong>1
+型</strong> 或 <strong>上下文有关的（context-sensitive）</strong>。</p>
 <blockquote>
 <p>何为 2 型文法？</p>
 </blockquote>
-<p>设 $G &#x3D; (V_N, V_T, P, S)$。若 $P$ 中的每一个产生式 $\alpha \rightarrow \beta$ 满足：$\alpha$ 是一个非终结符，$\beta \in (V_N \cup V_T)^*$，则此文法称为 <strong>2 型的</strong> 或 <strong>上下文无关的（context-free）</strong></p>
+<p>设 <span class="math inline">\(G = (V_N, V_T, P, S)\)</span>。若
+<span class="math inline">\(P\)</span> 中的每一个产生式 <span
+class="math inline">\(\alpha \rightarrow \beta\)</span> 满足：<span
+class="math inline">\(\alpha\)</span> 是一个非终结符，<span
+class="math inline">\(\beta \in (V_N \cup V_T)^*\)</span>，则此文法称为
+<strong>2 型的</strong> 或
+<strong>上下文无关的（context-free）</strong></p>
 <blockquote>
 <p>何为 3 型文法？</p>
 </blockquote>
-<p>设 $G &#x3D; (V_N, V_T, P, S)$，若 $P$ 中的每一个产生式的形式都是 $A \rightarrow aB$ 或 $A \rightarrow a$，其中 $A$ 和 $B$ 都是非终结符，$a \in V_T^*$，则 $G$ 是 <strong>3 型文法</strong> 或 <strong>正规文法</strong>。</p>
+<p>设 <span class="math inline">\(G = (V_N, V_T, P, S)\)</span>，若
+<span class="math inline">\(P\)</span> 中的每一个产生式的形式都是 <span
+class="math inline">\(A \rightarrow aB\)</span> 或 <span
+class="math inline">\(A \rightarrow a\)</span>，其中 <span
+class="math inline">\(A\)</span> 和 <span
+class="math inline">\(B\)</span> 都是非终结符，<span
+class="math inline">\(a \in V_T^*\)</span>，则 <span
+class="math inline">\(G\)</span> 是 <strong>3 型文法</strong> 或
+<strong>正规文法</strong>。</p>
 <p>问题：P25，上下文有关法的等价定义的理解？</p>
-<p>似乎 $A$ 在 $V_N$ 中，是单个字符。</p>
+<p>似乎 <span class="math inline">\(A\)</span> 在 <span
+class="math inline">\(V_N\)</span> 中，是单个字符。</p>
 <blockquote>
-<p>何为符号 $\mathop{\Rightarrow}\limits^{+}$？</p>
+<p>何为符号 <span
+class="math inline">\(\mathop{\Rightarrow}\limits^{+}\)</span>？</p>
 </blockquote>
-<p>如果存在直接推导的序列：$$v &#x3D; w_0 \Rightarrow w_1 \Rightarrow w_2 \Rightarrow \cdots \Rightarrow w_n &#x3D; w ; (n &gt; 0)$$ 则称 $v$ 推导出（产生）$w$（推导长度为 $n$），或称 $w$ 归约到 $v$，记作 $v \mathop{\Rightarrow}\limits^{+} w$。</p>
-<p>若有 $v \mathop{\Rightarrow}\limits^{+} w$，或 $v &#x3D; w$，则记作 $v \mathop{\Rightarrow}\limits^{*} w$。</p>
+<p>如果存在直接推导的序列：<span class="math display">\[v = w_0
+\Rightarrow w_1 \Rightarrow w_2 \Rightarrow \cdots \Rightarrow w_n = w
+\; (n &gt; 0)\]</span> 则称 <span class="math inline">\(v\)</span>
+推导出（产生）<span class="math inline">\(w\)</span>（推导长度为 <span
+class="math inline">\(n\)</span>），或称 <span
+class="math inline">\(w\)</span> 归约到 <span
+class="math inline">\(v\)</span>，记作 <span class="math inline">\(v
+\mathop{\Rightarrow}\limits^{+} w\)</span>。</p>
+<p>若有 <span class="math inline">\(v \mathop{\Rightarrow}\limits^{+}
+w\)</span>，或 <span class="math inline">\(v = w\)</span>，则记作 <span
+class="math inline">\(v \mathop{\Rightarrow}\limits^{*} w\)</span>。</p>
 <blockquote>
 <p>何为句型，何为句子？</p>
 </blockquote>
-<p>设 $G[S]$ 是一个文法，如果符号串 $x$ 是从识别符推导出来的，即有 $S \mathop{\Rightarrow}\limits^{*} x$，则称 $x$ 是文法 $G[S]$ 的<strong>句型</strong>。</p>
-<p>按：注意上面的 $S \mathop{\Rightarrow}\limits^{<em>} x$ 是 $</em>$ 闭包，所以 $S$ 本身也是句型。</p>
-<p>若 $x$ 仅由终结符号组成，即 $S \mathop{\Rightarrow}\limits^{<em>} x, ; x \in V_T^</em>$，则称 $x$ 为 $G[S]$ 的<strong>句子</strong>。</p>
+<p>设 <span class="math inline">\(G[S]\)</span> 是一个文法，如果符号串
+<span class="math inline">\(x\)</span> 是从识别符推导出来的，即有 <span
+class="math inline">\(S \mathop{\Rightarrow}\limits^{*} x\)</span>，则称
+<span class="math inline">\(x\)</span> 是文法 <span
+class="math inline">\(G[S]\)</span> 的<strong>句型</strong>。</p>
+<p>按：注意上面的 <span class="math inline">\(S
+\mathop{\Rightarrow}\limits^{*} x\)</span> 是 <span
+class="math inline">\(*\)</span> 闭包，所以 <span
+class="math inline">\(S\)</span> 本身也是句型。</p>
+<p>若 <span class="math inline">\(x\)</span> 仅由终结符号组成，即 <span
+class="math inline">\(S \mathop{\Rightarrow}\limits^{*} x, \; x \in
+V_T^*\)</span>，则称 <span class="math inline">\(x\)</span> 为 <span
+class="math inline">\(G[S]\)</span> 的<strong>句子</strong>。</p>
 <blockquote>
-<p>何为 $L(G)$？</p>
+<p>何为 <span class="math inline">\(L(G)\)</span>？</p>
 </blockquote>
-<p>文法 $G$ 所产生的语言定义为集合</p>
-<p>$$<br>{ x| S \mathop{\Rightarrow}\limits^* x, 其中 S 为文法识别符号，且 x \in V^*_T}<br>$$</p>
-<p>可用 $L(G)$ 表示该集合。</p>
+<p>文法 <span class="math inline">\(G\)</span>
+所产生的语言定义为集合</p>
+<p><span class="math display">\[
+\{ x| S \mathop{\Rightarrow}\limits^* x, 其中 S 为文法识别符号，且 x \in
+V^*_T\}
+\]</span></p>
+<p>可用 <span class="math inline">\(L(G)\)</span> 表示该集合。</p>
 <blockquote>
 <p>何为文法的二义性？</p>
 </blockquote>
 <p>如果一个文法存在某个句子对应两棵不同的语法树，则说这个语法是<strong>二义</strong>的。或者说，若一个文法中存在某个句子，它有两个不同的最左（最右）推导，则这个语法是<strong>二义</strong>的。</p>
-<p>举例：文法 $G &#x3D; ({ E }, { +, *, i, (, ) }, P, E)$，其中 $P$ 为：</p>
-<p>$$<br>\begin{align}<br>&amp;E \rightarrow i \<br>&amp;E \rightarrow E + E \<br>&amp;E \rightarrow E * E \<br>&amp;E \rightarrow (E)<br>\end{align}<br>$$</p>
-<p>对于这个文法 $G$，句型 $i * i + i$ 有两个不同的最左推导 1 和 2，它们的语法树如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210925114214.png" srcset="/img/loading.gif" lazyload alt="推导 1 的语法树"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210925114311.png" srcset="/img/loading.gif" lazyload alt="推导 2 的语法树"></p>
-<p>$$<br>\begin{align}<br>&amp;推导 1：E \Rightarrow E + E \Rightarrow E * E + E \Rightarrow i * E + E \Rightarrow i * i + E \Rightarrow i * i + i \<br>&amp;推导 2：E \Rightarrow E * E \Rightarrow i * E \Rightarrow i * E + E \Rightarrow i * i + E \Rightarrow i * i + i<br>\end{align}<br>$$</p>
+<p>举例：文法 <span class="math inline">\(G = (\{ E \}, \{ +, *, i, (, )
+\}, P, E)\)</span>，其中 <span class="math inline">\(P\)</span> 为：</p>
+<p><span class="math display">\[
+\begin{align}
+&amp;E \rightarrow i \\
+&amp;E \rightarrow E + E \\
+&amp;E \rightarrow E * E \\
+&amp;E \rightarrow (E)
+\end{align}
+\]</span></p>
+<p>对于这个文法 <span class="math inline">\(G\)</span>，句型 <span
+class="math inline">\(i * i + i\)</span> 有两个不同的最左推导 1 和
+2，它们的语法树如下：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210925114214.png" srcset="/img/loading.gif" lazyload
+alt="推导 1 的语法树" /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210925114311.png" srcset="/img/loading.gif" lazyload
+alt="推导 2 的语法树" /></p>
+<p><span class="math display">\[
+\begin{align}
+&amp;推导 1：E \Rightarrow E + E \Rightarrow E * E + E \Rightarrow i * E
++ E \Rightarrow i * i + E \Rightarrow i * i + i \\
+&amp;推导 2：E \Rightarrow E * E \Rightarrow i * E \Rightarrow i * E + E
+\Rightarrow i * i + E \Rightarrow i * i + i
+\end{align}
+\]</span></p>
 <blockquote>
 <p>何为最左推导、最右推导、规范推导、右句型、规范句型？</p>
 </blockquote>
-<p>如果在推导的任何一步 $\alpha \Rightarrow \beta$，其中，$\alpha$、$\beta$ 是句型，都是对 $\alpha$ 中的最左非终结符进行替换，则称这种推导为<strong>最左推导</strong>。</p>
-<p>如果在推导的任何一步 $\alpha \Rightarrow \beta$，其中，$\alpha$、$\beta$ 是句型，都是对 $\alpha$ 中的最右非终结符进行替换，则称这种推导为<strong>最右推导</strong>。</p>
+<p>如果在推导的任何一步 <span class="math inline">\(\alpha \Rightarrow
+\beta\)</span>，其中，<span class="math inline">\(\alpha\)</span>、<span
+class="math inline">\(\beta\)</span> 是句型，都是对 <span
+class="math inline">\(\alpha\)</span>
+中的最左非终结符进行替换，则称这种推导为<strong>最左推导</strong>。</p>
+<p>如果在推导的任何一步 <span class="math inline">\(\alpha \Rightarrow
+\beta\)</span>，其中，<span class="math inline">\(\alpha\)</span>、<span
+class="math inline">\(\beta\)</span> 是句型，都是对 <span
+class="math inline">\(\alpha\)</span>
+中的最右非终结符进行替换，则称这种推导为<strong>最右推导</strong>。</p>
 <p>在形式语言中，最右推导常被称为<strong>规范推导</strong>。</p>
 <p>由规范推导所得的句型称为<strong>右句型</strong>或<strong>规范句型</strong>。</p>
 <blockquote>
 <p>何为短语、直接短语、和句柄？</p>
 </blockquote>
-<p>令 $G$ 是一个文法，$S$ 是文法的开始符号，$\alpha \beta \delta$ 是文法 $G$ 的一个句型。如果有 $S \mathop{\Rightarrow}\limits^* \alpha A \delta$ 且 $A \mathop{\Rightarrow}\limits^+ \beta$，则称 $\beta$ 是句型 $\alpha \beta \delta$ 相对于非终结符 $A$ 的<strong>短语</strong>。</p>
-<p>特别地，如果有 $A \Rightarrow \beta$，则称 $\beta$ 是句型 $\alpha \beta \delta$ 相对于规则 $A \rightarrow \beta$ 的<strong>直接短语</strong>（也称<strong>简单短语</strong>）。</p>
+<p>令 <span class="math inline">\(G\)</span> 是一个文法，<span
+class="math inline">\(S\)</span> 是文法的开始符号，<span
+class="math inline">\(\alpha \beta \delta\)</span> 是文法 <span
+class="math inline">\(G\)</span> 的一个句型。如果有 <span
+class="math inline">\(S \mathop{\Rightarrow}\limits^* \alpha A
+\delta\)</span> 且 <span class="math inline">\(A
+\mathop{\Rightarrow}\limits^+ \beta\)</span>，则称 <span
+class="math inline">\(\beta\)</span> 是句型 <span
+class="math inline">\(\alpha \beta \delta\)</span> 相对于非终结符 <span
+class="math inline">\(A\)</span> 的<strong>短语</strong>。</p>
+<p>特别地，如果有 <span class="math inline">\(A \Rightarrow
+\beta\)</span>，则称 <span class="math inline">\(\beta\)</span> 是句型
+<span class="math inline">\(\alpha \beta \delta\)</span> 相对于规则
+<span class="math inline">\(A \rightarrow \beta\)</span>
+的<strong>直接短语</strong>（也称<strong>简单短语</strong>）。</p>
 <p>一个右句型的直接短语称为该句型的<strong>句柄</strong>。句柄的概念只适用于右句型。</p>
 <p><em>最后两个定理要再看看。</em></p>
-<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1><blockquote>
+<h1 id="第三章">第三章</h1>
+<blockquote>
 <p>何为正规文法？</p>
 </blockquote>
 <p>这个概念在第二章有讲过，这里再次摘录一下。</p>
-<p>正规文法也称为 3 型文法 $G &#x3D; (V_N, V_T, S, P)$，其 $P$ 中的每一条规则都有下述形式：$A \rightarrow aB$ 或 $A \rightarrow a$，其中 $A, B \in V_N, ; a \in V_T^*$。</p>
-<p>正规文法所描述的是 $V_T$ 上的正规集。</p>
+<p>正规文法也称为 3 型文法 <span class="math inline">\(G = (V_N, V_T, S,
+P)\)</span>，其 <span class="math inline">\(P\)</span>
+中的每一条规则都有下述形式：<span class="math inline">\(A \rightarrow
+aB\)</span> 或 <span class="math inline">\(A \rightarrow
+a\)</span>，其中 <span class="math inline">\(A, B \in V_N, \; a \in
+V_T^*\)</span>。</p>
+<p>正规文法所描述的是 <span class="math inline">\(V_T\)</span>
+上的正规集。</p>
 <blockquote>
 <p>何为正规集？</p>
 </blockquote>
-<p>按：本书中似乎没有正规集的概念。遂从《编译原理 第二版》黑书摘录其定义如下</p>
+<p>按：本书中似乎没有正规集的概念。遂从《编译原理
+第二版》黑书摘录其定义如下</p>
 <blockquote>
-<p>可以用一个正则表达式定义的语言叫做<strong>正则集合（regular set）</strong>。</p>
+<p>可以用一个正则表达式定义的语言叫做<strong>正则集合（regular
+set）</strong>。</p>
 </blockquote>
 <p>黑书中的翻译是“正则集合”，其实和“正规集”是一个意思。</p>
-<p>结合老师所讲，所谓正规集，可以和前面第二章的语言（$L(G)$）这一概念结合来看，它们表达的东西其实是很类似的，因此，正规集所表达的意思就是正规式（正则表达式）所产生的所有字串的集合。</p>
+<p>结合老师所讲，所谓正规集，可以和前面第二章的语言（<span
+class="math inline">\(L(G)\)</span>）这一概念结合来看，它们表达的东西其实是很类似的，因此，正规集所表达的意思就是正规式（正则表达式）所产生的所有字串的集合。</p>
 <blockquote>
 <p>何为正规式？</p>
 </blockquote>
 <p>正规式也称正则表达式，是表示正规集的工具。</p>
-<p>(1). $\varepsilon$ 和 $\varnothing$ 都是 $\Sigma$ 上的正规式，它们所表示的正规集分别为 ${ \varepsilon }$ 和 $\varnothing$。<br>(2). 任何 $a \in \Sigma$，$a$ 是 $\Sigma$ 上的一个正规式，它所表示的正规集为 ${ a }$。<br>(3). 假定 $e_1$ 和 $e_2$ 都是 $\Sigma$ 上的正规式，它们所表示的正规集分别为 $L(e_1)$ 和 $L(e_2)$，那么，$(e_1)$、$e_1|e_2$、$e_1 \cdot e_2$ 和 $e_1^*$ 也都是正规式，它们所表示的正规集分别为 $L(e_1)$、$L(e_1) \cup L(e_2)$、$L(e_1)L(e_2)$ 和 $(L(e_1))^*$。<br>(4). 仅由有限次使用上述 3 个步骤而定义的表达式才是 $\Sigma$ 上的正规式，仅由这些正规式所表示的符号串的集合才是 $\Sigma$ 上的正规集。</p>
-<p>其中的 $|$ 读为“或”；$\cdot$ 读为“连接”；$<em>$ 读为“闭包”。在不致混淆时，括号可省去，但规定算符的优先顺序为先 $</em>$，再 $\cdot$，最后 $|$。连接符 $\cdot$ 一般可省略不写。$*$、$\cdot$、和 $|$ 都是左结合的。</p>
+<p>(1). <span class="math inline">\(\varepsilon\)</span> 和 <span
+class="math inline">\(\varnothing\)</span> 都是 <span
+class="math inline">\(\Sigma\)</span>
+上的正规式，它们所表示的正规集分别为 <span class="math inline">\(\{
+\varepsilon \}\)</span> 和 <span
+class="math inline">\(\varnothing\)</span>。<br />
+(2). 任何 <span class="math inline">\(a \in \Sigma\)</span>，<span
+class="math inline">\(a\)</span> 是 <span
+class="math inline">\(\Sigma\)</span> 上的一个正规式，它所表示的正规集为
+<span class="math inline">\(\{ a \}\)</span>。<br />
+(3). 假定 <span class="math inline">\(e_1\)</span> 和 <span
+class="math inline">\(e_2\)</span> 都是 <span
+class="math inline">\(\Sigma\)</span>
+上的正规式，它们所表示的正规集分别为 <span
+class="math inline">\(L(e_1)\)</span> 和 <span
+class="math inline">\(L(e_2)\)</span>，那么，<span
+class="math inline">\((e_1)\)</span>、<span
+class="math inline">\(e_1|e_2\)</span>、<span class="math inline">\(e_1
+\cdot e_2\)</span> 和 <span class="math inline">\(e_1^*\)</span>
+也都是正规式，它们所表示的正规集分别为 <span
+class="math inline">\(L(e_1)\)</span>、<span
+class="math inline">\(L(e_1) \cup L(e_2)\)</span>、<span
+class="math inline">\(L(e_1)L(e_2)\)</span> 和 <span
+class="math inline">\((L(e_1))^*\)</span>。<br />
+(4). 仅由有限次使用上述 3 个步骤而定义的表达式才是 <span
+class="math inline">\(\Sigma\)</span>
+上的正规式，仅由这些正规式所表示的符号串的集合才是 <span
+class="math inline">\(\Sigma\)</span> 上的正规集。</p>
+<p>其中的 <span class="math inline">\(|\)</span> 读为“或”；<span
+class="math inline">\(\cdot\)</span> 读为“连接”；<span
+class="math inline">\(*\)</span>
+读为“闭包”。在不致混淆时，括号可省去，但规定算符的优先顺序为先 <span
+class="math inline">\(*\)</span>，再 <span
+class="math inline">\(\cdot\)</span>，最后 <span
+class="math inline">\(|\)</span>。连接符 <span
+class="math inline">\(\cdot\)</span> 一般可省略不写。<span
+class="math inline">\(*\)</span>、<span
+class="math inline">\(\cdot\)</span>、和 <span
+class="math inline">\(|\)</span> 都是左结合的。</p>
 <blockquote>
 <p>正规文法转正规式的 3 条规则？</p>
 </blockquote>
-<ol>
-<li><p>正规式：$A \rightarrow xy$</p>
-<p> 正规文法：</p>
-<p> $$<br> \begin{split}<br> A &amp;\rightarrow xB \<br> B &amp;\rightarrow y<br> \end{split}<br> $$</p>
-</li>
-<li><p>正规式：$A \rightarrow x^*y$</p>
-<p> 正规文法：</p>
-<p> $$<br> \begin{split}<br> A &amp;\rightarrow xB \<br> A &amp;\rightarrow y \<br> B &amp;\rightarrow xB \<br> B &amp;\rightarrow y<br> \end{split}<br> $$</p>
-</li>
-<li><p>正规式：$A \rightarrow x|y$</p>
-<p> 正规文法：</p>
-<p> $$<br> \begin{split}<br> A &amp;\rightarrow x \<br> A &amp;\rightarrow y<br> \end{split}<br> $$</p>
-</li>
+<ol type="1">
+<li><p>正规式：<span class="math inline">\(A \rightarrow xy\)</span></p>
+<p>正规文法：</p>
+<p><span class="math display">\[
+\begin{split}
+A &amp;\rightarrow xB \\
+B &amp;\rightarrow y
+\end{split}
+\]</span></p></li>
+<li><p>正规式：<span class="math inline">\(A \rightarrow
+x^*y\)</span></p>
+<p>正规文法：</p>
+<p><span class="math display">\[
+\begin{split}
+A &amp;\rightarrow xB \\
+A &amp;\rightarrow y \\
+B &amp;\rightarrow xB \\
+B &amp;\rightarrow y
+\end{split}
+\]</span></p></li>
+<li><p>正规式：<span class="math inline">\(A \rightarrow
+x|y\)</span></p>
+<p>正规文法：</p>
+<p><span class="math display">\[
+\begin{split}
+A &amp;\rightarrow x \\
+A &amp;\rightarrow y
+\end{split}
+\]</span></p></li>
 </ol>
 <p>课堂小问：</p>
-<p>$$<br>A \rightarrow xA \<br>A \rightarrow y<br>$$</p>
-<p>$x$ 可能是多个 $*$ 闭包的组合。</p>
+<p><span class="math display">\[
+A \rightarrow xA \\
+A \rightarrow y
+\]</span></p>
+<p><span class="math inline">\(x\)</span> 可能是多个 <span
+class="math inline">\(*\)</span> 闭包的组合。</p>
 <p>疑问 P45？</p>
 <p>(1). 例 3.3，表示无符号数的正规式似乎有点问题。</p>
-<p>可以利用 $\varepsilon A &#x3D; A$ 来理解。那么，这个式子就是对的。</p>
-<p>P45 $(a|b)^* &#x3D; (a^* b^*)^*$ 如何理解？</p>
-<p>可以将 $(a|b)^*$ 展开成类似 $(a|b)(a|b) \cdots (a|b)$ 的形式，然后每一个括号内可以随便是 $a$ 或 $b$。</p>
+<p>可以利用 <span class="math inline">\(\varepsilon A = A\)</span>
+来理解。那么，这个式子就是对的。</p>
+<p>P45 <span class="math inline">\((a|b)^* = (a^* b^*)^*\)</span>
+如何理解？</p>
+<p>可以将 <span class="math inline">\((a|b)^*\)</span> 展开成类似 <span
+class="math inline">\((a|b)(a|b) \cdots (a|b)\)</span>
+的形式，然后每一个括号内可以随便是 <span
+class="math inline">\(a\)</span> 或 <span
+class="math inline">\(b\)</span>。</p>
 <blockquote>
 <p>正规式的代数规律？</p>
 </blockquote>
-<p>$$<br>\begin{split}<br>&amp;(1) ; r|s &#x3D; s|r \<br>&amp;(2) ; r|(s|t) &#x3D; (r|s)|t \<br>&amp;(3) ; (rs)t &#x3D; r(st) \<br>&amp;(4) ; r(s|t) &#x3D; rs|rt, ; (s|t)r &#x3D; sr|tr \<br>&amp;(5) ; \varepsilon r &#x3D; r, ; r\varepsilon &#x3D; r \<br>&amp;(6) ; r|r &#x3D; r<br>\end{split}<br>$$</p>
+<p><span class="math display">\[
+\begin{split}
+&amp;(1) \; r|s = s|r \\
+&amp;(2) \; r|(s|t) = (r|s)|t \\
+&amp;(3) \; (rs)t = r(st) \\
+&amp;(4) \; r(s|t) = rs|rt, \; (s|t)r = sr|tr \\
+&amp;(5) \; \varepsilon r = r, \; r\varepsilon = r \\
+&amp;(6) \; r|r = r
+\end{split}
+\]</span></p>
 <blockquote>
 <p>将正规文法转换成正规式的 3 条规则？</p>
 </blockquote>
-<ol>
+<ol type="1">
 <li><p>规则一：</p>
-<p> $$<br> \begin{split}<br> 文法产生式：&amp;A \rightarrow xB \quad B \rightarrow y \<br> 正规式：&amp;A &#x3D; xy<br> \end{split}<br> $$</p>
-</li>
+<p><span class="math display">\[
+\begin{split}
+文法产生式：&amp;A \rightarrow xB \quad B \rightarrow y \\
+正规式：&amp;A = xy
+\end{split}
+\]</span></p></li>
 <li><p>规则二：</p>
-<p> $$<br> \begin{split}<br> 文法产生式：&amp;A \rightarrow xA|y \<br> 正规式：&amp;A &#x3D; x^*y<br> \end{split}<br> $$</p>
-</li>
+<p><span class="math display">\[
+\begin{split}
+文法产生式：&amp;A \rightarrow xA|y \\
+正规式：&amp;A = x^*y
+\end{split}
+\]</span></p></li>
 <li><p>文法产生式：</p>
-<p> $$<br> \begin{split}<br> 文法产生式：&amp;A \rightarrow x \quad A \rightarrow y \<br> 正规式：&amp;A &#x3D; x|y<br> \end{split}<br> $$</p>
-</li>
+<p><span class="math display">\[
+\begin{split}
+文法产生式：&amp;A \rightarrow x \quad A \rightarrow y \\
+正规式：&amp;A = x|y
+\end{split}
+\]</span></p></li>
 </ol>
 <blockquote>
-<p>何为确定的有穷自动机（$\textrm{DFA}$）？</p>
+<p>何为确定的有穷自动机（<span
+class="math inline">\(\textrm{DFA}\)</span>）？</p>
 </blockquote>
-<p>一个确定的有穷自动机 $M$ 是一个五元组：</p>
-<p>$$<br>M &#x3D; (K, \Sigma, f, S, Z)<br>$$</p>
+<p>一个确定的有穷自动机 <span class="math inline">\(M\)</span>
+是一个五元组：</p>
+<p><span class="math display">\[
+M = (K, \Sigma, f, S, Z)
+\]</span></p>
 <p>其中：</p>
-<p>(1) $K$ 是一个有穷集，它的每一个元素称为一个状态。<br>(2) $\Sigma$ 是一个有穷字母表，它的每一个元素称为一个输入符号，所以也称 $\Sigma$ 为输入符号表。<br>(3) $f$ 是转换函数，是 $K \times \Sigma \rightarrow K$ 上的映像。例如，$f(k_i, a) &#x3D; k_j$ $(k_i \in K, k_j \in K, a \in \Sigma)$ 就意味着，当前状态为 $k$、输入字符为 $a$ 时，将转换到下一状态 $k_j$，把 $k_j$ 称作 $k_i$ 的一个后继状态。<br>(4) $S \in K$，是唯一的一个初态。<br>(5) $Z \subseteq K$，是一个终态集，终态也称可接受或结束状态。</p>
-<p>一个 $DFA$ 可以表示成一个状态图（或称状态转换图）。假定 $DFA ; M$ 含有 $m$ 个状态，$n$ 个输入符号，那么这个状态图含有 $m$ 个节点，每个节点最多有 $n$ 个弧射出，整个图含有唯一一个初态节点和若干个终态节点，初态节点冠以“$\Rightarrow$”或标以“$-$”，终态节点终态节点用双圈表示或标以“$+$”，若 $f(k_i, a) &#x3D; k_j$，则从状态节点 $k_i$ 到状态节点 $k_j$ 画标记为 $a$ 的弧。</p>
-<p>对于 $\Sigma^*$ 中的任何符号串，若存在一条从初态节点到某一终态节点的道路，且这条路上所有弧的标记连接成的符号串等于 $t$，则称 $t$ 可为 $DFA ; M$ 所接受，若 $M$ 的初态节点同时又是终态节点，则空字可为 $M$ <strong>所识别（接受）</strong>。<br>可换一种方式叙述如下：<br>若 $t \in \Sigma^*, $ $f(S, t) &#x3D; P$，其中 $S$ 为 $\textrm{DFA M}$ 的开始状态， $P \in Z$，$Z$ 为终态集。则称 $t$ 可为 $\textrm{DFA M}$ 所<strong>接受（识别）</strong>。</p>
+<p>(1) <span class="math inline">\(K\)</span>
+是一个有穷集，它的每一个元素称为一个状态。<br />
+(2) <span class="math inline">\(\Sigma\)</span>
+是一个有穷字母表，它的每一个元素称为一个输入符号，所以也称 <span
+class="math inline">\(\Sigma\)</span> 为输入符号表。<br />
+(3) <span class="math inline">\(f\)</span> 是转换函数，是 <span
+class="math inline">\(K \times \Sigma \rightarrow K\)</span>
+上的映像。例如，<span class="math inline">\(f(k_i, a) = k_j\)</span>
+<span class="math inline">\((k_i \in K, k_j \in K, a \in
+\Sigma)\)</span> 就意味着，当前状态为 <span
+class="math inline">\(k\)</span>、输入字符为 <span
+class="math inline">\(a\)</span> 时，将转换到下一状态 <span
+class="math inline">\(k_j\)</span>，把 <span
+class="math inline">\(k_j\)</span> 称作 <span
+class="math inline">\(k_i\)</span> 的一个后继状态。<br />
+(4) <span class="math inline">\(S \in
+K\)</span>，是唯一的一个初态。<br />
+(5) <span class="math inline">\(Z \subseteq
+K\)</span>，是一个终态集，终态也称可接受或结束状态。</p>
+<p>一个 <span class="math inline">\(DFA\)</span>
+可以表示成一个状态图（或称状态转换图）。假定 <span
+class="math inline">\(DFA \; M\)</span> 含有 <span
+class="math inline">\(m\)</span> 个状态，<span
+class="math inline">\(n\)</span> 个输入符号，那么这个状态图含有 <span
+class="math inline">\(m\)</span> 个节点，每个节点最多有 <span
+class="math inline">\(n\)</span>
+个弧射出，整个图含有唯一一个初态节点和若干个终态节点，初态节点冠以“<span
+class="math inline">\(\Rightarrow\)</span>”或标以“<span
+class="math inline">\(-\)</span>”，终态节点终态节点用双圈表示或标以“<span
+class="math inline">\(+\)</span>”，若 <span class="math inline">\(f(k_i,
+a) = k_j\)</span>，则从状态节点 <span class="math inline">\(k_i\)</span>
+到状态节点 <span class="math inline">\(k_j\)</span> 画标记为 <span
+class="math inline">\(a\)</span> 的弧。</p>
+<p>对于 <span class="math inline">\(\Sigma^*\)</span>
+中的任何符号串，若存在一条从初态节点到某一终态节点的道路，且这条路上所有弧的标记连接成的符号串等于
+<span class="math inline">\(t\)</span>，则称 <span
+class="math inline">\(t\)</span> 可为 <span class="math inline">\(DFA \;
+M\)</span> 所接受，若 <span class="math inline">\(M\)</span>
+的初态节点同时又是终态节点，则空字可为 <span
+class="math inline">\(M\)</span> <strong>所识别（接受）</strong>。<br />
+可换一种方式叙述如下：<br />
+若 $t ^*, $ <span class="math inline">\(f(S, t) = P\)</span>，其中 <span
+class="math inline">\(S\)</span> 为 <span
+class="math inline">\(\textrm{DFA M}\)</span> 的开始状态， <span
+class="math inline">\(P \in Z\)</span>，<span
+class="math inline">\(Z\)</span> 为终态集。则称 <span
+class="math inline">\(t\)</span> 可为 <span
+class="math inline">\(\textrm{DFA M}\)</span>
+所<strong>接受（识别）</strong>。</p>
 <blockquote>
-<p>何为不确定的有穷自动机（$\textrm{NFA}$）？</p>
+<p>何为不确定的有穷自动机（<span
+class="math inline">\(\textrm{NFA}\)</span>）？</p>
 </blockquote>
-<p>一个不确定的有穷自动机 $M$ 是一个五元组：</p>
-<p>$$<br>M &#x3D; (K, \Sigma, f, S, Z)<br>$$</p>
+<p>一个不确定的有穷自动机 <span class="math inline">\(M\)</span>
+是一个五元组：</p>
+<p><span class="math display">\[
+M = (K, \Sigma, f, S, Z)
+\]</span></p>
 <p>其中：</p>
-<p>(1) $K$ 是一个有穷集，它的每个元素称为一个状态。<br>(2) $\Sigma$ 是一个有穷字母表，它的每个元素称为一个输入符号。<br>(3) $f$ 是一个从 $K \times \Sigma^*$ 到 $K$ 的全体子集的映像，即 $K \times \Sigma^* \rightarrow 2^K$，其中 $2^K$ 表示 $K$ 的幂集。<br>(4) $S \subseteq K$，是一个非空初态集。<br>(5) $Z \subseteq K$，是一个终态集。</p>
-<p>一个含有 $m$ 个状态和 $n$ 个输入符号的 $\textrm{NFA}$ 可表示成一张状态转换图，这张图含有 $m$ 个状态结点，每个结点可射出若干条箭弧与别的节点相连接，每条弧用 $\Sigma^*$ 中的一个串作标记，整个图至少含有一个初态结点以及若干个终态结点。</p>
+<p>(1) <span class="math inline">\(K\)</span>
+是一个有穷集，它的每个元素称为一个状态。<br />
+(2) <span class="math inline">\(\Sigma\)</span>
+是一个有穷字母表，它的每个元素称为一个输入符号。<br />
+(3) <span class="math inline">\(f\)</span> 是一个从 <span
+class="math inline">\(K \times \Sigma^*\)</span> 到 <span
+class="math inline">\(K\)</span> 的全体子集的映像，即 <span
+class="math inline">\(K \times \Sigma^* \rightarrow 2^K\)</span>，其中
+<span class="math inline">\(2^K\)</span> 表示 <span
+class="math inline">\(K\)</span> 的幂集。<br />
+(4) <span class="math inline">\(S \subseteq
+K\)</span>，是一个非空初态集。<br />
+(5) <span class="math inline">\(Z \subseteq
+K\)</span>，是一个终态集。</p>
+<p>一个含有 <span class="math inline">\(m\)</span> 个状态和 <span
+class="math inline">\(n\)</span> 个输入符号的 <span
+class="math inline">\(\textrm{NFA}\)</span>
+可表示成一张状态转换图，这张图含有 <span
+class="math inline">\(m\)</span>
+个状态结点，每个结点可射出若干条箭弧与别的节点相连接，每条弧用 <span
+class="math inline">\(\Sigma^*\)</span>
+中的一个串作标记，整个图至少含有一个初态结点以及若干个终态结点。</p>
 <blockquote>
-<p>何为状态集合 $I$ 的 $\varepsilon\text{-闭包}$？</p>
+<p>何为状态集合 <span class="math inline">\(I\)</span> 的 <span
+class="math inline">\(\varepsilon\text{-闭包}\)</span>？</p>
 </blockquote>
-<p>状态集合 $I$ 的 $\varepsilon\text{-闭包}$，表示为 $\varepsilon \text{-closure(I)}$，定义为一个状态集，是状态集 $I$ 中任何状态 $S$ 经任意条 $\varepsilon$ 弧能到达的状态的集合。</p>
+<p>状态集合 <span class="math inline">\(I\)</span> 的 <span
+class="math inline">\(\varepsilon\text{-闭包}\)</span>，表示为 <span
+class="math inline">\(\varepsilon
+\text{-closure(I)}\)</span>，定义为一个状态集，是状态集 <span
+class="math inline">\(I\)</span> 中任何状态 <span
+class="math inline">\(S\)</span> 经任意条 <span
+class="math inline">\(\varepsilon\)</span> 弧能到达的状态的集合。</p>
 <blockquote>
-<p>何为状态集合 $I$ 的 $a$ 弧转换？</p>
+<p>何为状态集合 <span class="math inline">\(I\)</span> 的 <span
+class="math inline">\(a\)</span> 弧转换？</p>
 </blockquote>
-<p>状态集合 $I$ 的 $a$ 弧转换，表示为 $move(I, a)$，定义为状态集合 $J$，其中 $J$ 是所有哪些可从 $I$ 中的某一状态经过一条 $a$ 弧而到达的状态的全体。</p>
+<p>状态集合 <span class="math inline">\(I\)</span> 的 <span
+class="math inline">\(a\)</span> 弧转换，表示为 <span
+class="math inline">\(move(I, a)\)</span>，定义为状态集合 <span
+class="math inline">\(J\)</span>，其中 <span
+class="math inline">\(J\)</span> 是所有哪些可从 <span
+class="math inline">\(I\)</span> 中的某一状态经过一条 <span
+class="math inline">\(a\)</span> 弧而到达的状态的全体。</p>
 <blockquote>
-<p>如何将一个 $\textrm{NFA}$ 转换为等价的 $\textrm{DFA}$？</p>
+<p>如何将一个 <span class="math inline">\(\textrm{NFA}\)</span>
+转换为等价的 <span class="math inline">\(\textrm{DFA}\)</span>？</p>
 </blockquote>
 <p>这里介绍的方法就是<strong>子集法</strong>。</p>
-<p>假设 $\textrm{NFA N} &#x3D;$ ${K, \Sigma, f, K_0, K_t}$ 按照如下方法构造一个 $\textrm{DFA M} &#x3D;$ $(S, \Sigma, D, S_0, S_t)$ 使得 $L(M) &#x3D; L(N)$：</p>
-<p>(1) $M$ 的状态集 $S$ 由 $K$ 的一些子集（构造 $K$ 的子集见下图）组成。用 $[S_1, S_2, …, S_j]$ 表示 $S$ 的元素，其中 $S_1, S_2, …, S_j$ 是 $K$ 的状态。并且约定，状态 $S_1, S_2, …, S_j$ 是按某种规则排列的，即对于子集 $S &#x3D; { S_2, S_1 }$ 来说，$S$ 的状态就是 $[S_1S_2]$。</p>
-<p>疑问：P51 这里的 S 规则排列与状态究竟是什么？  </p>
+<p>假设 <span class="math inline">\(\textrm{NFA N} =\)</span> <span
+class="math inline">\(\{K, \Sigma, f, K_0, K_t\}\)</span>
+按照如下方法构造一个 <span class="math inline">\(\textrm{DFA M}
+=\)</span> <span class="math inline">\((S, \Sigma, D, S_0, S_t)\)</span>
+使得 <span class="math inline">\(L(M) = L(N)\)</span>：</p>
+<p>(1) <span class="math inline">\(M\)</span> 的状态集 <span
+class="math inline">\(S\)</span> 由 <span
+class="math inline">\(K\)</span> 的一些子集（构造 <span
+class="math inline">\(K\)</span> 的子集见下图）组成。用 <span
+class="math inline">\([S_1, S_2, ..., S_j]\)</span> 表示 <span
+class="math inline">\(S\)</span> 的元素，其中 <span
+class="math inline">\(S_1, S_2, ..., S_j\)</span> 是 <span
+class="math inline">\(K\)</span> 的状态。并且约定，状态 <span
+class="math inline">\(S_1, S_2, ..., S_j\)</span>
+是按某种规则排列的，即对于子集 <span class="math inline">\(S = \{ S_2,
+S_1 \}\)</span> 来说，<span class="math inline">\(S\)</span> 的状态就是
+<span class="math inline">\([S_1S_2]\)</span>。</p>
+<p>疑问：P51 这里的 S 规则排列与状态究竟是什么？</p>
 <blockquote>
-<p>疑问：如果 $K_0$ 中不止一个元素怎么办？</p>
+<p>疑问：如果 <span class="math inline">\(K_0\)</span>
+中不止一个元素怎么办？</p>
 </blockquote>
-<p>解答：这个观察 $\varepsilon \text{-闭包}$ 的定义即可解决。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211002163758.png" srcset="/img/loading.gif" lazyload alt="图 1：子集的构造算法"></p>
+<p>解答：这个观察 <span class="math inline">\(\varepsilon
+\text{-闭包}\)</span> 的定义即可解决。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211002163758.png" srcset="/img/loading.gif" lazyload
+alt="图 1：子集的构造算法" /></p>
 <p>按：</p>
-<p>(2) $M$ 和 $N$ 的输入字母表是相同的，即是 $\Sigma$。<br>(3) 转换函数 $D$ 是这样定义的。</p>
-<p>$$<br>D([S_1, S_2, …, S_j], a) &#x3D; [R_1, R_2, …, R_j]<br>$$</p>
-<p>其中 $\varepsilon(move([S_1, S_2, $ $… S_j], a)) &#x3D; $ $[R_1, R_2, …, R_j]$。<br>(4) $S_0 &#x3D; $ $\varepsilon \text{-closure}(K_0)$ 为 $M$ 的开始状态。<br>(5) $S_t &#x3D; $ ${ [S_j, S_k,…,S_e] }$，其中 $[S_j, S_k,…,S_e]$ $\in S$ 且 ${ S_j, S_k,…,S_e }$ $\cap ; K_t \neq \varnothing }$</p>
-<p>图 1 是构造 $\text{NFA } N$ 的状态 $K$ 的子集的算法。假定所构造的子集族为 $C$，即 $C &#x3D; (T_1, T_2,…,T_i)$，其中 $T_1, T_2,…,T_i$ 为状态 $K$ 的子集。</p>
-<p>这个概念必须要用具体的例子辅助理解才能够最终掌握，所以，这里就举一个例子：应用上面的算法对下面的图 2 的 $\text{NFA } N$ 构造子集。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211004145119.png" srcset="/img/loading.gif" lazyload alt="图 2"></p>
+<p>(2) <span class="math inline">\(M\)</span> 和 <span
+class="math inline">\(N\)</span> 的输入字母表是相同的，即是 <span
+class="math inline">\(\Sigma\)</span>。<br />
+(3) 转换函数 <span class="math inline">\(D\)</span> 是这样定义的。</p>
+<p><span class="math display">\[
+D([S_1, S_2, ..., S_j], a) = [R_1, R_2, ..., R_j]
+\]</span></p>
+<p>其中 $(move([S_1, S_2, $ $... S_j], a)) = $ <span
+class="math inline">\([R_1, R_2, ..., R_j]\)</span>。<br />
+(4) $S_0 = $ <span class="math inline">\(\varepsilon
+\text{-closure}(K_0)\)</span> 为 <span class="math inline">\(M\)</span>
+的开始状态。<br />
+(5) $S_t = $ <span class="math inline">\(\{ [S_j, S_k,...,S_e]
+\}\)</span>，其中 <span class="math inline">\([S_j,
+S_k,...,S_e]\)</span> <span class="math inline">\(\in S\)</span> 且
+<span class="math inline">\(\{ S_j, S_k,...,S_e \}\)</span> <span
+class="math inline">\(\cap \; K_t \neq \varnothing \}\)</span></p>
+<p>图 1 是构造 <span class="math inline">\(\text{NFA } N\)</span> 的状态
+<span class="math inline">\(K\)</span>
+的子集的算法。假定所构造的子集族为 <span
+class="math inline">\(C\)</span>，即 <span class="math inline">\(C =
+(T_1, T_2,...,T_i)\)</span>，其中 <span class="math inline">\(T_1,
+T_2,...,T_i\)</span> 为状态 <span class="math inline">\(K\)</span>
+的子集。</p>
+<p>这个概念必须要用具体的例子辅助理解才能够最终掌握，所以，这里就举一个例子：应用上面的算法对下面的图
+2 的 <span class="math inline">\(\text{NFA } N\)</span> 构造子集。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211004145119.png" srcset="/img/loading.gif" lazyload
+alt="图 2" /></p>
 <p>步骤如下：</p>
-<p>(1) 首先计算 $\varepsilon \text{-closure(0)}$，令 $T_0 &#x3D; \varepsilon \text{-closure(0)}$ $&#x3D;{0, 1, 2, 4, 7}$，$T_0$ 未被标记，它现在是子集族 $C$ 的唯一成员。<br>(2) 标记 $T_0$；计算 $move(T_0, a) &#x3D; $ ${ 3, 8 }$。令 $T_1 &#x3D; $ $\varepsilon \text{-closure} (move(T_0, a))$ $&#x3D; {1, 2, 3, 4, 6, 7, 8}$，将 $T_1$ 加入 $C$ 中，$T_1$ 未被标记。<br>计算 $move(T_0, b) &#x3D; $ ${ 5 }$。令 $T_2 &#x3D; \varepsilon$ $\text{-closure} (move(T_0, b))$ $&#x3D; { 1, 2, 4, 5, 6, 7 }$，将 $T_2$ 加入 $C$ 中，它未被标记。<br>(3) 标记 $T_1$；计算 $move(T_1, a) &#x3D; $ ${ 3, 8 }$。计算 $\varepsilon \text{-closure} (move(T_1, a))$，结果为 ${ 1, 2, 3, 4, 6, 7, 8 }$，即 $T_1$，$T_1$ 已在 $C$ 中。<br>计算 $move(T_1, b) &#x3D; $ ${ 5, 9 }$。 计算 $\varepsilon \text{-closure} (move(T_1, b))$，结果为 ${ 1, 2, 4, 5, 6, 7, 9 }$，令其为 $T_3$，加至 $C$ 中，它未被标记。<br>(4) （从这里开始，就不单独计算 $move$ 的结果了）标记 $T_2$，计算 $\varepsilon \text{-closure} (move(T_2, a))$，结果为 ${1, 2, 3, 4, 6, 7, 8}$，即 $T_1$，$T_1$ 已在 $C$ 中。<br>计算 $\varepsilon \text{-closure} (move(T_2, b))$，结果为 ${1, 2, 4, 5, 6, 7}$，即 $T_2$，$T_2$ 已在 $C$ 中。<br>(5) 标记 $T_3$，计算 $\varepsilon \text{-closure} (move(T_3, a))$，结果为 ${1, 2, 3, 4, 6, 7, 8}$，即 $T_1$。<br>计算 $\varepsilon \text{-closure} (move(T_3, b))$，结果为 ${1, 2, 4, 5, 6, 7, 10}$，令其为 $T_4$，加入 $C$ 中，$T_4$ 未被标记。<br>(6) 标记 $T_4$，计算 $\varepsilon \text{-closure} (move(T_4, a))$，结果为 ${1, 2, 3, 4, 6, 7, 8}$，即 T_1$$。<br>计算 $\varepsilon \text{-closure} (move(T_4, b))$，结果为 ${1, 2, 4, 5, 6, 7}$，即 $T_2$。<br>至此，算法终止，共构造了 5 个子集：</p>
-<p>$$<br>\begin{split}<br>T_0 &amp;&#x3D; {0, 1, 2, 4, 7} \<br>T_1 &amp;&#x3D; {1, 2, 3, 4, 6, 7, 8} \<br>T_2 &amp;&#x3D; { 1, 2, 4, 5, 6, 7 } \<br>T_3 &amp;&#x3D; { 1, 2, 4, 5, 6, 7, 9 } \<br>T_4 &amp;&#x3D; {1, 2, 4, 5, 6, 7, 10}<br>\end{split}<br>$$</p>
-<p>那么，图 2 的 $\text{NFA } N$ 构造的 $\text{DFA } M$ 如下：</p>
-<p>$$<br>\begin{split}<br>(1); &amp;S &#x3D; {[T_0], [T_1], [T_2], [T_3], [T_4]} \<br>(2); &amp;\Sigma &#x3D; {a, b} \<br>(3); &amp;D([T_0], a) &#x3D; [T_1] \<br>   ; &amp;D([T_0], b) &#x3D; [T_2] \<br>   ; &amp;D([T_1], a) &#x3D; [T_1] \<br>   ; &amp;D([T_1], b) &#x3D; [T_3] \<br>   ; &amp;D([T_2], a) &#x3D; [T_1] \<br>   ; &amp;D([T_2], b) &#x3D; [T_2] \<br>   ; &amp;D([T_3], a) &#x3D; [T_1] \<br>   ; &amp;D([T_3], b) &#x3D; [T_4] \<br>   ; &amp;D([T_4], a) &#x3D; [T_1] \<br>   ; &amp;D([T_4], b) &#x3D; [T_2] \<br>(4); &amp;S_0 &#x3D; [T_0] \<br>(5); &amp;S_t &#x3D; [T_4]<br>\end{split}<br>$$</p>
+<p>(1) 首先计算 <span class="math inline">\(\varepsilon
+\text{-closure(0)}\)</span>，令 <span class="math inline">\(T_0 =
+\varepsilon \text{-closure(0)}\)</span> <span
+class="math inline">\(=\{0, 1, 2, 4, 7\}\)</span>，<span
+class="math inline">\(T_0\)</span> 未被标记，它现在是子集族 <span
+class="math inline">\(C\)</span> 的唯一成员。<br />
+(2) 标记 <span class="math inline">\(T_0\)</span>；计算 $move(T_0, a) =
+$ <span class="math inline">\(\{ 3, 8 \}\)</span>。令 $T_1 = $ <span
+class="math inline">\(\varepsilon \text{-closure} (move(T_0,
+a))\)</span> <span class="math inline">\(= \{1, 2, 3, 4, 6, 7,
+8\}\)</span>，将 <span class="math inline">\(T_1\)</span> 加入 <span
+class="math inline">\(C\)</span> 中，<span
+class="math inline">\(T_1\)</span> 未被标记。<br />
+计算 $move(T_0, b) = $ <span class="math inline">\(\{ 5 \}\)</span>。令
+<span class="math inline">\(T_2 = \varepsilon\)</span> <span
+class="math inline">\(\text{-closure} (move(T_0, b))\)</span> <span
+class="math inline">\(= \{ 1, 2, 4, 5, 6, 7 \}\)</span>，将 <span
+class="math inline">\(T_2\)</span> 加入 <span
+class="math inline">\(C\)</span> 中，它未被标记。<br />
+(3) 标记 <span class="math inline">\(T_1\)</span>；计算 $move(T_1, a) =
+$ <span class="math inline">\(\{ 3, 8 \}\)</span>。计算 <span
+class="math inline">\(\varepsilon \text{-closure} (move(T_1,
+a))\)</span>，结果为 <span class="math inline">\(\{ 1, 2, 3, 4, 6, 7, 8
+\}\)</span>，即 <span class="math inline">\(T_1\)</span>，<span
+class="math inline">\(T_1\)</span> 已在 <span
+class="math inline">\(C\)</span> 中。<br />
+计算 $move(T_1, b) = $ <span class="math inline">\(\{ 5, 9 \}\)</span>。
+计算 <span class="math inline">\(\varepsilon \text{-closure} (move(T_1,
+b))\)</span>，结果为 <span class="math inline">\(\{ 1, 2, 4, 5, 6, 7, 9
+\}\)</span>，令其为 <span class="math inline">\(T_3\)</span>，加至 <span
+class="math inline">\(C\)</span> 中，它未被标记。<br />
+(4) （从这里开始，就不单独计算 <span class="math inline">\(move\)</span>
+的结果了）标记 <span class="math inline">\(T_2\)</span>，计算 <span
+class="math inline">\(\varepsilon \text{-closure} (move(T_2,
+a))\)</span>，结果为 <span class="math inline">\(\{1, 2, 3, 4, 6, 7,
+8\}\)</span>，即 <span class="math inline">\(T_1\)</span>，<span
+class="math inline">\(T_1\)</span> 已在 <span
+class="math inline">\(C\)</span> 中。<br />
+计算 <span class="math inline">\(\varepsilon \text{-closure} (move(T_2,
+b))\)</span>，结果为 <span class="math inline">\(\{1, 2, 4, 5, 6,
+7\}\)</span>，即 <span class="math inline">\(T_2\)</span>，<span
+class="math inline">\(T_2\)</span> 已在 <span
+class="math inline">\(C\)</span> 中。<br />
+(5) 标记 <span class="math inline">\(T_3\)</span>，计算 <span
+class="math inline">\(\varepsilon \text{-closure} (move(T_3,
+a))\)</span>，结果为 <span class="math inline">\(\{1, 2, 3, 4, 6, 7,
+8\}\)</span>，即 <span class="math inline">\(T_1\)</span>。<br />
+计算 <span class="math inline">\(\varepsilon \text{-closure} (move(T_3,
+b))\)</span>，结果为 <span class="math inline">\(\{1, 2, 4, 5, 6, 7,
+10\}\)</span>，令其为 <span class="math inline">\(T_4\)</span>，加入
+<span class="math inline">\(C\)</span> 中，<span
+class="math inline">\(T_4\)</span> 未被标记。<br />
+(6) 标记 <span class="math inline">\(T_4\)</span>，计算 <span
+class="math inline">\(\varepsilon \text{-closure} (move(T_4,
+a))\)</span>，结果为 <span class="math inline">\(\{1, 2, 3, 4, 6, 7,
+8\}\)</span>，即 T_1$$。<br />
+计算 <span class="math inline">\(\varepsilon \text{-closure} (move(T_4,
+b))\)</span>，结果为 <span class="math inline">\(\{1, 2, 4, 5, 6,
+7\}\)</span>，即 <span class="math inline">\(T_2\)</span>。<br />
+至此，算法终止，共构造了 5 个子集：</p>
+<p><span class="math display">\[
+\begin{split}
+T_0 &amp;= \{0, 1, 2, 4, 7\} \\
+T_1 &amp;= \{1, 2, 3, 4, 6, 7, 8\} \\
+T_2 &amp;= \{ 1, 2, 4, 5, 6, 7 \} \\
+T_3 &amp;= \{ 1, 2, 4, 5, 6, 7, 9 \} \\
+T_4 &amp;= \{1, 2, 4, 5, 6, 7, 10\}
+\end{split}
+\]</span></p>
+<p>那么，图 2 的 <span class="math inline">\(\text{NFA } N\)</span>
+构造的 <span class="math inline">\(\text{DFA } M\)</span> 如下：</p>
+<p><span class="math display">\[
+\begin{split}
+(1)\; &amp;S = \{[T_0], [T_1], [T_2], [T_3], [T_4]\} \\
+(2)\; &amp;\Sigma = \{a, b\} \\
+(3)\; &amp;D([T_0], a) = [T_1] \\
+   \; &amp;D([T_0], b) = [T_2] \\
+   \; &amp;D([T_1], a) = [T_1] \\
+   \; &amp;D([T_1], b) = [T_3] \\
+   \; &amp;D([T_2], a) = [T_1] \\
+   \; &amp;D([T_2], b) = [T_2] \\
+   \; &amp;D([T_3], a) = [T_1] \\
+   \; &amp;D([T_3], b) = [T_4] \\
+   \; &amp;D([T_4], a) = [T_1] \\
+   \; &amp;D([T_4], b) = [T_2] \\
+(4)\; &amp;S_0 = [T_0] \\
+(5)\; &amp;S_t = [T_4]
+\end{split}
+\]</span></p>
 <blockquote>
 <p>何为有穷自动机的无用状态？</p>
 </blockquote>
 <p>所谓有穷自动机的无用状态，是指这样的状态：从该自动机的开始状态出发，任何输入串也不能到达的那个状态，或者从这个状态没有通路到达终态。</p>
 <blockquote>
-<p>在有穷自动机中，两个状态 $s$ 和 $t$ 等价的条件？</p>
+<p>在有穷自动机中，两个状态 <span class="math inline">\(s\)</span> 和
+<span class="math inline">\(t\)</span> 等价的条件？</p>
 </blockquote>
 <ul>
-<li>一致性条件——状态 $s$ 和 $t$ 必须同时为可接受状态（终态）或不可接受状态（非终态）。</li>
-<li>蔓延性条件——对于所有输入符号，状态 $s$ 和状态 $t$ 必须转换到等价的状态里。</li>
+<li>一致性条件——状态 <span class="math inline">\(s\)</span> 和 <span
+class="math inline">\(t\)</span>
+必须同时为可接受状态（终态）或不可接受状态（非终态）。</li>
+<li>蔓延性条件——对于所有输入符号，状态 <span
+class="math inline">\(s\)</span> 和状态 <span
+class="math inline">\(t\)</span> 必须转换到等价的状态里。</li>
 </ul>
 <blockquote>
 <p>正规式和有穷自动机的等价性如何说明？</p>
 </blockquote>
 <p>可由以下两点说明：</p>
 <ul>
-<li>对于 $\Sigma$ 上的 $\textrm{NFA M}$，可以构造一个 $\Sigma$ 上的正规式，使得 $L(r) &#x3D; L(M)$。</li>
-<li>对于 $\Sigma$ 上的每个正规式 $r$，可以构造一个 $\Sigma$ 上的 $\textrm{NFA M}$，使得 $L(M) &#x3D; L(r)$。</li>
+<li>对于 <span class="math inline">\(\Sigma\)</span> 上的 <span
+class="math inline">\(\textrm{NFA M}\)</span>，可以构造一个 <span
+class="math inline">\(\Sigma\)</span> 上的正规式，使得 <span
+class="math inline">\(L(r) = L(M)\)</span>。</li>
+<li>对于 <span class="math inline">\(\Sigma\)</span> 上的每个正规式
+<span class="math inline">\(r\)</span>，可以构造一个 <span
+class="math inline">\(\Sigma\)</span> 上的 <span
+class="math inline">\(\textrm{NFA M}\)</span>，使得 <span
+class="math inline">\(L(M) = L(r)\)</span>。</li>
 </ul>
 <blockquote>
-<p>如何为 $\Sigma$ 上的 $\textrm{NFA M}$ 构造相应的正规式 $r$？</p>
+<p>如何为 <span class="math inline">\(\Sigma\)</span> 上的 <span
+class="math inline">\(\textrm{NFA M}\)</span> 构造相应的正规式 <span
+class="math inline">\(r\)</span>？</p>
 </blockquote>
-<p>第 1 步，在 $M$ 的状态转换图上加进两个结点，一个为 $x$ 结点，一个为 $y$ 结点。从 $x$ 结点用 $\varepsilon$ 弧连接到 $M$ 的所有初态结点，从 $M$ 的所有终态结点用 $\varepsilon$ 弧连接到 $y$ 结点。形成一个与 $M$ 等价的 $M^{‘}$，$M^{‘}$ 只有一个初态 $x$ 和一个终态 $y$。<br>第 2 步，逐步消去 $M^{‘}$ 中的所有结点，直至只剩下 $x$ 和 $y$ 结点。在消去的过程中，逐步用正规式来标记弧。其消去的规则如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/draft06.drawio.png" srcset="/img/loading.gif" lazyload></p>
-<p>最后 $x$ 和 $y$ 结点间的弧上的标记则为所求的正规式 $r$。</p>
+<p>第 1 步，在 <span class="math inline">\(M\)</span>
+的状态转换图上加进两个结点，一个为 <span
+class="math inline">\(x\)</span> 结点，一个为 <span
+class="math inline">\(y\)</span> 结点。从 <span
+class="math inline">\(x\)</span> 结点用 <span
+class="math inline">\(\varepsilon\)</span> 弧连接到 <span
+class="math inline">\(M\)</span> 的所有初态结点，从 <span
+class="math inline">\(M\)</span> 的所有终态结点用 <span
+class="math inline">\(\varepsilon\)</span> 弧连接到 <span
+class="math inline">\(y\)</span> 结点。形成一个与 <span
+class="math inline">\(M\)</span> 等价的 <span
+class="math inline">\(M^{&#39;}\)</span>，<span
+class="math inline">\(M^{&#39;}\)</span> 只有一个初态 <span
+class="math inline">\(x\)</span> 和一个终态 <span
+class="math inline">\(y\)</span>。<br />
+第 2 步，逐步消去 <span class="math inline">\(M^{&#39;}\)</span>
+中的所有结点，直至只剩下 <span class="math inline">\(x\)</span> 和 <span
+class="math inline">\(y\)</span>
+结点。在消去的过程中，逐步用正规式来标记弧。其消去的规则如下：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/draft06.drawio.png" srcset="/img/loading.gif" lazyload /></p>
+<p>最后 <span class="math inline">\(x\)</span> 和 <span
+class="math inline">\(y\)</span> 结点间的弧上的标记则为所求的正规式
+<span class="math inline">\(r\)</span>。</p>
 <blockquote>
-<p>如何从 $\Sigma$ 上的一个正规式 $r$ 构造一个 $\textrm{NFA M}$，使得 $L(M) &#x3D; L(r)$？</p>
+<p>如何从 <span class="math inline">\(\Sigma\)</span> 上的一个正规式
+<span class="math inline">\(r\)</span> 构造一个 <span
+class="math inline">\(\textrm{NFA M}\)</span>，使得 <span
+class="math inline">\(L(M) = L(r)\)</span>？</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/draft07.drawio.png" srcset="/img/loading.gif" lazyload></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/draft07.drawio.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
-<p>如何从正规文法 $G$ 直接构造一个有穷自动机 $\text{NFA } M$，使得 $L(M) &#x3D; L(G)$？</p>
+<p>如何从正规文法 <span class="math inline">\(G\)</span>
+直接构造一个有穷自动机 <span class="math inline">\(\text{NFA }
+M\)</span>，使得 <span class="math inline">\(L(M) = L(G)\)</span>？</p>
 </blockquote>
-<p>(1) $M$ 的字母表与 $G$ 的终结符集相同。<br>(2) 为 $G$ 中的每个非终结符生成 $M$ 的一个状态（不妨取成相同的名字），$G$ 的开始符 $S$ 是 $M$ 的开始状态 $S$。<br>(3) 增加一个新状态 $Z$，作为 $M$ 的终态。<br>(4) 对 $G$ 中的形如 $A \rightarrow tB$ 的规则（其中 $t$ 为终结符或 $\varepsilon$，$A$ 和 $B$ 为非终结符的产生式），构造 $M$ 的一个转换函数 $f(A, t) &#x3D; B$。<br>(5) 对 $G$ 中形如 $A \rightarrow t$ 的产生式，构造 $M$ 的一个转换函数 $f(A, t) &#x3D; Z$。</p>
-<h1 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h1><blockquote>
+<p>(1) <span class="math inline">\(M\)</span> 的字母表与 <span
+class="math inline">\(G\)</span> 的终结符集相同。<br />
+(2) 为 <span class="math inline">\(G\)</span> 中的每个非终结符生成 <span
+class="math inline">\(M\)</span> 的一个状态（不妨取成相同的名字），<span
+class="math inline">\(G\)</span> 的开始符 <span
+class="math inline">\(S\)</span> 是 <span
+class="math inline">\(M\)</span> 的开始状态 <span
+class="math inline">\(S\)</span>。<br />
+(3) 增加一个新状态 <span class="math inline">\(Z\)</span>，作为 <span
+class="math inline">\(M\)</span> 的终态。<br />
+(4) 对 <span class="math inline">\(G\)</span> 中的形如 <span
+class="math inline">\(A \rightarrow tB\)</span> 的规则（其中 <span
+class="math inline">\(t\)</span> 为终结符或 <span
+class="math inline">\(\varepsilon\)</span>，<span
+class="math inline">\(A\)</span> 和 <span
+class="math inline">\(B\)</span> 为非终结符的产生式），构造 <span
+class="math inline">\(M\)</span> 的一个转换函数 <span
+class="math inline">\(f(A, t) = B\)</span>。<br />
+(5) 对 <span class="math inline">\(G\)</span> 中形如 <span
+class="math inline">\(A \rightarrow t\)</span> 的产生式，构造 <span
+class="math inline">\(M\)</span> 的一个转换函数 <span
+class="math inline">\(f(A, t) = Z\)</span>。</p>
+<h1 id="第四章">第四章</h1>
+<blockquote>
 <p>何为确定的自顶向下分析方法？</p>
 </blockquote>
 <p>确定的自顶向下分析方法，是从文法的开始符号出发，考虑如何根据当前的输入符号（单词符号）唯一地确定选用哪个产生式替换相应非终结符以往下推导，或如何构造一棵相应的语法树。</p>
 <blockquote>
-<p>如何理解 $\text{FIRST()}$？</p>
+<p>如何理解 <span class="math inline">\(\text{FIRST()}\)</span>？</p>
 </blockquote>
-<p>设 $G &#x3D; (V_T, V_N, P, S)$ 是上下文无关文法。</p>
-<p>$$<br>\text{FIRST}(\alpha) &#x3D; {a|\alpha \stackrel{<em>}{\Rightarrow} \alpha \beta, \quad a \in V_T, \alpha, \beta \in V^</em>}<br>$$</p>
-<p>若 $\alpha \stackrel{*}{\Rightarrow} \epsilon$，则规定 $\epsilon \in \text{FIRST}(\alpha)$。称 $\text{FIRST}(\alpha)$ 为 $\alpha$ 的<strong>开始符号集</strong>或<strong>首符号集</strong>。</p>
+<p>设 <span class="math inline">\(G = (V_T, V_N, P, S)\)</span>
+是上下文无关文法。</p>
+<p><span class="math display">\[
+\text{FIRST}(\alpha) = \{a|\alpha \stackrel{*}{\Rightarrow} \alpha
+\beta, \quad a \in V_T, \alpha, \beta \in V^*\}
+\]</span></p>
+<p>若 <span class="math inline">\(\alpha \stackrel{*}{\Rightarrow}
+\epsilon\)</span>，则规定 <span class="math inline">\(\epsilon \in
+\text{FIRST}(\alpha)\)</span>。称 <span
+class="math inline">\(\text{FIRST}(\alpha)\)</span> 为 <span
+class="math inline">\(\alpha\)</span>
+的<strong>开始符号集</strong>或<strong>首符号集</strong>。</p>
 <blockquote>
-<p>如何理解 $\text{FOLLOW()}$？</p>
+<p>如何理解 <span class="math inline">\(\text{FOLLOW()}\)</span>？</p>
 </blockquote>
-<p>设 $G &#x3D; (V_T, V_N, P, S)$ 是上下文无关文法，$A \in V_N$，$S$ 是开始符号。</p>
-<p>$$<br>\text{FOLLOW}(A) &#x3D; {a|S \stackrel{<em>}{\Rightarrow} \mu A \beta ; 且 ; a \in V_T, a \in \text{FIRST}(\beta), \mu \in V_T^</em>, \beta \in V^{+}}<br>$$</p>
-<p>若 $S \stackrel{<em>}{\Rightarrow} \mu A \beta$，且 $\beta \stackrel{</em>}{\Rightarrow} \epsilon$，则 $＃ \in \text{FOLLOW}(A)$。</p>
-<p>$$<br>\text{FOLLOW}(A) &#x3D; {a|S \stackrel{*}{\Rightarrow} \cdots Aa \cdots, ; a \in V_T}<br>$$</p>
-<p>若有 $S \stackrel{*}{\Rightarrow} \cdots A$，则规定 $＃ \in \text{FOLLOW}(A)$。</p>
-<p>这里用 $＃$ 作为输入串的结束符，也称为输入串符号。</p>
+<p>设 <span class="math inline">\(G = (V_T, V_N, P, S)\)</span>
+是上下文无关文法，<span class="math inline">\(A \in V_N\)</span>，<span
+class="math inline">\(S\)</span> 是开始符号。</p>
+<p><span class="math display">\[
+\text{FOLLOW}(A) = \{a|S \stackrel{*}{\Rightarrow} \mu A \beta \; 且 \;
+a \in V_T, a \in \text{FIRST}(\beta), \mu \in V_T^*, \beta \in V^{+}\}
+\]</span></p>
+<p>若 <span class="math inline">\(S \stackrel{*}{\Rightarrow} \mu A
+\beta\)</span>，且 <span class="math inline">\(\beta
+\stackrel{*}{\Rightarrow} \epsilon\)</span>，则 <span
+class="math inline">\(＃ \in \text{FOLLOW}(A)\)</span>。</p>
+<p><span class="math display">\[
+\text{FOLLOW}(A) = \{a|S \stackrel{*}{\Rightarrow} \cdots Aa \cdots, \;
+a \in V_T\}
+\]</span></p>
+<p>若有 <span class="math inline">\(S \stackrel{*}{\Rightarrow} \cdots
+A\)</span>，则规定 <span class="math inline">\(＃ \in
+\text{FOLLOW}(A)\)</span>。</p>
+<p>这里用 <span class="math inline">\(＃\)</span>
+作为输入串的结束符，也称为输入串符号。</p>
 <p>因此当文法中含有形如</p>
-<p>$$<br>\begin{split}<br>A \rightarrow \alpha \<br>A \rightarrow \beta<br>\end{split}<br>$$</p>
-<p>的产生式时，其中 $A \in V_N, \alpha、\beta \in V^*$，若 $\alpha$ 和 $\beta$ 不能同时推导出空，假定 $\alpha \stackrel{<em>}{\nRightarrow} \epsilon$ $, \beta \stackrel{</em>}{\Rightarrow} \epsilon$，则当 $\text{FIRST}(\alpha)$ $\cap$ $(\text{FIRST}(\beta)$ $\cup$ $\text{FOLLOW}(A)) &#x3D; \varnothing$ 时，对于非终结符 $A$ 的替换仍可唯一地确定候选。</p>
+<p><span class="math display">\[
+\begin{split}
+A \rightarrow \alpha \\
+A \rightarrow \beta
+\end{split}
+\]</span></p>
+<p>的产生式时，其中 <span class="math inline">\(A \in V_N, \alpha、\beta
+\in V^*\)</span>，若 <span class="math inline">\(\alpha\)</span> 和
+<span class="math inline">\(\beta\)</span> 不能同时推导出空，假定 <span
+class="math inline">\(\alpha \stackrel{*}{\nRightarrow}
+\epsilon\)</span> <span class="math inline">\(, \beta
+\stackrel{*}{\Rightarrow} \epsilon\)</span>，则当 <span
+class="math inline">\(\text{FIRST}(\alpha)\)</span> <span
+class="math inline">\(\cap\)</span> <span
+class="math inline">\((\text{FIRST}(\beta)\)</span> <span
+class="math inline">\(\cup\)</span> <span
+class="math inline">\(\text{FOLLOW}(A)) = \varnothing\)</span>
+时，对于非终结符 <span class="math inline">\(A\)</span>
+的替换仍可唯一地确定候选。</p>
 <blockquote>
-<p>如何理解 $\text{SELECT()}$？</p>
+<p>如何理解 <span class="math inline">\(\text{SELECT()}\)</span>？</p>
 </blockquote>
-<p>给定上下文无关文法的产生式 $A \rightarrow \alpha$ $, $ $A \in V_N, \alpha \in V^*$，</p>
+<p>给定上下文无关文法的产生式 <span class="math inline">\(A \rightarrow
+\alpha\)</span> $, $ <span class="math inline">\(A \in V_N, \alpha \in
+V^*\)</span>，</p>
 <ul>
-<li>若 $\alpha \stackrel{*}{\nRightarrow} \varepsilon$，则 $\text{SELECT}(A \rightarrow \alpha)$ $&#x3D;$ $\text{FIRST}(\alpha)$。</li>
-<li>若 $\alpha \stackrel{*}{\Rightarrow} \varepsilon$，则 $\text{SELECT}(A \rightarrow \alpha)$ $&#x3D;$ $(\text{FIRST}(\alpha) - {\varepsilon})$ $\cup$ $\text{FOLLOW}(A)$。</li>
+<li>若 <span class="math inline">\(\alpha \stackrel{*}{\nRightarrow}
+\varepsilon\)</span>，则 <span class="math inline">\(\text{SELECT}(A
+\rightarrow \alpha)\)</span> <span class="math inline">\(=\)</span>
+<span class="math inline">\(\text{FIRST}(\alpha)\)</span>。</li>
+<li>若 <span class="math inline">\(\alpha \stackrel{*}{\Rightarrow}
+\varepsilon\)</span>，则 <span class="math inline">\(\text{SELECT}(A
+\rightarrow \alpha)\)</span> <span class="math inline">\(=\)</span>
+<span class="math inline">\((\text{FIRST}(\alpha) -
+\{\varepsilon\})\)</span> <span class="math inline">\(\cup\)</span>
+<span class="math inline">\(\text{FOLLOW}(A)\)</span>。</li>
 </ul>
 <blockquote>
-<p>何为 $\text{LL}(1)$ 文法？</p>
+<p>何为 <span class="math inline">\(\text{LL}(1)\)</span> 文法？</p>
 </blockquote>
-<p>一个上下文无关文法是 $\text{LL}(1)$ 的充分必要条件是,</p>
-<p>对每个非终结符 $A$ 的两个不同产生式，$A \rightarrow \alpha$ $,$ $A \rightarrow \beta$，满足</p>
-<p>$$<br>\text{SELECT}(A \rightarrow \alpha) \cap \text{SELECT}(A \rightarrow \beta) &#x3D; \varnothing<br>$$</p>
-<p>其中 $\alpha、\beta$ 不同时能 $\stackrel{*}{\Rightarrow} \epsilon$。</p>
-<p>$\text{LL}(1)$ 的含义是：第 1 个 $\text{L}$ 表明自顶向下分析是从左向右扫描输入串，第 2 个 $\text{L}$ 表明分析过程中将用最左推导，1 表明只需要向右看一个符号便可决定如何推导，即选择哪个产生式（规则）进行推导。</p>
+<p>一个上下文无关文法是 <span
+class="math inline">\(\text{LL}(1)\)</span> 的充分必要条件是,</p>
+<p>对每个非终结符 <span class="math inline">\(A\)</span>
+的两个不同产生式，<span class="math inline">\(A \rightarrow
+\alpha\)</span> <span class="math inline">\(,\)</span> <span
+class="math inline">\(A \rightarrow \beta\)</span>，满足</p>
+<p><span class="math display">\[
+\text{SELECT}(A \rightarrow \alpha) \cap \text{SELECT}(A \rightarrow
+\beta) = \varnothing
+\]</span></p>
+<p>其中 <span class="math inline">\(\alpha、\beta\)</span> 不同时能
+<span class="math inline">\(\stackrel{*}{\Rightarrow}
+\epsilon\)</span>。</p>
+<p><span class="math inline">\(\text{LL}(1)\)</span> 的含义是：第 1 个
+<span class="math inline">\(\text{L}\)</span>
+表明自顶向下分析是从左向右扫描输入串，第 2 个 <span
+class="math inline">\(\text{L}\)</span> 表明分析过程中将用最左推导，1
+表明只需要向右看一个符号便可决定如何推导，即选择哪个产生式（规则）进行推导。</p>
 <blockquote>
-<p>如何判别某文法是否是 $\text{LL}(1)$ 文法？</p>
+<p>如何判别某文法是否是 <span
+class="math inline">\(\text{LL}(1)\)</span> 文法？</p>
 </blockquote>
-<p>首先计算 $\text{FIRST}$、$\text{FOLLOW}$、$\text{SELECT}$ 集合，然后根据定义判别文法是否是 $\text{LL}(1)$ 文法。</p>
+<p>首先计算 <span class="math inline">\(\text{FIRST}\)</span>、<span
+class="math inline">\(\text{FOLLOW}\)</span>、<span
+class="math inline">\(\text{SELECT}\)</span>
+集合，然后根据定义判别文法是否是 <span
+class="math inline">\(\text{LL}(1)\)</span> 文法。</p>
 <blockquote>
-<p>如何计算一个文法符号 $X \in V$ 的 $\text{FIRST}$ 集 $\text{FIRST}(X)$？</p>
+<p>如何计算一个文法符号 <span class="math inline">\(X \in V\)</span> 的
+<span class="math inline">\(\text{FIRST}\)</span> 集 <span
+class="math inline">\(\text{FIRST}(X)\)</span>？</p>
 </blockquote>
-<p>① 若 $X \in V_T$，则 $\text{FIRST}(X) &#x3D; {X}$。<br>② 若 $X \in V_N$，且有产生式 $X \rightarrow a \cdots$ $,$ $a \in V_T$，则 $a \in \text{FIRST}(X)$。<br>③ 若 $X \in V_N$，$X \rightarrow \varepsilon$，则 $\varepsilon \in \text{FIRST}(X)$。<br>④ 若 $X, Y_1, Y_2,$ $\cdots$ $, Y_n \in V_N$，而有产生式 $X \rightarrow Y_1Y_2 \cdots Y_n$。当 $Y_1, Y_2, \cdots, Y_{i - 1}$ $\stackrel{*}{\Rightarrow} \varepsilon$ 时（其中 $1 \leqslant i \leqslant n$），则 $\text{FIRST}(Y_1) - {\varepsilon},$ $\text{FIRST}(Y_2) - {\varepsilon},$ $\cdots$ $, \text{FIRST}(Y_{i - 1}) - {\varepsilon},$ $\text{FIRST}(Y_i)$ 都包含在 $\text{FIRST}(X)$ 中，即</p>
-<p>$$<br>\text{FIRST}(X) &#x3D; (\text{FIRST}(Y_1) \cup \text{FIRST}(Y_2) \cdots \cup \text{FIRST}(Y_i)) - {\varepsilon}<br>$$</p>
-<p>⑤ 当 ④ 中所有 $Y_i \stackrel{*}{\Rightarrow} \varepsilon$ $,$ $(i &#x3D; 1, 2, \cdots, n)$，则 </p>
-<p>$$<br>\text{FIRST}(X) &#x3D; (\text{FIRST}(Y_1) \cup \text{FIRST}(Y_2) \cdots \cup \text{FIRST}(Y_n)) \cup {\varepsilon}<br>$$</p>
-<p>反复使用上述 ②~⑤ 步，直到每个符号的 $\text{FIRST}$ 集合不再增大为止。</p>
+<p>① 若 <span class="math inline">\(X \in V_T\)</span>，则 <span
+class="math inline">\(\text{FIRST}(X) = \{X\}\)</span>。<br />
+② 若 <span class="math inline">\(X \in V_N\)</span>，且有产生式 <span
+class="math inline">\(X \rightarrow a \cdots\)</span> <span
+class="math inline">\(,\)</span> <span class="math inline">\(a \in
+V_T\)</span>，则 <span class="math inline">\(a \in
+\text{FIRST}(X)\)</span>。<br />
+③ 若 <span class="math inline">\(X \in V_N\)</span>，<span
+class="math inline">\(X \rightarrow \varepsilon\)</span>，则 <span
+class="math inline">\(\varepsilon \in \text{FIRST}(X)\)</span>。<br />
+④ 若 <span class="math inline">\(X, Y_1, Y_2,\)</span> <span
+class="math inline">\(\cdots\)</span> <span class="math inline">\(, Y_n
+\in V_N\)</span>，而有产生式 <span class="math inline">\(X \rightarrow
+Y_1Y_2 \cdots Y_n\)</span>。当 <span class="math inline">\(Y_1, Y_2,
+\cdots, Y_{i - 1}\)</span> <span
+class="math inline">\(\stackrel{*}{\Rightarrow} \varepsilon\)</span>
+时（其中 <span class="math inline">\(1 \leqslant i \leqslant
+n\)</span>），则 <span class="math inline">\(\text{FIRST}(Y_1) -
+\{\varepsilon\},\)</span> <span class="math inline">\(\text{FIRST}(Y_2)
+- \{\varepsilon\},\)</span> <span class="math inline">\(\cdots\)</span>
+<span class="math inline">\(, \text{FIRST}(Y_{i - 1}) -
+\{\varepsilon\},\)</span> <span
+class="math inline">\(\text{FIRST}(Y_i)\)</span> 都包含在 <span
+class="math inline">\(\text{FIRST}(X)\)</span> 中，即</p>
+<p><span class="math display">\[
+\text{FIRST}(X) = (\text{FIRST}(Y_1) \cup \text{FIRST}(Y_2) \cdots \cup
+\text{FIRST}(Y_i)) - \{\varepsilon\}
+\]</span></p>
+<p>⑤ 当 ④ 中所有 <span class="math inline">\(Y_i
+\stackrel{*}{\Rightarrow} \varepsilon\)</span> <span
+class="math inline">\(,\)</span> <span class="math inline">\((i = 1, 2,
+\cdots, n)\)</span>，则</p>
+<p><span class="math display">\[
+\text{FIRST}(X) = (\text{FIRST}(Y_1) \cup \text{FIRST}(Y_2) \cdots \cup
+\text{FIRST}(Y_n)) \cup \{\varepsilon\}
+\]</span></p>
+<p>反复使用上述 ②~⑤ 步，直到每个符号的 <span
+class="math inline">\(\text{FIRST}\)</span> 集合不再增大为止。</p>
 <blockquote>
-<p>如何计算一个符号串的 $\text{FIRST}$ 集合？</p>
+<p>如何计算一个符号串的 <span
+class="math inline">\(\text{FIRST}\)</span> 集合？</p>
 </blockquote>
-<p>若符号串 $\alpha \in V^*$ $,$ $\alpha &#x3D; X_1 X_2 \cdots X_n$，当 $X_1$ 不能 $\stackrel{*}{\Rightarrow} \varepsilon$，则置 $\text{FIRST}(\alpha) &#x3D; \text{FIRST}(X_1)$。</p>
-<p>若对任何 $j(1 \leqslant j \leqslant i - 1,$ $2 \leqslant i \leqslant n)$ $,$ $\varepsilon \in \text{FIRST}(X_j)$ $,$ $\varepsilon \notin \text{FIRST}(X_i)$，则</p>
-<p>$$<br>\text{FIRST}(\alpha) &#x3D; \bigcup_{j &#x3D; 1}^{i - 1}(\text{FIRST}(X_j) - {\varepsilon}) \cup \text{FIRST}(X_i)<br>$$</p>
-<p>当对任何 $j(1 \leqslant j \leqslant n)$，$\text{FIRST}(X_j)$ 都含有 $\varepsilon$ 时，则</p>
-<p>$$<br>\text{FIRST}(\alpha) &#x3D; \bigcup_{j &#x3D; 1}^{n}(\text{FIRST}(X_j) - {\varepsilon}) \cup {\varepsilon}<br>$$</p>
+<p>若符号串 <span class="math inline">\(\alpha \in V^*\)</span> <span
+class="math inline">\(,\)</span> <span class="math inline">\(\alpha =
+X_1 X_2 \cdots X_n\)</span>，当 <span class="math inline">\(X_1\)</span>
+不能 <span class="math inline">\(\stackrel{*}{\Rightarrow}
+\varepsilon\)</span>，则置 <span
+class="math inline">\(\text{FIRST}(\alpha) =
+\text{FIRST}(X_1)\)</span>。</p>
+<p>若对任何 <span class="math inline">\(j(1 \leqslant j \leqslant i -
+1,\)</span> <span class="math inline">\(2 \leqslant i \leqslant
+n)\)</span> <span class="math inline">\(,\)</span> <span
+class="math inline">\(\varepsilon \in \text{FIRST}(X_j)\)</span> <span
+class="math inline">\(,\)</span> <span class="math inline">\(\varepsilon
+\notin \text{FIRST}(X_i)\)</span>，则</p>
+<p><span class="math display">\[
+\text{FIRST}(\alpha) = \bigcup_{j = 1}^{i - 1}(\text{FIRST}(X_j) -
+\{\varepsilon\}) \cup \text{FIRST}(X_i)
+\]</span></p>
+<p>当对任何 <span class="math inline">\(j(1 \leqslant j \leqslant
+n)\)</span>，<span class="math inline">\(\text{FIRST}(X_j)\)</span>
+都含有 <span class="math inline">\(\varepsilon\)</span> 时，则</p>
+<p><span class="math display">\[
+\text{FIRST}(\alpha) = \bigcup_{j = 1}^{n}(\text{FIRST}(X_j) -
+\{\varepsilon\}) \cup \{\varepsilon\}
+\]</span></p>
 <p>按：这里最后一个公式书上的写法似乎有点问题。</p>
 <blockquote>
-<p>如何计算 $\text{FOLLOW}$ 集？</p>
+<p>如何计算 <span class="math inline">\(\text{FOLLOW}\)</span> 集？</p>
 </blockquote>
-<p>对文法中的每一个 $A \in V_N$，根据定义计算 $\text{FOLLOW}(A)$。</p>
-<p>① 设 $S$ 为文法的开始符号，把 ${＃}$ 加入 $\text{FOLLOW}(S)$ 中（这里＃为句子括号）。</p>
+<p>对文法中的每一个 <span class="math inline">\(A \in
+V_N\)</span>，根据定义计算 <span
+class="math inline">\(\text{FOLLOW}(A)\)</span>。</p>
+<p>① 设 <span class="math inline">\(S\)</span> 为文法的开始符号，把
+<span class="math inline">\(\{＃\}\)</span> 加入 <span
+class="math inline">\(\text{FOLLOW}(S)\)</span>
+中（这里＃为句子括号）。</p>
 <p>按：＃似为句子结束符号。</p>
-<p>② 若 $A \rightarrow \alpha B \beta$ 是一个产生式，则把 $\text{FIRST}(\beta)$ 的非空元素加入 $\text{FOLLOW}(B)$ 中。<br>如果 $\beta \stackrel{*}{\Rightarrow} \varepsilon$，则把 $\text{FOLLOW}(A)$ 也加入 $\text{FOLLOW}(B)$ 中，因为当有形如</p>
-<p>$$<br>\begin{split}<br>D &amp;\rightarrow \alpha_{1} A \beta_{1} \<br>A &amp;\rightarrow \alpha B \beta<br>\end{split}<br>$$</p>
-<p>的产生式时，$A, B, D \in V_N$，$\alpha, \alpha_{1}, \beta, \beta_{1} \in V^*$，在推导过程中可能出现如下的句型序列：</p>
-<p>$$<br>S \stackrel{*}{\Rightarrow} \cdots \alpha_{1} A \beta_{1} \cdots \Rightarrow \alpha_{1} \alpha B \beta \beta{1} \cdots \Rightarrow \cdots \alpha_{1} \alpha B \beta_{1} \cdots<br>$$</p>
-<p>因此，有 $\text{FOLLOW}(A)$ $\subseteq$ $\text{FOLLOW}(B)$。</p>
-<p>③ 反复使用 ② 直到每个非终结符的 $\text{FOLLOW}$ 集不再增大为止。</p>
+<p>② 若 <span class="math inline">\(A \rightarrow \alpha B
+\beta\)</span> 是一个产生式，则把 <span
+class="math inline">\(\text{FIRST}(\beta)\)</span> 的非空元素加入 <span
+class="math inline">\(\text{FOLLOW}(B)\)</span> 中。<br />
+如果 <span class="math inline">\(\beta \stackrel{*}{\Rightarrow}
+\varepsilon\)</span>，则把 <span
+class="math inline">\(\text{FOLLOW}(A)\)</span> 也加入 <span
+class="math inline">\(\text{FOLLOW}(B)\)</span> 中，因为当有形如</p>
+<p><span class="math display">\[
+\begin{split}
+D &amp;\rightarrow \alpha_{1} A \beta_{1} \\
+A &amp;\rightarrow \alpha B \beta
+\end{split}
+\]</span></p>
+<p>的产生式时，<span class="math inline">\(A, B, D \in
+V_N\)</span>，<span class="math inline">\(\alpha, \alpha_{1}, \beta,
+\beta_{1} \in V^*\)</span>，在推导过程中可能出现如下的句型序列：</p>
+<p><span class="math display">\[
+S \stackrel{*}{\Rightarrow} \cdots \alpha_{1} A \beta_{1} \cdots
+\Rightarrow \alpha_{1} \alpha B \beta \beta{1} \cdots \Rightarrow \cdots
+\alpha_{1} \alpha B \beta_{1} \cdots
+\]</span></p>
+<p>因此，有 <span class="math inline">\(\text{FOLLOW}(A)\)</span> <span
+class="math inline">\(\subseteq\)</span> <span
+class="math inline">\(\text{FOLLOW}(B)\)</span>。</p>
+<p>③ 反复使用 ② 直到每个非终结符的 <span
+class="math inline">\(\text{FOLLOW}\)</span> 集不再增大为止。</p>
 <blockquote>
-<p>如何计算某一文法中的每一个产生式的 $\text{SELECT}$ 集？</p>
+<p>如何计算某一文法中的每一个产生式的 <span
+class="math inline">\(\text{SELECT}\)</span> 集？</p>
 </blockquote>
 <p>直接根据定义来判断：</p>
-<p>给定上下文无关文法的产生式 $A \rightarrow \alpha$ $, $ $A \in V_N, \alpha \in V^*$，</p>
+<p>给定上下文无关文法的产生式 <span class="math inline">\(A \rightarrow
+\alpha\)</span> $, $ <span class="math inline">\(A \in V_N, \alpha \in
+V^*\)</span>，</p>
 <ul>
-<li>若 $\alpha \stackrel{*}{\nRightarrow} \varepsilon$，则 $\text{SELECT}(A \rightarrow \alpha)$ $&#x3D;$ $\text{FIRST}(\alpha)$。</li>
-<li>若 $\alpha \stackrel{*}{\Rightarrow} \varepsilon$，则 $\text{SELECT}(A \rightarrow \alpha)$ $&#x3D;$ $(\text{FIRST}(\alpha) - {\varepsilon})$ $\cup$ $\text{FOLLOW}(A)$。</li>
+<li>若 <span class="math inline">\(\alpha \stackrel{*}{\nRightarrow}
+\varepsilon\)</span>，则 <span class="math inline">\(\text{SELECT}(A
+\rightarrow \alpha)\)</span> <span class="math inline">\(=\)</span>
+<span class="math inline">\(\text{FIRST}(\alpha)\)</span>。</li>
+<li>若 <span class="math inline">\(\alpha \stackrel{*}{\Rightarrow}
+\varepsilon\)</span>，则 <span class="math inline">\(\text{SELECT}(A
+\rightarrow \alpha)\)</span> <span class="math inline">\(=\)</span>
+<span class="math inline">\((\text{FIRST}(\alpha) -
+\{\varepsilon\})\)</span> <span class="math inline">\(\cup\)</span>
+<span class="math inline">\(\text{FOLLOW}(A)\)</span>。</li>
 </ul>
 <blockquote>
+
 </blockquote>
-<hr>
-<p>附：哈工大慕课陈鄞对于 $\text{FIRST}$、$\text{FOLLOW}$ 和 $\text{SELECT}$ 的理解。</p>
+<hr />
+<p>附：哈工大慕课陈鄞对于 <span
+class="math inline">\(\text{FIRST}\)</span>、<span
+class="math inline">\(\text{FOLLOW}\)</span> 和 <span
+class="math inline">\(\text{SELECT}\)</span> 的理解。</p>
 <blockquote>
-<p>对 $\text{FIRST}$ 的理解？</p>
+<p>对 <span class="math inline">\(\text{FIRST}\)</span> 的理解？</p>
 </blockquote>
-<p><img src="https://i.imgur.com/s8YqiDv.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/VmrkYxH.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/hgG2AXE.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/s8YqiDv.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/VmrkYxH.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/hgG2AXE.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
-<p>对 $\text{FOLLOW}$ 的理解？</p>
+<p>对 <span class="math inline">\(\text{FOLLOW}\)</span> 的理解？</p>
 </blockquote>
-<p><img src="https://i.imgur.com/BWChrVU.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/T9YnsK5.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/BWChrVU.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/T9YnsK5.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
-<p>一个 $\text{SELECT}$ 的例子。</p>
+<p>一个 <span class="math inline">\(\text{SELECT}\)</span> 的例子。</p>
 </blockquote>
-<p><img src="https://i.imgur.com/OQut1Ok.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/OQut1Ok.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
 <p>一张预测分析表。</p>
 </blockquote>
-<p><img src="https://i.imgur.com/rqhlpyx.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/rqhlpyx.png" srcset="/img/loading.gif" lazyload /></p>
 
                 
               </div>
@@ -961,6 +1614,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

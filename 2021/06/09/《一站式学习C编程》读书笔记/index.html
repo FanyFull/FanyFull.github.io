@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="16.2 CPU原书内容摘录如下   3.执行指令，读内存，取上来的数是3，保存到eax寄存器。注意，地址0x804a01c～0x804a01f里存储的四个字节不能按地址从低到高的顺序看成0x03000000，而要按地址从高到低的顺序看成0x00000003。也就是说，对于多字节的整数类型，低地址保存的是整数的低位，这称为小端（Little Endian）字节序（ByteOrder）。x86平台是">
+    <meta name="description" content="16.2 CPU 原书内容摘录如下   3.执行指令，读内存，取上来的数是3，保存到eax寄存器。注意，地址0x804a01c～0x804a01f里存储的四个字节不能按地址从低到高的顺序看成0x03000000，而要按地址从高到低的顺序看成0x00000003。也就是说，对于多字节的整数类型，低地址保存的是整数的低位，这称为小端（Little Endian）字节序（ByteOrder）。x86平台">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《一站式学习C编程》读书笔记">
 <meta property="og:url" content="http://fanyfull.github.io/2021/06/09/%E3%80%8A%E4%B8%80%E7%AB%99%E5%BC%8F%E5%AD%A6%E4%B9%A0C%E7%BC%96%E7%A8%8B%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="16.2 CPU原书内容摘录如下   3.执行指令，读内存，取上来的数是3，保存到eax寄存器。注意，地址0x804a01c～0x804a01f里存储的四个字节不能按地址从低到高的顺序看成0x03000000，而要按地址从高到低的顺序看成0x00000003。也就是说，对于多字节的整数类型，低地址保存的是整数的低位，这称为小端（Little Endian）字节序（ByteOrder）。x86平台是">
+<meta property="og:description" content="16.2 CPU 原书内容摘录如下   3.执行指令，读内存，取上来的数是3，保存到eax寄存器。注意，地址0x804a01c～0x804a01f里存储的四个字节不能按地址从低到高的顺序看成0x03000000，而要按地址从高到低的顺序看成0x00000003。也就是说，对于多字节的整数类型，低地址保存的是整数的低位，这称为小端（Little Endian）字节序（ByteOrder）。x86平台">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210609222304.png">
 <meta property="article:published_time" content="2021-06-09T13:08:05.000Z">
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -282,36 +282,50 @@
             
               <div class="markdown-body">
                 
-                <h3 id="16-2-CPU"><a href="#16-2-CPU" class="headerlink" title="16.2 CPU"></a>16.2 CPU</h3><p>原书内容摘录如下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210609211227.png" srcset="/img/loading.gif" lazyload></p>
+                <h3 id="cpu">16.2 CPU</h3>
+<p>原书内容摘录如下</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210609211227.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
-<p>3.执行指令，读内存，取上来的数是3，保存到eax寄存器。注意，地址0x804a01c～0x804a01f里存储的四个字节不能按地址从低到高的顺序看成0x03000000，而要按地址从高到低的顺序看成0x00000003。也就是说，对于多字节的整数类型，低地址保存的是整数的低位，这称为小端（Little Endian）字节序（ByteOrder）。x86平台是小端字节序的，而另外一些平台规定低地址保存整数的高位，称为大端（Big Endian）字节序。注意上图只画了前三步，剩下的步骤读者可以自己画图理解。</p>
+<p>3.执行指令，读内存，取上来的数是3，保存到eax寄存器。注意，地址0x804a01c～0x804a01f里存储的四个字节不能按地址从低到高的顺序看成0x03000000，而要按地址从高到低的顺序看成0x00000003。也就是说，对于多字节的整数类型，低地址保存的是整数的低位，这称为小端（Little
+Endian）字节序（ByteOrder）。x86平台是小端字节序的，而另外一些平台规定低地址保存整数的高位，称为大端（Big
+Endian）字节序。注意上图只画了前三步，剩下的步骤读者可以自己画图理解。</p>
 </blockquote>
-<p>我这里主要是想学习大端序和小端序这个知识点，然后在这里发现此知识点，但是，这里原书说的地址 0x804a01c～0x804a01f 里存储的四个字节按小端序取出来是 0x00000003，我一开始没有理解，然后，想了一段时间，发现它这每一个地址（比如 0x804a01c）中存储的都是一个<strong>字节</strong>，也就是一个<strong>两位 16 进制的数</strong>，对于图中 0x804a01c～0x804a01f 地址存储的数，我们要很自然地想到它省略了高位的 0！也即 0x804a01c～0x804a01f 地址存储的数依次为 03、00、00、00。这样以来，才合理嘛。</p>
-<h3 id="20-1-预处理的步骤"><a href="#20-1-预处理的步骤" class="headerlink" title="20.1 预处理的步骤"></a>20.1 预处理的步骤</h3><p>这里有一个语句</p>
+<p>我这里主要是想学习大端序和小端序这个知识点，然后在这里发现此知识点，但是，这里原书说的地址
+0x804a01c～0x804a01f 里存储的四个字节按小端序取出来是
+0x00000003，我一开始没有理解，然后，想了一段时间，发现它这每一个地址（比如
+0x804a01c）中存储的都是一个<strong>字节</strong>，也就是一个<strong>两位
+16 进制的数</strong>，对于图中 0x804a01c～0x804a01f
+地址存储的数，我们要很自然地想到它省略了高位的 0！也即
+0x804a01c～0x804a01f 地址存储的数依次为
+03、00、00、00。这样以来，才合理嘛。</p>
+<h3 id="预处理的步骤">20.1 预处理的步骤</h3>
+<p>这里有一个语句</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> STR <span class="hljs-string">&quot;hello, &quot;</span>\</span><br><span class="hljs-meta">                <span class="hljs-string">&quot;world&quot;</span></span><br></code></pre></td></tr></table></figure>
-
 <p>这条语句经过预处理之后为</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> STR <span class="hljs-string">&quot;hello, &quot;</span>    <span class="hljs-string">&quot;world&quot;</span></span><br></code></pre></td></tr></table></figure>
-
 <p>然后我疑惑的点在于之后它有一个语句</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">printf</span>(STR);<br></code></pre></td></tr></table></figure>
-
 <p>这条语句是和下面的语句等价的</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;hello, &quot;</span>    <span class="hljs-string">&quot;world&quot;</span>);<br></code></pre></td></tr></table></figure>
-
 <p>而上面这条语句经过测试，又是和下面这条语句是等价的</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;hello, world&quot;</span>);<br></code></pre></td></tr></table></figure>
-
-<p>然后我又测试了一下 Python，发现它也是如此，就是当两个字符串连接在一起（中间有若干个空格），程序在执行时会自动把它们拼接称一个字符串。有点神奇。</p>
-<p>然后我再继续往下读，发现，原来这是预处理做的事情。这一下子就豁然开朗了。同时，我认为，除了 C 和 Python，可能很多其他的语言也是有这个特性的。</p>
-<p>关于 Python 这个字符串的特性，更多的还可以参考知乎这篇博客：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/43760216">https://zhuanlan.zhihu.com/p/43760216</a>。</p>
-<h3 id="20-2-宏定义"><a href="#20-2-宏定义" class="headerlink" title="20.2 宏定义"></a>20.2 宏定义</h3><p>这一节作者提了一个问题，就是示例代码 20.1 中函数的时间复杂度是多少。</p>
+<p>然后我又测试了一下
+Python，发现它也是如此，就是当两个字符串连接在一起（中间有若干个空格），程序在执行时会自动把它们拼接称一个字符串。有点神奇。</p>
+<p>然后我再继续往下读，发现，原来这是预处理做的事情。这一下子就豁然开朗了。同时，我认为，除了
+C 和 Python，可能很多其他的语言也是有这个特性的。</p>
+<p>关于 Python 这个字符串的特性，更多的还可以参考知乎这篇博客：<a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/43760216"
+class="uri">https://zhuanlan.zhihu.com/p/43760216</a>。</p>
+<h3 id="宏定义">20.2 宏定义</h3>
+<p>这一节作者提了一个问题，就是示例代码 20.1
+中函数的时间复杂度是多少。</p>
 <p>代码如下</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX(a, b) ((a) &gt; (b) ? (a) : (b))</span><br><br><span class="hljs-type">int</span> a[] = &#123;<span class="hljs-number">15</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">8</span>, <span class="hljs-number">7</span>, <span class="hljs-number">6</span>, <span class="hljs-number">4</span>&#125;;<br><br><span class="hljs-type">int</span> <span class="hljs-title function_">max</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span><br>&#123;<br>    <span class="hljs-keyword">return</span> n == <span class="hljs-number">0</span> ? a[<span class="hljs-number">0</span>] : MAX(a[n], max(n - <span class="hljs-number">1</span>));<br>&#125;<br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span> )</span><br>&#123;<br>    max(<span class="hljs-number">9</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
 <p>这里涉及到宏展开，我们可以先展开然后再分析，经分析，可得如下递推式</p>
-<p>$$<br>T(n) &#x3D; 2T(n - 1) + O(1)<br>$$</p>
+<p><span class="math display">\[
+T(n) = 2T(n - 1) + O(1)
+\]</span></p>
 <p>如此，根据此式即可求得时间复杂度了。</p>
 
                 
@@ -647,6 +661,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

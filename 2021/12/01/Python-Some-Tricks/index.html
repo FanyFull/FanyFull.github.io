@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="list 的复制一般来说，有三种方法：  直接使用 &#x3D; 赋值，这种方式的复制相当于给一个盒子贴上两个不同的标签，因此，如果操作任何一个标签，都会对另外一个标签进行数据同步。 使用 copy() 方法，这种方式属于浅复制(shallow copy)，对于一般的字面值，如数字，不管是修改源 list 还是复制之后的 list，都不会影响另一个。但是，如果修改的是列表中的对象(Object)，那么，这个">
+    <meta name="description" content="list 的复制 一般来说，有三种方法：  直接使用 &#x3D; 赋值，这种方式的复制相当于给一个盒子贴上两个不同的标签，因此，如果操作任何一个标签，都会对另外一个标签进行数据同步。 使用 copy() 方法，这种方式属于浅复制(shallow copy)，对于一般的字面值，如数字，不管是修改源 list 还是复制之后的 list，都不会影响另一个。但是，如果修改的是列表中的对象(Object)，那么，这">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python Some Tricks">
 <meta property="og:url" content="http://fanyfull.github.io/2021/12/01/Python-Some-Tricks/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="list 的复制一般来说，有三种方法：  直接使用 &#x3D; 赋值，这种方式的复制相当于给一个盒子贴上两个不同的标签，因此，如果操作任何一个标签，都会对另外一个标签进行数据同步。 使用 copy() 方法，这种方式属于浅复制(shallow copy)，对于一般的字面值，如数字，不管是修改源 list 还是复制之后的 list，都不会影响另一个。但是，如果修改的是列表中的对象(Object)，那么，这个">
+<meta property="og:description" content="list 的复制 一般来说，有三种方法：  直接使用 &#x3D; 赋值，这种方式的复制相当于给一个盒子贴上两个不同的标签，因此，如果操作任何一个标签，都会对另外一个标签进行数据同步。 使用 copy() 方法，这种方式属于浅复制(shallow copy)，对于一般的字面值，如数字，不管是修改源 list 还是复制之后的 list，都不会影响另一个。但是，如果修改的是列表中的对象(Object)，那么，这">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/cJfPEPl.png">
 <meta property="article:published_time" content="2021-12-01T10:54:16.000Z">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -281,16 +281,22 @@
             
               <div class="markdown-body">
                 
-                <h1 id="list-的复制"><a href="#list-的复制" class="headerlink" title="list 的复制"></a>list 的复制</h1><p>一般来说，有三种方法：</p>
+                <h1 id="list-的复制">list 的复制</h1>
+<p>一般来说，有三种方法：</p>
 <ul>
-<li>直接使用 <code>=</code> 赋值，这种方式的复制相当于给一个盒子贴上两个不同的标签，因此，如果操作任何一个标签，都会对另外一个标签进行数据同步。</li>
-<li>使用 <code>copy()</code> 方法，这种方式属于浅复制(shallow copy)，对于一般的字面值，如数字，不管是修改源 list 还是复制之后的 list，都不会影响另一个。但是，如果修改的是列表中的对象(Object)，那么，这个修改也会反映到另一个 list 中。</li>
-<li>使用 <code>deepcopy()</code> 方法，这种方式属于深复制(deep copy)，不管是一般的字面值，还是对象，对一个 list 修改都不会影响到另外一个 list。</li>
+<li>直接使用 <code>=</code>
+赋值，这种方式的复制相当于给一个盒子贴上两个不同的标签，因此，如果操作任何一个标签，都会对另外一个标签进行数据同步。</li>
+<li>使用 <code>copy()</code> 方法，这种方式属于浅复制(shallow
+copy)，对于一般的字面值，如数字，不管是修改源 list 还是复制之后的
+list，都不会影响另一个。但是，如果修改的是列表中的对象(Object)，那么，这个修改也会反映到另一个
+list 中。</li>
+<li>使用 <code>deepcopy()</code> 方法，这种方式属于深复制(deep
+copy)，不管是一般的字面值，还是对象，对一个 list
+修改都不会影响到另外一个 list。</li>
 </ul>
 <p>按：使用 <code>deepcopy()</code> 需要引入 <code>copy</code> 库。</p>
 <p>一些代码示例：</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment"># working of &#x27;=&#x27; and copy()</span><br>list1 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]<br>list2 = list1<br>list3 = list1.copy()<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;list1 == list2?&#x27;</span>, list1 == list2)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;list1 == list3?&#x27;</span>, list1 == list3)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;before modified, the data of list1~list3 are as follows&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;list1 =&#x27;</span>, list1)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;list2 =&#x27;</span>, list2)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;list3 =&#x27;</span>, list3)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;then we modify list1, let&#x27;s see what will happen in list1~list3&quot;</span>)<br>list1.append(<span class="hljs-number">5</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;list1 =&#x27;</span>, list1)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;list2 =&#x27;</span>, list2)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;list3 =&#x27;</span>, list3)<br></code></pre></td></tr></table></figure>
-
 <p>output:</p>
 <pre><code class="hljs">list1 == list2? True
 list1 == list3? True
@@ -301,17 +307,13 @@ list3 = [1, 2, 3, 4]
 then we modify list1, let&#39;s see what will happen in list1~list3
 list1 = [1, 2, 3, 4, 5]
 list2 = [1, 2, 3, 4, 5]
-list3 = [1, 2, 3, 4]
-</code></pre>
+list3 = [1, 2, 3, 4]</code></pre>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment"># working of list.copy()</span><br><br><span class="hljs-comment"># Initializing list</span><br>lis1 = [ <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span> ]<br><br><span class="hljs-comment"># Using copy() to create a shallow copy</span><br>lis2 = lis1.copy()<br><br><span class="hljs-comment"># Printing new list</span><br><span class="hljs-built_in">print</span> (<span class="hljs-string">&quot;The new list created is : &quot;</span> + <span class="hljs-built_in">str</span>(lis2))<br><br><span class="hljs-comment"># Adding new element to new list</span><br>lis2.append(<span class="hljs-number">5</span>)<br><br><span class="hljs-comment"># Printing lists after adding new element</span><br><span class="hljs-comment"># No change in old list</span><br><span class="hljs-built_in">print</span> (<span class="hljs-string">&quot;The new list after adding new element : &quot;</span> + <span class="hljs-built_in">str</span>(lis2))<br><span class="hljs-built_in">print</span> (<span class="hljs-string">&quot;The old list after adding new element to new list : &quot;</span> + <span class="hljs-built_in">str</span>(lis1))<br></code></pre></td></tr></table></figure>
-
 <p>output:</p>
 <pre><code class="hljs">The new list created is : [1, 2, 3, 4]
 The new list after adding new element : [1, 2, 3, 4, 5]
-The old list after adding new element to new list : [1, 2, 3, 4]
-</code></pre>
+The old list after adding new element to new list : [1, 2, 3, 4]</code></pre>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment"># techniques of deep and shallow copy</span><br><span class="hljs-keyword">import</span> copy<br><br><span class="hljs-comment"># Initializing list</span><br>list1 = [ <span class="hljs-number">1</span>, [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>] , <span class="hljs-number">4</span> ]<br><br><span class="hljs-comment"># all changes are reflected</span><br>list2 = list1<br><br><span class="hljs-comment"># shallow copy - changes to</span><br><span class="hljs-comment"># nested list is reflected,</span><br><span class="hljs-comment"># same as copy.copy(), slicing</span><br><br>list3 = list1.copy()<br><br><span class="hljs-comment"># deep copy - no change is reflected</span><br>list4 = copy.deepcopy(list1)<br><br>list1.append(<span class="hljs-number">5</span>)<br>list1[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">999</span><br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;list 1 after modification:\n&quot;</span>, list1)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;list 2 after modification:\n&quot;</span>, list2)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;list 3 after modification:\n&quot;</span>, list3)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;list 4 after modification:\n&quot;</span>, list4)<br></code></pre></td></tr></table></figure>
-
 <pre><code class="hljs">list 1 after modification:
  [1, [2, 999], 4, 5]
 list 2 after modification:
@@ -319,11 +321,9 @@ list 2 after modification:
 list 3 after modification:
  [1, [2, 999], 4]
 list 4 after modification:
- [1, [2, 3], 4]
-</code></pre>
+ [1, [2, 3], 4]</code></pre>
 <p>这里其实还有一种方法，即利用切片进行复制：</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs py">list2 = list1[:]<br></code></pre></td></tr></table></figure>
-
 
                 
               </div>
@@ -656,6 +656,8 @@ list 4 after modification:
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

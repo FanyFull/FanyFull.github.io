@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1、试述数据模型的概念、作用及数据模型的三个重要方面。  解：  概念：数据模型（data model）是一种模型，它是对现实世界数据特征的一种抽象。 作用：数据模型是用来描述数据、组织数据和对数据进行操作的。 三个重要方面： 一是能比较真实地模拟现实世界 二是容易为人所理解 三是便于在计算机上实现     2、试述层次数据库、网状数据库和关系数据库的优缺点。  解：  层次数据库： 优点： 数">
+    <meta name="description" content="1、试述数据模型的概念、作用及数据模型的三个重要方面。  解：  概念：数据模型（data model）是一种模型，它是对现实世界数据特征的一种抽象。 作用：数据模型是用来描述数据、组织数据和对数据进行操作的。 三个重要方面：  一是能比较真实地模拟现实世界 二是容易为人所理解 三是便于在计算机上实现    2、试述层次数据库、网状数据库和关系数据库的优缺点。  解：  层次数据库：  优点：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库系统概论作业二">
 <meta property="og:url" content="http://fanyfull.github.io/2021/10/21/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E4%BD%9C%E4%B8%9A%E4%BA%8C/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="1、试述数据模型的概念、作用及数据模型的三个重要方面。  解：  概念：数据模型（data model）是一种模型，它是对现实世界数据特征的一种抽象。 作用：数据模型是用来描述数据、组织数据和对数据进行操作的。 三个重要方面： 一是能比较真实地模拟现实世界 二是容易为人所理解 三是便于在计算机上实现     2、试述层次数据库、网状数据库和关系数据库的优缺点。  解：  层次数据库： 优点： 数">
+<meta property="og:description" content="1、试述数据模型的概念、作用及数据模型的三个重要方面。  解：  概念：数据模型（data model）是一种模型，它是对现实世界数据特征的一种抽象。 作用：数据模型是用来描述数据、组织数据和对数据进行操作的。 三个重要方面：  一是能比较真实地模拟现实世界 二是容易为人所理解 三是便于在计算机上实现    2、试述层次数据库、网状数据库和关系数据库的优缺点。  解：  层次数据库：  优点：">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211024152100.png">
 <meta property="article:published_time" content="2021-10-21T10:25:59.000Z">
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -287,63 +287,64 @@
 </blockquote>
 <p>解：</p>
 <ul>
-<li>概念：数据模型（data model）是一种模型，它是对现实世界数据特征的一种抽象。</li>
+<li>概念：数据模型（data
+model）是一种模型，它是对现实世界数据特征的一种抽象。</li>
 <li>作用：数据模型是用来描述数据、组织数据和对数据进行操作的。</li>
-<li>三个重要方面：<ul>
+<li>三个重要方面：
+<ul>
 <li>一是能比较真实地模拟现实世界</li>
 <li>二是容易为人所理解</li>
 <li>三是便于在计算机上实现</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <blockquote>
 <p>2、试述层次数据库、网状数据库和关系数据库的优缺点。</p>
 </blockquote>
 <p>解：</p>
 <ul>
-<li>层次数据库：<ul>
-<li>优点：<ul>
+<li>层次数据库：
+<ul>
+<li>优点：
+<ul>
 <li>数据结构比较简单清晰。</li>
 <li>查询效率高。</li>
 <li>提供了良好的完整性支持。</li>
-</ul>
-</li>
-<li>缺点：<ul>
+</ul></li>
+<li>缺点：
+<ul>
 <li>现实世界中很多联系是非层次性的，这些联系不适合用层次模型表示</li>
 <li>如果一个结点具有多个双亲结点等，用层次模型表示这类联系就很笨拙，只能通过引入冗余数据（易产生不一致性）或创建非自然的数据结构（引入虚拟结点）来解决。对插入和删除操作的限制比较多，因此应用程序的编写比较复杂。</li>
 <li>查询子女结点必须通过双亲结点。</li>
 <li>由于结构严密，层次命令趋于程序化。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>网状数据库：<ul>
-<li>优点：<ul>
+</ul></li>
+</ul></li>
+<li>网状数据库：
+<ul>
+<li>优点：
+<ul>
 <li>能够更为直观地描述现实世界。</li>
 <li>具有良好的性能，存取效率较高。</li>
-</ul>
-</li>
-<li>缺点：<ul>
+</ul></li>
+<li>缺点：
+<ul>
 <li>结构比较复杂。</li>
 <li>DDL、DML 复杂，并且要嵌入某一种高级语言中。</li>
 <li>用户必须了解系统结构的细节，加重了应用程序的负担。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>关系数据库：<ul>
-<li>优点：<ul>
+</ul></li>
+</ul></li>
+<li>关系数据库：
+<ul>
+<li>优点：
+<ul>
 <li>建立在严格的数学概念的基础上。</li>
 <li>概念单一。</li>
 <li>具有更高的数据独立性、更好的安全保密性。</li>
-</ul>
-</li>
-<li>缺点：<ul>
+</ul></li>
+<li>缺点：
+<ul>
 <li>查询效率不高。</li>
-</ul>
-</li>
-</ul>
-</li>
+</ul></li>
+</ul></li>
 </ul>
 <blockquote>
 <p>3、试述数据库模式的概念，说明子模式、概念模式和内模式之间的联系与区别，以及它们与数据独立性之间的联系。</p>
@@ -351,26 +352,26 @@
 <p>解：</p>
 <p>数据库模式（schema）是数据库中全体数据的逻辑结构和特征的描述，它仅仅涉及型（type）的描述，不涉及具体的值（value）。</p>
 <ul>
-<li>子模式（外模式）<ul>
+<li>子模式（外模式）
+<ul>
 <li>是各个具体用户看到的数据视图，是用户与 DB 的接口。</li>
 <li>可以有多个外模式</li>
 <li>每个用户只关心与它有关的模式，屏蔽大量无关的信息，有利于数据保护</li>
 <li>面向应用程序或最终用户</li>
-</ul>
-</li>
-<li>概念模式<ul>
+</ul></li>
+<li>概念模式
+<ul>
 <li>是所有用户的公共数据视图</li>
 <li>只有一个模式</li>
 <li>数据库模式以某一种数据模型为基础，统一综合考虑所有用户的需求，并将这些需求有机结合成一个逻辑整体</li>
 <li>有 DBA 定义</li>
-</ul>
-</li>
-<li>内模式<ul>
+</ul></li>
+<li>内模式
+<ul>
 <li>数据在数据库内部的表示方式</li>
 <li>只有一个内模式</li>
 <li>以前由 DBA 定义，现在基本由 DBMS 定义</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>这三个模式是数据的三个抽象级别，它把数据的具体组织留给数据库管理系统，保证了数据库系统中的数据能够具有较高的逻辑独立性和物理独立性。</p>
 
@@ -707,6 +708,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

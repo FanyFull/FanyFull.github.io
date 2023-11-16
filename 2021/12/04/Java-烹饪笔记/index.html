@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="小碎点 命令行查看 Java 版本。  1java -version   更改 PowerShell(或 CMD)中 javac 的输出为英文。  在环境变量中添加这么一行： 1JAVA_TOOL_OPTIONS&#x3D;-Duser.language&#x3D;en   效果：  参考：CSDN  在 PowerShell 中编译很多个 java 文件。  1javac &quot;@sources.txt&amp;qu">
+    <meta name="description" content="小碎点  命令行查看 Java 版本。  1java -version  更改 PowerShell(或 CMD)中 javac 的输出为英文。  在环境变量中添加这么一行： 1JAVA_TOOL_OPTIONS&#x3D;-Duser.language&#x3D;en  效果：  参考：CSDN  在 PowerShell 中编译很多个 java 文件。  1javac &quot;@sources.txt&amp;quo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 烹饪笔记">
 <meta property="og:url" content="http://fanyfull.github.io/2021/12/04/Java-%E7%83%B9%E9%A5%AA%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="小碎点 命令行查看 Java 版本。  1java -version   更改 PowerShell(或 CMD)中 javac 的输出为英文。  在环境变量中添加这么一行： 1JAVA_TOOL_OPTIONS&#x3D;-Duser.language&#x3D;en   效果：  参考：CSDN  在 PowerShell 中编译很多个 java 文件。  1javac &quot;@sources.txt&amp;qu">
+<meta property="og:description" content="小碎点  命令行查看 Java 版本。  1java -version  更改 PowerShell(或 CMD)中 javac 的输出为英文。  在环境变量中添加这么一行： 1JAVA_TOOL_OPTIONS&#x3D;-Duser.language&#x3D;en  效果：  参考：CSDN  在 PowerShell 中编译很多个 java 文件。  1javac &quot;@sources.txt&amp;quo">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/o7wLyAi.png">
 <meta property="article:published_time" content="2021-12-04T10:13:13.000Z">
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -282,32 +282,33 @@
             
               <div class="markdown-body">
                 
-                <h1 id="小碎点"><a href="#小碎点" class="headerlink" title="小碎点"></a>小碎点</h1><blockquote>
+                <h1 id="小碎点">小碎点</h1>
+<blockquote>
 <p>命令行查看 Java 版本。</p>
 </blockquote>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">java -<span class="hljs-built_in">version</span><br></code></pre></td></tr></table></figure>
-
 <blockquote>
 <p>更改 PowerShell(或 CMD)中 javac 的输出为英文。</p>
 </blockquote>
 <p>在环境变量中添加这么一行：</p>
 <figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf">JAVA_TOOL_OPTIONS<span class="hljs-operator">=</span>-Duser.language<span class="hljs-operator">=</span>en<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://i.imgur.com/iRR60c0.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/iRR60c0.png" srcset="/img/loading.gif" lazyload /></p>
 <p>效果：</p>
-<p><img src="https://i.imgur.com/znxxOjY.png" srcset="/img/loading.gif" lazyload></p>
-<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/icyfox_bupt/article/details/109499926">CSDN</a></p>
+<p><img src="https://i.imgur.com/znxxOjY.png" srcset="/img/loading.gif" lazyload /></p>
+<p>参考：<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/icyfox_bupt/article/details/109499926">CSDN</a></p>
 <blockquote>
 <p>在 PowerShell 中编译很多个 java 文件。</p>
 </blockquote>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">javac <span class="hljs-string">&quot;@sources.txt&quot;</span> <span class="hljs-literal">-encoding</span> UTF8<br></code></pre></td></tr></table></figure>
-
 <blockquote>
 <p><code>error: unmappable character for encoding GBK</code> 问题。</p>
 </blockquote>
 <p>编码问题，解决方法：</p>
 <p>加上 <code>-encoding UTF8</code> 选项即可。</p>
-<h1 id="在-Windows-的-PowerShell-中编译和运行-Java-的代码"><a href="#在-Windows-的-PowerShell-中编译和运行-Java-的代码" class="headerlink" title="在 Windows 的 PowerShell 中编译和运行 Java 的代码"></a>在 Windows 的 PowerShell 中编译和运行 Java 的代码</h1><p>这里以我编译 algs4 源码的经历为例。</p>
+<h1 id="在-windows-的-powershell-中编译和运行-java-的代码">在 Windows 的
+PowerShell 中编译和运行 Java 的代码</h1>
+<p>这里以我编译 algs4 源码的经历为例。</p>
 
                 
               </div>
@@ -642,6 +643,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

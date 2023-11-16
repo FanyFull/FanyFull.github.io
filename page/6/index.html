@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -62,7 +62,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -242,7 +242,7 @@
       
       <a class="index-excerpt " href="/2021/11/28/vim-%E7%9A%84%E6%90%9C%E7%B4%A2%E5%92%8C%E6%9B%BF%E6%8D%A2/" target="_self">
         <div>
-          原文地址：https://linuxize.com/post/vim-find-replace/ 这篇文章描述了如何在 Vim&#x2F;Vi 中查找和替换文本。 Vim 是最流行的命令行文本编辑器，它在 macOS 和很多 Linux 发行版系统中是预装的软件。在 Vim 中查找和替换文本是比较快速而且容易的。 基本的查找和替换在 Vim 中，你可以使用 :substitute 命令进行查找和替
+          原文地址：https://linuxize.com/post/vim-find-replace/ 这篇文章描述了如何在 Vim/Vi 中查找和替换文本。 Vim 是最流行的命令行文本编辑器，它在 macOS 和很多 Linux 发行版系统中是预装的软件。在 Vim 中查找和替换文本是比较快速而且容易的。 基本的查找和替换 在 Vim 中，你可以使用 :substitute 命令进行查找和替换。 为
         </div>
       </a>
 
@@ -382,7 +382,7 @@
       
       <a class="index-excerpt " href="/2021/11/28/Python-%E5%BA%93%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" target="_self">
         <div>
-          当前正在写 leetcode 的题目，所以可能会经常用到 Python 的库函数，因此，在这里作一个记录，好记性不如烂键盘。 sort 函数A simple ascending sort is very easy: just call the sorted() function. It returns a new sorted list: 12&gt;&gt;&gt; sorted([5, 2,
+          当前正在写 leetcode 的题目，所以可能会经常用到 Python 的库函数，因此，在这里作一个记录，好记性不如烂键盘。 sort 函数 A simple ascending sort is very easy: just call the sorted() function. It returns a new sorted list: 12&gt;&gt;&gt; sorted([5, 2,
         </div>
       </a>
 
@@ -449,7 +449,7 @@
       
       <a class="index-excerpt " href="/2021/11/28/%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E6%8E%A8%E5%AF%BC%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/" target="_self">
         <div>
-          在看傅里叶级数推导的过程中，有一个地方一开始没有看明白，之后通过查找资料以及再次思考，终于把其中的关节给弄懂，在这里记录一下，防止以后再次遇到的时候会遗忘掉。   首先，$a_0$ 很容易得到，直接对第一个式子两边同时积分即可。因为 $\text{sin},nx$ 和 $\text{cos},nx$ 在 $[-\pi, \pi]$ 上的积分都为 0。 然后，两边同时乘以 $\text{cos},m
+          在看傅里叶级数推导的过程中，有一个地方一开始没有看明白，之后通过查找资料以及再次思考，终于把其中的关节给弄懂，在这里记录一下，防止以后再次遇到的时候会遗忘掉。   首先，\(a_0\) 很容易得到，直接对第一个式子两边同时积分即可。因为 \(\text{sin}\,nx\) 和 \(\text{cos}\,nx\) 在 \([-\pi, \pi]\) 上的积分都为 0。 然后，两边同时乘以 \(\
         </div>
       </a>
 
@@ -518,7 +518,7 @@
       
       <a class="index-excerpt " href="/2021/11/28/%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%9E%E7%BB%AD%E4%B8%8E%E9%97%B4%E6%96%AD/" target="_self">
         <div>
-          定义 1设 $f(x)$ 在点 $x_0$ 的某邻域内有定义. 若 $$\lim_{x \to x_0}f(x) &#x3D; f(x_0) \qquad \qquad (1)$$ 则说 $f(x)$ 在点 $x_0$ 连续, 并称 $x_0$ 为 $f(x)$ 的一个连续点. 若 $f(x)$ 在某个 $\mathop{N}\limits^{\circ}(x_0)$ 上有定义, 则当 $x_0$
+          定义 1 设 \(f(x)\) 在点 \(x_0\) 的某邻域内有定义. 若 \[ \lim_{x \to x_0}f(x) = f(x_0) \qquad \qquad (1) \] 则说 \(f(x)\) 在点 \(x_0\) 连续, 并称 \(x_0\) 为 \(f(x)\) 的一个连续点. 若 \(f(x)\) 在某个 \(\mathop{N}\limits^{\circ}(x_0)\)
         </div>
       </a>
 
@@ -585,7 +585,7 @@
       
       <a class="index-excerpt " href="/2021/11/27/Windows-%E5%92%8C-Linux-%E4%B8%8B-clock-%E5%87%BD%E6%95%B0%E5%AF%B9-scanf-%E5%87%BD%E6%95%B0%E7%9A%84%E6%B5%8B%E9%87%8F%E9%97%AE%E9%A2%98/" target="_self">
         <div>
-          这个问题的来由是《算法竞赛入门经典（第 2 版）》P27：  输入 “20”，按 Enter 之后…键盘输入的时间也被计算在内——这确实是程序启动之后才进行的。  所以，作者建议使用 echo 命令来消除键盘输入的影响：  在 Windows 命令行下执行 echo 20|abc，操作系统会自动把 20 输入，其中 abc 是程序名。Linux 下需要输入 echo 20|./abc，因为在默认情
+          这个问题的来由是《算法竞赛入门经典（第 2 版）》P27：  输入 "20"，按 Enter 之后...键盘输入的时间也被计算在内——这确实是程序启动之后才进行的。  所以，作者建议使用 echo 命令来消除键盘输入的影响：  在 Windows 命令行下执行 echo 20|abc，操作系统会自动把 20 输入，其中 abc 是程序名。Linux 下需要输入 echo 20|./abc，因为在默
         </div>
       </a>
 

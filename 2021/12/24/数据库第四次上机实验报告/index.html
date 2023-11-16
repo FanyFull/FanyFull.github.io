@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="咳咳，数据库实验十三准备重构中… 之前摆烂，现在得还债了。 实验十一 数据库的备份与恢复一、实验目的了解 Navicat 的数据备份和恢复机制，掌握 Navicat 中数据库备份和恢复的方法。 二、实验内容1、备份 步骤：使用用户 root 打开连接 MySQL —打开数据库 world —点击界面上方的“备份”—新建备份，如图所示：   点击“backup”—成功完成后点击保存—保存名称为 wo">
+    <meta name="description" content="咳咳，数据库实验十三准备重构中... 之前摆烂，现在得还债了。 实验十一 数据库的备份与恢复 一、实验目的 了解 Navicat 的数据备份和恢复机制，掌握 Navicat 中数据库备份和恢复的方法。 二、实验内容 1、备份 步骤：使用用户 root 打开连接 MySQL —打开数据库 world —点击界面上方的“备份”—新建备份，如图所示：   点击“backup”—成功完成后点击保存—保存名">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库第四次上机实验报告">
 <meta property="og:url" content="http://fanyfull.github.io/2021/12/24/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%AC%E5%9B%9B%E6%AC%A1%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="咳咳，数据库实验十三准备重构中… 之前摆烂，现在得还债了。 实验十一 数据库的备份与恢复一、实验目的了解 Navicat 的数据备份和恢复机制，掌握 Navicat 中数据库备份和恢复的方法。 二、实验内容1、备份 步骤：使用用户 root 打开连接 MySQL —打开数据库 world —点击界面上方的“备份”—新建备份，如图所示：   点击“backup”—成功完成后点击保存—保存名称为 wo">
+<meta property="og:description" content="咳咳，数据库实验十三准备重构中... 之前摆烂，现在得还债了。 实验十一 数据库的备份与恢复 一、实验目的 了解 Navicat 的数据备份和恢复机制，掌握 Navicat 中数据库备份和恢复的方法。 二、实验内容 1、备份 步骤：使用用户 root 打开连接 MySQL —打开数据库 world —点击界面上方的“备份”—新建备份，如图所示：   点击“backup”—成功完成后点击保存—保存名">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/yO2L4wB.png">
 <meta property="article:published_time" content="2021-12-24T02:48:15.000Z">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -281,79 +281,105 @@
             
               <div class="markdown-body">
                 
-                <p>咳咳，数据库实验十三准备重构中…</p>
+                <p>咳咳，数据库实验十三准备重构中...</p>
 <p>之前摆烂，现在得还债了。</p>
-<h1 id="实验十一-数据库的备份与恢复"><a href="#实验十一-数据库的备份与恢复" class="headerlink" title="实验十一 数据库的备份与恢复"></a>实验十一 数据库的备份与恢复</h1><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>了解 Navicat 的数据备份和恢复机制，掌握 Navicat 中数据库备份和恢复的方法。</p>
-<h2 id="二、实验内容"><a href="#二、实验内容" class="headerlink" title="二、实验内容"></a>二、实验内容</h2><p>1、备份</p>
-<p>步骤：使用用户 root 打开连接 MySQL —打开数据库 world —点击界面上方的“备份”—新建备份，如图所示：</p>
-<p><img src="https://i.imgur.com/5syemCi.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/MacUG55.png" srcset="/img/loading.gif" lazyload></p>
-<p>点击“backup”—成功完成后点击保存—保存名称为 world —确定，结果如图1.2所示：</p>
-<p><img src="https://i.imgur.com/6Zp5b6g.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/56HYLAy.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/iFSpurc.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="实验十一-数据库的备份与恢复">实验十一 数据库的备份与恢复</h1>
+<h2 id="一实验目的">一、实验目的</h2>
+<p>了解 Navicat 的数据备份和恢复机制，掌握 Navicat
+中数据库备份和恢复的方法。</p>
+<h2 id="二实验内容">二、实验内容</h2>
+<p>1、备份</p>
+<p>步骤：使用用户 root 打开连接 MySQL —打开数据库 world
+—点击界面上方的“备份”—新建备份，如图所示：</p>
+<p><img src="https://i.imgur.com/5syemCi.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/MacUG55.png" srcset="/img/loading.gif" lazyload /></p>
+<p>点击“backup”—成功完成后点击保存—保存名称为 world
+—确定，结果如图1.2所示：</p>
+<p><img src="https://i.imgur.com/6Zp5b6g.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/56HYLAy.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/iFSpurc.png" srcset="/img/loading.gif" lazyload /></p>
 <p>2、恢复还原</p>
-<p>步骤：接第1部分操作—删除数据库 world — 在连接 MySQL 中新建一个空的数据库 world（名称需相同）–打开—点击“备份”可以看到如图所示界面：</p>
-<p><img src="https://i.imgur.com/yR8kCpc.png" srcset="/img/loading.gif" lazyload></p>
+<p>步骤：接第1部分操作—删除数据库 world — 在连接 MySQL
+中新建一个空的数据库
+world（名称需相同）--打开—点击“备份”可以看到如图所示界面：</p>
+<p><img src="https://i.imgur.com/yR8kCpc.png" srcset="/img/loading.gif" lazyload /></p>
 <p>选择标有时间的备份文件—点击“还原备份”，会弹出如所示对话框：</p>
-<p><img src="https://i.imgur.com/jaU0043.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/jaU0043.png" srcset="/img/loading.gif" lazyload /></p>
 <p>点击开始—确定。</p>
-<p>过程成功之后会发现数据库 world 已成功恢复（可能需要先关闭再打开）。</p>
-<p><img src="https://i.imgur.com/U0G8ifT.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/CtatXhd.png" srcset="/img/loading.gif" lazyload></p>
+<p>过程成功之后会发现数据库 world
+已成功恢复（可能需要先关闭再打开）。</p>
+<p><img src="https://i.imgur.com/U0G8ifT.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/CtatXhd.png" srcset="/img/loading.gif" lazyload /></p>
 <p>3、用 Navicat 计划任务备份 MySQL 数据库。</p>
-<p>备份连接 MySQL 中的所有数据库（也可以单独选择某一数据库进行备份）：</p>
-<p>① 点击“计划” -&gt; “新建批处理作业”<br>② 默认就有“Backup Server MySQL”这个备份动作。如图所示：</p>
-<p><img src="https://i.imgur.com/dG8mylR.png" srcset="/img/loading.gif" lazyload></p>
+<p>备份连接 MySQL
+中的所有数据库（也可以单独选择某一数据库进行备份）：</p>
+<p>① 点击“计划” -&gt; “新建批处理作业” ② 默认就有“Backup Server
+MySQL”这个备份动作。如图所示：</p>
+<p><img src="https://i.imgur.com/dG8mylR.png" srcset="/img/loading.gif" lazyload /></p>
 <p>③ 双击它，它就被加入到了如图所示的计划队列中：</p>
-<p><img src="https://i.imgur.com/euv8DoD.png" srcset="/img/loading.gif" lazyload></p>
-<p>④ 点击“保存”，弹出设置文件名的对话框，输入这个计划的名称即可，如图所示：</p>
-<p><img src="https://i.imgur.com/Lt6G8cR.png" srcset="/img/loading.gif" lazyload></p>
-<p>⑤ 保存之后，任务栏上的“设置计划任务”变成可用状态。点击“设置计划任务”（可能会报错：“指定的错误：0x80041315，任务计划程序服务没有运行。”或者“指定错误：0x80070005：拒绝访问”解决方法见本实验的步骤4），弹出设置的对话框。在“任务”标签下设置密码，就是数据库所在电脑的登录密码，没有的话可以不设。如图所示：</p>
-<p><img src="https://i.imgur.com/qkX01bX.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/NaJTprK.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/0KZoriQ.png" srcset="/img/loading.gif" lazyload></p>
-<p>⑦ 设置完之后，点击确定，等这个计划运行过之后（可以控制设置的时间以尽快看到结果），看一下备份的效果，备份的文件的位置为：“我的文档” -&gt; “Navicat” -&gt; “MySQL” -&gt; “servers” -&gt; “MySQL”，里面就有各个数据库对应的文件夹，如图所示：</p>
-<p><img src="https://i.imgur.com/ESzgRCK.png" srcset="/img/loading.gif" lazyload></p>
-<p>⑧ 各文件中会生成 <code>.psc</code> 文件，包含了这个库的数据，以后可以用来做还原。如图所示：</p>
-<p><img src="https://i.imgur.com/szp48Av.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="三、课后练习题"><a href="#三、课后练习题" class="headerlink" title="三、课后练习题"></a>三、课后练习题</h2><p>1、创建一个备份设备用于备份数据库 master，并尝试还原数据库 master。</p>
+<p><img src="https://i.imgur.com/euv8DoD.png" srcset="/img/loading.gif" lazyload /></p>
+<p>④
+点击“保存”，弹出设置文件名的对话框，输入这个计划的名称即可，如图所示：</p>
+<p><img src="https://i.imgur.com/Lt6G8cR.png" srcset="/img/loading.gif" lazyload /></p>
+<p>⑤
+保存之后，任务栏上的“设置计划任务”变成可用状态。点击“设置计划任务”（可能会报错：“指定的错误：0x80041315，任务计划程序服务没有运行。”或者“指定错误：0x80070005：拒绝访问”解决方法见本实验的步骤4），弹出设置的对话框。在“任务”标签下设置密码，就是数据库所在电脑的登录密码，没有的话可以不设。如图所示：</p>
+<p><img src="https://i.imgur.com/qkX01bX.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/NaJTprK.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/0KZoriQ.png" srcset="/img/loading.gif" lazyload /></p>
+<p>⑦
+设置完之后，点击确定，等这个计划运行过之后（可以控制设置的时间以尽快看到结果），看一下备份的效果，备份的文件的位置为：“我的文档”
+-&gt; “Navicat” -&gt; “MySQL” -&gt; “servers” -&gt;
+“MySQL”，里面就有各个数据库对应的文件夹，如图所示：</p>
+<p><img src="https://i.imgur.com/ESzgRCK.png" srcset="/img/loading.gif" lazyload /></p>
+<p>⑧ 各文件中会生成 <code>.psc</code>
+文件，包含了这个库的数据，以后可以用来做还原。如图所示：</p>
+<p><img src="https://i.imgur.com/szp48Av.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="三课后练习题">三、课后练习题</h2>
+<p>1、创建一个备份设备用于备份数据库 master，并尝试还原数据库
+master。</p>
 <p>备份：</p>
-<p><img src="https://i.imgur.com/tVVY2wR.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/cVjoGHI.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/5VOht1M.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/tVVY2wR.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/cVjoGHI.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/5VOht1M.png" srcset="/img/loading.gif" lazyload /></p>
 <p>还原：</p>
-<p><img src="https://i.imgur.com/V7A94Vq.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/UMlBQ7z.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/rfiCMSB.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/yEdMRGZ.png" srcset="/img/loading.gif" lazyload></p>
-<p>2、实验二中所用到的导出和导入方法也可以达到备份的效果，尝试用该方法备份和还原数据库 world。</p>
+<p><img src="https://i.imgur.com/V7A94Vq.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/UMlBQ7z.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/rfiCMSB.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/yEdMRGZ.png" srcset="/img/loading.gif" lazyload /></p>
+<p>2、实验二中所用到的导出和导入方法也可以达到备份的效果，尝试用该方法备份和还原数据库
+world。</p>
 <p>备份：</p>
-<p><img src="https://i.imgur.com/E7GrK7f.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/Xk4W0Le.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/4M3IJQt.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/E7GrK7f.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/Xk4W0Le.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/4M3IJQt.png" srcset="/img/loading.gif" lazyload /></p>
 <p>还原：</p>
-<p><img src="https://i.imgur.com/R3vy0cB.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/AdiFjwK.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/31h8sFj.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/R3vy0cB.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/AdiFjwK.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/31h8sFj.png" srcset="/img/loading.gif" lazyload /></p>
 <p>3、思考题：备份策略和备份规划指的分别是什么？</p>
 <p>备份策略：全量数据备份、增量数据备份、日志备份</p>
 <p>备份规划：备份的时间、内容、频率等等</p>
-<p>4、给数据库 world 设计一个备份规划（频率和时间自定，要可看到结果）。</p>
-<p><img src="https://i.imgur.com/i1Csi7R.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/6sXmneV.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/2t5qQxm.png" srcset="/img/loading.gif" lazyload></p>
+<p>4、给数据库 world
+设计一个备份规划（频率和时间自定，要可看到结果）。</p>
+<p><img src="https://i.imgur.com/i1Csi7R.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/6sXmneV.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/2t5qQxm.png" srcset="/img/loading.gif" lazyload /></p>
 <p>结果：</p>
-<p><img src="https://i.imgur.com/YUYwajU.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="实验十三-综合实验"><a href="#实验十三-综合实验" class="headerlink" title="实验十三 综合实验"></a>实验十三 综合实验</h1><h2 id="一、实验目的-1"><a href="#一、实验目的-1" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>1、熟悉数据库应用系统需求分析；</p>
+<p><img src="https://i.imgur.com/YUYwajU.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="实验十三-综合实验">实验十三 综合实验</h1>
+<h2 id="一实验目的-1">一、实验目的</h2>
+<p>1、熟悉数据库应用系统需求分析；</p>
 <p>2、熟悉数据库设计的基本方法；</p>
 <p>3、掌握数据库和数据表的创建方法；</p>
 <p>4、掌握视图的创建方法；</p>
 <p>5、了解各种数据完整性约束；</p>
 <p>6、对存储过程和触发器有一个完整的认识。</p>
-<h2 id="二、实验要求"><a href="#二、实验要求" class="headerlink" title="二、实验要求"></a>二、实验要求</h2><p>给出网上书店管理系统的需求分析报告（见四），要求根据功能分析和数据分析设计概念模型，实现完整的数据库（包括：各种表，视图，必要的存储过程，触发器等）。</p>
-<h2 id="三、实验内容和步骤"><a href="#三、实验内容和步骤" class="headerlink" title="三、实验内容和步骤"></a>三、实验内容和步骤</h2><p>1、需求分析：</p>
-<p>一个书店中的书籍类别、数量是非常庞大的，虽然书籍的分类是非常规范，但仅仅局限于概念上的分类仍无法运用于实践当中，这就给管理人员带来了极大的工作量，因此就需要一个比较科学的管理办法来解决此问题——利用 MySQL 数据库来进行数据管理。</p>
+<h2 id="二实验要求">二、实验要求</h2>
+<p>给出网上书店管理系统的需求分析报告（见四），要求根据功能分析和数据分析设计概念模型，实现完整的数据库（包括：各种表，视图，必要的存储过程，触发器等）。</p>
+<h2 id="三实验内容和步骤">三、实验内容和步骤</h2>
+<p>1、需求分析：</p>
+<p>一个书店中的书籍类别、数量是非常庞大的，虽然书籍的分类是非常规范，但仅仅局限于概念上的分类仍无法运用于实践当中，这就给管理人员带来了极大的工作量，因此就需要一个比较科学的管理办法来解决此问题——利用
+MySQL 数据库来进行数据管理。</p>
 <p>2、概要分析：</p>
 <p>该系统主要分为两部分，一个为普通会员用户部分，亦即前台系统。另外一个是系统的管理员部分，即后台系统。网上书店前台系统部分主要是实现网上选书、购书、产生订单等功能的系统。后台实现书籍管理、用户管理、订单处理等功能。</p>
 <p>3、开发技术：</p>
@@ -362,9 +388,10 @@
 <p>开发技术：数据库开发技术</p>
 <p>面向对象：需求者</p>
 <p>4、系统 E-R 图</p>
-<p><img src="https://i.imgur.com/ptQ14JN.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/ptQ14JN.png" srcset="/img/loading.gif" lazyload /></p>
 <p>5、概念结构设计</p>
-<p>系统共有 6 个实体：图书目录、图书库存、采购、客户、订单、发货、供应商</p>
+<p>系统共有 6
+个实体：图书目录、图书库存、采购、客户、订单、发货、供应商</p>
 <p>（1）图书目录的属性：书号、书名、作者、出版社、价格、关键字、本书的目录、封皮</p>
 <p>（2）图书库存的属性：书号、存货量、供书商、丛书、库存存放位置</p>
 <p>（3）采购的属性：书号、书名、出版社、供书商、数量、登记日期、顾客email</p>
@@ -387,61 +414,98 @@
 <p>供应商供货（供应商编号，供应商供货信息）</p>
 <p>供应商现有书目（供应商编号，书号，数量）</p>
 <p>7、细化表结构</p>
-<p>(1) 图书信息表book_info：</p>
-<p><img src="https://i.imgur.com/QBzALcc.png" srcset="/img/loading.gif" lazyload></p>
-<p>(2) 作者信息表 author_list：</p>
-<p><img src="https://i.imgur.com/WhUw8EC.png" srcset="/img/loading.gif" lazyload></p>
-<p>(3) 关键字表 keywords_list：</p>
-<p><img src="https://i.imgur.com/0N6fvKY.png" srcset="/img/loading.gif" lazyload></p>
-<p>(4) 供应表 provide_list：</p>
-<p><img src="https://i.imgur.com/xLuSelR.png" srcset="/img/loading.gif" lazyload></p>
-<p>(5) 丛书情况表 series_book：</p>
-<p><img src="https://i.imgur.com/Hkx3QgN.png" srcset="/img/loading.gif" lazyload></p>
-<p>(6) 库存情况表 reserve_info：</p>
-<p><img src="https://i.imgur.com/f9ovJ2M.png" srcset="/img/loading.gif" lazyload></p>
-<p>(7) 采购表 purchase_list：</p>
-<p><img src="https://i.imgur.com/kgp1sMR.png" srcset="/img/loading.gif" lazyload></p>
-<p>(8) 客户表 customer_info：</p>
-<p><img src="https://i.imgur.com/bMwb5k1.png" srcset="/img/loading.gif" lazyload></p>
-<p>(9) 订单表 order_list：</p>
-<p><img src="https://i.imgur.com/uUP2I1b.png" srcset="/img/loading.gif" lazyload></p>
-<p>(10) 订单中的书 books_in_order：</p>
-<p><img src="https://i.imgur.com/T4soVAb.png" srcset="/img/loading.gif" lazyload></p>
-<p>(11) 发货表 delivery_info：</p>
-<p><img src="https://i.imgur.com/LKeBT8W.png" srcset="/img/loading.gif" lazyload></p>
-<p>(12) 供应商 provider_list：</p>
-<p><img src="https://i.imgur.com/ZfXACo1.png" srcset="/img/loading.gif" lazyload></p>
-<p>(13) 供应商供货 provider_supply：</p>
-<p><img src="https://i.imgur.com/xAcxr7K.png" srcset="/img/loading.gif" lazyload></p>
-<p>(14) 供应商现有书目 provider_books：</p>
-<p><img src="https://i.imgur.com/UaD0xNz.png" srcset="/img/loading.gif" lazyload></p>
+<ol type="1">
+<li>图书信息表book_info：</li>
+</ol>
+<p><img src="https://i.imgur.com/QBzALcc.png" srcset="/img/loading.gif" lazyload /></p>
+<ol start="2" type="1">
+<li>作者信息表 author_list：</li>
+</ol>
+<p><img src="https://i.imgur.com/WhUw8EC.png" srcset="/img/loading.gif" lazyload /></p>
+<ol start="3" type="1">
+<li>关键字表 keywords_list：</li>
+</ol>
+<p><img src="https://i.imgur.com/0N6fvKY.png" srcset="/img/loading.gif" lazyload /></p>
+<ol start="4" type="1">
+<li>供应表 provide_list：</li>
+</ol>
+<p><img src="https://i.imgur.com/xLuSelR.png" srcset="/img/loading.gif" lazyload /></p>
+<ol start="5" type="1">
+<li>丛书情况表 series_book：</li>
+</ol>
+<p><img src="https://i.imgur.com/Hkx3QgN.png" srcset="/img/loading.gif" lazyload /></p>
+<ol start="6" type="1">
+<li>库存情况表 reserve_info：</li>
+</ol>
+<p><img src="https://i.imgur.com/f9ovJ2M.png" srcset="/img/loading.gif" lazyload /></p>
+<ol start="7" type="1">
+<li>采购表 purchase_list：</li>
+</ol>
+<p><img src="https://i.imgur.com/kgp1sMR.png" srcset="/img/loading.gif" lazyload /></p>
+<ol start="8" type="1">
+<li>客户表 customer_info：</li>
+</ol>
+<p><img src="https://i.imgur.com/bMwb5k1.png" srcset="/img/loading.gif" lazyload /></p>
+<ol start="9" type="1">
+<li>订单表 order_list：</li>
+</ol>
+<p><img src="https://i.imgur.com/uUP2I1b.png" srcset="/img/loading.gif" lazyload /></p>
+<ol start="10" type="1">
+<li>订单中的书 books_in_order：</li>
+</ol>
+<p><img src="https://i.imgur.com/T4soVAb.png" srcset="/img/loading.gif" lazyload /></p>
+<ol start="11" type="1">
+<li>发货表 delivery_info：</li>
+</ol>
+<p><img src="https://i.imgur.com/LKeBT8W.png" srcset="/img/loading.gif" lazyload /></p>
+<ol start="12" type="1">
+<li>供应商 provider_list：</li>
+</ol>
+<p><img src="https://i.imgur.com/ZfXACo1.png" srcset="/img/loading.gif" lazyload /></p>
+<ol start="13" type="1">
+<li>供应商供货 provider_supply：</li>
+</ol>
+<p><img src="https://i.imgur.com/xAcxr7K.png" srcset="/img/loading.gif" lazyload /></p>
+<ol start="14" type="1">
+<li>供应商现有书目 provider_books：</li>
+</ol>
+<p><img src="https://i.imgur.com/UaD0xNz.png" srcset="/img/loading.gif" lazyload /></p>
 <p>8、创建数据库</p>
-<p><img src="https://i.imgur.com/dSXxtMD.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/dSXxtMD.png" srcset="/img/loading.gif" lazyload /></p>
 <p>9、创建数据表及必要的约束：</p>
-<p><img src="https://i.imgur.com/b81103u.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/b81103u.png" srcset="/img/loading.gif" lazyload /></p>
 <p>10、建立必要的视图：</p>
-<p><img src="https://i.imgur.com/QgHQWYQ.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/QgHQWYQ.png" srcset="/img/loading.gif" lazyload /></p>
 <p>11、创建必要的外键：</p>
-<p><img src="https://i.imgur.com/DndpFW1.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/DndpFW1.png" srcset="/img/loading.gif" lazyload /></p>
 <p>12、创建必要的触发器：</p>
-<p><img src="https://i.imgur.com/eeFLXLI.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="四、相关资料"><a href="#四、相关资料" class="headerlink" title="四、相关资料"></a>四、相关资料</h2><p><strong>网上书店管理系统的需求分析报告</strong></p>
+<p><img src="https://i.imgur.com/eeFLXLI.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="四相关资料">四、相关资料</h2>
+<p><strong>网上书店管理系统的需求分析报告</strong></p>
 <p>设计一个小型的数据库应用系统，服务于一个网上书店的日常处理业务及网上购书业务，包括供书目录、库存管理、采购管理、客户管理，顾客订单管理、发货管理，供应商管理及网上浏览等。</p>
-<p>总体设计要求：书店内部日常处理业务通过C&#x2F;S模式来实现，而顾客可通过Internet进行网上订书及查询浏览，为改善性能，应尽量将业务规则放在中间层或数据库服务器一端。<br>该系统的主要功能如下：</p>
+<p>总体设计要求：书店内部日常处理业务通过C/S模式来实现，而顾客可通过Internet进行网上订书及查询浏览，为改善性能，应尽量将业务规则放在中间层或数据库服务器一端。
+该系统的主要功能如下：</p>
 <p>1、供书目录及库存管理</p>
 <p>供书目录管理及库存管理为书店的主要日常业务，应包括建立和更新供书目录，新书入库功能等。需要记录供书的信息有：书号，书名，作者（最多可包括四个作者，有序），出版社，价格，关键字（最多10个），本书的目录（可选），封皮（可选），存货量，供书商（一本书可有多个供应商，可选）等，并且需考虑丛书的问题（即一个书号包含多本书），库存存放位置（可采用示意图表示，可选）。</p>
 <p>2、采购管理</p>
-<p>采购管理为书店的主要日常业务之一，包括缺书登记管理及采购单管理。<br>缺书登记可通过以下几种方法生成：</p>
+<p>采购管理为书店的主要日常业务之一，包括缺书登记管理及采购单管理。<br />
+缺书登记可通过以下几种方法生成：</p>
 <ul>
 <li>1）直接进行缺书登记，包括书号，书名，出版社，供书商，数量，登记日期。</li>
 <li>2）存书量低于一定限度时，自动生成缺书记录（注：不能有重复）,最低存书量可设定。（可选）</li>
-<li>3）顾客在网上进行缺书登记或订货数量超出库存时，生成缺书记录（注：不能有重复），必要时，应记录下顾客的缺书请求，以便答复。（可选）<br>采购单管理：根据缺书记录单可选择生成采购单，到货时对采购单作相应处理，并增加库存量，删除缺书记录，EMAIL通知缺书登记的顾客（可选）等。</li>
+<li>3）顾客在网上进行缺书登记或订货数量超出库存时，生成缺书记录（注：不能有重复），必要时，应记录下顾客的缺书请求，以便答复。（可选）
+采购单管理：根据缺书记录单可选择生成采购单，到货时对采购单作相应处理，并增加库存量，删除缺书记录，EMAIL通知缺书登记的顾客（可选）等。</li>
 </ul>
-<p>采购单管理：根据缺书记录单可选择生成采购单，到货时对采购单作相应处理，并增加库存量，删除缺书记录，EMAIL 通知缺书登记的顾客（可选）等。</p>
+<p>采购单管理：根据缺书记录单可选择生成采购单，到货时对采购单作相应处理，并增加库存量，删除缺书记录，EMAIL
+通知缺书登记的顾客（可选）等。</p>
 <p>3、客户管理</p>
-<p>客户管理包括客户信息管理及信用管理。需要记录客户的信息包括：网上 ID，登录密码，名称，地址，帐户余额，信用等级等。</p>
+<p>客户管理包括客户信息管理及信用管理。需要记录客户的信息包括：网上
+ID，登录密码，名称，地址，帐户余额，信用等级等。</p>
 <p>有关客户信息的管理，分别由书店管理和客户网上管理完成，书店管理包括收到客户的款项后，增加客户的帐户余额；调整信用额度。客户其他信息由客户在网上维护，如注册一个新的用户，修改用户信息等等。</p>
-<p>信用等级分为五级，一级为 10% 的折扣，不能透支；二级为 15% 的折扣，不能透支；三级为15%的折扣，可先发书再付款，透支有额度限制；四级为 20% 的折扣，可先发书再付款，透支有额度限制；五级为 25% 的折扣，可先发书再付款，透支无额度限制。信用等级管理有两种形式：一种是书店进行管理；一种是自动进行管理，即在每月月初根据该帐户的余额或累计购书总金额进行调整，如帐户余额超过一定金额，提升其信用额度，或者累计购书总金额超过一定金额提升其信用额度（可选）。</p>
+<p>信用等级分为五级，一级为 10% 的折扣，不能透支；二级为 15%
+的折扣，不能透支；三级为15%的折扣，可先发书再付款，透支有额度限制；四级为
+20% 的折扣，可先发书再付款，透支有额度限制；五级为 25%
+的折扣，可先发书再付款，透支无额度限制。信用等级管理有两种形式：一种是书店进行管理；一种是自动进行管理，即在每月月初根据该帐户的余额或累计购书总金额进行调整，如帐户余额超过一定金额，提升其信用额度，或者累计购书总金额超过一定金额提升其信用额度（可选）。</p>
 <p>4、顾客订单管理和发货管理</p>
 <p>顾客订单包括订单号，订货日期，客户ID，书号，订书数量，金额，发货地址，发货情况等。</p>
 <p>订单由顾客在网上申请生成。一个订单可订多本书（可选）。并仅能对书库中已有的书目进行订购，库存量不足时可以先订货；当客户查询的书目在书库中没有找到时，将会询问客户是否希望做进一步的询价及报价。</p>
@@ -452,11 +516,13 @@
 <p>可查询以下二类信息：</p>
 <ul>
 <li>1）客户相关信息，包括：客户基本信息，客户历史订单信息，相关订单的发货信息等。</li>
-<li>2）书目信息：可按照书号，书名，出版社，关键字（可指定匹配程度（可选））、作者（按第一，第二……作者查询（可选）），进行查询，并可进行模糊查询（可选）。<br>要求：必须根据所有必选的功能和数据需求设计实现完整的数据库（包括：各种表，视图，必要的存储过程，触发器等）。</li>
+<li>2）书目信息：可按照书号，书名，出版社，关键字（可指定匹配程度（可选））、作者（按第一，第二……作者查询（可选）），进行查询，并可进行模糊查询（可选）。
+要求：必须根据所有必选的功能和数据需求设计实现完整的数据库（包括：各种表，视图，必要的存储过程，触发器等）。</li>
 </ul>
-<hr>
+<hr />
 <p>参考：</p>
-<p>1、<a target="_blank" rel="noopener" href="https://blog.csdn.net/lee1hong/article/details/105763631?spm=1001.2014.3001.5501">哆啦一泓</a></p>
+<p>1、<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/lee1hong/article/details/105763631?spm=1001.2014.3001.5501">哆啦一泓</a></p>
 
                 
               </div>
@@ -789,6 +855,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

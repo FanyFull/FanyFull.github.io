@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="这本编译原理的版本是机械工业出版社翻译的“龙书”第二版。 第一章 一个程序可以运行之前，它首先需要被翻译成一种能够被计算机执行的形式。完成这项翻译工作的软件系统称为编译器（Compiler）。   研究编译器的编写将涉及程序设计语言、计算机体系架构、形式语言理论、算法和软件工程。   Java 语言处理器结合了编译和解释过程。一个 Java 程序首先被编译成一个称为字节码（bytecode）的中间">
+    <meta name="description" content="这本编译原理的版本是机械工业出版社翻译的“龙书”第二版。 第一章  一个程序可以运行之前，它首先需要被翻译成一种能够被计算机执行的形式。 完成这项翻译工作的软件系统称为编译器（Compiler）。   研究编译器的编写将涉及程序设计语言、计算机体系架构、形式语言理论、算法和软件工程。   Java 语言处理器结合了编译和解释过程。一个 Java 程序首先被编译成一个称为字节码（bytecode）的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《编译原理 第二版》札记">
 <meta property="og:url" content="http://fanyfull.github.io/2021/09/19/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-%E7%AC%AC%E4%BA%8C%E7%89%88%E3%80%8B%E6%9C%AD%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="这本编译原理的版本是机械工业出版社翻译的“龙书”第二版。 第一章 一个程序可以运行之前，它首先需要被翻译成一种能够被计算机执行的形式。完成这项翻译工作的软件系统称为编译器（Compiler）。   研究编译器的编写将涉及程序设计语言、计算机体系架构、形式语言理论、算法和软件工程。   Java 语言处理器结合了编译和解释过程。一个 Java 程序首先被编译成一个称为字节码（bytecode）的中间">
+<meta property="og:description" content="这本编译原理的版本是机械工业出版社翻译的“龙书”第二版。 第一章  一个程序可以运行之前，它首先需要被翻译成一种能够被计算机执行的形式。 完成这项翻译工作的软件系统称为编译器（Compiler）。   研究编译器的编写将涉及程序设计语言、计算机体系架构、形式语言理论、算法和软件工程。   Java 语言处理器结合了编译和解释过程。一个 Java 程序首先被编译成一个称为字节码（bytecode）的">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210920130214.png">
 <meta property="article:published_time" content="2021-09-19T10:51:32.000Z">
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -283,40 +283,60 @@
               <div class="markdown-body">
                 
                 <p>这本编译原理的版本是机械工业出版社翻译的“龙书”第二版。</p>
-<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><blockquote>
-<p>一个程序可以运行之前，它首先需要被翻译成一种能够被计算机执行的形式。<br>完成这项翻译工作的软件系统称为编译器（Compiler）。</p>
+<h1 id="第一章">第一章</h1>
+<blockquote>
+<p>一个程序可以运行之前，它首先需要被翻译成一种能够被计算机执行的形式。
+完成这项翻译工作的软件系统称为编译器（Compiler）。</p>
 </blockquote>
 <blockquote>
 <p>研究编译器的编写将涉及程序设计语言、计算机体系架构、形式语言理论、算法和软件工程。</p>
 </blockquote>
 <blockquote>
-<p>Java 语言处理器结合了编译和解释过程。一个 Java 程序首先被编译成一个称为字节码（bytecode）的中间表示形式，然后由一个虚拟机对得到的字节码加以解释执行。</p>
+<p>Java 语言处理器结合了编译和解释过程。一个 Java
+程序首先被编译成一个称为字节码（bytecode）的中间表示形式，然后由一个虚拟机对得到的字节码加以解释执行。</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210919192248.png" srcset="/img/loading.gif" lazyload alt="一个编译器的各个步骤"></p>
-<h2 id="1、词法分析"><a href="#1、词法分析" class="headerlink" title="1、词法分析"></a>1、词法分析</h2><p>专业术语：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210919192248.png" srcset="/img/loading.gif" lazyload
+alt="一个编译器的各个步骤" /></p>
+<h2 id="词法分析">1、词法分析</h2>
+<p>专业术语：</p>
 <ul>
 <li>符号表：symbol table</li>
 <li>词法分析：lexical analysis</li>
 <li>词素：lexeme</li>
 <li>词法单元：token。</li>
 </ul>
-<p>词法单元的形式为 <code>&lt;token-name, attribute-value&gt;</code>。第一个分量 token-name 是一个由语法分析步骤使用的抽象符号，而第二个分量 attribute-value 指向符号表中关于这个词法单元的条目。</p>
+<p>词法单元的形式为
+<code>&lt;token-name, attribute-value&gt;</code>。第一个分量 token-name
+是一个由语法分析步骤使用的抽象符号，而第二个分量 attribute-value
+指向符号表中关于这个词法单元的条目。</p>
 <p>针对词法分析进行举例说明：</p>
 <p>假设一个源程序包含如下的赋值语句</p>
-<p>position &#x3D; initial + rate * 60</p>
-<p>1） position 是一个词素，被映射成词法单元 <code>&lt;id, 1&gt;</code>，其中 id 是标识符（identifier）的抽象符号，而 1 指向符号表中 position 对应的条目。一个标识符对应的符号表条目存放该标识符有关的信息，比如它的名字和类型。</p>
-<p>2）赋值符号 &#x3D; 是一个词素，被映射成词法单元 <code>&lt;=&gt;</code>。</p>
-<p>3）initial 是一个词素，被映射成词法单元 <code>&lt;id, 2&gt;</code>。</p>
+<p>position = initial + rate * 60</p>
+<p>1） position 是一个词素，被映射成词法单元
+<code>&lt;id, 1&gt;</code>，其中 id 是标识符（identifier）的抽象符号，而
+1 指向符号表中 position
+对应的条目。一个标识符对应的符号表条目存放该标识符有关的信息，比如它的名字和类型。</p>
+<p>2）赋值符号 = 是一个词素，被映射成词法单元
+<code>&lt;=&gt;</code>。</p>
+<p>3）initial 是一个词素，被映射成词法单元
+<code>&lt;id, 2&gt;</code>。</p>
 <p>4）+ 是一个词素，被映射成词法单元 <code>&lt;+&gt;</code>。</p>
 <p>5）rate 是一个词素，被映射成词法单元 <code>&lt;id, 3&gt;</code>。</p>
 <p>6）* 是一个词素，被映射成词法单元 <code>&lt;*&gt;</code>。</p>
 <p>7）60 是一个词素，被映射成词法单元 <code>&lt;60&gt;</code>。</p>
 <p>最后，上面的赋值语句被表示成如下的词法单元序列：</p>
-<p>&lt;id, 1&gt; &lt;&#x3D;&gt; &lt;id, 2&gt; &lt;+&gt; &lt;id, 3&gt; &lt;*&gt; &lt;60&gt;</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210919214057.png" srcset="/img/loading.gif" lazyload alt="符号表"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210920120546.png" srcset="/img/loading.gif" lazyload alt="一个赋值语句的翻译"></p>
+<p>&lt;id, 1&gt; &lt;=&gt; &lt;id, 2&gt; &lt;+&gt; &lt;id, 3&gt;
+&lt;*&gt; &lt;60&gt;</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210919214057.png" srcset="/img/loading.gif" lazyload
+alt="符号表" /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210920120546.png" srcset="/img/loading.gif" lazyload
+alt="一个赋值语句的翻译" /></p>
 <p>上面这个赋值语句的翻译，用举例的方式很好地解释了编译器编译语句的过程，让人可以对编译过程有一个初步的把握。</p>
-<h2 id="2、语法分析"><a href="#2、语法分析" class="headerlink" title="2、语法分析"></a>2、语法分析</h2><p>专业术语：</p>
+<h2 id="语法分析">2、语法分析</h2>
+<p>专业术语：</p>
 <ul>
 <li>语法分析：syntax analysis</li>
 </ul>
@@ -326,25 +346,31 @@
 <blockquote>
 <p>一个常用的语法是语法树。</p>
 </blockquote>
-<h2 id="3、杂记"><a href="#3、杂记" class="headerlink" title="3、杂记"></a>3、杂记</h2><blockquote>
+<h2 id="杂记">3、杂记</h2>
+<blockquote>
 <p>符号表数据结构为每个变量名字创建了一个记录条目。记录的字段就是名字的各个属性。这个数据结构应该允许编译器迅速查找到每个名字的记录，并向记录中快速存放和获取记录中的数据。（P6）</p>
 </blockquote>
 <blockquote>
 <p>在一个特定的实现中，多个步骤的活动可以被组合成一趟（pass）。（P6）</p>
 </blockquote>
-<h2 id="1-5"><a href="#1-5" class="headerlink" title="1.5"></a>1.5</h2><p>何为类型检查？</p>
+<h2 id="section">1.5</h2>
+<p>何为类型检查？</p>
 <p>举例，运算被作用于错误类型的对象上，或者传递给一个过程（procedure）的参数和该过程的范型（signature）不匹配。</p>
 <p>按：这里的范型（signature）应该翻译成签名才会，这样才和函数的“签名”对得上。</p>
 <p>何为边界检查？</p>
-<p>举例，C 语言的数组需要进行边界检查，否则如果超出边界，可能会造成缓冲区溢出的问题。</p>
+<p>举例，C
+语言的数组需要进行边界检查，否则如果超出边界，可能会造成缓冲区溢出的问题。</p>
 <p>何为内存管理工具？</p>
 <p>举例，垃圾收集机制就是这样一个工具。内存管理需要解决诸如内存泄漏这样的内存泄露的问题。</p>
-<h2 id="1-6"><a href="#1-6" class="headerlink" title="1.6"></a>1.6</h2><p>何为静态和动态的区别？</p>
+<h2 id="section-1">1.6</h2>
+<p>何为静态和动态的区别？</p>
 <p>主要有两个方面。</p>
 <p>一个是策略。</p>
 <ul>
-<li>一个语言使用的策略支持编译器静态决定某个问题，或者这个问题可以在编译时刻决定 &#x3D;&#x3D;&gt; 静态策略。</li>
-<li>只允许在运行程序的时候做出决定，或者需要在运行时刻做出决定 &#x3D;&#x3D;&gt; 动态策略。</li>
+<li>一个语言使用的策略支持编译器静态决定某个问题，或者这个问题可以在编译时刻决定
+==&gt; 静态策略。</li>
+<li>只允许在运行程序的时候做出决定，或者需要在运行时刻做出决定 ==&gt;
+动态策略。</li>
 </ul>
 <p>另一个是作用域。</p>
 <ul>
@@ -367,7 +393,8 @@
 <p>一般来说，名字到位置的绑定，位置到值的绑定都是动态的。但是，它们都有例外。</p>
 <p>名字、标识符和变量的区分？</p>
 <p>标识符（identifier）是一个字符串。它用来指向（标记）一个实体。</p>
-<p>所有标识符都是名字，但并不是所有的名字都是标识符，比如，<code>x.y</code> 是名字，但不是标识符。</p>
+<p>所有标识符都是名字，但并不是所有的名字都是标识符，比如，<code>x.y</code>
+是名字，但不是标识符。</p>
 <p>变量指向存储中的某个特定的位置。同一个标识符被多次声明是常见的事情，每一个这样的声明引入一个新的变量。</p>
 
                 
@@ -703,6 +730,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

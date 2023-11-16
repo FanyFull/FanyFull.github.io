@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="对于整数中的位的位运算？   &amp; 是按位与（Bitwise AND）运算符 | 是按位或（Bitwise OR）运算符 ~（Tilde）是按位取反（Bitwise NOT）运算符 ^（Caret）是按位异或（Bitwise XOR）运算符   奇偶性的英文？  Parity  不借助额外的存储空间，交换两个变量的值？  123a &#x3D; a^b;b &#x3D; b^a;a &#x3D; a^b;  利用的原理">
+    <meta name="description" content="对于整数中的位的位运算？   &amp; 是按位与（Bitwise AND）运算符 | 是按位或（Bitwise OR）运算符 ~（Tilde）是按位取反（Bitwise NOT）运算符 ^（Caret）是按位异或（Bitwise XOR）运算符   奇偶性的英文？  Parity  不借助额外的存储空间，交换两个变量的值？  123a &#x3D; a^b;b &#x3D; b^a;a &#x3D; a^b; 利用的原理是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《一站式学习 C 编程》阅读手记">
 <meta property="og:url" content="http://fanyfull.github.io/2021/11/11/%E3%80%8A%E4%B8%80%E7%AB%99%E5%BC%8F%E5%AD%A6%E4%B9%A0-C-%E7%BC%96%E7%A8%8B%E3%80%8B%E9%98%85%E8%AF%BB%E6%89%8B%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="对于整数中的位的位运算？   &amp; 是按位与（Bitwise AND）运算符 | 是按位或（Bitwise OR）运算符 ~（Tilde）是按位取反（Bitwise NOT）运算符 ^（Caret）是按位异或（Bitwise XOR）运算符   奇偶性的英文？  Parity  不借助额外的存储空间，交换两个变量的值？  123a &#x3D; a^b;b &#x3D; b^a;a &#x3D; a^b;  利用的原理">
+<meta property="og:description" content="对于整数中的位的位运算？   &amp; 是按位与（Bitwise AND）运算符 | 是按位或（Bitwise OR）运算符 ~（Tilde）是按位取反（Bitwise NOT）运算符 ^（Caret）是按位异或（Bitwise XOR）运算符   奇偶性的英文？  Parity  不借助额外的存储空间，交换两个变量的值？  123a &#x3D; a^b;b &#x3D; b^a;a &#x3D; a^b; 利用的原理是">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/EIoU6Yv.png">
 <meta property="article:published_time" content="2021-11-11T03:02:37.000Z">
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -299,19 +299,20 @@
 <p>不借助额外的存储空间，交换两个变量的值？</p>
 </blockquote>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c">a = a^b;<br>b = b^a;<br>a = a^b;<br></code></pre></td></tr></table></figure>
-
 <p>利用的原理是：</p>
 <ul>
 <li><code>x^x^y ==y</code></li>
 <li>异或运算满足交换律和结合律</li>
 </ul>
 <blockquote>
-<p>疑：RAID(Redundant Array of Independent Disks，独立磁盘冗余阵列) 的实现原理？</p>
+<p>疑：RAID(Redundant Array of Independent Disks，独立磁盘冗余阵列)
+的实现原理？</p>
 </blockquote>
 <blockquote>
 <p>gcc 的 <code>-g</code> option？</p>
 </blockquote>
-<p>在编译时要加上 <code>-g</code> 选项，生成的可执行文件才能用 gdb 进行源码级调试。</p>
+<p>在编译时要加上 <code>-g</code> 选项，生成的可执行文件才能用 gdb
+进行源码级调试。</p>
 
                 
               </div>
@@ -646,6 +647,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

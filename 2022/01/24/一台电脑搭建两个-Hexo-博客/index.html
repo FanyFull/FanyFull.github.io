@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -283,54 +283,67 @@
               <div class="markdown-body">
                 
                 <p>2022.05.23 更新：</p>
-<p>遇到了一个连接超时的问题，在<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c3aac5024877">这里</a>得到了解决。</p>
+<p>遇到了一个连接超时的问题，在<a
+target="_blank" rel="noopener" href="https://www.jianshu.com/p/c3aac5024877">这里</a>得到了解决。</p>
 <p>修改后的 ssh 的 config 文件如下：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs stylus">Host github<span class="hljs-selector-class">.com</span><br>    HostName ssh<span class="hljs-selector-class">.github</span><span class="hljs-selector-class">.com</span><br>    User git<br>    IdentityFile ~/.ssh/id_rsa<br>    Port <span class="hljs-number">443</span><br><br>#第二个新账号，#<span class="hljs-string">&quot;xxxxxx&quot;</span>为前缀名，可以任意设置，要记住，后面需要用到<br>Host luflyan<span class="hljs-selector-class">.github</span><span class="hljs-selector-class">.com</span><br>	HostName ssh<span class="hljs-selector-class">.github</span><span class="hljs-selector-class">.com</span><br>	User git<br>	IdentityFile ~/.ssh/luflyan<br>    Port <span class="hljs-number">443</span><br></code></pre></td></tr></table></figure>
-
 <p><strong>另外</strong>，</p>
-<p>不需要取消 git 的全局用户名和邮箱。只需要在另一个博客的 git 目录下更改用户名和邮箱即可。</p>
+<p>不需要取消 git 的全局用户名和邮箱。只需要在另一个博客的 git
+目录下更改用户名和邮箱即可。</p>
 <p>以下是原博客。</p>
-<hr>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>因为我比较喜欢重装系统，最近也确实重装了不少次，仗着学校可以免费使用 Windows 系统，我确实有点不知道收敛了。说回来，不收敛也有不收敛的好处，每次重装完系统还是能够收获很多快乐的。</p>
+<hr />
+<h1 id="前言">前言</h1>
+<p>因为我比较喜欢重装系统，最近也确实重装了不少次，仗着学校可以免费使用
+Windows
+系统，我确实有点不知道收敛了。说回来，不收敛也有不收敛的好处，每次重装完系统还是能够收获很多快乐的。</p>
 <p>之前也配置过不少次了，想着每一次都是去看别人的博客，这一次自己也记录一下子吧。下一次就方便了。而且，更方便我去重装系统了。</p>
 <p>下面就开工。</p>
-<h1 id="配置过程"><a href="#配置过程" class="headerlink" title="配置过程"></a>配置过程</h1><p>首先，本操作是建立在电脑上本身就已经搭建好一个 Hexo 博客的情况下。关于搭建一个 Hexo 博客的参考，可以参见<a href="https://fanyfull.github.io/2021/10/16/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA-GitHub-%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/#%E4%BD%BF%E7%94%A8-hexo-%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6">GiHub + Hexo 真·从零开始搭建个人博客</a>。</p>
+<h1 id="配置过程">配置过程</h1>
+<p>首先，本操作是建立在电脑上本身就已经搭建好一个 Hexo
+博客的情况下。关于搭建一个 Hexo 博客的参考，可以参见<a
+href="https://fanyfull.github.io/2021/10/16/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA-GitHub-%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/#%E4%BD%BF%E7%94%A8-hexo-%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6">GiHub
++ Hexo 真·从零开始搭建个人博客</a>。</p>
 <p>然后，创建密钥：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">ssh<span class="hljs-literal">-keygen</span> <span class="hljs-literal">-t</span> rsa <span class="hljs-literal">-C</span> <span class="hljs-string">&quot;user.email&quot;</span> <span class="hljs-comment"># user.email 为 GitHub 上注册的邮箱</span><br></code></pre></td></tr></table></figure>
-
-<p>这里最好要在 <code>.ssh</code> 的目录下执行命令。否则新创建的密钥文件可能会跑到 <code>C:\Users\FanyFull\</code> 目录下面。</p>
+<p>这里最好要在 <code>.ssh</code>
+的目录下执行命令。否则新创建的密钥文件可能会跑到
+<code>C:\Users\FanyFull\</code> 目录下面。</p>
 <p>注意，回车后要输入文件名称，不可以像搭建一个博客那样什么都不做，三个回车，</p>
 <p>然后，两个回车就行，</p>
 <p>新密钥创建完毕。</p>
-<p><img src="https://i.imgur.com/ko7IS0Q.png" srcset="/img/loading.gif" lazyload></p>
-<p>然后，在 <code>C:\Users\FanyFull\.ssh\</code> 目录下创建一个 <code>config</code> 文件：</p>
+<p><img src="https://i.imgur.com/ko7IS0Q.png" srcset="/img/loading.gif" lazyload /></p>
+<p>然后，在 <code>C:\Users\FanyFull\.ssh\</code> 目录下创建一个
+<code>config</code> 文件：</p>
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs crmsh"><span class="hljs-comment">#第一个账号，默认使用的账号，不用做任何更改</span><br>Host github.com<br>	HostName github.com<br>	<span class="hljs-keyword">User</span> <span class="hljs-title">git</span><br>	IdentityFile ~/.ssh/id_rsa<br>	<br><span class="hljs-comment">#第二个新账号，#&quot;xxxxxx&quot;为前缀名，可以任意设置，要记住，后面需要用到</span><br>Host xxxxxx.github.com<br>	HostName github.com<br>	<span class="hljs-keyword">User</span> <span class="hljs-title">git</span><br>	IdentityFile ~/.ssh/这里是你创建的新密钥的名称<br></code></pre></td></tr></table></figure>
-
 <p>我这里的设置：</p>
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs crmsh"><span class="hljs-comment">#第一个账号，默认使用的账号，不用做任何更改</span><br>Host github.com<br>	HostName github.com<br>	<span class="hljs-keyword">User</span> <span class="hljs-title">git</span><br>	IdentityFile ~/.ssh/id_rsa<br>	<br><span class="hljs-comment">#第二个新账号，#&quot;xxxxxx&quot;为前缀名，可以任意设置，要记住，后面需要用到</span><br>Host luflyan.github.com<br>	HostName github.com<br>	<span class="hljs-keyword">User</span> <span class="hljs-title">git</span><br>	IdentityFile ~/.ssh/luflyan<br></code></pre></td></tr></table></figure>
-
 <p>然后，到 GitHub 中添加刚刚新建的密钥。</p>
-<p>然后，到 <code>.ssh</code> 目录下依次执行如下几条命令（这些命令必须到 git bash 中执行）：</p>
+<p>然后，到 <code>.ssh</code> 目录下依次执行如下几条命令（这些命令必须到
+git bash 中执行）：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-agent bash<br>ssh-add -D<br>ssh-add xxxxxx <span class="hljs-comment">#旧密钥名称，一般是id_rsa</span><br>ssh-add xxxxxx <span class="hljs-comment">#新创建的密钥名称</span><br></code></pre></td></tr></table></figure>
-
-<p><img src="https://i.imgur.com/TEozAM5.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="验证是否成功"><a href="#验证是否成功" class="headerlink" title="验证是否成功"></a>验证是否成功</h1><p>依次执行以下命令，第一个为默认 ssh_key 验证；第二个为新的 ssh_key 验证，其中 “xxxxxx” 为先前在 config 文件中的命名。</p>
+<p><img src="https://i.imgur.com/TEozAM5.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="验证是否成功">验证是否成功</h1>
+<p>依次执行以下命令，第一个为默认 ssh_key 验证；第二个为新的 ssh_key
+验证，其中 "xxxxxx" 为先前在 config 文件中的命名。</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">ssh <span class="hljs-literal">-T</span> git@github.com<br>ssh <span class="hljs-literal">-T</span> git@xxxxxx.github.com<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://i.imgur.com/xsH07mA.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="取消全局用户名-邮箱配置，单独设置用户名-邮箱"><a href="#取消全局用户名-邮箱配置，单独设置用户名-邮箱" class="headerlink" title="取消全局用户名&#x2F;邮箱配置，单独设置用户名&#x2F;邮箱"></a>取消全局用户名&#x2F;邮箱配置，单独设置用户名&#x2F;邮箱</h1><p>执行如下命令，取消全局用户名和邮箱配置（如果已经设置了全局的话）：</p>
+<p><img src="https://i.imgur.com/xsH07mA.png" srcset="/img/loading.gif" lazyload /></p>
+<h1
+id="取消全局用户名邮箱配置单独设置用户名邮箱">取消全局用户名/邮箱配置，单独设置用户名/邮箱</h1>
+<p>执行如下命令，取消全局用户名和邮箱配置（如果已经设置了全局的话）：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">git config <span class="hljs-attr">--global</span> <span class="hljs-attr">--unset</span> user<span class="hljs-selector-class">.name</span><br>git config <span class="hljs-attr">--global</span> <span class="hljs-attr">--unset</span> user.email<br></code></pre></td></tr></table></figure>
-
-<p>分别进入你的两个 Hexo 博客 .git 目录下执行以下命令单独设置用户名&#x2F;邮箱：</p>
-<p><img src="https://i.imgur.com/9c2noNi.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/nuIYdKK.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="hexo-配置文件修改-git-地址"><a href="#hexo-配置文件修改-git-地址" class="headerlink" title="hexo 配置文件修改 git 地址"></a>hexo 配置文件修改 git 地址</h1><p>打开你的第二个博客 Hexo 目录下的 _config.yml 文件，找到 deploy 关键字，写入以下配置并保存：</p>
+<p>分别进入你的两个 Hexo 博客 .git
+目录下执行以下命令单独设置用户名/邮箱：</p>
+<p><img src="https://i.imgur.com/9c2noNi.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/nuIYdKK.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="hexo-配置文件修改-git-地址">hexo 配置文件修改 git 地址</h1>
+<p>打开你的第二个博客 Hexo 目录下的 _config.yml 文件，找到 deploy
+关键字，写入以下配置并保存：</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">deploy:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repository:</span> <span class="hljs-string">git@xxxxxx.github.com:你的用户名/你的用户名.github.io.git</span><br>  <span class="hljs-attr">branch:</span> <span class="hljs-string">master</span><br></code></pre></td></tr></table></figure>
-
 <p>到这里，第二个博客就部署完成了。</p>
-<hr>
+<hr />
 <p>参考：</p>
-<p>1、<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36759224/article/details/86546729">CSDN</a></p>
+<p>1、<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36759224/article/details/86546729">CSDN</a></p>
 
                 
               </div>
@@ -665,6 +678,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

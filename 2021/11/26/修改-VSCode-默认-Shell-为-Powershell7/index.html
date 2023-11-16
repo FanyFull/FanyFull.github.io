@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -282,23 +282,28 @@
               <div class="markdown-body">
                 
                 <p>首先，我们的 VSCode 默认的 Shell(Terminal) 应该是这个：</p>
-<p><img src="https://i.imgur.com/u7kdIja.png" srcset="/img/loading.gif" lazyload></p>
-<p>然后，我们访问它给的网址<a target="_blank" rel="noopener" href="https://aka.ms/PSWindows">https://aka.ms/PSWindows</a>，去下载最新的 PowerShell，</p>
-<p><img src="https://i.imgur.com/xIkYDjb.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/ysvWqCS.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/u7kdIja.png" srcset="/img/loading.gif" lazyload /></p>
+<p>然后，我们访问它给的网址<a target="_blank" rel="noopener" href="https://aka.ms/PSWindows"
+class="uri">https://aka.ms/PSWindows</a>，去下载最新的 PowerShell，</p>
+<p><img src="https://i.imgur.com/xIkYDjb.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/ysvWqCS.png" srcset="/img/loading.gif" lazyload /></p>
 <p>这里推荐使用 MSI 包来安装，下载好之后，直接双击安装即可。</p>
-<p>然后，<code>Ctrl + Shift + P</code>，输入 <code>open settings</code>，打开 <code>settings.json</code>：</p>
-<p><img src="https://i.imgur.com/Te5EluN.png" srcset="/img/loading.gif" lazyload></p>
+<p>然后，<code>Ctrl + Shift + P</code>，输入
+<code>open settings</code>，打开 <code>settings.json</code>：</p>
+<p><img src="https://i.imgur.com/Te5EluN.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后添加如下配置：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-attr">&quot;terminal.integrated.profiles.windows&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;PowerShell&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;PowerShell&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;icon&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;terminal-powershell&quot;</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;Command Prompt&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;path&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>            <span class="hljs-string">&quot;$&#123;env:windir&#125;\\Sysnative\\cmd.exe&quot;</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-string">&quot;$&#123;env:windir&#125;\\System32\\cmd.exe&quot;</span><br>        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;icon&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;terminal-cmd&quot;</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;Git Bash&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Git Bash&quot;</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;PowerShell7&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;path&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;C:\\Program Files\\PowerShell\\7\\pwsh.exe&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;icon&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;terminal-powershell&quot;</span><br>    <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;terminal.integrated.defaultProfile.windows&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;PowerShell7&quot;</span><span class="hljs-punctuation">,</span><br></code></pre></td></tr></table></figure>
-
 <p>然后，我们新建一个 Terminal 来看一下，</p>
-<p><img src="https://i.imgur.com/Pp12pqi.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/Pp12pqi.png" srcset="/img/loading.gif" lazyload /></p>
 <p>发现配置已经生效。</p>
-<hr>
+<hr />
 <p>参考：</p>
-<p>1. <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/65908987/vs-code-how-to-open-settings-json-file">https://stackoverflow.com/questions/65908987/vs-code-how-to-open-settings-json-file</a></p>
-<p>2. <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/67601161/the-new-way-to-configure-default-shell-and-argument-commands-in-vscode">https://stackoverflow.com/questions/67601161/the-new-way-to-configure-default-shell-and-argument-commands-in-vscode</a></p>
+<p>1. <a
+target="_blank" rel="noopener" href="https://stackoverflow.com/questions/65908987/vs-code-how-to-open-settings-json-file"
+class="uri">https://stackoverflow.com/questions/65908987/vs-code-how-to-open-settings-json-file</a></p>
+<p>2. <a
+target="_blank" rel="noopener" href="https://stackoverflow.com/questions/67601161/the-new-way-to-configure-default-shell-and-argument-commands-in-vscode"
+class="uri">https://stackoverflow.com/questions/67601161/the-new-way-to-configure-default-shell-and-argument-commands-in-vscode</a></p>
 
                 
               </div>
@@ -631,6 +636,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="短连字符在 LaTex 环境中，普通的短的连字符会被转换成比较长的减号 $-$，而如果我们想要使用短的连字符，我们可以使用 \text&#123;&#125; 命令。 示例： 123$$\varepsilon\text&#123;-闭包&#125;$$  效果： $$\varepsilon\text{-闭包}$$">
+    <meta name="description" content="短连字符 在 LaTex 环境中，普通的短的连字符会被转换成比较长的减号 \(-\)，而如果我们想要使用短的连字符，我们可以使用 \text&#123;&#125; 命令。 示例： 123$$\varepsilon\text&#123;-闭包&#125;$$ 效果： \[ \varepsilon\text{-闭包} \]">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LaTex 小技巧收录">
 <meta property="og:url" content="http://fanyfull.github.io/2021/10/02/LaTex-%E5%B0%8F%E6%8A%80%E5%B7%A7%E6%94%B6%E5%BD%95/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="短连字符在 LaTex 环境中，普通的短的连字符会被转换成比较长的减号 $-$，而如果我们想要使用短的连字符，我们可以使用 \text&#123;&#125; 命令。 示例： 123$$\varepsilon\text&#123;-闭包&#125;$$  效果： $$\varepsilon\text{-闭包}$$">
+<meta property="og:description" content="短连字符 在 LaTex 环境中，普通的短的连字符会被转换成比较长的减号 \(-\)，而如果我们想要使用短的连字符，我们可以使用 \text&#123;&#125; 命令。 示例： 123$$\varepsilon\text&#123;-闭包&#125;$$ 效果： \[ \varepsilon\text{-闭包} \]">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211003122418.png">
 <meta property="article:published_time" content="2021-10-02T07:26:54.000Z">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -227,7 +227,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          147 字
+          149 字
         
       </span>
     
@@ -281,12 +281,16 @@
             
               <div class="markdown-body">
                 
-                <h1 id="短连字符"><a href="#短连字符" class="headerlink" title="短连字符"></a>短连字符</h1><p>在 LaTex 环境中，普通的短的连字符会被转换成比较长的减号 $-$，而如果我们想要使用短的连字符，我们可以使用 <code>\text&#123;&#125;</code> 命令。</p>
+                <h1 id="短连字符">短连字符</h1>
+<p>在 LaTex 环境中，普通的短的连字符会被转换成比较长的减号 <span
+class="math inline">\(-\)</span>，而如果我们想要使用短的连字符，我们可以使用
+<code>\text&#123;&#125;</code> 命令。</p>
 <p>示例：</p>
 <figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs gams"><span class="hljs-symbol">$</span><span class="hljs-symbol">$</span><br>\varepsilon\text&#123;-闭包&#125;<br><span class="hljs-symbol">$</span><span class="hljs-symbol">$</span><br></code></pre></td></tr></table></figure>
-
 <p>效果：</p>
-<p>$$<br>\varepsilon\text{-闭包}<br>$$</p>
+<p><span class="math display">\[
+\varepsilon\text{-闭包}
+\]</span></p>
 
                 
               </div>
@@ -619,6 +623,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

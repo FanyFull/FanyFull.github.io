@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="说明这里的学习过程主要来自于此网站：https:&#x2F;&#x2F;www.mysqltutorial.org&#x2F;，以前读过什么《MySQL 必知必会》，现在在学数据库系统概论这门课，比起这个时新的网站，其时效性还是差了些，更重要的是，目前看来，这个网站的教程质量很好，并且有示例的数据库，这个示例的数据库的质量也很好。 数据库的脚本我复整了一份 gist：mysqlsampledatabase 这个脚本可以直接复制">
+    <meta name="description" content="说明 这里的学习过程主要来自于此网站：https:&#x2F;&#x2F;www.mysqltutorial.org&#x2F;，以前读过什么《MySQL 必知必会》，现在在学数据库系统概论这门课，比起这个时新的网站，其时效性还是差了些，更重要的是，目前看来，这个网站的教程质量很好，并且有示例的数据库，这个示例的数据库的质量也很好。 数据库的脚本我复整了一份 gist：mysqlsampledatabase 这个脚本可以直接复">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL 烹饪笔记">
 <meta property="og:url" content="http://fanyfull.github.io/2021/12/04/MySQL-%E7%83%B9%E9%A5%AA%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="说明这里的学习过程主要来自于此网站：https:&#x2F;&#x2F;www.mysqltutorial.org&#x2F;，以前读过什么《MySQL 必知必会》，现在在学数据库系统概论这门课，比起这个时新的网站，其时效性还是差了些，更重要的是，目前看来，这个网站的教程质量很好，并且有示例的数据库，这个示例的数据库的质量也很好。 数据库的脚本我复整了一份 gist：mysqlsampledatabase 这个脚本可以直接复制">
+<meta property="og:description" content="说明 这里的学习过程主要来自于此网站：https:&#x2F;&#x2F;www.mysqltutorial.org&#x2F;，以前读过什么《MySQL 必知必会》，现在在学数据库系统概论这门课，比起这个时新的网站，其时效性还是差了些，更重要的是，目前看来，这个网站的教程质量很好，并且有示例的数据库，这个示例的数据库的质量也很好。 数据库的脚本我复整了一份 gist：mysqlsampledatabase 这个脚本可以直接复">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/Ijo3esc.png">
 <meta property="article:published_time" content="2021-12-03T16:16:21.000Z">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -281,44 +281,91 @@
             
               <div class="markdown-body">
                 
-                <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>这里的学习过程主要来自于此网站：<a target="_blank" rel="noopener" href="https://www.mysqltutorial.org/">https://www.mysqltutorial.org/</a>，以前读过什么《MySQL 必知必会》，现在在学数据库系统概论这门课，比起这个时新的网站，其时效性还是差了些，更重要的是，目前看来，这个网站的教程质量很好，并且有示例的数据库，这个示例的数据库的质量也很好。</p>
-<p>数据库的脚本我复整了一份 gist：<a target="_blank" rel="noopener" href="https://gist.github.com/fanlumaster/128af90a3f35cead9ca7905dfd393bb9">mysqlsampledatabase</a></p>
-<p>这个脚本可以直接复制到 Navicat 中去执行，或者利用 Navicat 导入 sql 脚本。</p>
-<p>我目前的数据库版本是 MySQL 8.0.25，可以把脚本复制到 Navicat 中去执行，没有出现问题。</p>
-<p><img src="https://i.imgur.com/MVO1yaC.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="MySQL-SubQuery"><a href="#MySQL-SubQuery" class="headerlink" title="MySQL SubQuery"></a>MySQL SubQuery</h1><p><a target="_blank" rel="noopener" href="https://www.mysqltutorial.org/mysql-subquery/">https://www.mysqltutorial.org/mysql-subquery/</a></p>
+                <h1 id="说明">说明</h1>
+<p>这里的学习过程主要来自于此网站：<a
+target="_blank" rel="noopener" href="https://www.mysqltutorial.org/"
+class="uri">https://www.mysqltutorial.org/</a>，以前读过什么《MySQL
+必知必会》，现在在学数据库系统概论这门课，比起这个时新的网站，其时效性还是差了些，更重要的是，目前看来，这个网站的教程质量很好，并且有示例的数据库，这个示例的数据库的质量也很好。</p>
+<p>数据库的脚本我复整了一份 gist：<a
+target="_blank" rel="noopener" href="https://gist.github.com/fanlumaster/128af90a3f35cead9ca7905dfd393bb9">mysqlsampledatabase</a></p>
+<p>这个脚本可以直接复制到 Navicat 中去执行，或者利用 Navicat 导入 sql
+脚本。</p>
+<p>我目前的数据库版本是 MySQL 8.0.25，可以把脚本复制到 Navicat
+中去执行，没有出现问题。</p>
+<p><img src="https://i.imgur.com/MVO1yaC.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="mysql-subquery">MySQL SubQuery</h1>
+<p><a target="_blank" rel="noopener" href="https://www.mysqltutorial.org/mysql-subquery/"
+class="uri">https://www.mysqltutorial.org/mysql-subquery/</a></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span><br>lastName, firstName<br><span class="hljs-keyword">FROM</span><br>employees<br><span class="hljs-keyword">WHERE</span><br>officeCode <span class="hljs-keyword">IN</span><br>(<br>    <span class="hljs-keyword">SELECT</span> <br>    officeCode<br>    <span class="hljs-keyword">FROM</span><br>    offices<br>    <span class="hljs-keyword">WHERE</span><br>    country <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;USA&#x27;</span><br>);<br></code></pre></td></tr></table></figure>
-
 <p>在这个例子中：</p>
 <ul>
 <li>子查询返回所有位于美国的办公室的 <em>office codes</em>。</li>
-<li>外面的查询 select 在子查询中查询到的办公室工作的员工的 lastName 和 firstName。</li>
+<li>外面的查询 select 在子查询中查询到的办公室工作的员工的 lastName 和
+firstName。</li>
 </ul>
-<p><img src="https://i.imgur.com/rOIRltd.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/rOIRltd.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后就是执行一下几个示例。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <br>    customerNumber, <br>    checkNumber, <br>    amount<br><span class="hljs-keyword">FROM</span><br>    payments<br><span class="hljs-keyword">WHERE</span><br>    amount <span class="hljs-operator">=</span> (<span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">MAX</span>(amount) <span class="hljs-keyword">FROM</span> payments);<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://i.imgur.com/8HOMZ6L.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/8HOMZ6L.png" srcset="/img/loading.gif" lazyload /></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <br>    customerNumber, <br>    checkNumber, <br>    amount<br><span class="hljs-keyword">FROM</span><br>    payments<br><span class="hljs-keyword">WHERE</span><br>    amount <span class="hljs-operator">&gt;</span> (<span class="hljs-keyword">SELECT</span> <br>            <span class="hljs-built_in">AVG</span>(amount)<br>        <span class="hljs-keyword">FROM</span><br>            payments);<br></code></pre></td></tr></table></figure>
-
-<p>纠正一个错误的认识：我之前看的不认真，以为可以独立的子查询一定是先于外查询执行的，实际上人家并没有这么说，只有当用到 <code>IN</code> 操作符时，才会这样。</p>
-<h1 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h1><h1 id="ORDER-BY"><a href="#ORDER-BY" class="headerlink" title="ORDER BY"></a>ORDER BY</h1><h1 id="WHERE"><a href="#WHERE" class="headerlink" title="WHERE"></a>WHERE</h1><h1 id="SELECT-DISTINCT"><a href="#SELECT-DISTINCT" class="headerlink" title="SELECT DISTINCT"></a>SELECT DISTINCT</h1><h1 id="AND"><a href="#AND" class="headerlink" title="AND"></a>AND</h1><h1 id="OR"><a href="#OR" class="headerlink" title="OR"></a>OR</h1><h1 id="IN"><a href="#IN" class="headerlink" title="IN"></a>IN</h1><h1 id="BETWEEN"><a href="#BETWEEN" class="headerlink" title="BETWEEN"></a>BETWEEN</h1><h1 id="LIKE"><a href="#LIKE" class="headerlink" title="LIKE"></a>LIKE</h1><h1 id="LIMIT"><a href="#LIMIT" class="headerlink" title="LIMIT"></a>LIMIT</h1><h1 id="IS-NULL"><a href="#IS-NULL" class="headerlink" title="IS NULL"></a>IS NULL</h1><h1 id="Table-Column-Aliases"><a href="#Table-Column-Aliases" class="headerlink" title="Table &amp; Column Aliases"></a>Table &amp; Column Aliases</h1><h1 id="Joins"><a href="#Joins" class="headerlink" title="Joins"></a>Joins</h1><h1 id="INNER-JOIN"><a href="#INNER-JOIN" class="headerlink" title="INNER JOIN"></a>INNER JOIN</h1><h1 id="LEFT-JOIN"><a href="#LEFT-JOIN" class="headerlink" title="LEFT JOIN"></a>LEFT JOIN</h1><h1 id="RIGHT-JOIN"><a href="#RIGHT-JOIN" class="headerlink" title="RIGHT JOIN"></a>RIGHT JOIN</h1><h1 id="Self-Join"><a href="#Self-Join" class="headerlink" title="Self Join"></a>Self Join</h1><h1 id="CROSS-JOIN"><a href="#CROSS-JOIN" class="headerlink" title="CROSS JOIN"></a>CROSS JOIN</h1><h1 id="GROUP-BY"><a href="#GROUP-BY" class="headerlink" title="GROUP BY"></a>GROUP BY</h1><h1 id="HAVING"><a href="#HAVING" class="headerlink" title="HAVING"></a>HAVING</h1><h1 id="ROLLUP"><a href="#ROLLUP" class="headerlink" title="ROLLUP"></a>ROLLUP</h1><h1 id="Subquery"><a href="#Subquery" class="headerlink" title="Subquery"></a>Subquery</h1><p><a target="_blank" rel="noopener" href="https://www.mysqltutorial.org/mysql-subquery/">https://www.mysqltutorial.org/mysql-subquery/</a></p>
+<p>纠正一个错误的认识：我之前看的不认真，以为可以独立的子查询一定是先于外查询执行的，实际上人家并没有这么说，只有当用到
+<code>IN</code> 操作符时，才会这样。</p>
+<h1 id="select">SELECT</h1>
+<h1 id="order-by">ORDER BY</h1>
+<h1 id="where">WHERE</h1>
+<h1 id="select-distinct">SELECT DISTINCT</h1>
+<h1 id="and">AND</h1>
+<h1 id="or">OR</h1>
+<h1 id="in">IN</h1>
+<h1 id="between">BETWEEN</h1>
+<h1 id="like">LIKE</h1>
+<h1 id="limit">LIMIT</h1>
+<h1 id="is-null">IS NULL</h1>
+<h1 id="table-column-aliases">Table &amp; Column Aliases</h1>
+<h1 id="joins">Joins</h1>
+<h1 id="inner-join">INNER JOIN</h1>
+<h1 id="left-join">LEFT JOIN</h1>
+<h1 id="right-join">RIGHT JOIN</h1>
+<h1 id="self-join">Self Join</h1>
+<h1 id="cross-join">CROSS JOIN</h1>
+<h1 id="group-by">GROUP BY</h1>
+<h1 id="having">HAVING</h1>
+<h1 id="rollup">ROLLUP</h1>
+<h1 id="subquery">Subquery</h1>
+<p><a target="_blank" rel="noopener" href="https://www.mysqltutorial.org/mysql-subquery/"
+class="uri">https://www.mysqltutorial.org/mysql-subquery/</a></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span><br>lastName, firstName<br><span class="hljs-keyword">FROM</span><br>employees<br><span class="hljs-keyword">WHERE</span><br>officeCode <span class="hljs-keyword">IN</span><br>(<br>    <span class="hljs-keyword">SELECT</span> <br>    officeCode<br>    <span class="hljs-keyword">FROM</span><br>    offices<br>    <span class="hljs-keyword">WHERE</span><br>    country <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;USA&#x27;</span><br>);<br></code></pre></td></tr></table></figure>
-
 <p>在这个例子中：</p>
 <ul>
 <li>子查询返回所有位于美国的办公室的 <em>office codes</em>。</li>
-<li>外面的查询 select 在子查询中查询到的办公室工作的员工的 lastName 和 firstName。</li>
+<li>外面的查询 select 在子查询中查询到的办公室工作的员工的 lastName 和
+firstName。</li>
 </ul>
-<p><img src="https://i.imgur.com/rOIRltd.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/rOIRltd.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后就是执行一下几个示例。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <br>    customerNumber, <br>    checkNumber, <br>    amount<br><span class="hljs-keyword">FROM</span><br>    payments<br><span class="hljs-keyword">WHERE</span><br>    amount <span class="hljs-operator">=</span> (<span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">MAX</span>(amount) <span class="hljs-keyword">FROM</span> payments);<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://i.imgur.com/8HOMZ6L.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/8HOMZ6L.png" srcset="/img/loading.gif" lazyload /></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <br>    customerNumber, <br>    checkNumber, <br>    amount<br><span class="hljs-keyword">FROM</span><br>    payments<br><span class="hljs-keyword">WHERE</span><br>    amount <span class="hljs-operator">&gt;</span> (<span class="hljs-keyword">SELECT</span> <br>            <span class="hljs-built_in">AVG</span>(amount)<br>        <span class="hljs-keyword">FROM</span><br>            payments);<br></code></pre></td></tr></table></figure>
+<p>纠正一个错误的认识：我之前看的不认真，以为可以独立的子查询一定是先于外查询执行的，实际上人家并没有这么说，只有当用到
+<code>IN</code> 操作符时，才会这样。</p>
+<h1 id="derived-tables">Derived Tables</h1>
+<h1 id="exists">EXISTS</h1>
+<h1 id="union">UNION</h1>
+<h1 id="minus">MINUS</h1>
+<h1 id="intersect">INTERSECT</h1>
+<h1 id="insert">INSERT</h1>
+<h1 id="insert-multiple-rows">Insert Multiple Rows</h1>
+<h1 id="insert-into-select">INSERT INTO SELECT</h1>
+<h1 id="insert-on-duplicate-key-update">Insert On Duplicate Key
+Update</h1>
+<h1 id="insert-ignore">INSERT IGNORE</h1>
+<h1 id="update">UPDATE</h1>
+<h1 id="update-join">UPDATE JOIN</h1>
+<h1 id="delete">DELETE</h1>
+<h1 id="delete-join">DELETE JOIN</h1>
+<h1 id="on-delete-cascade">ON DELETE CASCADE</h1>
+<h1 id="replace">REPLACE</h1>
 
-<p>纠正一个错误的认识：我之前看的不认真，以为可以独立的子查询一定是先于外查询执行的，实际上人家并没有这么说，只有当用到 <code>IN</code> 操作符时，才会这样。</p>
-<h1 id="Derived-Tables"><a href="#Derived-Tables" class="headerlink" title="Derived Tables"></a>Derived Tables</h1><h1 id="EXISTS"><a href="#EXISTS" class="headerlink" title="EXISTS"></a>EXISTS</h1><h1 id="UNION"><a href="#UNION" class="headerlink" title="UNION"></a>UNION</h1><h1 id="MINUS"><a href="#MINUS" class="headerlink" title="MINUS"></a>MINUS</h1><h1 id="INTERSECT"><a href="#INTERSECT" class="headerlink" title="INTERSECT"></a>INTERSECT</h1><h1 id="INSERT"><a href="#INSERT" class="headerlink" title="INSERT"></a>INSERT</h1><h1 id="Insert-Multiple-Rows"><a href="#Insert-Multiple-Rows" class="headerlink" title="Insert Multiple Rows"></a>Insert Multiple Rows</h1><h1 id="INSERT-INTO-SELECT"><a href="#INSERT-INTO-SELECT" class="headerlink" title="INSERT INTO SELECT"></a>INSERT INTO SELECT</h1><h1 id="Insert-On-Duplicate-Key-Update"><a href="#Insert-On-Duplicate-Key-Update" class="headerlink" title="Insert On Duplicate Key Update"></a>Insert On Duplicate Key Update</h1><h1 id="INSERT-IGNORE"><a href="#INSERT-IGNORE" class="headerlink" title="INSERT IGNORE"></a>INSERT IGNORE</h1><h1 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h1><h1 id="UPDATE-JOIN"><a href="#UPDATE-JOIN" class="headerlink" title="UPDATE JOIN"></a>UPDATE JOIN</h1><h1 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h1><h1 id="DELETE-JOIN"><a href="#DELETE-JOIN" class="headerlink" title="DELETE JOIN"></a>DELETE JOIN</h1><h1 id="ON-DELETE-CASCADE"><a href="#ON-DELETE-CASCADE" class="headerlink" title="ON DELETE CASCADE"></a>ON DELETE CASCADE</h1><h1 id="REPLACE"><a href="#REPLACE" class="headerlink" title="REPLACE"></a>REPLACE</h1>
                 
               </div>
             
@@ -650,6 +697,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

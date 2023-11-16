@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="-c  编译生成目标文件(Relocatable)。 举个例子， 1$ gcc main.c -o main  等价于 123$ gcc -S main.c$ gcc -c main.s$ gcc main.o  按：-S 选项生成汇编代码，-c 选项生成目标文件，最后一步是链接。   -Dmacro[&#x3D;defn]  定义一个宏。 例如： -DMACHINE&#x3D;8086，这个和在 C 语言中使用">
+    <meta name="description" content="-c  编译生成目标文件(Relocatable)。 举个例子， 1$ gcc main.c -o main 等价于 123$ gcc -S main.c$ gcc -c main.s$ gcc main.o 按：-S 选项生成汇编代码，-c 选项生成目标文件，最后一步是链接。   -Dmacro[&#x3D;defn]  定义一个宏。 例如： -DMACHINE&#x3D;8086，这个和在 C 语言中使用 #d">
 <meta property="og:type" content="article">
 <meta property="og:title" content="gcc 常用选项整理">
 <meta property="og:url" content="http://fanyfull.github.io/2021/11/29/gcc-%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9%E6%95%B4%E7%90%86/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="-c  编译生成目标文件(Relocatable)。 举个例子， 1$ gcc main.c -o main  等价于 123$ gcc -S main.c$ gcc -c main.s$ gcc main.o  按：-S 选项生成汇编代码，-c 选项生成目标文件，最后一步是链接。   -Dmacro[&#x3D;defn]  定义一个宏。 例如： -DMACHINE&#x3D;8086，这个和在 C 语言中使用">
+<meta property="og:description" content="-c  编译生成目标文件(Relocatable)。 举个例子， 1$ gcc main.c -o main 等价于 123$ gcc -S main.c$ gcc -c main.s$ gcc main.o 按：-S 选项生成汇编代码，-c 选项生成目标文件，最后一步是链接。   -Dmacro[&#x3D;defn]  定义一个宏。 例如： -DMACHINE&#x3D;8086，这个和在 C 语言中使用 #d">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/oYdFPU3.png">
 <meta property="article:published_time" content="2021-11-29T07:44:00.000Z">
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -228,7 +228,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          886 字
+          866 字
         
       </span>
     
@@ -288,18 +288,18 @@
 <p>编译生成目标文件(Relocatable)。</p>
 <p>举个例子，</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">gcc main.c -o main</span><br></code></pre></td></tr></table></figure>
-
 <p>等价于</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">gcc -S main.c</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">gcc -c main.s</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">gcc main.o</span><br></code></pre></td></tr></table></figure>
-
-<p>按：<code>-S</code> 选项生成汇编代码，<code>-c</code> 选项生成目标文件，最后一步是链接。</p>
-<p><img src="https://i.imgur.com/Ii0BFUnh.png" srcset="/img/loading.gif" lazyload></p>
+<p>按：<code>-S</code> 选项生成汇编代码，<code>-c</code>
+选项生成目标文件，最后一步是链接。</p>
+<p><img src="https://i.imgur.com/Ii0BFUnh.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
 <p><code>-Dmacro[=defn]</code></p>
 </blockquote>
 <p>定义一个宏。</p>
 <p>例如：</p>
-<p><code>-DMACHINE=8086</code>，这个和在 C 语言中使用 <code>#define MACHINE 8086</code> 是一样的。</p>
+<p><code>-DMACHINE=8086</code>，这个和在 C 语言中使用
+<code>#define MACHINE 8086</code> 是一样的。</p>
 <blockquote>
 <p><code>-E</code></p>
 </blockquote>
@@ -307,29 +307,35 @@
 <blockquote>
 <p><code>-g</code></p>
 </blockquote>
-<p>在生成的目标文件中添加调试信息，所谓调试信息就是源代码和指令之间的对应关系，在 gdb 调试和 objdump 反汇编时要用到这些信息。</p>
-<p>按：在编译时要加上 <code>-g</code> 选项，生成的目标文件才能用 gdb 进行调试。</p>
+<p>在生成的目标文件中添加调试信息，所谓调试信息就是源代码和指令之间的对应关系，在
+gdb 调试和 objdump 反汇编时要用到这些信息。</p>
+<p>按：在编译时要加上 <code>-g</code> 选项，生成的目标文件才能用 gdb
+进行调试。</p>
 <blockquote>
 <p><code>-Idir</code></p>
 </blockquote>
 <p>dir 是头文件所在的目录。</p>
 <p>例如，一个目录：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">tree</span><br>.<br>|-- main.c<br>`-- stack <br>    |-- stack.c <br>    `-- stack.h<br>    <br>1 directory, 3 files<br></code></pre></td></tr></table></figure>
-
-<p>我们需要使用 <code>gcc -c main.c -Istack</code> 编译。用 <code>-I</code> 选项告诉 gcc 头文件要到子目录 stack 里找。</p>
-<p>按：在 <code>#include</code> 预处理指示中可以使用相对路径，如果我们在代码中使用 <code>#include &quot;stack/stack.h&quot;</code>，那么编译时就不需要加 <code>-Istack</code> 选项了。</p>
+<p>我们需要使用 <code>gcc -c main.c -Istack</code> 编译。用
+<code>-I</code> 选项告诉 gcc 头文件要到子目录 stack 里找。</p>
+<p>按：在 <code>#include</code>
+预处理指示中可以使用相对路径，如果我们在代码中使用
+<code>#include "stack/stack.h"</code>，那么编译时就不需要加
+<code>-Istack</code> 选项了。</p>
 <blockquote>
 <p><code>-Ldir</code></p>
 </blockquote>
 <p>dir 是库文件所在的目录。</p>
 <p>例如：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">gcc main.c -L. -lstack -Istack -o main</span><br></code></pre></td></tr></table></figure>
-
-<p><code>-L.</code> 表示在当前目录找。<code>-lstack</code> 告诉编译器要链接 libstack 库。</p>
+<p><code>-L.</code> 表示在当前目录找。<code>-lstack</code>
+告诉编译器要链接 libstack 库。</p>
 <blockquote>
 <p><code>-M</code> 和 <code>-MM</code></p>
 </blockquote>
-<p>输出 <code>&quot;.o文件:.c文件 .h文件&quot;</code> 这种形式的 Makefile 规则，<code>-MM</code> 的输出不包括系统头文件。</p>
+<p>输出 <code>".o文件:.c文件 .h文件"</code> 这种形式的 Makefile
+规则，<code>-MM</code> 的输出不包括系统头文件。</p>
 <p>按：暂时不去深究。</p>
 <blockquote>
 <p><code>-o outfile</code></p>
@@ -361,8 +367,8 @@
 <p>按：小写字母 <code>l</code>。</p>
 <p>options 是传递给链接器的选项。</p>
 <p>举例：</p>
-<p><img src="https://i.imgur.com/H722W4uh.png" srcset="/img/loading.gif" lazyload></p>
-<hr>
+<p><img src="https://i.imgur.com/H722W4uh.png" srcset="/img/loading.gif" lazyload /></p>
+<hr />
 <p>参考：</p>
 <p>1、《Linux C》(宋劲杉)</p>
 
@@ -699,6 +705,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

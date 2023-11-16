@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Youtube 学习记录。 主要是根据 Youtube 的一个安卓 Youtuber 的视频教程来学习，或者说复习一下安卓的布局。以前看过《Android 第一行代码》第二版。 LinearLayout线性布局。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051">
+    <meta name="description" content="Youtube 学习记录。 主要是根据 Youtube 的一个安卓 Youtuber 的视频教程来学习，或者说复习一下安卓的布局。以前看过《Android 第一行代码》第二版。 LinearLayout 线性布局。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 布局学习">
 <meta property="og:url" content="http://fanyfull.github.io/2021/12/14/Android-%E5%B8%83%E5%B1%80%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="Youtube 学习记录。 主要是根据 Youtube 的一个安卓 Youtuber 的视频教程来学习，或者说复习一下安卓的布局。以前看过《Android 第一行代码》第二版。 LinearLayout线性布局。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051">
+<meta property="og:description" content="Youtube 学习记录。 主要是根据 Youtube 的一个安卓 Youtuber 的视频教程来学习，或者说复习一下安卓的布局。以前看过《Android 第一行代码》第二版。 LinearLayout 线性布局。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/nxhGTn1.png">
 <meta property="article:published_time" content="2021-12-14T02:04:19.000Z">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -282,37 +282,42 @@
               <div class="markdown-body">
                 
                 <p>Youtube 学习记录。</p>
-<p>主要是根据 Youtube 的一个安卓 Youtuber 的视频教程来学习，或者说复习一下安卓的布局。以前看过《Android 第一行代码》第二版。</p>
-<h1 id="LinearLayout"><a href="#LinearLayout" class="headerlink" title="LinearLayout"></a>LinearLayout</h1><p>线性布局。</p>
+<p>主要是根据 Youtube 的一个安卓 Youtuber
+的视频教程来学习，或者说复习一下安卓的布局。以前看过《Android
+第一行代码》第二版。</p>
+<h1 id="linearlayout">LinearLayout</h1>
+<p>线性布局。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;utf-8&quot;</span>?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:app</span>=<span class="hljs-string">&quot;http://schemas.android.com/apk/res-auto&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:tools</span>=<span class="hljs-string">&quot;http://schemas.android.com/tools&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;match_parent&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">&quot;vertical&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:padding</span>=<span class="hljs-string">&quot;16dp&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">tools:context</span>=<span class="hljs-string">&quot;.MainActivity&quot;</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">&quot;horizontal&quot;</span>&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">EditText</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_weight</span>=<span class="hljs-string">&quot;1&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:hint</span>=<span class="hljs-string">&quot;First Name&quot;</span>/&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">EditText</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_weight</span>=<span class="hljs-string">&quot;1&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:hint</span>=<span class="hljs-string">&quot;Last Name&quot;</span>/&gt;</span><br><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">EditText</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:hint</span>=<span class="hljs-string">&quot;Birth Date&quot;</span> /&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">&quot;horizontal&quot;</span>&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">EditText</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_weight</span>=<span class="hljs-string">&quot;1&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:hint</span>=<span class="hljs-string">&quot;Country&quot;</span> /&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">Button</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:layout_weight</span>=<span class="hljs-string">&quot;1&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:text</span>=<span class="hljs-string">&quot;Apply&quot;</span> /&gt;</span><br><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml">xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;<br>xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;<br>xmlns:tools=&quot;http://schemas.android.com/tools&quot;<br></code></pre></td></tr></table></figure>
-
 <p>一般来说，这三个命名空间是必须的。</p>
 <p>我们设置 <code>layout_width</code> 的值常用的有三种：</p>
 <ul>
-<li>match-parent: 最外面的 <code>LinearLayout</code> 如果使用这个值，会填充整个屏幕。</li>
+<li>match-parent: 最外面的 <code>LinearLayout</code>
+如果使用这个值，会填充整个屏幕。</li>
 <li>wrap-content: 包裹内容的大小即可。</li>
 <li>20dp: 20 仅仅是一个示例，实际可以设置成任何值。</li>
 </ul>
 <p><code>orientation</code> 是放置的方式。分为水平和垂直两种方式。</p>
-<p>在 <code>LinearLayout</code> 布局中可以再嵌套 <code>LinearLayout</code> 布局。</p>
-<p><img src="https://i.imgur.com/CAD8ahy.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="ConstraintLayout"><a href="#ConstraintLayout" class="headerlink" title="ConstraintLayout"></a>ConstraintLayout</h1><p><a target="_blank" rel="noopener" href="https://youtu.be/PqkWT92BT3U">Youtube link</a></p>
+<p>在 <code>LinearLayout</code> 布局中可以再嵌套
+<code>LinearLayout</code> 布局。</p>
+<p><img src="https://i.imgur.com/CAD8ahy.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="constraintlayout">ConstraintLayout</h1>
+<p><a target="_blank" rel="noopener" href="https://youtu.be/PqkWT92BT3U">Youtube link</a></p>
 <p>首先，熟悉一下 Android Studio 的使用。</p>
-<p><img src="https://i.imgur.com/gvRffiy.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/gvRffiy.png" srcset="/img/loading.gif" lazyload /></p>
 <p>创建三个按钮，并让它们水平和垂直居中：</p>
-<p><img src="https://i.imgur.com/oqD9hDb.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/FbEzZwj.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/oqD9hDb.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/FbEzZwj.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后依然是一些关于调整位置方面的东西。</p>
 <ul>
 <li>chains</li>
 <li>baseline</li>
 </ul>
 <p>利用纯拖拽创建的一个页面：</p>
-<p><img src="https://i.imgur.com/OrTq2bv.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/44Jdg6j.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>Rename 快捷键：<code>Shift + F6</code></p>
+<p><img src="https://i.imgur.com/OrTq2bv.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/44Jdg6j.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="section"></h1>
+<p>Rename 快捷键：<code>Shift + F6</code></p>
 
                 
               </div>
@@ -645,6 +650,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

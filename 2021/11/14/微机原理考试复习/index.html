@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="2018 年样卷知识点一、填空1. 字长指计算机一次可以直接处理的二进制（位数），字长越长运算精度越高。 2. -1 用 8 位 2 进制补码表示为（11111111）。 3. 在 8086CPU 中，由于 EU 和 BIU 分开，所以取指令和执行指令可以重叠操作，提高了（CPU）的利用率，CPU 中的 EU 部件完成（指令译码）和执行指令的工作。 EU（Execute Unit，执行单元）：负责">
+    <meta name="description" content="2018 年样卷知识点 一、填空 1. 字长指计算机一次可以直接处理的二进制（位数），字长越长运算精度越高。 2. -1 用 8 位 2 进制补码表示为（11111111）。 3. 在 8086CPU 中，由于 EU 和 BIU 分开，所以取指令和执行指令可以重叠操作，提高了（CPU）的利用率，CPU 中的 EU 部件完成（指令译码）和执行指令的工作。 EU（Execute Unit，执行单元）：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微机原理考试复习">
 <meta property="og:url" content="http://fanyfull.github.io/2021/11/14/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="2018 年样卷知识点一、填空1. 字长指计算机一次可以直接处理的二进制（位数），字长越长运算精度越高。 2. -1 用 8 位 2 进制补码表示为（11111111）。 3. 在 8086CPU 中，由于 EU 和 BIU 分开，所以取指令和执行指令可以重叠操作，提高了（CPU）的利用率，CPU 中的 EU 部件完成（指令译码）和执行指令的工作。 EU（Execute Unit，执行单元）：负责">
+<meta property="og:description" content="2018 年样卷知识点 一、填空 1. 字长指计算机一次可以直接处理的二进制（位数），字长越长运算精度越高。 2. -1 用 8 位 2 进制补码表示为（11111111）。 3. 在 8086CPU 中，由于 EU 和 BIU 分开，所以取指令和执行指令可以重叠操作，提高了（CPU）的利用率，CPU 中的 EU 部件完成（指令译码）和执行指令的工作。 EU（Execute Unit，执行单元）：">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/1JbJtKj.png">
 <meta property="article:published_time" content="2021-11-14T15:44:16.000Z">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -227,7 +227,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          708 字
+          693 字
         
       </span>
     
@@ -281,38 +281,58 @@
             
               <div class="markdown-body">
                 
-                <h1 id="2018-年样卷知识点"><a href="#2018-年样卷知识点" class="headerlink" title="2018 年样卷知识点"></a>2018 年样卷知识点</h1><h2 id="一、填空"><a href="#一、填空" class="headerlink" title="一、填空"></a>一、填空</h2><p>1. 字长指计算机一次可以直接处理的二进制（<strong>位数</strong>），字长越长运算精度越高。</p>
+                <h1 id="年样卷知识点">2018 年样卷知识点</h1>
+<h2 id="一填空">一、填空</h2>
+<p>1.
+字长指计算机一次可以直接处理的二进制（<strong>位数</strong>），字长越长运算精度越高。</p>
 <p>2. -1 用 8 位 2 进制补码表示为（<strong>11111111</strong>）。</p>
-<p>3. 在 8086CPU 中，由于 EU 和 BIU 分开，所以取指令和执行指令可以重叠操作，提高了（<strong>CPU</strong>）的利用率，CPU 中的 EU 部件完成（<strong>指令译码</strong>）和执行指令的工作。</p>
+<p>3. 在 8086CPU 中，由于 EU 和 BIU
+分开，所以取指令和执行指令可以重叠操作，提高了（<strong>CPU</strong>）的利用率，CPU
+中的 EU 部件完成（<strong>指令译码</strong>）和执行指令的工作。</p>
 <p>EU（Execute Unit，执行单元）：负责执行指令或运算。</p>
 <ul>
-<li>从指令队列中取指令代码，译码，在 ALU 中完成数据的运算，结果的特征保存在标志寄存器中。</li>
+<li>从指令队列中取指令代码，译码，在 ALU
+中完成数据的运算，结果的特征保存在标志寄存器中。</li>
 </ul>
 <p>BIU（Bus Interface Unit，总线接口单元）：负责读指令和数据。</p>
 <ul>
 <li>具有预取指令的功能</li>
 <li>指令执行顺序</li>
 </ul>
-<p>4. 已知一个数据段长度为 1K 字节，设 DS&#x3D;6000H，数据段的偏移量为 200H，则该数据段的首地址的物理地址为（<strong>60200H</strong>）。</p>
-<p>5. 指令 XOR, AX, AX 的寻址方式为（<strong>寄存器寻址</strong>），指令执行后 ZF 内容为（<strong>1</strong>）。</p>
-<p>ZF - Zero Flag，如果数学&#x2F;逻辑运算的结果为零或者以其他方式重置，则置位。</p>
-<p>6. 8088CPU 在执行 MOV AX, [2000H] 指令时，对存储器进行（<strong>读</strong>）操作。2000H 这个值由 CPU 输出到（<strong>地址</strong>）总线上，2000H 的内容由存储器输出到（<strong>数据</strong>）总线上。</p>
-<p>7. 汇编程序中控制汇编程序应如何工作的命令叫（<strong>伪指令</strong>），或称为汇编控制命令。</p>
-<p>8. 按存储信息的类型不同分类，I&#x2F;O 端口分成（<strong>数据端口</strong>）、（<strong>状态端口</strong>）和控制端口三种。</p>
-<p>9. 中断过程中，CPU 执行的现行程序被中断时的下一条指令的地址被称为（<strong>断点</strong>）；CPU 转去执行中断服务程序前的运行状态被称为（<strong>现场</strong>）。</p>
-<h2 id="三、判断题"><a href="#三、判断题" class="headerlink" title="三、判断题"></a>三、判断题</h2><blockquote>
+<p>4. 已知一个数据段长度为 1K 字节，设 DS=6000H，数据段的偏移量为
+200H，则该数据段的首地址的物理地址为（<strong>60200H</strong>）。</p>
+<p>5. 指令 XOR, AX, AX
+的寻址方式为（<strong>寄存器寻址</strong>），指令执行后 ZF
+内容为（<strong>1</strong>）。</p>
+<p>ZF - Zero
+Flag，如果数学/逻辑运算的结果为零或者以其他方式重置，则置位。</p>
+<p>6. 8088CPU 在执行 MOV AX, [2000H]
+指令时，对存储器进行（<strong>读</strong>）操作。2000H 这个值由 CPU
+输出到（<strong>地址</strong>）总线上，2000H
+的内容由存储器输出到（<strong>数据</strong>）总线上。</p>
+<p>7.
+汇编程序中控制汇编程序应如何工作的命令叫（<strong>伪指令</strong>），或称为汇编控制命令。</p>
+<p>8. 按存储信息的类型不同分类，I/O
+端口分成（<strong>数据端口</strong>）、（<strong>状态端口</strong>）和控制端口三种。</p>
+<p>9. 中断过程中，CPU
+执行的现行程序被中断时的下一条指令的地址被称为（<strong>断点</strong>）；CPU
+转去执行中断服务程序前的运行状态被称为（<strong>现场</strong>）。</p>
+<h2 id="三判断题">三、判断题</h2>
+<blockquote>
 <p>10. 经典的冯·诺伊曼结构是咋样的？</p>
 </blockquote>
-<p><img src="https://i.imgur.com/ocuAiuh.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="课堂练习复习"><a href="#课堂练习复习" class="headerlink" title="课堂练习复习"></a>课堂练习复习</h1><h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p><img src="https://i.imgur.com/bpDfFqN.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/T0ahFaI.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/5tKq2tL.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/u4c4Hq7.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/ezXEN7f.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/2oIWBvH.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/pfT5nI6.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/66Zq6Tb.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/cYYTwUh.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/ocuAiuh.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="课堂练习复习">课堂练习复习</h1>
+<h2 id="第二章">第二章</h2>
+<p><img src="https://i.imgur.com/bpDfFqN.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/T0ahFaI.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/5tKq2tL.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/u4c4Hq7.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/ezXEN7f.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/2oIWBvH.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/pfT5nI6.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/66Zq6Tb.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/cYYTwUh.png" srcset="/img/loading.gif" lazyload /></p>
 
                 
               </div>
@@ -645,6 +665,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

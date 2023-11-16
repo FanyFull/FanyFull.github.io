@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="算法思路以图来说明。   上图演示了执行 Kruskal 算法的过程。加了阴影的边属于不断增长的森林 A。该算法按照边的权重的大小依次进行考虑。箭头指向的边是算法每一步所考察的边。如果该边将两棵不同的树(注一)连接起来，它就被加入到森林里，从而完成对两棵树的合并。 伪码  注一：按照这里的描述，我认为一个结点的图似乎也是一棵树。">
+    <meta name="description" content="算法思路 以图来说明。   上图演示了执行 Kruskal 算法的过程。加了阴影的边属于不断增长的森林 A。该算法按照边的权重的大小依次进行考虑。箭头指向的边是算法每一步所考察的边。如果该边将两棵不同的树(注一)连接起来，它就被加入到森林里，从而完成对两棵树的合并。 伪码   注一：按照这里的描述，我认为一个结点的图似乎也是一棵树。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="最小生成树的 Kruskal 算法(未竟)">
 <meta property="og:url" content="http://fanyfull.github.io/2021/06/01/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84-Kruskal-%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="算法思路以图来说明。   上图演示了执行 Kruskal 算法的过程。加了阴影的边属于不断增长的森林 A。该算法按照边的权重的大小依次进行考虑。箭头指向的边是算法每一步所考察的边。如果该边将两棵不同的树(注一)连接起来，它就被加入到森林里，从而完成对两棵树的合并。 伪码  注一：按照这里的描述，我认为一个结点的图似乎也是一棵树。">
+<meta property="og:description" content="算法思路 以图来说明。   上图演示了执行 Kruskal 算法的过程。加了阴影的边属于不断增长的森林 A。该算法按照边的权重的大小依次进行考虑。箭头指向的边是算法每一步所考察的边。如果该边将两棵不同的树(注一)连接起来，它就被加入到森林里，从而完成对两棵树的合并。 伪码   注一：按照这里的描述，我认为一个结点的图似乎也是一棵树。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210601113902.png">
 <meta property="article:published_time" content="2021-06-01T03:27:41.000Z">
@@ -77,7 +77,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -283,12 +283,18 @@
             
               <div class="markdown-body">
                 
-                <h2 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h2><p>以图来说明。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210601112937.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210601112955.png" srcset="/img/loading.gif" lazyload></p>
-<p>上图演示了执行 Kruskal 算法的过程。加了阴影的边属于不断增长的森林 A。该算法按照边的权重的大小依次进行考虑。箭头指向的边是算法每一步所考察的边。如果该边将<strong>两棵不同的树</strong>(注一)连接起来，它就被加入到森林里，从而完成对两棵树的合并。</p>
-<h2 id="伪码"><a href="#伪码" class="headerlink" title="伪码"></a>伪码</h2><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210601113816.png" srcset="/img/loading.gif" lazyload></p>
-<hr>
+                <h2 id="算法思路">算法思路</h2>
+<p>以图来说明。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210601112937.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210601112955.png" srcset="/img/loading.gif" lazyload /></p>
+<p>上图演示了执行 Kruskal 算法的过程。加了阴影的边属于不断增长的森林
+A。该算法按照边的权重的大小依次进行考虑。箭头指向的边是算法每一步所考察的边。如果该边将<strong>两棵不同的树</strong>(注一)连接起来，它就被加入到森林里，从而完成对两棵树的合并。</p>
+<h2 id="伪码">伪码</h2>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210601113816.png" srcset="/img/loading.gif" lazyload /></p>
+<hr />
 <p>注一：按照这里的描述，我认为一个结点的图似乎也是一棵树。</p>
 
                 
@@ -626,6 +632,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

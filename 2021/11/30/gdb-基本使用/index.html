@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="本篇博客主要是对《LinuxC》相关章节中的学习笔记以及记录。在学习的过程中，为了减缓遗忘，以及将来需要时可以随时查阅自己的知识库，故整理如下。 单步执行和跟踪函数调用首先写一段有问题的测试代码： 12345678910111213141516171819&#x2F;* main.c *&#x2F;#include&lt;stdio.h&gt;int add_range(int low, int high)&amp;#123">
+    <meta name="description" content="本篇博客主要是对《LinuxC》相关章节中的学习笔记以及记录。在学习的过程中，为了减缓遗忘，以及将来需要时可以随时查阅自己的知识库，故整理如下。 单步执行和跟踪函数调用 首先写一段有问题的测试代码： 12345678910111213141516171819&#x2F;* main.c *&#x2F;#include&lt;stdio.h&gt;int add_range(int low, int high)&amp;#12">
 <meta property="og:type" content="article">
 <meta property="og:title" content="gdb 基本使用">
 <meta property="og:url" content="http://fanyfull.github.io/2021/11/30/gdb-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="本篇博客主要是对《LinuxC》相关章节中的学习笔记以及记录。在学习的过程中，为了减缓遗忘，以及将来需要时可以随时查阅自己的知识库，故整理如下。 单步执行和跟踪函数调用首先写一段有问题的测试代码： 12345678910111213141516171819&#x2F;* main.c *&#x2F;#include&lt;stdio.h&gt;int add_range(int low, int high)&amp;#123">
+<meta property="og:description" content="本篇博客主要是对《LinuxC》相关章节中的学习笔记以及记录。在学习的过程中，为了减缓遗忘，以及将来需要时可以随时查阅自己的知识库，故整理如下。 单步执行和跟踪函数调用 首先写一段有问题的测试代码： 12345678910111213141516171819&#x2F;* main.c *&#x2F;#include&lt;stdio.h&gt;int add_range(int low, int high)&amp;#12">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/beSChtT.png">
 <meta property="article:published_time" content="2021-11-30T06:15:43.000Z">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -282,37 +282,38 @@
               <div class="markdown-body">
                 
                 <p>本篇博客主要是对《LinuxC》相关章节中的学习笔记以及记录。在学习的过程中，为了减缓遗忘，以及将来需要时可以随时查阅自己的知识库，故整理如下。</p>
-<h1 id="单步执行和跟踪函数调用"><a href="#单步执行和跟踪函数调用" class="headerlink" title="单步执行和跟踪函数调用"></a>单步执行和跟踪函数调用</h1><p>首先写一段有问题的测试代码：</p>
+<h1 id="单步执行和跟踪函数调用">单步执行和跟踪函数调用</h1>
+<p>首先写一段有问题的测试代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">/* main.c */</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">add_range</span><span class="hljs-params">(<span class="hljs-type">int</span> low, <span class="hljs-type">int</span> high)</span><br>&#123;<br>	<span class="hljs-type">int</span> i, sum;<br>	<span class="hljs-keyword">for</span> (i = low; i &lt;= high; i++)<br>		sum = sum + i;<br>	<span class="hljs-keyword">return</span> sum;<br>&#125;<br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>	<span class="hljs-type">int</span> result[<span class="hljs-number">100</span>];<br>	result[<span class="hljs-number">0</span>] = add_range(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>);<br>	result[<span class="hljs-number">1</span>] = add_range(<span class="hljs-number">1</span>, <span class="hljs-number">100</span>);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;result[0]=%d\nresult[1]=%d\n&quot;</span>, result[<span class="hljs-number">0</span>], result[<span class="hljs-number">1</span>]);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
 <p>接下来，对于 gdb 的使用，我们主要是以调试这个程序的方式来理解。</p>
-<p><img src="https://i.imgur.com/wFmHgXE.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/wFmHgXE.png" srcset="/img/loading.gif" lazyload /></p>
 <p>结果显然错误。</p>
 <p>然后我们来调试，</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">gcc -g .\main.c -o main</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">gdb .\main.exe</span><br>GNU gdb (GDB) 8.1<br>Copyright (C) 2018 Free Software Foundation, Inc.<br>License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;<br>This is free software: you are free to change and redistribute it.<br>There is NO WARRANTY, to the extent permitted by law.  Type &quot;show copying&quot;<br>and &quot;show warranty&quot; for details.<br>This GDB was configured as &quot;x86_64-w64-mingw32&quot;.<br>Type &quot;show configuration&quot; for configuration details.<br>For bug reporting instructions, please see:<br>&lt;http://www.gnu.org/software/gdb/bugs/&gt;.<br>Find the GDB manual and other documentation resources online at:<br>&lt;http://www.gnu.org/software/gdb/documentation/&gt;.<br>For help, type &quot;help&quot;.<br>Type &quot;apropos word&quot; to search for commands related to &quot;word&quot;...<br>Reading symbols from .\main.exe...done.<br>(gdb)<br></code></pre></td></tr></table></figure>
-
-<p><code>-g</code> 的作用是在目标文件中加入源代码的信息，比如目标文件的机器指令对应源代码的第几行，但并不是把整个源文件嵌入到目标文件中。所以在调试目标文件时必须保证 gdb 也能找到源文件。</p>
+<p><code>-g</code>
+的作用是在目标文件中加入源代码的信息，比如目标文件的机器指令对应源代码的第几行，但并不是把整个源文件嵌入到目标文件中。所以在调试目标文件时必须保证
+gdb 也能找到源文件。</p>
 <blockquote>
 <p><code>help</code> 命令。</p>
 </blockquote>
 <p>查看命令的类别。</p>
-<p><img src="https://i.imgur.com/Kv0TwDJ.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/Kv0TwDJ.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
 <p><code>help files</code>。</p>
 </blockquote>
 <p>查看 files 类别下有那些命令可以用。</p>
-<p><img src="https://i.imgur.com/nMs1Mu3.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/nMs1Mu3.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
 <p><code>list 1</code>。</p>
 </blockquote>
 <p>从第一行开始列出源代码。一次只列 10 行。</p>
 <p><code>list</code> 命令可以简写成为 <code>l</code>。</p>
-<p><img src="https://i.imgur.com/7uJuFKn.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/7uJuFKn.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
 <p><code>list</code>。</p>
 </blockquote>
 <p>接上一条，继续从 11 行列出源代码。</p>
-<p><img src="https://i.imgur.com/JB7cyGb.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/JB7cyGb.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
 <p>直接回车。</p>
 </blockquote>
@@ -320,9 +321,9 @@
 <blockquote>
 <p><code>l add_range</code>。</p>
 </blockquote>
-<p><img src="https://i.imgur.com/Lqj9qZo.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/Lqj9qZo.png" srcset="/img/loading.gif" lazyload /></p>
 <p>列出一个函数的源代码。</p>
-<p><img src="https://i.imgur.com/4DjnuNH.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/4DjnuNH.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
 <p><code>quit</code>。</p>
 </blockquote>
@@ -331,127 +332,140 @@
 <p><code>start</code>。</p>
 </blockquote>
 <p>开始执行命令。</p>
-<p><img src="https://i.imgur.com/ZbJEAvY.png" srcset="/img/loading.gif" lazyload></p>
-<p>这表示停在 main 函数中变量定义之后的第一条语句处等待我们发命令，gdb 列出这条语句表示它还没执行，并且马上要执行。</p>
+<p><img src="https://i.imgur.com/ZbJEAvY.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这表示停在 main 函数中变量定义之后的第一条语句处等待我们发命令，gdb
+列出这条语句表示它还没执行，并且马上要执行。</p>
 <blockquote>
 <p><code>next</code>(简写为 <code>n</code>)。</p>
 </blockquote>
 <p>接上条。一条一条执行语句。</p>
-<p><img src="https://i.imgur.com/m8n1YD2.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/m8n1YD2.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
 <p><code>start</code>。</p>
 </blockquote>
 <p>重新来过。</p>
-<p><img src="https://i.imgur.com/5GLKQNO.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/5GLKQNO.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
 <p><code>step</code>(简写为 <code>s</code>)。</p>
 </blockquote>
 <p>进入函数中去执行。</p>
-<p><img src="https://i.imgur.com/2ohvT0p.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/2ohvT0p.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
 <p><code>backtrace</code>(简写为 <code>bt</code>)。</p>
 </blockquote>
 <p>在函数中查看函数调用的栈帧。</p>
-<p><img src="https://i.imgur.com/OMFwabH.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/OMFwabH.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
 <p><code>info</code>(简写为 <code>i</code>)。</p>
 </blockquote>
 <p>查看局部变量(locals)的值：</p>
-<p><img src="https://i.imgur.com/URw1VCt.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/URw1VCt.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
 <p><code>frame</code>(简写为 <code>f</code>)。</p>
 </blockquote>
 <p>选择栈帧。</p>
-<p>示例，查看 main 函数当前局部变量的值，先用 <code>frame</code> 命令选择 1 号栈帧然后再查看局部变量：</p>
-<p><img src="https://i.imgur.com/piu3gaU.png" srcset="/img/loading.gif" lazyload></p>
+<p>示例，查看 main 函数当前局部变量的值，先用 <code>frame</code>
+命令选择 1 号栈帧然后再查看局部变量：</p>
+<p><img src="https://i.imgur.com/piu3gaU.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
 <p><code>print</code>(简写为 <code>p</code>)。</p>
 </blockquote>
 <p>打印变量的值。</p>
 <p>示例，打印 sum 的值：</p>
-<p><img src="https://i.imgur.com/0zZm821.png" srcset="/img/loading.gif" lazyload></p>
-<p>这里的 <code>$1</code> 表示 gdb 保存着这些中间结果，<code>$</code> 后面的编号会自动增长，在命令中可以用 <code>$1、$2、$3</code> 等编号代替相应的值。</p>
+<p><img src="https://i.imgur.com/0zZm821.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这里的 <code>$1</code> 表示 gdb 保存着这些中间结果，<code>$</code>
+后面的编号会自动增长，在命令中可以用 <code>$1、$2、$3</code>
+等编号代替相应的值。</p>
 <blockquote>
 <p><code>finish</code>。</p>
 </blockquote>
 <p>让程序一直运行到当前函数返回为止。</p>
-<p>按：这里出了一个大问题，我现在的 mingw 中的 gdb 版本是 gdb8.1，在这个版本中，执行 <code>finish</code> 命令会直接退出 gdb！无奈之下，换了 mingw 的版本，现在继续整理。</p>
-<p><img src="https://i.imgur.com/fdgYOO1.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/Tzfhoim.png" srcset="/img/loading.gif" lazyload></p>
-<p>按：改换了 gdb 版本之后，这个程序的第一个结果变得正确了。但是这不是很重要，我们只是需要理解其背后的逻辑。</p>
+<p>按：这里出了一个大问题，我现在的 mingw 中的 gdb 版本是
+gdb8.1，在这个版本中，执行 <code>finish</code> 命令会直接退出
+gdb！无奈之下，换了 mingw 的版本，现在继续整理。</p>
+<p><img src="https://i.imgur.com/fdgYOO1.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/Tzfhoim.png" srcset="/img/loading.gif" lazyload /></p>
+<p>按：改换了 gdb
+版本之后，这个程序的第一个结果变得正确了。但是这不是很重要，我们只是需要理解其背后的逻辑。</p>
 <p>接下来，继续调试：</p>
-<p><img src="https://i.imgur.com/jkseAv2.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/kX34K1l.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.imgur.com/jkseAv2.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/kX34K1l.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后发现 sum 有问题。</p>
 <p>之后我们就可以退出 gdb 去修改程序了。</p>
 <blockquote>
 <p><code>set</code>。</p>
 </blockquote>
-<p>但是，我们也可以使用 <code>set</code> 命令去立刻把 sum 的值改过来，然后继续执行代码，继续调试，</p>
-<p><img src="https://i.imgur.com/tvbXpo2.png" srcset="/img/loading.gif" lazyload></p>
-<p>修改变量的值也可以用 <code>print</code> 命令，我们可以用 <code>print</code> 来修改变量的值，或者调用函数：</p>
-<p><img src="https://i.imgur.com/UpEsRGp.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.imgur.com/gr4Fj6w.png" srcset="/img/loading.gif" lazyload></p>
-<p>按：<code>printf</code> 的返回值表示实际要打印的字符数，同时，这里要明确将 <code>printf</code> 的返回值 cast 成 int 类型。</p>
+<p>但是，我们也可以使用 <code>set</code> 命令去立刻把 sum
+的值改过来，然后继续执行代码，继续调试，</p>
+<p><img src="https://i.imgur.com/tvbXpo2.png" srcset="/img/loading.gif" lazyload /></p>
+<p>修改变量的值也可以用 <code>print</code> 命令，我们可以用
+<code>print</code> 来修改变量的值，或者调用函数：</p>
+<p><img src="https://i.imgur.com/UpEsRGp.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/gr4Fj6w.png" srcset="/img/loading.gif" lazyload /></p>
+<p>按：<code>printf</code>
+的返回值表示实际要打印的字符数，同时，这里要明确将 <code>printf</code>
+的返回值 cast 成 int 类型。</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>命令</th>
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>backtrace(或 bt)</td>
 <td>查看各级函数调用及参数</td>
 </tr>
-<tr>
+<tr class="even">
 <td>finish</td>
 <td>执行到当前函数返回，然后停下来等待命令</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>frame(或 f) 帧编号</td>
 <td>选择栈帧</td>
 </tr>
-<tr>
+<tr class="even">
 <td>info(或 i) locals</td>
 <td>查看当前栈帧局部变量的值</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>list(或 l)</td>
 <td>列出源代码，接着上次的位置往下列，每次列 10 行</td>
 </tr>
-<tr>
+<tr class="even">
 <td>list 行号</td>
 <td>列出从第几行开始的源代码</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>list 函数名</td>
 <td>列出某个函数的源代码</td>
 </tr>
-<tr>
+<tr class="even">
 <td>next(或 n)</td>
 <td>执行下一行语句</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>print(或 p)</td>
 <td>打印表达式的值，通过表达式可以修改变量的值或者调用函数</td>
 </tr>
-<tr>
+<tr class="even">
 <td>set var</td>
 <td>修改变量的值</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>start</td>
 <td>开始执行程序，停在 main 函数第一行语句前面等待命令</td>
 </tr>
-<tr>
+<tr class="even">
 <td>step(或 s)</td>
 <td>执行下一行语句，如果有函数调用则进入到函数中</td>
 </tr>
-</tbody></table>
-<h1 id="断点"><a href="#断点" class="headerlink" title="断点"></a>断点</h1><p>测试代码：</p>
+</tbody>
+</table>
+<h1 id="断点">断点</h1>
+<p>测试代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">/* main.c */</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>	<span class="hljs-type">int</span> sum = <span class="hljs-number">0</span>, i = <span class="hljs-number">0</span>;<br>	<span class="hljs-type">char</span> input[<span class="hljs-number">5</span>];<br><br>	<span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) &#123;<br>		<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%s&quot;</span>, input);<br>		<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; input[i] != <span class="hljs-string">&#x27;\0&#x27;</span>, i++)<br>			sum = sum * <span class="hljs-number">10</span> + input[i] - <span class="hljs-string">&#x27;0&#x27;</span>;<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;input=%d\n&quot;</span>, sum);<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
 
                 
               </div>
@@ -784,6 +798,8 @@
   });
 </script>
 
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 

@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/book.png">
   <link rel="icon" href="/img/book.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -62,7 +62,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -242,7 +242,7 @@
       
       <a class="index-excerpt " href="/2021/06/01/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84-Kruskal-%E7%AE%97%E6%B3%95/" target="_self">
         <div>
-          算法思路以图来说明。   上图演示了执行 Kruskal 算法的过程。加了阴影的边属于不断增长的森林 A。该算法按照边的权重的大小依次进行考虑。箭头指向的边是算法每一步所考察的边。如果该边将两棵不同的树(注一)连接起来，它就被加入到森林里，从而完成对两棵树的合并。 伪码  注一：按照这里的描述，我认为一个结点的图似乎也是一棵树。
+          算法思路 以图来说明。   上图演示了执行 Kruskal 算法的过程。加了阴影的边属于不断增长的森林 A。该算法按照边的权重的大小依次进行考虑。箭头指向的边是算法每一步所考察的边。如果该边将两棵不同的树(注一)连接起来，它就被加入到森林里，从而完成对两棵树的合并。 伪码   注一：按照这里的描述，我认为一个结点的图似乎也是一棵树。
         </div>
       </a>
 
@@ -313,7 +313,7 @@
       
       <a class="index-excerpt " href="/2021/06/01/%E5%88%A9%E7%94%A8%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E6%9D%A5%E5%AF%BB%E6%89%BE%E5%9B%BE%E7%9A%84%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" target="_self">
         <div>
-          算法思路以图来说明  (a) 为有向图 G。每个加了阴影的区域是 G 的一个强连通分量。每个结点上注明了在深度优先搜索中的发现时间和完成时间，所有的树边都加了额外的阴影。 (b) 是图 G 的转置图 $G^&#123;T&#125;$，图中注明了由算法 STRONGLY-CONNECTED-COMPONENTS 第 3 行所计算出来的深度优先森林，所有树边上都加了额外的阴影。每个强连通分量对应一棵
+          算法思路 以图来说明   为有向图 G。每个加了阴影的区域是 G 的一个强连通分量。每个结点上注明了在深度优先搜索中的发现时间和完成时间，所有的树边都加了额外的阴影。 是图 G 的转置图 $G^&#123;T&#125;$，图中注明了由算法 STRONGLY-CONNECTED-COMPONENTS 第 3 行所计算出来的深度优先森林，所有树边上都加了额外的阴影。每个强连通分量对应一棵深度优先树。
         </div>
       </a>
 
@@ -522,7 +522,7 @@
       
       <a class="index-excerpt " href="/2021/05/28/%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E4%B9%8B-Bellman-Ford-%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%85%B6-Python-%E5%AE%9E%E7%8E%B0/" target="_self">
         <div>
-          前言本博客的内容基本来自《算法导论》。 算法描述Bellman-Ford 算法解决的是一般情况下的单源最短路径问题，在这里，边的权重可以为负值。给定带权重的有向图 $G = (V, E)$ 和权重函数 $\omega : E \rightarrow \mathbf&#123;R&#125;$，Bellman-Ford 算法返回一个布尔值，以表明是否存在一个从源结点可以到达的权重为负值的环路。如果存
+          前言 本博客的内容基本来自《算法导论》。 算法描述 Bellman-Ford 算法解决的是一般情况下的单源最短路径问题，在这里，边的权重可以为负值。给定带权重的有向图 $G = (V, E)$ 和权重函数 $\omega : E \rightarrow \mathbf&#123;R&#125;$，Bellman-Ford 算法返回一个布尔值，以表明是否存在一个从源结点可以到达的权重为负值的环路。如
         </div>
       </a>
 
@@ -589,7 +589,7 @@
       
       <a class="index-excerpt " href="/2021/05/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%9B%BE%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E6%9C%AF%E8%AF%AD/" target="_self">
         <div>
-          1、图的定义图（Graph）是由两个集合构成，一个是非空但有限的顶点集合 $V$，另一个是描述顶点之间关系——边的集合 $E$（可以是 $arnothing$）。因此，图可以表示为 $G &#x3D; (V, E)$。每条边是一顶点对 $(v, w)$ 且 $v, w \in V$。 通常用 $|V|$ 表示顶点的数量，用 $|E|$ 表示边的数量。 2、图的术语(1)、无向图（Underecte
+          1、图的定义 图（Graph）是由两个集合构成，一个是非空但有限的顶点集合 \(V\)，另一个是描述顶点之间关系——边的集合 \(E\)（可以是 $ arnothing$）。因此，图可以表示为 \(G = (V, E)\)。每条边是一顶点对 \((v, w)\) 且 \(v, w \in V\)。 通常用 \(|V|\) 表示顶点的数量，用 \(|E|\) 表示边的数量。 2、图的术语 (1)、无
         </div>
       </a>
 
@@ -658,7 +658,7 @@
       
       <a class="index-excerpt " href="/2021/05/28/%E6%B5%99%E6%B1%9F%E5%A4%A7%E5%AD%A6%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AC%AC%E4%BA%8C%E7%89%88%E3%80%8Bpdf-%E5%88%86%E4%BA%AB/" target="_self">
         <div>
-          本资源收集自三叶资源网, 没有想到这个资源是真的, 在 Google 上搜索, 很多链接都是虚假的, 点击之后会跳转到这本书的购物网站页面, 气极. 遂再次分享之.  下面是我重新生成的百度网盘的链接 链接：https://pan.baidu.com/s/1gk3VKo1N-N6Wr7C4T37TqQ提取码：kkds  需要注意的是, 本书的 pdf 质量并不怎么好, 因为虽然这本书的质量在我看来
+          本资源收集自三叶资源网, 没有想到这个资源是真的, 在 Google 上搜索, 很多链接都是虚假的, 点击之后会跳转到这本书的购物网站页面, 气极. 遂再次分享之. 下面是我重新生成的百度网盘的链接 链接：https://pan.baidu.com/s/1gk3VKo1N-N6Wr7C4T37TqQ 提取码：kkds 需要注意的是, 本书的 pdf 质量并不怎么好, 因为虽然这本书的质量在我看来是
         </div>
       </a>
 
@@ -794,7 +794,7 @@
       
       <a class="index-excerpt " href="/2021/05/27/Python-%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84-m-%E5%8F%82%E6%95%B0/" target="_self">
         <div>
-          1. 命令格式1python -m &lt;module-name&gt;  2. 参数解释在 sys.path 中搜索指定模块, 并以 __main__ 模块执行其内容. 该参数是 模块名(注一), 不能输入文件扩展名(.py). 模块名应该是有效的绝对的 Python 模块名, 但是 Python 不对此作强制要求(例如, 允许使用含连字符 - 的名称). 包名称(包括命名空间包(注二))也允
+          1. 命令格式 1python -m &lt;module-name&gt; 2. 参数解释 在 sys.path 中搜索指定模块, 并以 __main__ 模块执行其内容. 该参数是 模块名(注一), 不能输入文件扩展名(.py). 模块名应该是有效的绝对的 Python 模块名, 但是 Python 不对此作强制要求(例如, 允许使用含连字符 - 的名称). 包名称(包括命名空间包(注二))也
         </div>
       </a>
 
@@ -861,7 +861,7 @@
       
       <a class="index-excerpt " href="/2021/05/26/Python-%E5%AE%9E%E7%8E%B0%E4%BD%9C%E4%B8%9A%E6%8E%92%E7%A8%8B%E9%97%AE%E9%A2%98/" target="_self">
         <div>
-          1. 问题描述 Automobile factory with two assembly lines Each line has n stations: $S_&#123;1, 1&#125;,...,S_&#123;1, n&#125;$ and $S_&#123;2, 1&#125;,...,S_&#123;2, n&#125;$ Corresponding stations $S_&#123
+          1. 问题描述  Automobile factory with two assembly lines  Each line has n stations: $S_&#123;1, 1&#125;,...,S_&#123;1, n&#125;$ and $S_&#123;2, 1&#125;,...,S_&#123;2, n&#125;$ Corresponding stations $S_&#1
         </div>
       </a>
 
