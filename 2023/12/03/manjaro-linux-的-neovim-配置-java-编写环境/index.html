@@ -16,25 +16,25 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="这一个博客似乎是因为我重装了 manjaro 的系统之后，因为种种原因，没有去重新配置写博客的这样一个设置，好吧，其实是我的🏓打得太多了，时间不够用，也是因为潜意识里面的怕麻烦的心理在作祟。实际呢，其实是一点都不麻烦的，甚至不要半个小时就可以解决。 然后，最近因为已经工作的缘故，所以，时时刻刻、所有的时间都可以说是扑在了计算机上面，因此，麻烦什么的，就不可以再说了。妈的，有人在另一种场景和我说，">
+    <meta name="description" content="前言 Windows 中的 neovim 配置 java 环境是没救了。前有 astronvim，现在的 lazyvim 也不支持。astronvim 只是不支持 dap，而且它还吱了一声。这个 lazyvim 都不说是什么情况，试过之后，果然不支持。只好转向我的 manjaro linux 了。好在，不管是什么插件，对于 linux 的支持都是在第一序列的。 当然啦，也还是有一些小问题，只是，相">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一次关于博客物理搬迁的记录">
-<meta property="og:url" content="http://fanyfull.github.io/2023/11/11/%E4%B8%80%E6%AC%A1%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%89%A9%E7%90%86%E6%90%AC%E8%BF%81%E7%9A%84%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:title" content="manjaro linux 的 neovim 配置 java 编写环境">
+<meta property="og:url" content="http://fanyfull.github.io/2023/12/03/manjaro-linux-%E7%9A%84-neovim-%E9%85%8D%E7%BD%AE-java-%E7%BC%96%E5%86%99%E7%8E%AF%E5%A2%83/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="这一个博客似乎是因为我重装了 manjaro 的系统之后，因为种种原因，没有去重新配置写博客的这样一个设置，好吧，其实是我的🏓打得太多了，时间不够用，也是因为潜意识里面的怕麻烦的心理在作祟。实际呢，其实是一点都不麻烦的，甚至不要半个小时就可以解决。 然后，最近因为已经工作的缘故，所以，时时刻刻、所有的时间都可以说是扑在了计算机上面，因此，麻烦什么的，就不可以再说了。妈的，有人在另一种场景和我说，">
+<meta property="og:description" content="前言 Windows 中的 neovim 配置 java 环境是没救了。前有 astronvim，现在的 lazyvim 也不支持。astronvim 只是不支持 dap，而且它还吱了一声。这个 lazyvim 都不说是什么情况，试过之后，果然不支持。只好转向我的 manjaro linux 了。好在，不管是什么插件，对于 linux 的支持都是在第一序列的。 当然啦，也还是有一些小问题，只是，相">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/OJQpnr0.png">
-<meta property="article:published_time" content="2023-11-10T16:02:19.000Z">
-<meta property="article:modified_time" content="2023-11-16T14:22:10.102Z">
+<meta property="og:image" content="https://i.imgur.com/UDWmvdO.png">
+<meta property="article:published_time" content="2023-12-02T16:01:33.000Z">
+<meta property="article:modified_time" content="2023-12-02T17:00:33.347Z">
 <meta property="article:author" content="Fany Full">
-<meta property="article:tag" content="记录">
-<meta property="article:tag" content="日常">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Neovim">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i.imgur.com/OJQpnr0.png">
+<meta name="twitter:image" content="https://i.imgur.com/UDWmvdO.png">
   
   
   
-  <title>一次关于博客物理搬迁的记录 - Fany Full&#39;s Blog</title>
+  <title>manjaro linux 的 neovim 配置 java 编写环境 - Fany Full&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -198,13 +198,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://i.imgur.com/OJQpnr0.png') no-repeat center center; background-size: cover;">
+     style="background: url('https://i.imgur.com/UDWmvdO.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="一次关于博客物理搬迁的记录"></span>
+            <span id="subtitle" data-typed-text="manjaro linux 的 neovim 配置 java 编写环境"></span>
           
         </div>
 
@@ -215,8 +215,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-11 00:02" pubdate>
-          2023年11月11日 凌晨
+        <time datetime="2023-12-03 00:01" pubdate>
+          2023年12月3日 凌晨
         </time>
       </span>
     
@@ -228,7 +228,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          702 字
+          1.8k 字
         
       </span>
     
@@ -240,7 +240,7 @@
         
         
           <!-- compatible with older versions-->
-          6 分钟
+          15 分钟
         
       </span>
     
@@ -277,33 +277,64 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">一次关于博客物理搬迁的记录</h1>
+            <h1 id="seo-header">manjaro linux 的 neovim 配置 java 编写环境</h1>
             
             
               <div class="markdown-body">
                 
-                <p>这一个博客似乎是因为我重装了 manjaro
-的系统之后，因为种种原因，没有去重新配置写博客的这样一个设置，好吧，其实是我的🏓打得太多了，时间不够用，也是因为潜意识里面的怕麻烦的心理在作祟。实际呢，其实是一点都不麻烦的，甚至不要半个小时就可以解决。</p>
-<p>然后，最近因为已经工作的缘故，所以，时时刻刻、所有的时间都可以说是扑在了计算机上面，因此，麻烦什么的，就不可以再说了。妈的，有人在另一种场景和我说，你怎么能嫌麻烦呢？我才不嫌麻烦好吧。这又涉及到了一些夏虫的论题。不谈也罢。</p>
-<p>好吧，说正事儿。这里我是直接把以前的备份的 <code>_config.yml</code>
-和 <code>_config_fluid.yml</code> 以及 source 目录，以及 scaffolds
-目录直接搬运过来了，所以，其实到这里就差不多了。安装好相关的包裹之后，就可以
-<code>hexo g</code> 然后 <code>hexo s</code> 看看效果了。</p>
-<p>好吧，以后在这台 pc 上遇到的问题就在本机上记录就好了。</p>
-<p>剩下的事情，就是<strong>写写写</strong>了。就像村上的舞舞舞一样。</p>
+                <h2 id="前言">前言</h2>
+<p>Windows 中的 neovim 配置 java 环境是没救了。前有 astronvim，现在的
+lazyvim 也不支持。astronvim 只是不支持 dap，而且它还吱了一声。这个
+lazyvim 都不说是什么情况，试过之后，果然不支持。只好转向我的 manjaro
+linux 了。好在，不管是什么插件，对于 linux 的支持都是在第一序列的。</p>
+<p>当然啦，也还是有一些小问题，只是，相比之下容易解决，也不多。这里的话，摸索一下就
+ok 了。</p>
+<p>开始之前，先说一下我为什么要一定要执着于去在 neovim 中去配置 java
+编写环境，去使用现成的 idea 不好吗？即使 jetbrains 对 linux
+的支持不够，其上手的友好性还是比 neovim
+要高一大截的。只是，让人想要去不由自主地去写程式，只有 neovim
+可以做到，结合
+neovide，简直就像小时候的遥控飞机对于孩童的我们的吸引。或许，又像一个天然去雕饰的女孩，让你无时无刻不想去哪怕是轻轻地摸一摸她的脸庞。</p>
+<h2 id="正文">正文</h2>
+<p>言归正传。</p>
+<p>首先，我这个方案是基于 lazyvim 的。这里，我们第一步是打开 lazyvim 对
+java 的支持，这个就在 lazyvim 的 extra
+里面，根据官方的文档，这个是比较容易设置的。</p>
+<p><img src="https://i.imgur.com/a4dJbnq.png" srcset="/img/loading.gif" lazyload /></p>
+<p>然后，就是使用 mason 安装 jdtls 这个 lsp，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">:MasonInstall jdtls<br></code></pre></td></tr></table></figure>
+<p>然后，我们还需要在系统中安装一下 jdtls，防止 mason
+安装的无法使用，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yay -S jdtls<br></code></pre></td></tr></table></figure>
+<p>然后，安装一下 maven，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yay -S maven<br></code></pre></td></tr></table></figure>
+<p>之后，一切正常的话，那么，就可以正常在一个 maven 项目中使用 java 的
+lsp 了。</p>
+<p>这里我的 maven 项目是使用 VSCode 中的 maven 插件生成的一个 quickstart
+模板。有时间，后面再自己制作一个 maven 的模板。(现在 maven 自带的
+quickstart 模板实在是太老了)</p>
+<p>下面是实际使用过程中的一些截图，</p>
+<p><img src="https://i.imgur.com/sLVtmg5.png" srcset="/img/loading.gif" lazyload /></p>
+<p>下面这个是代码补全的效果，</p>
+<p><img src="https://i.imgur.com/QwLsluu.png" srcset="/img/loading.gif" lazyload /></p>
+<p>下面这个是写的一个 test，</p>
+<p><img src="https://i.imgur.com/yiguFk2.png" srcset="/img/loading.gif" lazyload /></p>
 <h2 id="遇到的问题">遇到的问题</h2>
-<p>一开始，需要安装 hexo-cli，</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo npm install -g hexo-cli<br></code></pre></td></tr></table></figure>
-<p>然后，我因为是使用 hexo-cli 主题，并且，是使用 mathjax
-渲染数学公式，所以，需要安装如下包，</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yay -S pandoc<br></code></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm uninstall hexo-renderer-marked --save<br>npm install hexo-renderer-pandoc --save<br></code></pre></td></tr></table></figure>
-<p>这个，可以见文档<a
-target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/#latex-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F">这里</a>的描述。</p>
-<p><code>hexo d</code> 不生效的问题，</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ERROR Deployer not found: git<br></code></pre></td></tr></table></figure>
-<p>这个其实是没有安装 <code>hexo-deployer-git</code>
-的缘故，上一次配置博客的时间太古老了，我都忘记了。</p>
+<p>pom.xml 文件报下面这个警告的问题，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">Project configuration is not up-to-date with pom.xml, requires an update.<br></code></pre></td></tr></table></figure>
+<p>这个问题，如果是在 VSCode 或者 eclipse(对，就是 eclipse) 中，有对应的
+gui 让我们去操作，update project 一下就好了。在 neovim
+中呢，需要执行一下 JdtWipeDataAndRestart 命令，最好是先把 .project
+文件给删除之后再执行。</p>
+<p>似乎，也是可以执行 <code>JdtUpdateConfig</code>
+这个命令的，但是我现在还没有试过。</p>
+<h2 id="其他">其他</h2>
+<p>还有一个问题，其实也是相当重要的一个问题。在 neovim 中我们没法像
+eclipse 和 idea 中那样去点击按钮执行一份 java
+代码或者一个项目了，怎么办呢？还有，Test 的代码怎么运行呢？</p>
+<p>这个其实就可以使用 maven 来解决了，主要是利用下面两个插件，</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.codehaus.mojo<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>exec-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.1.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-comment">&lt;!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-surefire-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.2.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>更多内容，欲知如何，请看我后面的博客。</p>
 
                 
               </div>
@@ -316,9 +347,9 @@ target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/#late
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E8%AE%B0%E5%BD%95/" class="print-no-link">#记录</a>
+        <a href="/tags/Java/" class="print-no-link">#Java</a>
       
-        <a href="/tags/%E6%97%A5%E5%B8%B8/" class="print-no-link">#日常</a>
+        <a href="/tags/Neovim/" class="print-no-link">#Neovim</a>
       
     </div>
   
@@ -330,8 +361,8 @@ target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/#late
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>一次关于博客物理搬迁的记录</div>
-      <div>http://fanyfull.github.io/2023/11/11/一次关于博客物理搬迁的记录/</div>
+      <div>manjaro linux 的 neovim 配置 java 编写环境</div>
+      <div>http://fanyfull.github.io/2023/12/03/manjaro-linux-的-neovim-配置-java-编写环境/</div>
     </div>
     <div class="license-meta">
       
@@ -343,7 +374,7 @@ target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/#late
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年11月11日</div>
+          <div>2023年12月3日</div>
         </div>
       
       
@@ -375,18 +406,12 @@ target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/#late
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/12/03/manjaro-linux-%E7%9A%84-neovim-%E9%85%8D%E7%BD%AE-java-%E7%BC%96%E5%86%99%E7%8E%AF%E5%A2%83/" title="manjaro linux 的 neovim 配置 java 编写环境">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">manjaro linux 的 neovim 配置 java 编写环境</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/09/22/VSCode-%E9%85%8D%E7%BD%AE-C-%E5%8D%95%E6%96%87%E4%BB%B6%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E5%BC%8F/" title="VSCode 配置 C++ 单文件运行的方式">
-                        <span class="hidden-mobile">VSCode 配置 C++ 单文件运行的方式</span>
+                      <a href="/2023/11/11/%E4%B8%80%E6%AC%A1%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%89%A9%E7%90%86%E6%90%AC%E8%BF%81%E7%9A%84%E8%AE%B0%E5%BD%95/" title="一次关于博客物理搬迁的记录">
+                        <span class="hidden-mobile">一次关于博客物理搬迁的记录</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -406,8 +431,8 @@ target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/#late
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://fanyfull.github.io/2023/11/11/%E4%B8%80%E6%AC%A1%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%89%A9%E7%90%86%E6%90%AC%E8%BF%81%E7%9A%84%E8%AE%B0%E5%BD%95/';
-          this.page.identifier = '/2023/11/11/%E4%B8%80%E6%AC%A1%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%89%A9%E7%90%86%E6%90%AC%E8%BF%81%E7%9A%84%E8%AE%B0%E5%BD%95/';
+          this.page.url = 'http://fanyfull.github.io/2023/12/03/manjaro-linux-%E7%9A%84-neovim-%E9%85%8D%E7%BD%AE-java-%E7%BC%96%E5%86%99%E7%8E%AF%E5%A2%83/';
+          this.page.identifier = '/2023/12/03/manjaro-linux-%E7%9A%84-neovim-%E9%85%8D%E7%BD%AE-java-%E7%BC%96%E5%86%99%E7%8E%AF%E5%A2%83/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
