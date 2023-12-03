@@ -8,7 +8,7 @@
     <link href="/2023/12/03/remote-Support-for-password-authentication-was-removed-on-August-13-2021/"/>
     <url>/2023/12/03/remote-Support-for-password-authentication-was-removed-on-August-13-2021/</url>
     
-    <content type="html"><![CDATA[<p>今天在 manjaro 中往我的 github 上推送的时候，要让我输入 username 和password，用户名当然是那个用户名，但是，密码如果直接填我们的密码，那么，就会报标题里面的错误了。那么，现在应该怎么办呢？</p><p>有很多种办法，首先我们需要去 github 上生成一个token，之后，最简单的方法就是把我们需要输入密码的地方换成 token就可以了。</p><p><img src="https://i.imgur.com/1ipD8bz.png" /></p><p>这个 token 要妥善保管，不然下次可能又要重新生成。</p>]]></content>
+    <content type="html"><![CDATA[<p>今天在 manjaro 中往我的 github 上推送的时候，要让我输入 username 和password，用户名当然是那个用户名，但是，密码如果直接填我们的密码，那么，就会报标题里面的错误了。那么，现在应该怎么办呢？</p><p>有很多种办法，首先我们需要去 github 上生成一个token，之后，最简单的方法就是把我们需要输入密码的地方换成 token就可以了。</p><p><img src="https://i.imgur.com/1ipD8bz.png" /></p><p>这个 token 要妥善保管，不然下次可能又要重新生成。</p><p>参考：<ahref="https://stackoverflow.com/questions/68775869/message-support-for-password-authentication-was-removed"class="uri">https://stackoverflow.com/questions/68775869/message-support-for-password-authentication-was-removed</a></p>]]></content>
     
     
     
