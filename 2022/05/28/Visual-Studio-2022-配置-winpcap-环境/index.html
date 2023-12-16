@@ -35,15 +35,17 @@
   
   <title>Visual Studio 2022 配置 winpcap 环境 - Fany Full&#39;s Blog</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -75,7 +77,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -119,7 +121,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -131,7 +133,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -143,7 +145,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -155,7 +157,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -167,7 +169,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -227,7 +229,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          3.7k 字
+          850 字
         
       </span>
     
@@ -239,7 +241,7 @@
         
         
           <!-- compatible with older versions-->
-          32 分钟
+          8 分钟
         
       </span>
     
@@ -321,15 +323,128 @@ Lib 目录下的 x64 子目录，</p>
 <strong>wpcap.lib;Packet.lib</strong>，</p>
 <p><img src="https://i.imgur.com/vkX5thl.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后在写代码时，我们需要添加经典的预定义：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">ifdef</span> _MSC_VER</span><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * we do not want the warnings about the old deprecated and unsecure CRT functions</span><br><span class="hljs-comment"> * since these examples can be compiled under *nix as well</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> _CRT_SECURE_NO_WARNINGS</span><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">_MSC_VER</span></span>
+<span class="token comment">/*
+ * we do not want the warnings about the old deprecated and unsecure CRT functions
+ * since these examples can be compiled under *nix as well
+ */</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">_CRT_SECURE_NO_WARNINGS</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>之后就可以愉快地写代码了。</p>
 <p>下面是测试：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">ifdef</span> _MSC_VER</span><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * we do not want the warnings about the old deprecated and unsecure CRT functions</span><br><span class="hljs-comment"> * since these examples can be compiled under *nix as well</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> _CRT_SECURE_NO_WARNINGS</span><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;pcap.h&quot;</span></span><br><br> <span class="hljs-comment">// 函数原型</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">ifprint</span><span class="hljs-params">(<span class="hljs-type">pcap_if_t</span>* d)</span>;<br><span class="hljs-type">char</span>* <span class="hljs-title function_">iptos</span><span class="hljs-params">(u_long in)</span>;<br><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>	<span class="hljs-type">pcap_if_t</span>* alldevs;<br>	<span class="hljs-type">pcap_if_t</span>* d;<br>	<span class="hljs-type">char</span> errbuf[PCAP_ERRBUF_SIZE + <span class="hljs-number">1</span>];<br>	<span class="hljs-type">char</span> source[PCAP_ERRBUF_SIZE + <span class="hljs-number">1</span>];<br><br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Enter the device you want to list:\n&quot;</span><br>		<span class="hljs-string">&quot;rpcap://              ==&gt; lists interfaces in the local machine\n&quot;</span><br>		<span class="hljs-string">&quot;rpcap://hostname:port ==&gt; lists interfaces in a remote machine\n&quot;</span><br>		<span class="hljs-string">&quot;                          (rpcapd daemon must be up and running\n&quot;</span><br>		<span class="hljs-string">&quot;                           and it must accept &#x27;null&#x27; authentication)\n&quot;</span><br>		<span class="hljs-string">&quot;file://foldername     ==&gt; lists all pcap files in the give folder\n\n&quot;</span><br>		<span class="hljs-string">&quot;Enter your choice: &quot;</span>);<br><br>	fgets(source, PCAP_ERRBUF_SIZE, <span class="hljs-built_in">stdin</span>);<br>	source[PCAP_ERRBUF_SIZE] = <span class="hljs-string">&#x27;\0&#x27;</span>;<br><br>	<span class="hljs-comment">/* 获得接口列表 */</span><br>	<span class="hljs-keyword">if</span> (pcap_findalldevs_ex(source, <span class="hljs-literal">NULL</span>, &amp;alldevs, errbuf) == <span class="hljs-number">-1</span>)<br>	&#123;<br>		<span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>, <span class="hljs-string">&quot;Error in pcap_findalldevs: %s\n&quot;</span>, errbuf);<br>		<span class="hljs-built_in">exit</span>(<span class="hljs-number">1</span>);<br>	&#125;<br><br>	<span class="hljs-comment">/* 扫描列表并打印每一项 */</span><br>	<span class="hljs-keyword">for</span> (d = alldevs; d; d = d-&gt;next)<br>	&#123;<br>		ifprint(d);<br>	&#125;<br><br>	pcap_freealldevs(alldevs);<br>	getchar();<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br><br><br><span class="hljs-comment">/* 打印所有可用信息 */</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">ifprint</span><span class="hljs-params">(<span class="hljs-type">pcap_if_t</span>* d)</span><br>&#123;<br>	<span class="hljs-type">pcap_addr_t</span>* a;<br><br>	<span class="hljs-comment">/* 设备名(Name) */</span><br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s\n&quot;</span>, d-&gt;name);<br><br>	<span class="hljs-comment">/* 设备描述(Description) */</span><br>	<span class="hljs-keyword">if</span> (d-&gt;description)<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tDescription: %s\n&quot;</span>, d-&gt;description);<br><br>	<span class="hljs-comment">/* Loopback Address*/</span><br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tLoopback: %s\n&quot;</span>, (d-&gt;flags &amp; PCAP_IF_LOOPBACK) ? <span class="hljs-string">&quot;yes&quot;</span> : <span class="hljs-string">&quot;no&quot;</span>);<br><br>	<span class="hljs-comment">/* IP addresses */</span><br>	<span class="hljs-keyword">for</span> (a = d-&gt;addresses; a; a = a-&gt;next) &#123;<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tAddress Family: #%d\n&quot;</span>, a-&gt;addr-&gt;sa_family);<br><br>		<span class="hljs-keyword">switch</span> (a-&gt;addr-&gt;sa_family)<br>		&#123;<br>		<span class="hljs-keyword">case</span> AF_INET:<br>			<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tAddress Family Name: AF_INET\n&quot;</span>);<br>			<span class="hljs-keyword">if</span> (a-&gt;addr)<br>				<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tAddress: %s\n&quot;</span>, iptos(((<span class="hljs-keyword">struct</span> sockaddr_in*)a-&gt;addr)-&gt;sin_addr.s_addr));<br>			<span class="hljs-keyword">if</span> (a-&gt;netmask)<br>				<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tNetmask: %s\n&quot;</span>, iptos(((<span class="hljs-keyword">struct</span> sockaddr_in*)a-&gt;netmask)-&gt;sin_addr.s_addr));<br>			<span class="hljs-keyword">if</span> (a-&gt;broadaddr)<br>				<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tBroadcast Address: %s\n&quot;</span>, iptos(((<span class="hljs-keyword">struct</span> sockaddr_in*)a-&gt;broadaddr)-&gt;sin_addr.s_addr));<br>			<span class="hljs-keyword">if</span> (a-&gt;dstaddr)<br>				<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tDestination Address: %s\n&quot;</span>, iptos(((<span class="hljs-keyword">struct</span> sockaddr_in*)a-&gt;dstaddr)-&gt;sin_addr.s_addr));<br>			<span class="hljs-keyword">break</span>;<br><br>		<span class="hljs-keyword">default</span>:<br>			<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tAddress Family Name: Unknown\n&quot;</span>);<br>			<span class="hljs-keyword">break</span>;<br>		&#125;<br>	&#125;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>&#125;<br><br><br><br><span class="hljs-comment">/* 将数字类型的IP地址转换成字符串类型的 */</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> IPTOSBUFFERS    12</span><br><span class="hljs-type">char</span>* <span class="hljs-title function_">iptos</span><span class="hljs-params">(u_long in)</span><br>&#123;<br>	<span class="hljs-type">static</span> <span class="hljs-type">char</span> output[IPTOSBUFFERS][<span class="hljs-number">3</span> * <span class="hljs-number">4</span> + <span class="hljs-number">3</span> + <span class="hljs-number">1</span>];<br>	<span class="hljs-type">static</span> <span class="hljs-type">short</span> which;<br>	u_char* p;<br><br>	p = (u_char*)&amp;in;<br>	which = (which + <span class="hljs-number">1</span> == IPTOSBUFFERS ? <span class="hljs-number">0</span> : which + <span class="hljs-number">1</span>);<br>	<span class="hljs-built_in">sprintf</span>(output[which], <span class="hljs-string">&quot;%d.%d.%d.%d&quot;</span>, p[<span class="hljs-number">0</span>], p[<span class="hljs-number">1</span>], p[<span class="hljs-number">2</span>], p[<span class="hljs-number">3</span>]);<br>	<span class="hljs-keyword">return</span> output[which];<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">_MSC_VER</span></span>
+<span class="token comment">/*
+ * we do not want the warnings about the old deprecated and unsecure CRT functions
+ * since these examples can be compiled under *nix as well
+ */</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">_CRT_SECURE_NO_WARNINGS</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"pcap.h"</span></span>
+
+ <span class="token comment">// 函数原型</span>
+<span class="token keyword">void</span> <span class="token function">ifprint</span><span class="token punctuation">(</span><span class="token class-name">pcap_if_t</span><span class="token operator">*</span> d<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">char</span><span class="token operator">*</span> <span class="token function">iptos</span><span class="token punctuation">(</span>u_long in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token class-name">pcap_if_t</span><span class="token operator">*</span> alldevs<span class="token punctuation">;</span>
+	<span class="token class-name">pcap_if_t</span><span class="token operator">*</span> d<span class="token punctuation">;</span>
+	<span class="token keyword">char</span> errbuf<span class="token punctuation">[</span>PCAP_ERRBUF_SIZE <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token keyword">char</span> source<span class="token punctuation">[</span>PCAP_ERRBUF_SIZE <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Enter the device you want to list:\n"</span>
+		<span class="token string">"rpcap://              ==> lists interfaces in the local machine\n"</span>
+		<span class="token string">"rpcap://hostname:port ==> lists interfaces in a remote machine\n"</span>
+		<span class="token string">"                          (rpcapd daemon must be up and running\n"</span>
+		<span class="token string">"                           and it must accept 'null' authentication)\n"</span>
+		<span class="token string">"file://foldername     ==> lists all pcap files in the give folder\n\n"</span>
+		<span class="token string">"Enter your choice: "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token function">fgets</span><span class="token punctuation">(</span>source<span class="token punctuation">,</span> PCAP_ERRBUF_SIZE<span class="token punctuation">,</span> <span class="token constant">stdin</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	source<span class="token punctuation">[</span>PCAP_ERRBUF_SIZE<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'\0'</span><span class="token punctuation">;</span>
+
+	<span class="token comment">/* 获得接口列表 */</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">pcap_findalldevs_ex</span><span class="token punctuation">(</span>source<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>alldevs<span class="token punctuation">,</span> errbuf<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		<span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span> <span class="token string">"Error in pcap_findalldevs: %s\n"</span><span class="token punctuation">,</span> errbuf<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token comment">/* 扫描列表并打印每一项 */</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span>d <span class="token operator">=</span> alldevs<span class="token punctuation">;</span> d<span class="token punctuation">;</span> d <span class="token operator">=</span> d<span class="token operator">-></span>next<span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		<span class="token function">ifprint</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token function">pcap_freealldevs</span><span class="token punctuation">(</span>alldevs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">getchar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+
+<span class="token comment">/* 打印所有可用信息 */</span>
+<span class="token keyword">void</span> <span class="token function">ifprint</span><span class="token punctuation">(</span><span class="token class-name">pcap_if_t</span><span class="token operator">*</span> d<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token class-name">pcap_addr_t</span><span class="token operator">*</span> a<span class="token punctuation">;</span>
+
+	<span class="token comment">/* 设备名(Name) */</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span> d<span class="token operator">-></span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">/* 设备描述(Description) */</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>d<span class="token operator">-></span>description<span class="token punctuation">)</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\tDescription: %s\n"</span><span class="token punctuation">,</span> d<span class="token operator">-></span>description<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">/* Loopback Address*/</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\tLoopback: %s\n"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>d<span class="token operator">-></span>flags <span class="token operator">&amp;</span> PCAP_IF_LOOPBACK<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">"yes"</span> <span class="token operator">:</span> <span class="token string">"no"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">/* IP addresses */</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span>a <span class="token operator">=</span> d<span class="token operator">-></span>addresses<span class="token punctuation">;</span> a<span class="token punctuation">;</span> a <span class="token operator">=</span> a<span class="token operator">-></span>next<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\tAddress Family: #%d\n"</span><span class="token punctuation">,</span> a<span class="token operator">-></span>addr<span class="token operator">-></span>sa_family<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		<span class="token keyword">switch</span> <span class="token punctuation">(</span>a<span class="token operator">-></span>addr<span class="token operator">-></span>sa_family<span class="token punctuation">)</span>
+		<span class="token punctuation">&#123;</span>
+		<span class="token keyword">case</span> AF_INET<span class="token operator">:</span>
+			<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\tAddress Family Name: AF_INET\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token operator">-></span>addr<span class="token punctuation">)</span>
+				<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\tAddress: %s\n"</span><span class="token punctuation">,</span> <span class="token function">iptos</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">sockaddr_in</span><span class="token operator">*</span><span class="token punctuation">)</span>a<span class="token operator">-></span>addr<span class="token punctuation">)</span><span class="token operator">-></span>sin_addr<span class="token punctuation">.</span>s_addr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token operator">-></span>netmask<span class="token punctuation">)</span>
+				<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\tNetmask: %s\n"</span><span class="token punctuation">,</span> <span class="token function">iptos</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">sockaddr_in</span><span class="token operator">*</span><span class="token punctuation">)</span>a<span class="token operator">-></span>netmask<span class="token punctuation">)</span><span class="token operator">-></span>sin_addr<span class="token punctuation">.</span>s_addr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token operator">-></span>broadaddr<span class="token punctuation">)</span>
+				<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\tBroadcast Address: %s\n"</span><span class="token punctuation">,</span> <span class="token function">iptos</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">sockaddr_in</span><span class="token operator">*</span><span class="token punctuation">)</span>a<span class="token operator">-></span>broadaddr<span class="token punctuation">)</span><span class="token operator">-></span>sin_addr<span class="token punctuation">.</span>s_addr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token operator">-></span>dstaddr<span class="token punctuation">)</span>
+				<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\tDestination Address: %s\n"</span><span class="token punctuation">,</span> <span class="token function">iptos</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">sockaddr_in</span><span class="token operator">*</span><span class="token punctuation">)</span>a<span class="token operator">-></span>dstaddr<span class="token punctuation">)</span><span class="token operator">-></span>sin_addr<span class="token punctuation">.</span>s_addr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">break</span><span class="token punctuation">;</span>
+
+		<span class="token keyword">default</span><span class="token operator">:</span>
+			<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\tAddress Family Name: Unknown\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+
+
+<span class="token comment">/* 将数字类型的IP地址转换成字符串类型的 */</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">IPTOSBUFFERS</span>    <span class="token expression"><span class="token number">12</span></span></span>
+<span class="token keyword">char</span><span class="token operator">*</span> <span class="token function">iptos</span><span class="token punctuation">(</span>u_long in<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">static</span> <span class="token keyword">char</span> output<span class="token punctuation">[</span>IPTOSBUFFERS<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span> <span class="token operator">*</span> <span class="token number">4</span> <span class="token operator">+</span> <span class="token number">3</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token keyword">static</span> <span class="token keyword">short</span> which<span class="token punctuation">;</span>
+	u_char<span class="token operator">*</span> p<span class="token punctuation">;</span>
+
+	p <span class="token operator">=</span> <span class="token punctuation">(</span>u_char<span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>in<span class="token punctuation">;</span>
+	which <span class="token operator">=</span> <span class="token punctuation">(</span>which <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">==</span> IPTOSBUFFERS <span class="token operator">?</span> <span class="token number">0</span> <span class="token operator">:</span> which <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">sprintf</span><span class="token punctuation">(</span>output<span class="token punctuation">[</span>which<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">"%d.%d.%d.%d"</span><span class="token punctuation">,</span> p<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> p<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> p<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> p<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> output<span class="token punctuation">[</span>which<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>运行结果：</p>
 <p><img src="https://i.imgur.com/fvrgHvp.png" srcset="/img/loading.gif" lazyload /></p>
 <h1 id="其它可能会出现的问题">其它可能会出现的问题</h1>
 <p>如果出现如下的错误：</p>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs subunit"><span class="hljs-keyword">Error	</span>LNK2019	unresolved external symbol __imp_getnameinfo referenced in function ip6tos<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">Error	LNK2019	unresolved external symbol __imp_getnameinfo referenced in function ip6tos<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p><img src="https://i.imgur.com/HGCG4DO.png" srcset="/img/loading.gif" lazyload /></p>
 <p>那么，解决的方法很简单，只需要在链接器的输入的附加依赖中。</p>
 <p><img src="https://i.imgur.com/HucWZkc.png" srcset="/img/loading.gif" lazyload /></p>
@@ -567,8 +682,8 @@ class="uri">https://blog.csdn.net/qsycn/article/details/4455531</a></p>
 
   <!-- Scripts -->
   
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -579,13 +694,13 @@ class="uri">https://blog.csdn.net/qsycn/article/details/4455531</a></p>
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -612,7 +727,7 @@ class="uri">https://blog.csdn.net/qsycn/article/details/4455531</a></p>
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
     var toc = jQuery('#toc');
     if (toc.length === 0 || !window.tocbot) { return; }
     var boardCtn = jQuery('#board-ctn');
@@ -650,14 +765,16 @@ class="uri">https://blog.csdn.net/qsycn/article/details/4455531</a></p>
 </script>
 
 
-  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+  <script  src="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" ></script>
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
     window.anchors.options = {
       placement: CONFIG.anchorjs.placement,
       visible  : CONFIG.anchorjs.visible
@@ -695,7 +812,7 @@ class="uri">https://blog.csdn.net/qsycn/article/details/4455531</a></p>
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
     Fluid.plugins.fancyBox();
   });
 </script>
@@ -711,7 +828,7 @@ class="uri">https://blog.csdn.net/qsycn/article/details/4455531</a></p>
               inlineMath: { '[+]': [['$', '$']] }
             },
             loader : {
-              
+              load: ['ui/lazy']
             },
             options: {
               renderActions: {
@@ -744,7 +861,7 @@ class="uri">https://blog.csdn.net/qsycn/article/details/4455531</a></p>
       </script>
     
 
-  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

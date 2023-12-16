@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="2022.05.23 更新： 遇到了一个连接超时的问题，在这里得到了解决。 修改后的 ssh 的 config 文件如下： 123456789101112Host github.com    HostName ssh.github.com    User git    IdentityFile ~&#x2F;.ssh&#x2F;id_rsa    Port 443#第二个新账号，#&quot;xxxxxx&quot;">
+    <meta name="description" content="2022.05.23 更新： 遇到了一个连接超时的问题，在这里得到了解决。 修改后的 ssh 的 config 文件如下： Host github.com     HostName ssh.github.com     User git     IdentityFile ~&#x2F;.ssh&#x2F;id_rsa     Port 443  #第二个新账号，#&quot;xxxxxx&amp;quot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一台电脑搭建两个 Hexo 博客">
 <meta property="og:url" content="http://fanyfull.github.io/2022/01/24/%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E6%90%AD%E5%BB%BA%E4%B8%A4%E4%B8%AA-Hexo-%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="2022.05.23 更新： 遇到了一个连接超时的问题，在这里得到了解决。 修改后的 ssh 的 config 文件如下： 123456789101112Host github.com    HostName ssh.github.com    User git    IdentityFile ~&#x2F;.ssh&#x2F;id_rsa    Port 443#第二个新账号，#&quot;xxxxxx&quot;">
+<meta property="og:description" content="2022.05.23 更新： 遇到了一个连接超时的问题，在这里得到了解决。 修改后的 ssh 的 config 文件如下： Host github.com     HostName ssh.github.com     User git     IdentityFile ~&#x2F;.ssh&#x2F;id_rsa     Port 443  #第二个新账号，#&quot;xxxxxx&amp;quot">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/84mZyEW.png">
 <meta property="article:published_time" content="2022-01-24T12:15:53.000Z">
@@ -36,15 +36,17 @@
   
   <title>一台电脑搭建两个 Hexo 博客 - Fany Full&#39;s Blog</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -76,7 +78,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -120,7 +122,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -132,7 +134,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -144,7 +146,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -156,7 +158,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -168,7 +170,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -228,7 +230,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.9k 字
+          877 字
         
       </span>
     
@@ -240,7 +242,7 @@
         
         
           <!-- compatible with older versions-->
-          16 分钟
+          8 分钟
         
       </span>
     
@@ -286,7 +288,18 @@
 <p>遇到了一个连接超时的问题，在<a
 target="_blank" rel="noopener" href="https://www.jianshu.com/p/c3aac5024877">这里</a>得到了解决。</p>
 <p>修改后的 ssh 的 config 文件如下：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs stylus">Host github<span class="hljs-selector-class">.com</span><br>    HostName ssh<span class="hljs-selector-class">.github</span><span class="hljs-selector-class">.com</span><br>    User git<br>    IdentityFile ~/.ssh/id_rsa<br>    Port <span class="hljs-number">443</span><br><br>#第二个新账号，#<span class="hljs-string">&quot;xxxxxx&quot;</span>为前缀名，可以任意设置，要记住，后面需要用到<br>Host luflyan<span class="hljs-selector-class">.github</span><span class="hljs-selector-class">.com</span><br>	HostName ssh<span class="hljs-selector-class">.github</span><span class="hljs-selector-class">.com</span><br>	User git<br>	IdentityFile ~/.ssh/luflyan<br>    Port <span class="hljs-number">443</span><br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">Host github.com
+    HostName ssh.github.com
+    User git
+    IdentityFile ~&#x2F;.ssh&#x2F;id_rsa
+    Port 443
+
+#第二个新账号，#&quot;xxxxxx&quot;为前缀名，可以任意设置，要记住，后面需要用到
+Host luflyan.github.com
+	HostName ssh.github.com
+	User git
+	IdentityFile ~&#x2F;.ssh&#x2F;luflyan
+    Port 443<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p><strong>另外</strong>，</p>
 <p>不需要取消 git 的全局用户名和邮箱。只需要在另一个博客的 git
 目录下更改用户名和邮箱即可。</p>
@@ -304,7 +317,7 @@ Windows
 href="https://fanyfull.github.io/2021/10/16/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA-GitHub-%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/#%E4%BD%BF%E7%94%A8-hexo-%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6">GiHub
 + Hexo 真·从零开始搭建个人博客</a>。</p>
 <p>然后，创建密钥：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">ssh<span class="hljs-literal">-keygen</span> <span class="hljs-literal">-t</span> rsa <span class="hljs-literal">-C</span> <span class="hljs-string">&quot;user.email&quot;</span> <span class="hljs-comment"># user.email 为 GitHub 上注册的邮箱</span><br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">ssh-keygen <span class="token operator">-</span>t rsa <span class="token operator">-</span>C <span class="token string">"user.email"</span> <span class="token comment"># user.email 为 GitHub 上注册的邮箱</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>这里最好要在 <code>.ssh</code>
 的目录下执行命令。否则新创建的密钥文件可能会跑到
 <code>C:\Users\FanyFull\</code> 目录下面。</p>
@@ -314,23 +327,48 @@ href="https://fanyfull.github.io/2021/10/16/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B
 <p><img src="https://i.imgur.com/ko7IS0Q.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后，在 <code>C:\Users\FanyFull\.ssh\</code> 目录下创建一个
 <code>config</code> 文件：</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs crmsh"><span class="hljs-comment">#第一个账号，默认使用的账号，不用做任何更改</span><br>Host github.com<br>	HostName github.com<br>	<span class="hljs-keyword">User</span> <span class="hljs-title">git</span><br>	IdentityFile ~/.ssh/id_rsa<br>	<br><span class="hljs-comment">#第二个新账号，#&quot;xxxxxx&quot;为前缀名，可以任意设置，要记住，后面需要用到</span><br>Host xxxxxx.github.com<br>	HostName github.com<br>	<span class="hljs-keyword">User</span> <span class="hljs-title">git</span><br>	IdentityFile ~/.ssh/这里是你创建的新密钥的名称<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">#第一个账号，默认使用的账号，不用做任何更改
+Host github.com
+	HostName github.com
+	User git
+	IdentityFile ~&#x2F;.ssh&#x2F;id_rsa
+	
+#第二个新账号，#&quot;xxxxxx&quot;为前缀名，可以任意设置，要记住，后面需要用到
+Host xxxxxx.github.com
+	HostName github.com
+	User git
+	IdentityFile ~&#x2F;.ssh&#x2F;这里是你创建的新密钥的名称<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>我这里的设置：</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs crmsh"><span class="hljs-comment">#第一个账号，默认使用的账号，不用做任何更改</span><br>Host github.com<br>	HostName github.com<br>	<span class="hljs-keyword">User</span> <span class="hljs-title">git</span><br>	IdentityFile ~/.ssh/id_rsa<br>	<br><span class="hljs-comment">#第二个新账号，#&quot;xxxxxx&quot;为前缀名，可以任意设置，要记住，后面需要用到</span><br>Host luflyan.github.com<br>	HostName github.com<br>	<span class="hljs-keyword">User</span> <span class="hljs-title">git</span><br>	IdentityFile ~/.ssh/luflyan<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">#第一个账号，默认使用的账号，不用做任何更改
+Host github.com
+	HostName github.com
+	User git
+	IdentityFile ~&#x2F;.ssh&#x2F;id_rsa
+	
+#第二个新账号，#&quot;xxxxxx&quot;为前缀名，可以任意设置，要记住，后面需要用到
+Host luflyan.github.com
+	HostName github.com
+	User git
+	IdentityFile ~&#x2F;.ssh&#x2F;luflyan<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>然后，到 GitHub 中添加刚刚新建的密钥。</p>
 <p>然后，到 <code>.ssh</code> 目录下依次执行如下几条命令（这些命令必须到
 git bash 中执行）：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-agent bash<br>ssh-add -D<br>ssh-add xxxxxx <span class="hljs-comment">#旧密钥名称，一般是id_rsa</span><br>ssh-add xxxxxx <span class="hljs-comment">#新创建的密钥名称</span><br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-agent <span class="token function">bash</span>
+ssh-add <span class="token parameter variable">-D</span>
+ssh-add xxxxxx <span class="token comment">#旧密钥名称，一般是id_rsa</span>
+ssh-add xxxxxx <span class="token comment">#新创建的密钥名称</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p><img src="https://i.imgur.com/TEozAM5.png" srcset="/img/loading.gif" lazyload /></p>
 <h1 id="验证是否成功">验证是否成功</h1>
 <p>依次执行以下命令，第一个为默认 ssh_key 验证；第二个为新的 ssh_key
 验证，其中 "xxxxxx" 为先前在 config 文件中的命名。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">ssh <span class="hljs-literal">-T</span> git@github.com<br>ssh <span class="hljs-literal">-T</span> git@xxxxxx.github.com<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">ssh <span class="token operator">-</span>T git@github<span class="token punctuation">.</span>com
+ssh <span class="token operator">-</span>T git@xxxxxx<span class="token punctuation">.</span>github<span class="token punctuation">.</span>com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <p><img src="https://i.imgur.com/xsH07mA.png" srcset="/img/loading.gif" lazyload /></p>
 <h1
 id="取消全局用户名邮箱配置单独设置用户名邮箱">取消全局用户名/邮箱配置，单独设置用户名/邮箱</h1>
 <p>执行如下命令，取消全局用户名和邮箱配置（如果已经设置了全局的话）：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">git config <span class="hljs-attr">--global</span> <span class="hljs-attr">--unset</span> user<span class="hljs-selector-class">.name</span><br>git config <span class="hljs-attr">--global</span> <span class="hljs-attr">--unset</span> user.email<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">git config --global --unset user.name
+git config --global --unset user.email<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <p>分别进入你的两个 Hexo 博客 .git
 目录下执行以下命令单独设置用户名/邮箱：</p>
 <p><img src="https://i.imgur.com/9c2noNi.png" srcset="/img/loading.gif" lazyload /></p>
@@ -338,7 +376,10 @@ id="取消全局用户名邮箱配置单独设置用户名邮箱">取消全局�
 <h1 id="hexo-配置文件修改-git-地址">hexo 配置文件修改 git 地址</h1>
 <p>打开你的第二个博客 Hexo 目录下的 _config.yml 文件，找到 deploy
 关键字，写入以下配置并保存：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">deploy:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repository:</span> <span class="hljs-string">git@xxxxxx.github.com:你的用户名/你的用户名.github.io.git</span><br>  <span class="hljs-attr">branch:</span> <span class="hljs-string">master</span><br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> git
+  <span class="token key atrule">repository</span><span class="token punctuation">:</span> git@xxxxxx.github.com<span class="token punctuation">:</span>你的用户名/你的用户名.github.io.git
+  <span class="token key atrule">branch</span><span class="token punctuation">:</span> master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>到这里，第二个博客就部署完成了。</p>
 <hr />
 <p>参考：</p>
@@ -596,8 +637,8 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36759224/article/d
 
   <!-- Scripts -->
   
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -608,13 +649,13 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36759224/article/d
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -641,7 +682,7 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36759224/article/d
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
     var toc = jQuery('#toc');
     if (toc.length === 0 || !window.tocbot) { return; }
     var boardCtn = jQuery('#board-ctn');
@@ -679,14 +720,16 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36759224/article/d
 </script>
 
 
-  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+  <script  src="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" ></script>
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
     window.anchors.options = {
       placement: CONFIG.anchorjs.placement,
       visible  : CONFIG.anchorjs.visible
@@ -724,7 +767,7 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36759224/article/d
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
     Fluid.plugins.fancyBox();
   });
 </script>
@@ -740,7 +783,7 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36759224/article/d
               inlineMath: { '[+]': [['$', '$']] }
             },
             loader : {
-              
+              load: ['ui/lazy']
             },
             options: {
               renderActions: {
@@ -773,7 +816,7 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36759224/article/d
       </script>
     
 
-  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

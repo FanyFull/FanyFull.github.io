@@ -36,15 +36,17 @@
   
   <title>Python 实现作业排程问题 - Fany Full&#39;s Blog</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -76,7 +78,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -120,7 +122,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -132,7 +134,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -144,7 +146,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -156,7 +158,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -168,7 +170,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -228,7 +230,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          2.7k 字
+          778 字
         
       </span>
     
@@ -240,7 +242,7 @@
         
         
           <!-- compatible with older versions-->
-          23 分钟
+          7 分钟
         
       </span>
     
@@ -316,9 +318,102 @@ alt="递归式" /></p>
 src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210526135533.png" srcset="/img/loading.gif" lazyload
 alt="伪码" /></p>
 <h2 id="代码实现">3. 代码实现</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment"># 最优排程问题</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">fastest_way</span>(<span class="hljs-params">a:<span class="hljs-built_in">list</span>, t:<span class="hljs-built_in">list</span>, e:<span class="hljs-built_in">list</span>, x:<span class="hljs-built_in">list</span>, n:<span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">list</span>:<br>    <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">    解决最优排程问题</span><br><span class="hljs-string">    :param a: 两条线上各自的每个站点的各自处理时间</span><br><span class="hljs-string">    :param t: 两条线上各自的每个前 n - 1 个站点的切换时间</span><br><span class="hljs-string">    :param e: 两条线的各自的 entry 时间</span><br><span class="hljs-string">    :param x: 两条线的各自的 exit 时间</span><br><span class="hljs-string">    :param n: 每条线的工作站的数目</span><br><span class="hljs-string">    :return: 最优时间, 路径和最后一个走过的工作站点</span><br><span class="hljs-string">    &#x27;&#x27;&#x27;</span><br>    <span class="hljs-comment"># 两条线上每个站的处理时间</span><br>    a1, a2 = a <span class="hljs-comment"># 自动解包</span><br>    <span class="hljs-comment"># 两条线在第 i 个站换线需要的时间</span><br>    t1, t2 = t<br>    <span class="hljs-comment"># 两条线上 e 和 x 的数值</span><br>    e1, e2 = e<br>    x1, x2 = x<br>    <span class="hljs-comment"># 两条线在每个装配点所花费的最小时间表（动态规划）</span><br>    f1 = [<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)]<br>    f2 = [<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)]<br>    route = [[<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)], [<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)]]  <span class="hljs-comment"># 存储路径</span><br>    time = <span class="hljs-built_in">float</span>(<span class="hljs-string">&#x27;inf&#x27;</span>) <span class="hljs-comment"># 最优时间</span><br>    final_line = <span class="hljs-number">0</span> <span class="hljs-comment"># 最后一个节点所在的线路</span><br>    <span class="hljs-comment"># 初始化</span><br>    f1[<span class="hljs-number">0</span>] = e1 + a1[<span class="hljs-number">0</span>]<br>    route[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span> <span class="hljs-comment"># 1 表示走第一条线路</span><br>    f2[<span class="hljs-number">0</span>] = e2 + a2[<span class="hljs-number">0</span>]<br>    route[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">2</span> <span class="hljs-comment"># 2 表示走第二条线路</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, n):<br>        <span class="hljs-keyword">if</span> f1[i - <span class="hljs-number">1</span>] + a1[i] &lt; f2[i - <span class="hljs-number">1</span>] + t2[i - <span class="hljs-number">1</span>] + a1[i]:<br>            f1[i] = f1[i - <span class="hljs-number">1</span>] + a1[i]<br>            route[<span class="hljs-number">0</span>][i] = <span class="hljs-number">1</span><br>        <span class="hljs-keyword">else</span>:<br>            f1[i] = f2[i - <span class="hljs-number">1</span>] + t2[i - <span class="hljs-number">1</span>] + a1[i]<br>            route[<span class="hljs-number">0</span>][i] = <span class="hljs-number">2</span><br>        <span class="hljs-keyword">if</span> f2[i - <span class="hljs-number">1</span>] + a2[i] &lt; f1[i - <span class="hljs-number">1</span>] + t1[i - <span class="hljs-number">1</span>] + a2[i]:<br>            f2[i] = f2[i - <span class="hljs-number">1</span>] + a2[i]<br>            route[<span class="hljs-number">1</span>][i] = <span class="hljs-number">2</span><br>        <span class="hljs-keyword">else</span>:<br>            f2[i] = f1[i - <span class="hljs-number">1</span>] + t1[i - <span class="hljs-number">1</span>] + a2[i]<br>            route[<span class="hljs-number">1</span>][i] = <span class="hljs-number">1</span><br>    <span class="hljs-keyword">if</span> (f1[n - <span class="hljs-number">1</span>] + x1 &lt; f2[n - <span class="hljs-number">1</span>] + x2):<br>        time = f1[n - <span class="hljs-number">1</span>] + x1<br>        final_line = <span class="hljs-number">1</span><br>    <span class="hljs-keyword">else</span>:<br>        time = f2[n - <span class="hljs-number">1</span>] + x2<br>        final_line = <span class="hljs-number">2</span><br>    <span class="hljs-keyword">return</span> [time, route, final_line]<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">print_route</span>(<span class="hljs-params">i:<span class="hljs-built_in">int</span>, j:<span class="hljs-built_in">int</span>, route:<span class="hljs-built_in">list</span>, n:<span class="hljs-built_in">int</span></span>):<br>    <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">    递归打印装配的线路图</span><br><span class="hljs-string">    :param i: 装配线, 0 represents the first assembly line, 1 represents the second line</span><br><span class="hljs-string">    :param j: 当前节点</span><br><span class="hljs-string">    :param route: 存储两条线路的节点的父节点的 list</span><br><span class="hljs-string">    :param n: 装配线的节点数</span><br><span class="hljs-string">    :return: None</span><br><span class="hljs-string">    &#x27;&#x27;&#x27;</span><br>    <span class="hljs-keyword">if</span> j == <span class="hljs-number">1</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;[Line: &#x27;</span> + <span class="hljs-built_in">str</span>(i) + <span class="hljs-string">&#x27; Station: &#x27;</span> + <span class="hljs-built_in">str</span>(j) + <span class="hljs-string">&#x27;]&#x27;</span>, end=<span class="hljs-string">&#x27; &#x27;</span>)<br>    <span class="hljs-keyword">else</span>:<br>        print_route(route[i - <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>], j - <span class="hljs-number">1</span>, route, n)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;[Line: &#x27;</span> + <span class="hljs-built_in">str</span>(i) + <span class="hljs-string">&#x27; Station: &#x27;</span> + <span class="hljs-built_in">str</span>(j) + <span class="hljs-string">&#x27;]&#x27;</span>, end=<span class="hljs-string">&#x27; &#x27;</span>)<br>    <span class="hljs-keyword">if</span> j != n:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;=&gt;&#x27;</span>, end=<span class="hljs-string">&#x27; &#x27;</span>)<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>()<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    n = <span class="hljs-number">5</span>  <span class="hljs-comment"># 每条线工作站的数目</span><br>    <span class="hljs-comment"># 两条线上每个站的处理时间</span><br>    a1 = [<span class="hljs-number">7</span>, <span class="hljs-number">9</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>]<br>    a2 = [<span class="hljs-number">8</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]<br>    <span class="hljs-comment"># 两条线在第 i 个站换线需要的时间</span><br>    t1 = [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>]<br>    t2 = [<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>]<br>    <span class="hljs-comment"># 两条线上 e 和 x 的数值</span><br>    e1 = <span class="hljs-number">2</span><br>    e2 = <span class="hljs-number">4</span><br>    x1 = <span class="hljs-number">3</span><br>    x2 = <span class="hljs-number">6</span><br>    a = [a1, a2]<br>    t = [t1, t2]<br>    e = [e1, e2]<br>    x = [x1, x2]<br>    res = fastest_way(a, t, e, x, n)<br>    time, route, final_line = res<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;The shortest time:&#x27;</span>, time)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;The best assembly line is: &#x27;</span>, end=<span class="hljs-string">&#x27;&#x27;</span>)<br>    print_route(final_line, <span class="hljs-number">5</span>, route, n)<br><br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 最优排程问题</span>
+<span class="token keyword">def</span> <span class="token function">fastest_way</span><span class="token punctuation">(</span>a<span class="token punctuation">:</span><span class="token builtin">list</span><span class="token punctuation">,</span> t<span class="token punctuation">:</span><span class="token builtin">list</span><span class="token punctuation">,</span> e<span class="token punctuation">:</span><span class="token builtin">list</span><span class="token punctuation">,</span> x<span class="token punctuation">:</span><span class="token builtin">list</span><span class="token punctuation">,</span> n<span class="token punctuation">:</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">list</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    解决最优排程问题
+    :param a: 两条线上各自的每个站点的各自处理时间
+    :param t: 两条线上各自的每个前 n - 1 个站点的切换时间
+    :param e: 两条线的各自的 entry 时间
+    :param x: 两条线的各自的 exit 时间
+    :param n: 每条线的工作站的数目
+    :return: 最优时间, 路径和最后一个走过的工作站点
+    '''</span>
+    <span class="token comment"># 两条线上每个站的处理时间</span>
+    a1<span class="token punctuation">,</span> a2 <span class="token operator">=</span> a <span class="token comment"># 自动解包</span>
+    <span class="token comment"># 两条线在第 i 个站换线需要的时间</span>
+    t1<span class="token punctuation">,</span> t2 <span class="token operator">=</span> t
+    <span class="token comment"># 两条线上 e 和 x 的数值</span>
+    e1<span class="token punctuation">,</span> e2 <span class="token operator">=</span> e
+    x1<span class="token punctuation">,</span> x2 <span class="token operator">=</span> x
+    <span class="token comment"># 两条线在每个装配点所花费的最小时间表（动态规划）</span>
+    f1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span>
+    f2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span>
+    route <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">0</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">]</span>  <span class="token comment"># 存储路径</span>
+    time <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token string">'inf'</span><span class="token punctuation">)</span> <span class="token comment"># 最优时间</span>
+    final_line <span class="token operator">=</span> <span class="token number">0</span> <span class="token comment"># 最后一个节点所在的线路</span>
+    <span class="token comment"># 初始化</span>
+    f1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> e1 <span class="token operator">+</span> a1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    route<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token comment"># 1 表示走第一条线路</span>
+    f2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> e2 <span class="token operator">+</span> a2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    route<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2</span> <span class="token comment"># 2 表示走第二条线路</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> f1<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> a1<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> f2<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> t2<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> a1<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            f1<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> f1<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> a1<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+            route<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            f1<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> f2<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> t2<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> a1<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+            route<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2</span>
+        <span class="token keyword">if</span> f2<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> a2<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> f1<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> t1<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> a2<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            f2<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> f2<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> a2<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+            route<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            f2<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> f1<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> t1<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> a2<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+            route<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>f1<span class="token punctuation">[</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> x1 <span class="token operator">&lt;</span> f2<span class="token punctuation">[</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> x2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        time <span class="token operator">=</span> f1<span class="token punctuation">[</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> x1
+        final_line <span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        time <span class="token operator">=</span> f2<span class="token punctuation">[</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> x2
+        final_line <span class="token operator">=</span> <span class="token number">2</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span>time<span class="token punctuation">,</span> route<span class="token punctuation">,</span> final_line<span class="token punctuation">]</span>
+
+<span class="token keyword">def</span> <span class="token function">print_route</span><span class="token punctuation">(</span>i<span class="token punctuation">:</span><span class="token builtin">int</span><span class="token punctuation">,</span> j<span class="token punctuation">:</span><span class="token builtin">int</span><span class="token punctuation">,</span> route<span class="token punctuation">:</span><span class="token builtin">list</span><span class="token punctuation">,</span> n<span class="token punctuation">:</span><span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    递归打印装配的线路图
+    :param i: 装配线, 0 represents the first assembly line, 1 represents the second line
+    :param j: 当前节点
+    :param route: 存储两条线路的节点的父节点的 list
+    :param n: 装配线的节点数
+    :return: None
+    '''</span>
+    <span class="token keyword">if</span> j <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'[Line: '</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">' Station: '</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">']'</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">' '</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        print_route<span class="token punctuation">(</span>route<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> route<span class="token punctuation">,</span> n<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'[Line: '</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">' Station: '</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">']'</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">' '</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> j <span class="token operator">!=</span> n<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'=>'</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">' '</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    n <span class="token operator">=</span> <span class="token number">5</span>  <span class="token comment"># 每条线工作站的数目</span>
+    <span class="token comment"># 两条线上每个站的处理时间</span>
+    a1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span>
+    a2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
+    <span class="token comment"># 两条线在第 i 个站换线需要的时间</span>
+    t1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+    t2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span>
+    <span class="token comment"># 两条线上 e 和 x 的数值</span>
+    e1 <span class="token operator">=</span> <span class="token number">2</span>
+    e2 <span class="token operator">=</span> <span class="token number">4</span>
+    x1 <span class="token operator">=</span> <span class="token number">3</span>
+    x2 <span class="token operator">=</span> <span class="token number">6</span>
+    a <span class="token operator">=</span> <span class="token punctuation">[</span>a1<span class="token punctuation">,</span> a2<span class="token punctuation">]</span>
+    t <span class="token operator">=</span> <span class="token punctuation">[</span>t1<span class="token punctuation">,</span> t2<span class="token punctuation">]</span>
+    e <span class="token operator">=</span> <span class="token punctuation">[</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">]</span>
+    x <span class="token operator">=</span> <span class="token punctuation">[</span>x1<span class="token punctuation">,</span> x2<span class="token punctuation">]</span>
+    res <span class="token operator">=</span> fastest_way<span class="token punctuation">(</span>a<span class="token punctuation">,</span> t<span class="token punctuation">,</span> e<span class="token punctuation">,</span> x<span class="token punctuation">,</span> n<span class="token punctuation">)</span>
+    time<span class="token punctuation">,</span> route<span class="token punctuation">,</span> final_line <span class="token operator">=</span> res
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'The shortest time:'</span><span class="token punctuation">,</span> time<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'The best assembly line is: '</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span>
+    print_route<span class="token punctuation">(</span>final_line<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> route<span class="token punctuation">,</span> n<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>输出</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">The shortest <span class="hljs-type">time</span>: <span class="hljs-number">35</span><br>The best assembly <span class="hljs-type">line</span> <span class="hljs-keyword">is</span>: [<span class="hljs-type">Line</span>: <span class="hljs-number">1</span> Station: <span class="hljs-number">1</span>] =&gt; [<span class="hljs-type">Line</span>: <span class="hljs-number">2</span> Station: <span class="hljs-number">2</span>] =&gt; [<span class="hljs-type">Line</span>: <span class="hljs-number">1</span> Station: <span class="hljs-number">3</span>] =&gt; [<span class="hljs-type">Line</span>: <span class="hljs-number">1</span> Station: <span class="hljs-number">4</span>] =&gt; [<span class="hljs-type">Line</span>: <span class="hljs-number">1</span> Station: <span class="hljs-number">5</span>] <br><br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">The shortest time: 35
+The best assembly line is: [Line: 1 Station: 1] &#x3D;&gt; [Line: 2 Station: 2] &#x3D;&gt; [Line: 1 Station: 3] &#x3D;&gt; [Line: 1 Station: 4] &#x3D;&gt; [Line: 1 Station: 5] 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 
                 
               </div>
@@ -571,8 +666,8 @@ alt="伪码" /></p>
 
   <!-- Scripts -->
   
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -583,13 +678,13 @@ alt="伪码" /></p>
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -616,7 +711,7 @@ alt="伪码" /></p>
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
     var toc = jQuery('#toc');
     if (toc.length === 0 || !window.tocbot) { return; }
     var boardCtn = jQuery('#board-ctn');
@@ -654,14 +749,16 @@ alt="伪码" /></p>
 </script>
 
 
-  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+  <script  src="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" ></script>
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
     window.anchors.options = {
       placement: CONFIG.anchorjs.placement,
       visible  : CONFIG.anchorjs.visible
@@ -699,7 +796,7 @@ alt="伪码" /></p>
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
     Fluid.plugins.fancyBox();
   });
 </script>
@@ -715,7 +812,7 @@ alt="伪码" /></p>
               inlineMath: { '[+]': [['$', '$']] }
             },
             loader : {
-              
+              load: ['ui/lazy']
             },
             options: {
               renderActions: {
@@ -748,7 +845,7 @@ alt="伪码" /></p>
       </script>
     
 
-  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

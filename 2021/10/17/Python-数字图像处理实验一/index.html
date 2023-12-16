@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一、安装环境 这个比较简单，直接一个 pip 命令安装即可： 1pip install opencv-python 然后，实验手册上建议的是使用 Python 虚拟环境，这个也比较简单，但是，我的笔记本上的 Python 物理环境暂时不需要作其他用途，所以，就直接用这个 Python 来做实验了。 关于写 Python 的 IDE，这里推荐使用 PyCharm。 二、实验内容 2.1 图像的读取和">
+    <meta name="description" content="一、安装环境 这个比较简单，直接一个 pip 命令安装即可： pip install opencv-python 然后，实验手册上建议的是使用 Python 虚拟环境，这个也比较简单，但是，我的笔记本上的 Python 物理环境暂时不需要作其他用途，所以，就直接用这个 Python 来做实验了。 关于写 Python 的 IDE，这里推荐使用 PyCharm。 二、实验内容 2.1 图像的读取和保">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 数字图像处理实验一">
 <meta property="og:url" content="http://fanyfull.github.io/2021/10/17/Python-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%B8%80/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="一、安装环境 这个比较简单，直接一个 pip 命令安装即可： 1pip install opencv-python 然后，实验手册上建议的是使用 Python 虚拟环境，这个也比较简单，但是，我的笔记本上的 Python 物理环境暂时不需要作其他用途，所以，就直接用这个 Python 来做实验了。 关于写 Python 的 IDE，这里推荐使用 PyCharm。 二、实验内容 2.1 图像的读取和">
+<meta property="og:description" content="一、安装环境 这个比较简单，直接一个 pip 命令安装即可： pip install opencv-python 然后，实验手册上建议的是使用 Python 虚拟环境，这个也比较简单，但是，我的笔记本上的 Python 物理环境暂时不需要作其他用途，所以，就直接用这个 Python 来做实验了。 关于写 Python 的 IDE，这里推荐使用 PyCharm。 二、实验内容 2.1 图像的读取和保">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211017235434.png">
 <meta property="article:published_time" content="2021-10-17T12:05:49.000Z">
@@ -36,15 +36,17 @@
   
   <title>Python 数字图像处理实验一 - Fany Full&#39;s Blog</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -76,7 +78,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -120,7 +122,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -132,7 +134,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -144,7 +146,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -156,7 +158,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -168,7 +170,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -228,7 +230,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          3.8k 字
+          879 字
         
       </span>
     
@@ -240,7 +242,7 @@
         
         
           <!-- compatible with older versions-->
-          32 分钟
+          8 分钟
         
       </span>
     
@@ -284,28 +286,175 @@
                 
                 <h1 id="一安装环境">一、安装环境</h1>
 <p>这个比较简单，直接一个 <code>pip</code> 命令安装即可：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">pip install opencv-python<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pip <span class="token function">install</span> opencv-python<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>然后，实验手册上建议的是使用 Python
 虚拟环境，这个也比较简单，但是，我的笔记本上的 Python
 物理环境暂时不需要作其他用途，所以，就直接用这个 Python 来做实验了。</p>
 <p>关于写 Python 的 IDE，这里推荐使用 PyCharm。</p>
 <h1 id="二实验内容">二、实验内容</h1>
 <h2 id="图像的读取和保存">2.1 图像的读取和保存</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><span class="hljs-comment"># @File  : test01.py</span><br><span class="hljs-comment"># @Author: FanyFull</span><br><span class="hljs-comment"># @Date  : 2021/10/15</span><br><br><span class="hljs-comment"># 读取图片</span><br><span class="hljs-comment"># 可以选择简单退出</span><br><span class="hljs-comment"># 或者选择保存到另一张图片之后再退出</span><br><br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> cv2<br><br>img = cv2.imread(<span class="hljs-string">&#x27;./pictures/test.png&#x27;</span>, <span class="hljs-number">0</span>) <span class="hljs-comment"># 试着修改 0 为 1</span><br>cv2.imshow(<span class="hljs-string">&#x27;image&#x27;</span>, img)<br>k = cv2.waitKey(<span class="hljs-number">0</span>)<br><span class="hljs-keyword">if</span> k == <span class="hljs-number">27</span>:<br>    cv2.destroyAllWindows() <span class="hljs-comment"># wait for ESC key to exit</span><br><span class="hljs-keyword">elif</span> k == <span class="hljs-built_in">ord</span>(<span class="hljs-string">&#x27;s&#x27;</span>): <span class="hljs-comment"># wait for &#x27;s&#x27; key to save and exit</span><br>    cv2.imwrite(<span class="hljs-string">&#x27;./pictures/test2.jpg&#x27;</span>, img)<br>    cv2.destroyAllWindows()<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+<span class="token comment"># @File  : test01.py</span>
+<span class="token comment"># @Author: FanyFull</span>
+<span class="token comment"># @Date  : 2021/10/15</span>
+
+<span class="token comment"># 读取图片</span>
+<span class="token comment"># 可以选择简单退出</span>
+<span class="token comment"># 或者选择保存到另一张图片之后再退出</span>
+
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> cv2
+
+img <span class="token operator">=</span> cv2<span class="token punctuation">.</span>imread<span class="token punctuation">(</span><span class="token string">'./pictures/test.png'</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment"># 试着修改 0 为 1</span>
+cv2<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span><span class="token string">'image'</span><span class="token punctuation">,</span> img<span class="token punctuation">)</span>
+k <span class="token operator">=</span> cv2<span class="token punctuation">.</span>waitKey<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> k <span class="token operator">==</span> <span class="token number">27</span><span class="token punctuation">:</span>
+    cv2<span class="token punctuation">.</span>destroyAllWindows<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># wait for ESC key to exit</span>
+<span class="token keyword">elif</span> k <span class="token operator">==</span> <span class="token builtin">ord</span><span class="token punctuation">(</span><span class="token string">'s'</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># wait for 's' key to save and exit</span>
+    cv2<span class="token punctuation">.</span>imwrite<span class="token punctuation">(</span><span class="token string">'./pictures/test2.jpg'</span><span class="token punctuation">,</span> img<span class="token punctuation">)</span>
+    cv2<span class="token punctuation">.</span>destroyAllWindows<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <h2 id="读取视频文件显示视频保存视频文件">2.2
 读取视频文件，显示视频，保存视频文件</h2>
 <h3 id="读取并显示视频">2.2.1 读取并显示视频</h3>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><span class="hljs-comment"># @File  : test02.py</span><br><span class="hljs-comment"># @Author: FanyFull</span><br><span class="hljs-comment"># @Date  : 2021/10/15</span><br><br><span class="hljs-comment"># 读取视频内容</span><br><br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> cv2<br><br>cap = cv2.VideoCapture(<span class="hljs-string">&#x27;./pictures/vtest.avi&#x27;</span>)<br><span class="hljs-keyword">while</span>(cap.isOpened()): <span class="hljs-comment"># 当上面的 VideoCapture 类初始化完毕之后，isOpened() 就会返回 true</span><br>    ret, frame = cap.read() <span class="hljs-comment"># read() --&gt; Grabs, decodes and returns the next video frame.</span><br>    <span class="hljs-keyword">if</span> ret: <span class="hljs-comment"># 如果还有下一帧</span><br>        gray = cv2.cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)<br>        cv2.imshow(<span class="hljs-string">&#x27;frame&#x27;</span>, gray)<br>    <span class="hljs-keyword">if</span> cv2.waitKey(<span class="hljs-number">1</span>) &amp; <span class="hljs-number">0xFF</span> == <span class="hljs-built_in">ord</span>(<span class="hljs-string">&#x27;q&#x27;</span>): <span class="hljs-comment"># 按 q 退出</span><br>        <span class="hljs-keyword">break</span><br>cap.release()<br>cv2.destroyAllWindows()<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+<span class="token comment"># @File  : test02.py</span>
+<span class="token comment"># @Author: FanyFull</span>
+<span class="token comment"># @Date  : 2021/10/15</span>
+
+<span class="token comment"># 读取视频内容</span>
+
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> cv2
+
+cap <span class="token operator">=</span> cv2<span class="token punctuation">.</span>VideoCapture<span class="token punctuation">(</span><span class="token string">'./pictures/vtest.avi'</span><span class="token punctuation">)</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span>cap<span class="token punctuation">.</span>isOpened<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># 当上面的 VideoCapture 类初始化完毕之后，isOpened() 就会返回 true</span>
+    ret<span class="token punctuation">,</span> frame <span class="token operator">=</span> cap<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># read() --> Grabs, decodes and returns the next video frame.</span>
+    <span class="token keyword">if</span> ret<span class="token punctuation">:</span> <span class="token comment"># 如果还有下一帧</span>
+        gray <span class="token operator">=</span> cv2<span class="token punctuation">.</span>cv2<span class="token punctuation">.</span>cvtColor<span class="token punctuation">(</span>frame<span class="token punctuation">,</span> cv2<span class="token punctuation">.</span>COLOR_BGR2GRAY<span class="token punctuation">)</span>
+        cv2<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span><span class="token string">'frame'</span><span class="token punctuation">,</span> gray<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> cv2<span class="token punctuation">.</span>waitKey<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0xFF</span> <span class="token operator">==</span> <span class="token builtin">ord</span><span class="token punctuation">(</span><span class="token string">'q'</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># 按 q 退出</span>
+        <span class="token keyword">break</span>
+cap<span class="token punctuation">.</span>release<span class="token punctuation">(</span><span class="token punctuation">)</span>
+cv2<span class="token punctuation">.</span>destroyAllWindows<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <h3 id="从摄像头获取图像并保存为视频文件">2.2.2
 从摄像头获取图像并保存为视频文件</h3>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><span class="hljs-comment"># @File  : test03.py</span><br><span class="hljs-comment"># @Author: FanyFull</span><br><span class="hljs-comment"># @Date  : 2021/10/15</span><br><br><span class="hljs-comment"># 注意，这里似乎有点问题，这个摄像头捕获的文件是怎么确认的？</span><br><br><span class="hljs-comment"># 从摄像头中捕获视频，沿水平方向旋转每一帧并保存它</span><br><br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> cv2<br><br>cap = cv2.VideoCapture(<span class="hljs-number">0</span>) <span class="hljs-comment"># 摄像头编号</span><br><br><span class="hljs-comment"># Define the codec and create VideoWriter object</span><br>fourcc = cv2.VideoWriter_fourcc(*<span class="hljs-string">&#x27;XVID&#x27;</span>) <span class="hljs-comment"># 注意编码器，这里是指定 FourCC 编码</span><br>out = cv2.VideoWriter(<span class="hljs-string">&#x27;./pictures/output.avi&#x27;</span>, fourcc, <span class="hljs-number">20.0</span>, (<span class="hljs-number">640</span>, <span class="hljs-number">480</span>)) <span class="hljs-comment"># 第三个参数是帧数</span><br><br><span class="hljs-keyword">while</span>(cap.isOpened()):<br>    ret, frame = cap.read()<br>    <span class="hljs-keyword">if</span> ret == <span class="hljs-literal">True</span>:<br>        frame = cv2.flip(frame, <span class="hljs-number">0</span>) <span class="hljs-comment"># 翻转图像，垂直翻转</span><br>        <span class="hljs-comment"># write the flipped frame</span><br>        out.write(frame)<br>        cv2.imshow(<span class="hljs-string">&#x27;frame&#x27;</span>, frame)<br>    <span class="hljs-keyword">if</span> cv2.waitKey(<span class="hljs-number">1</span>) &amp; <span class="hljs-number">0xFF</span> == <span class="hljs-built_in">ord</span>(<span class="hljs-string">&#x27;q&#x27;</span>):<br>        <span class="hljs-keyword">break</span><br><br><span class="hljs-comment"># Release everything if job is finished</span><br>cap.release()<br>out.release()<br>cv2.destroyAllWindows()<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+<span class="token comment"># @File  : test03.py</span>
+<span class="token comment"># @Author: FanyFull</span>
+<span class="token comment"># @Date  : 2021/10/15</span>
+
+<span class="token comment"># 注意，这里似乎有点问题，这个摄像头捕获的文件是怎么确认的？</span>
+
+<span class="token comment"># 从摄像头中捕获视频，沿水平方向旋转每一帧并保存它</span>
+
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> cv2
+
+cap <span class="token operator">=</span> cv2<span class="token punctuation">.</span>VideoCapture<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment"># 摄像头编号</span>
+
+<span class="token comment"># Define the codec and create VideoWriter object</span>
+fourcc <span class="token operator">=</span> cv2<span class="token punctuation">.</span>VideoWriter_fourcc<span class="token punctuation">(</span><span class="token operator">*</span><span class="token string">'XVID'</span><span class="token punctuation">)</span> <span class="token comment"># 注意编码器，这里是指定 FourCC 编码</span>
+out <span class="token operator">=</span> cv2<span class="token punctuation">.</span>VideoWriter<span class="token punctuation">(</span><span class="token string">'./pictures/output.avi'</span><span class="token punctuation">,</span> fourcc<span class="token punctuation">,</span> <span class="token number">20.0</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">640</span><span class="token punctuation">,</span> <span class="token number">480</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 第三个参数是帧数</span>
+
+<span class="token keyword">while</span><span class="token punctuation">(</span>cap<span class="token punctuation">.</span>isOpened<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    ret<span class="token punctuation">,</span> frame <span class="token operator">=</span> cap<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> ret <span class="token operator">==</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        frame <span class="token operator">=</span> cv2<span class="token punctuation">.</span>flip<span class="token punctuation">(</span>frame<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment"># 翻转图像，垂直翻转</span>
+        <span class="token comment"># write the flipped frame</span>
+        out<span class="token punctuation">.</span>write<span class="token punctuation">(</span>frame<span class="token punctuation">)</span>
+        cv2<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span><span class="token string">'frame'</span><span class="token punctuation">,</span> frame<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> cv2<span class="token punctuation">.</span>waitKey<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0xFF</span> <span class="token operator">==</span> <span class="token builtin">ord</span><span class="token punctuation">(</span><span class="token string">'q'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">break</span>
+
+<span class="token comment"># Release everything if job is finished</span>
+cap<span class="token punctuation">.</span>release<span class="token punctuation">(</span><span class="token punctuation">)</span>
+out<span class="token punctuation">.</span>release<span class="token punctuation">(</span><span class="token punctuation">)</span>
+cv2<span class="token punctuation">.</span>destroyAllWindows<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <h2 id="opencv-画图">2.3 opencv 画图</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><span class="hljs-comment"># @File  : test04.py</span><br><span class="hljs-comment"># @Author: FanyFull</span><br><span class="hljs-comment"># @Date  : 2021/10/15</span><br><br><span class="hljs-comment"># OpenCV 绘制图形</span><br><br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> cv2<br><br><span class="hljs-comment"># Create a black image</span><br>img = np.zeros((<span class="hljs-number">512</span>, <span class="hljs-number">512</span>, <span class="hljs-number">3</span>), np.uint8) <span class="hljs-comment"># np.uint8 是数据类型</span><br><br><span class="hljs-comment"># Draw a diagonal blue line with thickness of 5 px</span><br><span class="hljs-comment"># 绘制直线</span><br>cv2.line(img, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>), (<span class="hljs-number">511</span>, <span class="hljs-number">511</span>), (<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>), <span class="hljs-number">5</span>)<br><span class="hljs-comment"># 绘制矩形</span><br>cv2.rectangle(img, (<span class="hljs-number">384</span>, <span class="hljs-number">0</span>), (<span class="hljs-number">510</span>, <span class="hljs-number">128</span>), (<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>), <span class="hljs-number">3</span>)<br><span class="hljs-comment"># 绘制圆</span><br>cv2.circle(img, (<span class="hljs-number">447</span>, <span class="hljs-number">63</span>), <span class="hljs-number">63</span>, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>), -<span class="hljs-number">1</span>)<br><span class="hljs-comment"># 绘制椭圆</span><br>cv2.ellipse(img, (<span class="hljs-number">256</span>, <span class="hljs-number">256</span>), (<span class="hljs-number">100</span>, <span class="hljs-number">50</span>), <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">180</span>, <span class="hljs-number">255</span>, -<span class="hljs-number">1</span>)<br><span class="hljs-comment"># 绘制多边形</span><br>pts = np.array([[<span class="hljs-number">10</span>, <span class="hljs-number">5</span>], [<span class="hljs-number">20</span>, <span class="hljs-number">30</span>], [<span class="hljs-number">70</span>, <span class="hljs-number">20</span>], [<span class="hljs-number">50</span>, <span class="hljs-number">10</span>]], np.int32)<br>pts = pts.reshape((-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>))<br>cv2.polylines(img, [pts], <span class="hljs-literal">True</span>, (<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>))<br><span class="hljs-comment"># 绘制文字</span><br>linetype = cv2.LINE_AA<br>font = cv2.FONT_HERSHEY_SIMPLEX<br>cv2.putText(img, <span class="hljs-string">&#x27;OpenCV&#x27;</span>, (<span class="hljs-number">10</span>, <span class="hljs-number">500</span>), font, <span class="hljs-number">4</span>, (<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>), <span class="hljs-number">2</span>)<br>cv2.imshow(<span class="hljs-string">&#x27;image&#x27;</span>, img) <span class="hljs-comment"># 显示直线</span><br>cv2.waitKey (<span class="hljs-number">1000</span>) <span class="hljs-comment"># 显示 1000 ms 即 1s 后消失</span><br>cv2.destroyAllWindows()<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+<span class="token comment"># @File  : test04.py</span>
+<span class="token comment"># @Author: FanyFull</span>
+<span class="token comment"># @Date  : 2021/10/15</span>
+
+<span class="token comment"># OpenCV 绘制图形</span>
+
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> cv2
+
+<span class="token comment"># Create a black image</span>
+img <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">512</span><span class="token punctuation">,</span> <span class="token number">512</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> np<span class="token punctuation">.</span>uint8<span class="token punctuation">)</span> <span class="token comment"># np.uint8 是数据类型</span>
+
+<span class="token comment"># Draw a diagonal blue line with thickness of 5 px</span>
+<span class="token comment"># 绘制直线</span>
+cv2<span class="token punctuation">.</span>line<span class="token punctuation">(</span>img<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">511</span><span class="token punctuation">,</span> <span class="token number">511</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
+<span class="token comment"># 绘制矩形</span>
+cv2<span class="token punctuation">.</span>rectangle<span class="token punctuation">(</span>img<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">384</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">510</span><span class="token punctuation">,</span> <span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token comment"># 绘制圆</span>
+cv2<span class="token punctuation">.</span>circle<span class="token punctuation">(</span>img<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">447</span><span class="token punctuation">,</span> <span class="token number">63</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">63</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment"># 绘制椭圆</span>
+cv2<span class="token punctuation">.</span>ellipse<span class="token punctuation">(</span>img<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">256</span><span class="token punctuation">,</span> <span class="token number">256</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">180</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment"># 绘制多边形</span>
+pts <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">70</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> np<span class="token punctuation">.</span>int32<span class="token punctuation">)</span>
+pts <span class="token operator">=</span> pts<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+cv2<span class="token punctuation">.</span>polylines<span class="token punctuation">(</span>img<span class="token punctuation">,</span> <span class="token punctuation">[</span>pts<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># 绘制文字</span>
+linetype <span class="token operator">=</span> cv2<span class="token punctuation">.</span>LINE_AA
+font <span class="token operator">=</span> cv2<span class="token punctuation">.</span>FONT_HERSHEY_SIMPLEX
+cv2<span class="token punctuation">.</span>putText<span class="token punctuation">(</span>img<span class="token punctuation">,</span> <span class="token string">'OpenCV'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">,</span> font<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+cv2<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span><span class="token string">'image'</span><span class="token punctuation">,</span> img<span class="token punctuation">)</span> <span class="token comment"># 显示直线</span>
+cv2<span class="token punctuation">.</span>waitKey <span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span> <span class="token comment"># 显示 1000 ms 即 1s 后消失</span>
+cv2<span class="token punctuation">.</span>destroyAllWindows<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>运行结果：</p>
 <p><img
 src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211017201636.png" srcset="/img/loading.gif" lazyload /></p>
 <h2 id="opencv-处理鼠标事件">2.4 opencv 处理鼠标事件</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><span class="hljs-comment"># @File  : test05.py</span><br><span class="hljs-comment"># @Author: FanyFull</span><br><span class="hljs-comment"># @Date  : 2021/10/15</span><br><br><span class="hljs-comment"># 处理鼠标事件</span><br><br><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><span class="hljs-comment"># 当鼠标按下时变为 True</span><br>drawing = <span class="hljs-literal">False</span><br><span class="hljs-comment"># 如果 mode 为 True 绘制矩形，按下 &#x27;m&#x27; 变成绘制曲线</span><br>mode = <span class="hljs-literal">True</span><br>ix, iy = -<span class="hljs-number">1</span>, -<span class="hljs-number">1</span><br><span class="hljs-comment"># 创建回调函数</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">draw_circle</span>(<span class="hljs-params">event, x, y, flags, param</span>):<br>    <span class="hljs-keyword">global</span> ix, iy, drawing, mode<br>    <span class="hljs-comment"># 当按下左键时返回起始位置坐标</span><br>    <span class="hljs-keyword">if</span> event == cv2.EVENT_LBUTTONDOWN:<br>        drawing = <span class="hljs-literal">True</span><br>        ix, iy = x, y<br>    <span class="hljs-comment"># 当鼠标左键按下并移动时绘制图形，event 可以查看移动，flag 查看是否按下</span><br>    <span class="hljs-keyword">elif</span> event == cv2.EVENT_MOUSEMOVE <span class="hljs-keyword">and</span> flags == cv2.EVENT_FLAG_LBUTTON:<br>        <span class="hljs-keyword">if</span> drawing == <span class="hljs-literal">True</span>:<br>            <span class="hljs-keyword">if</span> mode == <span class="hljs-literal">True</span>:<br>                cv2.rectangle(img, (ix, iy), (x, y), (<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>), -<span class="hljs-number">1</span>)<br>            <span class="hljs-keyword">else</span>:<br>                r = <span class="hljs-built_in">int</span>(np.sqrt((x - ix) ** <span class="hljs-number">2</span> + (y - iy) ** <span class="hljs-number">2</span>))<br>                cv2.circle(img, (x, y), r, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>), -<span class="hljs-number">1</span>)<br>    <span class="hljs-comment"># 当鼠标松开时停止绘画</span><br>    <span class="hljs-keyword">elif</span> event == cv2.EVENT_LBUTTONUP:<br>        <span class="hljs-keyword">if</span> mode == <span class="hljs-literal">True</span>:<br>            cv2.rectangle(img, (ix, iy), (x, y), (<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>), -<span class="hljs-number">1</span>)<br>        <span class="hljs-keyword">else</span>:<br>            cv2.circle(img, (x, y), <span class="hljs-number">5</span>, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>), -<span class="hljs-number">1</span>)<br><br>img = np.zeros((<span class="hljs-number">512</span>, <span class="hljs-number">512</span>, <span class="hljs-number">3</span>), np.uint8)<br>cv2.namedWindow(<span class="hljs-string">&#x27;image&#x27;</span>)<br>cv2.setMouseCallback(<span class="hljs-string">&#x27;image&#x27;</span>, draw_circle)<br><span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>):<br>    cv2.imshow(<span class="hljs-string">&#x27;image&#x27;</span>, img)<br>    k = cv2.waitKey(<span class="hljs-number">1</span>) &amp; <span class="hljs-number">0xFF</span><br>    <span class="hljs-keyword">if</span> k == <span class="hljs-built_in">ord</span>(<span class="hljs-string">&#x27;m&#x27;</span>):<br>        mode = <span class="hljs-keyword">not</span> mode<br>    <span class="hljs-keyword">elif</span> k == <span class="hljs-number">27</span>:<br>        <span class="hljs-keyword">break</span><br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+<span class="token comment"># @File  : test05.py</span>
+<span class="token comment"># @Author: FanyFull</span>
+<span class="token comment"># @Date  : 2021/10/15</span>
+
+<span class="token comment"># 处理鼠标事件</span>
+
+<span class="token keyword">import</span> cv2
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+
+<span class="token comment"># 当鼠标按下时变为 True</span>
+drawing <span class="token operator">=</span> <span class="token boolean">False</span>
+<span class="token comment"># 如果 mode 为 True 绘制矩形，按下 'm' 变成绘制曲线</span>
+mode <span class="token operator">=</span> <span class="token boolean">True</span>
+ix<span class="token punctuation">,</span> iy <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span>
+<span class="token comment"># 创建回调函数</span>
+<span class="token keyword">def</span> <span class="token function">draw_circle</span><span class="token punctuation">(</span>event<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> flags<span class="token punctuation">,</span> param<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">global</span> ix<span class="token punctuation">,</span> iy<span class="token punctuation">,</span> drawing<span class="token punctuation">,</span> mode
+    <span class="token comment"># 当按下左键时返回起始位置坐标</span>
+    <span class="token keyword">if</span> event <span class="token operator">==</span> cv2<span class="token punctuation">.</span>EVENT_LBUTTONDOWN<span class="token punctuation">:</span>
+        drawing <span class="token operator">=</span> <span class="token boolean">True</span>
+        ix<span class="token punctuation">,</span> iy <span class="token operator">=</span> x<span class="token punctuation">,</span> y
+    <span class="token comment"># 当鼠标左键按下并移动时绘制图形，event 可以查看移动，flag 查看是否按下</span>
+    <span class="token keyword">elif</span> event <span class="token operator">==</span> cv2<span class="token punctuation">.</span>EVENT_MOUSEMOVE <span class="token keyword">and</span> flags <span class="token operator">==</span> cv2<span class="token punctuation">.</span>EVENT_FLAG_LBUTTON<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> drawing <span class="token operator">==</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> mode <span class="token operator">==</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+                cv2<span class="token punctuation">.</span>rectangle<span class="token punctuation">(</span>img<span class="token punctuation">,</span> <span class="token punctuation">(</span>ix<span class="token punctuation">,</span> iy<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                r <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>np<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span><span class="token punctuation">(</span>x <span class="token operator">-</span> ix<span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token punctuation">(</span>y <span class="token operator">-</span> iy<span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                cv2<span class="token punctuation">.</span>circle<span class="token punctuation">(</span>img<span class="token punctuation">,</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">,</span> r<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token comment"># 当鼠标松开时停止绘画</span>
+    <span class="token keyword">elif</span> event <span class="token operator">==</span> cv2<span class="token punctuation">.</span>EVENT_LBUTTONUP<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> mode <span class="token operator">==</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+            cv2<span class="token punctuation">.</span>rectangle<span class="token punctuation">(</span>img<span class="token punctuation">,</span> <span class="token punctuation">(</span>ix<span class="token punctuation">,</span> iy<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            cv2<span class="token punctuation">.</span>circle<span class="token punctuation">(</span>img<span class="token punctuation">,</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+img <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">512</span><span class="token punctuation">,</span> <span class="token number">512</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> np<span class="token punctuation">.</span>uint8<span class="token punctuation">)</span>
+cv2<span class="token punctuation">.</span>namedWindow<span class="token punctuation">(</span><span class="token string">'image'</span><span class="token punctuation">)</span>
+cv2<span class="token punctuation">.</span>setMouseCallback<span class="token punctuation">(</span><span class="token string">'image'</span><span class="token punctuation">,</span> draw_circle<span class="token punctuation">)</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    cv2<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span><span class="token string">'image'</span><span class="token punctuation">,</span> img<span class="token punctuation">)</span>
+    k <span class="token operator">=</span> cv2<span class="token punctuation">.</span>waitKey<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0xFF</span>
+    <span class="token keyword">if</span> k <span class="token operator">==</span> <span class="token builtin">ord</span><span class="token punctuation">(</span><span class="token string">'m'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        mode <span class="token operator">=</span> <span class="token keyword">not</span> mode
+    <span class="token keyword">elif</span> k <span class="token operator">==</span> <span class="token number">27</span><span class="token punctuation">:</span>
+        <span class="token keyword">break</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p><img
 src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211017202439.png" srcset="/img/loading.gif" lazyload /></p>
 
@@ -560,8 +709,8 @@ src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/2021
 
   <!-- Scripts -->
   
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -572,13 +721,13 @@ src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/2021
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -605,7 +754,7 @@ src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/2021
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
     var toc = jQuery('#toc');
     if (toc.length === 0 || !window.tocbot) { return; }
     var boardCtn = jQuery('#board-ctn');
@@ -643,14 +792,16 @@ src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/2021
 </script>
 
 
-  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+  <script  src="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" ></script>
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
     window.anchors.options = {
       placement: CONFIG.anchorjs.placement,
       visible  : CONFIG.anchorjs.visible
@@ -688,7 +839,7 @@ src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/2021
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
     Fluid.plugins.fancyBox();
   });
 </script>
@@ -704,7 +855,7 @@ src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/2021
               inlineMath: { '[+]': [['$', '$']] }
             },
             loader : {
-              
+              load: ['ui/lazy']
             },
             options: {
               renderActions: {
@@ -737,7 +888,7 @@ src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/2021
       </script>
     
 
-  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="先贴上我在 v2ex 上问的这个问题： 让我疑惑的代码： 12345678#include &lt;stdio.h&gt;int main()&#123;    float a &#x3D; 3.3f;    int b &#x3D; 2;    printf(&quot;%d&quot;, a * b);&#125; 运行截图：  运行环境： 12Microsoft Windows [版本 10.0.19043.1">
+    <meta name="description" content="先贴上我在 v2ex 上问的这个问题： 让我疑惑的代码： #include &lt;stdio.h&gt;  int main() &#123;     float a &#x3D; 3.3f;     int b &#x3D; 2;     printf(&quot;%d&quot;, a * b); &#125; 运行截图：  运行环境： Microsoft Windows [版本 10.0.19043.1645] gcc version">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C 语言关于 %d 打印 double 值的问题">
 <meta property="og:url" content="http://fanyfull.github.io/2022/05/15/C-%E8%AF%AD%E8%A8%80%E5%85%B3%E4%BA%8E-d-%E6%89%93%E5%8D%B0-double-%E5%80%BC%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="先贴上我在 v2ex 上问的这个问题： 让我疑惑的代码： 12345678#include &lt;stdio.h&gt;int main()&#123;    float a &#x3D; 3.3f;    int b &#x3D; 2;    printf(&quot;%d&quot;, a * b);&#125; 运行截图：  运行环境： 12Microsoft Windows [版本 10.0.19043.1">
+<meta property="og:description" content="先贴上我在 v2ex 上问的这个问题： 让我疑惑的代码： #include &lt;stdio.h&gt;  int main() &#123;     float a &#x3D; 3.3f;     int b &#x3D; 2;     printf(&quot;%d&quot;, a * b); &#125; 运行截图：  运行环境： Microsoft Windows [版本 10.0.19043.1645] gcc version">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/7LlvsIu.png">
 <meta property="article:published_time" content="2022-05-15T11:17:09.000Z">
@@ -35,15 +35,17 @@
   
   <title>C 语言关于 %d 打印 double 值的问题 - Fany Full&#39;s Blog</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -75,7 +77,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -119,7 +121,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -131,7 +133,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -143,7 +145,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -155,7 +157,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -167,7 +169,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -227,7 +229,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          2.4k 字
+          659 字
         
       </span>
     
@@ -239,7 +241,7 @@
         
         
           <!-- compatible with older versions-->
-          21 分钟
+          6 分钟
         
       </span>
     
@@ -284,22 +286,54 @@
                 <p>先贴上我在 v2ex 上问的<a
 target="_blank" rel="noopener" href="https://www.v2ex.com/t/852434">这个问题</a>：</p>
 <p>让我疑惑的代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>    <span class="hljs-type">float</span> a = <span class="hljs-number">3.3f</span>;<br>    <span class="hljs-type">int</span> b = <span class="hljs-number">2</span>;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>, a * b);<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">float</span> a <span class="token operator">=</span> <span class="token number">3.3f</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> a <span class="token operator">*</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>运行截图：</p>
 <p><img src="https://i.imgur.com/vBxXbL8.png" srcset="/img/loading.gif" lazyload /></p>
 <p>运行环境：</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Microsoft</span> Windows<span class="hljs-meta"> [版本 10.0.19043.1645]</span><br><span class="hljs-attribute">gcc</span> version <span class="hljs-number">11</span>.<span class="hljs-number">3</span>.<span class="hljs-number">0</span> (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders)<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">Microsoft Windows [版本 10.0.19043.1645]
+gcc version 11.3.0 (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <p>在这个环境下每一次运行出来的结果都是一样的。</p>
 <p>然后切换到 Linux 的环境：</p>
 <p>运行截图：</p>
 <p><img src="https://i.imgur.com/ytf92lJ.png" srcset="/img/loading.gif" lazyload /></p>
 <p>运行环境：</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">cenos</span><br><span class="hljs-attribute">gcc</span> version <span class="hljs-number">8</span>.<span class="hljs-number">5</span>.<span class="hljs-number">0</span> <span class="hljs-number">20210514</span> (Red Hat <span class="hljs-number">8</span>.<span class="hljs-number">5</span>.<span class="hljs-number">0</span>-<span class="hljs-number">4</span>) (GCC)<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">cenos
+gcc version 8.5.0 20210514 (Red Hat 8.5.0-4) (GCC)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <p>在 Linux 这个环境下每一次的运行结果都是不一样的。</p>
 <p>然后我想弄清楚的是，这个问题是不是就是<strong>将 double
 类型的值在内存中截掉一半</strong>然后打印出来(截掉前半段)。</p>
 <p>所以我们用一个程序来验证一下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-class"><span class="hljs-keyword">union</span> <span class="hljs-title">HEXDOUBLE</span></span><br><span class="hljs-class">&#123;</span><br>    <span class="hljs-type">double</span> num;<br>    <span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> bnum[<span class="hljs-number">8</span>];<br>&#125;;<br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>    <span class="hljs-type">float</span> m = <span class="hljs-number">3.3f</span>;<br>    <span class="hljs-type">int</span> n = <span class="hljs-number">2</span>;<br>    <span class="hljs-class"><span class="hljs-keyword">union</span> <span class="hljs-title">HEXDOUBLE</span> <span class="hljs-title">a</span>;</span><br>    a.num = (<span class="hljs-type">double</span>)m * n;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, a.num);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">8</span>; ++i) <span class="hljs-comment">//大端模式顺着来0-8，小端模式逆着来8-0</span><br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%x &quot;</span>, a.bnum[<span class="hljs-number">8</span> - i - <span class="hljs-number">1</span>]);<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, a.num);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%lf&quot;</span>, a.num);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+
+<span class="token keyword">union</span> HEXDOUBLE
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">double</span> num<span class="token punctuation">;</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">char</span> bnum<span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">float</span> m <span class="token operator">=</span> <span class="token number">3.3f</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">union</span> HEXDOUBLE a<span class="token punctuation">;</span>
+    a<span class="token punctuation">.</span>num <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">double</span><span class="token punctuation">)</span>m <span class="token operator">*</span> n<span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> a<span class="token punctuation">.</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">8</span><span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token comment">//大端模式顺着来0-8，小端模式逆着来8-0</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%x "</span><span class="token punctuation">,</span> a<span class="token punctuation">.</span>bnum<span class="token punctuation">[</span><span class="token number">8</span> <span class="token operator">-</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> a<span class="token punctuation">.</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%lf"</span><span class="token punctuation">,</span> a<span class="token punctuation">.</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>运行结果：</p>
 <p><img src="https://i.imgur.com/d3pO6xQ.png" srcset="/img/loading.gif" lazyload /></p>
 <p>(double) a * b = 0x40 1a 66 66 60 00 00 00, 截断四个字节后 0x60 00 00
@@ -320,7 +354,82 @@ target="_blank" rel="noopener" href="https://www.v2ex.com/t/852434">这个问题
 <code>10</code> 呢？</p>
 <p><img src="https://i.imgur.com/gJlMDv9.png" srcset="/img/loading.gif" lazyload /></p>
 <p>也罢，暂时把这个问题先搁置在这里，汇编编译出来的代码如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs s">	.file	&quot;test_format_d.c&quot;<br>	.text<br>	.section	.rodata<br>.LC1:<br>	.string	&quot;%d\n&quot;<br>.LC2:<br>	.string	&quot;%x &quot;<br>.LC3:<br>	.string	&quot;%lf&quot;<br>	.text<br>	.globl	main<br>	.type	main, @function<br>main:<br>.LFB0:<br>	.cfi_startproc<br>	pushq	%rbp<br>	.cfi_def_cfa_offset 16<br>	.cfi_offset 6, -16<br>	movq	%rsp, %rbp<br>	.cfi_def_cfa_register 6<br>	subq	$32, %rsp<br>	movss	.LC0(%rip), %xmm0<br>	movss	%xmm0, -8(%rbp)<br>	movl	$2, -12(%rbp)<br>	cvtss2sd	-8(%rbp), %xmm1<br>	cvtsi2sd	-12(%rbp), %xmm0<br>	mulsd	%xmm1, %xmm0<br>	movsd	%xmm0, -24(%rbp)<br>	movsd	-24(%rbp), %xmm0<br>	movl	$.LC1, %edi<br>	movl	$1, %eax<br>	call	printf<br>	movsd	-24(%rbp), %xmm0<br>	movl	$.LC1, %edi<br>	movl	$1, %eax<br>	call	printf<br>	movl	$0, -4(%rbp)<br>	jmp	.L2<br>.L3:<br>	movl	$7, %eax<br>	subl	-4(%rbp), %eax<br>	cltq<br>	movzbl	-24(%rbp,%rax), %eax<br>	movzbl	%al, %eax<br>	movl	%eax, %esi<br>	movl	$.LC2, %edi<br>	movl	$0, %eax<br>	call	printf<br>	addl	$1, -4(%rbp)<br>.L2:<br>	cmpl	$7, -4(%rbp)<br>	jle	.L3<br>	movl	$10, %edi<br>	call	putchar<br>	movsd	-24(%rbp), %xmm0<br>	movl	$.LC1, %edi<br>	movl	$1, %eax<br>	call	printf<br>	movsd	-24(%rbp), %xmm0<br>	movl	$.LC3, %edi<br>	movl	$1, %eax<br>	call	printf<br>	movl	$0, %eax<br>	leave<br>	.cfi_def_cfa 7, 8<br>	ret<br>	.cfi_endproc<br>.LFE0:<br>	.size	main, .-main<br>	.section	.rodata<br>	.align 4<br>.LC0:<br>	.long	1079194419<br>	.ident	&quot;GCC: (GNU) 8.5.0 20210514 (Red Hat 8.5.0-4)&quot;<br>	.section	.note.GNU-stack,&quot;&quot;,@progbits<br><br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-s" data-language="s"><code class="language-s">	.file	&quot;test_format_d.c&quot;
+	.text
+	.section	.rodata
+.LC1:
+	.string	&quot;%d\n&quot;
+.LC2:
+	.string	&quot;%x &quot;
+.LC3:
+	.string	&quot;%lf&quot;
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB0:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$32, %rsp
+	movss	.LC0(%rip), %xmm0
+	movss	%xmm0, -8(%rbp)
+	movl	$2, -12(%rbp)
+	cvtss2sd	-8(%rbp), %xmm1
+	cvtsi2sd	-12(%rbp), %xmm0
+	mulsd	%xmm1, %xmm0
+	movsd	%xmm0, -24(%rbp)
+	movsd	-24(%rbp), %xmm0
+	movl	$.LC1, %edi
+	movl	$1, %eax
+	call	printf
+	movsd	-24(%rbp), %xmm0
+	movl	$.LC1, %edi
+	movl	$1, %eax
+	call	printf
+	movl	$0, -4(%rbp)
+	jmp	.L2
+.L3:
+	movl	$7, %eax
+	subl	-4(%rbp), %eax
+	cltq
+	movzbl	-24(%rbp,%rax), %eax
+	movzbl	%al, %eax
+	movl	%eax, %esi
+	movl	$.LC2, %edi
+	movl	$0, %eax
+	call	printf
+	addl	$1, -4(%rbp)
+.L2:
+	cmpl	$7, -4(%rbp)
+	jle	.L3
+	movl	$10, %edi
+	call	putchar
+	movsd	-24(%rbp), %xmm0
+	movl	$.LC1, %edi
+	movl	$1, %eax
+	call	printf
+	movsd	-24(%rbp), %xmm0
+	movl	$.LC3, %edi
+	movl	$1, %eax
+	call	printf
+	movl	$0, %eax
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	main, .-main
+	.section	.rodata
+	.align 4
+.LC0:
+	.long	1079194419
+	.ident	&quot;GCC: (GNU) 8.5.0 20210514 (Red Hat 8.5.0-4)&quot;
+	.section	.note.GNU-stack,&quot;&quot;,@progbits
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p><img src="https://i.imgur.com/y0bv5PU.png" srcset="/img/loading.gif" lazyload /></p>
 
                 
@@ -572,8 +681,8 @@ target="_blank" rel="noopener" href="https://www.v2ex.com/t/852434">这个问题
 
   <!-- Scripts -->
   
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -584,13 +693,13 @@ target="_blank" rel="noopener" href="https://www.v2ex.com/t/852434">这个问题
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -617,7 +726,7 @@ target="_blank" rel="noopener" href="https://www.v2ex.com/t/852434">这个问题
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
     var toc = jQuery('#toc');
     if (toc.length === 0 || !window.tocbot) { return; }
     var boardCtn = jQuery('#board-ctn');
@@ -655,14 +764,16 @@ target="_blank" rel="noopener" href="https://www.v2ex.com/t/852434">这个问题
 </script>
 
 
-  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+  <script  src="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" ></script>
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
     window.anchors.options = {
       placement: CONFIG.anchorjs.placement,
       visible  : CONFIG.anchorjs.visible
@@ -700,7 +811,7 @@ target="_blank" rel="noopener" href="https://www.v2ex.com/t/852434">这个问题
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
     Fluid.plugins.fancyBox();
   });
 </script>
@@ -716,7 +827,7 @@ target="_blank" rel="noopener" href="https://www.v2ex.com/t/852434">这个问题
               inlineMath: { '[+]': [['$', '$']] }
             },
             loader : {
-              
+              load: ['ui/lazy']
             },
             options: {
               renderActions: {
@@ -749,7 +860,7 @@ target="_blank" rel="noopener" href="https://www.v2ex.com/t/852434">这个问题
       </script>
     
 
-  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

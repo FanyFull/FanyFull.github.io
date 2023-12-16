@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="这里仅仅是作了一个简单的操作，即，将一个含有很多汉字的文本中的所有汉字都替换成 unicode 表中对应的下一个字符。然后输出。 123456789101112131415161718192021222324252627282930313233343536373839404142# -*- coding: utf-8 -*-# print all the Chinese characters# f">
+    <meta name="description" content="这里仅仅是作了一个简单的操作，即，将一个含有很多汉字的文本中的所有汉字都替换成 unicode 表中对应的下一个字符。然后输出。 # -*- coding: utf-8 -*-  # print all the Chinese characters # for i in range(0x4e00,0x9fa6): # 	print (chr(i))  str &#x3D; &quot;&quot;&quot; 【第一章】道可道，非常道；">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 简单字符替换">
 <meta property="og:url" content="http://fanyfull.github.io/2021/11/26/Python-%E7%AE%80%E5%8D%95%E5%AD%97%E7%AC%A6%E6%9B%BF%E6%8D%A2/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="这里仅仅是作了一个简单的操作，即，将一个含有很多汉字的文本中的所有汉字都替换成 unicode 表中对应的下一个字符。然后输出。 123456789101112131415161718192021222324252627282930313233343536373839404142# -*- coding: utf-8 -*-# print all the Chinese characters# f">
+<meta property="og:description" content="这里仅仅是作了一个简单的操作，即，将一个含有很多汉字的文本中的所有汉字都替换成 unicode 表中对应的下一个字符。然后输出。 # -*- coding: utf-8 -*-  # print all the Chinese characters # for i in range(0x4e00,0x9fa6): # 	print (chr(i))  str &#x3D; &quot;&quot;&quot; 【第一章】道可道，非常道；">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/WwWzuFV.png">
 <meta property="article:published_time" content="2021-11-26T03:17:32.000Z">
@@ -36,15 +36,17 @@
   
   <title>Python 简单字符替换 - Fany Full&#39;s Blog</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -76,7 +78,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -120,7 +122,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -132,7 +134,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -144,7 +146,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -156,7 +158,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -168,7 +170,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -228,7 +230,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          3k 字
+          853 字
         
       </span>
     
@@ -240,7 +242,7 @@
         
         
           <!-- compatible with older versions-->
-          25 分钟
+          8 分钟
         
       </span>
     
@@ -284,9 +286,50 @@
                 
                 <p>这里仅仅是作了一个简单的操作，即，将一个含有很多汉字的文本中的所有汉字都替换成
 unicode 表中对应的下一个字符。然后输出。</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><br><span class="hljs-comment"># print all the Chinese characters</span><br><span class="hljs-comment"># for i in range(0x4e00,0x9fa6):</span><br><span class="hljs-comment"># 	print (chr(i))</span><br><br><span class="hljs-built_in">str</span> = <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">【第一章】道可道，非常道；名可名，非常名。无名天地之始，有名万物之母。故常无欲，以观其妙；常</span><br><span class="hljs-string">有欲，以观其徼（jiào）。此两者同出而异名，同谓之玄，玄之又玄，众妙之门。〖译文〗</span><br><span class="hljs-string">【第二章】天下皆知美之为美，斯恶（è）已；皆知善之为善，斯不善已。故有无相生，难易相成，长短相</span><br><span class="hljs-string">较，高下相倾，音声相和（hè），前后相随。是以圣人处无为之事，行不言之教，万物作焉而不辞，生而</span><br><span class="hljs-string">不有，为而不恃，功成而弗居。夫（fú）唯弗居，是以不去。 〖译文〗</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><br><span class="hljs-comment"># judge whether a char is a chinese character</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">is_chinese</span>(<span class="hljs-params">char</span>):<br>    <span class="hljs-keyword">if</span> char &gt;= <span class="hljs-string">u&#x27;\u4e00&#x27;</span> <span class="hljs-keyword">and</span> char &lt;= <span class="hljs-string">u&#x27;\u9fa5&#x27;</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>reverted_str = <span class="hljs-string">&quot;&quot;&quot;&quot;&quot;&quot;</span><br><br><span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> <span class="hljs-built_in">str</span>:<br>    <span class="hljs-keyword">if</span> char == <span class="hljs-string">&quot;\n&quot;</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">r&quot;\n&quot;</span>, <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">ord</span>(char), <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-string">r&#x27;\n&#x27;</span>)<br>        reverted_str = reverted_str + char<br>        <span class="hljs-keyword">continue</span><br>    <span class="hljs-keyword">if</span> char == <span class="hljs-string">&#x27; &#x27;</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">r&quot;blank&quot;</span>, <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">ord</span>(char), <span class="hljs-string">&#x27;\t&#x27;</span>, char)<br>        reverted_str = reverted_str + char<br>        <span class="hljs-keyword">continue</span><br>    <span class="hljs-keyword">if</span> is_chinese(char) == <span class="hljs-literal">False</span>:<br>        <span class="hljs-built_in">print</span>(char, <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">ord</span>(char), <span class="hljs-string">&#x27;\t&#x27;</span>, char)<br>        reverted_str = reverted_str + char<br>        <span class="hljs-keyword">continue</span><br>    <span class="hljs-built_in">print</span>(char, <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">ord</span>(char), <span class="hljs-string">&#x27;\t&#x27;</span>, <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(char) + <span class="hljs-number">1</span>))<br>    reverted_str = reverted_str + <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(char) + <span class="hljs-number">1</span>)<br><br><span class="hljs-built_in">print</span>(reverted_str)<br><br><span class="hljs-comment"># print(&#x27;&gt;&#x27;, &#x27;\t&#x27;, ord(&#x27;&gt;&#x27;), &#x27;\t&#x27;, chr(ord(&#x27;&gt;&#x27;) + 1))</span><br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+
+<span class="token comment"># print all the Chinese characters</span>
+<span class="token comment"># for i in range(0x4e00,0x9fa6):</span>
+<span class="token comment"># 	print (chr(i))</span>
+
+<span class="token builtin">str</span> <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
+【第一章】道可道，非常道；名可名，非常名。无名天地之始，有名万物之母。故常无欲，以观其妙；常
+有欲，以观其徼（jiào）。此两者同出而异名，同谓之玄，玄之又玄，众妙之门。〖译文〗
+【第二章】天下皆知美之为美，斯恶（è）已；皆知善之为善，斯不善已。故有无相生，难易相成，长短相
+较，高下相倾，音声相和（hè），前后相随。是以圣人处无为之事，行不言之教，万物作焉而不辞，生而
+不有，为而不恃，功成而弗居。夫（fú）唯弗居，是以不去。 〖译文〗
+"""</span>
+
+<span class="token comment"># judge whether a char is a chinese character</span>
+<span class="token keyword">def</span> <span class="token function">is_chinese</span><span class="token punctuation">(</span>char<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> char <span class="token operator">>=</span> <span class="token string">u'\u4e00'</span> <span class="token keyword">and</span> char <span class="token operator">&lt;=</span> <span class="token string">u'\u9fa5'</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token boolean">False</span>
+
+reverted_str <span class="token operator">=</span> <span class="token triple-quoted-string string">""""""</span>
+
+<span class="token keyword">for</span> char <span class="token keyword">in</span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> char <span class="token operator">==</span> <span class="token string">"\n"</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">r"\n"</span><span class="token punctuation">,</span> <span class="token string">'\t'</span><span class="token punctuation">,</span> <span class="token builtin">ord</span><span class="token punctuation">(</span>char<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'\t'</span><span class="token punctuation">,</span> <span class="token string">r'\n'</span><span class="token punctuation">)</span>
+        reverted_str <span class="token operator">=</span> reverted_str <span class="token operator">+</span> char
+        <span class="token keyword">continue</span>
+    <span class="token keyword">if</span> char <span class="token operator">==</span> <span class="token string">' '</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">r"blank"</span><span class="token punctuation">,</span> <span class="token string">'\t'</span><span class="token punctuation">,</span> <span class="token builtin">ord</span><span class="token punctuation">(</span>char<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'\t'</span><span class="token punctuation">,</span> char<span class="token punctuation">)</span>
+        reverted_str <span class="token operator">=</span> reverted_str <span class="token operator">+</span> char
+        <span class="token keyword">continue</span>
+    <span class="token keyword">if</span> is_chinese<span class="token punctuation">(</span>char<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token boolean">False</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>char<span class="token punctuation">,</span> <span class="token string">'\t'</span><span class="token punctuation">,</span> <span class="token builtin">ord</span><span class="token punctuation">(</span>char<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'\t'</span><span class="token punctuation">,</span> char<span class="token punctuation">)</span>
+        reverted_str <span class="token operator">=</span> reverted_str <span class="token operator">+</span> char
+        <span class="token keyword">continue</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>char<span class="token punctuation">,</span> <span class="token string">'\t'</span><span class="token punctuation">,</span> <span class="token builtin">ord</span><span class="token punctuation">(</span>char<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'\t'</span><span class="token punctuation">,</span> <span class="token builtin">chr</span><span class="token punctuation">(</span><span class="token builtin">ord</span><span class="token punctuation">(</span>char<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    reverted_str <span class="token operator">=</span> reverted_str <span class="token operator">+</span> <span class="token builtin">chr</span><span class="token punctuation">(</span><span class="token builtin">ord</span><span class="token punctuation">(</span>char<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>reverted_str<span class="token punctuation">)</span>
+
+<span class="token comment"># print('>', '\t', ord('>'), '\t', chr(ord('>') + 1))</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>output:</p>
-<pre><code class="hljs">\n       10      \n
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">\n       10      \n
 【       12304   【
 第       31532   笭
 一       19968   丁
@@ -497,7 +540,7 @@ blank    32
 朊欳，仦觃具徽（jiào）。步严耆名击耍弃后，名谔乌玅，玅乌叉玅，优妚乌闩。〖诒斈〗
 【笭亍竡】太丌皇矦羏乌主羏，新恷（è）巳；皇矦喅乌主喅，新与喅巳。敆朊旡盹甠，隿昔盹我，門矮盹
 辄，髙丌盹倿，韴壱盹咍（hè），剎吏盹隐。昰仦圤亻夅旡主乌二，衍与訁乌敚，丈牪佝焊耍与辟，甠耍
-与朊，主耍与恄，加我耍弘屆。夬（fú）唰弘屆，昰仦与厼。 〖诒斈〗</code></pre>
+与朊，主耍与恄，加我耍弘屆。夬（fú）唰弘屆，昰仦与厼。 〖诒斈〗</code></pre></div></figure>
 
                 
               </div>
@@ -750,8 +793,8 @@ blank    32
 
   <!-- Scripts -->
   
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -762,13 +805,13 @@ blank    32
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -795,7 +838,7 @@ blank    32
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
     var toc = jQuery('#toc');
     if (toc.length === 0 || !window.tocbot) { return; }
     var boardCtn = jQuery('#board-ctn');
@@ -833,14 +876,16 @@ blank    32
 </script>
 
 
-  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+  <script  src="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" ></script>
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
     window.anchors.options = {
       placement: CONFIG.anchorjs.placement,
       visible  : CONFIG.anchorjs.visible
@@ -878,7 +923,7 @@ blank    32
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
     Fluid.plugins.fancyBox();
   });
 </script>
@@ -894,7 +939,7 @@ blank    32
               inlineMath: { '[+]': [['$', '$']] }
             },
             loader : {
-              
+              load: ['ui/lazy']
             },
             options: {
               renderActions: {
@@ -927,7 +972,7 @@ blank    32
       </script>
     
 
-  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

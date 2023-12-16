@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一、题目链接 https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;zigzag-conversion&#x2F; 二、解答 这题有多个解答，我只取一种比较直观的，而且我认为，这种解法是最适合计算机的，其他如找出数学规律的解答，其数学思想是好的，但是，我认为利用直观的解法可以节约我们的时间。 先给出代码 123456789101112131415161718class Solution:    def">
+    <meta name="description" content="一、题目链接 https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;zigzag-conversion&#x2F; 二、解答 这题有多个解答，我只取一种比较直观的，而且我认为，这种解法是最适合计算机的，其他如找出数学规律的解答，其数学思想是好的，但是，我认为利用直观的解法可以节约我们的时间。 先给出代码 class Solution:     def convert(self, s: str, num">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 6 ZigZag Conversion">
 <meta property="og:url" content="http://fanyfull.github.io/2021/07/11/LeetCode-6-ZigZag-Conversion/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="一、题目链接 https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;zigzag-conversion&#x2F; 二、解答 这题有多个解答，我只取一种比较直观的，而且我认为，这种解法是最适合计算机的，其他如找出数学规律的解答，其数学思想是好的，但是，我认为利用直观的解法可以节约我们的时间。 先给出代码 123456789101112131415161718class Solution:    def">
+<meta property="og:description" content="一、题目链接 https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;zigzag-conversion&#x2F; 二、解答 这题有多个解答，我只取一种比较直观的，而且我认为，这种解法是最适合计算机的，其他如找出数学规律的解答，其数学思想是好的，但是，我认为利用直观的解法可以节约我们的时间。 先给出代码 class Solution:     def convert(self, s: str, num">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210711190448.png">
 <meta property="article:published_time" content="2021-07-11T10:54:09.000Z">
@@ -36,15 +36,17 @@
   
   <title>LeetCode 6 ZigZag Conversion - Fany Full&#39;s Blog</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -76,7 +78,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -120,7 +122,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -132,7 +134,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -144,7 +146,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -156,7 +158,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -168,7 +170,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -228,7 +230,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.1k 字
+          304 字
         
       </span>
     
@@ -240,7 +242,7 @@
         
         
           <!-- compatible with older versions-->
-          10 分钟
+          3 分钟
         
       </span>
     
@@ -288,7 +290,24 @@ class="uri">https://leetcode.com/problems/zigzag-conversion/</a></p>
 <h2 id="二解答">二、解答</h2>
 <p>这题有多个解答，我只取一种比较直观的，而且我认为，这种解法是最适合计算机的，其他如找出数学规律的解答，其数学思想是好的，但是，我认为利用直观的解法可以节约我们的时间。</p>
 <p>先给出代码</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">convert</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span>, numRows: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">str</span>:<br>        <span class="hljs-keyword">if</span> numRows &lt; <span class="hljs-number">2</span>:<br>            <span class="hljs-keyword">return</span> s<br>        row_strs = []<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(numRows):<br>            row_strs.append(<span class="hljs-string">&#x27;&#x27;</span>)<br>        row = <span class="hljs-number">0</span><br>        flag = -<span class="hljs-number">1</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(s)):<br>            row_strs[row] += s[i]<br>            <span class="hljs-keyword">if</span> row == <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> row == numRows - <span class="hljs-number">1</span>:<br>                flag = -flag<br>            row += flag<br>        ans = <span class="hljs-string">&#x27;&#x27;</span><br>        <span class="hljs-keyword">for</span> each <span class="hljs-keyword">in</span> row_strs:<br>            ans += each<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">convert</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> numRows<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> numRows <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> s
+        row_strs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>numRows<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            row_strs<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+        row <span class="token operator">=</span> <span class="token number">0</span>
+        flag <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            row_strs<span class="token punctuation">[</span>row<span class="token punctuation">]</span> <span class="token operator">+=</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+            <span class="token keyword">if</span> row <span class="token operator">==</span> <span class="token number">0</span> <span class="token keyword">or</span> row <span class="token operator">==</span> numRows <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">:</span>
+                flag <span class="token operator">=</span> <span class="token operator">-</span>flag
+            row <span class="token operator">+=</span> flag
+        ans <span class="token operator">=</span> <span class="token string">''</span>
+        <span class="token keyword">for</span> each <span class="token keyword">in</span> row_strs<span class="token punctuation">:</span>
+            ans <span class="token operator">+=</span> each
+        <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>本题的解法思路很明显，我们把每一行当成一个子串单独拎出来，然后，根据
 ZigZag 的规律直接一个一个往各层的子串中添加字符即可。顺着那个 ZigZag
 的轨迹来，可以说是比较直观的。这里比较机智的一个点是使用 flag
@@ -296,7 +315,37 @@ ZigZag 的规律直接一个一个往各层的子串中添加字符即可。顺�
 <p>时间复杂度：<code>$O(N)$</code>。
 空间复杂度：<code>$O(N)$</code>。</p>
 <h3 id="三完整代码">三、完整代码</h3>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><span class="hljs-comment"># @File  : leet_06.py</span><br><span class="hljs-comment"># @Author: FanyFull</span><br><span class="hljs-comment"># @Date  : 2021/7/11</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">convert</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span>, numRows: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">str</span>:<br>        <span class="hljs-keyword">if</span> numRows &lt; <span class="hljs-number">2</span>:<br>            <span class="hljs-keyword">return</span> s<br>        row_strs = []<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(numRows):<br>            row_strs.append(<span class="hljs-string">&#x27;&#x27;</span>)<br>        row = <span class="hljs-number">0</span><br>        flag = -<span class="hljs-number">1</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(s)):<br>            row_strs[row] += s[i]<br>            <span class="hljs-keyword">if</span> row == <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> row == numRows - <span class="hljs-number">1</span>:<br>                flag = -flag<br>            row += flag<br>        ans = <span class="hljs-string">&#x27;&#x27;</span><br>        <span class="hljs-keyword">for</span> each <span class="hljs-keyword">in</span> row_strs:<br>            ans += each<br>        <span class="hljs-keyword">return</span> ans<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    solution = Solution()<br>    s = <span class="hljs-string">&#x27;AB&#x27;</span><br>    numRows = <span class="hljs-number">1</span><br>    ans = solution.convert(s, numRows)<br>    <span class="hljs-built_in">print</span>(ans)<br><br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+<span class="token comment"># @File  : leet_06.py</span>
+<span class="token comment"># @Author: FanyFull</span>
+<span class="token comment"># @Date  : 2021/7/11</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">convert</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> numRows<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> numRows <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> s
+        row_strs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>numRows<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            row_strs<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+        row <span class="token operator">=</span> <span class="token number">0</span>
+        flag <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            row_strs<span class="token punctuation">[</span>row<span class="token punctuation">]</span> <span class="token operator">+=</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+            <span class="token keyword">if</span> row <span class="token operator">==</span> <span class="token number">0</span> <span class="token keyword">or</span> row <span class="token operator">==</span> numRows <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">:</span>
+                flag <span class="token operator">=</span> <span class="token operator">-</span>flag
+            row <span class="token operator">+=</span> flag
+        ans <span class="token operator">=</span> <span class="token string">''</span>
+        <span class="token keyword">for</span> each <span class="token keyword">in</span> row_strs<span class="token punctuation">:</span>
+            ans <span class="token operator">+=</span> each
+        <span class="token keyword">return</span> ans
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    solution <span class="token operator">=</span> Solution<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    s <span class="token operator">=</span> <span class="token string">'AB'</span>
+    numRows <span class="token operator">=</span> <span class="token number">1</span>
+    ans <span class="token operator">=</span> solution<span class="token punctuation">.</span>convert<span class="token punctuation">(</span>s<span class="token punctuation">,</span> numRows<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>ans<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 
                 
               </div>
@@ -549,8 +598,8 @@ ZigZag 的规律直接一个一个往各层的子串中添加字符即可。顺�
 
   <!-- Scripts -->
   
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -561,13 +610,13 @@ ZigZag 的规律直接一个一个往各层的子串中添加字符即可。顺�
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -594,7 +643,7 @@ ZigZag 的规律直接一个一个往各层的子串中添加字符即可。顺�
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
     var toc = jQuery('#toc');
     if (toc.length === 0 || !window.tocbot) { return; }
     var boardCtn = jQuery('#board-ctn');
@@ -632,14 +681,16 @@ ZigZag 的规律直接一个一个往各层的子串中添加字符即可。顺�
 </script>
 
 
-  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+  <script  src="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" ></script>
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
     window.anchors.options = {
       placement: CONFIG.anchorjs.placement,
       visible  : CONFIG.anchorjs.visible
@@ -677,7 +728,7 @@ ZigZag 的规律直接一个一个往各层的子串中添加字符即可。顺�
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
     Fluid.plugins.fancyBox();
   });
 </script>
@@ -693,7 +744,7 @@ ZigZag 的规律直接一个一个往各层的子串中添加字符即可。顺�
               inlineMath: { '[+]': [['$', '$']] }
             },
             loader : {
-              
+              load: ['ui/lazy']
             },
             options: {
               renderActions: {
@@ -726,7 +777,7 @@ ZigZag 的规律直接一个一个往各层的子串中添加字符即可。顺�
       </script>
     
 
-  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

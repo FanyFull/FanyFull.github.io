@@ -36,15 +36,17 @@
   
   <title>vim 的搜索和替换 - Fany Full&#39;s Blog</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -76,7 +78,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -120,7 +122,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -132,7 +134,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -144,7 +146,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -156,7 +158,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -168,7 +170,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -228,7 +230,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          3.5k 字
+          1.7k 字
         
       </span>
     
@@ -240,7 +242,7 @@
         
         
           <!-- compatible with older versions-->
-          30 分钟
+          15 分钟
         
       </span>
     
@@ -295,7 +297,7 @@ class="uri">https://linuxize.com/post/vim-find-replace/</a></p>
 编辑器时的默认模式。你可以按 'Esc' 键来从其他任何模式返回到 normal
 模式。</p>
 <p>替换命令的通用格式如下：</p>
-<pre><code class="hljs">:[range]s/&#123;pattern&#125;/&#123;string&#125;/[flags] [count]</code></pre>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">:[range]s/&#123;pattern&#125;/&#123;string&#125;/[flags] [count]</code></pre></div></figure>
 <p>这个命令在 <code>[range]</code> 中的每一行中查找一个
 <code>&#123;pattern&#125;</code>，然后使用一个 <code>&#123;string&#125;</code>
 来替换它。<code>[count]</code> 是一个乘以此命令的正整数。</p>
@@ -304,31 +306,31 @@ class="uri">https://linuxize.com/post/vim-find-replace/</a></p>
 会被替换掉。当前行是指光标所在的那一行。</p>
 <p>举个例子，来搜索当前行中第一次出现的字符串 <code>'foo'</code> 然后用
 <code>'bar'</code> 来替换它，你可以使用</p>
-<pre><code class="hljs">:s/foo/bar/</code></pre>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">:s/foo/bar/</code></pre></div></figure>
 <p>如果想替换调当前行中所有的被匹配的 pattern，你需要加上一个
 <code>g</code> 标志：</p>
-<pre><code class="hljs">:s/foo/bar/g</code></pre>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">:s/foo/bar/g</code></pre></div></figure>
 <p>如果你想在整个文件中搜索和替换 pattern，那么可以使用百分号的符号
 <code>%</code> 来作为
 range。这个符号表示的范围是从第一行到最后一行：</p>
-<pre><code class="hljs">:%s/foo/bar/g</code></pre>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">:%s/foo/bar/g</code></pre></div></figure>
 <p>如果省略 <code>&#123;string&#125;</code> 部分
 ，那么，此部分将会被认为是一个空字符串，然后，被匹配的 pattern
 就会被删除掉。下面的命令删除了当前行中所有的 <code>'foo'</code>
 字符串：</p>
-<pre><code class="hljs">:s/foo/g</code></pre>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">:s/foo/g</code></pre></div></figure>
 <p><code>/</code>
 在除了作为分隔符之外，你还可以使用其他任何非字母和数字的单字节符号来代替斜线符号
 <code>/</code>。这个选项在我们的需要搜索的 pattern
 中或者替换字符串中含有 <code>/</code> 符号的时候是很有用的。</p>
-<pre><code class="hljs">:s|foo|bar|</code></pre>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">:s|foo|bar|</code></pre></div></figure>
 <p>按：实测，使用 <code>|</code>
 作为分隔符可以替换，但是替换完之后会报错，但是，像 <code>?</code>
 之类的符号作为分隔符就完全没有问题。</p>
 <p>如果要手动确认每一个替换，使用 <code>c</code> 标志：</p>
-<pre><code class="hljs">:s/foo/bar/gc</code></pre>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">:s/foo/bar/gc</code></pre></div></figure>
 <p>output:</p>
-<pre><code class="hljs">replace with bar (y/n/a/q/l/^E/^Y)?</code></pre>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">replace with bar (y/n/a/q/l/^E/^Y)?</code></pre></div></figure>
 <p>按 <code>y</code> 来替换匹配到的结果，或者按 <code>l</code>
 来替换匹配到的结果并退出。</p>
 <p>按 <code>n</code> 来跳过当前的匹配结果，然后按 <code>q</code> 或
@@ -339,21 +341,21 @@ range。这个符号表示的范围是从第一行到最后一行：</p>
 <p>你也可以使用正则表达式来作为一个搜索 pattern。下面的命令会用
 <code>'Vim is the best'</code> 替换掉所有以 <code>'foo'</code>
 开头的行。</p>
-<pre><code class="hljs">:%s/^foo.*/Vim is the best/gc</code></pre>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">:%s/^foo.*/Vim is the best/gc</code></pre></div></figure>
 <p><code>^</code> 符号匹配一行的开头，<code>.*</code>
 匹配任何数字或者字符串。</p>
 <h1 id="大小写敏感">大小写敏感</h1>
 <p>默认情况下，搜索操作时大小写敏感的；搜索 <code>"FOO"</code>
 将不会匹配 <code>"Foo"</code>。</p>
 <p>为了让搜索 pattern 忽略大小写，可以使用 <code>i</code> 标志：</p>
-<pre><code class="hljs">:s/Foo/bar/gi</code></pre>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">:s/Foo/bar/gi</code></pre></div></figure>
 <p>另外一个强制忽略大小写的方法是在搜索 pattern 后面添加
 <code>\c</code>。举个例子，<code>/Linux\c</code>
 就是一个忽略大小写的搜索。</p>
 <p>如果你改变了默认的大小写敏感设置(比如在 Vim
 的配置文件中)，然后你想在搜索中使用大小写敏感的方式，可以使用
 <code>I</code> 标志：</p>
-<pre><code class="hljs">:s/foo/bar/gI</code></pre>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">:s/foo/bar/gI</code></pre></div></figure>
 <p>类似的，在 pattern 后面加上 <code>\C</code>
 也可以强制大小写敏感。</p>
 <h1 id="搜索范围">搜索范围</h1>
@@ -364,13 +366,13 @@ range。这个符号表示的范围是从第一行到最后一行：</p>
 <code>range</code> 可以使用绝对的行号或者一些特殊的符号来具体化。</p>
 <p>举个例子，来替换第 3 行到第 10 行之间的所有的 <code>'foo'</code> 为
 <code>'bar'</code>，可以使用：</p>
-<pre><code class="hljs">:3,10s/foo/bar/g</code></pre>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">:3,10s/foo/bar/g</code></pre></div></figure>
 <p>这个范围是闭区间，也就是说，第一行和最后一行也被包括在
 <code>range</code> 中。</p>
 <p>点 <code>.</code> 符号表示当前行，美元符号 <code>$</code>
 表示最后一行。来替换从当前行到最后一行的 <code>'foo'</code> 为
 <code>'bar'</code>，可以使用：</p>
-<pre><code class="hljs">:.,$/foo/bar/g</code></pre>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">:.,$/foo/bar/g</code></pre></div></figure>
 <p>按：原文中没有加 <code>g</code>。</p>
 <p>我们也可以使用 <code>+</code> 或者 <code>-</code>
 符号来设置具体的行，它的后面跟着具体的数字，这个数字将被当前行数字给加上或者减去。如果
@@ -378,7 +380,7 @@ range。这个符号表示的范围是从第一行到最后一行：</p>
 后面的数字被省略，那么，该数字将默认被设置成 1。</p>
 <p>举例，从当前行到接下来的四行(一共是 5 行)中替换每一个
 <code>'each'</code> 为 <code>'bar'</code>，可以使用：</p>
-<pre><code class="hljs">:.,+4s/foo/bar/g</code></pre>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">:.,+4s/foo/bar/g</code></pre></div></figure>
 <p><img src="https://i.imgur.com/BCukecO.png" srcset="/img/loading.gif" lazyload /></p>
 <h1 id="替换整个单词">替换整个单词</h1>
 <p>substitute 命令是以字符串的形式来寻找 pattern
@@ -391,7 +393,7 @@ range。这个符号表示的范围是从第一行到最后一行：</p>
 <code>\&gt;</code> 来标记单词的结尾。</p>
 <p>举例来说，要搜索单词 <code>"foo"</code>，你可以使用
 <code>\&lt;foo\&gt;</code>：</p>
-<pre><code class="hljs">:s/\&lt;foo\&gt;/bar/</code></pre>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">:s/\&lt;foo\&gt;/bar/</code></pre></div></figure>
 <h1 id="替换历史">替换历史</h1>
 <p>Vim
 会跟踪你在当前会话中运行的所有命令。要浏览先前替代命令的历史记录，请输入
@@ -401,26 +403,26 @@ Enter。您也可以在执行操作之前编辑命令。</p>
 <h1 id="例子">例子</h1>
 <p>替换从 20 行开始的 3 行(20, 21, 22)中的每一行中的第一个
 <code>'foo'</code> 为 <code>'bar'</code>：</p>
-<pre><code class="hljs">:20,20s/foo/bar/ 3</code></pre>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">:20,20s/foo/bar/ 3</code></pre></div></figure>
 <p><img src="https://i.imgur.com/IBNV9Xv.png" srcset="/img/loading.gif" lazyload /></p>
 <p><img src="https://i.imgur.com/CRnFNW2.png" srcset="/img/loading.gif" lazyload /></p>
 <p>替换文件中每一行的第一个 <code>'foo'</code> 为
 <code>'bar'</code>：</p>
-<pre><code class="hljs">:%s/foo/bar/</code></pre>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">:%s/foo/bar/</code></pre></div></figure>
 <p><img src="https://i.imgur.com/G5XVEj6.png" srcset="/img/loading.gif" lazyload /></p>
 <p><img src="https://i.imgur.com/WpqW0a7.png" srcset="/img/loading.gif" lazyload /></p>
 <p><img src="https://i.imgur.com/72oT5S4.png" srcset="/img/loading.gif" lazyload /></p>
 <p>注释 5 到 20 行：</p>
-<pre><code class="hljs">:5,20s/^/#/</code></pre>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">:5,20s/^/#/</code></pre></div></figure>
 <p><img src="https://i.imgur.com/LUzXdNd.png" srcset="/img/loading.gif" lazyload /></p>
 <p>取消 5 到 20 行的注释，恢复先前的更改：</p>
-<pre><code class="hljs">:5,20s/^#//</code></pre>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">:5,20s/^#//</code></pre></div></figure>
 <p><img src="https://i.imgur.com/SBsnoXP.png" srcset="/img/loading.gif" lazyload /></p>
 <p>将 <code>'apple'</code>，<code>'orange'</code>，和
 <code>'mango'</code> 替换成 <code>'fruit'</code>：</p>
-<pre><code class="hljs">:%s/apple\|orange\|mango/fruit/g</code></pre>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">:%s/apple\|orange\|mango/fruit/g</code></pre></div></figure>
 <p>删除每行末尾的尾随空格：</p>
-<pre><code class="hljs">:%s/\s\+$//e</code></pre>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">:%s/\s\+$//e</code></pre></div></figure>
 <p>按：</p>
 <p>这里似乎不应该用 <code>e</code>，虽然用了也没什么影响。而
 <code>e</code> 似乎只有在使用 <code>/</code> 搜索字符串时才有用。</p>
@@ -452,7 +454,7 @@ class="uri">https://www.linux.com/training-tutorials/vim-tips-basics-search-and-
 <p><img src="https://i.imgur.com/zjNLndE.png" srcset="/img/loading.gif" lazyload /></p>
 <p><img src="https://i.imgur.com/dSt9pml.png" srcset="/img/loading.gif" lazyload /></p>
 <p>给 38 到 42 行加注释：</p>
-<pre><code class="hljs">:38,42s/p/# /</code></pre>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">:38,42s/p/# /</code></pre></div></figure>
 <p><img src="https://i.imgur.com/zWlMri6.png" srcset="/img/loading.gif" lazyload /></p>
 <h1 id="总结">总结</h1>
 <p>搜索和替换是 Vim
@@ -709,8 +711,8 @@ class="uri">https://www.linux.com/training-tutorials/vim-tips-basics-search-and-
 
   <!-- Scripts -->
   
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -721,13 +723,13 @@ class="uri">https://www.linux.com/training-tutorials/vim-tips-basics-search-and-
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -754,7 +756,7 @@ class="uri">https://www.linux.com/training-tutorials/vim-tips-basics-search-and-
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
     var toc = jQuery('#toc');
     if (toc.length === 0 || !window.tocbot) { return; }
     var boardCtn = jQuery('#board-ctn');
@@ -792,14 +794,16 @@ class="uri">https://www.linux.com/training-tutorials/vim-tips-basics-search-and-
 </script>
 
 
-  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+  <script  src="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" ></script>
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
     window.anchors.options = {
       placement: CONFIG.anchorjs.placement,
       visible  : CONFIG.anchorjs.visible
@@ -837,7 +841,7 @@ class="uri">https://www.linux.com/training-tutorials/vim-tips-basics-search-and-
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
     Fluid.plugins.fancyBox();
   });
 </script>
@@ -853,7 +857,7 @@ class="uri">https://www.linux.com/training-tutorials/vim-tips-basics-search-and-
               inlineMath: { '[+]': [['$', '$']] }
             },
             loader : {
-              
+              load: ['ui/lazy']
             },
             options: {
               renderActions: {
@@ -886,7 +890,7 @@ class="uri">https://www.linux.com/training-tutorials/vim-tips-basics-search-and-
       </script>
     
 
-  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

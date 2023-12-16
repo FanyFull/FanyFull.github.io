@@ -35,15 +35,17 @@
   
   <title>数据库第一次上机实验报告 - Fany Full&#39;s Blog</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -75,7 +77,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -119,7 +121,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -131,7 +133,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -143,7 +145,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -155,7 +157,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -167,7 +169,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -227,7 +229,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          5.4k 字
+          2.2k 字
         
       </span>
     
@@ -239,7 +241,7 @@
         
         
           <!-- compatible with older versions-->
-          45 分钟
+          19 分钟
         
       </span>
     
@@ -314,17 +316,18 @@
 <p>3、利用 Transact-SQL 语言查看数据库及表的信息。</p>
 <p>① 查看连接中的所有数据库</p>
 <p>步骤：点击“新建查询”，输入</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SHOW</span> DATABASES;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SHOW</span> <span class="token keyword">DATABASES</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>后运行，</p>
 <p><img src="https://i.imgur.com/6G5XEg6.png" srcset="/img/loading.gif" lazyload /></p>
 <p>② 查看数据库 mysql 中所有的表</p>
 <p>步骤：打开查询窗口，输入</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">show</span> tables <span class="hljs-keyword">from</span> mysql;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> <span class="token keyword">tables</span> <span class="token keyword">from</span> mysql<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>后运行，</p>
 <p><img src="https://i.imgur.com/qn3QhYM.png" srcset="/img/loading.gif" lazyload /></p>
 <p>③ 查看数据库“mysql”中表“help_keyword”的结构。</p>
 <p>步骤：打开查询窗口，输入</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql">USE mysql;<br><span class="hljs-keyword">DESCRIBE</span> help_keyword;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">USE</span> mysql<span class="token punctuation">;</span>
+<span class="token keyword">DESCRIBE</span> help_keyword<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <p>后运行，</p>
 <p><img src="https://i.imgur.com/WvfZaEj.png" srcset="/img/loading.gif" lazyload /></p>
 <p>4、利用 Navicat 修改数据库 mydb，修改其排序方式为 utf8_bin。
@@ -333,7 +336,7 @@ Database，在排序方式中选择“utf8_bin”—“确定”。</p>
 <p><img src="https://i.imgur.com/bKdz53M.png" srcset="/img/loading.gif" lazyload /></p>
 <p>5、利用 Transact-SQL 语言修改数据库 mydb 的字符集为 Latin1；</p>
 <p>步骤：打开查询窗口，输入以下代码，点击运行</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> DATABASE mydb <span class="hljs-keyword">DEFAULT</span> <span class="hljs-type">CHARACTER</span> <span class="hljs-keyword">SET</span> <span class="hljs-operator">=</span> latin1;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">DATABASE</span> mydb <span class="token keyword">DEFAULT</span> <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> <span class="token operator">=</span> latin1<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p><img src="https://i.imgur.com/ynDvj5T.png" srcset="/img/loading.gif" lazyload /></p>
 <p>关闭数据库“mydb”后重新打开，查看数据库属性，可以看到如下图所示结果：</p>
 <p><img src="https://i.imgur.com/k6DhwMI.png" srcset="/img/loading.gif" lazyload /></p>
@@ -342,7 +345,7 @@ Database，在排序方式中选择“utf8_bin”—“确定”。</p>
 语句编写界面。</p>
 <p>7、利用 Transact-SQL 语言删除数据库 testdb。</p>
 <p>步骤：点击“新建查询”，输入</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">DROP</span> DATABASE testdb;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">DATABASE</span> testdb<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>后运行，</p>
 <p>刷新连接“MySQL”，查看结果。</p>
 <p>8、转储 MySQL 数据库。</p>
@@ -358,7 +361,10 @@ Database，在排序方式中选择“utf8_bin”—“确定”。</p>
 <p>这里实际操作的时候有错误。</p>
 <h2 id="三课后练习题">三、课后练习题</h2>
 <p>1、分别用以下几种语句查看数据库“mysql”中任意表的结构或数据（先输入：<code>USE mysql;</code>）：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql">① <span class="hljs-keyword">SHOW</span> COLUMNS <span class="hljs-keyword">FROM</span> 表名;<br>② <span class="hljs-keyword">DESCRIBE</span> 表名;<br>③ <span class="hljs-keyword">DESC</span> 表名;<br>④ <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> 表名;  <br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">① <span class="token keyword">SHOW</span> <span class="token keyword">COLUMNS</span> <span class="token keyword">FROM</span> 表名<span class="token punctuation">;</span>
+② <span class="token keyword">DESCRIBE</span> 表名<span class="token punctuation">;</span>
+③ <span class="token keyword">DESC</span> 表名<span class="token punctuation">;</span>
+④ <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> 表名<span class="token punctuation">;</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p><img src="https://i.imgur.com/jL6k95e.png" srcset="/img/loading.gif" lazyload /></p>
 <p><img src="https://i.imgur.com/sx5ZdCJ.png" srcset="/img/loading.gif" lazyload /></p>
 <p><img src="https://i.imgur.com/xq6rAj6.png" srcset="/img/loading.gif" lazyload /></p>
@@ -411,27 +417,36 @@ datetime。如图所示：</p>
 2）表格中各个属性的定义如下：</p>
 <p><img src="https://i.imgur.com/jDRKDgy.png" srcset="/img/loading.gif" lazyload /></p>
 <p>步骤：点击“新建查询”，输入以下代码，点击运行，</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sql">USE xsgl;<br><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> kc<br>(<br>    kch <span class="hljs-type">char</span>(<span class="hljs-number">4</span>) <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span>,<br>    kcm <span class="hljs-type">char</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">null</span>,<br>    xss <span class="hljs-type">int</span> <span class="hljs-keyword">null</span>,<br>    xf <span class="hljs-type">int</span> <span class="hljs-keyword">null</span>,<br>    <span class="hljs-keyword">primary</span> key(kch)<br>)engine<span class="hljs-operator">=</span>innodb <span class="hljs-keyword">default</span> charset<span class="hljs-operator">=</span>utf8 auto_increment<span class="hljs-operator">=</span><span class="hljs-number">1</span>;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">USE</span> xsgl<span class="token punctuation">;</span>
+<span class="token keyword">create</span> <span class="token keyword">table</span> kc
+<span class="token punctuation">(</span>
+    kch <span class="token keyword">char</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token boolean">null</span><span class="token punctuation">,</span>
+    kcm <span class="token keyword">char</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token boolean">null</span><span class="token punctuation">,</span>
+    xss <span class="token keyword">int</span> <span class="token boolean">null</span><span class="token punctuation">,</span>
+    xf <span class="token keyword">int</span> <span class="token boolean">null</span><span class="token punctuation">,</span>
+    <span class="token keyword">primary</span> <span class="token keyword">key</span><span class="token punctuation">(</span>kch<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token keyword">engine</span><span class="token operator">=</span><span class="token keyword">innodb</span> <span class="token keyword">default</span> <span class="token keyword">charset</span><span class="token operator">=</span>utf8 <span class="token keyword">auto_increment</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p><img src="https://i.imgur.com/sKdaB2t.png" srcset="/img/loading.gif" lazyload /></p>
 <p><img src="https://i.imgur.com/mqop5eW.png" srcset="/img/loading.gif" lazyload /></p>
 <p>7、利用 Transact-SQL 语言修改 kc 表。</p>
 <p>① 增加“成绩”一列 cj，int 型，允许为空值，默认为 0。</p>
 <p>步骤：点击“新建查询”，输入以下代码，点击运行，</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> kc <span class="hljs-keyword">ADD</span> <span class="hljs-keyword">COLUMN</span> cj <span class="hljs-type">INT</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-number">0</span>;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> kc <span class="token keyword">ADD</span> <span class="token keyword">COLUMN</span> cj <span class="token keyword">INT</span> <span class="token keyword">DEFAULT</span> <span class="token number">0</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p><img src="https://i.imgur.com/o1c5xqG.png" srcset="/img/loading.gif" lazyload /></p>
 <p>② 修改 cj 列的类型为 char。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> kc MODIFY <span class="hljs-keyword">COLUMN</span> cj <span class="hljs-type">char</span>;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> kc <span class="token keyword">MODIFY</span> <span class="token keyword">COLUMN</span> cj <span class="token keyword">char</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p><img src="https://i.imgur.com/Ucu2c2z.png" srcset="/img/loading.gif" lazyload /></p>
 <p>③ 修改 cj 列的列名为 mark。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> kc <br>RENAME <span class="hljs-keyword">COLUMN</span> cj <span class="hljs-keyword">TO</span> mark;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> kc 
+<span class="token keyword">RENAME</span> <span class="token keyword">COLUMN</span> cj <span class="token keyword">TO</span> mark<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <p>④ 删除 mark 列。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> kc <span class="hljs-keyword">DROP</span> <span class="hljs-keyword">COLUMN</span> mark;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> kc <span class="token keyword">DROP</span> <span class="token keyword">COLUMN</span> mark<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>8、利用 Navicat 和 Transact-SQL 语言两种方式删除表 kc。</p>
 <p>① 步骤：右键点击表“kc”，选择删除。<br />
 ② 步骤：点击“新建查询”，输入以下代码，点击执行</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> kc;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> kc<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>9、利用 Transact-SQL 将表 xs 重命名为 Students。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">RENAME <span class="hljs-keyword">TABLE</span> xs <span class="hljs-keyword">TO</span> Students;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">RENAME</span> <span class="token keyword">TABLE</span> xs <span class="token keyword">TO</span> Students<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <h2 id="三课后练习题-1">三、课后练习题</h2>
 <p>1、创建一个名为 cpxs 的数据库，在该数据库中分别通过 Navicat
 和查询分析器创建一个名为 cp
@@ -439,7 +454,13 @@ datetime。如图所示：</p>
 <p><img src="https://i.imgur.com/FqsbP7t.png" srcset="/img/loading.gif" lazyload /></p>
 <p>答：</p>
 <p>Navicat 建表从略。SQL 语句建表如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> `cp` (<br>  `cpbh` <span class="hljs-type">char</span>(<span class="hljs-number">6</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;主码&#x27;</span>,<br>  `cpmc` <span class="hljs-type">char</span>(<span class="hljs-number">30</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  `jg` <span class="hljs-type">float</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>  `kcl` <span class="hljs-type">int</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>,<br>  <span class="hljs-keyword">PRIMARY</span> KEY (`cpbh`)<br>) ENGINE<span class="hljs-operator">=</span>InnoDB <span class="hljs-keyword">DEFAULT</span> CHARSET<span class="hljs-operator">=</span>utf8mb3;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">`</span>cp<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
+  <span class="token identifier"><span class="token punctuation">`</span>cpbh<span class="token punctuation">`</span></span> <span class="token keyword">char</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'主码'</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>cpmc<span class="token punctuation">`</span></span> <span class="token keyword">char</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>jg<span class="token punctuation">`</span></span> <span class="token keyword">float</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>kcl<span class="token punctuation">`</span></span> <span class="token keyword">int</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>cpbh<span class="token punctuation">`</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">InnoDB</span> <span class="token keyword">DEFAULT</span> <span class="token keyword">CHARSET</span><span class="token operator">=</span>utf8mb3<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>2、思考以下问题：</p>
 <p>1）如果要在一个已经存在的表格上删除一列并增加一列，能不能用一个 ALTER
 TABLE 语句来完成？</p>
@@ -454,48 +475,66 @@ TABLE 语句来完成？</p>
 <p>2、查询 world 数据库的 country
 表中的国名（Name）、洲名（Continent）和地区（Region）。</p>
 <p>步骤：点击“新建查询”，输入以下代码，点击执行，运行结果如图：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql">USE world;<br><span class="hljs-keyword">SELECT</span> NAME, Continent, Region <span class="hljs-keyword">From</span> country;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">USE</span> world<span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> NAME<span class="token punctuation">,</span> Continent<span class="token punctuation">,</span> Region <span class="token keyword">From</span> country<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <p><img src="https://i.imgur.com/pM4C27L.png" srcset="/img/loading.gif" lazyload /></p>
 <p>3、从 world 数据库的 city 表中搜索返回前 20 条的数据。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> city LIMIT <span class="hljs-number">0</span>, <span class="hljs-number">10</span>;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> city <span class="token keyword">LIMIT</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>4、使用 WHERE 子句从 world 数据库的 country
 表中检索出所有领土面积超过一百万平方公里的国家名称（Name）、洲名（Continent）以及领土面积（SurfaceArea）。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Name, Continent, SurfaceArea <span class="hljs-keyword">FROM</span> country<br><span class="hljs-keyword">WHERE</span> SurfaceArea <span class="hljs-operator">&gt;</span> <span class="hljs-number">1000000</span>;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> Name<span class="token punctuation">,</span> Continent<span class="token punctuation">,</span> SurfaceArea <span class="token keyword">FROM</span> country
+<span class="token keyword">WHERE</span> SurfaceArea <span class="token operator">></span> <span class="token number">1000000</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <p>5、查询在 world 数据库的 country 表中 Name 以字母 C 开头的国家的洲名
 Continent，地区 Region。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Continent, Region <span class="hljs-keyword">FROM</span> country<br><span class="hljs-keyword">WHERE</span> Name REGEXP <span class="hljs-string">&#x27;^C&#x27;</span>;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> Continent<span class="token punctuation">,</span> Region <span class="token keyword">FROM</span> country
+<span class="token keyword">WHERE</span> Name <span class="token operator">REGEXP</span> <span class="token string">'^C'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <p>6、查询 world 数据库 country 表中所有国家的 Name 和
 Continent，并按生日 SurfaceArea 从小到大进行排列。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Name, Continent <span class="hljs-keyword">FROM</span> country<br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> SurfaceArea <span class="hljs-keyword">ASC</span>;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> Name<span class="token punctuation">,</span> Continent <span class="token keyword">FROM</span> country
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> SurfaceArea <span class="token keyword">ASC</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <p>练习巩固</p>
 <p>7、查询 country
 表中政体（GovernmentForm）属于共和国（Republic）的国家的 Name 和
 Population、GovernmentForm。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Name, Population, GovernmentForm <span class="hljs-keyword">FROM</span> country<br><span class="hljs-keyword">WHERE</span> GovernmentForm <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Republic&#x27;</span>;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> Name<span class="token punctuation">,</span> Population<span class="token punctuation">,</span> GovernmentForm <span class="token keyword">FROM</span> country
+<span class="token keyword">WHERE</span> GovernmentForm <span class="token operator">=</span> <span class="token string">'Republic'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <p>8、country 表中查询前 20 个非洲国家的名称。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Name <span class="hljs-keyword">FROM</span> country<br><span class="hljs-keyword">WHERE</span> Continent <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Africa&#x27;</span><br>LIMIT <span class="hljs-number">20</span>;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> Name <span class="token keyword">FROM</span> country
+<span class="token keyword">WHERE</span> Continent <span class="token operator">=</span> <span class="token string">'Africa'</span>
+<span class="token keyword">LIMIT</span> <span class="token number">20</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>9、city 表中查询阿富汗（Countrycode 为
 AFG）的所有城市的名称和人口，并要求对查询结果按人口的降序排列。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Name, Population <span class="hljs-keyword">FROM</span> city<br><span class="hljs-keyword">WHERE</span> CountryCode <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;AFG&#x27;</span><br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> Population <span class="hljs-keyword">DESC</span>;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> Name<span class="token punctuation">,</span> Population <span class="token keyword">FROM</span> city
+<span class="token keyword">WHERE</span> CountryCode <span class="token operator">=</span> <span class="token string">'AFG'</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> Population <span class="token keyword">DESC</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>10、Country
 表中查询领土面积介于一百万和五百万平方公里之间的国家的名称和领土面积（领土面积以除以一万的结果显示）。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Name, SurfaceArea <span class="hljs-operator">/</span> <span class="hljs-number">10000</span> <span class="hljs-keyword">FROM</span> country<br><span class="hljs-keyword">WHERE</span> SurfaceArea <span class="hljs-operator">&gt;</span> <span class="hljs-number">1000000</span> <span class="hljs-keyword">AND</span> SurfaceArea <span class="hljs-operator">&lt;</span> <span class="hljs-number">5000000</span>;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> Name<span class="token punctuation">,</span> SurfaceArea <span class="token operator">/</span> <span class="token number">10000</span> <span class="token keyword">FROM</span> country
+<span class="token keyword">WHERE</span> SurfaceArea <span class="token operator">></span> <span class="token number">1000000</span> <span class="token operator">AND</span> SurfaceArea <span class="token operator">&lt;</span> <span class="token number">5000000</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <p>11、查询名称以“C”开头的亚洲国家或非洲国家的名称和洲名。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Name, Continent <span class="hljs-keyword">FROM</span> country<br><span class="hljs-keyword">WHERE</span> (Continent <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Asia&#x27;</span> <span class="hljs-keyword">OR</span> Continent <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Africa&#x27;</span>) <span class="hljs-keyword">AND</span> Name REGEXP <span class="hljs-string">&#x27;^C&#x27;</span>;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> Name<span class="token punctuation">,</span> Continent <span class="token keyword">FROM</span> country
+<span class="token keyword">WHERE</span> <span class="token punctuation">(</span>Continent <span class="token operator">=</span> <span class="token string">'Asia'</span> <span class="token operator">OR</span> Continent <span class="token operator">=</span> <span class="token string">'Africa'</span><span class="token punctuation">)</span> <span class="token operator">AND</span> Name <span class="token operator">REGEXP</span> <span class="token string">'^C'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <p>12、country 表中查询独立年份为空的国家的名称、国家年份。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Name, IndepYear <span class="hljs-keyword">FROM</span> country<br><span class="hljs-keyword">WHERE</span> IndepYear <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NULL</span>;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> Name<span class="token punctuation">,</span> IndepYear <span class="token keyword">FROM</span> country
+<span class="token keyword">WHERE</span> IndepYear <span class="token operator">IS</span> <span class="token boolean">NULL</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <h2 id="三课后练习题-2">三、课后练习题</h2>
 <p>以下题目在数据库world中完成。</p>
 <p>1、查询 country
 表中所有亚洲国家的名称、地区，要求查询结果按人口的升序排列。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Name, Region <span class="hljs-keyword">FROM</span> country<br><span class="hljs-keyword">WHERE</span> Continent <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Asia&#x27;</span><br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> Population <span class="hljs-keyword">ASC</span>;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> Name<span class="token punctuation">,</span> Region <span class="token keyword">FROM</span> country
+<span class="token keyword">WHERE</span> Continent <span class="token operator">=</span> <span class="token string">'Asia'</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> Population <span class="token keyword">ASC</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>2、查询 city 表中智利（CHL）或保加利亚（BGR）的城市名称。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Name <span class="hljs-keyword">FROM</span> city<br><span class="hljs-keyword">WHERE</span> CountryCode <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;CHL&#x27;</span> <span class="hljs-keyword">OR</span> CountryCode <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;BGR&#x27;</span>;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> Name <span class="token keyword">FROM</span> city
+<span class="token keyword">WHERE</span> CountryCode <span class="token operator">=</span> <span class="token string">'CHL'</span> <span class="token operator">OR</span> CountryCode <span class="token operator">=</span> <span class="token string">'BGR'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <p>3、查询 country 表中 Region 字段包含“Europe”的国家的全部信息。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> country<br><span class="hljs-keyword">WHERE</span> Region <span class="hljs-keyword">like</span> <span class="hljs-string">&#x27;%Europe%&#x27;</span>;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> country
+<span class="token keyword">WHERE</span> Region <span class="token operator">like</span> <span class="token string">'%Europe%'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <p>4、查询所有君主立宪制（Constitutional
 Monarchy）国家的名称和人口，按人口降序排列。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Name, Population <span class="hljs-keyword">FROM</span> country<br><span class="hljs-keyword">WHERE</span> GovernmentForm <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Constitutional Monarchy&#x27;</span><br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> Population <span class="hljs-keyword">DESC</span>;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> Name<span class="token punctuation">,</span> Population <span class="token keyword">FROM</span> country
+<span class="token keyword">WHERE</span> GovernmentForm <span class="token operator">=</span> <span class="token string">'Constitutional Monarchy'</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> Population <span class="token keyword">DESC</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
 
                 
               </div>
@@ -746,8 +785,8 @@ Monarchy）国家的名称和人口，按人口降序排列。</p>
 
   <!-- Scripts -->
   
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -758,13 +797,13 @@ Monarchy）国家的名称和人口，按人口降序排列。</p>
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -791,7 +830,7 @@ Monarchy）国家的名称和人口，按人口降序排列。</p>
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
     var toc = jQuery('#toc');
     if (toc.length === 0 || !window.tocbot) { return; }
     var boardCtn = jQuery('#board-ctn');
@@ -829,14 +868,16 @@ Monarchy）国家的名称和人口，按人口降序排列。</p>
 </script>
 
 
-  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+  <script  src="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" ></script>
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
     window.anchors.options = {
       placement: CONFIG.anchorjs.placement,
       visible  : CONFIG.anchorjs.visible
@@ -874,7 +915,7 @@ Monarchy）国家的名称和人口，按人口降序排列。</p>
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
     Fluid.plugins.fancyBox();
   });
 </script>
@@ -890,7 +931,7 @@ Monarchy）国家的名称和人口，按人口降序排列。</p>
               inlineMath: { '[+]': [['$', '$']] }
             },
             loader : {
-              
+              load: ['ui/lazy']
             },
             options: {
               renderActions: {
@@ -923,7 +964,7 @@ Monarchy）国家的名称和人口，按人口降序排列。</p>
       </script>
     
 
-  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

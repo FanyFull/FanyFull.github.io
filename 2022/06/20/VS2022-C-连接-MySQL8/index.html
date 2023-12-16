@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前置要求： 下载安装 VS2022，MySQL8。 然后，配置 VS 环境。 之后，就是把相关的头文件和库目录添加到配置中：     之后，还要将 libmysql.lib 文件添加到项目的根目录下：   然后，我们可以写一个简单的查询来测试一下： 123456789101112131415161718192021222324252627282930313233343536373839404142">
+    <meta name="description" content="前置要求： 下载安装 VS2022，MySQL8。 然后，配置 VS 环境。 之后，就是把相关的头文件和库目录添加到配置中：     之后，还要将 libmysql.lib 文件添加到项目的根目录下：   然后，我们可以写一个简单的查询来测试一下： #define _CRT_SECURE_NO_WARNINGS #include &lt;Windows.h&gt; #include &lt;stdio.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VS2022 C++ 连接 MySQL8">
 <meta property="og:url" content="http://fanyfull.github.io/2022/06/20/VS2022-C-%E8%BF%9E%E6%8E%A5-MySQL8/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="前置要求： 下载安装 VS2022，MySQL8。 然后，配置 VS 环境。 之后，就是把相关的头文件和库目录添加到配置中：     之后，还要将 libmysql.lib 文件添加到项目的根目录下：   然后，我们可以写一个简单的查询来测试一下： 123456789101112131415161718192021222324252627282930313233343536373839404142">
+<meta property="og:description" content="前置要求： 下载安装 VS2022，MySQL8。 然后，配置 VS 环境。 之后，就是把相关的头文件和库目录添加到配置中：     之后，还要将 libmysql.lib 文件添加到项目的根目录下：   然后，我们可以写一个简单的查询来测试一下： #define _CRT_SECURE_NO_WARNINGS #include &lt;Windows.h&gt; #include &lt;stdio.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/MdMiJvP.png">
 <meta property="article:published_time" content="2022-06-20T08:27:38.000Z">
@@ -35,15 +35,17 @@
   
   <title>VS2022 C++ 连接 MySQL8 - Fany Full&#39;s Blog</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -75,7 +77,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -119,7 +121,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -131,7 +133,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -143,7 +145,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -155,7 +157,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -167,7 +169,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -227,7 +229,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          2k 字
+          365 字
         
       </span>
     
@@ -239,7 +241,7 @@
         
         
           <!-- compatible with older versions-->
-          17 分钟
+          4 分钟
         
       </span>
     
@@ -293,7 +295,77 @@
 <p><img src="https://i.imgur.com/1ait2E8.png" srcset="/img/loading.gif" lazyload /></p>
 <p><img src="https://i.imgur.com/i2HVfUF.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后，我们可以写一个简单的查询来测试一下：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">define</span> _CRT_SECURE_NO_WARNINGS</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;Windows.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;mysql.h&gt;</span> </span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">//#pragma comment(lib,&quot;libmysql.lib&quot;)</span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-type">const</span> <span class="hljs-type">char</span> user[] = <span class="hljs-string">&quot;root&quot;</span>;         <span class="hljs-comment">//username</span><br>	<span class="hljs-type">const</span> <span class="hljs-type">char</span> pswd[] = <span class="hljs-string">&quot;lf123456&quot;</span>;     <span class="hljs-comment">//password</span><br>	<span class="hljs-type">const</span> <span class="hljs-type">char</span> host[] = <span class="hljs-string">&quot;localhost&quot;</span>;    <span class="hljs-comment">//or&quot;127.0.0.1&quot;</span><br>	<span class="hljs-type">const</span> <span class="hljs-type">char</span> database[] = <span class="hljs-string">&quot;computer_network&quot;</span>;       <span class="hljs-comment">//database   //有相应的数据库</span><br>	<span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> port = <span class="hljs-number">3306</span>;           <span class="hljs-comment">//server port        </span><br>	MYSQL myCont;<br>	MYSQL_RES* result = <span class="hljs-literal">NULL</span>;<br>	MYSQL_ROW sql_row;<br>	MYSQL_FIELD* fd;<br>	<span class="hljs-type">char</span> column[<span class="hljs-number">32</span>][<span class="hljs-number">32</span>];<br>	<span class="hljs-type">int</span> res;<br>	<span class="hljs-built_in">mysql_init</span>(&amp;myCont);<br>	<span class="hljs-comment">//auto ret = mysql_real_connect(&amp;myCont, host, user, pswd, database, port, NULL, 0);</span><br>	<span class="hljs-keyword">if</span> (<span class="hljs-built_in">mysql_real_connect</span>(&amp;myCont, host, user, pswd, database, port, <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>))<br>	&#123;<br>		cout &lt;&lt; <span class="hljs-string">&quot;connect succeed!&quot;</span> &lt;&lt; endl;<br>		<span class="hljs-built_in">mysql_query</span>(&amp;myCont, <span class="hljs-string">&quot;SET NAMES GBK&quot;</span>); <span class="hljs-comment">//设置编码格式,否则在cmd下无法显示中文</span><br>		res = <span class="hljs-built_in">mysql_query</span>(&amp;myCont, <span class="hljs-string">&quot;select * from test_tb limit 2&quot;</span>);<span class="hljs-comment">//查询    //database下有相应的表才能成功</span><br>		<span class="hljs-keyword">if</span> (!res)<br>		&#123;<br>			result = <span class="hljs-built_in">mysql_store_result</span>(&amp;myCont);<span class="hljs-comment">//保存查询到的数据到result</span><br>			<span class="hljs-keyword">if</span> (result)<br>			&#123;<br>				<span class="hljs-type">int</span> i, j;<br>				cout &lt;&lt; <span class="hljs-string">&quot;number of result: &quot;</span> &lt;&lt; (<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)<span class="hljs-built_in">mysql_num_rows</span>(result) &lt;&lt; endl;<br>				<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; fd = <span class="hljs-built_in">mysql_fetch_field</span>(result); i++)<span class="hljs-comment">//获取列名</span><br>				&#123;<br>					<span class="hljs-built_in">strcpy</span>(column[i], fd-&gt;name);<br>				&#125;<br>				j = <span class="hljs-built_in">mysql_num_fields</span>(result);<br>				<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; j; i++)<br>				&#123;<br>					<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s\t&quot;</span>, column[i]);<br>				&#125;<br>				<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>				<span class="hljs-keyword">while</span> (sql_row = <span class="hljs-built_in">mysql_fetch_row</span>(result))<span class="hljs-comment">//获取具体的数据</span><br>				&#123;<br>					<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; j; i++)<br>					&#123;<br>						<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s\n&quot;</span>, sql_row[i]);<br>					&#125;<br>					<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>				&#125;<br>			&#125;<br>		&#125;<br>		<span class="hljs-keyword">else</span><br>		&#123;<br>			cout &lt;&lt; <span class="hljs-string">&quot;query sql failed!&quot;</span> &lt;&lt; endl;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">else</span><br>	&#123;<br>		cout &lt;&lt; <span class="hljs-string">&quot;connect failed!&quot;</span> &lt;&lt; endl;<br>	&#125;<br>	<span class="hljs-keyword">if</span> (result != <span class="hljs-literal">NULL</span>) <span class="hljs-built_in">mysql_free_result</span>(result);<span class="hljs-comment">//释放结果资源</span><br>	<span class="hljs-built_in">mysql_close</span>(&amp;myCont);<span class="hljs-comment">//断开连接</span><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">_CRT_SECURE_NO_WARNINGS</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;Windows.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;mysql.h></span> </span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token comment">//#pragma comment(lib,"libmysql.lib")</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">const</span> <span class="token keyword">char</span> user<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"root"</span><span class="token punctuation">;</span>         <span class="token comment">//username</span>
+	<span class="token keyword">const</span> <span class="token keyword">char</span> pswd<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"lf123456"</span><span class="token punctuation">;</span>     <span class="token comment">//password</span>
+	<span class="token keyword">const</span> <span class="token keyword">char</span> host<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"localhost"</span><span class="token punctuation">;</span>    <span class="token comment">//or"127.0.0.1"</span>
+	<span class="token keyword">const</span> <span class="token keyword">char</span> database<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"computer_network"</span><span class="token punctuation">;</span>       <span class="token comment">//database   //有相应的数据库</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">int</span> port <span class="token operator">=</span> <span class="token number">3306</span><span class="token punctuation">;</span>           <span class="token comment">//server port        </span>
+	MYSQL myCont<span class="token punctuation">;</span>
+	MYSQL_RES<span class="token operator">*</span> result <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+	MYSQL_ROW sql_row<span class="token punctuation">;</span>
+	MYSQL_FIELD<span class="token operator">*</span> fd<span class="token punctuation">;</span>
+	<span class="token keyword">char</span> column<span class="token punctuation">[</span><span class="token number">32</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">32</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> res<span class="token punctuation">;</span>
+	<span class="token function">mysql_init</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myCont<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token comment">//auto ret = mysql_real_connect(&amp;myCont, host, user, pswd, database, port, NULL, 0);</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">mysql_real_connect</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myCont<span class="token punctuation">,</span> host<span class="token punctuation">,</span> user<span class="token punctuation">,</span> pswd<span class="token punctuation">,</span> database<span class="token punctuation">,</span> port<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		cout <span class="token operator">&lt;&lt;</span> <span class="token string">"connect succeed!"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+		<span class="token function">mysql_query</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myCont<span class="token punctuation">,</span> <span class="token string">"SET NAMES GBK"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//设置编码格式,否则在cmd下无法显示中文</span>
+		res <span class="token operator">=</span> <span class="token function">mysql_query</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myCont<span class="token punctuation">,</span> <span class="token string">"select * from test_tb limit 2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//查询    //database下有相应的表才能成功</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>res<span class="token punctuation">)</span>
+		<span class="token punctuation">&#123;</span>
+			result <span class="token operator">=</span> <span class="token function">mysql_store_result</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myCont<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//保存查询到的数据到result</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+			<span class="token punctuation">&#123;</span>
+				<span class="token keyword">int</span> i<span class="token punctuation">,</span> j<span class="token punctuation">;</span>
+				cout <span class="token operator">&lt;&lt;</span> <span class="token string">"number of result: "</span> <span class="token operator">&lt;&lt;</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">long</span><span class="token punctuation">)</span><span class="token function">mysql_num_rows</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+				<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> fd <span class="token operator">=</span> <span class="token function">mysql_fetch_field</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token comment">//获取列名</span>
+				<span class="token punctuation">&#123;</span>
+					<span class="token function">strcpy</span><span class="token punctuation">(</span>column<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> fd<span class="token operator">-></span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">&#125;</span>
+				j <span class="token operator">=</span> <span class="token function">mysql_num_fields</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> j<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+				<span class="token punctuation">&#123;</span>
+					<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\t"</span><span class="token punctuation">,</span> column<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">&#125;</span>
+				<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token keyword">while</span> <span class="token punctuation">(</span>sql_row <span class="token operator">=</span> <span class="token function">mysql_fetch_row</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">//获取具体的数据</span>
+				<span class="token punctuation">&#123;</span>
+					<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> j<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+					<span class="token punctuation">&#123;</span>
+						<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span> sql_row<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					<span class="token punctuation">&#125;</span>
+					<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">&#125;</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token keyword">else</span>
+		<span class="token punctuation">&#123;</span>
+			cout <span class="token operator">&lt;&lt;</span> <span class="token string">"query sql failed!"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">else</span>
+	<span class="token punctuation">&#123;</span>
+		cout <span class="token operator">&lt;&lt;</span> <span class="token string">"connect failed!"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>result <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token function">mysql_free_result</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//释放结果资源</span>
+	<span class="token function">mysql_close</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myCont<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//断开连接</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>输出结果：</p>
 <p><img src="https://i.imgur.com/m4ryib2.png" srcset="/img/loading.gif" lazyload /></p>
 <p>数据库中的数据：</p>
@@ -527,8 +599,8 @@
 
   <!-- Scripts -->
   
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -539,13 +611,13 @@
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -572,7 +644,7 @@
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
     var toc = jQuery('#toc');
     if (toc.length === 0 || !window.tocbot) { return; }
     var boardCtn = jQuery('#board-ctn');
@@ -610,14 +682,16 @@
 </script>
 
 
-  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+  <script  src="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" ></script>
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
     window.anchors.options = {
       placement: CONFIG.anchorjs.placement,
       visible  : CONFIG.anchorjs.visible
@@ -655,7 +729,7 @@
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
     Fluid.plugins.fancyBox();
   });
 </script>
@@ -671,7 +745,7 @@
               inlineMath: { '[+]': [['$', '$']] }
             },
             loader : {
-              
+              load: ['ui/lazy']
             },
             options: {
               renderActions: {
@@ -704,7 +778,7 @@
       </script>
     
 
-  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

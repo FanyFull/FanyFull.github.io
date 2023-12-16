@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="运行 Java 的一个 Main 方法 我们知道，大多数情况下，我们想要运行一个 Java 程序，其实就是运行一个 Main 方法。即使是一个 Spring 应用，最终也是会执行主应用的 Main 方法的。 所以，这里所说的使用 maven 在命令行去执行 Java 程序，也就是去执行对应的类的 Main 方法。 首先，我们添加一个插件， 123456&lt;!-- https:&#x2F;&#x2F;mvnrepo">
+    <meta name="description" content="运行 Java 的一个 Main 方法 我们知道，大多数情况下，我们想要运行一个 Java 程序，其实就是运行一个 Main 方法。即使是一个 Spring 应用，最终也是会执行主应用的 Main 方法的。 所以，这里所说的使用 maven 在命令行去执行 Java 程序，也就是去执行对应的类的 Main 方法。 首先，我们添加一个插件， &lt;!-- https:&#x2F;&#x2F;mvnrepository">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何使用 maven 在命令行去执行 Java 程序，以及，如何执行测试">
 <meta property="og:url" content="http://fanyfull.github.io/2023/12/03/how-to-use-maven-to-execute-Java-programs-in-commandline-and-tests/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="运行 Java 的一个 Main 方法 我们知道，大多数情况下，我们想要运行一个 Java 程序，其实就是运行一个 Main 方法。即使是一个 Spring 应用，最终也是会执行主应用的 Main 方法的。 所以，这里所说的使用 maven 在命令行去执行 Java 程序，也就是去执行对应的类的 Main 方法。 首先，我们添加一个插件， 123456&lt;!-- https:&#x2F;&#x2F;mvnrepo">
+<meta property="og:description" content="运行 Java 的一个 Main 方法 我们知道，大多数情况下，我们想要运行一个 Java 程序，其实就是运行一个 Main 方法。即使是一个 Spring 应用，最终也是会执行主应用的 Main 方法的。 所以，这里所说的使用 maven 在命令行去执行 Java 程序，也就是去执行对应的类的 Main 方法。 首先，我们添加一个插件， &lt;!-- https:&#x2F;&#x2F;mvnrepository">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/fF3yKIY.png">
 <meta property="article:published_time" content="2023-12-03T03:13:12.000Z">
@@ -36,15 +36,17 @@
   
   <title>如何使用 maven 在命令行去执行 Java 程序，以及，如何执行测试 - Fany Full&#39;s Blog</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -76,7 +78,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -120,7 +122,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -132,7 +134,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -144,7 +146,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -156,7 +158,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -168,7 +170,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -228,7 +230,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          6.9k 字
+          1.1k 字
         
       </span>
     
@@ -240,7 +242,7 @@
         
         
           <!-- compatible with older versions-->
-          58 分钟
+          10 分钟
         
       </span>
     
@@ -289,39 +291,196 @@ Main 方法。即使是一个 Spring 应用，最终也是会执行主应用的 
 <p>所以，这里所说的使用 maven 在命令行去执行 Java
 程序，也就是去执行对应的类的 Main 方法。</p>
 <p>首先，我们添加一个插件，</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin --&gt;</span> <br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>                                                                    <br>  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.codehaus.mojo<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>                                          <br>  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>exec-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>                                    <br>  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.1.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>                                                      <br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>                                                                   <br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin --></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>                                                                    
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.codehaus.mojo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>                                          
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>exec-maven-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>                                    
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.1.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>                                                      
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>                                                                   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>并且，配置好这个插件，</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">pluginManagement</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span><br>      <span class="hljs-comment">&lt;!-- to run java file with exec-maven-plugin --&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.codehaus.mojo<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>exec-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.1.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">mainClass</span>&gt;</span>com.fanyfull.App<span class="hljs-tag">&lt;/<span class="hljs-name">mainClass</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">arguments</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">argument</span>&gt;</span>First<span class="hljs-tag">&lt;/<span class="hljs-name">argument</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">argument</span>&gt;</span>Second<span class="hljs-tag">&lt;/<span class="hljs-name">argument</span>&gt;</span><br>          <span class="hljs-tag">&lt;/<span class="hljs-name">arguments</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">pluginManagement</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>build</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pluginManagement</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugins</span><span class="token punctuation">></span></span>
+      <span class="token comment">&lt;!-- to run java file with exec-maven-plugin --></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.codehaus.mojo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>exec-maven-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.1.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mainClass</span><span class="token punctuation">></span></span>com.fanyfull.App<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mainClass</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>arguments</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>argument</span><span class="token punctuation">></span></span>First<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>argument</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>argument</span><span class="token punctuation">></span></span>Second<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>argument</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>arguments</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugin</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugins</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pluginManagement</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>build</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>之后，就可以执行我们想要执行的类的 Main 方法了，这里我们只要去修改
 <code>&lt;mainClass&gt;</code>
 标签中的类即可。如果想要传递命令行参数，那么，可以去自定义这个
 <code>&lt;arguments&gt;</code> 里面的参数。</p>
 <p>我们这里的 App 类如下，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.fanyfull;<br><br><span class="hljs-keyword">import</span> java.util.Arrays;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Hello world!</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">App</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;Hello World!&quot;</span>);<br>        <span class="hljs-keyword">if</span> (args.length &gt; <span class="hljs-number">0</span>) &#123;<br>            System.out.println(Arrays.toString(args));<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>fanyfull</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Arrays</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * Hello world!
+ *
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>args<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>然后，我们只需要在命令行执行以下命令即可，</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mvn clean compile <span class="hljs-built_in">exec</span>:java<br></code></pre></td></tr></table></figure>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs routeros">❯ mvn clean compile exec:java<br>[<span class="hljs-built_in">INFO</span>] Scanning <span class="hljs-keyword">for</span> projects<span class="hljs-built_in">..</span>.<br>[<span class="hljs-built_in">INFO</span>] <br>[<span class="hljs-built_in">INFO</span>] ------------------------&lt; com.fanyfull:demo01 &gt;-------------------------<br>[<span class="hljs-built_in">INFO</span>] Building demo01 1.0-SNAPSHOT<br>[<span class="hljs-built_in">INFO</span>] --------------------------------[ jar ]---------------------------------<br>[<span class="hljs-built_in">INFO</span>] <br>[<span class="hljs-built_in">INFO</span>] --- maven-clean-plugin:2.5:clean (default-clean) @ demo01 ---<br>[<span class="hljs-built_in">INFO</span>] Deleting /home/fanyfull/edisk/javaCodes/demo01/target<br>[<span class="hljs-built_in">INFO</span>] <br>[<span class="hljs-built_in">INFO</span>] --- maven-resources-plugin:2.6:resources (default-resources) @ demo01 ---<br>[<span class="hljs-built_in">INFO</span>] Using <span class="hljs-string">&#x27;UTF-8&#x27;</span> encoding <span class="hljs-keyword">to</span> copy filtered resources.<br>[<span class="hljs-built_in">INFO</span>] skip non existing resourceDirectory /home/fanyfull/edisk/javaCodes/demo01/src/main/resources<br>[<span class="hljs-built_in">INFO</span>] <br>[<span class="hljs-built_in">INFO</span>] --- maven-compiler-plugin:3.1:compile (default-compile) @ demo01 ---<br>[<span class="hljs-built_in">INFO</span>] Changes detected - recompiling the module!<br>[<span class="hljs-built_in">INFO</span>] Compiling 1 source file <span class="hljs-keyword">to</span> /home/fanyfull/edisk/javaCodes/demo01/target/classes<br>[<span class="hljs-built_in">INFO</span>] <br>[<span class="hljs-built_in">INFO</span>] --- exec-maven-plugin:3.1.1:java (default-cli) @ demo01 ---<br>Hello World!<br>[First, Second]<br>[<span class="hljs-built_in">INFO</span>] ------------------------------------------------------------------------<br>[<span class="hljs-built_in">INFO</span>] BUILD SUCCESS<br>[<span class="hljs-built_in">INFO</span>] ------------------------------------------------------------------------<br>[<span class="hljs-built_in">INFO</span>] Total time:  1.982 s<br>[<span class="hljs-built_in">INFO</span>] Finished at: 2023-12-03T11:34:13+08:00<br>[<span class="hljs-built_in">INFO</span>] ------------------------------------------------------------------------<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mvn clean compile exec:java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">❯ mvn clean compile exec:java
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------&lt; com.fanyfull:demo01 &gt;-------------------------
+[INFO] Building demo01 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ demo01 ---
+[INFO] Deleting &#x2F;home&#x2F;fanyfull&#x2F;edisk&#x2F;javaCodes&#x2F;demo01&#x2F;target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ demo01 ---
+[INFO] Using &#39;UTF-8&#39; encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory &#x2F;home&#x2F;fanyfull&#x2F;edisk&#x2F;javaCodes&#x2F;demo01&#x2F;src&#x2F;main&#x2F;resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ demo01 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to &#x2F;home&#x2F;fanyfull&#x2F;edisk&#x2F;javaCodes&#x2F;demo01&#x2F;target&#x2F;classes
+[INFO] 
+[INFO] --- exec-maven-plugin:3.1.1:java (default-cli) @ demo01 ---
+Hello World!
+[First, Second]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.982 s
+[INFO] Finished at: 2023-12-03T11:34:13+08:00
+[INFO] ------------------------------------------------------------------------<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>有时候，我们执行的时候不用 clean 参数也是可以的，</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mvn compile <span class="hljs-built_in">exec</span>:java<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mvn compile exec:java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <h2 id="运行测试">运行测试</h2>
 <p>方法和上面的类似，先添加依赖，配置插件，</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin --&gt;</span> <br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>                                                                               <br>  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>                                              <br>  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-surefire-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>                                           <br>  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.2.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>                                                                 <br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>                                                                              <br></code></pre></td></tr></table></figure>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- to run tests with maven-surefire-plugin --&gt;</span> <br><span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>                                         <br>  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>    <br>  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-surefire-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span> <br>  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.2.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>                       <br><span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>                                        <br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin --></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>                                                                               
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.maven.plugins<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>                                              
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>maven-surefire-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>                                           
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.2.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>                                                                 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>                                                                              <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!-- to run tests with maven-surefire-plugin --></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">></span></span>                                         
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.maven.plugins<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>    
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>maven-surefire-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span> 
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.2.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>                       
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugin</span><span class="token punctuation">></span></span>                                        <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>然后，我们看一下测试的类，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.fanyfull;<br><br><span class="hljs-keyword">import</span> org.assertj.core.api.Assertions;<br><span class="hljs-keyword">import</span> org.junit.jupiter.api.Test;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Unit test for simple App.</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AppTest</span> &#123;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Rigorous Test :-)</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">justAnExample</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;fany test&quot;</span>);<br>        Assertions.assertThat(<span class="hljs-string">&quot;App&quot;</span>).endsWith(<span class="hljs-string">&quot;pp&quot;</span>);<br>    &#125;<br><br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">exampleTest02</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;fany test02&quot;</span>);<br>        Assertions.assertThat(<span class="hljs-string">&quot;App&quot;</span>).endsWith(<span class="hljs-string">&quot;pp&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>fanyfull</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>assertj<span class="token punctuation">.</span>core<span class="token punctuation">.</span>api<span class="token punctuation">.</span></span><span class="token class-name">Assertions</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>jupiter<span class="token punctuation">.</span>api<span class="token punctuation">.</span></span><span class="token class-name">Test</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * Unit test for simple App.
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AppTest</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">/**
+     * Rigorous Test :-)
+     */</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">justAnExample</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"fany test"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Assertions</span><span class="token punctuation">.</span><span class="token function">assertThat</span><span class="token punctuation">(</span><span class="token string">"App"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">endsWith</span><span class="token punctuation">(</span><span class="token string">"pp"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">exampleTest02</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"fany test02"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Assertions</span><span class="token punctuation">.</span><span class="token function">assertThat</span><span class="token punctuation">(</span><span class="token string">"App"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">endsWith</span><span class="token punctuation">(</span><span class="token string">"pp"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>之后，在命令行执行，</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mvn <span class="hljs-built_in">test</span><br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mvn <span class="token builtin class-name">test</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>结果如下，</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs bash">❯ mvn <span class="hljs-built_in">test</span>                               <br>[INFO] Scanning <span class="hljs-keyword">for</span> projects...<br>[INFO] <br>[INFO] ------------------------&lt; com.fanyfull:demo01 &gt;-------------------------<br>[INFO] Building demo01 1.0-SNAPSHOT<br>[INFO] --------------------------------[ jar ]---------------------------------<br>[INFO] <br>[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ demo01 ---<br>[INFO] Using <span class="hljs-string">&#x27;UTF-8&#x27;</span> encoding to copy filtered resources.<br>[INFO] skip non existing resourceDirectory /home/fanyfull/edisk/javaCodes/demo01/src/main/resources<br>[INFO] <br>[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ demo01 ---<br>[INFO] Nothing to compile - all classes are up to <span class="hljs-built_in">date</span><br>[INFO] <br>[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ demo01 ---<br>[INFO] Using <span class="hljs-string">&#x27;UTF-8&#x27;</span> encoding to copy filtered resources.<br>[INFO] skip non existing resourceDirectory /home/fanyfull/edisk/javaCodes/demo01/src/test/resources<br>[INFO] <br>[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ demo01 ---<br>[INFO] Nothing to compile - all classes are up to <span class="hljs-built_in">date</span><br>[INFO] <br>[INFO] --- maven-surefire-plugin:3.2.2:<span class="hljs-built_in">test</span> (default-test) @ demo01 ---<br>[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider<br>[INFO] <br>[INFO] -------------------------------------------------------<br>[INFO]  T E S T S<br>[INFO] -------------------------------------------------------<br>[INFO] Running com.fanyfull.AppTest<br>fany <span class="hljs-built_in">test</span><br>fany test02<br>[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 s -- <span class="hljs-keyword">in</span> com.fanyfull.AppTest<br>[INFO] <br>[INFO] Results:<br>[INFO] <br>[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0<br>[INFO] <br>[INFO] ------------------------------------------------------------------------<br>[INFO] BUILD SUCCESS<br>[INFO] ------------------------------------------------------------------------<br>[INFO] Total time:  1.904 s<br>[INFO] Finished at: 2023-12-03T11:46:34+08:00<br>[INFO] ------------------------------------------------------------------------<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">❯ mvn <span class="token builtin class-name">test</span>                               
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> Scanning <span class="token keyword">for</span> projects<span class="token punctuation">..</span>.
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> 
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> ------------------------<span class="token operator">&lt;</span> com.fanyfull:demo01 <span class="token operator">></span>-------------------------
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> Building demo01 <span class="token number">1.0</span>-SNAPSHOT
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> --------------------------------<span class="token punctuation">[</span> jar <span class="token punctuation">]</span>---------------------------------
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> 
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> --- maven-resources-plugin:2.6:resources <span class="token punctuation">(</span>default-resources<span class="token punctuation">)</span> @ demo01 ---
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> Using <span class="token string">'UTF-8'</span> encoding to copy filtered resources.
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> skip non existing resourceDirectory /home/fanyfull/edisk/javaCodes/demo01/src/main/resources
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> 
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> --- maven-compiler-plugin:3.1:compile <span class="token punctuation">(</span>default-compile<span class="token punctuation">)</span> @ demo01 ---
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> Nothing to compile - all classes are up to <span class="token function">date</span>
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> 
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> --- maven-resources-plugin:2.6:testResources <span class="token punctuation">(</span>default-testResources<span class="token punctuation">)</span> @ demo01 ---
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> Using <span class="token string">'UTF-8'</span> encoding to copy filtered resources.
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> skip non existing resourceDirectory /home/fanyfull/edisk/javaCodes/demo01/src/test/resources
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> 
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> --- maven-compiler-plugin:3.1:testCompile <span class="token punctuation">(</span>default-testCompile<span class="token punctuation">)</span> @ demo01 ---
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> Nothing to compile - all classes are up to <span class="token function">date</span>
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> 
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> --- maven-surefire-plugin:3.2.2:test <span class="token punctuation">(</span>default-test<span class="token punctuation">)</span> @ demo01 ---
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> 
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> -------------------------------------------------------
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span>  T E S T S
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> -------------------------------------------------------
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> Running com.fanyfull.AppTest
+fany <span class="token builtin class-name">test</span>
+fany test02
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> Tests run: <span class="token number">2</span>, Failures: <span class="token number">0</span>, Errors: <span class="token number">0</span>, Skipped: <span class="token number">0</span>, Time elapsed: <span class="token number">0.085</span> s -- <span class="token keyword">in</span> com.fanyfull.AppTest
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> 
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> Results:
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> 
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> Tests run: <span class="token number">2</span>, Failures: <span class="token number">0</span>, Errors: <span class="token number">0</span>, Skipped: <span class="token number">0</span>
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> 
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> ------------------------------------------------------------------------
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> BUILD SUCCESS
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> ------------------------------------------------------------------------
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> Total time:  <span class="token number">1.904</span> s
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> Finished at: <span class="token number">2023</span>-12-03T11:46:34+08:00
+<span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> ------------------------------------------------------------------------<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>如果想执行某一个单独的方法，可以这样，</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mvn <span class="hljs-built_in">test</span> -Dtest=<span class="hljs-string">&quot;AppTest#exampleTest02&quot;</span><br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mvn <span class="token builtin class-name">test</span> <span class="token parameter variable">-Dtest</span><span class="token operator">=</span><span class="token string">"AppTest#exampleTest02"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>如果想执行某一个单独的测试类，也是一样，</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mvn <span class="hljs-built_in">test</span> -Dtest=<span class="hljs-string">&quot;AppTest&quot;</span><br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mvn <span class="token builtin class-name">test</span> <span class="token parameter variable">-Dtest</span><span class="token operator">=</span><span class="token string">"AppTest"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>如果我们想在 pom.xml
 中去指定想要测试的类的话，那么，可以类似于下面这样，</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- to run tests with maven-surefire-plugin --&gt;</span>     <br><span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>                                             <br>  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>        <br>  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-surefire-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>     <br>  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.2.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>                           <br>  <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>                                    <br>    <span class="hljs-tag">&lt;<span class="hljs-name">includes</span>&gt;</span>                                       <br>      <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>com.fanyfull.AppTest<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span>        <br>      <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>com.fanyfull.AppTest02<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span>      <br>    <span class="hljs-tag">&lt;/<span class="hljs-name">includes</span>&gt;</span>                                      <br>  <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>                                   <br><span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>                                            <br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!-- to run tests with maven-surefire-plugin --></span>     
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">></span></span>                                             
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.maven.plugins<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>        
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>maven-surefire-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>     
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.2.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>                           
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>                                    
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>includes</span><span class="token punctuation">></span></span>                                       
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span><span class="token punctuation">></span></span>com.fanyfull.AppTest<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">></span></span>        
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span><span class="token punctuation">></span></span>com.fanyfull.AppTest02<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">></span></span>      
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>includes</span><span class="token punctuation">></span></span>                                      
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span>                                   
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugin</span><span class="token punctuation">></span></span>                                            <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>如果我们想单独制定一个方法的话，那么，可以类似于下面这样，</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>                                             <br>  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>        <br>  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-surefire-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>     <br>  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.2.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>                           <br>  <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>                                    <br>    <span class="hljs-tag">&lt;<span class="hljs-name">test</span>&gt;</span>com.fanyfull.AppTest02#exampleTest02<span class="hljs-tag">&lt;/<span class="hljs-name">test</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>                                   <br><span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>                                            <br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">></span></span>                                             
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.maven.plugins<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>        
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>maven-surefire-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>     
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.2.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>                           
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>                                    
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>test</span><span class="token punctuation">></span></span>com.fanyfull.AppTest02#exampleTest02<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>test</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span>                                   
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugin</span><span class="token punctuation">></span></span>                                            <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>如果有了这个声明的话，那么，我们就可以直接执行 <code>mvn test</code>
 而不用指定选项了。</p>
 <p>完整的 demo 项目，可以在我的 <a
@@ -572,8 +731,8 @@ class="uri">https://maven.apache.org/surefire/maven-surefire-plugin/index.html</
 
   <!-- Scripts -->
   
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -584,13 +743,13 @@ class="uri">https://maven.apache.org/surefire/maven-surefire-plugin/index.html</
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -617,7 +776,7 @@ class="uri">https://maven.apache.org/surefire/maven-surefire-plugin/index.html</
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
     var toc = jQuery('#toc');
     if (toc.length === 0 || !window.tocbot) { return; }
     var boardCtn = jQuery('#board-ctn');
@@ -655,14 +814,16 @@ class="uri">https://maven.apache.org/surefire/maven-surefire-plugin/index.html</
 </script>
 
 
-  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+  <script  src="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" ></script>
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
     window.anchors.options = {
       placement: CONFIG.anchorjs.placement,
       visible  : CONFIG.anchorjs.visible
@@ -700,7 +861,7 @@ class="uri">https://maven.apache.org/surefire/maven-surefire-plugin/index.html</
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
     Fluid.plugins.fancyBox();
   });
 </script>
@@ -716,7 +877,7 @@ class="uri">https://maven.apache.org/surefire/maven-surefire-plugin/index.html</
               inlineMath: { '[+]': [['$', '$']] }
             },
             loader : {
-              
+              load: ['ui/lazy']
             },
             options: {
               renderActions: {
@@ -749,7 +910,7 @@ class="uri">https://maven.apache.org/surefire/maven-surefire-plugin/index.html</
       </script>
     
 
-  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

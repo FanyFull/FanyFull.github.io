@@ -16,12 +16,12 @@
   <meta name="author" content="Fany Full">
   <meta name="keywords" content="">
   
-    <meta name="description" content="-c  编译生成目标文件(Relocatable)。 举个例子， 1$ gcc main.c -o main 等价于 123$ gcc -S main.c$ gcc -c main.s$ gcc main.o 按：-S 选项生成汇编代码，-c 选项生成目标文件，最后一步是链接。   -Dmacro[&#x3D;defn]  定义一个宏。 例如： -DMACHINE&#x3D;8086，这个和在 C 语言中使用 #d">
+    <meta name="description" content="-c  编译生成目标文件(Relocatable)。 举个例子， $ gcc main.c -o main 等价于 $ gcc -S main.c $ gcc -c main.s $ gcc main.o 按：-S 选项生成汇编代码，-c 选项生成目标文件，最后一步是链接。   -Dmacro[&#x3D;defn]  定义一个宏。 例如： -DMACHINE&#x3D;8086，这个和在 C 语言中使用 #def">
 <meta property="og:type" content="article">
 <meta property="og:title" content="gcc 常用选项整理">
 <meta property="og:url" content="http://fanyfull.github.io/2021/11/29/gcc-%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9%E6%95%B4%E7%90%86/index.html">
 <meta property="og:site_name" content="Fany Full&#39;s Blog">
-<meta property="og:description" content="-c  编译生成目标文件(Relocatable)。 举个例子， 1$ gcc main.c -o main 等价于 123$ gcc -S main.c$ gcc -c main.s$ gcc main.o 按：-S 选项生成汇编代码，-c 选项生成目标文件，最后一步是链接。   -Dmacro[&#x3D;defn]  定义一个宏。 例如： -DMACHINE&#x3D;8086，这个和在 C 语言中使用 #d">
+<meta property="og:description" content="-c  编译生成目标文件(Relocatable)。 举个例子， $ gcc main.c -o main 等价于 $ gcc -S main.c $ gcc -c main.s $ gcc main.o 按：-S 选项生成汇编代码，-c 选项生成目标文件，最后一步是链接。   -Dmacro[&#x3D;defn]  定义一个宏。 例如： -DMACHINE&#x3D;8086，这个和在 C 语言中使用 #def">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/oYdFPU3.png">
 <meta property="article:published_time" content="2021-11-29T07:44:00.000Z">
@@ -36,15 +36,17 @@
   
   <title>gcc 常用选项整理 - Fany Full&#39;s Blog</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -76,7 +78,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"fanyfull.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -120,7 +122,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -132,7 +134,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -144,7 +146,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -156,7 +158,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -168,7 +170,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -228,7 +230,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          866 字
+          451 字
         
       </span>
     
@@ -240,7 +242,7 @@
         
         
           <!-- compatible with older versions-->
-          8 分钟
+          4 分钟
         
       </span>
     
@@ -287,9 +289,11 @@
 </blockquote>
 <p>编译生成目标文件(Relocatable)。</p>
 <p>举个例子，</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">gcc main.c -o main</span><br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ gcc main.c <span class="token parameter variable">-o</span> main<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>等价于</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">gcc -S main.c</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">gcc -c main.s</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">gcc main.o</span><br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ gcc <span class="token parameter variable">-S</span> main.c
+$ gcc <span class="token parameter variable">-c</span> main.s
+$ gcc main.o<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>按：<code>-S</code> 选项生成汇编代码，<code>-c</code>
 选项生成目标文件，最后一步是链接。</p>
 <p><img src="https://i.imgur.com/Ii0BFUnh.png" srcset="/img/loading.gif" lazyload /></p>
@@ -316,7 +320,14 @@ gdb 调试和 objdump 反汇编时要用到这些信息。</p>
 </blockquote>
 <p>dir 是头文件所在的目录。</p>
 <p>例如，一个目录：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">tree</span><br>.<br>|-- main.c<br>`-- stack <br>    |-- stack.c <br>    `-- stack.h<br>    <br>1 directory, 3 files<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ tree
+<span class="token builtin class-name">.</span>
+<span class="token operator">|</span>-- main.c
+<span class="token variable"><span class="token variable">`</span>-- stack 
+    <span class="token operator">|</span>-- stack.c 
+    <span class="token variable">`</span></span>-- stack.h
+    
+<span class="token number">1</span> directory, <span class="token number">3</span> files<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>我们需要使用 <code>gcc -c main.c -Istack</code> 编译。用
 <code>-I</code> 选项告诉 gcc 头文件要到子目录 stack 里找。</p>
 <p>按：在 <code>#include</code>
@@ -328,7 +339,7 @@ gdb 调试和 objdump 反汇编时要用到这些信息。</p>
 </blockquote>
 <p>dir 是库文件所在的目录。</p>
 <p>例如：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">gcc main.c -L. -lstack -Istack -o main</span><br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ gcc main.c -L. <span class="token parameter variable">-lstack</span> <span class="token parameter variable">-Istack</span> <span class="token parameter variable">-o</span> main<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p><code>-L.</code> 表示在当前目录找。<code>-lstack</code>
 告诉编译器要链接 libstack 库。</p>
 <blockquote>
@@ -623,8 +634,8 @@ gdb 调试和 objdump 反汇编时要用到这些信息。</p>
 
   <!-- Scripts -->
   
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -635,13 +646,13 @@ gdb 调试和 objdump 反汇编时要用到这些信息。</p>
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -668,7 +679,7 @@ gdb 调试和 objdump 反汇编时要用到这些信息。</p>
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
     var toc = jQuery('#toc');
     if (toc.length === 0 || !window.tocbot) { return; }
     var boardCtn = jQuery('#board-ctn');
@@ -706,14 +717,16 @@ gdb 调试和 objdump 反汇编时要用到这些信息。</p>
 </script>
 
 
-  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+  <script  src="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" ></script>
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
     window.anchors.options = {
       placement: CONFIG.anchorjs.placement,
       visible  : CONFIG.anchorjs.visible
@@ -751,7 +764,7 @@ gdb 调试和 objdump 反汇编时要用到这些信息。</p>
 
   
 <script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
     Fluid.plugins.fancyBox();
   });
 </script>
@@ -767,7 +780,7 @@ gdb 调试和 objdump 反汇编时要用到这些信息。</p>
               inlineMath: { '[+]': [['$', '$']] }
             },
             loader : {
-              
+              load: ['ui/lazy']
             },
             options: {
               renderActions: {
@@ -800,7 +813,7 @@ gdb 调试和 objdump 反汇编时要用到这些信息。</p>
       </script>
     
 
-  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
